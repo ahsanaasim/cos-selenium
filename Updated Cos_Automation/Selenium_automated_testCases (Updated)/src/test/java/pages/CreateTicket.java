@@ -78,6 +78,7 @@ public class CreateTicket extends BasePage{
     public static By FirstTicket = By.xpath("//a[normalize-space()='Defect charger issue']");
 
 
+
     public boolean verifyCreateTicketButtonColor() throws InterruptedException {
         Thread.sleep(3000);
         // identify text
@@ -153,7 +154,7 @@ public class CreateTicket extends BasePage{
         click(element);
         writeText(element,text);
         WebElement selectItem = driver.findElement(element);
-        Thread.sleep(2000);
+        Thread.sleep(2500);
         selectItem.sendKeys(Keys.ENTER);
     }
 

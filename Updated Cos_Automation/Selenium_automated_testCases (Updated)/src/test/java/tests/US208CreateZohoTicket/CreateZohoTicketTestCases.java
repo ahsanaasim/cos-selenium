@@ -421,6 +421,51 @@ public class CreateZohoTicketTestCases extends BaseTest {
 
     }
 
+    @Test(priority = 25)//Done
+    @TestParameters(testCaseId = {"TC-27"})
+    public void TC_27_CheckWhatHappenedIfPAdminProvidesAllInfoAndClickOnTheSubmitTicketButton() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateTicket ticket = new CreateTicket(driver);
+        TicketList ticketList = new TicketList(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        ChargerListPropertyAdmin chargerList = new ChargerListPropertyAdmin(driver);
+//        loginPage.VerifyValidLoginForPropertyAdmin();
+//        operation.ClickButton(CreateTicket.SupportButton,5000);
+        dashboard.RefreshBrowser();
+        operation.ClickButton(CreateTicket.CreateTicketButton,3500);
+        ticket.SelectOptionFromInputField(CreateTicket.SelectPropertyField,"East Avenue");
+        ticket.SelectOptionFromInputField(CreateTicket.TicketTypeField,"Charging Issue");
+        ticket.SelectOptionFromInputField(CreateTicket.ChargerField,"Selenium");
+        operation.writeInputText(CreateTicket.SubjectField,"Taking Huge time while charging",1000);
+        operation.writeInputText(CreateTicket.DescriptionField,(prop.getProperty("Paragraph")),500);
+        operation.ClickButton(CreateTicket.SubmitTicket,1000);
+//        dashboard.RefreshBrowser();
+        Assert.assertTrue(ticketList.verifyTicketCreationDateAndTime());
+        Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(1000,DashboardPropertyDetails.TopAccountName));
+
+
+    }
+
+    @Test(priority = 26)//Done
+    @TestParameters(testCaseId = {"TC-28,29"})
+    public void TC_28_29_CheckUpdatedInfoAfterCreatingNewTicket() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateTicket ticket = new CreateTicket(driver);
+        TicketList ticketList = new TicketList(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        ChargerListPropertyAdmin chargerList = new ChargerListPropertyAdmin(driver);
+//        loginPage.VerifyValidLoginForPropertyAdmin();
+//        operation.ClickButton(CreateTicket.SupportButton,5000);
+        Assert.assertTrue(ticketList.verifyTextMatching(6500,TicketList.TableType1,"Charging Issue"));
+        Assert.assertTrue(ticketList.verifyTextMatching(1000,TicketList.TableSubject1,"Taking Huge time while charging"));
+        Assert.assertTrue(ticketList.verifyTextMatching(500,TicketList.TablePropertyName1,"East Avenue"));
+        Assert.assertTrue(ticketList.verifyTextMatching(500,TicketList.TableCreatedBy1,(prop.getProperty("PropertyAdmin"))));
+        Assert.assertTrue(ticketList.verifyAnElementDisplayedOrNot(1000,TicketList.OpenTag));
+
+    }
+
     @Test(priority = 27)//Done
     @TestParameters(testCaseId = {"TC-30"})
     public void TC_30_CheckIfPAdminCanSeeAllThePropertiesInTheDropdownListThatHeHasAccess() throws InterruptedException {
@@ -773,6 +818,8 @@ public class CreateZohoTicketTestCases extends BaseTest {
 //        operation.ClickButton(CreateTicket.SupportButton,3000);
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
+        operation.writeInputText(CreateCharger.searchchargerfield,"US Charger",3000);
+        operation.ClickButton(CreateCharger.searchargerbtn,500);
         Assert.assertTrue(troubleshootCharger.verifyAnElementDisplayedOrNot(2000,TroubleshootCharger.ThreeDotBesideEditBtn));
 
     }
@@ -788,8 +835,8 @@ public class CreateZohoTicketTestCases extends BaseTest {
         loginPage.VerifyValidLoginForPropertyAdmin();
         dashboard.RefreshBrowser();
 //        operation.ClickButton(CreateTicket.SupportButton,3000);
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
+//        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+//        Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
         operation.ClickButton(TroubleshootCharger.ThreeDotBesideEditBtn,1000);
         Assert.assertTrue(troubleshootCharger.verifyAnElementDisplayedOrNot(1000,CreateTicket.ReportProblem));
 
@@ -809,7 +856,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
 //        operation.ClickButton(TroubleshootCharger.ThreeDotBesideEditBtn,1000);
-        operation.ClickButton(CreateTicket.ReportProblem,1000);
+        operation.ClickButton(CreateTicket.ReportProblem,500);
         Assert.assertTrue(troubleshootCharger.verifyAnElementDisplayedOrNot(1000,CreateTicket.CreateTicketDrawerTitle));
 
     }
@@ -828,6 +875,10 @@ public class CreateZohoTicketTestCases extends BaseTest {
 //        operation.ClickButton(CreateTicket.SupportButton,3000);
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
+        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
+        operation.writeInputText(CreateCharger.searchchargerfield,"US Charger",3000);
+        operation.ClickButton(CreateCharger.searchargerbtn,500);
 //        operation.ClickButton(TroubleshootCharger.ThreeDotBesideEditBtn,1000);
 //        operation.ClickButton(CreateTicket.ReportProblem,1000);
 //        Assert.assertTrue(dashboard.GotoDashboard());
@@ -869,6 +920,10 @@ public class CreateZohoTicketTestCases extends BaseTest {
 //        operation.ClickButton(CreateTicket.SupportButton,3000);
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
+        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
+        operation.writeInputText(CreateCharger.searchchargerfield,"US Charger",3000);
+        operation.ClickButton(CreateCharger.searchargerbtn,500);
 //        operation.ClickButton(TroubleshootCharger.ThreeDotBesideEditBtn,1000);
 //        operation.ClickButton(CreateTicket.ReportProblem,1000);
         Assert.assertTrue(ticket.verifyTableNameMatchingWithDrawer(ChargerListPropertyAdmin.ChargerTitle,CreateTicket.ChargerFieldSelected));
@@ -887,9 +942,9 @@ public class CreateZohoTicketTestCases extends BaseTest {
 //        loginPage.VerifyValidLoginForPropertyAdmin();
         dashboard.RefreshBrowser();
 //        operation.ClickButton(CreateTicket.SupportButton,3000);
-//        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-//        Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        operation.ClickButton(TroubleshootCharger.ThreeDotBesideEditBtn,4000);
+        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
+        operation.ClickButton(TroubleshootCharger.ThreeDotBesideEditBtn,9000);
         operation.ClickButton(CreateTicket.ReportProblem,1000);
         Assert.assertTrue(ticket.verifyTheFieldIsTextType(CreateTicket.SubjectField));
 
