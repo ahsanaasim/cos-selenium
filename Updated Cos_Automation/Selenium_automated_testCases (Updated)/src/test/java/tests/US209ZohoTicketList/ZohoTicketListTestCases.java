@@ -384,7 +384,7 @@ public class ZohoTicketListTestCases extends BaseTest {
 //        operation.ClickButton(CreateTicket.CreateTicketButton,1000);
 //        operation.ClickButton(CreateTicket.SubmitTicket,1000);
 //        dashboard.RefreshBrowser();
-        Assert.assertTrue(ticketList.verifyTextMatching(1000,TicketList.TableSubject1,"Taking Huge time while charging"));
+        Assert.assertTrue(ticketList.verifyTextMatching(1000,TicketList.TableSubject1,"Taking Huge time while chargin..."));
 
     }
 

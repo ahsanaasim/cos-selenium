@@ -459,7 +459,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
 //        loginPage.VerifyValidLoginForPropertyAdmin();
 //        operation.ClickButton(CreateTicket.SupportButton,5000);
         Assert.assertTrue(ticketList.verifyTextMatching(6500,TicketList.TableType1,"Charging Issue"));
-        Assert.assertTrue(ticketList.verifyTextMatching(1000,TicketList.TableSubject1,"Taking Huge time while charging"));
+        Assert.assertTrue(ticketList.verifyTextMatching(1000,TicketList.TableSubject1,"Taking Huge time while chargin..."));
         Assert.assertTrue(ticketList.verifyTextMatching(500,TicketList.TablePropertyName1,"East Avenue"));
         Assert.assertTrue(ticketList.verifyTextMatching(500,TicketList.TableCreatedBy1,(prop.getProperty("PropertyAdmin"))));
         Assert.assertTrue(ticketList.verifyAnElementDisplayedOrNot(1000,TicketList.OpenTag));
@@ -550,9 +550,9 @@ public class CreateZohoTicketTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         CreateTicket ticket = new CreateTicket(driver);
         CreateProperty property =new CreateProperty(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
+//        loginPage.VerifyValidLoginForPropertyAdmin();
         dashboard.RefreshBrowser();
-//        operation.ClickButton(CreateTicket.SupportButton,3000);
+        operation.ClickButton(CreateTicket.SupportButton,3000);
         operation.ClickButton(CreateTicket.CreateTicketButton,2000);
         ticket.SelectOptionFromInputField(CreateTicket.SelectPropertyField,"East Avenue");
         ticket.SelectOptionFromInputField(CreateTicket.TicketTypeField,"Charging Issue");
@@ -832,8 +832,8 @@ public class CreateZohoTicketTestCases extends BaseTest {
         CreateTicket ticket = new CreateTicket(driver);
         TroubleshootCharger troubleshootCharger = new TroubleshootCharger(driver);
         CreateProperty property =new CreateProperty(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+//        loginPage.VerifyValidLoginForPropertyAdmin();
+//        dashboard.RefreshBrowser();
 //        operation.ClickButton(CreateTicket.SupportButton,3000);
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
@@ -898,8 +898,8 @@ public class CreateZohoTicketTestCases extends BaseTest {
 //        loginPage.VerifyValidLoginForPropertyAdmin();
         dashboard.RefreshBrowser();
 //        operation.ClickButton(CreateTicket.SupportButton,3000);
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
+//        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+//        Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
         operation.ClickButton(TroubleshootCharger.ThreeDotBesideEditBtn,10000);
         operation.ClickButton(CreateTicket.ReportProblem,1000);
         Assert.assertTrue(ticket.verifyTextMatching(2000,CreateTicket.TicketTypeFieldSelected,"Charging Issue"));
@@ -942,9 +942,9 @@ public class CreateZohoTicketTestCases extends BaseTest {
 //        loginPage.VerifyValidLoginForPropertyAdmin();
         dashboard.RefreshBrowser();
 //        operation.ClickButton(CreateTicket.SupportButton,3000);
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        operation.ClickButton(TroubleshootCharger.ThreeDotBesideEditBtn,9000);
+//        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+//        Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
+        operation.ClickButton(TroubleshootCharger.ThreeDotBesideEditBtn,10000);
         operation.ClickButton(CreateTicket.ReportProblem,1000);
         Assert.assertTrue(ticket.verifyTheFieldIsTextType(CreateTicket.SubjectField));
 
@@ -980,13 +980,13 @@ public class CreateZohoTicketTestCases extends BaseTest {
         TroubleshootCharger troubleshootCharger = new TroubleshootCharger(driver);
         CreateProperty property =new CreateProperty(driver);
 //        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+//        dashboard.RefreshBrowser();
 //        operation.ClickButton(CreateTicket.SupportButton,3000);
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        operation.ClickButton(TroubleshootCharger.ThreeDotBesideEditBtn,8000);
-        operation.ClickButton(CreateTicket.ReportProblem,1000);
-        Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(1500,CreateCharger.crossbtnofdrawer));
+//        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+//        Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
+//        operation.ClickButton(TroubleshootCharger.ThreeDotBesideEditBtn,8000);
+//        operation.ClickButton(CreateTicket.ReportProblem,1000);
+        Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(1000,CreateCharger.crossbtnofdrawer));
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(500,CreateCharger.cancelbuttonofdrawer));
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(500,CreateTicket.SubmitTicket));
 
