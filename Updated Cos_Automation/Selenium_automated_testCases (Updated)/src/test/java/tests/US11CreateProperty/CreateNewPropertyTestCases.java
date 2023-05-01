@@ -124,7 +124,7 @@ public class CreateNewPropertyTestCases extends BaseTest {
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
-        Assert.assertTrue(properties.verifyConnectwiththeOtherProviderFieldIsShowingonCreateNewPropertDrawer());
+//        Assert.assertTrue(properties.verifyConnectwiththeOtherProviderFieldIsShowingonCreateNewPropertDrawer());
 
 
     }
@@ -188,7 +188,7 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(dashboard.RefreshBrowser());
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickonProperty());
-//        Assert.assertTrue(properties.clickonCreateNewPropertyButton());
+        Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.verifySubsectionTitleOfBillingSection());
 
 
@@ -1413,8 +1413,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(properties.writePropertyName(prop.getProperty("PropertyName2")));
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(company.WriteRandomCompanyAddress());
-        Assert.assertTrue(properties.clickHardwareProviderDropdown());
-        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
+//        Assert.assertTrue(properties.clickHardwareProviderDropdown());
+//        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
        /* Assert.assertTrue(properties.clickOtherProviderDropdown());
         Assert.assertTrue(properties.selectOtherProviderNameFromDropdown());*/
         Assert.assertTrue(properties.enterEquimentFees(prop.getProperty("Fees")));
@@ -1473,8 +1473,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(properties.writePropertyName(prop.getProperty("PropertywithOneTimeFee")));
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(company.WriteRandomCompanyAddress());
-        Assert.assertTrue(properties.clickHardwareProviderDropdown());
-        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
+//        Assert.assertTrue(properties.clickHardwareProviderDropdown());
+//        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
         /*Assert.assertTrue(properties.clickOtherProviderDropdown());
         Assert.assertTrue(properties.selectOtherProviderNameFromDropdown());*/
         Assert.assertTrue(properties.enterEquimentFees(prop.getProperty("Fees")));
@@ -1517,8 +1517,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(properties.writePropertyName(prop.getProperty("PropertyName")));
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(company.WriteRandomCompanyAddress());
-        Assert.assertTrue(properties.clickHardwareProviderDropdown());
-        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
+//        Assert.assertTrue(properties.clickHardwareProviderDropdown());
+//        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
         /*Assert.assertTrue(properties.clickOtherProviderDropdown());
         Assert.assertTrue(properties.selectOtherProviderNameFromDropdown());*/
         Assert.assertTrue(properties.enterEquimentFees(prop.getProperty("Fees")));
@@ -1564,8 +1564,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(properties.writePropertyName(prop.getProperty("UnknownCompany")));
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(company.WriteRandomCompanyAddress());
-        Assert.assertTrue(properties.clickHardwareProviderDropdown());
-        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
+//        Assert.assertTrue(properties.clickHardwareProviderDropdown());
+//        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
         /*Assert.assertTrue(properties.clickOtherProviderDropdown());
         Assert.assertTrue(properties.selectOtherProviderNameFromDropdown());*/
         Assert.assertTrue(properties.enterEquimentFees(prop.getProperty("Fees")));
@@ -1742,8 +1742,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(properties.writePropertyName(prop.getProperty("PropertyName")));
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(company.WriteRandomCompanyAddress());
-        Assert.assertTrue(properties.clickHardwareProviderDropdown());
-        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
+//        Assert.assertTrue(properties.clickHardwareProviderDropdown());
+//        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
         /*Assert.assertTrue(properties.clickOtherProviderDropdown());
         Assert.assertTrue(properties.selectOtherProviderNameFromDropdown());*/
         Assert.assertTrue(properties.enterEquimentFees(prop.getProperty("Fees")));

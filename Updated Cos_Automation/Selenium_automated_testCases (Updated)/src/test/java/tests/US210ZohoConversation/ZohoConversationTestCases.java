@@ -117,7 +117,181 @@ public class ZohoConversationTestCases extends BaseTest {
 //        loginPage.VerifyValidLoginForPropertyAdmin();
 //        operation.ClickButton(CreateTicket.SupportButton,5000);
 //        operation.ClickButton(ZohoConversation.DetailsButton,3000);
-        Assert.assertTrue(zohoConversation.verifyAnElementDisplayedOrNot(500,ZohoConversation.RefreshButton));
+        Assert.assertTrue(zohoConversation.verifyAnElementDisplayedOrNot(300,ZohoConversation.RefreshButton));
+
+    }
+    @Test(priority = 8)//Done
+    @TestParameters(testCaseId = {"TC-8"})
+    public void TC_8_CheckTheTitleOfTicketLogSection() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateTicket ticket = new CreateTicket(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        ZohoConversation zohoConversation = new ZohoConversation(driver);
+//        loginPage.VerifyValidLoginForPropertyAdmin();
+//        operation.ClickButton(CreateTicket.SupportButton,5000);
+//        operation.ClickButton(ZohoConversation.DetailsButton,3000);
+        Assert.assertTrue(zohoConversation.verifyAnElementDisplayedOrNot(300,ZohoConversation.TicketLogSectionTitle));
+
+    }
+
+    @Test(priority = 9)//Done
+    @TestParameters(testCaseId = {"TC-9"})
+    public void TC_9_CheckTheLogsUnderThisSection() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        ZohoConversation zohoConversation = new ZohoConversation(driver);
+//        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateTicket.SupportButton,5000);
+//        operation.ClickButton(ZohoConversation.DetailsButton,3000);
+        Assert.assertTrue(zohoConversation.verifyFirstLogUnderTicketLog());
+
+    }
+
+    @Test(priority = 10)//Done
+    @TestParameters(testCaseId = {"TC-10"})
+    public void TC_10_CheckIfThereIsACrossButtonOnTopOfTheDetailsDrawer() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        TicketList list = new TicketList(driver);
+        ZohoConversation zohoConversation = new ZohoConversation(driver);
+        loginPage.VerifyValidLoginForPropertyAdmin();
+//        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateTicket.SupportButton,5000);
+//        operation.ClickButton(ZohoConversation.DetailsButton,5000);
+        Assert.assertTrue(list.verifyAnElementDisplayedOrNot(500,CreateCharger.crossbtnofdrawer));
+
+    }
+
+
+    @Test(priority = 11)//Done
+    @TestParameters(testCaseId = {"TC-11"})
+    public void TC_11_CheckTheTicketIdInDrawerMatchWithTableData () throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        TicketList list = new TicketList(driver);
+        ZohoConversation zohoConversation = new ZohoConversation(driver);
+        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateTicket.SupportButton,5000);
+//        operation.ClickButton(ZohoConversation.DetailsButton,5000);
+        Assert.assertTrue(zohoConversation.verifyTableDataMatchingWithDrawer(TicketList.TableID1,ZohoConversation.DrawerTicketId));
+
+    }
+    @Test(priority = 12)//Done
+    @TestParameters(testCaseId = {"TC-12,13,14"})
+    public void TC_12_13_14_CheckTicketCreatedDateInDrawerMatchWithTableData () throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        TicketList list = new TicketList(driver);
+        ZohoConversation zohoConversation = new ZohoConversation(driver);
+        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateTicket.SupportButton,5000);
+//        operation.ClickButton(ZohoConversation.DetailsButton,5000);
+        Assert.assertTrue(zohoConversation.verifyTableDataMatchingWithDrawer(TicketList.TableCreatedDate1,ZohoConversation.CreatedDateData));
+
+    }
+    @Test(priority = 13)//Done
+    @TestParameters(testCaseId = {"TC-15,16"})
+    public void TC_15_16_CheckPropertyNameInDrawerMatchWithTableData () throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        TicketList list = new TicketList(driver);
+        ZohoConversation zohoConversation = new ZohoConversation(driver);
+        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateTicket.SupportButton,5000);
+//        operation.ClickButton(ZohoConversation.DetailsButton,5000);
+        Assert.assertTrue(zohoConversation.verifyTableDataMatchingWithDrawer(TicketList.TablePropertyName1,ZohoConversation.PropertyNameData));
+
+    }
+
+    @Test(priority = 14)//Done
+    @TestParameters(testCaseId = {"TC-17,18"})
+    public void TC_17_18_CheckTicketTypeInDrawerMatchWithTableData () throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        TicketList list = new TicketList(driver);
+        ZohoConversation zohoConversation = new ZohoConversation(driver);
+        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateTicket.SupportButton,5000);
+//        operation.ClickButton(ZohoConversation.DetailsButton,5000);
+        Assert.assertTrue(zohoConversation.verifyTableDataMatchingWithDrawer(TicketList.TableType1,ZohoConversation.TicketTypeData));
+
+    }
+//    @Test(priority = 15)//Done
+//    @TestParameters(testCaseId = {"TC-17,18"})
+//    public void TC_19_CheckTicketDescriptionInDrawerMatchWithTableData () throws InterruptedException {
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard = new Dashboard(driver);
+//        CreateCharger operation = new CreateCharger(driver);
+//        TicketList list = new TicketList(driver);
+//        CreateTicket ticket = new CreateTicket(driver);
+//        ZohoConversation zohoConversation = new ZohoConversation(driver);
+//        loginPage.VerifyValidLoginForPropertyAdmin();
+//        dashboard.RefreshBrowser();
+////        operation.ClickButton(CreateTicket.SupportButton,5000);
+////        operation.ClickButton(ZohoConversation.DetailsButton,5000);
+//        operation.ClickButton(CreateTicket.CreateTicketButton,3000);
+//        ticket.SelectOptionFromInputField(CreateTicket.SelectPropertyField,"Broadleaf Homes");
+//        ticket.SelectOptionFromInputField(CreateTicket.TicketTypeField,"Software Issue");
+//        operation.writeInputText(CreateTicket.SubjectField,(prop.getProperty("TicketSubjectLessThanThirtyCharacter")),1000);
+//        operation.writeInputText(CreateTicket.DescriptionField,(prop.getProperty("ShortTicketDescription")),500);
+//        operation.ClickButton(CreateTicket.SubmitTicket,1000);
+//        operation.ClickButton(ZohoConversation.DetailsButton,4000);
+//
+//
+//    }
+
+//    @Test(priority = 15)//Done
+//    @TestParameters(testCaseId = {"TC-20"})
+//    public void TC_20_CheckTicketDescriptionInDrawerMatchWithTableData () throws InterruptedException {
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard = new Dashboard(driver);
+//        CreateCharger operation = new CreateCharger(driver);
+//        TicketList list = new TicketList(driver);
+//        CreateTicket ticket = new CreateTicket(driver);
+//        ZohoConversation zohoConversation = new ZohoConversation(driver);
+//        loginPage.VerifyValidLoginForPropertyAdmin();
+//        dashboard.RefreshBrowser();
+////        operation.ClickButton(CreateTicket.SupportButton,5000);
+////        operation.ClickButton(ZohoConversation.DetailsButton,5000);
+//        operation.ClickButton(CreateTicket.CreateTicketButton,3000);
+//        ticket.SelectOptionFromInputField(CreateTicket.SelectPropertyField,"Broadleaf Homes");
+//        ticket.SelectOptionFromInputField(CreateTicket.TicketTypeField,"Software Issue");
+//        operation.writeInputText(CreateTicket.SubjectField,(prop.getProperty("TicketSubjectLessThanThirtyCharacter")),1000);
+//        operation.writeInputText(CreateTicket.DescriptionField,(prop.getProperty("ShortTicketDescription")),500);
+//        operation.ClickButton(CreateTicket.SubmitTicket,1000);
+//        operation.ClickButton(ZohoConversation.DetailsButton,4000);
+//
+//
+//    }
+    @Test(priority = 15)//Done
+    @TestParameters(testCaseId = {"TC-21"})
+    public void TC_21_CheckDetailsDrawerAfterChangingStatusToClosed() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        TicketList list = new TicketList(driver);
+        CreateTicket ticket = new CreateTicket(driver);
+        ZohoConversation zohoConversation = new ZohoConversation(driver);
+//        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateTicket.SupportButton,5000);
+//        operation.ClickButton(ZohoConversation.DetailsButton,5000);
+        operation.ClickButton(TicketList.ClosedTab,3000);
+        operation.ClickButton(ZohoConversation.ClosedTabDetailsButton,3000);
+        zohoConversation.verifyAnElementDisplayedOrNot(2000,ZohoConversation.DrawerTicketClosed);
+
 
     }
 

@@ -42,7 +42,7 @@ public class CreateProperty extends BasePage {
     By providerropdown = By.xpath("//input[@id='basic_otherProviders_1']");
     By minusbtn = By.xpath("(//span[@aria-label='minus-circle'])[1]");
     By createbtn = By.xpath("//button[contains(.,'Create Property')]");
-    By createpropertybtn = By.xpath("//button[contains(.,'Create Property')]");
+    By createpropertybtn = By.xpath("//span[contains(text(),'Save Property')]");
     By savepropertybtn = By.xpath("//button[contains(.,'Save Property')]");
     By connectmoreproviderbtn = By.xpath("//button[contains(.,'Connect more provider')]");
     By proprtyerrmsg = By.xpath("//div[@role='alert'][contains(.,'Property Name is required')]");
@@ -539,7 +539,7 @@ public class CreateProperty extends BasePage {
 
     public boolean verifyCreatePropertyButtonIsShowingonCreateNewPropertDrawer() {
         waitVisibility(createpropertydrawer);
-        if (driver.findElement(By.xpath("//span[contains(.,'Create Property')]")).isDisplayed()) {
+        if (driver.findElement(By.xpath("//span[contains(.,'Save Property')]")).isDisplayed()) {
             System.out.println("Verification Successful - Save Property Button is Showing");
 
         } else {

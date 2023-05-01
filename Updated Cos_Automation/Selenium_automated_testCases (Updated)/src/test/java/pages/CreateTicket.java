@@ -75,8 +75,8 @@ public class CreateTicket extends BasePage{
     public static By MinimumFiftyCharacterMsg = By.xpath("//div[@class='ant-form-item-explain-error'][contains(text(),'Write a minimum of 50 characters')]");
     public static By ReportProblem = By.xpath("//div[@class='reportProblemText']");
     public static By ZohoSign = By.xpath("//div[@class='zgh-utilities']//a[@class='zgh-login'][normalize-space()='SIGN IN']");
-    public static By FirstTicket = By.xpath("//a[normalize-space()='Defect charger issue']");
-
+    public static By FirstTicket = By.xpath("//*[@id=\"react\"]/desk/div[1]/div/div/section/section/article/div/div/div/div[2]/div/div/div/div[2]/div/div/div[3]/div/div[1]/div/div/div/a");
+    public static By ReportAProblemDisabled = By.xpath("//li[@class='ant-dropdown-menu-item ant-dropdown-menu-item-disabled ant-dropdown-menu-item-only-child']");
 
 
     public boolean verifyCreateTicketButtonColor() throws InterruptedException {
@@ -154,7 +154,7 @@ public class CreateTicket extends BasePage{
         click(element);
         writeText(element,text);
         WebElement selectItem = driver.findElement(element);
-        Thread.sleep(2500);
+        Thread.sleep(2600);
         selectItem.sendKeys(Keys.ENTER);
     }
 
@@ -264,4 +264,18 @@ public class CreateTicket extends BasePage{
         }
     }
 
+    public boolean verifyReportProblemButtonDisabled() throws InterruptedException {
+        Thread.sleep(3000);
+        waitforPresence(ReportAProblemDisabled);
+        String disabledMsg = driver.findElement(ReportAProblemDisabled).getAttribute("aria-disabled");
+        if (disabledMsg.equals("true")){
+            System.out.println("Report Problem button is disabled for hardware unit");
+            return true;
+        }
+        else{
+            System.out.println("Report Problem button is not disabled for hardware unit");
+            return false;
+        }
+
+    }
 }

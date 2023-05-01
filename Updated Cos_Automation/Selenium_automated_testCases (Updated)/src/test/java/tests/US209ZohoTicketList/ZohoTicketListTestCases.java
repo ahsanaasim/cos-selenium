@@ -176,9 +176,8 @@ public class ZohoTicketListTestCases extends BaseTest {
         ChargerListPropertyAdmin chargerList = new ChargerListPropertyAdmin(driver);
 //        loginPage.VerifyValidLoginForPropertyAdmin();
 //        operation.ClickButton(CreateTicket.SupportButton,5000);
-        Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(1000,TicketList.OpenTag));
-        Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(300,TicketList.OpenTag2));
-        Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(300,TicketList.OpenTag3));
+        Assert.assertTrue(ticketList.verifyOpenTagsUnderOpenTab());
+
 
     }
 
@@ -218,10 +217,9 @@ public class ZohoTicketListTestCases extends BaseTest {
         ChargerListPropertyAdmin chargerList = new ChargerListPropertyAdmin(driver);
 //        loginPage.VerifyValidLoginForPropertyAdmin();
 //        operation.ClickButton(CreateTicket.SupportButton,5000);
-        operation.ClickButton(TicketList.ClosedTab,1000);
-        Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(1000,TicketList.ClosedTag));
-        Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(300,TicketList.ClosedTag2));
-        Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(300,TicketList.ClosedTag3));
+//        operation.ClickButton(TicketList.ClosedTab,1000);
+        Assert.assertTrue(ticketList.verifyClosedTagsUnderClosedTab());
+        ;
 
     }
 
@@ -438,6 +436,20 @@ public class ZohoTicketListTestCases extends BaseTest {
 
     }
 
+    @Test(priority = 31)//Done
+    @TestParameters(testCaseId = {"TC-31"})
+    public void TC_31_CheckOpenTabsCountAfterClosingAnOpenTicket() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateTicket ticket = new CreateTicket(driver);
+        TicketList ticketList = new TicketList(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        loginPage.VerifyValidLoginForPropertyAdmin();
+        operation.ClickButton(CreateTicket.SupportButton,5000);
+        Assert.assertTrue(ticketList.verifyTotalOpenTicketCountAndOPenTabsCountIsDecreasingAfterClosingATicket());
+
+    }
+
 //    @Test(priority = 25)//Done
 //    @TestParameters(testCaseId = {"TC-22"})
 //    public void TC_31_CheckTypeColumnAfterSelectingBillingAsTicketTypeWhileCreatingATicket () throws InterruptedException {
@@ -462,5 +474,6 @@ public class ZohoTicketListTestCases extends BaseTest {
 //        Assert.assertTrue(ticketList.verifyAnElementDisplayedOrNot(1000,TicketList.OpenTag));
 //
 //    }
-}
 
+
+}

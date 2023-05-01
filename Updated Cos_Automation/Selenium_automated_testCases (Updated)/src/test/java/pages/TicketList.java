@@ -1,5 +1,6 @@
 package pages;
 
+import net.bytebuddy.asm.Advice;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,13 +9,16 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-public class TicketList extends BasePage{
+public class TicketList extends BasePage {
 
     public TicketList(WebDriver driver) {
 
         super(driver);
     }
+
     Dashboard dashboard = new Dashboard(driver);
+    CreateCharger operation = new CreateCharger(driver);
+    CreateTicket ticket = new CreateTicket(driver);
 
     public static By QuestionMarkSupportButton = By.xpath("//span[@class='anticon anticon-question-circle']");
     public static By CreatedDateTitle = By.xpath("//th[normalize-space()='Created Date']");
@@ -25,6 +29,7 @@ public class TicketList extends BasePage{
     public static By PropertyNameTitle = By.xpath("//th[normalize-space()='Property Name']");
     public static By StatusTitle = By.xpath("//th[normalize-space()='Status']");
     public static By ActionTitle = By.xpath("//th[normalize-space()='Action']");
+
     public static By SupportPageTitle = By.xpath("//div[@class='pageTitle m-auto-0 mr-auto']");
     public static By RepliedTag = By.xpath("//span[@class='ant-tag ant-tag-geekblue'][contains(text(),'Replied')]");
     public static By ClosedTabCreatedDateTitle = By.xpath("(//th[normalize-space()='Created Date'])[2]");
@@ -49,42 +54,90 @@ public class TicketList extends BasePage{
     public static By ClosedTag2 = By.xpath("(//span[@class='ant-tag ant-tag-success'][contains(text(),'Closed')])[2]");
     public static By ClosedTag3 = By.xpath("(//span[@class='ant-tag ant-tag-success'][contains(text(),'Closed')])[3]");
     public static By ClosedTab = By.xpath("//div[@class='closeTab']");
+    public static By ZohoAllTicketsFilter = By.xpath("//h1[@class='zd-heading-reset ']");
+    public static By ZohoClosedTicketsFilter = By.xpath("//a[@data-title='Closed Tickets']");
+    public static By ZohoOpenTicketsFilter = By.xpath("//a[@data-title='Open Tickets']");
+    public static By ZohoAllTicketsFilterDropdown = By.xpath("//a[@data-title='All Tickets']");
+    public static By ZohoStatusButton = By.xpath("//button[@data-id='tktStatus']");
+    public static By ZohoOpenStatus = By.xpath("//div[@data-title='Open']");
+    public static By ZohoClosedStatus = By.xpath("//div[@data-title='Closed']");
+    public static By ZohoToastMessageCancel = By.xpath("//button[@data-id='toastMessage_cancelButton']");
+
 
 
 
     public boolean verifyOpenTagsUnderOpenTab() throws InterruptedException {
-        Thread.sleep(10000);
-        WebElement mytable = driver.findElement(By.xpath("//tbody"));
-        List < WebElement >  headers = mytable.findElements(By.tagName("th"));
-
+        Thread.sleep(6000);
+        WebElement mytable = driver.findElement(By.xpath("//thead"));
+        List<WebElement> headers = mytable.findElements(By.tagName("th"));
         int resultColumnIndex = 0;
         for (int i = 0; i < headers.size(); i++) {
             if (headers.get(i).getText().equals("Status")) {
                 resultColumnIndex = i;
+                System.out.println(resultColumnIndex);
+                System.out.println("Status");
                 break;
             }
         }
-
-        if (resultColumnIndex == -1) {
+        if (resultColumnIndex != 6) {
             // The "Result" column was not found
             throw new RuntimeException("The 'Status' column was not found");
         }
 
-
-        List < WebElement > rows = driver.findElements(By.tagName("tr"));
+        WebElement myrows = driver.findElement(By.xpath("//tbody"));
+        List<WebElement> rows = myrows.findElements(By.tagName("tr"));
         for (int i = 1; i < rows.size(); i++) { // start at index 1 to skip the header row
-            List <WebElement> cells = rows.get(i).findElements(By.className("ant-tag ant-tag-error"));
+            List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));
             String result = cells.get(resultColumnIndex).getText();
             System.out.println(result);
             if (!result.equals("Open")) {
                 // Verification failed
                 throw new RuntimeException("Verification failed. Expected 'Success', but got '" + result + "' in row " + i);
+
             }
         }
 
         System.out.println("All cells under the 'Status' column contain the tag 'open'");
         return true;
     }
+
+    public boolean verifyClosedTagsUnderClosedTab() throws InterruptedException {
+        Thread.sleep(3000);
+        WebElement mytable = driver.findElement(By.xpath("//thead"));
+        List<WebElement> headers = mytable.findElements(By.tagName("th"));
+        int resultColumnIndex = 0;
+        for (int i = 0; i < headers.size(); i++) {
+            if (headers.get(i).getText().equals("Status")) {
+                resultColumnIndex = i;
+                System.out.println(resultColumnIndex);
+                System.out.println("Status");
+                break;
+            }
+        }
+        if (resultColumnIndex != 6) {
+            // The "Result" column was not found
+            throw new RuntimeException("The 'Status' column was not found");
+        }
+
+        WebElement myrows = driver.findElement(By.xpath("//tbody"));
+        List<WebElement> rows = myrows.findElements(By.tagName("tr"));
+        for (int i = 1; i < rows.size(); i++) { // start at index 1 to skip the header row
+            List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));
+            String result = cells.get(resultColumnIndex).getText();
+            System.out.println(result);
+            if (!result.equals("Closed")) {
+                // Verification failed
+                throw new RuntimeException("Verification failed. Expected 'Closed', but got '" + result + "' in row " + i);
+
+            }
+        }
+
+        System.out.println("All cells under the 'Status' column contain the tag 'open'");
+        return true;
+    }
+
+
+
 
 
     public boolean verifyOpenTab(){
@@ -170,5 +223,54 @@ public class TicketList extends BasePage{
             System.out.println("Created date is not correct");
             return false;
         }
+    }
+
+    public boolean verifyTotalOpenTicketCountAndOPenTabsCountIsDecreasingAfterClosingATicket() throws InterruptedException {
+        Thread.sleep(5000);
+        String OPen = driver.findElement(OpenTab).getText().replaceAll("[^0-9]","");
+        int openCount = Integer.parseInt(OPen);
+        System.out.println("OPen count before closing ticket: "+openCount);
+        String TotalOPen = driver.findElement(ChargerListPropertyAdmin.ChargerCountTop).getText().replaceAll("[^0-9]","");
+        int TotalCount = Integer.parseInt(TotalOPen);
+        System.out.println("Total count before closing ticket: "+TotalCount);
+        ticket.NewTabOpenAndSwitchToNewTab(1);
+        ticket.GoToWebsite("https://www.zoho.com/desk/");
+        ticket.click(CreateTicket.ZohoSign);
+        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
+        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
+        operation.writeInputText(UpdateLedgerAccounts.ZohoPasswordField,"WorkLOAD@10@",2000);
+        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,2000);
+        operation.ClickButton(ZohoAllTicketsFilter,5000);
+        operation.ClickButton(ZohoToastMessageCancel,2000);
+        operation.ClickButton(ZohoOpenTicketsFilter,2000);
+        operation.ClickButton(ZohoOpenStatus,5000);
+        operation.ClickButton(ZohoClosedStatus,2000);
+        operation.ClickButton(ZohoAllTicketsFilter,2000);
+        operation.ClickButton(ZohoAllTicketsFilterDropdown,2000);
+        ticket.SwitchToTab(0);
+        Thread.sleep(50000);
+        dashboard.RefreshBrowser();
+        Thread.sleep(3000);
+        waitforPresence(OpenTab);
+        waitforPresence(ChargerListPropertyAdmin.ChargerCountTop);
+        String OPenAfter = driver.findElement(OpenTab).getText().replaceAll("[^0-9]","");
+        int openCountAfter = Integer.parseInt(OPen);
+        System.out.println("OPen count after closing ticket: "+openCount);
+        String TotalOPenAfter = driver.findElement(ChargerListPropertyAdmin.ChargerCountTop).getText().replaceAll("[^0-9]","");
+        int TotalCountAfter = Integer.parseInt(TotalOPen);
+        System.out.println("Total count after closing ticket: "+TotalCount);
+        int ExpectedOpenCount = openCount-1;
+        int ExpectedTotalCount = TotalCount-1;
+        if (openCountAfter==ExpectedOpenCount && TotalCountAfter==ExpectedTotalCount){
+            System.out.println("Open ticket count is decreasing by one after closing a ticket from zoho");
+            return true;
+        }
+        else{
+            System.out.println("Open ticket count is not decreasing by one after closing a ticket from zoho");
+            return false;
+        }
+
+
+
     }
 }

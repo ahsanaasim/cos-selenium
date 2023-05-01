@@ -42,7 +42,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
 
 
     }
-//    @Test(priority = 3)//Done
+    //    @Test(priority = 3)//Done
 //    @TestParameters(testCaseId = {"TC-3"})
 //    public void TC_3_CheckThereShouldBeACountAboveTheSupportButtonForTheMessages() throws InterruptedException {
 //        LoginPage loginPage = new LoginPage(driver);
@@ -542,14 +542,13 @@ public class CreateZohoTicketTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 28)//Done
+    @Test(priority = 29)//Done
     @TestParameters(testCaseId = {"TC-34"})
     public void TC_34_CheckIfTicketIsCreatedOrNotAfterProvidingLessThan50WordsDescription() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateTicket ticket = new CreateTicket(driver);
-        CreateProperty property =new CreateProperty(driver);
 //        loginPage.VerifyValidLoginForPropertyAdmin();
         dashboard.RefreshBrowser();
         operation.ClickButton(CreateTicket.SupportButton,3000);
@@ -567,14 +566,14 @@ public class CreateZohoTicketTestCases extends BaseTest {
         operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
         operation.writeInputText(UpdateLedgerAccounts.ZohoPasswordField,"WorkLOAD@10@",2000);
         operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,5000);
-        Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(5000,CreateTicket.FirstTicket));
+        Assert.assertTrue(ticket.verifyTextMatching(6000,CreateTicket.FirstTicket,"Defect charger issue"));
         ticket.SwitchToTab(0);
         Thread.sleep(3000);
 
 
 
     }
-    @Test(priority = 29)//Done
+    @Test(priority = 30)//Done
     @TestParameters(testCaseId = {"TC-38"})
     public void TC_38_CheckWhatHappenedIfPAdminDidNotSelectTheRequiredFieldAndClickOnTheSubmitTicketButton() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
@@ -590,7 +589,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 30)//Done
+    @Test(priority = 31)//Done
     @TestParameters(testCaseId = {"TC-39"})
     public void TC_39_CheckWhatHappenedIfPAdminDidNotSelectTheRequiredFieldAndClickOnTheSubmitTicketButton() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
@@ -606,7 +605,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 31)//Done
+    @Test(priority = 32)//Done
     @TestParameters(testCaseId = {"TC-41"})
     public void TC_41_CheckWhatHappenedIfPAdminDidNotSelectTheRequiredFieldAndClickOnTheSubmitTicketButton() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
@@ -622,7 +621,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 32)//Done
+    @Test(priority = 33)//Done
     @TestParameters(testCaseId = {"TC-42"})
     public void TC_42_CheckWhatHappenedIfPAdminDidNotSelectTheRequiredFieldAndClickOnTheSubmitTicketButton() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
@@ -638,7 +637,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 33)//Done
+    @Test(priority = 34)//Done
     @TestParameters(testCaseId = {"TC-40"})
     public void TC_40_CheckWhatHappenedIfPAdminDidNotSelectTheRequiredFieldAndClickOnTheSubmitTicketButton() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
@@ -655,7 +654,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 34)//Done
+    @Test(priority = 35)//Done
     @TestParameters(testCaseId = {"TC-43"})
     public void TC_43_CheckWhatHappensIfPAdminEnterDescriptionLessThan50CharactersAndClicksOnTheSubmitTicketButton() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
@@ -692,7 +691,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
 //
 //    }
 
-    @Test(priority = 36)//Done
+    @Test(priority = 37)//Done
     @TestParameters(testCaseId = {"TC-45"})
     public void TC_45_CheckWhatHappenedIfPAdminTryToLeaveTheDrawerAfterEnteringInfoInTheCreateTicketDrawer() throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
@@ -710,7 +709,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 37)//Done
+    @Test(priority = 38)//Done
     @TestParameters(testCaseId = {"TC-46"})
     public void TC_46_CheckWhatHappenedIfPAdminTryToLeaveTheDrawerAfterEnteringInfoInTheCreateTicketDrawer() throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
@@ -728,7 +727,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 38)//Done
+    @Test(priority = 39)//Done
     @TestParameters(testCaseId = {"TC-47"})
     public void TC_47_CheckWhatHappenedIfPAdminTryToLeaveTheDrawerAfterEnteringInfoInTheCreateTicketDrawer() throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
@@ -746,7 +745,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 39)//Done
+    @Test(priority = 40)//Done
     @TestParameters(testCaseId = {"TC-48"})
     public void TC_48_CheckWhatHappensIfPadminClickOutsideTheDrawerAndClicksOnDiscardButtonAfterEnteringAnyData() throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
@@ -765,7 +764,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 40)//Done
+    @Test(priority = 41)//Done
     @TestParameters(testCaseId = {"TC-49"})
     public void TC_49_CheckWhatHappenedIfPAdminTryToLeaveTheDrawerAfterEnteringInfoInTheCreateTicketDrawer() throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
@@ -784,7 +783,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 41)//Done
+    @Test(priority = 42)//Done
     @TestParameters(testCaseId = {"TC-50"})
     public void TC_50_CheckWhatHappenedIfPAdminTryToLeaveTheDrawerAfterEnteringInfoInTheCreateTicketDrawer() throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
@@ -804,7 +803,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
     }
 
 
-    @Test(priority = 42)//Done
+    @Test(priority = 43)//Done
     @TestParameters(testCaseId = {"TC-51"})
     public void TC_51_CheckIfThereIsA3DotButtonBesideTheDetailsButton() throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
@@ -818,12 +817,12 @@ public class CreateZohoTicketTestCases extends BaseTest {
 //        operation.ClickButton(CreateTicket.SupportButton,3000);
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        operation.writeInputText(CreateCharger.searchchargerfield,"US Charger",3000);
+        operation.writeInputText(CreateCharger.searchchargerfield,"US Charger",5000);
         operation.ClickButton(CreateCharger.searchargerbtn,500);
         Assert.assertTrue(troubleshootCharger.verifyAnElementDisplayedOrNot(2000,TroubleshootCharger.ThreeDotBesideEditBtn));
 
     }
-    @Test(priority = 43)//Done
+    @Test(priority = 44)//Done
     @TestParameters(testCaseId = {"TC-52"})
     public void TC_52_CheckIfThereIsReportAProblemButtonAfterClickingOnThe3DotButton() throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
@@ -841,7 +840,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
         Assert.assertTrue(troubleshootCharger.verifyAnElementDisplayedOrNot(1000,CreateTicket.ReportProblem));
 
     }
-    @Test(priority = 44)//Done
+    @Test(priority = 45)//Done
     @TestParameters(testCaseId = {"TC-53"})
     public void TC_53_CheckTheDetailsOfReportAProblemButton() throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
@@ -861,7 +860,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 45)//Done
+    @Test(priority = 46)//Done
     @TestParameters(testCaseId = {"TC-54"})
     public void TC_54_CheckTheDetailsOfReportAProblemButton() throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
@@ -886,7 +885,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 46)//Done
+    @Test(priority = 47)//Done
     @TestParameters(testCaseId = {"TC-56"})
     public void TC_56_CheckTheDetailsOfReportAProblemButton() throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
@@ -906,7 +905,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 47)//Done
+    @Test(priority = 48)//Done
     @TestParameters(testCaseId = {"TC-55"})
     public void TC_55_CheckTheDetailsOfReportAProblemButton() throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
@@ -920,8 +919,6 @@ public class CreateZohoTicketTestCases extends BaseTest {
 //        operation.ClickButton(CreateTicket.SupportButton,3000);
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
         operation.writeInputText(CreateCharger.searchchargerfield,"US Charger",3000);
         operation.ClickButton(CreateCharger.searchargerbtn,500);
 //        operation.ClickButton(TroubleshootCharger.ThreeDotBesideEditBtn,1000);
@@ -930,7 +927,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 48)//Done
+    @Test(priority = 49)//Done
     @TestParameters(testCaseId = {"TC-57"})
     public void TC_57_CheckIfTheInputFieldsAreShowingSameAsTheDesign() throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
@@ -949,7 +946,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
         Assert.assertTrue(ticket.verifyTheFieldIsTextType(CreateTicket.SubjectField));
 
     }
-    @Test(priority = 49)//Done
+    @Test(priority = 50)//Done
     @TestParameters(testCaseId = {"TC-57"})
     public void TC_57_2_CheckIfTheInputFieldsAreShowingSameAsTheDesign() throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
@@ -970,8 +967,8 @@ public class CreateZohoTicketTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 50)//Done
-    @TestParameters(testCaseId = {"TC-52"})
+    @Test(priority = 51)//Done
+    @TestParameters(testCaseId = {"TC-58"})
     public void TC_58_CheckIfTheInputFieldsAreShowingSameAsTheDesign() throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
@@ -992,8 +989,8 @@ public class CreateZohoTicketTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 50)//Done
-    @TestParameters(testCaseId = {"TC-52"})
+    @Test(priority = 52)//Done
+    @TestParameters(testCaseId = {"TC-62"})
     public void TC_62_CheckIfTheRequiredSignIsShowingAboveTheRequiredFieldInReportProblemDrawer() throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
@@ -1011,6 +1008,27 @@ public class CreateZohoTicketTestCases extends BaseTest {
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(500,CreateTicket.RequiredSignSubject));
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(500,CreateTicket.RequiredSignTicketDescription));
         Assert.assertTrue(ticket.verifyTextMatching(500,CreateTicket.TicketDescriptionTitle,"* Ticket Description"));
+
+    }
+
+    @Test(priority = 53)//Done
+    @TestParameters(testCaseId = {"TC-68"})
+    public void TC_68_CheckWhatHappenedIfPAdminTryToReportAProblemForAChargerWhichIsNotConnectedToTheHardwareUnit() throws InterruptedException, IOException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateTicket ticket = new CreateTicket(driver);
+        TroubleshootCharger troubleshootCharger = new TroubleshootCharger(driver);
+        CreateProperty property =new CreateProperty(driver);
+//        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateTicket.SupportButton,3000);
+        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
+        operation.writeInputText(CreateCharger.searchchargerfield,"Testing ticket",4500);
+        operation.ClickButton(CreateCharger.searchargerbtn,500);
+        operation.ClickButton(TroubleshootCharger.ThreeDotBesideEditBtn,1000);
+        Assert.assertTrue(ticket.verifyReportProblemButtonDisabled());
 
     }
 
