@@ -103,7 +103,7 @@ public class TicketList extends BasePage {
 
     public boolean verifyClosedTagsUnderClosedTab() throws InterruptedException {
         Thread.sleep(3000);
-        WebElement mytable = driver.findElement(By.xpath("//thead"));
+        WebElement mytable = driver.findElement(By.xpath("(//thead)[2]"));
         List<WebElement> headers = mytable.findElements(By.tagName("th"));
         int resultColumnIndex = 0;
         for (int i = 0; i < headers.size(); i++) {
@@ -119,7 +119,7 @@ public class TicketList extends BasePage {
             throw new RuntimeException("The 'Status' column was not found");
         }
 
-        WebElement myrows = driver.findElement(By.xpath("//tbody"));
+        WebElement myrows = driver.findElement(By.xpath("(//tbody)[2]"));
         List<WebElement> rows = myrows.findElements(By.tagName("tr"));
         for (int i = 1; i < rows.size(); i++) { // start at index 1 to skip the header row
             List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));

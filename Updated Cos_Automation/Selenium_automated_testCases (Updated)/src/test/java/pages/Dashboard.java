@@ -56,10 +56,11 @@ public class Dashboard extends BasePage {
 
     public boolean clickonProperty () throws InterruptedException {
         Thread.sleep(1500);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
       //  Createcompany.waitForSpinner();
-        waitelementtobedisplayed(property);
+        waitVisibility(property);
         waitelemtclickable(property);
+        waitelementtobedisplayed(property);
         click(property);
         return true;
     }

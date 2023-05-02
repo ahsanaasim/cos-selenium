@@ -31,6 +31,16 @@ public class CustomerSupport extends BasePage{
     public static By FirstCreatedTicket = By.xpath("//div[@class='locationName']");
     public static By OpenStatus1 = By.xpath("//div[@class='openText'][contains(text(),'Open')]");
     public static By TicketsHistory = By.xpath("//div[@class='mainTitle']");
+    public static By FirstSessionFromDropdown = By.xpath("(//div[@class='ant-select-item-option-content'])[4]");
+    public static By CategoryRequiredMsg = By.xpath("//div[@class='ant-form-item-explain-error'][contains(text(),'Category field is required')]");
+    public static By SessionRequiredMsg = By.xpath("//div[@class='ant-form-item-explain-error'][contains(text(),'Session field is required')]");
+    public static By SubjectRequiredMsg = By.xpath("//div[@class='ant-form-item-explain-error'][contains(text(),'Subject field is required')]");
+    public static By MessageFieldRequiredMsg = By.xpath("//div[@class='ant-form-item-explain-error'][contains(text(),'Message field is required')]");
+    public static By NoDataTable = By.xpath("//img[@src='/images/noDataTable.svg']");
+    public static By NoTicketText = By.xpath("//div[contains(text(),'No Tickets')]");
+    public static By DropdownEmptyDataImage = By.xpath("//div[@class='ant-empty-image']");
+    public static By DropdownNoData = By.xpath("//div[@class='ant-empty-description'][contains(text(),'No Data')]");
+
 
 
 
@@ -38,6 +48,13 @@ public class CustomerSupport extends BasePage{
         Thread.sleep(2000);
         driver.get("https://test-app.chargeonsite.com/customer/login");
     }
+
+    public void GoToCustomerSupportPage() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.get("https://test-app.chargeonsite.com/customer/customer-support");
+    }
+
+
 
     public boolean verifyCreateTicketTextColor() throws InterruptedException {
         Thread.sleep(3000);
@@ -141,6 +158,72 @@ public class CustomerSupport extends BasePage{
             return false;
         }
 
+    }
+
+    public boolean verifyCurrentPageIsCreatingTicketPage() throws InterruptedException {
+        Thread.sleep(2500);
+        String url = driver.getCurrentUrl();
+        System.out.println(url);
+        String expectedUrl = "https://test-app.chargeonsite.com/customer/customer-support/create-ticket";
+        if (url.equals(expectedUrl)){
+            System.out.println("Create ticket page is still open");
+            return true;
+        }
+        else {
+            System.out.println("Create ticket page is closed");
+            return false;
+        }
+
+    }
+
+    public boolean verifySessionsAreShowingInTheDropdownListAreSameAsChargingHistoryList() throws InterruptedException {
+        GoToCustomerSupportPage();
+        waitforPresence(Menu);
+        click(Menu);
+        click(CustomerMenu.ChargingHistoryFromMenu);
+        Thread.sleep(2500);
+        int ChargingHistoryCount = driver.findElements(By.className("historyDetailsDiv")).size();
+        System.out.println("Total charging history: "+ ChargingHistoryCount);
+        click(Menu);
+        click(CustomerSupport);
+        click(CreateATicket);
+        click(SelectASessionField);
+        Thread.sleep(2000);
+        int dropdownSessionCount = driver.findElements(By.className("ant-select-item-option-content")).size();
+        System.out.println("Total session showing in dropdown: "+dropdownSessionCount);
+        if (ChargingHistoryCount==dropdownSessionCount){
+            System.out.println("All session id's are showing in the dropdown list");
+            return true;
+        }
+        else {
+            System.out.println("All the session id's are not showing in the dropdown list");
+            return false;
+        }
+
+    }
+
+
+    public String categoryRequiredMsg(){
+        return "Category field is required";
+    }
+
+    public String SubjectRequiredMsg(){
+        return "Subject field is required";
+    }
+
+    public String SessionRequiredMsg(){
+        return "Session field is required";
+    }
+
+    public String MessageRequiredMsg(){
+        return "Message field is required";
+    }
+
+    public void clickOnSessionFieldFirstDropdown() throws InterruptedException {
+
+        Thread.sleep(1500);
+        WebElement firstOption = driver.findElement(By.xpath("(//div[@class='ant-select-item-option-content'])[3]"));
+        firstOption.click();
     }
 
 

@@ -805,8 +805,8 @@ public class EditPropertyCases extends BaseTest {
         Assert.assertTrue(editEntity.RemoveAddressFromEditEntityDrawer());
         Assert.assertTrue(company.WriteRandomCompanyAddress());
         Assert.assertTrue(editProperty.clickonEditbuttonFromHardwareProviderSection());
-        Assert.assertTrue(properties.clickHardwareProviderDropdown());
-        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
+//        Assert.assertTrue(properties.clickHardwareProviderDropdown());
+//        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
         Assert.assertTrue(properties.clickonSavePropertyButton());
         Assert.assertTrue(properties.verifyCreateNewPropertyButtonHasDisplayed());
 

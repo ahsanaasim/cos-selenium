@@ -219,7 +219,7 @@ public class ZohoTicketListTestCases extends BaseTest {
 //        operation.ClickButton(CreateTicket.SupportButton,5000);
 //        operation.ClickButton(TicketList.ClosedTab,1000);
         Assert.assertTrue(ticketList.verifyClosedTagsUnderClosedTab());
-        ;
+
 
     }
 

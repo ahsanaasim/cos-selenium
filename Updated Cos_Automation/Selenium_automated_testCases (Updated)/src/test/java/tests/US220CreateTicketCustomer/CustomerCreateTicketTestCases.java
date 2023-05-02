@@ -6,6 +6,7 @@ import pages.*;
 import tests.BaseTest;
 import tests.US1AdminLogin.TestParameters;
 
+import java.io.IOException;
 import java.util.Properties;
 
 public class CustomerCreateTicketTestCases extends BaseTest {
@@ -20,11 +21,10 @@ public class CustomerCreateTicketTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         CreateTicket ticket = new CreateTicket(driver);
         CreateCharger operation = new CreateCharger(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
         CustomerSupport customerSupport = new CustomerSupport(driver);
         customerSupport.GoToCustomerLoginPage();
-        operation.writeInputText(CustomerLogin.EmailField,"mateg96752@saeoil.com",2000);
-        operation.writeInputText(CustomerLogin.PasswordField,"EitaiPassword10",2000);
-        operation.ClickButton(CustomerLogin.CustomerLoginButton,1000);
+        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         operation.ClickButton(CustomerSupport.Menu,2000);
         operation.ClickButton(CustomerSupport.CustomerSupport,2000);
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(1000,CustomerSupport.CreateATicket));
@@ -355,4 +355,261 @@ public class CustomerCreateTicketTestCases extends BaseTest {
         Assert.assertTrue(customerSupport.verifyCreateTicketPageIsClosedAfterCreatingNewTicket());
 
     }
+
+    @Test(priority = 19)//Done
+    @TestParameters(testCaseId = {"TC-21"})
+    public void TC_21_CheckIfCustomerCanSeeAllTheSessionIdHeHasAccessToInTheDropdownList() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateTicket ticket = new CreateTicket(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CustomerSupport customerSupport = new CustomerSupport(driver);
+//        customerSupport.GoToCustomerLoginPage();
+//        operation.writeInputText(CustomerLogin.EmailField,"mateg96752@saeoil.com",2000);
+//        operation.writeInputText(CustomerLogin.PasswordField,"EitaiPassword10",2000);
+//        operation.ClickButton(CustomerLogin.CustomerLoginButton,1000);
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+//        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
+//        dashboard.RefreshBrowser();
+        Assert.assertTrue(customerSupport.verifySessionsAreShowingInTheDropdownListAreSameAsChargingHistoryList());
+
+    }
+    @Test(priority = 20)//Done
+    @TestParameters(testCaseId = {"TC-22"})
+    public void TC_22_CheckWhatHappenedIfCosAdminTriesToCreateCustomerSupportTickerFromMenu() throws InterruptedException, IOException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateTicket ticket = new CreateTicket(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CustomerSupport customerSupport = new CustomerSupport(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateProperty property = new CreateProperty(driver);
+//        customerSupport.GoToCustomerLoginPage();
+//        operation.writeInputText(CustomerLogin.EmailField,"mateg96752@saeoil.com",2000);
+//        operation.writeInputText(CustomerLogin.PasswordField,"EitaiPassword10",2000);
+//        operation.ClickButton(CustomerLogin.CustomerLoginButton,1000);
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+//        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
+//        dashboard.RefreshBrowser();
+        customerLogin.LogoutFromCustomerAccount();
+        customerLogin.LoginToACustomerAccount((prop.getProperty("validEmail")),(prop.getProperty("validPassword")));
+        operation.ClickButton(CustomerSupport.Menu,2000);
+        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
+        operation.ClickButton(CustomerSupport.CreateATicket,2000);
+        ticket.SelectOptionFromInputField(CustomerSupport.CategoryField,"Charging Issue");
+        operation.ClickButton(CustomerSupport.SelectASessionField,2000);
+        operation.ClickButton(CustomerSupport.FirstSessionFromDropdown,2000);
+        operation.writeInputText(CreateTicket.SubjectField,"This is admin creating the ticket",1000);
+        operation.writeInputText(CreateTicket.DescriptionField,(prop.getProperty("Paragraph")),500);
+        operation.ClickButton(CustomerSupport.UploadButton,2000);
+        property.uploadImageMorethan2Mb();
+        operation.ClickButton(CustomerSupport.SubmitButton,2000);
+        Thread.sleep(40000);
+        dashboard.RefreshBrowser();
+        Assert.assertTrue(ticket.verifyTextMatching(4000,CustomerSupport.FirstCreatedTicket,"Charging Issue"));
+        Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(300,CustomerSupport.CreateATicket));
+        Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(300,CustomerSupport.OpenStatus1));
+        Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(300,CustomerSupport.TicketsHistory));
+        Assert.assertTrue(customerSupport.verifyCreateTicketPageIsClosedAfterCreatingNewTicket());
+
+    }
+    @Test(priority = 21)//Done
+    @TestParameters(testCaseId = {"TC-27"})
+    public void TC_27_CheckWhatHappenedIfCustomerDidnotSelectTheRequiredFieldAndClickOnTheSubmitButton() throws InterruptedException, IOException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateTicket ticket = new CreateTicket(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CustomerSupport customerSupport = new CustomerSupport(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateProperty property = new CreateProperty(driver);
+//        customerSupport.GoToCustomerLoginPage();
+//        operation.writeInputText(CustomerLogin.EmailField,"mateg96752@saeoil.com",2000);
+//        operation.writeInputText(CustomerLogin.PasswordField,"EitaiPassword10",2000);
+//        operation.ClickButton(CustomerLogin.CustomerLoginButton,1000);
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+//        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
+//        dashboard.RefreshBrowser();
+        customerLogin.LogoutFromCustomerAccount();
+        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        operation.ClickButton(CustomerSupport.Menu,2000);
+        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
+        operation.ClickButton(CustomerSupport.CreateATicket,2000);
+        operation.ClickButton(CustomerSupport.SubmitButton,2000);
+        Assert.assertTrue(ticket.verifyTextMatching(1500,CustomerSupport.CategoryRequiredMsg,customerSupport.categoryRequiredMsg()));
+//        Assert.assertTrue(ticket.verifyTextMatching(500,CustomerSupport.SubjectRequiredMsg,customerSupport.SubjectRequiredMsg()));
+//        Assert.assertTrue(ticket.verifyTextMatching(500,CustomerSupport.MessageFieldRequiredMsg,customerSupport.MessageRequiredMsg()));
+        Assert.assertTrue(ticket.verifyElementNotDisplayed(2000,CustomerSupport.CreateATicket));
+        Assert.assertTrue(customerSupport.verifyCurrentPageIsCreatingTicketPage());
+
+    }
+
+    @Test(priority = 22)//Done
+    @TestParameters(testCaseId = {"TC-28"})
+    public void TC_28_CheckWhatHappenedIfCustomerDidNotSelectTheRequiredFieldAndClickOnTheSubmitButton() throws InterruptedException, IOException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateTicket ticket = new CreateTicket(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CustomerSupport customerSupport = new CustomerSupport(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateProperty property = new CreateProperty(driver);
+//        customerSupport.GoToCustomerLoginPage();
+//        operation.writeInputText(CustomerLogin.EmailField,"mateg96752@saeoil.com",2000);
+//        operation.writeInputText(CustomerLogin.PasswordField,"EitaiPassword10",2000);
+//        operation.ClickButton(CustomerLogin.CustomerLoginButton,1000);
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+//        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
+//        dashboard.RefreshBrowser();
+//        customerLogin.LogoutFromCustomerAccount();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+//        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
+//        operation.ClickButton(CustomerSupport.CreateATicket,2000);
+//        operation.ClickButton(CustomerSupport.SubmitButton,2000);
+//        Assert.assertTrue(ticket.verifyTextMatching(1500,CustomerSupport.CategoryRequiredMsg,customerSupport.categoryRequiredMsg()));
+        Assert.assertTrue(ticket.verifyTextMatching(500,CustomerSupport.SubjectRequiredMsg,customerSupport.SubjectRequiredMsg()));
+//        Assert.assertTrue(ticket.verifyTextMatching(500,CustomerSupport.MessageFieldRequiredMsg,customerSupport.MessageRequiredMsg()));
+        Assert.assertTrue(ticket.verifyElementNotDisplayed(2000,CustomerSupport.CreateATicket));
+        Assert.assertTrue(customerSupport.verifyCurrentPageIsCreatingTicketPage());
+
+    }
+
+    @Test(priority = 23)//Done
+    @TestParameters(testCaseId = {"TC-29"})
+    public void TC_29_CheckWhatHappenedIfCustomerDidNotSelectTheRequiredFieldAndClickOnTheSubmitButton() throws InterruptedException, IOException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateTicket ticket = new CreateTicket(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CustomerSupport customerSupport = new CustomerSupport(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateProperty property = new CreateProperty(driver);
+//        customerSupport.GoToCustomerLoginPage();
+//        operation.writeInputText(CustomerLogin.EmailField,"mateg96752@saeoil.com",2000);
+//        operation.writeInputText(CustomerLogin.PasswordField,"EitaiPassword10",2000);
+//        operation.ClickButton(CustomerLogin.CustomerLoginButton,1000);
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+//        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
+//        dashboard.RefreshBrowser();
+//        customerLogin.LogoutFromCustomerAccount();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+//        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
+//        operation.ClickButton(CustomerSupport.CreateATicket,2000);
+//        operation.ClickButton(CustomerSupport.SubmitButton,2000);
+//        Assert.assertTrue(ticket.verifyTextMatching(1500,CustomerSupport.CategoryRequiredMsg,customerSupport.categoryRequiredMsg()));
+//        Assert.assertTrue(ticket.verifyTextMatching(500,CustomerSupport.SubjectRequiredMsg,customerSupport.SubjectRequiredMsg()));
+        Assert.assertTrue(ticket.verifyTextMatching(500,CustomerSupport.MessageFieldRequiredMsg,customerSupport.MessageRequiredMsg()));
+
+    }
+    @Test(priority = 24)//Done
+    @TestParameters(testCaseId = {"TC-30"})
+    public void TC_30_CheckWhatHappenedIfTheCustomerDidnotProvideTheSessionIdWhenSelectsTheCategoryChargingIssue() throws InterruptedException, IOException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateTicket ticket = new CreateTicket(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CustomerSupport customerSupport = new CustomerSupport(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateProperty property = new CreateProperty(driver);
+//        customerSupport.GoToCustomerLoginPage();
+//        operation.writeInputText(CustomerLogin.EmailField,"mateg96752@saeoil.com",2000);
+//        operation.writeInputText(CustomerLogin.PasswordField,"EitaiPassword10",2000);
+//        operation.ClickButton(CustomerLogin.CustomerLoginButton,1000);
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+//        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
+//        dashboard.RefreshBrowser();
+//        customerLogin.LogoutFromCustomerAccount();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+//        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
+//        operation.ClickButton(CustomerSupport.CreateATicket,2000);
+//        operation.ClickButton(CustomerSupport.SubmitButton,2000);
+//        Assert.assertTrue(ticket.verifyTextMatching(1500,CustomerSupport.CategoryRequiredMsg,customerSupport.categoryRequiredMsg()));
+        ticket.SelectOptionFromInputField(CustomerSupport.CategoryField,"Charging Issue");
+        operation.ClickButton(CustomerSupport.SubmitButton,2000);
+//        Assert.assertTrue(ticket.verifyTextMatching(500,CustomerSupport.SubjectRequiredMsg,customerSupport.SubjectRequiredMsg()));
+        Assert.assertTrue(ticket.verifyTextMatching(1000,CustomerSupport.SessionRequiredMsg,customerSupport.SessionRequiredMsg()));
+        Assert.assertTrue(customerSupport.verifyCurrentPageIsCreatingTicketPage());
+
+    }
+
+    @Test(priority = 25)//Done
+    @TestParameters(testCaseId = {"TC-31"})
+    public void TC_31_CheckWhatHappenedIfTheCustomerDidnotProvideTheSessionIdWhenSelectsTheCategoryChargingIssue() throws InterruptedException, IOException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateTicket ticket = new CreateTicket(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CustomerSupport customerSupport = new CustomerSupport(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateProperty property = new CreateProperty(driver);
+//        customerSupport.GoToCustomerLoginPage();
+//        operation.writeInputText(CustomerLogin.EmailField,"mateg96752@saeoil.com",2000);
+//        operation.writeInputText(CustomerLogin.PasswordField,"EitaiPassword10",2000);
+//        operation.ClickButton(CustomerLogin.CustomerLoginButton,1000);
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+//        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
+//        dashboard.RefreshBrowser();
+//        customerLogin.LogoutFromCustomerAccount();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+//        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
+//        operation.ClickButton(CustomerSupport.CreateATicket,2000);
+//        operation.ClickButton(CustomerSupport.SubmitButton,2000);
+//        Assert.assertTrue(ticket.verifyTextMatching(1500,CustomerSupport.CategoryRequiredMsg,customerSupport.categoryRequiredMsg()));
+        operation.ClickButton(CustomerSupport.SelectASessionField,2000);
+        customerSupport.clickOnSessionFieldFirstDropdown();
+        operation.writeInputText(CreateTicket.DescriptionField,(prop.getProperty("Paragraph")),500);
+        operation.ClickButton(CustomerSupport.SubmitButton,2000);
+//        Assert.assertTrue(ticket.verifyTextMatching(500,CustomerSupport.SubjectRequiredMsg,customerSupport.SubjectRequiredMsg()));
+        Assert.assertTrue(ticket.verifyTextMatching(3000,CustomerSupport.SubjectRequiredMsg,customerSupport.SubjectRequiredMsg()));
+        Assert.assertTrue(customerSupport.verifyCurrentPageIsCreatingTicketPage());
+
+    }
+
+    @Test(priority = 26)//Done
+    @TestParameters(testCaseId = {"TC-23"})
+    public void TC_23_CheckWhatHappenedIfCustomerTryToCreateATicketForChargingIssueTypeWhomHasNoChargingHistory() throws InterruptedException, IOException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateTicket ticket = new CreateTicket(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CustomerSupport customerSupport = new CustomerSupport(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateProperty property = new CreateProperty(driver);
+//        customerSupport.GoToCustomerLoginPage();
+        customerLogin.LogoutFromCustomerAccount();
+        customerLogin.LoginToACustomerAccount((prop.getProperty("CustomerWithNoTicket")),"EitaiPassword10");
+        operation.ClickButton(CustomerSupport.Menu,2000);
+        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
+        customerSupport.verifyAnElementDisplayedOrNot(1000,CustomerSupport.NoDataTable);
+        customerSupport.verifyAnElementDisplayedOrNot(1000,CustomerSupport.NoTicketText);
+
+    }
+
+    @Test(priority = 27)//Done
+    @TestParameters(testCaseId = {"TC-24,25"})
+    public void TC_24_25_CheckWhatHappenedIfCustomerTryToCreateATicketForChargingIssueTypeWhomHasNoChargingHistory() throws InterruptedException, IOException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateTicket ticket = new CreateTicket(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CustomerSupport customerSupport = new CustomerSupport(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateProperty property = new CreateProperty(driver);
+//        customerSupport.GoToCustomerLoginPage();
+//        customerLogin.LogoutFromCustomerAccount();
+//        customerLogin.LoginToACustomerAccount((prop.getProperty("CustomerWithNoTicket")),"EitaiPassword10");
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+//        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
+        operation.ClickButton(CustomerSupport.CreateATicket,2000);
+        operation.ClickButton(CustomerSupport.SelectASessionField,2000);
+        customerSupport.verifyAnElementDisplayedOrNot(1500,CustomerSupport.DropdownEmptyDataImage);
+        customerSupport.verifyAnElementDisplayedOrNot(1000,CustomerSupport.DropdownNoData);
+
+    }
+
+
 }

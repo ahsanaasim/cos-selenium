@@ -9,6 +9,7 @@ public class CustomerLogin extends BasePage {
 
         super(driver);
     }
+    CreateCharger operation = new CreateCharger(driver);
 
 
 
@@ -95,6 +96,13 @@ public class CustomerLogin extends BasePage {
             return false;
         }
 
+    }
+
+    public void LoginToACustomerAccount(String email, String password) throws InterruptedException {
+        waitforPresence(EmailField);
+        operation.writeInputText(CustomerLogin.EmailField,email,2000);
+        operation.writeInputText(CustomerLogin.PasswordField,password,500);
+        operation.ClickButton(CustomerLogin.CustomerLoginButton,500);
     }
 
 

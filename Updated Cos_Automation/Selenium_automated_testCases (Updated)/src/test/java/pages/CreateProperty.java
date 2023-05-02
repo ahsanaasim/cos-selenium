@@ -60,9 +60,9 @@ public class CreateProperty extends BasePage {
     By blankeminimumfeeerrmsg = By.xpath("//div[@role='alert'][contains(.,'Minimum Fee per session is required')]");
     By searchbar = By.xpath("//input[@placeholder='Search by property, entity and company name']");
     By unknowncompnay = By.xpath("//div[@class='ant-select-item-option-content'][contains(.,'Unknown Company')]");
-    By equipmentdropdown = By.xpath("(//input[contains(@class,'ant-select-selection-search-input')])[8]");
-    By chargerfeedropdown = By.xpath("(//input[contains(@class,'ant-select-selection-search-input')])[9]");
-    By installationfeedropdown = By.xpath("(//input[contains(@class,'ant-select-selection-search-input')])[10]");
+    By equipmentdropdown = By.xpath("(//input[contains(@class,'ant-select-selection-search-input')])[5]");
+    By chargerfeedropdown = By.xpath("(//input[contains(@class,'ant-select-selection-search-input')])[6]");
+    By installationfeedropdown = By.xpath("(//input[contains(@class,'ant-select-selection-search-input')])[7]");
     By onetimefee = By.xpath("//div[@class='ant-select-item-option-content'][contains(.,'One Time')]");
     By installationonetimefee = By.xpath("//div[@aria-selected='false'][contains(.,'One Time')]");
     By monthlyfee = By.xpath("//div[@class='ant-select-item-option-content'][contains(.,'Monthly')]");
@@ -537,7 +537,8 @@ public class CreateProperty extends BasePage {
         return true;
     }
 
-    public boolean verifyCreatePropertyButtonIsShowingonCreateNewPropertDrawer() {
+    public boolean verifyCreatePropertyButtonIsShowingonCreateNewPropertDrawer() throws InterruptedException {
+        Thread.sleep(1500);
         waitVisibility(createpropertydrawer);
         if (driver.findElement(By.xpath("//span[contains(.,'Save Property')]")).isDisplayed()) {
             System.out.println("Verification Successful - Save Property Button is Showing");
@@ -711,7 +712,8 @@ public class CreateProperty extends BasePage {
         return true;
     }
 
-    public boolean verifyCreateEntityOptionsisShowing() {
+    public boolean verifyCreateEntityOptionsisShowing() throws InterruptedException {
+        Thread.sleep(1500);
         waitVisibility(createpropertydrawer);
         if (driver.findElement(By.xpath("//span[contains(.,'Create Entity')]")).isDisplayed()) {
             System.out.println("Verification Successful - Create Entity option is Showing");
