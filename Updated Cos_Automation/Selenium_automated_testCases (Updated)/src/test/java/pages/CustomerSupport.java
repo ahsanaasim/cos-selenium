@@ -220,11 +220,27 @@ public class CustomerSupport extends BasePage{
     }
 
     public void clickOnSessionFieldFirstDropdown() throws InterruptedException {
-
         Thread.sleep(1500);
         WebElement firstOption = driver.findElement(By.xpath("(//div[@class='ant-select-item-option-content'])[3]"));
         firstOption.click();
     }
+
+    public boolean verifyTicketHistoryListTitle() throws InterruptedException {
+        Thread.sleep(3000);
+        waitforPresence(TicketsHistory);
+        String title = driver.findElement(TicketsHistory).getText();
+        System.out.println(title);
+        if (title.matches("Ticket History \\(\\d+\\)")){
+            System.out.println("Ticket History title is showing");
+            return true;
+        }
+        else {
+            System.out.println("Ticket History title is not showing");
+            return false;
+        }
+    }
+
+
 
 
 
