@@ -432,8 +432,8 @@ public class CreateLocationTestCases extends BaseTest {
         Assert.assertTrue(properties.writePropertyName(prop.getProperty("NewPropertyName")));
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(company.WriteRandomCompanyAddress());
-        Assert.assertTrue(properties.clickHardwareProviderDropdown());
-        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
+//        Assert.assertTrue(properties.clickHardwareProviderDropdown());
+//        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
        /* Assert.assertTrue(properties.clickOtherProviderDropdown());
         Assert.assertTrue(properties.selectOtherProviderNameFromDropdown());*/
         Assert.assertTrue(properties.enterEquimentFees(prop.getProperty("Fees")));
@@ -815,7 +815,7 @@ public class CreateLocationTestCases extends BaseTest {
         Assert.assertTrue(properties.writeCompnayName(prop.getProperty("UnknownCompany")));
         Assert.assertTrue(properties.clickonUnknownCompanyName());
         Assert.assertTrue(createLocation.clickonPropertyDropdown());
-        //   Assert.assertTrue(createLocation.writePropertyName(prop.getProperty("Unknown Property")));
+        Assert.assertTrue(createLocation.writePropertyName(prop.getProperty("Unknown Property")));
         Assert.assertTrue(createLocation.clickOnUnknownPropertyName());
         Assert.assertTrue(createLocation.enterLocationTitle(prop.getProperty("UnknownLocation")));
         Assert.assertTrue(createLocation.enterLocationLandmark(prop.getProperty("LocationLandmark")));

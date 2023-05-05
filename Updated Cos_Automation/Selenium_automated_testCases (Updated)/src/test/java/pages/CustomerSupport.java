@@ -4,12 +4,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
-import org.openqa.selenium.support.locators.RelativeLocator;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Properties;
 
 public class CustomerSupport extends BasePage{
     public CustomerSupport(WebDriver driver) {
         super(driver);
     }
+
+    CreateTicket ticket = new CreateTicket(driver);
+    CreateCharger operation = new CreateCharger(driver);
+    Properties prop = ConfigUtill.getConfig();
 
     public static By Menu = By.xpath("//div[@class='ml-5 font-bold'][contains(text(),'Menu')]");
     public static By CustomerSupport = By.xpath("//h4[@class='mb-0 ml-10'][contains(text(),'Customer Support')]");
@@ -40,6 +47,14 @@ public class CustomerSupport extends BasePage{
     public static By NoTicketText = By.xpath("//div[contains(text(),'No Tickets')]");
     public static By DropdownEmptyDataImage = By.xpath("//div[@class='ant-empty-image']");
     public static By DropdownNoData = By.xpath("//div[@class='ant-empty-description'][contains(text(),'No Data')]");
+    public static By TicketsSeeDetails = By.xpath("//button[@class='ant-btn ant-btn-text seeDetailsButton']");
+    public static By SeeDetailsPageTitle = By.xpath("//div[@class='pageTitle'][contains(text(),'Customer support')]");
+    public static By TicketCategoryInList1 = By.xpath("//div[@class='locationName']");
+    public static By SessionInList1 = By.xpath("//div[@class='dateDiv']");
+    public static By TicketCategoryInSeeDetails = By.xpath("//span[@class='content-span']");
+    public static By SessionInSeeDetails = By.xpath("(//span[@class='content-span'])[2]");
+    public static By SubjectInSeeDetails = By.xpath("(//span[@class='content-span'])[3]");
+
 
 
 
@@ -226,7 +241,7 @@ public class CustomerSupport extends BasePage{
     }
 
     public boolean verifyTicketHistoryListTitle() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         waitforPresence(TicketsHistory);
         String title = driver.findElement(TicketsHistory).getText();
         System.out.println(title);
@@ -238,6 +253,94 @@ public class CustomerSupport extends BasePage{
             System.out.println("Ticket History title is not showing");
             return false;
         }
+    }
+
+    public boolean verifyTicketListDataMatchingWithDrawer(By listElement, By DrawerElement) throws InterruptedException {
+        Thread.sleep(3000);
+        waitforPresence(TicketsSeeDetails);
+        String TableName = driver.findElement(listElement).getText();
+        System.out.println(TableName);
+        click(TicketsSeeDetails);
+        Thread.sleep(1500);
+        waitforPresence(DrawerElement);
+        String DrawerName = driver.findElement(DrawerElement).getText();
+        if (TableName.equals(DrawerName)){
+            System.out.println("Ticket list data is matched with drawer data");
+            return true;
+        }
+        else {
+            System.out.println("Ticket list is not matched with drawer data");
+            return false;
+        }
+    }
+
+
+    public boolean verifySessionIdIsMatchingWithSeeDetailsSessionId() throws InterruptedException {
+        Thread.sleep(1500);
+        waitforPresence(SessionInList1);
+        String listSession = driver.findElement(SessionInList1).getText().replace("Session: ","");
+        System.out.println("Session in Ticket list: "+listSession);
+        click(TicketsSeeDetails);
+        waitforPresence(SessionInSeeDetails);
+        String DetailsSession = driver.findElement(SessionInSeeDetails).getText().replace("Session: ","");
+        System.out.println("Session in Details section: "+DetailsSession);
+        if (listSession.equals(DetailsSession)){
+            System.out.println("Session ID is showing correctly");
+            return true;
+        }
+        else {
+            System.out.println("Session ID is not showing correctly");
+            return false;
+        }
+    }
+
+    public boolean verifyTicketIsIncreasingTheListAfterCreatingANewTicket() throws InterruptedException {
+        waitforPresence(TicketsSeeDetails);
+        String Tickets = driver.findElement(TicketsHistory).getText().replaceAll("[^0-9]","");
+        int TicketNumberBesideHistory = Integer.parseInt(Tickets);
+        System.out.println("Tickets before creating a new ticket: "+TicketNumberBesideHistory);
+        int TicketsInTheList = driver.findElements(By.className("historyDetailsDiv")).size();
+        operation.ClickButton(CreateATicket,2000);
+        ticket.SelectOptionFromInputField(CategoryField,"Software Issue");
+        operation.writeInputText(CreateTicket.SubjectField,(prop.getProperty("TicketSubjectLessThanThirtyCharacter2")),1000);
+        operation.writeInputText(CreateTicket.DescriptionField,(prop.getProperty("ShortTicketDescription")),500);
+        operation.ClickButton(SubmitButton,2000);
+        waitforPresence(TicketsSeeDetails);
+        String TicketsAfter = driver.findElement(TicketsHistory).getText().replaceAll("[^0-9]","");
+        int TicketNumberBesideHistoryAfter = Integer.parseInt(TicketsAfter);
+        System.out.println("Tickets after creating a new ticket: "+TicketNumberBesideHistoryAfter);
+        int TicketsInTheListAfter = driver.findElements(By.className("historyDetailsDiv")).size();
+        int ExpectedTicketsBesideHistory = TicketNumberBesideHistory+1;
+        int ExpectedTicketInTheList = TicketsInTheList+1;
+        if (TicketNumberBesideHistoryAfter==ExpectedTicketsBesideHistory && TicketsInTheListAfter==ExpectedTicketInTheList){
+            System.out.println("Tickets count is correct after creating a new ticket");
+            return true;
+        }
+        else{
+            System.out.println("Tickets count is not correct after creating a new ticket");
+            return true;
+        }
+    }
+
+    public boolean verifyNewlyCreatedTicketDateAndTime(){
+        // Parse the date string into a LocalDateTime object
+        String dateStr = "05/05/23, 6:28 PM";
+        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("MM/dd/yy,h:mm a");
+        LocalDateTime dateTime = LocalDateTime.parse(dateStr, inputFormatter);
+
+        // Round the time to the nearest hour between 6 PM and 7 PM
+//        int hour = dateTime.getHour();
+//        if (hour < 6 || hour == 7) {
+//            dateTime = dateTime.withHour(7).withMinute(0).withSecond(0);
+//        } else {
+//            dateTime = dateTime.withHour(6).withMinute(0).withSecond(0);
+//        }
+
+        // Format the date string with the desired format
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("MM/dd/yy,h a");
+        String formattedDate = dateTime.format(outputFormatter);
+        System.out.println(formattedDate);
+        return true;
     }
 
 

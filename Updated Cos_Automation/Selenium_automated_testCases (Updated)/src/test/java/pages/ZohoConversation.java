@@ -26,6 +26,7 @@ public class ZohoConversation extends BasePage {
     public static By DrawerTicketDescriptionTitle = By.xpath("//span[@class='drawerInsideTitle'][contains(text(),'Ticket Description')]");
     public static By DrawerTicketDescription = By.xpath("//div[@class='singleThreadMsgContainer']");
     public static By DrawerZohoAdminReply = By.xpath("(//div[@class='singleThreadMsgContainer'])[2]");
+    public static By ZohoAdminName = By.xpath("(//span[@class='user-name'])[2]");
     public static By CreatedDateTitle = By.xpath("//span[normalize-space()='Created Date']");
     public static By PropertyNameTitle = By.xpath("//span[normalize-space()='Property Name']");
     public static By TicketTypeTitle = By.xpath("//span[normalize-space()='Ticket Type']");
@@ -47,6 +48,7 @@ public class ZohoConversation extends BasePage {
     public static By ZohoReplyButton = By.xpath("//button[@data-id='replyOption_Reply All']");
     public static By ZohoSendButton = By.xpath("//div[@data-title='Send']");
     public static By ZohoReplySpace = By.xpath("/html/body/div[1]");
+
 
 
 
@@ -106,7 +108,7 @@ public class ZohoConversation extends BasePage {
     }
 
     public boolean verifyTableDataMatchingWithDrawer(By tableElement, By DrawerElement) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(3500);
         waitforPresence(DetailsButton);
         String TableName = driver.findElement(tableElement).getText();
         System.out.println(TableName);
@@ -138,5 +140,24 @@ public class ZohoConversation extends BasePage {
 
     public void switchBackFromIFrameElementToDefault(){
         driver.switchTo().defaultContent();
+    }
+
+    public boolean verifyReplyFromZohoAdminInDetailsDrawer() throws InterruptedException {
+        Thread.sleep(2500);
+        waitforPresence(DrawerZohoAdminReply);
+        String reply = driver.findElement(DrawerZohoAdminReply).getText();
+        if (reply.contains(zohoAdminReplyText())){
+            System.out.println("Zoho admin reply is showing");
+            return true;
+        }
+        else{
+            System.out.println("Zoho admin reply is not showing");
+            return false;
+
+        }
+    }
+
+    public String EmailReplyRecievedInLog(){
+        return "Email reply received from Zoho Admin";
     }
 }

@@ -76,6 +76,7 @@ public class CreateTicket extends BasePage{
     public static By ReportProblem = By.xpath("//div[@class='reportProblemText']");
     public static By ZohoSign = By.xpath("//div[@class='zgh-utilities']//a[@class='zgh-login'][normalize-space()='SIGN IN']");
     public static By FirstTicket = By.xpath("//*[@id=\"react\"]/desk/div[1]/div/div/section/section/article/div/div/div/div[2]/div/div/div/div[2]/div/div/div[3]/div/div[1]/div/div/div/a");
+    public static By FirstTicketClickable = By.xpath("//div[@class='zd-modulelistnew-subjectInnerEle']");
     public static By ReportAProblemDisabled = By.xpath("//li[@class='ant-dropdown-menu-item ant-dropdown-menu-item-disabled ant-dropdown-menu-item-only-child']");
 
 

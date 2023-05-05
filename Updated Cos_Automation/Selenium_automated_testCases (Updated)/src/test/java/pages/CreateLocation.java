@@ -18,11 +18,11 @@ public class CreateLocation extends BasePage {
     CreateCompany createCompany=new CreateCompany(driver);
     RandomData rdata= new RandomData();
 
-    By createlocationbtn = By.xpath("//button[contains(.,'Save Location')]");
+    By createlocationbtn = By.xpath("//button[contains(.,'Create New Location')]");
     By selectcompanydropdown = By.xpath("(//input[contains(@class,'ant-select-selection-search-input')])[1]");
     By selectpropertydropdown = By.xpath("(//input[contains(@class,'ant-select-selection-search-input')])[2]");
     By locationtitle = By.xpath("//textarea[@placeholder='Location Title']");
-    By landmark = By.xpath("//textarea[@placeholder='Location Landmark']");
+    By landmark = By.xpath("//textarea[@placeholder='Location landmark']");
     By locationmsg = By.xpath("//div[@class='locInfoText'][contains(.,'Customers will see this title when searching for a charging station')]");
     By locationlandmarkmsg = By.xpath("//div[@class='locInfoText'][contains(.,'For example, The location is just south of the front entrance. Etc. Use this area to give the first time users more context.')]");
     By locationcoordinatemsg = By.xpath("//div[@class='drawerInputTitle'][contains(.,'Confirm your location coordinates by using map')]");
@@ -155,7 +155,7 @@ public class CreateLocation extends BasePage {
     }
 
     public boolean clickOnUnknownPropertyName() throws InterruptedException {
-        //    Thread.sleep(3000);
+        Thread.sleep(3000);
         waitelementtobedisplayed(unknownpropertyname);
         waitelemtclickable(unknownpropertyname);
         click(unknownpropertyname);
@@ -339,8 +339,8 @@ public class CreateLocation extends BasePage {
 
     public boolean verifyLocationlandmarkFieldisShowing() throws InterruptedException {
         Thread.sleep(2000);
-        //waitVisibility(landmark);
-        if (driver.findElement(By.xpath("//textarea[@placeholder='Location Landmark']")).isDisplayed()) {
+        waitVisibility(landmark);
+        if (driver.findElement(By.xpath("//textarea[@placeholder='Location landmark']")).isDisplayed()) {
             System.out.println("Verification Successful - Location Landmark Field is Showing");
             return true;
         } else {
@@ -389,7 +389,7 @@ public class CreateLocation extends BasePage {
     }
 
     public boolean verifyUnassignedChargerSectionisShowing() {
-        //  waitVisibility(landmark);
+          waitVisibility(landmark);
         if (driver.findElement(By.xpath("//span[contains(.,'Unassigned Chargers (0)')]")).isDisplayed()) {
             System.out.println("Verification Successful - Unassigned Chargers section is Showing");
             return true;
@@ -414,7 +414,7 @@ public class CreateLocation extends BasePage {
 
     public boolean verifyCreateLocationButtonisShowing() {
         waitVisibility(savelocationbtn);
-        WebElement savelocation= driver.findElement(By.xpath("//button[contains(.,'Create Location')]"));
+        WebElement savelocation= driver.findElement(By.xpath("//button[contains(.,'Save Location')]"));
         if(savelocation.isDisplayed())
         {
             System.out.println("Save Location Button has displayed");

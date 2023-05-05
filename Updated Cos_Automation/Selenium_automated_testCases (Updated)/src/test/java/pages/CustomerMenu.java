@@ -9,4 +9,5 @@ public class CustomerMenu extends BasePage{
     }
 
     public static By ChargingHistoryFromMenu = By.xpath("//a[@href='/customer/charging-history']");
+    public static By FavoriteFromMenu = By.xpath("//a[@href='/customer/favorite']");
 }
