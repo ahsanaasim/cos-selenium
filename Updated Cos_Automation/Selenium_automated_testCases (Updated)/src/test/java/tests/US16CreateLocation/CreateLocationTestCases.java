@@ -815,7 +815,7 @@ public class CreateLocationTestCases extends BaseTest {
         Assert.assertTrue(properties.writeCompnayName(prop.getProperty("UnknownCompany")));
         Assert.assertTrue(properties.clickonUnknownCompanyName());
         Assert.assertTrue(createLocation.clickonPropertyDropdown());
-        Assert.assertTrue(createLocation.writePropertyName(prop.getProperty("Unknown Property")));
+        Assert.assertTrue(createLocation.writePropertyName(prop.getProperty("UnknownProperty")));
         Assert.assertTrue(createLocation.clickOnUnknownPropertyName());
         Assert.assertTrue(createLocation.enterLocationTitle(prop.getProperty("UnknownLocation")));
         Assert.assertTrue(createLocation.enterLocationLandmark(prop.getProperty("LocationLandmark")));
@@ -858,6 +858,7 @@ public class CreateLocationTestCases extends BaseTest {
         Assert.assertTrue(createLocation.clickSaveLocationButton());
         Assert.assertTrue(createLocation.verifyCreateNewLocationDrawerHasClosed());*/
         Assert.assertTrue(createLocation.clickonLocationSearchbar());
+        Assert.assertTrue(createLocation.clickOnClearSearchField());
         Assert.assertTrue(createLocation.WriteLcationName(prop.getProperty("UnknownLocation")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
         Assert.assertTrue(createLocation.verifyLocationTitleColumnisShowingonLocationsTable());

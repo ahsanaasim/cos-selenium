@@ -37,6 +37,7 @@ public class CustomerSupport extends BasePage{
     public static By SelectASessionPlaceholder = By.xpath("(//span[@class='ant-select-selection-placeholder'])");
     public static By FirstCreatedTicket = By.xpath("//div[@class='locationName']");
     public static By OpenStatus1 = By.xpath("//div[@class='openText'][contains(text(),'Open')]");
+    public static By ClosedStatus1 = By.xpath("//div[@class='closedText'][contains(text(),'Closed')]");
     public static By TicketsHistory = By.xpath("//div[@class='mainTitle']");
     public static By FirstSessionFromDropdown = By.xpath("(//div[@class='ant-select-item-option-content'])[4]");
     public static By CategoryRequiredMsg = By.xpath("//div[@class='ant-form-item-explain-error'][contains(text(),'Category field is required')]");
@@ -54,6 +55,7 @@ public class CustomerSupport extends BasePage{
     public static By TicketCategoryInSeeDetails = By.xpath("//span[@class='content-span']");
     public static By SessionInSeeDetails = By.xpath("(//span[@class='content-span'])[2]");
     public static By SubjectInSeeDetails = By.xpath("(//span[@class='content-span'])[3]");
+    public static By MsgUnderTitle = By.xpath("//div[@class='ant-alert-message']");
 
 
 
@@ -67,6 +69,10 @@ public class CustomerSupport extends BasePage{
     public void GoToCustomerSupportPage() throws InterruptedException {
         Thread.sleep(2000);
         driver.get("https://test-app.chargeonsite.com/customer/customer-support");
+    }
+
+    public String MsgUnderTitleInTicketDetails(){
+        return "Please be advised that you will receive email notifications for this support ticket conversation. You may also reply to the support team through your email.";
     }
 
 
@@ -322,25 +328,99 @@ public class CustomerSupport extends BasePage{
         }
     }
 
-    public boolean verifyNewlyCreatedTicketDateAndTime(){
+    public boolean verifyNewlyCreatedTicketDateAndTime() throws InterruptedException {
+        operation.ClickButton(CreateATicket,2000);
+        ticket.SelectOptionFromInputField(CategoryField,"Billing");
+        operation.writeInputText(CreateTicket.SubjectField,(prop.getProperty("TicketSubjectForBilling")),1000);
+        operation.writeInputText(CreateTicket.DescriptionField,(prop.getProperty("TicketDescriptionForBillingIssue")),500);
+        operation.ClickButton(SubmitButton,2000);
         // Parse the date string into a LocalDateTime object
-        String dateStr = "05/05/23, 6:28 PM";
-        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("MM/dd/yy,h:mm a");
-        LocalDateTime dateTime = LocalDateTime.parse(dateStr, inputFormatter);
+        LocalDateTime now = LocalDateTime.now();
+        // Create a formatter with the desired format
+        DateTimeFormatter patternFormatter = DateTimeFormatter.ofPattern("MM/dd/yy, ha");
+        // Format the date and time using the formatter
+        String buttonClickedTime = now.format(patternFormatter);
+        // Output the formatted date and time
+        System.out.println("Button clicked on: "+buttonClickedTime);
+        waitforPresence(TicketsSeeDetails);
+        String listSession1 = driver.findElement(SessionInList1).getText().replace("Session: ","");
+        System.out.println("Latest Ticket's session in Ticket list: "+listSession1);
+        if (buttonClickedTime.equals(listSession1)){
+            System.out.println("Date and time of created ticket is showing correctly");
+            return true;
+        }
+        else {
+            System.out.println("Date and time of created ticket is showing correctly");
+            return false;
 
-        // Round the time to the nearest hour between 6 PM and 7 PM
-//        int hour = dateTime.getHour();
-//        if (hour < 6 || hour == 7) {
-//            dateTime = dateTime.withHour(7).withMinute(0).withSecond(0);
-//        } else {
-//            dateTime = dateTime.withHour(6).withMinute(0).withSecond(0);
-//        }
+        }
 
-        // Format the date string with the desired format
-        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("MM/dd/yy,h a");
-        String formattedDate = dateTime.format(outputFormatter);
-        System.out.println(formattedDate);
-        return true;
+    }
+
+
+    public boolean verifyOpenStatusForNewlyCreatedTicket() throws InterruptedException {
+        operation.ClickButton(CreateATicket,3000);
+        ticket.SelectOptionFromInputField(CategoryField,"Charging Issue");
+        click(SelectASessionField);
+        click(FirstSessionFromDropdown);
+        operation.writeInputText(CreateTicket.SubjectField,"Charger gets heated too much",1000);
+        operation.writeInputText(CreateTicket.DescriptionField,(prop.getProperty("Paragraph")),500);
+        operation.ClickButton(SubmitButton,2000);
+        waitforPresence(OpenStatus1);
+        String firstTicketStatus = driver.findElement(By.xpath("//div[@class='availableDiv flex items-center']")).getText();
+        System.out.println(firstTicketStatus);
+        if (firstTicketStatus.contains("Open")){
+            System.out.println("Status of Latest created ticket is Open");
+            return true;
+        }
+        else {
+            System.out.println("Status of Latest created ticket is not Open");
+            return false;
+        }
+
+    }
+
+
+    public boolean verifyTicketCountInEmptyView(){
+        waitforPresence(TicketsHistory);
+        String Tickets = driver.findElement(TicketsHistory).getText().replaceAll("[^0-9]","");
+        String expected = "0";
+        if (Tickets.equals(expected)){
+            System.out.println("Ticket count is showing zero in empty view");
+            return true;
+        }
+        else {
+            System.out.println("Ticket count is not showing zero in empty view");
+            return false;
+        }
+    }
+
+    public boolean verifyStatusOfFirstTicketInListIsOpen(){
+        waitforPresence(SessionInList1);
+        String firstTicketStatus = driver.findElement(By.xpath("//div[@class='availableDiv flex items-center']")).getText();
+        System.out.println(firstTicketStatus);
+        if (firstTicketStatus.contains("Open")){
+            System.out.println("Status of Latest created ticket is Open");
+            return true;
+        }
+        else {
+            System.out.println("Status of Latest created ticket is not Open");
+            return false;
+        }
+    }
+
+    public boolean verifyStatusOfFirstTicketInListIsClosed(){
+        waitforPresence(SessionInList1);
+        String firstTicketStatus = driver.findElement(By.xpath("//div[@class='availableDiv flex items-center']")).getText();
+        System.out.println(firstTicketStatus);
+        if (firstTicketStatus.contains("Closed")){
+            System.out.println("Status of Latest created ticket is Closed");
+            return true;
+        }
+        else {
+            System.out.println("Status of Latest created ticket is not Closed");
+            return false;
+        }
     }
 
 

@@ -44,6 +44,7 @@ public class CreateLocation extends BasePage {
     By unknownpropertyname = By.xpath("//div[@class='ant-select-item-option-content'][contains(.,'Unknown Property')]");
     By editbtn = By.xpath("(//span[contains(.,'Edit')])[1]");
     By DrawerCreateLocation = By.xpath("//span[normalize-space()='Save Location']");
+    By ClearSearchContent = By.xpath("//span[@class='anticon anticon-close-circle']");
 
 
     public void GoToLocationPage(){
@@ -92,6 +93,15 @@ public class CreateLocation extends BasePage {
         waitVisibility(searchbar);
         waitelemtclickable(searchbar);
         click(searchbar);
+        return true;
+    }
+    public boolean clickOnClearSearchField() throws InterruptedException {
+        createCompany.waitForSpinner();
+        //Thread.sleep(3000);
+        waitelementtobedisplayed(ClearSearchContent);
+        waitVisibility(ClearSearchContent);
+        waitelemtclickable(ClearSearchContent);
+        click(ClearSearchContent);
         return true;
     }
 
@@ -568,7 +578,7 @@ public class CreateLocation extends BasePage {
     }
 
     public boolean verifyLocationTitleColumnisShowingonLocationsTable() {
-        if( driver.findElement(By.xpath("//th[@class='ant-table-cell'][contains(.,'Location Title')]")).isDisplayed())
+        if( driver.findElement(By.xpath("//th[@class='ant-table-cell ant-table-cell-ellipsis'][contains(.,'Location Title')]")).isDisplayed())
         {
             System.out.println("Location Title is Showing on Locations Page");
             return true;

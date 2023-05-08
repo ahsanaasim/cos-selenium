@@ -272,10 +272,10 @@ public class SearchLocation extends BasePage{
         // add Incognito parameter
         options.addArguments("--incognito");
         // DesiredCapabilities object
-        DesiredCapabilities c = new DesiredCapabilities();
+//        DesiredCapabilities c = new DesiredCapabilities();
 //        DesiredCapabilities c = DesiredCapabilities.chrome();
         //set capability to browser
-        c.setCapability(ChromeOptions.CAPABILITY, options);
+//        c.setCapability(ChromeOptions.CAPABILITY, options);
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.get(prop.getProperty("LocationpageURL"));

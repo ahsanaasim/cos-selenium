@@ -6,6 +6,7 @@ import pages.*;
 import tests.BaseTest;
 import tests.US1AdminLogin.TestParameters;
 
+import java.io.IOException;
 import java.util.Properties;
 
 public class SupportTicketListTestCases extends BaseTest {
@@ -103,6 +104,23 @@ public class SupportTicketListTestCases extends BaseTest {
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(2000,CustomerSupport.SeeDetailsPageTitle));
 
     }
+    @Test(priority = 9)//Done
+    @TestParameters(testCaseId = {"TC-12"})
+    public void TC_12_CheckAlertMessageInTicketDetails() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateTicket ticket = new CreateTicket(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CustomerSupport customerSupport = new CustomerSupport(driver);
+//        customerSupport.GoToCustomerLoginPage();
+//        operation.writeInputText(CustomerLogin.EmailField,"mateg96752@saeoil.com",2000);
+//        operation.writeInputText(CustomerLogin.PasswordField,"EitaiPassword10",2000);
+//        operation.ClickButton(CustomerLogin.CustomerLoginButton,1000);
+        customerSupport.GoToCustomerSupportPage();
+        operation.ClickButton(CustomerSupport.TicketsSeeDetails,2000);
+        Assert.assertTrue(ticket.verifyTextMatching(4000,CustomerSupport.MsgUnderTitle,customerSupport.MsgUnderTitleInTicketDetails()));
+
+    }
 
     @Test(priority = 10)//Done
     @TestParameters(testCaseId = {"TC-13"})
@@ -154,8 +172,8 @@ public class SupportTicketListTestCases extends BaseTest {
     }
 
     @Test(priority = 13)//Done
-    @TestParameters(testCaseId = {"TC-17"})
-    public void TC_17_CheckTicketsCountAfterCreatingANewTicketFromSupportPage() throws InterruptedException {
+    @TestParameters(testCaseId = {"TC-17,18"})
+    public void TC_17_18_CheckTicketsCountAfterCreatingANewTicketFromSupportPage() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateTicket ticket = new CreateTicket(driver);
@@ -170,40 +188,147 @@ public class SupportTicketListTestCases extends BaseTest {
 
     }
 
+//    @Test(priority = 14)//Done
+//    @TestParameters(testCaseId = {"TC-18"})
+//    public void TC_18_CheckTicketsCountAfterCreatingANewTicketFromSupportPage() throws InterruptedException {
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard = new Dashboard(driver);
+//        CreateTicket ticket = new CreateTicket(driver);
+//        CreateCharger operation = new CreateCharger(driver);
+//        CustomerSupport customerSupport = new CustomerSupport(driver);
+////        customerSupport.GoToCustomerLoginPage();
+////        operation.writeInputText(CustomerLogin.EmailField,"mateg96752@saeoil.com",2000);
+////        operation.writeInputText(CustomerLogin.PasswordField,"EitaiPassword10",2000);
+////        operation.ClickButton(CustomerLogin.CustomerLoginButton,1000);
+//        customerSupport.GoToCustomerSupportPage();
+//        Assert.assertTrue(customerSupport.verifyTicketIsIncreasingTheListAfterCreatingANewTicket());
+//
+//    }
+
     @Test(priority = 14)//Done
-    @TestParameters(testCaseId = {"TC-18"})
-    public void TC_18_CheckTicketsCountAfterCreatingANewTicketFromSupportPage() throws InterruptedException {
+    @TestParameters(testCaseId = {"TC-8,20"})
+    public void TC_8_20_CheckTimeAndDateAfterCreatingANewTicketFromSupportPage() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateTicket ticket = new CreateTicket(driver);
         CreateCharger operation = new CreateCharger(driver);
         CustomerSupport customerSupport = new CustomerSupport(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
 //        customerSupport.GoToCustomerLoginPage();
-//        operation.writeInputText(CustomerLogin.EmailField,"mateg96752@saeoil.com",2000);
-//        operation.writeInputText(CustomerLogin.PasswordField,"EitaiPassword10",2000);
-//        operation.ClickButton(CustomerLogin.CustomerLoginButton,1000);
-        customerSupport.GoToCustomerSupportPage();
-        Assert.assertTrue(customerSupport.verifyTicketIsIncreasingTheListAfterCreatingANewTicket());
-
-    }
-
-    @Test(priority = 14)//Done
-    @TestParameters(testCaseId = {"TC-19"})
-    public void TC_19_CheckTicketsCountAfterCreatingANewTicketFromSupportPage() throws InterruptedException {
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard = new Dashboard(driver);
-        CreateTicket ticket = new CreateTicket(driver);
-        CreateCharger operation = new CreateCharger(driver);
-        CustomerSupport customerSupport = new CustomerSupport(driver);
-//        customerSupport.GoToCustomerLoginPage();
-//        operation.writeInputText(CustomerLogin.EmailField,"mateg96752@saeoil.com",2000);
-//        operation.writeInputText(CustomerLogin.PasswordField,"EitaiPassword10",2000);
-//        operation.ClickButton(CustomerLogin.CustomerLoginButton,1000);
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         customerSupport.GoToCustomerSupportPage();
         Assert.assertTrue(customerSupport.verifyNewlyCreatedTicketDateAndTime());
 
     }
 
+    @Test(priority = 15)//Done
+    @TestParameters(testCaseId = {"TC-5,19"})
+    public void TC_5_19_CheckOpenStatusForNewlyCreatedTicketFromSupportPage() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateTicket ticket = new CreateTicket(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CustomerSupport customerSupport = new CustomerSupport(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+//        customerSupport.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        customerSupport.GoToCustomerSupportPage();
+        Assert.assertTrue(customerSupport.verifyOpenStatusForNewlyCreatedTicket());
+
+    }
+    @Test(priority = 15)//Done
+    @TestParameters(testCaseId = {"TC-23_46"})
+    public void TC_23_46_checkTheListDetailsAfterChangingTheStatusToClosed() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateTicket ticket = new CreateTicket(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CustomerSupport customerSupport = new CustomerSupport(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+//        customerSupport.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+//        customerSupport.GoToCustomerSupportPage();
+        ticket.NewTabOpenAndSwitchToNewTab(1);
+        ticket.GoToWebsite("https://www.zoho.com/desk/");
+        ticket.click(CreateTicket.ZohoSign);
+        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
+        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
+        operation.writeInputText(UpdateLedgerAccounts.ZohoPasswordField,"WorkLOAD@10@",2000);
+        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,5000);
+        operation.ClickButton(TicketList.ZohoToastMessageCancel,15000);
+        operation.ClickButton(TicketList.ZohoOpenStatus,5000);
+        operation.ClickButton(TicketList.ZohoClosedStatus,2000);
+        ticket.SwitchToTab(0);
+        Thread.sleep(5000);
+        customerSupport.GoToCustomerSupportPage();
+//        Assert.assertTrue(customerSupport.verifyAnElementDisplayedOrNot(2500,CustomerSupport.ClosedStatus1));
+        Assert.assertTrue(customerSupport.verifyStatusOfFirstTicketInListIsClosed());
+
+
+    }
+
+    @Test(priority = 16)//Done
+    @TestParameters(testCaseId = {"TC-47"})
+    public void TC_47_checkTheListDetailsAfterChangingTheStatusToOpenFromZohoDesk() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateTicket ticket = new CreateTicket(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CustomerSupport customerSupport = new CustomerSupport(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+//        customerSupport.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+//        customerSupport.GoToCustomerSupportPage();
+        ticket.SwitchToTab(1);
+        operation.ClickButton(TicketList.ZohoClosedStatus,2000);
+        operation.ClickButton(TicketList.ZohoOpenStatus,3000);
+        Thread.sleep(2000);
+        ticket.SwitchToTab(0);
+        Thread.sleep(6500);
+        customerSupport.GoToCustomerSupportPage();
+//        Assert.assertTrue(customerSupport.verifyAnElementDisplayedOrNot(1000,CustomerSupport.OpenStatus1));
+        Assert.assertTrue(customerSupport.verifyStatusOfFirstTicketInListIsOpen());
+
+    }
+
+    @Test(priority = 18)//Done
+    @TestParameters(testCaseId = {"TC-24"})
+    public void TC_24_CheckTheEmptyViewWhenNoTicketIsCreated() throws InterruptedException, IOException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateTicket ticket = new CreateTicket(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CustomerSupport customerSupport = new CustomerSupport(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateProperty property = new CreateProperty(driver);
+//        customerSupport.GoToCustomerLoginPage();
+        customerLogin.LogoutFromCustomerAccount();
+        customerLogin.LoginToACustomerAccount((prop.getProperty("CustomerWithNoTicket")),"EitaiPassword10");
+        operation.ClickButton(CustomerSupport.Menu,2000);
+        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
+        customerSupport.verifyAnElementDisplayedOrNot(1000,CustomerSupport.NoDataTable);
+        customerSupport.verifyAnElementDisplayedOrNot(1000,CustomerSupport.NoTicketText);
+
+    }
+
+    @Test(priority = 19)//Done
+    @TestParameters(testCaseId = {"TC-25"})
+    public void TC_25_CheckTicketCountInEmptyView() throws InterruptedException, IOException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CustomerSupport customerSupport = new CustomerSupport(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateProperty property = new CreateProperty(driver);
+//        customerSupport.GoToCustomerLoginPage();
+//        customerLogin.LogoutFromCustomerAccount();
+//        customerLogin.LoginToACustomerAccount((prop.getProperty("CustomerWithNoTicket")),"EitaiPassword10");
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+//        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
+        customerSupport.verifyTicketCountInEmptyView();
+
+    }
 
 
 }
+
