@@ -45,6 +45,7 @@ public class CreateLocation extends BasePage {
     By editbtn = By.xpath("(//span[contains(.,'Edit')])[1]");
     By DrawerCreateLocation = By.xpath("//span[normalize-space()='Save Location']");
     By ClearSearchContent = By.xpath("//span[@class='anticon anticon-close-circle']");
+    By ConfirmLocationAlert = By.xpath("//span[contains(.,'Confirm the location first')]");
 
 
     public void GoToLocationPage(){

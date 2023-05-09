@@ -39,7 +39,7 @@ public class US_21_SearchLocantioByCompany extends BaseTest {
 
     @Test(priority = 24)//Done
     @TestParameters(testCaseId = {"TC-42"})
-    public void TC_42_VerifycompanynameIsShowinginsuggestionwhenadminentercompnaynameonadvancefileter() throws InterruptedException, IOException {
+    public void TC_42_VerifyCompanyNameIsShowingInSuggestionWhenAdminEnterCompanyNameOnAdvanceFilter() throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         SearchLocation searchLocation=new SearchLocation(driver);
@@ -55,7 +55,7 @@ public class US_21_SearchLocantioByCompany extends BaseTest {
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
-    //    Assert.assertTrue(searchLocation.writeCompnayName(prop.getProperty("CompanyName1")));
+//        Assert.assertTrue(searchLocation.writeCompnayName(prop.getProperty("CompanyName1")));
         Assert.assertTrue(searchLocation.verifCompnayNameisShowingonAdvnaceFilter());
 
 
@@ -79,7 +79,7 @@ public class US_21_SearchLocantioByCompany extends BaseTest {
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
-        Assert.assertTrue(searchLocation. selectCompnayNameonAdvanceFilter());
+        Assert.assertTrue(searchLocation.selectCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
         Assert.assertTrue(searchandfilter.verifyAdvanceFilterDrawerHasClosed());
 

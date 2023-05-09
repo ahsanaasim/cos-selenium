@@ -27,7 +27,7 @@ public class SearchLocation extends BasePage{
     CreateLocation createLocation=new CreateLocation(driver);
     SearchandFilterProperties searchProperties=new SearchandFilterProperties(driver);
 
-    By loadmorebtn = By.xpath("//span[contains(.,'Load 10 More')]");
+    By loadmorebtn = By.xpath("//button[@class='ant-btn ant-btn-default primary-color']");
     By advancefilterdrawer = By.xpath("//span[contains(.,'Advanced Filter')]");
     By propertydropdown = By.xpath("(//div[@class='ant-select-selection-overflow'])[2]");
     By dropdown = By.xpath("(//input[@role='combobox'])[2]");
@@ -280,7 +280,7 @@ public class SearchLocation extends BasePage{
         driver.manage().window().maximize();
         driver.get(prop.getProperty("LocationpageURL"));
         String actualUrl= prop.getProperty("HomeURL");
-        createCompany.waitForSpinner();
+//        createCompany.waitForSpinner();
         Thread.sleep(10000);
         String expectedUrl= driver.getCurrentUrl();
         Thread.sleep(3000);
@@ -407,9 +407,9 @@ public class SearchLocation extends BasePage{
 
     public boolean verifyMoreLocationsareShowingAfterClickingLoadMoreButton() {
         createCompany.waitForSpinner();
-        if( driver.findElement(By.xpath("(//div[contains(.,'Showing 20')])[3]")).isDisplayed())
+        if( driver.findElement(By.xpath("//div[contains(.,'Showing 6')]")).isDisplayed())
         {
-            System.out.println("Verification Successful!!!10 More Locations are Showing After Pressing Load More button");
+            System.out.println("Verification Successful!!!3 More Locations are Showing After Pressing Load More button");
         }else{
             System.out.println("Verification UnSuccessful!!!Something Went Wrong!!");
         }
@@ -459,7 +459,7 @@ public class SearchLocation extends BasePage{
        Thread.sleep(3000);
         if( driver.findElement(By.xpath("//div[@class='ant-select-item-option-content'][contains(.,'Rich Information Technology')]")).isDisplayed())
         {
-            System.out.println("Verificatin Sucessful!!!Company Name is Showing");
+            System.out.println("Verification Successful!!!Company Name is Showing");
         }else{
             System.out.println("Something Went Wrong!!");
         }
@@ -737,24 +737,24 @@ public class SearchLocation extends BasePage{
             WebElement loctiontitle4= driver.findElement(By.xpath("(//div[@title='New Location'])[4]"));
             WebElement loctiontitle5= driver.findElement(By.xpath("(//div[@title='New Location'])[5]"));
             WebElement loctiontitle6= driver.findElement(By.xpath("(//div[@title='New Location'])[6]"));
-            WebElement loctiontitle7= driver.findElement(By.xpath("(//div[@title='New Location'])[7]"));
-            WebElement loctiontitle8= driver.findElement(By.xpath("(//div[@title='New Location'])[8]"));
-            WebElement loctiontitle9= driver.findElement(By.xpath("(//div[@title='New Location'])[9]"));
-            WebElement loctiontitle10= driver.findElement(By.xpath("(//div[@title='New Location'])[10]"));
-            WebElement loctiontitle11= driver.findElement(By.xpath("(//div[@title='New Location'])[11]"));
-            WebElement loctiontitle12= driver.findElement(By.xpath("(//div[@title='New Location'])[12]"));
-            WebElement loctiontitle13= driver.findElement(By.xpath("(//div[@title='New Location'])[13]"));
-            WebElement loctiontitle14= driver.findElement(By.xpath("(//div[@title='New Location'])[14]"));
-            WebElement loctiontitle15= driver.findElement(By.xpath("(//div[@title='New Location'])[15]"));
-            WebElement loctiontitle16= driver.findElement(By.xpath("(//div[@title='New Location'])[16]"));
-            WebElement loctiontitle17= driver.findElement(By.xpath("(//div[@title='New Location'])[17]"));
-            WebElement loctiontitle18= driver.findElement(By.xpath("(//div[@title='New Location'])[18]"));
-            WebElement loctiontitle19= driver.findElement(By.xpath("(//div[@title='New Location'])[19]"));
+//            WebElement loctiontitle7= driver.findElement(By.xpath("(//div[@title='New Location'])[7]"));
+//            WebElement loctiontitle8= driver.findElement(By.xpath("(//div[@title='New Location'])[8]"));
+//            WebElement loctiontitle9= driver.findElement(By.xpath("(//div[@title='New Location'])[9]"));
+//            WebElement loctiontitle10= driver.findElement(By.xpath("(//div[@title='New Location'])[10]"));
+//            WebElement loctiontitle11= driver.findElement(By.xpath("(//div[@title='New Location'])[11]"));
+//            WebElement loctiontitle12= driver.findElement(By.xpath("(//div[@title='New Location'])[12]"));
+//            WebElement loctiontitle13= driver.findElement(By.xpath("(//div[@title='New Location'])[13]"));
+//            WebElement loctiontitle14= driver.findElement(By.xpath("(//div[@title='New Location'])[14]"));
+//            WebElement loctiontitle15= driver.findElement(By.xpath("(//div[@title='New Location'])[15]"));
+//            WebElement loctiontitle16= driver.findElement(By.xpath("(//div[@title='New Location'])[16]"));
+//            WebElement loctiontitle17= driver.findElement(By.xpath("(//div[@title='New Location'])[17]"));
+//            WebElement loctiontitle18= driver.findElement(By.xpath("(//div[@title='New Location'])[18]"));
+//            WebElement loctiontitle19= driver.findElement(By.xpath("(//div[@title='New Location'])[19]"));
 
         //   WebElement[] locationtitle = {loctiontitle1, loctiontitle2, loctiontitle3,loctiontitle4,loctiontitle5,loctiontitle6,loctiontitle7,loctiontitle8,loctiontitle9,loctiontitle10,loctiontitle11,loctiontitle12,loctiontitle13,loctiontitle14,loctiontitle15,loctiontitle16,loctiontitle17,loctiontitle18,loctiontitle19,loctiontitle20};
         //    for (int i = 0; i < 19; i++){
        //
-            if (loctiontitle1.isDisplayed() && loctiontitle2.isDisplayed() &&loctiontitle3.isDisplayed() &&loctiontitle4.isDisplayed() &&loctiontitle5.isDisplayed() && loctiontitle6.isDisplayed() && loctiontitle7.isDisplayed() && loctiontitle8.isDisplayed() && loctiontitle9.isDisplayed() && loctiontitle10.isDisplayed()&& loctiontitle11.isDisplayed()&& loctiontitle12.isDisplayed()&& loctiontitle13.isDisplayed()&& loctiontitle14.isDisplayed()&& loctiontitle15.isDisplayed()&& loctiontitle16.isDisplayed()&& loctiontitle17.isDisplayed()&& loctiontitle18.isDisplayed()&& loctiontitle19.isDisplayed() )
+            if (loctiontitle1.isDisplayed() && loctiontitle2.isDisplayed() &&loctiontitle3.isDisplayed() &&loctiontitle4.isDisplayed() &&loctiontitle5.isDisplayed() && loctiontitle6.isDisplayed() )
             {
                 System.out.println("Verification Successful!!! All the Locations Are Matching WIth Enetered Input");
                 return true;

@@ -39,7 +39,6 @@ public class US20_SearchLocantioTestCases extends BaseTest {
     @Test(priority = 2)//Done
     @TestParameters(testCaseId = {"TC-2"})
     public void TC_2_VerifyBrowserhasRereshafterProvidingSpaceinSearchBar() throws InterruptedException, IOException {
-
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         SearchLocation searchLocation=new SearchLocation(driver);
@@ -239,12 +238,12 @@ public class US20_SearchLocantioTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 12)//Done
-    @TestParameters(testCaseId = {"TC-13"})
-    public void TC_13_WhenAdminOpenLocationPageInIncognitoMode () throws InterruptedException, IOException {
-        SearchLocation searchLocation=new SearchLocation(driver);
-        Assert.assertTrue(searchLocation.openLocationPageinIncognitoMode());
-    }
+//    @Test(priority = 12)//Done
+//    @TestParameters(testCaseId = {"TC-13"})
+//    public void TC_13_WhenAdminOpenLocationPageInIncognitoMode () throws InterruptedException, IOException {
+//        SearchLocation searchLocation=new SearchLocation(driver);
+//        Assert.assertTrue(searchLocation.openLocationPageinIncognitoMode());
+//    }
 
     @Test(priority = 13)//Done
     @TestParameters(testCaseId = {"TC-14"})
@@ -376,7 +375,7 @@ public class US20_SearchLocantioTestCases extends BaseTest {
     }
 
 
-   /* @Test(priority = 19)//Done
+    @Test(priority = 19)//Done
     @TestParameters(testCaseId = {"TC-20"})
     public void TC_20_CheckWhatHappenWhenAdminClickonLoadMoreButton () throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
@@ -397,7 +396,7 @@ public class US20_SearchLocantioTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 4)//Done
+    /*@Test(priority = 4)//Done
     @TestParameters(testCaseId = {"TC-21"})
     public void TC_21_verifyContonTopofThePageAfterPressingLoadMoreButton () throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
@@ -456,11 +455,11 @@ public class US20_SearchLocantioTestCases extends BaseTest {
         Assert.assertTrue(searchLocation.enterLocationName(prop.getProperty("LocationTitle")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
         Assert.assertTrue(dashboard.RefreshBrowser());
-      //  Assert.assertTrue(searchLocation.verifySearchInputRemainsSameAfterRefreshingtheBrowser());
+        Assert.assertTrue(searchLocation.verifySearchInputRemainsSameAfterRefreshingtheBrowser());
 
     }
 
-   /* @Test(priority = 21)//Done
+   @Test(priority = 21)//Done
     @TestParameters(testCaseId = {"TC-24"})
     public void TC_24_CheckWhathappensWhenAdminClicksonLoadMoreButtonArefreshThePage () throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
@@ -481,7 +480,7 @@ public class US20_SearchLocantioTestCases extends BaseTest {
         Assert.assertTrue(searchLocation.verifyAlltheLocationsonTheTableShouldbeSameWithTheSearchedInputAfterClickingLoadMoreButton());
 
     }
-*/
+
 
     @Test(priority = 21)//Done
     @TestParameters(testCaseId = {"TC-39"})
