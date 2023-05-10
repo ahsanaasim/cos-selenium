@@ -29,6 +29,7 @@ public class SearchLocation extends BasePage{
 
     By loadmorebtn = By.xpath("//button[@class='ant-btn ant-btn-default primary-color']");
     By advancefilterdrawer = By.xpath("//span[contains(.,'Advanced Filter')]");
+    By companyFieldInAdvanceFilter = By.xpath("//input[@class='ant-select-selection-search-input']");
     By propertydropdown = By.xpath("(//div[@class='ant-select-selection-overflow'])[2]");
     By dropdown = By.xpath("(//input[@role='combobox'])[2]");
     By zipdropdown = By.xpath("(//div[@class='ant-select-selection-overflow'])[3]");
@@ -234,6 +235,25 @@ public class SearchLocation extends BasePage{
        //waitelemtclickable(dropdown);
         //waitVisibility(dropdown);
         writeText(dropdown,"East Avenue");
+        //new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.id("(//input[@role='combobox'])[2]"))).sendKeys(prop.getProperty("East Avenue"));
+        return true;
+    }
+
+    public boolean writeCompanyName() throws InterruptedException {
+        Thread.sleep(3000);
+        //driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
+        //waitelemtclickable(dropdown);
+//        waitVisibility(compnaydropdown);
+        writeText(companyFieldInAdvanceFilter,"Rich Information Technology");
+        //new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.id("(//input[@role='combobox'])[2]"))).sendKeys(prop.getProperty("East Avenue"));
+        return true;
+    }
+    public boolean writeAnotherCompanyName() throws InterruptedException {
+        Thread.sleep(3000);
+        //driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
+        //waitelemtclickable(dropdown);
+//        waitVisibility(compnaydropdown);
+        writeText(companyFieldInAdvanceFilter,"Lark Homes");
         //new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.id("(//input[@role='combobox'])[2]"))).sendKeys(prop.getProperty("East Avenue"));
         return true;
     }

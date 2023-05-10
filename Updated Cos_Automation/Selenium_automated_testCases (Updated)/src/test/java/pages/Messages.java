@@ -13,6 +13,9 @@ public class Messages {
     public String InvalidEmailPasswordMsg(){
         return "Email/Password didn't match";
     }
+    public String InvalidEmailPasswordMessage(){
+        return "User Does Not Exist";
+    }
 
     public String InvalidEmailErrorMsg(){
         return "Invalid email";

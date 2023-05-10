@@ -56,6 +56,7 @@ public class US_21_SearchLocantioByCompany extends BaseTest {
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
 //        Assert.assertTrue(searchLocation.writeCompnayName(prop.getProperty("CompanyName1")));
+        Assert.assertTrue(searchLocation.writeCompanyName());
         Assert.assertTrue(searchLocation.verifCompnayNameisShowingonAdvnaceFilter());
 
 
@@ -79,6 +80,7 @@ public class US_21_SearchLocantioByCompany extends BaseTest {
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
+        Assert.assertTrue(searchLocation.writeCompanyName());
         Assert.assertTrue(searchLocation.selectCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
         Assert.assertTrue(searchandfilter.verifyAdvanceFilterDrawerHasClosed());
@@ -104,6 +106,7 @@ public class US_21_SearchLocantioByCompany extends BaseTest {
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
+        Assert.assertTrue(searchLocation.writeCompanyName());
         Assert.assertTrue(searchLocation.selectCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
         Assert.assertTrue(searchLocation.verifyCompanyTagisShowingonLocationPage());
@@ -127,6 +130,7 @@ public class US_21_SearchLocantioByCompany extends BaseTest {
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
+        Assert.assertTrue(searchLocation.writeCompanyName());
         Assert.assertTrue(searchLocation.selectCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
         Assert.assertTrue(searchandfilter.verifyClearAllTagisShowingonPropertyPage());
@@ -151,8 +155,10 @@ public class US_21_SearchLocantioByCompany extends BaseTest {
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
+        Assert.assertTrue(searchLocation.writeCompanyName());
         Assert.assertTrue(searchLocation.selectCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchLocation.clickOnDrawerTitle());
+        Assert.assertTrue(searchLocation.writeAnotherCompanyName());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
         Assert.assertTrue(searchLocation.selectAnotherCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
@@ -180,9 +186,11 @@ public class US_21_SearchLocantioByCompany extends BaseTest {
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
+        Assert.assertTrue(searchLocation.writeCompanyName());
         Assert.assertTrue(searchLocation.selectCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchLocation.clickOnDrawerTitle());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
+        Assert.assertTrue(searchLocation.writeAnotherCompanyName());
         Assert.assertTrue(searchLocation.selectAnotherCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
@@ -210,6 +218,7 @@ public class US_21_SearchLocantioByCompany extends BaseTest {
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
+        Assert.assertTrue(searchLocation.writeCompanyName());
         Assert.assertTrue(searchLocation.selectCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
@@ -235,9 +244,11 @@ public class US_21_SearchLocantioByCompany extends BaseTest {
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
+        Assert.assertTrue(searchLocation.writeCompanyName());
         Assert.assertTrue(searchLocation.selectCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchLocation.clickOnDrawerTitle());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
+        Assert.assertTrue(searchLocation.writeAnotherCompanyName());
         Assert.assertTrue(searchLocation.selectAnotherCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
         Assert.assertTrue(searchLocation.verifyCountAfterAppyingCompanyFilter());
@@ -293,9 +304,11 @@ public class US_21_SearchLocantioByCompany extends BaseTest {
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
+        Assert.assertTrue(searchLocation.writeCompanyName());
         Assert.assertTrue(searchLocation.selectCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchLocation.clickOnDrawerTitle());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
+        Assert.assertTrue(searchLocation.writeAnotherCompanyName());
         Assert.assertTrue(searchLocation.selectAnotherCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
 //        Assert.assertTrue(searchLocation.verifyCountonLocationPageAfterApplyingMultipleFilters());
@@ -323,9 +336,11 @@ public class US_21_SearchLocantioByCompany extends BaseTest {
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
+        Assert.assertTrue(searchLocation.writeCompanyName());
         Assert.assertTrue(searchLocation.selectCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchLocation.clickOnDrawerTitle());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
+        Assert.assertTrue(searchLocation.writeAnotherCompanyName());
         Assert.assertTrue(searchLocation.selectAnotherCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchCompany.ClickonResetButton());
         Assert.assertTrue(searchCompany.VerifyAdvanceFilterDrawerhasnotclosedAfterclcikingResetButton());
@@ -349,9 +364,11 @@ public class US_21_SearchLocantioByCompany extends BaseTest {
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
+        Assert.assertTrue(searchLocation.writeCompanyName());
         Assert.assertTrue(searchLocation.selectCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchLocation.clickOnDrawerTitle());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
+        Assert.assertTrue(searchLocation.writeAnotherCompanyName());
         Assert.assertTrue(searchLocation.selectAnotherCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
         Assert.assertTrue(searchEntity.ClickonClearAllTag());
@@ -377,9 +394,11 @@ public class US_21_SearchLocantioByCompany extends BaseTest {
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
+        Assert.assertTrue(searchLocation.writeCompanyName());
         Assert.assertTrue(searchLocation.selectCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchLocation.clickOnDrawerTitle());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
+        Assert.assertTrue(searchLocation.writeAnotherCompanyName());
         Assert.assertTrue(searchLocation.selectAnotherCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
         Assert.assertTrue(searchEntity.ClickonClearAllTag());
@@ -406,9 +425,11 @@ public class US_21_SearchLocantioByCompany extends BaseTest {
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
+        Assert.assertTrue(searchLocation.writeCompanyName());
         Assert.assertTrue(searchLocation.selectCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchLocation.clickOnDrawerTitle());
         Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
+        Assert.assertTrue(searchLocation.writeAnotherCompanyName());
         Assert.assertTrue(searchLocation.selectAnotherCompnayNameonAdvanceFilter());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
         Assert.assertTrue(searchEntity.ClickonClearAllTag());

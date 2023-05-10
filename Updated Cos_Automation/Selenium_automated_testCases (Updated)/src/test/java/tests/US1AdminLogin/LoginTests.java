@@ -37,7 +37,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(loginPage.EnterEmail(prop.getProperty("incompletedEmail")));
         Assert.assertTrue(loginPage.EnterPassword(prop.getProperty("validPassword")));
         Assert.assertTrue(loginPage.ClickLoginButton());
-        Assert.assertTrue(loginPage.verifyInvalidPasswordErrorMessage(msg.InvalidEmailPasswordMsg()));
+        Assert.assertTrue(loginPage.VerifyInvalidEmailErrorMessage(msg.InvalidEmailErrorMsg()));
     }
 
     @Test(priority = 3)//Done
@@ -146,7 +146,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(loginPage.EnterEmail(prop.getProperty("invalidEmail")));
         Assert.assertTrue(loginPage.EnterPassword(prop.getProperty("Numbers")));
         Assert.assertTrue(loginPage.ClickLoginButton());
-        Assert.assertTrue(loginPage.verifyInvalidPasswordErrorMessage(msg.InvalidEmailPasswordMsg()));
+        Assert.assertTrue(loginPage.verifyInvalidPasswordErrorMessage(msg.InvalidEmailPasswordMessage()));
     }
 
     @Test(priority = 13)//Done
@@ -250,7 +250,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(loginPage.ClickForgotPassword());
         Assert.assertTrue(loginPage.verifyUserHasRedirectedTowardtheForgptPasswordPage());*/
         Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(loginPage.enterForgotPasswordEmail(prop.getProperty("incompletedEmail")));
+        Assert.assertTrue(loginPage.enterForgotPasswordEmail(prop.getProperty("UnregisteredEmailAddress1")));
         Assert.assertTrue(loginPage.clickresetPasswordButtonButton());
         Assert.assertTrue(loginPage.verifyUnRegisteredEmailErrorMessage(msg.UnregsiteredEmailErrorMessage()));
     }
