@@ -19,6 +19,7 @@ public class EditCompany extends BasePage {
 
     CreateCompany company = new CreateCompany(driver);
     CreateEntity createEntity=new CreateEntity(driver);
+    CreateProperty property = new CreateProperty(driver);
     Random NumGenerator = new Random();
     CustomerSignUp customerSignUp = new CustomerSignUp(driver);
     CreateCharger createCharger = new CreateCharger(driver);
@@ -177,7 +178,7 @@ public class EditCompany extends BasePage {
 
     public boolean VerifyEditButtonHasDisplayed() {
         company.waitForSpinner();
-        // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         if( driver.findElement(By.xpath("(//button[contains(.,'Edit')])[2]")).isDisplayed())
         {
             System.out.println("Edit button has displayed");
