@@ -496,9 +496,10 @@ public class EditProperty extends BasePage {
         return true;
     }
 
-    public boolean verifyUpdatedPropertyInformationisShowingonPropertyPage() {
+    public boolean verifyUpdatedPropertyInformationisShowingonPropertyPage() throws InterruptedException {
         company.waitForSpinner();
-        // waitVisibility(companyname);
+        Thread.sleep(3000);
+//        waitVisibility(companyname);
         if( driver.findElement(By.xpath("//div[@title='New Updated Property']")).isDisplayed())
         {
             System.out.println("Newly Updated property is Showing on All properties Page");

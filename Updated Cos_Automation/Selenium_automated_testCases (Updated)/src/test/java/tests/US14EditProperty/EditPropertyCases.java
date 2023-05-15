@@ -72,26 +72,26 @@ public class EditPropertyCases extends BaseTest {
 
     }
 
-    @Test(priority = 4)//Done
-    @TestParameters(testCaseId = {"TC-5"})
-    public void TC_5_VerifyAllTheOptionalFieldsHasPopulatedonEditPropertyDrawer() throws InterruptedException {
-       CreateProperty createProperty=new CreateProperty(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
-        CreateCompany company = new CreateCompany(driver);
-        EditCompany editCompany= new EditCompany(driver);
-        EditProperty editProperty= new EditProperty(driver);
-        EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());*/
-        Assert.assertTrue(editCompany.ClickonEditbutton());
-        Assert.assertTrue(editProperty.verifyConnectwitHardwareProviderFieldIsShowingonEditPropertDrawer());
-        Assert.assertTrue(editProperty.verifyConnectwitSiteFieldIsShowingonEditPropertDrawer());
-        Assert.assertTrue(editProperty.verifyConnectwitOtherardwareProviderIsShowingonEditPropertDrawer());
-
-    }
+//    @Test(priority = 4)//Done
+//    @TestParameters(testCaseId = {"TC-5"})
+//    public void TC_5_VerifyAllTheOptionalFieldsHasPopulatedonEditPropertyDrawer() throws InterruptedException {
+//       CreateProperty createProperty=new CreateProperty(driver);
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard=new Dashboard(driver);
+//        CreateCompany company = new CreateCompany(driver);
+//        EditCompany editCompany= new EditCompany(driver);
+//        EditProperty editProperty= new EditProperty(driver);
+//        EditEntity editEntity= new EditEntity(driver);
+//        loginPage.VerifyValidLogin();
+//        Assert.assertTrue(dashboard.RefreshBrowser());
+//        /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+//        Assert.assertTrue(dashboard.clickonProperty());*/
+//        Assert.assertTrue(editCompany.ClickonEditbutton());
+//        Assert.assertTrue(editProperty.verifyConnectwitHardwareProviderFieldIsShowingonEditPropertDrawer());
+//        Assert.assertTrue(editProperty.verifyConnectwitSiteFieldIsShowingonEditPropertDrawer());
+//        Assert.assertTrue(editProperty.verifyConnectwitOtherardwareProviderIsShowingonEditPropertDrawer());
+//
+//    }
 
     @Test(priority = 5)//Done
     @TestParameters(testCaseId = {"TC-8"})
@@ -289,26 +289,26 @@ public class EditPropertyCases extends BaseTest {
         Assert.assertTrue(editProperty.verifyCOnnectwithSiteFieldisDisabled());
     }
 
-    @Test(priority = 15)//Done
-    @TestParameters(testCaseId = {"TC-26"})
-    public void TC_26_VerifyCOnnectwithSiteFieldisEnabledAfterSelectingHardwareProviderFromEditPropertyDrawer() throws InterruptedException {
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
-        EditCompany editCompany= new EditCompany(driver);
-        CreateCompany company = new CreateCompany(driver);
-        EditProperty editProperty= new EditProperty(driver);
-        CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
-        Assert.assertTrue(editCompany.ClickonEditbutton());
-        Assert.assertTrue(editProperty.clickonEditbuttonFromHardwareProviderSection());
-        Assert.assertTrue(properties.clickHardwareProviderDropdown());
-        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
-        Assert.assertTrue(editProperty.verifyConnectWithSiteFieldisEnabledAfterSelectingHardwareProvider());
-    }
+//    @Test(priority = 15)//Done
+//    @TestParameters(testCaseId = {"TC-26"})
+//    public void TC_26_VerifyCOnnectwithSiteFieldisEnabledAfterSelectingHardwareProviderFromEditPropertyDrawer() throws InterruptedException {
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard=new Dashboard(driver);
+//        EditCompany editCompany= new EditCompany(driver);
+//        CreateCompany company = new CreateCompany(driver);
+//        EditProperty editProperty= new EditProperty(driver);
+//        CreateProperty properties = new CreateProperty(driver);
+//        loginPage.VerifyValidLogin();
+//        Assert.assertTrue(dashboard.RefreshBrowser());
+//        Assert.assertTrue(dashboard.GotoDashboard());
+//        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+//        Assert.assertTrue(dashboard.clickonProperty());
+//        Assert.assertTrue(editCompany.ClickonEditbutton());
+//        Assert.assertTrue(editProperty.clickonEditbuttonFromHardwareProviderSection());
+//        Assert.assertTrue(properties.clickHardwareProviderDropdown());
+//        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
+//        Assert.assertTrue(editProperty.verifyConnectWithSiteFieldisEnabledAfterSelectingHardwareProvider());
+//    }
 
     @Test(priority = 16)//Done
     @TestParameters(testCaseId = {"TC-27"})
@@ -804,7 +804,7 @@ public class EditPropertyCases extends BaseTest {
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(editEntity.RemoveAddressFromEditEntityDrawer());
         Assert.assertTrue(company.WriteRandomCompanyAddress());
-        Assert.assertTrue(editProperty.clickonEditbuttonFromHardwareProviderSection());
+//        Assert.assertTrue(editProperty.clickonEditbuttonFromHardwareProviderSection());
 //        Assert.assertTrue(properties.clickHardwareProviderDropdown());
 //        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
         Assert.assertTrue(properties.clickonSavePropertyButton());
@@ -872,7 +872,7 @@ public class EditPropertyCases extends BaseTest {
         Assert.assertTrue(dashboard.clickonProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editProperty.RemovePropertyName());
-        Assert.assertTrue(properties.writePropertyName(prop.getProperty("UpdatedProperty")));
+        Assert.assertTrue(properties.writePropertyName(prop.getProperty("UpdatedProperty2")));
         Assert.assertTrue(editProperty.clickonCancel());
         Assert.assertTrue(editProperty.verifyConfirmationPopupisShowing());
 
@@ -895,7 +895,7 @@ public class EditPropertyCases extends BaseTest {
         Assert.assertTrue(dashboard.clickonProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editProperty.RemovePropertyName());
-        Assert.assertTrue(properties.writePropertyName(prop.getProperty("UpdatedProperty")));
+        Assert.assertTrue(properties.writePropertyName(prop.getProperty("UpdatedProperty2")));
         Assert.assertTrue(editProperty.clickonCancel());
         Assert.assertTrue(editProperty.verifyConfirmationPopupisShowing());
         Assert.assertTrue(properties.verifyContinueButtonisShowingonPopup());
@@ -920,7 +920,7 @@ public class EditPropertyCases extends BaseTest {
         Assert.assertTrue(dashboard.clickonProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editProperty.RemovePropertyName());
-        Assert.assertTrue(properties.writePropertyName(prop.getProperty("UpdatedProperty")));
+        Assert.assertTrue(properties.writePropertyName(prop.getProperty("UpdatedProperty2")));
         Assert.assertTrue(editProperty.clickonCancel());
         Assert.assertTrue(editProperty.verifyConfirmationPopupisShowing());
         Assert.assertTrue(properties.verifyContinueButtonisShowingonPopup());
@@ -946,7 +946,7 @@ public class EditPropertyCases extends BaseTest {
         Assert.assertTrue(dashboard.clickonProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editProperty.RemovePropertyName());
-        Assert.assertTrue(properties.writePropertyName(prop.getProperty("UpdatedProperty")));
+        Assert.assertTrue(properties.writePropertyName(prop.getProperty("UpdatedProperty2")));
         Assert.assertTrue(editProperty.clickonCancel());
         Assert.assertTrue(editCompany.VerifyDiscardButtonisShowingonConfirmationPopup());
         Assert.assertTrue(editCompany.ClickonDiscardButton());

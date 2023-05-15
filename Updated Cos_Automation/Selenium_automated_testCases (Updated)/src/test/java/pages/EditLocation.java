@@ -17,7 +17,9 @@ public class EditLocation extends BasePage{
     public static By EditButton = By.xpath("//span[normalize-space()='Edit']");
     By detailsbtn = By.xpath("(//span[contains(.,'Details')])[2]");
     By companydropdown = By.xpath("(//span[contains(@class,'ant-select-selection-item')])[1]");
+    By companyField = By.xpath("//input[@class='ant-select-selection-search-input']");
     By propertydropdown = By.xpath("(//span[contains(@class,'ant-select-selection-item')])[2]");
+    By propertyField = By.xpath("(//input[@class='ant-select-selection-search-input'])[2]");
     By togglebtn = By.xpath("//button[@role='switch']");
     By Alert = By.xpath("//div[@class='ant-modal-confirm-content'][contains(.,'Do you want to discard or continue?')]");
 
@@ -68,9 +70,15 @@ public class EditLocation extends BasePage{
     }
 
     public boolean clickonPropertyDropdown() throws InterruptedException {
-        waitelementtobedisplayed(propertydropdown);
+        waitVisibility(propertydropdown);
         waitelemtclickable(propertydropdown);
         click(propertydropdown);
+        return true;
+    }
+    public boolean clickonEmptyPropertyField() throws InterruptedException {
+        waitVisibility(propertyField);
+        waitelemtclickable(propertyField);
+        click(propertyField);
         return true;
     }
 
@@ -78,6 +86,21 @@ public class EditLocation extends BasePage{
         Thread.sleep(3000);
         waitelementtobedisplayed(propertydropdown);
         writeText(propertydropdown,PropertyName);
+        return true;
+    }
+
+    public boolean writeCompanyName(String CompanyName) throws InterruptedException {
+        Thread.sleep(5000);
+        waitelementtobeEnabled(companyField);
+        waitelementtobedisplayed(companyField);
+        writeText(companyField,CompanyName);
+        return true;
+    }
+    public boolean writeCompanyName2(String CompanyName) throws InterruptedException {
+        Thread.sleep(5000);
+        waitelementtobeEnabled(companyField);
+        waitelementtobedisplayed(companyField);
+        writeText(companyField,CompanyName);
         return true;
     }
 
@@ -173,7 +196,7 @@ public class EditLocation extends BasePage{
     }
 
     public boolean verifyAssignedChargerSectionIsShowingEmpty() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         WebElement assigncharger= driver.findElement(By.xpath("//span[contains(.,'Assigned Chargers (0)')]"));
         if( assigncharger.isDisplayed())
         {

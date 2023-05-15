@@ -19,7 +19,6 @@ public class EditCompany extends BasePage {
 
     CreateCompany company = new CreateCompany(driver);
     CreateEntity createEntity=new CreateEntity(driver);
-    CreateProperty property = new CreateProperty(driver);
     Random NumGenerator = new Random();
     CustomerSignUp customerSignUp = new CustomerSignUp(driver);
     CreateCharger createCharger = new CreateCharger(driver);
@@ -43,8 +42,6 @@ public class EditCompany extends BasePage {
     By cancelbtn = By.xpath("//button[@type='button'][contains(.,'Cancel')]");
     By discardbtn = By.xpath("//button[contains(.,'Discard')]");
     public static By EinUpdatedStatus = By.xpath("//span[@id='einAuditLog']");
-
-
 
 
 

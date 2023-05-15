@@ -24,6 +24,8 @@ public class CreateProperty extends BasePage {
     By entitydropdown = By.xpath("(//input[contains(@class,'ant-select-selection-search-input')])[2]");
     By compnayname = By.xpath("(//div[contains(@class,'ant-select-item-option-content')])[1]");
     By cname = By.xpath("(//div[@class='ant-select-item-option-content'])[2]");
+    By cname2 = By.xpath("//div[@class='ant-select-item-option-content'][contains(.,'Lark Homes')]");
+    By cname3 = By.xpath("//div[@class='ant-select-item-option-content'][contains(.,'Rich Information Technology')]");
     By ename = By.xpath("(//div[contains(@class,'ant-select-item-option-content')])[12]");
     By entityname = By.xpath("//div[@class='ant-select-item-option-content'][contains(.,'Unknown Entity')]");
     By propertyname = By.xpath("//input[contains(@placeholder,'Property Name')]");
@@ -357,6 +359,22 @@ public class CreateProperty extends BasePage {
         waitelementtobedisplayed(cname);
       //  waitelemtclickable(cname);
         click(cname);
+        return true;
+    }
+
+    public boolean selectStaticCompanyFromSelectCompanyDropdown() throws InterruptedException {
+        Thread.sleep(4000);
+        waitelementtobedisplayed(cname2);
+        //  waitelemtclickable(cname);
+        click(cname2);
+        return true;
+    }
+
+    public boolean selectRichInformationCompanyFromSelectCompanyDropdown() throws InterruptedException {
+        Thread.sleep(4000);
+        waitelementtobedisplayed(cname3);
+        //  waitelemtclickable(cname);
+        click(cname3);
         return true;
     }
 

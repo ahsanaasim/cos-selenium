@@ -22,14 +22,16 @@ public class CreateLocation extends BasePage {
     By selectcompanydropdown = By.xpath("(//input[contains(@class,'ant-select-selection-search-input')])[1]");
     By selectpropertydropdown = By.xpath("(//input[contains(@class,'ant-select-selection-search-input')])[2]");
     By locationtitle = By.xpath("//textarea[@placeholder='Location Title']");
-    By landmark = By.xpath("//textarea[@placeholder='Location landmark']");
+    By landmark = By.xpath("//textarea[@placeholder='Location Landmark']");
     By locationmsg = By.xpath("//div[@class='locInfoText'][contains(.,'Customers will see this title when searching for a charging station')]");
     By locationlandmarkmsg = By.xpath("//div[@class='locInfoText'][contains(.,'For example, The location is just south of the front entrance. Etc. Use this area to give the first time users more context.')]");
     By locationcoordinatemsg = By.xpath("//div[@class='drawerInputTitle'][contains(.,'Confirm your location coordinates by using map')]");
     By confirmlocationbtn = By.xpath("//button[contains(.,'Confirm Location')]");
     public static By savelocationbtn = By.xpath("//span[normalize-space()='Save Location']");
     By createpropertylink = By.xpath("//span[contains(.,'Or, create a new property')]");
-    By propertyname = By.xpath("(//div[@class='ant-select-item-option-content'])[11]");
+    By propertyname = By.xpath("(//div[@class='ant-select-item-option-content'])[4]");
+    By propertyname1 = By.xpath("//div[@class='ant-select-item-option-content'][contains(.,'Atom property')]");
+    By eastAvenueProperty = By.xpath("//div[@class='ant-select-item-option-content'][contains(.,'East Avenue')]");
     By locationtitlerrrms = By.xpath("//div[@role='alert'][contains(.,'Location Title is required')]");
     By locationlandmarkerrrmsg = By.xpath("//div[@role='alert'][contains(.,'Location Landmark is required')]");
     By coordinateerrrmsg = By.xpath("//span[contains(.,'Confirm the location first')]");
@@ -123,6 +125,7 @@ public class CreateLocation extends BasePage {
     }
 
     public boolean enterLocationLandmark(String Landmark) throws InterruptedException {
+        Thread.sleep(1500);
         waitVisibility(landmark);
         //  waitelementtobedisplayed(landmark);
         // driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
@@ -158,10 +161,26 @@ public class CreateLocation extends BasePage {
 
 
     public boolean clickOnPropertyName() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         waitVisibility(propertyname);
         waitelemtclickable(propertyname);
-        click(propertyname);
+        click(propertyname1);
+        return true;
+    }
+
+    public boolean clickOnPropertyName2() throws InterruptedException {
+        Thread.sleep(2000);
+        waitVisibility(propertyname1);
+        waitelemtclickable(propertyname1);
+        click(propertyname1);
+        return true;
+    }
+
+    public boolean clickOnEastAvenueProperty() throws InterruptedException {
+        Thread.sleep(2000);
+        waitVisibility(eastAvenueProperty);
+        waitelemtclickable(eastAvenueProperty);
+        click(eastAvenueProperty);
         return true;
     }
 
@@ -351,7 +370,7 @@ public class CreateLocation extends BasePage {
     public boolean verifyLocationlandmarkFieldisShowing() throws InterruptedException {
         Thread.sleep(2000);
         waitVisibility(landmark);
-        if (driver.findElement(By.xpath("//textarea[@placeholder='Location landmark']")).isDisplayed()) {
+        if (driver.findElement(By.xpath("//textarea[@placeholder='Location Landmark']")).isDisplayed()) {
             System.out.println("Verification Successful - Location Landmark Field is Showing");
             return true;
         } else {

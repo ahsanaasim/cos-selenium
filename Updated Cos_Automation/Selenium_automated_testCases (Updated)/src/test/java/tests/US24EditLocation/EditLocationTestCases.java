@@ -338,7 +338,7 @@ public class EditLocationTestCases extends BaseTest {
 
     }
 
-   /* @Test(priority = 15)//Done
+    /*@Test(priority = 15)//Done
     @TestParameters(testCaseId = {"TC-20"})
     public void TC_20_CheckWhathappensWhenAdminChangetheAssignchargersFromEditLocationDrawer() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
@@ -362,7 +362,8 @@ public class EditLocationTestCases extends BaseTest {
         Assert.assertTrue(createLocation.writePropertyName(prop.getProperty("Propertywithchargers")));
         Assert.assertTrue(createLocation.clickOnPropertyName());
         Assert.assertTrue(editLocation.verifyChargersareShowinginUnassignedChrgerSection());
-    }*/
+    }
+     */
 
     @Test(priority = 16)//Done
     @TestParameters(testCaseId = {"TC-21"})
@@ -384,10 +385,11 @@ public class EditLocationTestCases extends BaseTest {
         Assert.assertTrue(editLocation.clickonDetailsButton());
         Assert.assertTrue(editLocation.clickonEditbuttonFromPropertyInfoSection());
         Assert.assertTrue(editLocation.clickonCompanyDropdown());
-        Assert.assertTrue(properties.selectCompanyNameFromSelectCompanyDropdown());
-        Assert.assertTrue(editLocation.clickonPropertyDropdown());
-        Assert.assertTrue(createLocation.writePropertyName(prop.getProperty("Propertywithchargers")));
-        Assert.assertTrue(createLocation.clickOnPropertyName());
+        Assert.assertTrue(editLocation.writeCompanyName(prop.getProperty("CompanyName3")));
+        Assert.assertTrue(properties.selectStaticCompanyFromSelectCompanyDropdown());
+        Assert.assertTrue(editLocation.clickonEmptyPropertyField());
+        Assert.assertTrue(createLocation.writePropertyName(prop.getProperty("Propertywithchargers2")));
+        Assert.assertTrue(createLocation.clickOnPropertyName2());
         Assert.assertTrue(editLocation.verifyAssignedChargerSectionIsShowingEmpty());
 
 
@@ -414,10 +416,11 @@ public class EditLocationTestCases extends BaseTest {
         Assert.assertTrue(editLocation.clickonDetailsButton());
         Assert.assertTrue(editLocation.clickonEditbuttonFromPropertyInfoSection());
         Assert.assertTrue(editLocation.clickonCompanyDropdown());
-        Assert.assertTrue(properties.selectCompanyNameFromSelectCompanyDropdown());
+        Assert.assertTrue(editLocation.writeCompanyName2(prop.getProperty("CompanyName4")));
+        Assert.assertTrue(properties.selectRichInformationCompanyFromSelectCompanyDropdown());
         Assert.assertTrue(editLocation.clickonPropertyDropdown());
         Assert.assertTrue(createLocation.writePropertyName(prop.getProperty("Propertywithchargers")));
-        Assert.assertTrue(createLocation.clickOnPropertyName());
+        Assert.assertTrue(createLocation.clickOnEastAvenueProperty());
         Assert.assertTrue(editLocation.removeLocationTitile());
         Assert.assertTrue(createLocation.enterLocationTitle(prop.getProperty("LocationTitle")));
         Assert.assertTrue(editLocation.removeLocationLandmark());
