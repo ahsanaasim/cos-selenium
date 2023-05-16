@@ -419,8 +419,10 @@ public class CreateLocation extends BasePage {
     }
 
     public boolean verifyUnassignedChargerSectionisShowing() {
-          waitVisibility(landmark);
-        if (driver.findElement(By.xpath("//span[contains(.,'Unassigned Chargers (0)')]")).isDisplayed()) {
+        waitVisibility(landmark);
+        String unassigned = driver.findElement(By.xpath("//span[@class='ant-transfer-list-header-title']")).getText();
+        System.out.println(unassigned);
+        if (unassigned.matches("Unassigned Chargers \\(\\d+\\)")) {
             System.out.println("Verification Successful - Unassigned Chargers section is Showing");
             return true;
         } else {

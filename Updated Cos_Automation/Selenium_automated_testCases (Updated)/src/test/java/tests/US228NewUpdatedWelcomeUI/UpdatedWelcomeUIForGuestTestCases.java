@@ -13,18 +13,28 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
 
     @Test(priority = 1)
     @TestParameters(testCaseId = {"TC-1"})
-    public void TC_1_CheckIfMenuButtonIsShowingAtTopRightCornerOfThePage() throws InterruptedException {
+    public void TC_1_CheckIfMenuButtonIsNotShowingAtTopRightCornerOfThePage() throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
-        CustomerLogin login = new CustomerLogin(driver);
         CreateCharger operation =new CreateCharger(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
-        login.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithNoTicket"),"EitaiPassword10");
-        operation.ClickButton(CustomerLogin.Menu,2000);
-        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
-        Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(2000,FavoriteLocation.NoDataInTableImage));
-        Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(2000,FavoriteLocation.NoFavoriteLocationText));
+        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
+        Assert.assertTrue(favoriteLocation.verifyElementNotDisplayed(6000,CustomerLogin.Menu));
 
     }
+
+    @Test(priority = 2)
+    @TestParameters(testCaseId = {"TC-2"})
+    public void TC_2_CheckIfMenuButtonIsNotShowingAtTopRightCornerOfThePage() throws InterruptedException {
+        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
+        CreateCharger operation =new CreateCharger(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
+        FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
+        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
+        Assert.assertTrue(favoriteLocation.verifyElementNotDisplayed(6000,CustomerLogin.Menu));
+
+    }
+
 }

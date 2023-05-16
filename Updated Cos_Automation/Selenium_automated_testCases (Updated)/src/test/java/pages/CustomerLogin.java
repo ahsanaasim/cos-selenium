@@ -29,8 +29,6 @@ public class CustomerLogin extends BasePage {
     }
 
 
-
-
     public boolean VerifyNoEmailErrorMsg() throws InterruptedException{
         Thread.sleep(1500);
         String EmailFieldErrMsg = driver.findElement(LoginErrorMsgNoEmail).getText();

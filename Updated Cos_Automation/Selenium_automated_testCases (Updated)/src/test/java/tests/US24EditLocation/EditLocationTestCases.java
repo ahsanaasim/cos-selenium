@@ -418,7 +418,7 @@ public class EditLocationTestCases extends BaseTest {
         Assert.assertTrue(editLocation.clickonCompanyDropdown());
         Assert.assertTrue(editLocation.writeCompanyName2(prop.getProperty("CompanyName4")));
         Assert.assertTrue(properties.selectRichInformationCompanyFromSelectCompanyDropdown());
-        Assert.assertTrue(editLocation.clickonPropertyDropdown());
+        Assert.assertTrue(editLocation.clickonEmptyPropertyField());
         Assert.assertTrue(createLocation.writePropertyName(prop.getProperty("Propertywithchargers")));
         Assert.assertTrue(createLocation.clickOnEastAvenueProperty());
         Assert.assertTrue(editLocation.removeLocationTitile());
