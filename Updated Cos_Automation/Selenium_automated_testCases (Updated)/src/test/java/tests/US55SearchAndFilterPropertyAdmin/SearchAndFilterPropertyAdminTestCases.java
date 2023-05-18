@@ -1,4 +1,4 @@
-package tests.US55AdvanceFilterPropertyAdmin;
+package tests.US55SearchAndFilterPropertyAdmin;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -9,7 +9,7 @@ import tests.US1AdminLogin.TestParameters;
 import java.io.IOException;
 import java.util.Properties;
 
-public class AdvanceFilterPropertyAdminTestCases extends BaseTest {
+public class SearchAndFilterPropertyAdminTestCases extends BaseTest {
 
     Properties prop = ConfigUtill.getConfig();
     Messages msg = new Messages();

@@ -66,7 +66,6 @@ public class Dashboard extends BasePage {
     }
 
     public boolean ClickonCompanyManagement () {
-
         waitVisibility(cmanagementtext);
         waitelemtclickable(cmanagementtext);
         click(cmanagementtext);

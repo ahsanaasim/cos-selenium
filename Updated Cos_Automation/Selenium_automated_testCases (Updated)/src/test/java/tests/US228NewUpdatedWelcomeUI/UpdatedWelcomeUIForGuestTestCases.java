@@ -19,7 +19,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         CustomerLogin customerLogin = new CustomerLogin(driver);
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
-        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
+        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/tIljMh");
         Assert.assertTrue(favoriteLocation.verifyElementNotDisplayed(6000,CustomerLogin.Menu));
 
     }
@@ -203,6 +203,79 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(500,GuestVerificationPage.AssistMeButton));
+
+    }
+
+    @Test(priority = 27)
+    @TestParameters(testCaseId = {"TC-27,28"})
+    public void TC_27_28_CheckStartChargingButtonIsShowingAndDisabled() throws InterruptedException {
+        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
+        CreateCharger operation =new CreateCharger(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
+        FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
+//        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
+        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(500,GuestVerificationPage.StatChargingButton));
+        Assert.assertTrue(guestVerificationPage.verifyAFieldIsDisable(200,GuestVerificationPage.StatChargingButton));
+
+
+    }
+
+    @Test(priority = 29)
+    @TestParameters(testCaseId = {"TC-29"})
+    public void TC_29_CheckNearbyChargersSectionIsShowingOrNot() throws InterruptedException {
+        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
+        CreateCharger operation =new CreateCharger(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
+        FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
+//        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
+        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(500,GuestVerificationPage.NearbyLocation));
+
+    }
+
+    @Test(priority = 30)
+    @TestParameters(testCaseId = {"TC-30"})
+    public void TC_30_CheckNearbyLocationsTabIsNotExpanded() throws InterruptedException {
+        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
+        CreateCharger operation =new CreateCharger(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
+        FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
+//        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
+        Assert.assertTrue(guestVerificationPage.verifyNearByLocationsTabIsNotExpanded());
+
+    }
+
+    @Test(priority = 31)
+    @TestParameters(testCaseId = {"TC-31"})
+    public void TC_31_CheckNearbyLocationsTabIsExpandedAfterClickingOnIt() throws InterruptedException {
+        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
+        CreateCharger operation =new CreateCharger(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
+        FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
+//        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
+        operation.ClickButton(GuestVerificationPage.NearbyLocation,1000);
+        Assert.assertTrue(guestVerificationPage.verifyNearByLocationsTabIsExpanded());
+
+    }
+    @Test(priority = 31)
+    @TestParameters(testCaseId = {"TC-31"})
+    public void TC_31_CheckNearbyLocationsTabIsExpandedAfterClickingOnIt() throws InterruptedException {
+        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
+        CreateCharger operation =new CreateCharger(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
+        FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
+//        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
+        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
+        Assert.assertTrue(guestVerificationPage.verifyNearByLocationsTabIsExpanded());
 
     }
 

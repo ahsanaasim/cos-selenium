@@ -1,4 +1,4 @@
-package tests.US30SearchChargers;
+package tests.US31SearchChargers;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -202,7 +202,7 @@ public class SearchChargersTestCases extends BaseTest {
         Assert.assertTrue(searchChargers.SearchbyChargerTitle(prop.getProperty("validchargername")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
         Assert.assertTrue(searchproperty.clickOnCross());
-        Assert.assertTrue(searchLocation.verifyPageHasResettoDefaultData());
+         Assert.assertTrue(searchLocation.verifyPageHasResettoDefaultData());
     }
 
     @Test(priority = 10)//Done
@@ -210,7 +210,7 @@ public class SearchChargersTestCases extends BaseTest {
     public void TC_9_WhenAdminOpenLocationPageInIncognitoMode () throws InterruptedException, IOException {
         SearchLocation searchLocation=new SearchLocation(driver);
         SearchChargers searchChargers=new SearchChargers(driver);
-        Assert.assertTrue(searchChargers.openChargerPageinIncognitoMode());
+        Assert.assertTrue(searchChargers.openChargerPageinIncognitoModeForCOSAdmin());
     }
 
     @Test(priority = 11)//Done

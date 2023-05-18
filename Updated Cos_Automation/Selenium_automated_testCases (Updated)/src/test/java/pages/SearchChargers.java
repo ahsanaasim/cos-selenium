@@ -20,7 +20,7 @@ public class SearchChargers extends BasePage {
     CreateCompany createCompany=new CreateCompany(driver);
     Properties prop = ConfigUtill.getConfig();
 
-    By searchbar = By.xpath("//input[@placeholder='Search by charger & location title']");
+    By searchbar = By.xpath("//input[@placeholder='Search by property, charger & location title']");
     By propertydropdown = By.xpath("(//div[@class='ant-select-selection-overflow'])[1]");
     By locationdropdown = By.xpath("(//div[contains(@class,'ant-select-selection-overflow')])[3]");
     By dropdown = By.xpath("(//input[@role='combobox'])[1]");
@@ -77,7 +77,7 @@ public class SearchChargers extends BasePage {
 
     public boolean enterSpaceinSearchbar() throws InterruptedException {
         createCompany.waitForSpinner();
-        WebElement locationtitle= driver.findElement(By.xpath("//input[@placeholder='Search by charger & location title']"));
+        WebElement locationtitle= driver.findElement(searchbar);
         //  locationtitle.sendKeys(Keys.CONTROL + "a");
         locationtitle.sendKeys(Keys.SPACE);
         return true;
@@ -85,7 +85,8 @@ public class SearchChargers extends BasePage {
 
     public boolean pressEnterButton() throws InterruptedException {
         createCompany.waitForSpinner();
-        driver.findElement(By.xpath("//input[@placeholder='Search by charger & location title']")).sendKeys(Keys.ENTER);
+        waitforPresence(searchbar);
+        driver.findElement(searchbar).sendKeys(Keys.ENTER);
         return true;
     }
 
@@ -161,6 +162,7 @@ public class SearchChargers extends BasePage {
         ChromeOptions options= new ChromeOptions();
         // add Incognito parameter
         options.addArguments("--incognito");
+        options.addArguments("--remote-allow-origins=*");
         // DesiredCapabilities object
         DesiredCapabilities c = new DesiredCapabilities();
 //        DesiredCapabilities c = DesiredCapabilities.chrome();
@@ -182,12 +184,40 @@ public class SearchChargers extends BasePage {
         return true;
     }
 
+    public boolean openChargerPageinIncognitoModeForCOSAdmin() throws InterruptedException {
+        String driverPath = System.getProperty("user.dir");
+        System.setProperty("webdriver.chrome.driver", driverPath + "\\drivers\\chromedriver.exe");
+        ChromeOptions options= new ChromeOptions();
+        // add Incognito parameter
+        options.addArguments("--incognito");
+        options.addArguments("--remote-allow-origins=*");
+        // DesiredCapabilities object
+        DesiredCapabilities c = new DesiredCapabilities();
+//        DesiredCapabilities c = DesiredCapabilities.chrome();
+        //set capability to browser
+        c.setCapability(ChromeOptions.CAPABILITY, options);
+        driver = new ChromeDriver(options);
+        driver.manage().window().maximize();
+        driver.get(prop.getProperty("ChrgerpageURL"));
+        String actualUrl= prop.getProperty("HomeURL");
+        createCompany.waitForSpinner();
+        Thread.sleep(10000);
+        String expectedUrl= driver.getCurrentUrl();
+        Thread.sleep(3000);
+        Assert.assertEquals(expectedUrl,actualUrl);
+        Thread.sleep(3000);
+        driver.navigate().refresh();
+        System.out.println("Verification Successful!!! User Is On Login Page");
+        driver.close();
+        return true;
+    }
+
     public boolean verifPagehasRefreshafterpressingsearchbutton() throws InterruptedException {
         createCompany.waitForSpinner();
         Thread.sleep(3000);
         if( driver.findElement(By.xpath("//th[contains(.,'Charger Title')]")).isDisplayed())
         {
-            System.out.println("Verificatin Sucessful!!!Page has Refreshed");
+            System.out.println("Verification Successful!!!Page has Refreshed");
         }else{
             System.out.println("Something Went Wrong!!");
         }
@@ -236,7 +266,9 @@ public class SearchChargers extends BasePage {
     public boolean verifyChargerWithProvidedTitleisShowing() {
         createCompany.waitForSpinner();
         WebElement name = driver.findElement(By.xpath("(//div[@class='wordBreak'])[1]"));
-        if( name.isDisplayed())
+        String ChargerNameInTable = name.getText();
+        String ExpectedName = (prop.getProperty("validchargername"));
+        if( ChargerNameInTable.equals(ExpectedName))
         {
             System.out.println("Verification Successful!!!Charger  with  the Provided  Title  is :" +name.getText());
             return true;
@@ -311,7 +343,7 @@ public class SearchChargers extends BasePage {
         createCompany.waitForSpinner();
         if( driver.findElement(By.xpath("//span[@class='ant-tag'][contains(.,'Atom power station')]")).isDisplayed())
         {
-            System.out.println("Verificatin Sucessful!!!Property Tag is Showing on Locations Page");
+            System.out.println("Verification Successful!!!Property Tag is Showing on Locations Page");
         }else{
             System.out.println("Something Went Wrong!!");
         }
@@ -322,7 +354,7 @@ public class SearchChargers extends BasePage {
         WebElement tagname= driver.findElement(By.xpath("(//span[@class='ant-select-selection-item-content'])[1]"));
         WebElement tagname1= driver.findElement(By.xpath("(//span[@class='ant-select-selection-item-content'])[2]"));
         if(tagname.isDisplayed() && tagname1.isDisplayed())        {
-            System.out.println("Verificatin Sucessful!!!Previosuly Selected Tags are:" +tagname.getText() + '\n' +tagname1.getText());
+            System.out.println("Verification Successful!!!Previosuly Selected Tags are:" +tagname.getText() + '\n' +tagname1.getText());
         }else{
             System.out.println("Something Went Wrong!!");
         }

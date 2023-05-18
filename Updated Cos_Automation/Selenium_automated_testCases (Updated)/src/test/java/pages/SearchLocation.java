@@ -846,10 +846,14 @@ public class SearchLocation extends BasePage{
         return true;
     }
 
-    public boolean verifyPageHasResettoDefaultData() {
-        createCompany.waitForSpinner();
+    public boolean verifyPageHasResettoDefaultData() throws InterruptedException {
+        Thread.sleep(2000);
+        waitforPresence(By.xpath("(//div[@class='wordBreak'])[9]"));
         WebElement count= driver. findElement(By.xpath("//span[@class='showCount']"));
-        if(count.isDisplayed())
+        String countOfResetValue = count.getText().replaceAll("[^0-9]","");
+        System.out.println(countOfResetValue);
+        String Expected = "3";
+        if(countOfResetValue.equals(Expected))
         {
             System.out.println("Total Locations Showing After Removing Filter:" +count.getText());
             return true;

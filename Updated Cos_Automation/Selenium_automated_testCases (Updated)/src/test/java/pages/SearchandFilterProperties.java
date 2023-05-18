@@ -274,9 +274,10 @@ public class SearchandFilterProperties extends BasePage {
 
     public boolean verifCrossButtonHasDisplyed() {
         company.waitForSpinner();
+        waitforPresence(By.xpath("//span[@aria-label='close-circle']//*[name()='svg']"));
         if( driver.findElement(By.xpath("//span[@aria-label='close-circle']//*[name()='svg']")).isDisplayed())
         {
-            System.out.println("Verificatin Sucessful!!!Cross Button Has Displayed");
+            System.out.println("Verification Successful!!!Cross Button Has Displayed");
         }else{
             System.out.println("Something Went Wrong!!");
         }

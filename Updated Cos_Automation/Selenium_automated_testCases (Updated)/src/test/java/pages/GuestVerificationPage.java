@@ -25,8 +25,11 @@ public class GuestVerificationPage extends BasePage{
     public static By GetDirectionText = By.xpath("//div[@class='getDirectionText']");
     public static By GetDirectionIcon = By.xpath("//img[@src='/map/getDirection.svg']");
     public static By IdleFee = By.xpath("//div[@class='idleFeeText flex items-center mt-10']");
-    public static By NearbyLocation = By.xpath("//div[@class='nearbyChargersText']");
+    public static By NearbyLocation = By.xpath("//div[@class='nearbyChargersText'][contains(text(),'Nearby Locations')]");
+    public static By NearbyLocationTab = By.xpath("//div[@class='ant-menu-submenu-title']");
     public static By AssistMeButton = By.xpath("//button[@class='ant-btn ant-btn-default assistButton']");
+    public static By StatChargingButton = By.xpath("//button[@class='ant-btn ant-btn-default chargingButton']");
+    public static By PhoneNumberRequiredErrorMsg = By.xpath("//div[@class='ant-form-item-explain-error'][contains(text(),'Phone number is required')]");
 
 
     public boolean GoToAvailableCharger (String url) throws InterruptedException{
@@ -56,6 +59,36 @@ public class GuestVerificationPage extends BasePage{
         }
 
     }
+
+    public boolean verifyNearByLocationsTabIsNotExpanded(){
+        waitforPresence(NearbyLocationTab);
+        String tabState = driver.findElement(NearbyLocationTab).getAttribute("aria-expanded");
+        String Expected = "false";
+        if (tabState.equals(Expected)){
+            System.out.println("Nearby locations tab is closed");
+            return true;
+        }
+        else {
+            System.out.println("Nearby locations tab is not closed");
+            return false;
+        }
+    }
+    public boolean verifyNearByLocationsTabIsExpanded() throws InterruptedException {
+        Thread.sleep(2000);
+        waitforPresence(NearbyLocationTab);
+        String tabState = driver.findElement(NearbyLocationTab).getAttribute("aria-expanded");
+        String Expected = "true";
+        if (tabState.equals(Expected)){
+            System.out.println("Nearby locations tab is expanded");
+            return true;
+        }
+        else {
+            System.out.println("Nearby locations tab is not expanded");
+            return false;
+        }
+    }
+
+
 
 
 
