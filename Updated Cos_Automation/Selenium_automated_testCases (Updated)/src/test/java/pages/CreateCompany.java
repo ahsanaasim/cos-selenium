@@ -29,6 +29,7 @@ public class CreateCompany extends BasePage {
     By crossbtn = By.xpath("//*[name()='path' and contains(@d,'M563.8 512')]");
     By companynameerrmsg = By.xpath("//div[@role='alert'][contains(.,'Company Name is required')]");
     By phoneerrormsg = By.xpath("//div[@role='alert'][contains(.,'Please provide a valid Phone number')]");
+    By Blankphoneerrormsg = By.xpath("//div[@role='alert'][contains(.,'Phone number is required')]");
     By invalidemailerrmsg = By.xpath("//div[@role='alert'][contains(.,'Invalid email address')]");
     By blankemailerrmsg = By.xpath("//div[@role='alert'][contains(.,'Email is required')]");
     By websiteerrmsg = By.xpath("//div[@role='alert'][contains(.,'Please provide a valid Website')]");
@@ -153,6 +154,7 @@ public class CreateCompany extends BasePage {
     }
 
     public boolean VerifyCompanyNmaeErrorMessage(String expectedText) {
+        waitVisibility(companynameerrmsg);
         waitelementtobedisplayed(companynameerrmsg);
         assertEquals(companynameerrmsg, expectedText);
             return true;
@@ -160,9 +162,16 @@ public class CreateCompany extends BasePage {
     }
 
     public boolean VerifyPhoneNumberErrorMessage(String expectedText) {
+        waitVisibility(companynameerrmsg);
         waitelementtobedisplayed(phoneerrormsg);
             assertEquals(phoneerrormsg, expectedText);
             return true;
+
+    }
+    public boolean VerifyBlankPhoneNumberErrorMessage(String expectedText) {
+        waitelementtobedisplayed(Blankphoneerrormsg);
+        assertEquals(Blankphoneerrormsg, expectedText);
+        return true;
 
     }
 

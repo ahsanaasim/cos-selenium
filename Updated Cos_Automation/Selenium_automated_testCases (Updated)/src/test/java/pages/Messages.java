@@ -1,6 +1,9 @@
 package pages;
 
 public class Messages {
+    public String BlankPhoneNumberErrorMsg(){
+        return "Phone number is required";
+    }
 
     public String BlanklPassErrorMsg(){
         return "Password field is required";

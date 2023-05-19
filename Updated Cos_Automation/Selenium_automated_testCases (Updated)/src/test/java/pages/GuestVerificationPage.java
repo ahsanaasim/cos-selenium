@@ -24,12 +24,14 @@ public class GuestVerificationPage extends BasePage{
     public static By ShareButton = By.xpath("//div[@class='shareDiv cursor-pointer']");
     public static By GetDirectionText = By.xpath("//div[@class='getDirectionText']");
     public static By GetDirectionIcon = By.xpath("//img[@src='/map/getDirection.svg']");
-    public static By IdleFee = By.xpath("//div[@class='idleFeeText flex items-center mt-10']");
+    public static By CarImage = By.xpath("//img[@src='/scan-charger/car.svg']");
+    public static By IdleFee = By.xpath("//div[@class='idleFeeText flex items-center']");
     public static By NearbyLocation = By.xpath("//div[@class='nearbyChargersText'][contains(text(),'Nearby Locations')]");
     public static By NearbyLocationTab = By.xpath("//div[@class='ant-menu-submenu-title']");
     public static By AssistMeButton = By.xpath("//button[@class='ant-btn ant-btn-default assistButton']");
     public static By StatChargingButton = By.xpath("//button[@class='ant-btn ant-btn-default chargingButton']");
     public static By PhoneNumberRequiredErrorMsg = By.xpath("//div[@class='ant-form-item-explain-error'][contains(text(),'Phone number is required')]");
+    public static By InvalidNumberErrorMsg = By.xpath("//div[@class='ant-form-item-explain-error'][contains(text(),'Please provide a valid phone number')]");
 
 
     public boolean GoToAvailableCharger (String url) throws InterruptedException{

@@ -23,19 +23,22 @@ public class CreateCharger extends BasePage {
     public static By discardandcontinuepopup = By.xpath("//div[@class='ant-modal-confirm-content'][contains(.,'Do you want to discard or continue?')]");
     public static By discardbtn = By.xpath("//button[@class='ant-btn ant-btn-default'][contains(.,'Discard')]");
     public static By Chargername = By.xpath("//input[@placeholder='Charger Name']");
+    public static By ChargerPlugType = By.xpath("//span[@title='J1772']");
+    public static By ChargingRateField = By.xpath("(//input[@class='ant-select-selection-search-input'])[2]");
+
     public static By searchchargerfield= By.xpath("//input[@placeholder='Search by property, charger & location title']");
     public static By searchargerbtn = By.xpath("//span[contains(text(),'Search')]");
     public static By SearchResultCount = By.xpath("//span[@class='showCount']");
     public static By Chargernameerrormsg = By.xpath("//div[contains(text(),'Charger name is required')]");
     public static By propertynameerrmsg = By.xpath("//div[contains(text(),'Property is required')]");
-    public static By selectproperty = By.id("rc_select_0");
+    public static By selectproperty = By.xpath("(//input[@class='ant-select-selection-search-input'])[3]");
     public static By pname =By.xpath("(//div[contains(@class,'ant-select-item-option-content')])[1]");
     public static By lname= By.xpath("//div[contains(text(),'Electric Charger')]");
     //div[contains(@class,'ant-select-item-option-content')])[12]
-    public static By selectlocation = By.id("rc_select_0");
+    public static By selectlocation = By.id("rc_select_3");
     public static By savecharger = By.xpath("//button[@type='submit']");
     public static By cancel= By.xpath("//button[@type='button']");
-    public static By location = By.id("rc_select_1");
+    public static By location = By.xpath("(//input[@class='ant-select-selection-search-input'])[4]");
     public static By confirmationpopup = By.xpath("//span[normalize-space()='Charger created successfully']");
     //span[contains(.,'Property created successfully')]
     public static By nodatafromsearch = By.xpath("//*[name()='path' and contains(@class,'ant-empty-')]");
@@ -310,6 +313,45 @@ public class CreateCharger extends BasePage {
         System.out.println(randomNumber);
         String charger =name+randomNumber;
         return charger;
+    }
+
+    public void selectChargingRate(String ChargingRate) throws InterruptedException {
+        waitforPresence(ChargingRateField);
+        click(ChargingRateField);
+        writeText(ChargingRateField,ChargingRate);
+        WebElement selectitem = driver.findElement(ChargingRateField);
+        Thread.sleep(3000);
+        selectitem.sendKeys(Keys.ENTER);
+    }
+
+    public void selectProperty(String Property) throws InterruptedException {
+        waitforPresence(selectproperty);
+        click(selectproperty);
+        writeText(selectproperty,Property);
+        WebElement selectitem = driver.findElement(selectproperty);
+        Thread.sleep(3000);
+        selectitem.sendKeys(Keys.ENTER);
+    }
+
+    public void selectLocation(String Location) throws InterruptedException {
+        waitforPresence(location);
+        click(location);
+        writeText(location,Location);
+        WebElement selectitem = driver.findElement(location);
+        Thread.sleep(3000);
+        selectitem.sendKeys(Keys.ENTER);
+    }
+
+    public boolean verifyChargerPlugTypeIsByDefaultSelected(){
+        waitforPresence(ChargerPlugType);
+        if (driver.findElement(ChargerPlugType).isDisplayed()){
+            System.out.println("Charger plug type is selected");
+            return true;
+        }
+        else {
+            System.out.println("Charger type is not selected");
+            return false;
+        }
     }
 
 }

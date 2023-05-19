@@ -131,7 +131,7 @@ public class EditCompanyTestCases extends BaseTest {
     }
 
 
-   /* @Test(priority = 8)//Done
+   @Test(priority = 8)//Done
     @TestParameters(testCaseId = {"TC-8"})
     public void TC_8_WhenAdminProvideinvalidDatainthePhoneNumberOnEditCompanyDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -141,14 +141,14 @@ public class EditCompanyTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
-        *//*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonCompanyManagement());
-        Assert.assertTrue(editCompany.VerifyEditCompanyButtonHasDisplayed());*//*
+//        Assert.assertTrue(editCompany.VerifyEditCompanyButtonHasDisplayed());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemovePhoneNumberFromEditCompanyDrawer());
         Assert.assertTrue(company.WriteCompanyPhoneNumber(prop.getProperty("InvalidPhone")));
         Assert.assertTrue(company.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
+        Assert.assertTrue(company.VerifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
     }
 
     @Test(priority = 9)//Done
@@ -161,13 +161,13 @@ public class EditCompanyTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
-        *//*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonCompanyManagement());*//*
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemovePhoneNumberFromEditCompanyDrawer());
         Assert.assertTrue(company.WriteCompanyPhoneNumber(prop.getProperty("InvalidPhone1")));
         Assert.assertTrue(company.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
+        Assert.assertTrue(company.VerifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
     }
 
     @Test(priority = 10)//Done
@@ -180,13 +180,13 @@ public class EditCompanyTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
-        *//*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonCompanyManagement());*//*
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemovePhoneNumberFromEditCompanyDrawer());
         Assert.assertTrue(company.WriteCompanyPhoneNumber(prop.getProperty("InvalidPhone2")));
         Assert.assertTrue(company.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
+        Assert.assertTrue(company.VerifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
     }
 
     @Test(priority = 11)//Done
@@ -199,14 +199,14 @@ public class EditCompanyTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
-        *//*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonCompanyManagement());*//*
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemovePhoneNumberFromEditCompanyDrawer());
         Assert.assertTrue(company.WriteCompanyPhoneNumber(prop.getProperty("InvalidPhone3")));
         Assert.assertTrue(company.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
-    }*/
+        Assert.assertTrue(company.VerifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
+    }
 
     @Test(priority = 12)//Done
     @TestParameters(testCaseId = {"TC-12"})
