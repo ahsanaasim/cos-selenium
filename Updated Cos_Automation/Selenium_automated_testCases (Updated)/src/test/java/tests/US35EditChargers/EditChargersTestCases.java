@@ -209,7 +209,7 @@ public class EditChargersTestCases extends BaseTest {
 
     @Test(priority = 11)//Done
     @TestParameters(testCaseId = {"TC-18"})
-    public void C_18_VerifyLocationsareShowinginDropdownMenuonadvancefileter () throws InterruptedException {
+    public void TC_18_VerifyLocationsareShowinginDropdownMenuonadvancefileter () throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
@@ -231,7 +231,7 @@ public class EditChargersTestCases extends BaseTest {
 
     @Test(priority = 12)//Done
     @TestParameters(testCaseId = {"TC-19"})
-    public void C_19_VerifyLocationTitleonEditDrawerIsSameasLocationTitleOnChargerTable() throws InterruptedException {
+    public void TC_19_VerifyLocationTitleonEditDrawerIsSameasLocationTitleOnChargerTable() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
@@ -253,7 +253,7 @@ public class EditChargersTestCases extends BaseTest {
 
     @Test(priority =13)//Done
     @TestParameters(testCaseId = {"TC-21"})
-    public void C_21_VerifyAdminHasRedirectedToNewTabAfterClickingOnViewLocationFromEditChargerDrawer() throws InterruptedException {
+    public void TC_21_VerifyAdminHasRedirectedToNewTabAfterClickingOnViewLocationFromEditChargerDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
@@ -275,7 +275,7 @@ public class EditChargersTestCases extends BaseTest {
 
     @Test(priority = 14)//Done
     @TestParameters(testCaseId = {"TC-22"})
-    public void C_22_VerifyZoomedinVersionOfLocationAddressIsShowingOnMap() throws InterruptedException {
+    public void TC_22_VerifyZoomedinVersionOfLocationAddressIsShowingOnMap() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
@@ -297,7 +297,7 @@ public class EditChargersTestCases extends BaseTest {
 
     @Test(priority = 15)//Done
     @TestParameters(testCaseId = {"TC-23"})
-    public void C_23_VerifyLocationPointerIsPointedAtLocationAddressOnMap() throws InterruptedException {
+    public void TC_23_VerifyLocationPointerIsPointedAtLocationAddressOnMap() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
@@ -319,7 +319,7 @@ public class EditChargersTestCases extends BaseTest {
 
     @Test(priority = 16)//Done
     @TestParameters(testCaseId = {"TC-24"})
-    public void C_24_VerifyPropertyTitleonEditDrawerIsSameasPropertyTitleOnChargerTable() throws InterruptedException {
+    public void TC_24_VerifyPropertyTitleonEditDrawerIsSameasPropertyTitleOnChargerTable() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);

@@ -32,6 +32,9 @@ public class GuestVerificationPage extends BasePage{
     public static By StatChargingButton = By.xpath("//button[@class='ant-btn ant-btn-default chargingButton']");
     public static By PhoneNumberRequiredErrorMsg = By.xpath("//div[@class='ant-form-item-explain-error'][contains(text(),'Phone number is required')]");
     public static By InvalidNumberErrorMsg = By.xpath("//div[@class='ant-form-item-explain-error'][contains(text(),'Please provide a valid phone number')]");
+    public static By ChargerFeeBox = By.xpath("//div[@class='chargerFeeBox']");
+    public static By MaxChargingRate = By.xpath("//div[@class='feeHeading']");
+    public static By MaxChargingRateHeading = By.xpath("//div[@class='feeSubheading']");
 
 
     public boolean GoToAvailableCharger (String url) throws InterruptedException{

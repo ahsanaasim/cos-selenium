@@ -53,7 +53,7 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(CosAdminChargerList.EditButton,1000));
+        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(CosAdminChargerList.EditButton,10000));
         Assert.assertTrue(editChargerCosAdminUpdated.verifyEditDrawerNecessarySection());
     }
 
@@ -106,7 +106,7 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(editChargerCosAdminUpdated.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"Space 10",500));
+        Assert.assertTrue(editChargerCosAdminUpdated.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"Space 10",2000));
         Assert.assertTrue(createCharger.ClickButton(CreateCharger.searchargerbtn,1000));
         Assert.assertTrue(createCharger.ClickButton(CosAdminChargerList.EditButton,1000));
         Assert.assertTrue(editChargerCosAdminUpdated.verifyCrossButtonInsideLocationField());
@@ -120,11 +120,12 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
         EditChargerCosAdminUpdated editChargerCosAdminUpdated = new EditChargerCosAdminUpdated(driver);
+        ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(editChargerCosAdminUpdated.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"Selenium",1000));
+        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Selenium",8000));
         Assert.assertTrue(createcharger.ClickButton(CreateCharger.searchargerbtn,1000));
         Assert.assertTrue(createcharger.ClickButton(CosAdminChargerList.EditButton,1000));
         Assert.assertTrue(createcharger.ClickButton(ChargerListPropertyAdmin.SelectedLocationName,1500));
@@ -158,12 +159,14 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
-        EditCharger editChargers=new EditCharger(driver);
+        CreateCharger createcharger = new CreateCharger(driver);
         EditChargerCosAdminUpdated editChargerCosAdminUpdated= new EditChargerCosAdminUpdated(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
+        Assert.assertTrue(editChargerCosAdminUpdated.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"Selenium",1500));
+        Assert.assertTrue(createcharger.ClickButton(CreateCharger.searchargerbtn,1000));
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editChargerCosAdminUpdated.verifyCopyPasteUrl());
     }
@@ -177,6 +180,7 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditChargerCosAdminUpdated editChargerCosAdminUpdated= new EditChargerCosAdminUpdated(driver);
         loginPage.VerifyValidLogin();
+        editCompany.SwitchToTab(0);
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
@@ -498,12 +502,10 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
+//        loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
-        Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,"New Charger-01",1000));
+        Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,"New Charger-01",6000));
         Assert.assertTrue(createcharger.clickonoutsidethedrawer());
         Assert.assertTrue(createcharger.clickOnDiscardButtonOfPopUp());
         Assert.assertTrue(createcharger.verifyAddNewChargerButtonHasDisplayed());
@@ -544,8 +546,6 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(CosAdminChargerList.EditButton,1000));
         Assert.assertTrue(editChargerCosAdminUpdated.verifyAccountNameInAuditLog());
     }
-
-
 
     @Test(priority = 30)//Done
     @TestParameters(testCaseId = {"TC-84"})

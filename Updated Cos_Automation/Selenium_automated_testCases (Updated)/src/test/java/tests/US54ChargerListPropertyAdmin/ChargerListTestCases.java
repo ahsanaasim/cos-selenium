@@ -1,8 +1,6 @@
 package tests.US54ChargerListPropertyAdmin;
 
 
-
-
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -56,7 +54,7 @@ public class ChargerListTestCases extends BaseTest {
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(createcharger.writeInputText(CreateCharger.searchchargerfield,"Atom charger",3000));
+        Assert.assertTrue(createcharger.writeInputText(CreateCharger.searchchargerfield,"APN-3564",3000));
         Assert.assertTrue(createcharger.ClickButton(CreateCharger.searchargerbtn,1000));
         Assert.assertTrue(chargerListPropertyAdmin.verifyingBlankContent());
     }
@@ -70,7 +68,7 @@ public class ChargerListTestCases extends BaseTest {
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Automation Charger",4000));
+        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Automation Charger",8000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,2000));
         Assert.assertTrue(chargerListPropertyAdmin.verifyNAForNoLocation());
 
@@ -87,7 +85,7 @@ public class ChargerListTestCases extends BaseTest {
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Edited Charger",5000));
+        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Edited Charger",8000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,2000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,2000));
 //        Assert.assertTrue(createCharger.ClickButton(CreateCharger.selectlocation,3000));

@@ -17,7 +17,7 @@ public class CosAdminChargerList extends BasePage {
     public static By PropertyName = By.xpath("//*[@id=\"__next\"]/main/section[2]/section/main/div[2]/div[4]/div/div/div/div/div/table/tbody/tr[2]/td[2]/div");
     public static By PropertyAddress = By.xpath("//*[@id=\"__next\"]/main/section[2]/section/main/div[2]/div[4]/div/div/div/div/div/table/tbody/tr[2]/td[3]/div");
     public static By LocationName = By.xpath("//*[@id=\"__next\"]/main/section[2]/section/main/div[2]/div[4]/div/div/div/div/div/table/tbody/tr[2]/td[4]/div");
-    public static By EditButton = By.xpath("//button[@class='ant-btn ant-btn-default']//span[contains(text(),'Edit')]");
+    public static By EditButton = By.xpath("//button[@class='ant-btn ant-btn-default ant-btn-sm']");
 
 
 

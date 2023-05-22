@@ -67,4 +67,9 @@ public class DashboardPropertyAdmin extends BasePage{
         click(ChargerAccess);
         return true;
     }
+
+    public void GoToCompanyPanelLoginPage() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.get(prop.getProperty("HomeURLPropertyAdmin"));
+    }
 }

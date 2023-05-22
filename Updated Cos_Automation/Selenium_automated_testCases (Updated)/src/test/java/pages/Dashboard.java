@@ -160,5 +160,11 @@ public class Dashboard extends BasePage {
         }
     }
 
+    public void GoToCosAdminLoginPage() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.get(prop.getProperty("HomeURL"));
+    }
+
+
 
 }

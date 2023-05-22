@@ -16,8 +16,9 @@ public class FavoriteLocation extends BasePage{
     public static By FavoriteLocationIcon1InList = By.xpath("//span[@class='anticon anticon-heart']");
     public static By ReserveButton1 = By.xpath("//button[@class='ant-btn ant-btn-text mr-auto reserveButton']");
     public static By ReserveButton2 = By.xpath("(//button[@class='ant-btn ant-btn-text mr-auto reserveButton'])[2]");
-    public static By SeeDetailsButton1 = By.xpath("//div[@class='seeDetailsText'][contains(text(),'See Details')]");
-    public static By SeeDetailsButton2 = By.xpath("(//div[@class='seeDetailsText'][contains(text(),'See Details')])[2]");
+    public static By SeeDetailsButton = By.xpath("//button[@class='ant-btn ant-btn-text seeDetailsButton']");
+    public static By SeeDetailsButtonText1 = By.xpath("//div[@class='seeDetailsText'][contains(text(),'See Details')]");
+    public static By SeeDetailsButtonText2 = By.xpath("(//div[@class='seeDetailsText'][contains(text(),'See Details')])[2]");
     public static By LocationName = By.xpath("//div[@class='locationName']");
     public static By LocationAddress = By.xpath("//div[@class='locationAddress']");
 

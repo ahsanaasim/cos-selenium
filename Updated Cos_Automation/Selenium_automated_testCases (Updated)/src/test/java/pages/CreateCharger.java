@@ -16,6 +16,7 @@ public class CreateCharger extends BasePage {
     Random randomName = new Random();
 
     public static By addchargerbtn= By.xpath("//button[@type='button']//span[contains(text(),'Add New Charger')]");
+    public static By addChargerBtnDisabled= By.xpath("//button[@class='ant-btn ant-btn-primary btnPadding']");
     public static By addnewchargerdrawer = By.xpath("//span[@class='drawerTitle'][contains(.,'Add New Charger')]");
     public static By outsidedrawer = By.xpath("//div[@class='ant-drawer-mask']");
     public static By crossbtnofdrawer = By.cssSelector("button[class='ant-drawer-close']");
@@ -25,17 +26,19 @@ public class CreateCharger extends BasePage {
     public static By Chargername = By.xpath("//input[@placeholder='Charger Name']");
     public static By ChargerPlugType = By.xpath("//span[@title='J1772']");
     public static By ChargingRateField = By.xpath("(//input[@class='ant-select-selection-search-input'])[2]");
-
+    public static By FieldCrossButton = By.xpath("//span[@class='anticon anticon-close-circle']");
     public static By searchchargerfield= By.xpath("//input[@placeholder='Search by property, charger & location title']");
     public static By searchargerbtn = By.xpath("//span[contains(text(),'Search')]");
     public static By SearchResultCount = By.xpath("//span[@class='showCount']");
     public static By Chargernameerrormsg = By.xpath("//div[contains(text(),'Charger name is required')]");
     public static By propertynameerrmsg = By.xpath("//div[contains(text(),'Property is required')]");
+    public static By ChargingRaterequiredMessage = By.xpath("//div[@class='ant-form-item-explain-error'][contains(text(),'Charging rate is required')]");
+    public static By PlugTypeRequiredErrorMessage = By.xpath("//div[@class='ant-form-item-explain-error'][contains(text(),'Plug type is required')]");
     public static By selectproperty = By.xpath("(//input[@class='ant-select-selection-search-input'])[3]");
     public static By pname =By.xpath("(//div[contains(@class,'ant-select-item-option-content')])[1]");
     public static By lname= By.xpath("//div[contains(text(),'Electric Charger')]");
     //div[contains(@class,'ant-select-item-option-content')])[12]
-    public static By selectlocation = By.id("rc_select_3");
+    public static By selectlocation = By.id("rc_select_2");
     public static By savecharger = By.xpath("//button[@type='submit']");
     public static By cancel= By.xpath("//button[@type='button']");
     public static By location = By.xpath("(//input[@class='ant-select-selection-search-input'])[4]");
@@ -50,7 +53,7 @@ public class CreateCharger extends BasePage {
 
     public boolean ClickOnAddChargerButton () throws InterruptedException {
         Thread.sleep(2000);
-        //waitforInVisibility(loader);
+        waitVisibility(addchargerbtn);
         waitelementtobedisplayed(addchargerbtn);
         click(addchargerbtn);
         return true;
@@ -103,7 +106,7 @@ public class CreateCharger extends BasePage {
         click(discardbtn);
         return true;
     }
-    public  boolean ClickButton(By element,int delay)  throws InterruptedException {
+    public boolean ClickButton(By element,int delay)  throws InterruptedException {
         Thread.sleep(delay);
         waitforPresence(element);
         //waitforInVisibility(loader);
@@ -147,7 +150,6 @@ public class CreateCharger extends BasePage {
         Thread.sleep(3000);
         waitelementtobedisplayed(pname);
         //waitelemtclickable(pname);
-
         click(pname);
 //        click(pname);
         return true;
@@ -285,7 +287,7 @@ public class CreateCharger extends BasePage {
     }
     public boolean verifyDrawerContainsAllNecessarySection() throws InterruptedException {
         Thread.sleep(1000);
-        if(driver.getPageSource().contains("Charger Name") && driver.getPageSource().contains("Select Property") && driver.getPageSource().contains("Select Location")) {
+        if(driver.getPageSource().contains("Charger Name") && driver.getPageSource().contains("Plug Type") && driver.getPageSource().contains("Charging Rate") && driver.getPageSource().contains("Select Property") && driver.getPageSource().contains("Select Location")) {
             System.out.println("Verification Successful - All the Necessary Section in Drawer Showing");
 
         }else {
@@ -352,6 +354,13 @@ public class CreateCharger extends BasePage {
             System.out.println("Charger type is not selected");
             return false;
         }
+    }
+
+    public boolean clearChargerPlugTypeField() throws InterruptedException {
+        waitVisibility(ChargerPlugType);
+        Thread.sleep(10000);
+        click(FieldCrossButton);
+        return true;
     }
 
 }

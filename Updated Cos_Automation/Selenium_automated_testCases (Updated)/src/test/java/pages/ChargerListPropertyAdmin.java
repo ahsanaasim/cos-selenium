@@ -17,9 +17,9 @@ public class ChargerListPropertyAdmin extends BasePage {
 
     public static By LocationNA = By.xpath("//div[@class='wordBreak'][contains(.,'N/A')]");
     public static By LocationUnderLocationColumn = By.xpath("//*[@id=\"__next\"]/main/section[2]/section/main/div[2]/div[4]/div/div/div/div/div/table/tbody/tr[2]/td[4]/div");
-    public static By SearchChargerField = By.xpath("//input[@placeholder='Search by charger & location title']");
+    public static By SearchChargerField = By.xpath("//input[@placeholder='Search by property, charger & location title']");
     public static By searchargerbtn = By.xpath("//span[contains(text(),'Search')]");
-    public static By detailsbutton = By.xpath("//button[@class='ant-btn ant-btn-default']//span[contains(text(),'Details')]");
+    public static By detailsbutton = By.xpath("//span[contains(text(),'Details')]");
     public static By LoadMoreButtonWithText = By.xpath("//button[@class='ant-btn ant-btn-default primary-color']//span[contains(text(),'Load 3 More')]");
 
     public static By LoadMoreButton = By.xpath("//button[@class='ant-btn ant-btn-default primary-color']");
@@ -33,15 +33,17 @@ public class ChargerListPropertyAdmin extends BasePage {
     public static By PropertyAddressColumn = By.xpath("//th[normalize-space()='Property Address']");
     public static By LocationNameColumn = By.xpath("//th[normalize-space()='Location Name']");
     public static By ActionColumn = By.xpath("//*[@id=\"__next\"]/main/section[2]/section/main/div[2]/div[4]/div/div/div/div/div/table/thead/tr/th[5]");
-    public static By ChargerTitle = By.xpath("//*[@id=\"__next\"]/main/section[2]/section/main/div[2]/div[4]/div/div/div/div/div/table/tbody/tr[2]/td[1]/div");
-    public static By PropertyName = By.xpath("//*[@id=\"__next\"]/main/section[2]/section/main/div[2]/div[4]/div/div/div/div/div/table/tbody/tr[2]/td[2]/div");
-    public static By PropertyAddress = By.xpath("//*[@id=\"__next\"]/main/section[2]/section/main/div[2]/div[4]/div/div/div/div/div/table/tbody/tr[2]/td[3]/div");
-    public static By LocationName = By.xpath("//*[@id=\"__next\"]/main/section[2]/section/main/div[2]/div[4]/div/div/div/div/div/table/tbody/tr[2]/td[4]/div");
+    public static By ChargerTitle = By.xpath("//div[@class='wordBreak']");
+    public static By PropertyName = By.xpath("(//div[@class='wordBreak'])[2]");
+    public static By PropertyAddress = By.xpath("(//div[@class='wordBreak'])[3]");
+    public static By LocationName = By.xpath("(//div[@class='wordBreak'])[4]");
     public static By Action = By.xpath("//span[contains(text(),'Details')]");
     public static By LeftShowingCharger = By.xpath("//div[@class='showing-count-under-table']");
     public static By SelectedLocationFromOption = By.xpath("//div[@class='ant-select-item-option-content'][1]");
-    public static By SelectedLocationName = By.xpath("//span[@class='ant-select-selection-item']");
+    public static By SelectedLocationName = By.xpath("(//span[@class='ant-select-selection-item'])[3]");
+    public static By LocationField = By.id("rc_select_2");
     public static By SaveChargerButton = By.xpath("//span[normalize-space()='Save Charger']");
+    public static By LocationFieldCrossButton = By.xpath("(//span[@class='ant-select-clear'])[3]");
 
     public boolean ClickButton(By element, int delay) throws InterruptedException {
         Thread.sleep(delay);
@@ -84,6 +86,7 @@ public class ChargerListPropertyAdmin extends BasePage {
     }
     public boolean verifyHeaderColumnAlternative() throws InterruptedException {
         Thread.sleep(1000);
+        waitforPresence(ChargerColumn);
         String ColumnTitleCharger = driver.findElement(ChargerColumn).getText();
         String ColumnPropertyName = driver.findElement(PropertyNameColumn).getText();
         String ColumnPropertyAddress = driver.findElement(PropertyAddressColumn).getText();
@@ -114,11 +117,11 @@ public class ChargerListPropertyAdmin extends BasePage {
 
     public boolean verifyloadMoreButtonWithDigit() throws InterruptedException {
         Thread.sleep(1000);
-        String loadmorebuttonbuttontext = driver.findElement(LoadMoreButtonWithText).getText();
+        String loadmorebuttonbuttontext = driver.findElement(LoadMoreButton).getText();
         System.out.println(loadmorebuttonbuttontext);
-        String expected = "Load 3 More";
+        String expected = "Load \\d+ More";
         //waitVisibility(addchargerbtn);
-        if (loadmorebuttonbuttontext.equals(expected)) {
+        if (loadmorebuttonbuttontext.matches(expected)) {
             System.out.println("mile gese");
             return true;
         } else {
@@ -195,10 +198,11 @@ public class ChargerListPropertyAdmin extends BasePage {
         }
     }
     public boolean verifyEditedLocation() throws InterruptedException {
-        WebElement location = driver.findElement(CreateCharger.selectlocation);
-        ClickButton(CreateCharger.selectlocation,2000);
+        waitforPresence(CreateCharger.cancelbuttonofdrawer);
+        WebElement location = driver.findElement(LocationField);
+        ClickButton(SelectedLocationName,2000);
         Thread.sleep(1000);
-        location.sendKeys("Charger");
+        location.sendKeys("Satterfield Avenue 16275820");
         Thread.sleep(1500);
         location.sendKeys(Keys.ENTER);
         Thread.sleep(3000);
@@ -210,10 +214,6 @@ public class ChargerListPropertyAdmin extends BasePage {
         System.out.println(UpdatedLocationName);
         if (SelectedLocation.equals(UpdatedLocationName)) {
             System.out.println("Matched");
-            ClickButton(detailsbutton,1000);
-            ClickButton(SelectedLocationName,1000);
-            ClickButton(EditChargerCosAdminUpdated.LocationFieldCrossButton,2000);
-            ClickButton(SaveChargerButton,1000);
             return true;
         }
         else {
@@ -258,6 +258,8 @@ public class ChargerListPropertyAdmin extends BasePage {
         }
     }
     public boolean verifyChargerCountOnTopAfterRefreshing() throws InterruptedException {
+        Thread.sleep(2500);
+        waitforPresence(ChargerCountTop);
         String TopOfTable = driver.findElement(ChargerCountTop).getText();
         String replacing = TopOfTable.replaceAll("Showing Chargers: ", "");
         int DefaultChargerCountOnTop = Integer.parseInt(replacing);

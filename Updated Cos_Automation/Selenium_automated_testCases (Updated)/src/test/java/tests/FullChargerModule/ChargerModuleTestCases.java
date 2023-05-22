@@ -1,6 +1,5 @@
-package tests.US134CreateCharger;
+package tests.FullChargerModule;
 
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
@@ -10,7 +9,9 @@ import tests.US1AdminLogin.TestParameters;
 import java.util.Properties;
 import java.util.Random;
 
-public class CreateChargersTestCases extends BaseTest {
+public class ChargerModuleTestCases extends BaseTest {
+
+    //Create charger starts
 
     Properties prop = ConfigUtill.getConfig();
     Messages msg = new Messages();
@@ -648,7 +649,6 @@ public class CreateChargersTestCases extends BaseTest {
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,"My Another New Charger-01",1000));
-        createcharger.selectChargingRate("9.90");
         Assert.assertTrue(createcharger.clickonSaveChargerButton());
         Assert.assertTrue(createcharger.verifyPropertyNameErrorMsgHasDisplayed());
     }
@@ -767,4 +767,8 @@ public class CreateChargersTestCases extends BaseTest {
 
     }
 
+    // Create Charger Ends
+
+
+    //EditChargerStarts
 }

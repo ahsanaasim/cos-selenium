@@ -33,8 +33,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
     public static By EditDrawerAuditLog = By.xpath("//span[@class='drawerInsideTitle'][contains(text(),'Audit Log')]");
     public static By EditDrawerMoreSettings = By.xpath("//span[@class='drawerInsideTitle'][contains(text(),'More Settings')]");
     public static By DrawerTitle = By.xpath("//div[@class='drawerTitle wordBreak']");
-    public static By WelcomePageTitleChargingFee = By.xpath("//div[@class='ant-col ant-col-16']//div[@class='pageTitle'][normalize-space()='Charging Fee']");
-    public static By LocationFieldCrossButton = By.xpath("//span[@class='ant-select-clear']");
+    public static By LocationFieldCrossButton = By.xpath("(//span[@class='ant-select-clear'])[3]");
     public static By SelectedLocationField = By.xpath("//span[@class='ant-select-selection-item']");
     public static By CreateNewLocation = By.xpath("//span[normalize-space()='Or, create a new location']");
     public static By CreateLocationDrawerTitle = By.xpath("//span[@class='drawerTitle'][contains(text(),'Create New Location')]");
@@ -122,12 +121,10 @@ public class EditChargerCosAdminUpdated extends BasePage {
         ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
 // Switch to the new tab
         driver.switchTo().window(newTab.get(1));
-        waitforPresence(WelcomePageTitleChargingFee);
-        String CommonTitle = driver.findElement(WelcomePageTitleChargingFee).getText();
+        waitforPresence(GuestVerificationPage.ThanksForScanningTitle);
+        String CommonTitle = driver.findElement(GuestVerificationPage.MaxChargingRateHeading).getText();
         Thread.sleep(4000);
-        driver.close();
-        driver.switchTo().window(newTab.get(0));
-        if (CommonTitle.contains("Charging Fee")){
+        if (CommonTitle.contains("Max Rate")){
             System.out.println("Clipboard URL successfully navigate to expected TAB");
             return true;
         }
@@ -137,13 +134,14 @@ public class EditChargerCosAdminUpdated extends BasePage {
         }
     }
 
-    public boolean verifyCrossButtonInsideLocationField(){
+    public boolean verifyCrossButtonInsideLocationField() throws InterruptedException {
 //        WebElement LocationField = driver.findElement(SelectedLocationField);
         WebElement CrossButton = driver.findElement(LocationFieldCrossButton);
 //        Actions builder = new Actions(driver);
 //        builder.moveToElement(LocationField).build().perform();
 //        builder.moveToElement(CrossButton).build().perform();
         CrossButton.click();
+        Thread.sleep(1000);
         String EmptyLocationField = driver.findElement(CreateCharger.selectlocation).getText();
         System.out.println(EmptyLocationField);
         if (EmptyLocationField.isEmpty()){
@@ -401,6 +399,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
         System.out.println(ProfileNameAudiLog);
         click(ChargerListPropertyAdmin.SaveChargerButton);
         Thread.sleep(2000);
+        waitforPresence(ProfileTop);
         click(ProfileTop);
         click(ProfileOption);
         waitforPresence(FirstName);

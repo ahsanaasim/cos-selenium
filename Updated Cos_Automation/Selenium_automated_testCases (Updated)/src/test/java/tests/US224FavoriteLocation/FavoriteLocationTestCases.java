@@ -173,8 +173,8 @@ public class FavoriteLocationTestCases extends BaseTest {
     }
 
     @Test(priority = 11)
-    @TestParameters(testCaseId = {"TC-11"})
-    public void TC_11_CheckSeeDetailsButton () throws InterruptedException {
+    @TestParameters(testCaseId = {"TC-11,18"})
+    public void TC_11_18_CheckSeeDetailsButton () throws InterruptedException {
         CustomerLogin login = new CustomerLogin(driver);
         CreateCharger operation =new CreateCharger(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
@@ -187,8 +187,8 @@ public class FavoriteLocationTestCases extends BaseTest {
 //        dashboard.RefreshBrowser();
 //        operation.ClickButton(CustomerSupport.Menu,2000);
 //        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
-        Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(2000,FavoriteLocation.SeeDetailsButton1));
-        Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(500,FavoriteLocation.SeeDetailsButton2));
+        Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(2000,FavoriteLocation.SeeDetailsButtonText1));
+        Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(500,FavoriteLocation.SeeDetailsButtonText2));
 
     }
 
@@ -208,6 +208,29 @@ public class FavoriteLocationTestCases extends BaseTest {
 //        operation.ClickButton(CustomerSupport.Menu,2000);
 //        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
         Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(1000,FavoriteLocation.FavoriteLocationIcon1InList));
+
+    }
+
+    @Test(priority = 13)
+    @TestParameters(testCaseId = {"TC-19"})
+    public void TC_19_CheckWhatHappensWhenIClickOnSeeDetailsButton() throws InterruptedException {
+        CustomerLogin login = new CustomerLogin(driver);
+        CreateCharger operation =new CreateCharger(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
+        MapDetails mapDetails = new MapDetails(driver);
+        Dashboard dashboard = new Dashboard(driver);
+//        login.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+//        operation.ClickButton(CustomerLogin.Menu,2000);
+//        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+        operation.ClickButton(FavoriteLocation.SeeDetailsButton,2000);
+        mapDetails.SwitchToTab(1);
+        Assert.assertTrue(mapDetails.verifySystemIsRedirectingToMapPage());
+        Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,MapDetails.UpperDrawer));
+        Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(500,MapDetails.LowerDrawer));
 
     }
 }
