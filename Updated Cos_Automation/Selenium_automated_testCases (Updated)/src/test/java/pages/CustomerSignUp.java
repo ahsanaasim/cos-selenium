@@ -46,6 +46,7 @@ public class CustomerSignUp extends BasePage{
     public static By ErrorMsgNotSelectingTC = By.xpath("//div[@role='alert'][contains(text(),'Accepting terms and conditions is required')]");
     public static By ErrorForLessDigitPass = By.xpath("//div[@class='text-left mt-10 wrongPassSuggestion']");
     public static By VerifyEmailTitle = By.xpath("//div[@class='h1-text titleLogin mt-30']");
+    public static By ErrorMsgForAlreadyRegisteredEmail = By.xpath("//div[@class='ant-message-custom-content ant-message-error']");
 
 
 
@@ -66,10 +67,10 @@ public class CustomerSignUp extends BasePage{
 
     public boolean VerifyNumberVerificationPage() throws InterruptedException{
         Thread.sleep(5000);
-        waitforPresence(ProvidePhnNum);
-        String s = driver.findElement(ProvidePhnNum).getText();
+        waitforPresence(GuestVerificationPage.ProvidePhnNumberTitle);
+        String s = driver.findElement(GuestVerificationPage.ProvidePhnNumberTitle).getText();
         System.out.println(s);
-        if (driver.findElement(ProvidePhnNum).isDisplayed()){
+        if (driver.findElement(GuestVerificationPage.ProvidePhnNumberTitle).isDisplayed()){
             System.out.println("Verification Successful");
             return true;
         }
@@ -243,6 +244,10 @@ public class CustomerSignUp extends BasePage{
             System.out.println("Wrong");
             return false;
         }
+    }
+
+    public String errorMsgForAlreadySigneUpEmail(){
+        return "You are already registered with this email address. Try to login";
     }
 
 

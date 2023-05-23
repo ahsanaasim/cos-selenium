@@ -209,6 +209,12 @@ public class BasePage {
         waitVisibility(elementBy);
         driver.findElement(elementBy).clear();
     }
+    public boolean FieldClear(By element) throws InterruptedException{
+        Thread.sleep(2000);
+        waitforPresence(element);
+        driver.findElement(element).sendKeys(Keys.chord(Keys.CONTROL+"a", Keys.DELETE));
+        return true;
+    }
 
     //Write Text
     public void writeText (By elementBy, String text) {

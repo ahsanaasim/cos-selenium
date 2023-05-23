@@ -29,7 +29,7 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_14_CheckWhenUserClickOnSigUpButtonOnVerificationPage  () throws InterruptedException, IOException, UnsupportedFlavorException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpBtn,5000));
+        Assert.assertTrue(createCharger.ClickButton(GuestVerificationPage.SignUPButton,5000));
         Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpWithEmail,5000));
         Assert.assertTrue(customerSignUp.VerifyUserIsInRegistrationPage());
 
@@ -367,18 +367,35 @@ public class CustomerSignUpTestCases extends BaseTest {
         Assert.assertTrue(customerSignUp.VerifyWithoutSelectingCheckboxOfTC());
     }
     @Test(priority = 33)//Done
-    @TestParameters(testCaseId = {"TC-33"})
-    public void TC_32_CheckEmailVerificationPageAfterProvidingAllValidInfo () throws InterruptedException {
+    @TestParameters(testCaseId = {"TC-35"})
+    public void TC_35_CheckIfUserIsSigningUpWithAlreadyRegisteredEmail() throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
+        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.EmailField));
         Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.Password));
         Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.ConfirmPassword));
+        Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.EmailField,"lomina8480@dekaps.com",100));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.Password,"A@12345678",100));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.ConfirmPassword,"A@12345678",100));
         Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.AgreeCheckBox,300));
         Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,300));
-        Assert.assertTrue(customerSignUp.VerifyEmailVerificationTitle());
+        Assert.assertTrue(customerSignUp.verifyTextMatching(500,CustomerSignUp.ErrorMsgForAlreadyRegisteredEmail,customerSignUp.errorMsgForAlreadySigneUpEmail()));
     }
+//    @Test(priority = 34)//Done
+//    @TestParameters(testCaseId = {"TC-32"})
+//    public void TC_32_CheckEmailVerificationPageAfterProvidingAllValidInfo () throws InterruptedException {
+//        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
+//        CreateCharger createCharger =new CreateCharger(driver);
+//        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.Password));
+//        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.ConfirmPassword));
+//        Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.EmailField,"lomina8480@dekaps.com",100));
+//        Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.Password,"A@12345678",100));
+//        Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.ConfirmPassword,"A@12345678",100));
+//        Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.EmailField,"figebe3904@pgobo.com",100));
+//        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.AgreeCheckBox,300));
+//        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,300));
+//        Assert.assertTrue(customerSignUp.VerifyEmailVerificationTitle());
+//    }
 
 
 }

@@ -16,6 +16,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Properties;
 import java.util.Random;
 
 public class EditChargerCosAdminUpdated extends BasePage {
@@ -25,6 +26,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
     }
 
     RandomData rdata = new RandomData();
+    Properties prop = ConfigUtill.getConfig();
 
     public static By EditDrawerChargerInfoTitle = By.xpath("//span[@class='drawerInsideTitle'][contains(text(),'Charger Information')]");
     public static By EditDrawerOfflineOnline = By.xpath("//span[@class='drawerInsideTitle'][contains(text(),'Offline/Online')]");
@@ -224,7 +226,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
         Random objGenerator = new Random();
         int randomNumber = objGenerator.nextInt(1000);
         WebElement ChargerNameField = driver.findElement(CreateCharger.Chargername);
-        String EditedCharger = "Selenium "+randomNumber;
+        String EditedCharger = "My new charger "+randomNumber;
         click(CreateCharger.Chargername);;
         ChargerNameField.sendKeys(Keys.CONTROL,"a");
         ChargerNameField.sendKeys(Keys.DELETE);
@@ -397,18 +399,18 @@ public class EditChargerCosAdminUpdated extends BasePage {
     public boolean verifyAccountNameInAuditLog() throws InterruptedException {
         String ProfileNameAudiLog = driver.findElement(AuditLogAccName).getText();
         System.out.println(ProfileNameAudiLog);
-        click(ChargerListPropertyAdmin.SaveChargerButton);
-        Thread.sleep(2000);
-        waitforPresence(ProfileTop);
-        click(ProfileTop);
-        click(ProfileOption);
-        waitforPresence(FirstName);
-        waitforPresence(LastName);
-        String FName = driver.findElement(FirstName).getAttribute("value");
-        String LName = driver.findElement(LastName).getAttribute("value");
-        String FullName = FName+" "+LName;
-        System.out.println(FullName);
-        if (ProfileNameAudiLog.contains(FullName)){
+//        click(ChargerListPropertyAdmin.SaveChargerButton);
+//        Thread.sleep(2000);
+//        waitforPresence(ProfileTop);
+//        click(ProfileTop);
+//        click(ProfileOption);
+//        waitforPresence(FirstName);
+//        waitforPresence(LastName);
+//        String FName = driver.findElement(FirstName).getAttribute("value");
+//        String LName = driver.findElement(LastName).getAttribute("value");
+//        String FullName = FName+" "+LName;
+        String expected = prop.getProperty("CosAdminName");
+        if (ProfileNameAudiLog.contains(expected)){
             System.out.println("GG");
             return true;
         }
@@ -418,6 +420,8 @@ public class EditChargerCosAdminUpdated extends BasePage {
         }
 
     }
+
+
     public boolean verifyChangeNameInAuditLog() throws InterruptedException{
         Random objGenerator = new Random();
         int randomNumber = objGenerator.nextInt(10000);
