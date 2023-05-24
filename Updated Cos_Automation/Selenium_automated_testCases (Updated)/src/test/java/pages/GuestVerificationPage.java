@@ -20,6 +20,8 @@ public class GuestVerificationPage extends BasePage{
     public static By LoginButton = By.xpath("//span[normalize-space()='LOGIN']");
     public static By SignUPButton = By.xpath("//span[normalize-space()='SIGN UP']");
     public static By ChargerAvailableStatus = By.xpath("//div[@class='chargerAvailable']");
+    public static By ChargerInUseStatus = By.xpath("//div[@class='chargerUnavailable'][contains(text(),'In Use')]");
+    public static By ChargerRestrictedStatus = By.xpath("//div[@class='chargerUnavailable'][contains(text(),'Restricted')]");
     public static By PropertyLocationAddress = By.xpath("//div[@class='chargerLocationAddress mt-10']");
     public static By ShareButton = By.xpath("//div[@class='shareDiv cursor-pointer']");
     public static By GetDirectionText = By.xpath("//div[@class='getDirectionText']");

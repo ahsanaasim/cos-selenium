@@ -211,7 +211,7 @@ public class TicketList extends BasePage {
         String formattedDateTime = now.format(formatter);
         System.out.println("Formatted Date Time: " + formattedDateTime);
         dashboard.RefreshBrowser();
-        Thread.sleep(3500);
+        Thread.sleep(6000);
         waitforPresence(TableCreatedDate1);
         String TableDate = driver.findElement(TableCreatedDate1).getText();
         System.out.println(TableDate);

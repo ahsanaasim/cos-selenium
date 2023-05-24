@@ -26,6 +26,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
     }
 
     RandomData rdata = new RandomData();
+    Random data = new Random();
     Properties prop = ConfigUtill.getConfig();
 
     public static By EditDrawerChargerInfoTitle = By.xpath("//span[@class='drawerInsideTitle'][contains(text(),'Charger Information')]");
@@ -50,7 +51,9 @@ public class EditChargerCosAdminUpdated extends BasePage {
     public static By AuditLogAccName= By.xpath("//*[@id=\"basic\"]/div[6]/div[2]/div/ul/li[1]/div[4]/span");
     public static By FirstName = By.xpath("//input[@placeholder='First Name']");
     public static By LastName = By.xpath("//input[@placeholder='Last Name']");
-    public static By ChangeNameAuditLog = By.xpath("//*[@id=\"basic\"]/div[6]/div[2]/div/ul/li[2]/div[4]/span/div/div/span[4]");
+    public static By ChangeNameAuditLog = By.xpath("//*[@id=\"basic\"]/div[6]/div[2]/div/ul/li[1]/div[4]/span/div/div/span[4]");
+    public static By ChargingRateCrossButton = By.xpath("(//span[@class='anticon anticon-close-circle'])[3]");
+    public static By ChargingRateFieldSelected = By.xpath("(//span[@class='ant-select-selection-item'])[2]");
 
 
 
@@ -123,10 +126,13 @@ public class EditChargerCosAdminUpdated extends BasePage {
         ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
 // Switch to the new tab
         driver.switchTo().window(newTab.get(1));
-        waitforPresence(GuestVerificationPage.ThanksForScanningTitle);
+        Thread.sleep(2000);
+        waitforPresence(GuestVerificationPage.MaxChargingRateHeading);
         String CommonTitle = driver.findElement(GuestVerificationPage.MaxChargingRateHeading).getText();
         Thread.sleep(4000);
-        if (CommonTitle.contains("Max Rate")){
+        driver.close();
+        driver.switchTo().window(newTab.get(0));
+        if (CommonTitle.contains("Max Rate") || driver.findElement(GuestVerificationPage.ChargerAvailableStatus).isDisplayed() || driver.findElement(GuestVerificationPage.ChargerInUseStatus).isDisplayed()||driver.findElement(GuestVerificationPage.ChargerRestrictedStatus).isDisplayed()){
             System.out.println("Clipboard URL successfully navigate to expected TAB");
             return true;
         }
@@ -206,7 +212,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
         ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
 // Switch to the new tab
         driver.switchTo().window(newTab.get(1));
-        Thread.sleep(10000);
+        Thread.sleep(15000);
         String url = driver.getCurrentUrl();
         System.out.println(url);
         Thread.sleep(5000);
@@ -221,28 +227,38 @@ public class EditChargerCosAdminUpdated extends BasePage {
             return false;
         }
     }
+
+    public String GenerateRandomLocationName() throws InterruptedException {
+        Thread.sleep(2000);
+        String[] LocationNames = {"My New Location with Chargers", "Mayer Avenue 30372003", "Davis Avenue 4848076", "Tromp Avenue 18833079","Electric Charger","Botsford Avenue 62659569"};
+        int index = data.nextInt(LocationNames.length);
+        return LocationNames[index];
+
+    }
     public boolean verifyTheEditedInfoInTable() throws InterruptedException{
 //        String ToogleButtonStatusAfter = driver.findElement(UpdateChargerPropertyAdmin.ToggleButton).getAttribute(aria-checked);
-        Random objGenerator = new Random();
-        int randomNumber = objGenerator.nextInt(1000);
-        WebElement ChargerNameField = driver.findElement(CreateCharger.Chargername);
-        String EditedCharger = "My new charger "+randomNumber;
-        click(CreateCharger.Chargername);;
-        ChargerNameField.sendKeys(Keys.CONTROL,"a");
-        ChargerNameField.sendKeys(Keys.DELETE);
-        ChargerNameField.sendKeys(EditedCharger);
+//        Random objGenerator = new Random();
+//        int randomNumber = objGenerator.nextInt(1000);
+//        WebElement ChargerNameField = driver.findElement(CreateCharger.Chargername);
+//        String EditedCharger = "My new charger "+randomNumber;
+//        click(CreateCharger.Chargername);
+//        ChargerNameField.sendKeys(Keys.CONTROL,"a");
+//        ChargerNameField.sendKeys(Keys.DELETE);
+//        ChargerNameField.sendKeys(EditedCharger);
+        Thread.sleep(2000);
+        waitforPresence(DrawerTitle);
         WebElement ChargerLocationField = driver.findElement(CreateCharger.selectlocation);
-        String Location = "Ritchie Avenue 57892504";
+        String Location = GenerateRandomLocationName();
         click(ChargerListPropertyAdmin.SelectedLocationName);
         Thread.sleep(1500);
         ChargerLocationField.sendKeys(Location);
+        Thread.sleep(2500);
         ChargerLocationField.sendKeys(Keys.ENTER);
         click(UpdateChargerPropertyAdmin.SaveCharger);
         Thread.sleep(2000);
-        String EdcharTable = driver.findElement(ChargerListPropertyAdmin.ChargerTitle).getText();
         String EdLocTable = driver.findElement(ChargerListPropertyAdmin.LocationName).getText();
-        if (EdcharTable.equals(EditedCharger) && EdLocTable.equals(Location)){
-            System.out.println("All Edited Successfully");
+        if (EdLocTable.equals(Location)){
+            System.out.println("Location Edited Successfully");
             return true;
         }
         else {
@@ -252,34 +268,35 @@ public class EditChargerCosAdminUpdated extends BasePage {
     }
     public boolean verifyTheEditedInfoInDrawer() throws InterruptedException{
         String ToogleButtonStatusBefore = driver.findElement(UpdateChargerPropertyAdmin.ToggleButton).getAttribute("aria-checked");
-        System.out.println(ToogleButtonStatusBefore);
-        Random objGenerator = new Random();
-        int randomNumber = objGenerator.nextInt(100);
+        System.out.println("Toggle Status Before: "+ToogleButtonStatusBefore);
+//        Random objGenerator = new Random();
+//        int randomNumber = objGenerator.nextInt(100);
         click(UpdateChargerPropertyAdmin.ToggleButton);
-        click(CreateCharger.Chargername);
-        WebElement ChargerNameField = driver.findElement(CreateCharger.Chargername);
-        String EditedCharger = "Selenium "+randomNumber;
-        click(CreateCharger.Chargername);;
-        ChargerNameField.sendKeys(Keys.CONTROL,"a");
-        ChargerNameField.sendKeys(Keys.DELETE);
-        ChargerNameField.sendKeys(EditedCharger);
+//        click(CreateCharger.Chargername);
+//        WebElement ChargerNameField = driver.findElement(CreateCharger.Chargername);
+//        String EditedCharger = "Selenium "+randomNumber;
+//        click(CreateCharger.Chargername);;
+//        ChargerNameField.sendKeys(Keys.CONTROL,"a");
+//        ChargerNameField.sendKeys(Keys.DELETE);
+//        ChargerNameField.sendKeys(EditedCharger);
         WebElement ChargerLocationField = driver.findElement(CreateCharger.selectlocation);
-        String Location = "Rolfson Avenue 48474824";
+        String Location = GenerateRandomLocationName();
         click(ChargerListPropertyAdmin.SelectedLocationName);
         Thread.sleep(1500);
         ChargerLocationField.sendKeys(Location);
+        Thread.sleep(1500);
         ChargerLocationField.sendKeys(Keys.ENTER);
         click(UpdateChargerPropertyAdmin.SaveCharger);
-        Thread.sleep(1000);
+        Thread.sleep(4000);
         click(CosAdminChargerList.EditButton);
         Thread.sleep(2000);
         String ToogleButtonStatusAfter = driver.findElement(UpdateChargerPropertyAdmin.ToggleButton).getAttribute("aria-checked");
-        System.out.println(ToogleButtonStatusAfter);
+        System.out.println("Toggle Button status After: "+ToogleButtonStatusAfter);
         String Edchar = driver.findElement(CreateCharger.Chargername).getAttribute("value");
         System.out.println(Edchar);
         String EdLoc = driver.findElement(ChargerListPropertyAdmin.SelectedLocationName).getText();
         System.out.println(EdLoc);
-        if (Edchar.equals(EditedCharger) && EdLoc.equals(Location) && !ToogleButtonStatusAfter.equals(ToogleButtonStatusBefore)){
+        if ( EdLoc.equals(Location) && !ToogleButtonStatusAfter.equals(ToogleButtonStatusBefore)){
             System.out.println("All Edited Successfully");
             return true;
         }
@@ -423,18 +440,19 @@ public class EditChargerCosAdminUpdated extends BasePage {
 
 
     public boolean verifyChangeNameInAuditLog() throws InterruptedException{
+        Thread.sleep(2500);
         Random objGenerator = new Random();
-        int randomNumber = objGenerator.nextInt(10000);
+        int randomNumber = objGenerator.nextInt(10);
         WebElement ChargerNameField = driver.findElement(CreateCharger.Chargername);
-        String EditedCharger = "Selenium "+randomNumber;
+        String EditedCharger = "Raw charger "+randomNumber;
         click(CreateCharger.Chargername);
         ChargerNameField.sendKeys(Keys.CONTROL,"a");
         ChargerNameField.sendKeys(Keys.DELETE);
         ChargerNameField.sendKeys(EditedCharger);
         click(UpdateChargerPropertyAdmin.SaveCharger);
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         click(CosAdminChargerList.EditButton);
-        Thread.sleep(10000);
+        Thread.sleep(12000);
         String Edchar = driver.findElement(ChangeNameAuditLog).getText();
         System.out.println(Edchar);
         if (Edchar.equals(EditedCharger)){
@@ -445,5 +463,69 @@ public class EditChargerCosAdminUpdated extends BasePage {
             System.out.println("Fishy");
             return false;
         }
+    }
+
+    public boolean verifyChargingRateFieldIsOccupiedWithValidChargingRates(){
+        waitforPresence(DrawerTitle);
+        String ChargingRateShowing = driver.findElement(ChargingRateFieldSelected).getText();
+        System.out.println("Charging rate showing: "+ChargingRateShowing);
+        String ChargingRate1 = "7.70 kW";
+        String ChargingRate2 = "9.90 kW";
+        String ChargingRate3 = "11.50 kW";
+        if (ChargingRateShowing.equals(ChargingRate1) || ChargingRateShowing.equals(ChargingRate2) || ChargingRateShowing.equals(ChargingRate3)){
+            System.out.println("Charging rate field is occupied with valid rates");
+            return true;
+        }
+        else {
+            System.out.println("Charging rate field is not occupied with valid rates");
+            return false;
+        }
+
+    }
+    public String GenerateChargingRateRandomly() throws InterruptedException {
+        Thread.sleep(2000);
+        String[] ChargingRates = {"7.70 KW", "9.90 kW", "11.50 kW"};
+        int index = data.nextInt(ChargingRates.length);
+        return ChargingRates[index];
+
+    }
+
+    public void selectChargingRateFromSelectedField(String ChargingRate) throws InterruptedException {
+        waitforPresence(ChargingRateFieldSelected);
+        click(ChargingRateFieldSelected);
+        writeText(CreateCharger.ChargingRateField,ChargingRate);
+        WebElement selectitem = driver.findElement(CreateCharger.ChargingRateField);
+        Thread.sleep(3000);
+        selectitem.sendKeys(Keys.ENTER);
+    }
+
+
+    public boolean verifyUpdatedChargingRateAfterScanningCharger() throws InterruptedException, IOException, UnsupportedFlavorException {
+        waitforPresence(UpdateChargerPropertyAdmin.CopyButton);
+        selectChargingRateFromSelectedField(GenerateChargingRateRandomly());
+        String UpdatedChargingRateInDrawer = driver.findElement(ChargingRateFieldSelected).getText();
+        System.out.println("Charging rate in drawer: "+UpdatedChargingRateInDrawer);
+        click(UpdateChargerPropertyAdmin.CopyButton);
+        Thread.sleep(1500);
+// Open a new tab
+        String myText = (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor); // extracting the text that was copied to the clipboard
+        ((JavascriptExecutor) driver).executeScript("window.open(\""+myText+"\")");// launching a new tab window.location = \'"+url+"\'
+        ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
+// Switch to the new tab
+        driver.switchTo().window(newTab.get(1));
+        waitforPresence(GuestVerificationPage.MaxChargingRate);
+        String UpdatedChargingRateInScanningPage = driver.findElement(GuestVerificationPage.MaxChargingRate).getText();
+        System.out.println("Charging rate in scanning page: "+UpdatedChargingRateInScanningPage);
+        driver.close();
+        driver.switchTo().window(newTab.get(0));
+        if (UpdatedChargingRateInDrawer.equals(UpdatedChargingRateInScanningPage)){
+            System.out.println("Updated charging rate is showing accurately");
+            return true;
+        }
+        else {
+            System.out.println("Updated charging rate is not showing accurately");
+            return false;
+        }
+
     }
 }

@@ -20,7 +20,7 @@ public class CreateTicket extends BasePage{
     CreateProperty property = new CreateProperty(driver);
 
     public static By CreateTicketButton = By.xpath("//button[@class='ant-btn ant-btn-primary btnPadding pl-30 pr-30']");
-    public static By CreateTicketDrawerTitle = By.xpath("//div[@class='drawerTitle wordBreak'][contains(text(),'Create New Ticket')]");
+    public static By CreateTicketDrawerTitle = By.xpath("//div[@class='drawerTitle wordBreak createTicketDrawer'][contains(text(),'Create New Ticket')]");
     public static By TicketInformationTitle = By.xpath("//span[@class='drawerInsideTitle'][contains(text(),'Ticket Information')]");
     public static By SupportButton = By.xpath("//div[@class='supportContainer'][normalize-space()='Support']");
     public static By SupportQuestionMark = By.xpath("//span[@class='anticon anticon-question-circle']");
@@ -189,7 +189,7 @@ public class CreateTicket extends BasePage{
     }
 
     public String FileLimitationMsg(){
-        return "File format is Jpg, png, doc, pdf, xls. Max file size limit 15 MB.";
+        return "Max file size limit 20 MB.";
     }
 
     public boolean verifyPropertyDropdownListContainsAllTheProperties() throws InterruptedException {

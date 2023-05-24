@@ -30,7 +30,7 @@ public class UpdateChargerPropertyAdmin extends BasePage {
     public static By DetailsDrawerAuditLog = By.xpath("//span[@class='drawerInsideTitle'][contains(text(),'Audit Log')]");
     public static By ToggleButton = By.xpath("//button[@role='switch']");
     public static By ChargerUrl = By.xpath("//*[@id=\"basic\"]/div[2]/div[4]/div/div[2]/div");
-    public static By CopyButton = By.xpath("//*[@id=\"basic\"]/div[2]/div[4]/div/div[2]/button");
+    public static By CopyButton = By.xpath("//button[@class='ant-btn ant-btn-default copy-button-qrCode']");
     public static By SaveCharger = By.xpath("//button[@type='button']//span[contains(text(),'Save Charger')]");
     public static By CancelButton = By.xpath("//button[@type='button']//span[contains(text(),'Cancel')]");
     public static By NewTabPageTitle = By.xpath("//div[@class='ant-col ant-col-16']/div/div[@class='pageTitle']");

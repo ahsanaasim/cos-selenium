@@ -299,6 +299,8 @@ public class ChargerListPropertyAdmin extends BasePage {
             return false;
         }
     }
+
+
 }
 
 

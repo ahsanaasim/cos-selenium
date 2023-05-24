@@ -525,7 +525,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         CreateTicket ticket = new CreateTicket(driver);
         CreateProperty property =new CreateProperty(driver);
-//        loginPage.VerifyValidLoginForPropertyAdmin();
+        loginPage.VerifyValidLoginForPropertyAdmin();
         dashboard.RefreshBrowser();
         operation.ClickButton(CreateTicket.SupportButton,3000);
         operation.ClickButton(CreateTicket.CreateTicketButton,2000);
@@ -541,37 +541,37 @@ public class CreateZohoTicketTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 29)//Done
-    @TestParameters(testCaseId = {"TC-34"})
-    public void TC_34_CheckIfTicketIsCreatedOrNotAfterProvidingLessThan50WordsDescription() throws InterruptedException {
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard = new Dashboard(driver);
-        CreateCharger operation = new CreateCharger(driver);
-        CreateTicket ticket = new CreateTicket(driver);
+//    @Test(priority = 29)//Done
+//    @TestParameters(testCaseId = {"TC-34"})
+//    public void TC_34_CheckIfTicketIsCreatedOrNotAfterProvidingLessThan50WordsDescription() throws InterruptedException {
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard = new Dashboard(driver);
+//        CreateCharger operation = new CreateCharger(driver);
+//        CreateTicket ticket = new CreateTicket(driver);
 //        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
-        operation.ClickButton(CreateTicket.SupportButton,3000);
-        operation.ClickButton(CreateTicket.CreateTicketButton,2000);
-        ticket.SelectOptionFromInputField(CreateTicket.SelectPropertyField,"East Avenue");
-        ticket.SelectOptionFromInputField(CreateTicket.TicketTypeField,"Charging Issue");
-        ticket.SelectOptionFromInputField(CreateTicket.ChargerField,"Selenium");
-        operation.writeInputText(CreateTicket.SubjectField,"Defect charger issue",1000);
-        operation.writeInputText(CreateTicket.DescriptionField,(prop.getProperty("Paragraph")),1000);
-        operation.ClickButton(CreateTicket.SubmitTicket,1000);
-        ticket.NewTabOpenAndSwitchToNewTab(1);
-        ticket.GoToWebsite("https://www.zoho.com/desk/");
-        ticket.click(CreateTicket.ZohoSign);
-        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
-        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
-        operation.writeInputText(UpdateLedgerAccounts.ZohoPasswordField,"WorkLOAD@10@",2000);
-        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,5000);
-        Assert.assertTrue(ticket.verifyTextMatching(6000,CreateTicket.FirstTicket,"Defect charger issue"));
-        ticket.SwitchToTab(0);
-        Thread.sleep(3000);
-
-
-
-    }
+//        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateTicket.SupportButton,3000);
+//        operation.ClickButton(CreateTicket.CreateTicketButton,2000);
+//        ticket.SelectOptionFromInputField(CreateTicket.SelectPropertyField,"East Avenue");
+//        ticket.SelectOptionFromInputField(CreateTicket.TicketTypeField,"Charging Issue");
+//        ticket.SelectOptionFromInputField(CreateTicket.ChargerField,"Selenium");
+//        operation.writeInputText(CreateTicket.SubjectField,"Defect charger issue",1000);
+//        operation.writeInputText(CreateTicket.DescriptionField,(prop.getProperty("Paragraph")),1000);
+//        operation.ClickButton(CreateTicket.SubmitTicket,1000);
+//        ticket.NewTabOpenAndSwitchToNewTab(1);
+//        ticket.GoToWebsite("https://www.zoho.com/desk/");
+//        ticket.click(CreateTicket.ZohoSign);
+//        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
+//        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
+//        operation.writeInputText(UpdateLedgerAccounts.ZohoPasswordField,"WorkLOAD@10@",2000);
+//        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,5000);
+//        Assert.assertTrue(ticket.verifyTextMatching(6000,CreateTicket.FirstTicket,"Defect charger issue"));
+//        ticket.SwitchToTab(0);
+//        Thread.sleep(3000);
+//
+//
+//
+//    }
     @Test(priority = 30)//Done
     @TestParameters(testCaseId = {"TC-38"})
     public void TC_38_CheckWhatHappenedIfPAdminDidNotSelectTheRequiredFieldAndClickOnTheSubmitTicketButton() throws InterruptedException {

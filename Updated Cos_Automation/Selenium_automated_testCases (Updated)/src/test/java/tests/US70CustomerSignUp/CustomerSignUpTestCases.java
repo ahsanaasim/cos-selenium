@@ -12,6 +12,9 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import java.util.Properties;
 
+
+// Put a new email in the last test case to complete the full sign up process
+
 public class CustomerSignUpTestCases extends BaseTest {
     Properties prop = ConfigUtill.getConfig();
     Messages msg = new Messages();
