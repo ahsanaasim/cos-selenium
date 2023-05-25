@@ -172,7 +172,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
     }
     public boolean verifySearchLocationAndSelectFromDropdown() throws InterruptedException{
         WebElement ChargerNameField = driver.findElement(CreateCharger.selectlocation);
-        String Location = "Ritchie";
+        String Location = GenerateRandomLocationName();
         Thread.sleep(1000);
         click(LocationFieldCrossButton);
 //        ChargerNameField.click();
@@ -182,7 +182,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
         ChargerNameField.sendKeys(Keys.DOWN,Keys.ENTER);
         String SelectedChargerNameField = driver.findElement(ChargerListPropertyAdmin.SelectedLocationName).getText();
         System.out.println(SelectedChargerNameField);
-        if (SelectedChargerNameField.contains("Ritchie Avenue ")){
+        if (SelectedChargerNameField.contains(Location)){
             System.out.println("Successfully Changed");
             return true;
         }
@@ -256,7 +256,9 @@ public class EditChargerCosAdminUpdated extends BasePage {
         ChargerLocationField.sendKeys(Keys.ENTER);
         click(UpdateChargerPropertyAdmin.SaveCharger);
         Thread.sleep(2000);
+        waitforPresence(CosAdminChargerList.EditButton);
         String EdLocTable = driver.findElement(ChargerListPropertyAdmin.LocationName).getText();
+        System.out.println("Edited location in table: "+EdLocTable);
         if (EdLocTable.equals(Location)){
             System.out.println("Location Edited Successfully");
             return true;
@@ -450,13 +452,15 @@ public class EditChargerCosAdminUpdated extends BasePage {
         ChargerNameField.sendKeys(Keys.DELETE);
         ChargerNameField.sendKeys(EditedCharger);
         click(UpdateChargerPropertyAdmin.SaveCharger);
-        Thread.sleep(4000);
+        Thread.sleep(6000);
         click(CosAdminChargerList.EditButton);
         Thread.sleep(12000);
         String Edchar = driver.findElement(ChangeNameAuditLog).getText();
-        System.out.println(Edchar);
-        if (Edchar.equals(EditedCharger)){
-            System.out.println("Edited Name is Showing in Audit Log Successfully");
+        System.out.println("Edited charger name in Audit log: "+Edchar);
+        String ChargerNameInDrawer = driver.findElement(CreateCharger.Chargername).getAttribute("value");
+        System.out.println("Edited charger name in charger field: "+ChargerNameInDrawer);
+        if (ChargerNameInDrawer.equals(EditedCharger) && Edchar.equals(EditedCharger)){
+            System.out.println("Edited Name is Showing in Audit Log & charger field Successfully");
             return true;
         }
         else {
@@ -513,6 +517,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
         ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
 // Switch to the new tab
         driver.switchTo().window(newTab.get(1));
+        Thread.sleep(2000);
         waitforPresence(GuestVerificationPage.MaxChargingRate);
         String UpdatedChargingRateInScanningPage = driver.findElement(GuestVerificationPage.MaxChargingRate).getText();
         System.out.println("Charging rate in scanning page: "+UpdatedChargingRateInScanningPage);
@@ -528,4 +533,27 @@ public class EditChargerCosAdminUpdated extends BasePage {
         }
 
     }
+
+//    public boolean verifyUpdatedChargingRateInAuditLog() throws InterruptedException, IOException, UnsupportedFlavorException {
+//        waitforPresence(UpdateChargerPropertyAdmin.CopyButton);
+//        String chargingRate = GenerateChargingRateRandomly();
+//        selectChargingRateFromSelectedField(chargingRate);
+//        String UpdatedChargingRateInDrawer = driver.findElement(ChargingRateFieldSelected).getText();
+//        System.out.println("Charging rate in drawer: "+UpdatedChargingRateInDrawer);
+//        click(UpdateChargerPropertyAdmin.SaveCharger);
+//        Thread.sleep(10000);
+//        click(CosAdminChargerList.EditButton);
+//        Thread.sleep(5000);
+//        String ChangeRateInAuditLog = driver.findElement(ChangeNameAuditLog).getText();
+//        System.out.println("Edited charging rate in Audit log: "+ChangeRateInAuditLog);
+//        if (ChangeRateInAuditLog.equals(chargingRate)){
+//            System.out.println("Edited charging rate is Showing in Audit Log & charger field Successfully");
+//            return true;
+//        }
+//        else {
+//            System.out.println("Fishy");
+//            return false;
+//        }
+//
+//    }
 }

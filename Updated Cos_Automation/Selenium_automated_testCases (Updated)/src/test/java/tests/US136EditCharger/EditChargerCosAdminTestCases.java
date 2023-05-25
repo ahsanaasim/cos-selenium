@@ -5,10 +5,10 @@ import org.testng.annotations.Test;
 import pages.*;
 import tests.BaseTest;
 import tests.US1AdminLogin.TestParameters;
-
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import java.util.Properties;
+
 
 public class EditChargerCosAdminTestCases extends BaseTest {
     Properties prop = ConfigUtill.getConfig();
@@ -169,7 +169,7 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editChargerCosAdminUpdated.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"Selenium",1500));
         Assert.assertTrue(createcharger.ClickButton(CreateCharger.searchargerbtn,1000));
-        Assert.assertTrue(editCompany.ClickonEditbutton());
+        Assert.assertTrue(createcharger.ClickButton(CosAdminChargerList.EditButton,1000));
         Assert.assertTrue(editChargerCosAdminUpdated.verifyCopyPasteUrl());
     }
     @Test(priority = 9)//Done
@@ -516,7 +516,7 @@ public class EditChargerCosAdminTestCases extends BaseTest {
 
     @Test(priority = 28)//Done
     @TestParameters(testCaseId = {"TC-82"})
-    public void TC_82_CheckEditedDataFromDrawer() throws InterruptedException{
+    public void TC_82_CheckEditedDataFromDrawerInAuditLog() throws InterruptedException{
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
@@ -544,7 +544,7 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(editChargerCosAdminUpdated.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"Raw charger", 1000));
+        Assert.assertTrue(editChargerCosAdminUpdated.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"Raw charger ", 1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(CosAdminChargerList.EditButton,1000));
         Assert.assertTrue(editChargerCosAdminUpdated.verifyAccountNameInAuditLog());
@@ -580,7 +580,7 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(editChargerCosAdminUpdated.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"Selenium", 1000));
+        Assert.assertTrue(editChargerCosAdminUpdated.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"Raw charger ", 1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(CosAdminChargerList.EditButton,1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(UpdateChargerPropertyAdmin.ToggleButton,1000));
@@ -626,6 +626,25 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(CosAdminChargerList.EditButton,1000));
         Assert.assertTrue(editChargerCosAdminUpdated.verifyUpdatedChargingRateAfterScanningCharger());
     }
+
+//    @Test(priority = 35)//Done
+//    @TestParameters(testCaseId = {"TC-92"})
+//    public void TC_92_CheckUpdatedChargingRateIsShowingCorrectlyInAuditLog() throws InterruptedException, IOException, UnsupportedFlavorException {
+//        HomePage homePage = new HomePage(driver);
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard=new Dashboard(driver);
+//        ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
+//        EditChargerCosAdminUpdated editChargerCosAdminUpdated =new EditChargerCosAdminUpdated(driver);
+//        CreateCharger createCharger =new CreateCharger(driver);
+//        loginPage.VerifyValidLogin();
+//        Assert.assertTrue(dashboard.RefreshBrowser());
+//        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+//        Assert.assertTrue(dashboard.clickOnChargers());
+//        Assert.assertTrue(editChargerCosAdminUpdated.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"Selenium", 1000));
+//        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
+//        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(CosAdminChargerList.EditButton,1000));
+//        Assert.assertTrue(editChargerCosAdminUpdated.verifyUpdatedChargingRateInAuditLog());
+//    }
 
 
 
