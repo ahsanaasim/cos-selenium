@@ -1,4 +1,4 @@
-package tests.US57UpdateChargerPropertyAdmin;
+package tests.US57EditChargerPropertyAdmin;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -10,7 +10,7 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import java.util.Properties;
 
-public class PropertyAdminUpdateChargerTestCases extends BaseTest {
+public class PropertyAdminEditChargerTestCases extends BaseTest {
     Properties prop = ConfigUtill.getConfig();
     Messages msg = new Messages();
 
@@ -30,7 +30,6 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
     }
     @Test(priority = 2)//Done
     @TestParameters(testCaseId = {"TC-2"})
-
     public void TC_2_CheckWhenAdminClicksOnTheButton() throws InterruptedException{
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
@@ -47,7 +46,6 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
     }
     @Test(priority = 3)//Done
     @TestParameters(testCaseId = {"TC-3"})
-
     public void TC_3_CheckDrawerContainsNecessarySection() throws InterruptedException{
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
@@ -64,18 +62,18 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
     }
     @Test(priority = 4)//Done
     @TestParameters(testCaseId = {"TC-5"})
-
     public void TC_5_CheckEmptyLocationField() throws InterruptedException{
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
+        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Private Charger", 4000));
+        Assert.assertTrue(editCharger.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
         Assert.assertTrue(updateChargerPropertyAdmin.verifyLocationFieldEmpty());
@@ -83,66 +81,67 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
     }
     @Test(priority = 5)//Done
     @TestParameters(testCaseId = {"TC-6"})
-
-    public void TC_6_CheckDefaultStateOfToggleButton() throws InterruptedException{
+    public void TC_6_CheckDefaultStateOfToggleButton() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
+        Dashboard dashboard = new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
+        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Private Charger", 4000));
-        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1000));
-        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
+        Assert.assertTrue(editCharger.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
+        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn, 1000));
+        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton, 1000));
         Assert.assertTrue(updateChargerPropertyAdmin.verifyToggleButtonDefaultState());
 
     }
+
+
     @Test(priority = 6)//Done
     @TestParameters(testCaseId = {"TC-9"})
-
     public void TC_9_CheckTheChargerQrUrlAndCopyButton() throws InterruptedException{
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
+        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Atom Charger", 4000));
+        Assert.assertTrue(editCharger.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
-        Assert.assertTrue(updateChargerPropertyAdmin.verifyUrlAndCopyButtonExist());
+        Assert.assertTrue(updateChargerPropertyAdmin.verifyURLOfChargerQRExist());
+        Assert.assertTrue(updateChargerPropertyAdmin.verifyAnElementDisplayedOrNot(1000,UpdateChargerPropertyAdmin.CopyButton));
 
     }
     @Test(priority = 7)//Done
     @TestParameters(testCaseId = {"TC-10"})
-
     public void TC_10_CheckTheOnlineOfflineSwitch() throws InterruptedException{
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
-        CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
+        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Atom Charger", 4000));
+        Assert.assertTrue(editCharger.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
-        Assert.assertTrue(cosAdminChargerList.ClickButton(UpdateChargerPropertyAdmin.ToggleButton,1000));
+//        Assert.assertTrue(cosAdminChargerList.ClickButton(UpdateChargerPropertyAdmin.ToggleButton,1000));
         Assert.assertTrue(updateChargerPropertyAdmin.verifyChargerStatusAfterChanging());
 
     }
     @Test(priority = 8)//Done
     @TestParameters(testCaseId = {"TC-11"})
-
     public void TC_11_CheckTheChargerDetailsAfterMakingItOffline () throws InterruptedException{
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
@@ -150,14 +149,16 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
+        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Atom Charger", 4000));
+        Assert.assertTrue(editCharger.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
-        Assert.assertTrue(cosAdminChargerList.ClickButton(UpdateChargerPropertyAdmin.ToggleButton,1000));
+//        Assert.assertTrue(cosAdminChargerList.ClickButton(UpdateChargerPropertyAdmin.ToggleButton,1000));
+        Assert.assertTrue(updateChargerPropertyAdmin.clickToggleButtonIfItIsOn());
         Assert.assertTrue(cosAdminChargerList.ClickButton(UpdateChargerPropertyAdmin.SaveCharger,1500));
         Assert.assertTrue(updateChargerPropertyAdmin.verifyChargerStatusAfterMakingItOffline());
 
@@ -169,23 +170,23 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
-        CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
+        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
         Thread.sleep(3000);
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Atom Charger", 4000));
+        Assert.assertTrue(editCharger.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
+        Assert.assertTrue(updateChargerPropertyAdmin.clickToggleButtonIfItIsOn());
         Assert.assertTrue(updateChargerPropertyAdmin.verifyChargerStatusInWelcomePageWhenToggleButtonIsOff());
 
     }
 
     @Test(priority = 10)//Done
     @TestParameters(testCaseId = {"TC-13"})
-
     public void TC_13_CheckTheChargerDetailsAfterMakingItOnline () throws InterruptedException{
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
@@ -193,14 +194,17 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
+        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
+        updateChargerPropertyAdmin.SwitchToTab(0);
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Atom Charger", 5000));
+        Assert.assertTrue(editCharger.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
-        Assert.assertTrue(cosAdminChargerList.ClickButton(UpdateChargerPropertyAdmin.ToggleButton,1000));
+//        Assert.assertTrue(cosAdminChargerList.ClickButton(UpdateChargerPropertyAdmin.ToggleButton,1000));
+        Assert.assertTrue(updateChargerPropertyAdmin.clickToggleButtonIfItIsOff());
         Assert.assertTrue(cosAdminChargerList.ClickButton(UpdateChargerPropertyAdmin.SaveCharger,1500));
         Assert.assertTrue(updateChargerPropertyAdmin.verifyChargerStatusAfterMakingItOnlineFromOffline());
 
@@ -212,15 +216,16 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
-        CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
+        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Atom Charger", 5000));
+        Assert.assertTrue(editCharger.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
+        Assert.assertTrue(updateChargerPropertyAdmin.clickToggleButtonIfItIsOff());
         Assert.assertTrue(updateChargerPropertyAdmin.verifyChargerStatusInWelcomePage());
 
     }
@@ -232,13 +237,14 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
-        CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
+        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.RefreshBrowser());
+        updateChargerPropertyAdmin.SwitchToTab(0);
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Atom Charger", 5000));
+        Assert.assertTrue(editCharger.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
         Assert.assertTrue(updateChargerPropertyAdmin.verifyChargerStatusAfterMakingItOnlineFromOffline());
 
@@ -254,18 +260,18 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
         CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger createCharger = new CreateCharger(driver);
+        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Atom Charger", 5000));
+        Assert.assertTrue(editCharger.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
         Assert.assertTrue(cosAdminChargerList.ClickButton(UpdateChargerPropertyAdmin.ToggleButton,1000));
-        Assert.assertTrue(cosAdminChargerList.ClickButton(CreateCharger.selectlocation,1500));
-        Assert.assertTrue(cosAdminChargerList.ClickButton(ChargerListPropertyAdmin.SelectedLocationFromOption,1500));
+        Assert.assertTrue(updateChargerPropertyAdmin.SearchLocationAndSelectFromDropdown());
         Assert.assertTrue(cosAdminChargerList.ClickButton(UpdateChargerPropertyAdmin.SaveCharger,1500));
-        Assert.assertTrue(createCharger.verifyAddNewChargerButtonHasDisplayed());
+        Assert.assertTrue(createCharger.verifyDrawerIsClosed());
 
 
     }
@@ -278,12 +284,12 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
-        CreateCharger createCharger = new CreateCharger(driver);
+        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Atom Charger", 5000));
+        Assert.assertTrue(editCharger.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
         Assert.assertTrue(updateChargerPropertyAdmin.verifyUpdatesOfChanges());
@@ -298,12 +304,12 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
-        CreateCharger createCharger = new CreateCharger(driver);
+        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Atom Charger", 5000));
+        Assert.assertTrue(editCharger.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
         Assert.assertTrue(cosAdminChargerList.ClickButton(UpdateChargerPropertyAdmin.ToggleButton,500));
@@ -320,12 +326,12 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
-        CreateCharger createCharger = new CreateCharger(driver);
+        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Atom Charger", 5000));
+        Assert.assertTrue(editCharger.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
         Assert.assertTrue(cosAdminChargerList.ClickButton(UpdateChargerPropertyAdmin.ToggleButton,500));
@@ -341,19 +347,19 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
-        UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
+        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Atom Charger", 5000));
+        Assert.assertTrue(editCharger.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
         Assert.assertTrue(cosAdminChargerList.ClickButton(UpdateChargerPropertyAdmin.ToggleButton,500));
         Assert.assertTrue(cosAdminChargerList.ClickButton(UpdateChargerPropertyAdmin.CancelButton,500));
         Assert.assertTrue(cosAdminChargerList.ClickButton(UpdateChargerPropertyAdmin.DiscardBtn,1000));
-        Assert.assertTrue(createCharger.verifyAddNewChargerButtonHasDisplayed());
+        Assert.assertTrue(createCharger.verifyDrawerIsClosed());
     }
 
     @Test(priority = 18)//Done
@@ -365,12 +371,12 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
-        CreateCharger createCharger = new CreateCharger(driver);
+        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Atom Charger", 5000));
+        Assert.assertTrue(editCharger.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
         Assert.assertTrue(updateChargerPropertyAdmin.VerifyingChangesNotSavedAfterPressingDiscardButton());
@@ -384,12 +390,12 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
-        CreateCharger createCharger = new CreateCharger(driver);
+        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Atom Charger", 4000));
+        Assert.assertTrue(editCharger.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
         Assert.assertTrue(cosAdminChargerList.ClickButton(UpdateChargerPropertyAdmin.ToggleButton,500));
@@ -406,12 +412,12 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
-        CreateCharger createCharger = new CreateCharger(driver);
+        EditChargerCosAdminUpdated editChargerCosAdminUpdated = new EditChargerCosAdminUpdated(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Atom Charger", 4000));
+        Assert.assertTrue(editChargerCosAdminUpdated.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1500));
         Assert.assertTrue(cosAdminChargerList.ClickButton(UpdateChargerPropertyAdmin.ToggleButton,500));
@@ -428,12 +434,12 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
-        CreateCharger createCharger = new CreateCharger(driver);
+        EditChargerCosAdminUpdated editChargerCosAdminUpdated = new EditChargerCosAdminUpdated(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Atom Charger", 4000));
+        Assert.assertTrue(editChargerCosAdminUpdated.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(UpdateChargerPropertyAdmin.ToggleButton,1000));
@@ -450,12 +456,12 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
-        CreateCharger createCharger = new CreateCharger(driver);
+        EditChargerCosAdminUpdated editChargerCosAdminUpdated = new EditChargerCosAdminUpdated(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Toggle Location", 5000));
+        Assert.assertTrue(editChargerCosAdminUpdated.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(UpdateChargerPropertyAdmin.ToggleButton,1000));
@@ -476,8 +482,7 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Thread.sleep(3000);
-        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
+        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,5000));
         Assert.assertTrue(updateChargerPropertyAdmin.verifyCopyButtonMsg());
     }
 
@@ -498,7 +503,27 @@ public class PropertyAdminUpdateChargerTestCases extends BaseTest {
         Assert.assertTrue(editChargerCosAdminUpdated.verifyCopyPasteUrl());
     }
 
+    @Test(priority = 25)//Done
+    @TestParameters(testCaseId = {"TC-100"})
+    public void TC_100_CheckUpdatedChargingRateIsShowingCorrectlyAfterScanningCharger() throws InterruptedException,IOException,UnsupportedFlavorException {
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
+        UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
+        EditChargerCosAdminUpdated editChargerCosAdminUpdated = new EditChargerCosAdminUpdated(driver);
+        loginPage.VerifyValidLoginForPropertyAdmin();
+        Assert.assertTrue(dashboard.RefreshBrowser());
+        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
+        Assert.assertTrue(editChargerCosAdminUpdated.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
+        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
+        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
+        Assert.assertTrue(updateChargerPropertyAdmin.verifyUpdatedChargingRateAfterScanningCharger());
+    }
+
 }
+
 
 
 

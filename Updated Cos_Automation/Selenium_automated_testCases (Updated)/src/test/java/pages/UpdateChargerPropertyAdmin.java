@@ -3,16 +3,16 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.*;
 import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
-import org.apache.commons.collections.ListUtils;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import tests.US57UpdateChargerPropertyAdmin.PropertyAdminUpdateChargerTestCases;
 
-import java.sql.Driver;
+import java.awt.*;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 public class UpdateChargerPropertyAdmin extends BasePage {
 
@@ -22,6 +22,8 @@ public class UpdateChargerPropertyAdmin extends BasePage {
     }
 
     RandomData rdata = new RandomData();
+    Random data = new Random();
+    EditChargerCosAdminUpdated editChargerCosAdminUpdated = new EditChargerCosAdminUpdated(driver);
 
     public static By ChargerInfoTitle = By.xpath("//span[@class='drawerInsideTitle'][contains(text(),'Charger Information')]");
     public static By DetailsDrawerOfflineOnline = By.xpath("//span[@class='drawerInsideTitle'][contains(text(),'Offline/Online')]");
@@ -29,7 +31,7 @@ public class UpdateChargerPropertyAdmin extends BasePage {
     public static By DetailsDrawerLocationInformation = By.xpath("//span[@class='drawerInsideTitle'][contains(text(),'Location Information')]");
     public static By DetailsDrawerAuditLog = By.xpath("//span[@class='drawerInsideTitle'][contains(text(),'Audit Log')]");
     public static By ToggleButton = By.xpath("//button[@role='switch']");
-    public static By ChargerUrl = By.xpath("//*[@id=\"basic\"]/div[2]/div[4]/div/div[2]/div");
+    public static By ChargerUrl = By.xpath("//div[@class='mt-5']");
     public static By CopyButton = By.xpath("//button[@class='ant-btn ant-btn-default copy-button-qrCode']");
     public static By SaveCharger = By.xpath("//button[@type='button']//span[contains(text(),'Save Charger')]");
     public static By CancelButton = By.xpath("//button[@type='button']//span[contains(text(),'Cancel')]");
@@ -126,30 +128,50 @@ public class UpdateChargerPropertyAdmin extends BasePage {
             return false;
         }
     }
-    public boolean verifyChargerStatusAfterChanging() {
 
-        try{
-            String ToggleButtonStatus = driver.findElement(ToggleButton).getAttribute("aria-checked");
-            if (ToggleButtonStatus.equals("false")) {
-                System.out.println("Verification Successful!!! Toggle button has Set to Offline");
-                return true;
-
-            } else {
-                System.out.println("Verification UnSuccessful!!!Something Went Wrong!!");
-                return false;
-
-            }
-        }catch (NoSuchElementException e) {
-            System.out.println("Verification Successful.Toggle button has Set to Offline!!");
+    public boolean verifyURLOfChargerQRExist(){
+        waitVisibility(ChargerUrl);
+        String getUrl = driver.findElement(ChargerUrl).getText();
+        System.out.println(getUrl);
+        String expectedUrl = "https://test-app.chargeonsite.com/charger/";
+        if (getUrl.contains(expectedUrl)){
+            System.out.println("URL of charger QR code is visible");
             return true;
+        }
+        else {
+            System.out.println("Something Wrong");
+            return false;
+        }
+    }
+    public boolean verifyChargerStatusAfterChanging() throws InterruptedException {
+        waitforPresence(ToggleButton);
+        String ToggleButtonStatus = driver.findElement(ToggleButton).getAttribute("aria-checked");
+        System.out.println("Before clicking: "+ToggleButtonStatus);
+        click(ToggleButton);
+        click(SaveCharger);
+        Thread.sleep(2000);
+        waitVisibility(ChargerListPropertyAdmin.detailsbutton);
+        click(ChargerListPropertyAdmin.detailsbutton);
+        waitforPresence(ToggleButton);
+        String ToggleButtonStatus2 = driver.findElement(ToggleButton).getAttribute("aria-checked");
+        System.out.println("After clicking: "+ToggleButtonStatus2);
+        if (!ToggleButtonStatus.equals(ToggleButtonStatus2)) {
+            System.out.println("Verification Successful!!! Toggle button is switching properly");
+            return true;
+        } else {
+            System.out.println("Verification UnSuccessful!!!Something Went Wrong!!");
+            return false;
 
         }
     }
 
-    public boolean verifyChargerStatusAfterMakingItOffline() throws InterruptedException {
-        Thread.sleep(1500);
-        driver.findElement(ChargerListPropertyAdmin.detailsbutton).click();
 
+
+
+    public boolean verifyChargerStatusAfterMakingItOffline() throws InterruptedException {
+        Thread.sleep(2500);
+        waitVisibility(ChargerListPropertyAdmin.detailsbutton);
+        driver.findElement(ChargerListPropertyAdmin.detailsbutton).click();
         try{
             String ToggleButtonStatus = driver.findElement(ToggleButton).getAttribute("aria-checked");
             if (ToggleButtonStatus.equals("false")) {
@@ -189,6 +211,59 @@ public class UpdateChargerPropertyAdmin extends BasePage {
 
     }
 
+    public boolean clickToggleButtonIfItIsOff() throws InterruptedException {
+        Thread.sleep(1500);
+        waitforPresence(DetailsDrawerAuditLog);
+        try{
+            String ToggleButtonStatus = driver.findElement(ToggleButton).getAttribute("aria-checked");
+            if (ToggleButtonStatus.equals("true")) {
+                System.out.println("Toggle button is not clicked");
+                return true;
+
+            } else {
+                driver.findElement(ToggleButton).click();
+                click(SaveCharger);
+                waitVisibility(ChargerListPropertyAdmin.detailsbutton);
+                Thread.sleep(2000);
+                click(ChargerListPropertyAdmin.detailsbutton);
+                System.out.println("Toggle button is clicked");
+                return true;
+
+            }
+        }catch (NoSuchElementException e) {
+            System.out.println("Verification UnSuccessful.Toggle button is not displayed");
+            return false;
+
+        }
+
+    }
+
+    public boolean clickToggleButtonIfItIsOn() throws InterruptedException {
+        Thread.sleep(1500);
+        waitforPresence(DetailsDrawerAuditLog);
+        try {
+            String ToggleButtonStatus = driver.findElement(ToggleButton).getAttribute("aria-checked");
+            if (ToggleButtonStatus.equals("false")) {
+                System.out.println("Toggle button is not clicked");
+                return true;
+
+            } else {
+                driver.findElement(ToggleButton).click();
+                click(SaveCharger);
+                waitVisibility(ChargerListPropertyAdmin.detailsbutton);
+                Thread.sleep(2000);
+                click(ChargerListPropertyAdmin.detailsbutton);
+                System.out.println("Toggle button is clicked");
+                return true;
+
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("Verification UnSuccessful.Toggle button is not displayed");
+            return false;
+
+        }
+    }
+
     public boolean verifyChargerStatusInWelcomePage() throws InterruptedException{
         waitelementtobedisplayed(ChargerUrl);
         String url = driver.findElement(ChargerUrl).getText();
@@ -201,15 +276,16 @@ public class UpdateChargerPropertyAdmin extends BasePage {
         ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
         //switch to new tab
         driver.switchTo().window(newTab.get(1));
-        waitforPresence(NewTabPageTitle);
-        waitelementtobedisplayed(NewTabPageTitle);
-        String s =driver.findElement(NewTabPageTitle).getText();
-        System.out.println(s);
+        waitforPresence(GuestVerificationPage.ThanksForScanningTitle);
+        String s =driver.findElement(GuestVerificationPage.ThanksForScanningTitle).getText();
+        System.out.println("Title after scanning:"+s);
+        String s2 =driver.findElement(GuestVerificationPage.ChargerAvailableStatus).getText();
+        System.out.println("Charger status: "+s2);
         Thread.sleep(4000);
         driver.close();
         //switch to parent window
-//        driver.switchTo().window(newTab.get(0));
-        if (s.contains("Thanks For Scanning")){
+        driver.switchTo().window(newTab.get(0));
+        if (s.contains("Thanks For Scanning") && s2.equals("Available Now")){
             System.out.println("Pass");
             return true;
         }
@@ -231,13 +307,14 @@ public class UpdateChargerPropertyAdmin extends BasePage {
         //switch to new tab
         driver.switchTo().window(newTab.get(1));
         Thread.sleep(3000);
-        String s =driver.findElement(NewTabPageTitle).getText();
+        waitforPresence(GuestVerificationPage.ChargerUnavailableStatus);
+        String s =driver.findElement(GuestVerificationPage.ChargerUnavailableStatus).getText();
         System.out.println(s);
         Thread.sleep(3000);
         driver.close();
         //switch to parent window
         driver.switchTo().window(newTab.get(0));
-        if (s.contains("We Are Sorry!")){
+        if (s.equals("Unavailable")){
             System.out.println("Pass");
             return true;
         }
@@ -248,8 +325,31 @@ public class UpdateChargerPropertyAdmin extends BasePage {
     }
     public boolean verifyUpdatesOfChanges() throws InterruptedException{
         Thread.sleep(1000);
+        waitVisibility(ToggleButton);
         String ToggleButtonStatus = driver.findElement(ToggleButton).getAttribute("aria-checked");
-        if (ToggleButtonStatus.equals("false") && driver.findElement(ChargerListPropertyAdmin.SelectedLocationName).getText().contains("Charger Location")){
+        System.out.println("Toggle button status before click: "+ToggleButtonStatus);
+        click(ToggleButton);
+        String chargingRate = editChargerCosAdminUpdated.GenerateChargingRateRandomly();
+        editChargerCosAdminUpdated.selectChargingRateFromSelectedField(chargingRate);
+        WebElement LocationNameField = driver.findElement(CreateCharger.selectlocation);
+        String Location = editChargerCosAdminUpdated.GenerateRandomLocationName();
+        Thread.sleep(1000);
+        click(EditChargerCosAdminUpdated.SelectedLocationField);
+        Thread.sleep(3000);
+        LocationNameField.sendKeys(Location);
+        Thread.sleep(2000);
+        LocationNameField.sendKeys(Keys.ENTER);
+        click(SaveCharger);
+        Thread.sleep(1500);
+        waitVisibility(ChargerListPropertyAdmin.detailsbutton);
+        click(ChargerListPropertyAdmin.detailsbutton);
+        waitVisibility(ToggleButton);
+        String SelectedLocationNameField = driver.findElement(ChargerListPropertyAdmin.SelectedLocationName).getText();
+        System.out.println("Selected location: "+SelectedLocationNameField );
+        String ToggleButtonStatus2 = driver.findElement(ToggleButton).getAttribute("aria-checked");
+        System.out.println("Toggle button status after changing: "+ToggleButtonStatus2);
+        String chargingRateAfter = driver.findElement(EditChargerCosAdminUpdated.ChargingRateFieldSelected).getText();
+        if (!ToggleButtonStatus.equals(ToggleButtonStatus2) && Location.equals(SelectedLocationNameField) && chargingRate.equals(chargingRateAfter)){
             System.out.println("Changes Updated");
             return true;
         }
@@ -258,6 +358,7 @@ public class UpdateChargerPropertyAdmin extends BasePage {
             return false;
         }
     }
+
     public boolean verifyAlertMessage() throws InterruptedException{
         Thread.sleep(1000);
         String PopupBoxMsg = driver.findElement(PopUpBoxText).getText();
@@ -334,7 +435,8 @@ public class UpdateChargerPropertyAdmin extends BasePage {
         String date1= dateFormat.format(date);
         // Print the Date
         System.out.println(date1);
-        Thread.sleep(1000);
+        Thread.sleep(5000);
+        waitforPresence(ChargerListPropertyAdmin.detailsbutton);
         driver.findElement(ChargerListPropertyAdmin.detailsbutton).click();
         Thread.sleep(10000);
         String webDate = driver.findElement(By.xpath("//*[@id=\"basic\"]/div[5]/div[2]/div/ul/li[1]/div[1]/div[2]")).getText();
@@ -391,5 +493,74 @@ public class UpdateChargerPropertyAdmin extends BasePage {
         driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "v");
         driver.findElement(By.cssSelector("body")).sendKeys(Keys.ENTER);
         return true;
+    }
+
+
+    public String GenerateRandomLocationNameForSecureSmarterProperty() throws InterruptedException {
+        Thread.sleep(2000);
+        String[] LocationNames = {"Nearby car station", "Chicago"};
+        int index = data.nextInt(LocationNames.length);
+        return LocationNames[index];
+
+    }
+    public boolean SearchLocationAndSelectFromDropdown() throws InterruptedException{
+        WebElement LocationNameField = driver.findElement(CreateCharger.selectlocation);
+        String Location = editChargerCosAdminUpdated.GenerateRandomLocationName();
+        Thread.sleep(1000);
+        click(EditChargerCosAdminUpdated.SelectedLocationField);
+//        ChargerNameField.click();
+        Thread.sleep(2000);
+        LocationNameField.sendKeys(Location);
+        Thread.sleep(2000);
+        LocationNameField.sendKeys(Keys.ENTER);
+        String SelectedChargerNameField = driver.findElement(ChargerListPropertyAdmin.SelectedLocationName).getText();
+        System.out.println(SelectedChargerNameField);
+        if (SelectedChargerNameField.equals(Location)){
+            System.out.println("Successfully Changed");
+            return true;
+        }
+        else {
+            System.out.println("Not Changed");
+            return false;
+
+        }
+    }
+
+    public boolean verifyUpdatedChargingRateAfterScanningCharger() throws InterruptedException, IOException, UnsupportedFlavorException {
+        waitforPresence(UpdateChargerPropertyAdmin.CopyButton);
+        String UpdatedChargerRate = editChargerCosAdminUpdated.GenerateChargingRateRandomly();
+        System.out.println("Randomly generated charging rate: "+UpdatedChargerRate);
+        editChargerCosAdminUpdated.selectChargingRateFromSelectedField(UpdatedChargerRate);
+        Thread.sleep(2000);
+        String UpdatedChargingRateInDrawer = driver.findElement(editChargerCosAdminUpdated.ChargingRateFieldSelected).getText();
+        System.out.println("Charging rate in drawer: "+UpdatedChargingRateInDrawer);
+        click(UpdateChargerPropertyAdmin.SaveCharger);
+        Thread.sleep(1500);
+        waitforPresence(ChargerListPropertyAdmin.detailsbutton);
+        click(ChargerListPropertyAdmin.detailsbutton);
+        waitforPresence(UpdateChargerPropertyAdmin.CopyButton);
+        click(UpdateChargerPropertyAdmin.CopyButton);
+        Thread.sleep(1500);
+// Open a new tab
+        String myText = (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor); // extracting the text that was copied to the clipboard
+        ((JavascriptExecutor) driver).executeScript("window.open(\""+myText+"\")");// launching a new tab window.location = \'"+url+"\'
+        ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
+// Switch to the new tab
+        driver.switchTo().window(newTab.get(1));
+        Thread.sleep(4000);
+        waitforPresence(GuestVerificationPage.MaxChargingRate);
+        String UpdatedChargingRateInScanningPage = driver.findElement(GuestVerificationPage.MaxChargingRate).getText();
+        System.out.println("Charging rate in scanning page: "+UpdatedChargingRateInScanningPage);
+        driver.close();
+        driver.switchTo().window(newTab.get(0));
+        if (UpdatedChargingRateInDrawer.equals(UpdatedChargingRateInScanningPage) && UpdatedChargerRate.equals(UpdatedChargingRateInScanningPage)){
+            System.out.println("Updated charging rate is showing accurately");
+            return true;
+        }
+        else {
+            System.out.println("Updated charging rate is not showing accurately");
+            return false;
+        }
+
     }
 }

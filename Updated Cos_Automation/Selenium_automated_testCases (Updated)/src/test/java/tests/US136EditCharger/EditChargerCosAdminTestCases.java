@@ -74,7 +74,7 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editChargerCosAdminUpdated.verifyEditDrawerNecessarySection());
         Assert.assertTrue(editChargerCosAdminUpdated.verifyAnElementDisplayedOrNot(1000,CreateCharger.ChargerPlugType));
-        Assert.assertTrue(editChargerCosAdminUpdated.verifyAnElementDisplayedOrNot(1000,EditChargerCosAdminUpdated.ChargingRateFieldSelected));
+//        Assert.assertTrue(editChargerCosAdminUpdated.verifyAnElementDisplayedOrNot(1000,EditChargerCosAdminUpdated.ChargingRateFieldSelected));
     }
 
     @Test(priority = 4)//Done

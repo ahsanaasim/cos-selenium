@@ -1,14 +1,9 @@
 package pages;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.SourceType;
-import org.openqa.selenium.support.ui.Wait;
-import org.testng.Assert;
-import tests.US57UpdateChargerPropertyAdmin.PropertyAdminUpdateChargerTestCases;
+import tests.US57EditChargerPropertyAdmin.PropertyAdminEditChargerTestCases;
 
 import java.awt.*;
-import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
@@ -230,7 +225,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
 
     public String GenerateRandomLocationName() throws InterruptedException {
         Thread.sleep(2000);
-        String[] LocationNames = {"My New Location with Chargers", "Mayer Avenue 30372003", "Davis Avenue 4848076", "Tromp Avenue 18833079","Electric Charger","Botsford Avenue 62659569"};
+        String[] LocationNames = {"Mayer Avenue 30372003", "Davis Avenue 4848076", "Tromp Avenue 18833079","Electric Charger","Botsford Avenue 62659569"};
         int index = data.nextInt(LocationNames.length);
         return LocationNames[index];
 
@@ -488,7 +483,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
     }
     public String GenerateChargingRateRandomly() throws InterruptedException {
         Thread.sleep(2000);
-        String[] ChargingRates = {"7.70 KW", "9.90 kW", "11.50 kW"};
+        String[] ChargingRates = {"7.70 kW", "9.90 kW", "11.50 kW"};
         int index = data.nextInt(ChargingRates.length);
         return ChargingRates[index];
 
@@ -506,11 +501,18 @@ public class EditChargerCosAdminUpdated extends BasePage {
 
     public boolean verifyUpdatedChargingRateAfterScanningCharger() throws InterruptedException, IOException, UnsupportedFlavorException {
         waitforPresence(UpdateChargerPropertyAdmin.CopyButton);
-        selectChargingRateFromSelectedField(GenerateChargingRateRandomly());
+        String UpdatedChargerRate = GenerateChargingRateRandomly();
+        System.out.println("Randomly generated charging rate: "+UpdatedChargerRate);
+        selectChargingRateFromSelectedField(UpdatedChargerRate);
+        Thread.sleep(2000);
         String UpdatedChargingRateInDrawer = driver.findElement(ChargingRateFieldSelected).getText();
         System.out.println("Charging rate in drawer: "+UpdatedChargingRateInDrawer);
-        click(UpdateChargerPropertyAdmin.CopyButton);
+        click(UpdateChargerPropertyAdmin.SaveCharger);
         Thread.sleep(1500);
+        waitforPresence(CosAdminChargerList.EditButton);
+        click(CosAdminChargerList.EditButton);
+        waitforPresence(UpdateChargerPropertyAdmin.CopyButton);
+        click(UpdateChargerPropertyAdmin.CopyButton);
 // Open a new tab
         String myText = (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor); // extracting the text that was copied to the clipboard
         ((JavascriptExecutor) driver).executeScript("window.open(\""+myText+"\")");// launching a new tab window.location = \'"+url+"\'

@@ -15,7 +15,6 @@ public class SearchAndFilterPropertyAdminTestCases extends BaseTest {
     Messages msg = new Messages();
 
 
-
     @Test(priority = 1)//Done
     @TestParameters(testCaseId = {"TC-1"})
     public void TC_1_WhenAdminSearchChargerByInvalidChargerTitle() throws InterruptedException, IOException {

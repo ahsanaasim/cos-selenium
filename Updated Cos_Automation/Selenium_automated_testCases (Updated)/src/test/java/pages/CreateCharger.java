@@ -39,7 +39,7 @@ public class CreateCharger extends BasePage {
     public static By lname= By.xpath("//div[contains(text(),'Electric Charger')]");
     //div[contains(@class,'ant-select-item-option-content')])[12]
     public static By selectlocation = By.id("rc_select_2");
-    public static By savecharger = By.xpath("//button[@type='submit']");
+    public static By savecharger = By.xpath("//button[@type='submit']//span[contains(text(),'Save Charger')]");
     public static By cancel= By.xpath("//button[@type='button']");
     public static By location = By.xpath("(//input[@class='ant-select-selection-search-input'])[4]");
     public static By confirmationpopup = By.xpath("//span[normalize-space()='Charger created successfully']");
@@ -169,6 +169,20 @@ public class CreateCharger extends BasePage {
         //waitVisibility(addchargerbtn);
         if (driver.findElement(addchargerbtn).isDisplayed()) {
             System.out.println("Add New Charger button has displayed and Drawer is Closed Now");
+            return true;
+        } else {
+            System.out.println("Something Went Wrong!!");
+            return false;
+        }
+
+    }
+
+    public boolean verifyDrawerIsClosed() throws InterruptedException {
+        //company.waitForSpinner();
+        Thread.sleep(3000);
+        waitVisibility(DashboardPropertyDetails.TopAccountName);
+        if (driver.findElement(DashboardPropertyDetails.TopAccountName).isDisplayed()) {
+            System.out.println("Drawer is closed");
             return true;
         } else {
             System.out.println("Something Went Wrong!!");
