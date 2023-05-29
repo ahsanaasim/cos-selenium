@@ -68,7 +68,7 @@ public class ChargerListTestCases extends BaseTest {
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Automation Charger",8000));
+        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"abc", 8000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,2000));
         Assert.assertTrue(chargerListPropertyAdmin.verifyNAForNoLocation());
 
@@ -83,6 +83,7 @@ public class ChargerListTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
         Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Edited Charger",8000));

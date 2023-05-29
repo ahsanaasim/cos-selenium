@@ -24,7 +24,9 @@ public class GuestVerificationPage extends BasePage{
     public static By ChargerInUseStatus = By.xpath("//div[@class='chargerUnavailable'][contains(text(),'In Use')]");
     public static By ChargerRestrictedStatus = By.xpath("//div[@class='chargerUnavailable'][contains(text(),'Restricted')]");
     public static By PropertyLocationAddress = By.xpath("//div[@class='chargerLocationAddress mt-10']");
+    public static By FavoriteIcon = By.xpath("//div[@class='heartDiv']");
     public static By ShareButton = By.xpath("//div[@class='shareDiv cursor-pointer']");
+    public static By CopiedToolTip = By.xpath("//div[@role='tooltip'][contains(text(),'Copied')]");
     public static By GetDirectionText = By.xpath("//div[@class='getDirectionText']");
     public static By GetDirectionIcon = By.xpath("//img[@src='/map/getDirection.svg']");
     public static By CarImage = By.xpath("//img[@src='/scan-charger/car.svg']");
@@ -95,15 +97,6 @@ public class GuestVerificationPage extends BasePage{
             return false;
         }
     }
-
-
-
-
-
-
-
-
-
 
 
 

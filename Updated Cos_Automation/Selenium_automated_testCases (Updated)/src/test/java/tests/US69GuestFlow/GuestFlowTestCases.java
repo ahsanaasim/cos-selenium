@@ -25,39 +25,96 @@ public class GuestFlowTestCases extends BaseTest {
     @TestParameters(testCaseId = {"TC-1"})
     public void TC_1_GuestFlow() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
-        CreateCharger createCharger = new CreateCharger(driver);
+        CreateCharger operation = new CreateCharger(driver);
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
-        Assert.assertTrue(customerSignUp.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/dHvDx1"));
-        driver.manage().deleteAllCookies();
-        Assert.assertTrue(createCharger.writeInputText(pages.GuestFlow.PhoneNoField,"1111111111111",5000));
-        Assert.assertTrue(createCharger.ClickButton(pages.GuestFlow.ContinueGuestBtn,2000));
-        Assert.assertTrue(guestFlow.SendOtp(4000,"666666"));
-        Assert.assertTrue(createCharger.ClickButton(GuestFlow.VerifyButton,300));
-        Assert.assertTrue(createCharger.ClickButton(GuestFlow.StartChargingButton,10000));
-        guestFlow.SwitchToIframe();
-        Assert.assertTrue(createCharger.writeInputText(GuestFlow.CardNumber,"424242424242424242424242424",6000));
-        guestFlow.SwitchToDefaultFromIframe();
-        Assert.assertTrue(createCharger.ClickButton(GuestFlow.AuthorizeButton,1500));
-        guestFlow.NewTabOpenAndSwitchToNewTab(1);
+        SimulationPage simulationPage = new SimulationPage(driver);
         loginPage.VerifyValidLogin();
         guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 92"));
-        Assert.assertTrue(createCharger.ClickButton(GuestFlow.PluginChargerbtn,500));
-        Thread.sleep(35000);
+        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 18"));
+        Assert.assertTrue(operation.ClickButton(SimulationPage.BootChargerButton,2000));
+        Assert.assertTrue(operation.ClickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
+        simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
+        guestFlow.SwitchToTab(1);
+        Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
+        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
+        Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
+        operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
         guestFlow.SwitchToTab(0);
-        Thread.sleep(5000);
+        Assert.assertTrue(operation.ClickButton(GuestFlow.PluginChargerbtn,500));
+        simulationPage.SelectChargerStatusFromSimulator("Charging");
+        operation.click(SimulationPage.ChargerStatusSaveButton);
+        guestFlow.SwitchToTab(1);
+        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.StatChargingButton,5000));
+        guestFlow.SwitchToIframe();
+        operation.click(GuestFlow.CardNumber);
+        Assert.assertTrue(operation.writeInputText(GuestFlow.CardNumber,"424242424242424242424242424",6000));
+        guestFlow.SwitchToDefaultFromIframe();
+        Assert.assertTrue(operation.ClickButton(GuestFlow.AuthorizeButton,1500));
         System.out.println("URL  =  "+driver.getCurrentUrl());
         Assert.assertTrue(guestFlow.verifyChargingNowTitle());
-        guestFlow.SwitchToTab(1);
-        createCharger.ClickButton(GuestFlow.DisconnectChargerbtn,3000);
-        Thread.sleep(2000);
+        guestFlow.LengthOfSession(60000);
         guestFlow.SwitchToTab(0);
-        Thread.sleep(10000);
+        operation.ClickButton(GuestFlow.DisconnectChargerbtn,3000);
+        guestFlow.SwitchToTab(1);
+        Assert.assertTrue(guestFlow.verifyTotalFee());
         Assert.assertTrue(guestFlow.verifyChargingSessionEnded());
 
 
+
+
   }
+
+
+    @Test(priority = 1)//Done
+    @TestParameters(testCaseId = {"TC-1"})
+    public void TC_1_GuestFlowWithIDleSession() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        loginPage.VerifyValidLogin();
+        guestFlow.GoToSimulator();
+        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 272"));
+        Assert.assertTrue(operation.ClickButton(SimulationPage.BootChargerButton,2000));
+        Assert.assertTrue(operation.ClickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
+        simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
+        guestFlow.SwitchToTab(1);
+        Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
+        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
+        Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
+        operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
+        guestFlow.SwitchToTab(0);
+        Assert.assertTrue(operation.ClickButton(GuestFlow.PluginChargerbtn,500));
+        simulationPage.SelectChargerStatusFromSimulator("Charging");
+        operation.click(SimulationPage.ChargerStatusSaveButton);
+        guestFlow.SwitchToTab(1);
+        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.StatChargingButton,5000));
+        guestFlow.SwitchToIframe();
+        operation.click(GuestFlow.CardNumber);
+        Assert.assertTrue(operation.writeInputText(GuestFlow.CardNumber,"424242424242424242424242424",6000));
+        guestFlow.SwitchToDefaultFromIframe();
+        Assert.assertTrue(operation.ClickButton(GuestFlow.AuthorizeButton,1500));
+        System.out.println("URL  =  "+driver.getCurrentUrl());
+        Assert.assertTrue(guestFlow.verifyChargingNowTitle());
+        guestFlow.LengthOfSession(10000);
+        guestFlow.PressAndHold(GuestFlow.PressAndHoldButton);
+//        guestFlow.SwitchToTab(0);
+//        operation.ClickButton(GuestFlow.DisconnectChargerbtn,3000);
+//        guestFlow.SwitchToTab(1);
+//        Assert.assertTrue(guestFlow.verifyTotalFee());
+//        Assert.assertTrue(guestFlow.verifyChargingSessionEnded());
+
+
+
+
+    }
+
+
+
+
+
     @Test(priority = 1)//Done
     @TestParameters(testCaseId = {"TC-118"})
     public void TC_118_CheckChargersDetailsAndPlugType() throws InterruptedException{

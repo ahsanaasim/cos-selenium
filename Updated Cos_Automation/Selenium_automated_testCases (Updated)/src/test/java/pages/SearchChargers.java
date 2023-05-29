@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -54,7 +55,7 @@ public class SearchChargers extends BasePage {
 
     public boolean clickOnChargerCount() throws InterruptedException {
         createCompany.waitForSpinner();
-       // waitVisibility(count);
+        // waitVisibility(count);
         click(count);
         return true;
     }
@@ -68,7 +69,6 @@ public class SearchChargers extends BasePage {
     }
 
     public boolean writeLocationName() throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
         waitVisibility(dropdown1);
         writeText(dropdown1,"Atom power station");
         //  new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.id("(//input[@role='combobox'])[2]"))).sendKeys(prop.getProperty("East Avenue"));
@@ -251,14 +251,14 @@ public class SearchChargers extends BasePage {
     }
 
     public boolean verifySearchInputRemainsSameAfterRefreshingTeBrowser() {
-            createCompany.waitForSpinner();
-            WebElement name = driver.findElement(By.xpath("//input[contains(@value,'Space 10')]"));
-            if (name.isDisplayed()) {
-                System.out.println("Verification Successful.Input Remain Same After Refreshing The Browser: " +name.getText());
-            } else {
-                System.out.println("Verification UnSuccessful. Something Went Wrong!!");
+        createCompany.waitForSpinner();
+        WebElement name = driver.findElement(By.xpath("//input[contains(@value,'Space 10')]"));
+        if (name.isDisplayed()) {
+            System.out.println("Verification Successful.Input Remain Same After Refreshing The Browser: " +name.getText());
+        } else {
+            System.out.println("Verification UnSuccessful. Something Went Wrong!!");
 
-            }
+        }
         return true;
 
     }
@@ -363,8 +363,8 @@ public class SearchChargers extends BasePage {
 
     public boolean verifyLocationisShowingInTheDropDown() {
         //  createCompany.waitForSpinner();
-        driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
-        if( driver.findElement(By.xpath("//div[@class='ant-select-item-option-content'][contains(.,'Atom power station')]")).isDisplayed())
+        waitVisibility(locationyname);
+        if( driver.findElement(locationdropdown).isDisplayed())
         {
             System.out.println("Verification Successful!!!Property  Name  is  Showing in the Dropdown");
             return true;

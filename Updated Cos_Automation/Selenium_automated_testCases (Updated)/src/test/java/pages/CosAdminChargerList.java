@@ -2,8 +2,10 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import java.util.List;
 import java.util.Random;
 
 public class CosAdminChargerList extends BasePage {
@@ -94,6 +96,42 @@ public class CosAdminChargerList extends BasePage {
         }
 
 
+    }
+
+    public boolean verifyExpectedTitleColumnOccupiedWithContent(String Title, int IndexOfTitle) throws InterruptedException {
+        Thread.sleep(3000);
+        waitforPresence(EditButton);
+        WebElement mytable = driver.findElement(By.xpath("//thead"));
+        List<WebElement> headers = mytable.findElements(By.tagName("th"));
+        int resultColumnIndex = 0;
+        for (int i = 0; i < headers.size(); i++) {
+            if (headers.get(i).getText().equals(Title)) {
+                resultColumnIndex = i;
+                System.out.println(resultColumnIndex);
+                System.out.println(Title);
+                break;
+            }
+        }
+        if (resultColumnIndex != IndexOfTitle) {
+            // The "Result" column was not found
+            throw new RuntimeException("The 'Status' column was not found");
+        }
+
+        WebElement myrows = driver.findElement(By.xpath("//tbody"));
+        List<WebElement> rows = myrows.findElements(By.tagName("tr"));
+        for (int i = 1; i < rows.size(); i++) { // start at index 1 to skip the header row
+            List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));
+            String result = cells.get(resultColumnIndex).getText();
+            System.out.println(result);
+            if (result.isEmpty()) {
+                // Verification failed
+                throw new RuntimeException("Verification failed. Expected 'Success', but got '" + result + "' in row " + i);
+
+            }
+        }
+
+        System.out.println("All cells under the Charger column contain the chargers name");
+        return true;
     }
 
 }

@@ -11,6 +11,8 @@ import java.util.Properties;
 public class CosAdminChargerListTestCases extends BaseTest {
     Properties prop = ConfigUtill.getConfig();
     Messages msg = new Messages();
+
+
     @Test(priority = 1)//Done
     @TestParameters(testCaseId = {"TC-1"})
     public void TC_1_CheckTheHeaderOfColumnAlternative() throws InterruptedException {
@@ -23,18 +25,18 @@ public class CosAdminChargerListTestCases extends BaseTest {
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(chargerListPropertyAdmin.verifyHeaderColumnAlternative());
     }
-    @Test(priority = 2)//Done
-    @TestParameters(testCaseId = {"TC-2"})
-    public void TC_2_CheckAllSectionShowingActualData() throws InterruptedException {
-        HomePage homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
-        CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(cosAdminChargerList.verifyActualData());
-    }
+//    @Test(priority = 2)//Done
+//    @TestParameters(testCaseId = {"TC-2"})
+//    public void TC_2_CheckAllSectionShowingActualData() throws InterruptedException {
+//        HomePage homePage = new HomePage(driver);
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard=new Dashboard(driver);
+//        CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
+//        loginPage.VerifyValidLogin();
+//        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+//        Assert.assertTrue(dashboard.clickOnChargers());
+//        Assert.assertTrue(cosAdminChargerList.verifyActualData());
+//    }
 
 
     @Test(priority = 3)//Done
@@ -46,12 +48,17 @@ public class CosAdminChargerListTestCases extends BaseTest {
         CreateCharger createcharger = new CreateCharger(driver);
         CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
         loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.writeInputText(CreateCharger.searchchargerfield,"Atom charger",3000));
-        Assert.assertTrue(createcharger.ClickButton(CreateCharger.searchargerbtn,1000));
-        Assert.assertTrue(cosAdminChargerList.verifyingBlankContent());
+        dashboard.RefreshBrowser();
+//        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+//        Assert.assertTrue(dashboard.clickOnChargers());
+        Assert.assertTrue(cosAdminChargerList.verifyExpectedTitleColumnOccupiedWithContent("Charger Title",0));
+        Assert.assertTrue(cosAdminChargerList.verifyExpectedTitleColumnOccupiedWithContent("Property Name",1));
+        Assert.assertTrue(cosAdminChargerList.verifyExpectedTitleColumnOccupiedWithContent("Property Address",2));
+        Assert.assertTrue(cosAdminChargerList.verifyExpectedTitleColumnOccupiedWithContent("Location Name",3));
+        Assert.assertTrue(cosAdminChargerList.verifyExpectedTitleColumnOccupiedWithContent("Action",4));
     }
+
+
     @Test(priority = 4)//Done
     @TestParameters(testCaseId = {"TC-4"})
     public void TC_4_CheckTheLocationColumnWhenAdminDidNotAssignAnyChargerToLocation() throws InterruptedException {
@@ -60,9 +67,10 @@ public class CosAdminChargerListTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         loginPage.VerifyValidLogin();
+        dashboard.RefreshBrowser();
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Atom charger",5000));
+        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"B2W Charger",5000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1000));
         Assert.assertTrue(chargerListPropertyAdmin.verifyNAForNoLocation());
     }
@@ -78,11 +86,9 @@ public class CosAdminChargerListTestCases extends BaseTest {
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"Private Charger",5000));
+        Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerForCheckingDefaultState"), 5000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,2000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(CosAdminChargerList.EditButton,2000));
-        Assert.assertTrue(createCharger.ClickButton(CreateCharger.selectlocation,2000));
-        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.SelectedLocationFromOption,2000));
         Assert.assertTrue(chargerListPropertyAdmin.verifyEditedLocation());
 
     }

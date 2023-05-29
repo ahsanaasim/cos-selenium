@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+import java.util.Random;
 
 public class ChargerListPropertyAdmin extends BasePage {
     public ChargerListPropertyAdmin(WebDriver driver) {
@@ -13,6 +14,7 @@ public class ChargerListPropertyAdmin extends BasePage {
     }
 
     RandomData rdata = new RandomData();
+    Random ran = new Random();
 
 
     public static By LocationNA = By.xpath("//div[@class='wordBreak'][contains(.,'N/A')]");
@@ -26,7 +28,7 @@ public class ChargerListPropertyAdmin extends BasePage {
 
     public static By Rows = By.xpath("//tr[@class='ant-table-row ant-table-row-level-0']");
     public static By TotalNum = By.xpath("//div[@class='total-count-under-table']");
-//    color: rgb(38, 38, 38); opacity: 0.6;
+    //    color: rgb(38, 38, 38); opacity: 0.6;
     public static By ChargerCountTop = By.xpath("//span[@class='showCount']");
     public static By ChargerColumn = By.xpath("//th[normalize-space()='Charger Title']");
     public static By PropertyNameColumn = By.xpath("//th[normalize-space()='Property Name']");
@@ -62,7 +64,7 @@ public class ChargerListPropertyAdmin extends BasePage {
 
     public boolean verifyNAForNoLocation() throws InterruptedException {
         Thread.sleep(2000);
-        //waitVisibility(addchargerbtn);
+        waitVisibility(LocationNA);
         if (driver.findElement(LocationNA).isDisplayed()) {
             System.out.println("location NA is Displayed");
             return true;
@@ -145,7 +147,7 @@ public class ChargerListPropertyAdmin extends BasePage {
                 click(LoadMoreButton);
             } else {
                 break;
-                }
+            }
             Thread.sleep(2500);
             int RowCount = driver.findElements(Rows).size();
             System.out.println(RowCount);
@@ -197,12 +199,35 @@ public class ChargerListPropertyAdmin extends BasePage {
             return false;
         }
     }
+
+    public String GenerateRandomLocationNameForBondMainRealEstateGroup() throws InterruptedException {
+        Thread.sleep(2000);
+        String[] LocationNames = {"Haag Avenue 51753565", "Hane Avenue 34990844", "Ebert Avenue 82055658", "Ratke Avenue 3280534"};
+        int index = ran.nextInt(LocationNames.length);
+        return LocationNames[index];
+
+    }
+
+    public void selectLocationFromLocation() throws InterruptedException {
+        waitforPresence(CreateCharger.cancelbuttonofdrawer);
+        WebElement location = driver.findElement(LocationField);
+        ClickButton(SelectedLocationName,2000);
+        Thread.sleep(1000);
+        location.sendKeys(GenerateRandomLocationNameForBondMainRealEstateGroup());
+        Thread.sleep(1500);
+        location.sendKeys(Keys.ENTER);
+        Thread.sleep(3000);
+
+    }
+
     public boolean verifyEditedLocation() throws InterruptedException {
         waitforPresence(CreateCharger.cancelbuttonofdrawer);
         WebElement location = driver.findElement(LocationField);
         ClickButton(SelectedLocationName,2000);
         Thread.sleep(1000);
-        location.sendKeys("Satterfield Avenue 16275820");
+        String RandomlyGeneratedLocation = GenerateRandomLocationNameForBondMainRealEstateGroup();
+        System.out.println("Randomly generated location: "+RandomlyGeneratedLocation);
+        location.sendKeys(RandomlyGeneratedLocation);
         Thread.sleep(1500);
         location.sendKeys(Keys.ENTER);
         Thread.sleep(3000);
@@ -210,8 +235,9 @@ public class ChargerListPropertyAdmin extends BasePage {
         System.out.println(SelectedLocation);
         driver.findElement(SaveChargerButton).click();
         Thread.sleep(2000);
+        waitforPresence(CosAdminChargerList.EditButton);
         String UpdatedLocationName = driver.findElement(LocationUnderLocationColumn).getText();
-        System.out.println(UpdatedLocationName);
+        System.out.println("Update location name: "+UpdatedLocationName);
         if (SelectedLocation.equals(UpdatedLocationName)) {
             System.out.println("Matched");
             return true;
@@ -222,6 +248,8 @@ public class ChargerListPropertyAdmin extends BasePage {
         }
 
     }
+
+
     public boolean verifyTheChargerCountWithLeftSideOFLoadMoreButton() throws InterruptedException {
         int DefaultRowCount = driver.findElements(Rows).size();
         System.out.println(DefaultRowCount);
@@ -299,6 +327,7 @@ public class ChargerListPropertyAdmin extends BasePage {
             return false;
         }
     }
+
 
 
 }

@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import java.text.DecimalFormat;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -41,13 +42,13 @@ public class GuestFlow extends BasePage {
     public static By OtpField4 = By.xpath("//input[@id='25157da6-3d14-44d9-b2c8-1aa4716d903c-3']");
     public static By OtpField5 = By.xpath("//input[@id='25157da6-3d14-44d9-b2c8-1aa4716d903c-4']");
     public static By OtpField6 = By.xpath("//input[@id='25157da6-3d14-44d9-b2c8-1aa4716d903c-5']");
-    public static By CardPaymentIFrameTitle = By.xpath("(//iframe[contains(@title,'Secure card payment input frame')])[4]");
+    public static By CardPaymentIFrameTitle = By.xpath("(//iframe[contains(@title,'Secure card payment input frame')])[2]");
     public static By ForMembersTitle = By.xpath("(//div[@class='subTitle'])[2]");
     public static By ForMembersSubTitle = By.xpath("(//div[@class='doSignUp ml-15 mt-5'])[2]");
     public static By AuthorizeLoading = By.xpath("//span[@class='anticon anticon-loading anticon-spin']");
     public static By ChargerNotConnected = By.xpath("//span[@class='red-color weight-600']");
     public static By CardNumber = By.xpath("//input[@placeholder='Card number']");
-    public static By AuthorizeButton = By.xpath("(//button[@type='submit']/span[contains(text(),'AUTHORIZE')])[4]");
+    public static By AuthorizeButton = By.xpath("(//button[@class='ant-btn ant-btn-primary ant-btn-block common-btn-primary authorizeButton'])[2]");
     public static By PluginChargerbtn = By.xpath("//div[@class='ml-10'][contains(text(),'Plug In Your Charger')]");
     public static By DisconnectChargerbtn = By.xpath("//div[@class='ml-10'][contains(text(),'Disconnect the Charger')]");
     public static By SearchFieldSimulator = By.id("rc_select_2");
@@ -66,13 +67,12 @@ public class GuestFlow extends BasePage {
     public static By IdlePageTitle = By.xpath("(//div[@class='idlePageTitle'])[2]");
     public static By OutsideSlider = By.xpath("(//div[@class='ant-col ant-col-4'])[2]");
     public static By FeeBreakdown = By.xpath("(//span[@class='feeBreakDownText cursor'])[2]");
-
     public static By SessionFee = By.xpath("//div[@class='wordBreak feeDetails']");
     public static By UtilizationFee = By.xpath("(//div[@class='wordBreak feeDetails'])[2]");
     public static By BreakDownFeeClose = By.xpath("//button[@class='ant-drawer-close']");
     public static By EnergyConsumed = By.xpath("(//div[@class='sessionEndCountText'])[5]");
     public static By TotalPaid = By.xpath("(//div[@class='totalFeeText'])[2]");
-
+    public static By PressAndHoldButton = By.xpath("(//button[@class='ant-btn ant-btn-round ant-btn-default ant-btn-lg swipe-button'])[2]");
 
 
 
@@ -84,10 +84,29 @@ public class GuestFlow extends BasePage {
         return true;
     }
 
+    public void LengthOfSession(int timing) throws InterruptedException {
+        Thread.sleep(timing);
+    }
+
+    public void PressAndHold(By element) throws InterruptedException {
+        Thread.sleep(2000);
+        waitforPresence(element);
+        // Find the button element
+        WebElement button = driver.findElement(element);
+        // Create an instance of the Actions class
+        Actions actions = new Actions(driver);
+        actions.moveToElement(button);
+        // Click and hold the button for 5 seconds
+        actions.clickAndHold(button).pause(200000);
+
+    }
+
+
     public void ClearPhoneNumberField(By element) throws InterruptedException {
         Thread.sleep(5000);
+        waitforPresence(GuestVerificationPage.PhoneNumberField);
         WebElement NumberField = driver.findElement(element);
-        for(int i = 0 ; i <10  ; i++)
+        for(int i = 0 ; i <10 ;i++)
         {
             NumberField.sendKeys(Keys.chord(Keys.BACK_SPACE));
         }
@@ -358,8 +377,8 @@ public class GuestFlow extends BasePage {
     }
 
     public boolean verifyTimer(){
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        String s = driver.findElement(GuestFlow.Timer).getText().replaceAll(":","");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        String s = driver.findElement(OTPVerificationPage.Timer).getText().replaceAll(":","");
         int s1 = Integer.parseInt(s);
         System.out.println(s1);
         if (25<s1 && s1<30){
@@ -431,8 +450,6 @@ public class GuestFlow extends BasePage {
 
 
     }
-
-
 
 
 

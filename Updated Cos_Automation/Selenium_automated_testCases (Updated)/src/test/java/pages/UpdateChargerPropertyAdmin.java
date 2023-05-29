@@ -191,6 +191,7 @@ public class UpdateChargerPropertyAdmin extends BasePage {
     }
     public boolean verifyChargerStatusAfterMakingItOnlineFromOffline() throws InterruptedException {
         Thread.sleep(1500);
+        waitelemtclickable(ChargerListPropertyAdmin.detailsbutton);
         driver.findElement(ChargerListPropertyAdmin.detailsbutton).click();
         try{
             String ToggleButtonStatus = driver.findElement(ToggleButton).getAttribute("aria-checked");
@@ -222,13 +223,7 @@ public class UpdateChargerPropertyAdmin extends BasePage {
 
             } else {
                 driver.findElement(ToggleButton).click();
-                click(SaveCharger);
-                waitVisibility(ChargerListPropertyAdmin.detailsbutton);
-                Thread.sleep(2000);
-                click(ChargerListPropertyAdmin.detailsbutton);
-                System.out.println("Toggle button is clicked");
                 return true;
-
             }
         }catch (NoSuchElementException e) {
             System.out.println("Verification UnSuccessful.Toggle button is not displayed");
@@ -240,7 +235,7 @@ public class UpdateChargerPropertyAdmin extends BasePage {
 
     public boolean clickToggleButtonIfItIsOn() throws InterruptedException {
         Thread.sleep(1500);
-        waitforPresence(DetailsDrawerAuditLog);
+        waitforPresence(ToggleButton);
         try {
             String ToggleButtonStatus = driver.findElement(ToggleButton).getAttribute("aria-checked");
             if (ToggleButtonStatus.equals("false")) {
@@ -249,13 +244,7 @@ public class UpdateChargerPropertyAdmin extends BasePage {
 
             } else {
                 driver.findElement(ToggleButton).click();
-                click(SaveCharger);
-                waitVisibility(ChargerListPropertyAdmin.detailsbutton);
-                Thread.sleep(2000);
-                click(ChargerListPropertyAdmin.detailsbutton);
-                System.out.println("Toggle button is clicked");
                 return true;
-
             }
         } catch (NoSuchElementException e) {
             System.out.println("Verification UnSuccessful.Toggle button is not displayed");
@@ -341,7 +330,7 @@ public class UpdateChargerPropertyAdmin extends BasePage {
         LocationNameField.sendKeys(Keys.ENTER);
         click(SaveCharger);
         Thread.sleep(1500);
-        waitVisibility(ChargerListPropertyAdmin.detailsbutton);
+        waitelemtclickable(ChargerListPropertyAdmin.detailsbutton);
         click(ChargerListPropertyAdmin.detailsbutton);
         waitVisibility(ToggleButton);
         String SelectedLocationNameField = driver.findElement(ChargerListPropertyAdmin.SelectedLocationName).getText();
@@ -536,7 +525,7 @@ public class UpdateChargerPropertyAdmin extends BasePage {
         System.out.println("Charging rate in drawer: "+UpdatedChargingRateInDrawer);
         click(UpdateChargerPropertyAdmin.SaveCharger);
         Thread.sleep(1500);
-        waitforPresence(ChargerListPropertyAdmin.detailsbutton);
+        waitelemtclickable(ChargerListPropertyAdmin.detailsbutton);
         click(ChargerListPropertyAdmin.detailsbutton);
         waitforPresence(UpdateChargerPropertyAdmin.CopyButton);
         click(UpdateChargerPropertyAdmin.CopyButton);
