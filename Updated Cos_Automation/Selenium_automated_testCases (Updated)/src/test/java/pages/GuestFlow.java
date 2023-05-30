@@ -8,6 +8,8 @@ import java.text.DecimalFormat;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class GuestFlow extends BasePage {
     public GuestFlow(WebDriver driver) {
@@ -55,7 +57,8 @@ public class GuestFlow extends BasePage {
     public static By ChargingNowTitle = By.xpath("(//div[@class='pageTitle'][contains(text(),'Charging Now')])[2]");
     public static By SessionEnded = By.xpath("(//div[@class='pageTitle'][contains(text(),'Session Ended')])[2]");
     public static By InitiateSession = By.xpath("(//div[@class='subDetails ml-15 mt-5'])[3]");
-    public static By IdleFee = By.xpath("(//div[@class='subDetails ml-15 mt-5'])[4]");
+    public static By IdleFeeRate = By.xpath("(//div[@class='wordBreak feeDetails'])[3]");
+    public static By GeneratedIdleSession = By.xpath("(//div[@class='sessionEndCountText'])[8]");
     public static By ChargingSession = By.xpath("(//div[@class='subDetails2 ml-15 mt-5'])[2]");
     public static By MaxChargingRate= By.xpath("(//div[@class='mt-5 chargingRate'])[2]");
     public static By LocationAndPropertyAddress = By.xpath("(//div[@class='mt-5 address'])[2]");
@@ -88,6 +91,7 @@ public class GuestFlow extends BasePage {
         Thread.sleep(timing);
     }
 
+
     public void PressAndHold(By element) throws InterruptedException {
         Thread.sleep(2000);
         waitforPresence(element);
@@ -95,18 +99,18 @@ public class GuestFlow extends BasePage {
         WebElement button = driver.findElement(element);
         // Create an instance of the Actions class
         Actions actions = new Actions(driver);
-        actions.moveToElement(button);
-        // Click and hold the button for 5 seconds
-        actions.clickAndHold(button).pause(200000);
+        // Click and hold the button for 10 seconds
+        actions.clickAndHold(button).pause(Duration.ofSeconds(10)).release().perform();
 
     }
+
 
 
     public void ClearPhoneNumberField(By element) throws InterruptedException {
         Thread.sleep(5000);
         waitforPresence(GuestVerificationPage.PhoneNumberField);
         WebElement NumberField = driver.findElement(element);
-        for(int i = 0 ; i <10 ;i++)
+        for(int i = 0; i <10 ;i++)
         {
             NumberField.sendKeys(Keys.chord(Keys.BACK_SPACE));
         }
@@ -264,7 +268,7 @@ public class GuestFlow extends BasePage {
     }
     public boolean verifyIdleFee() throws InterruptedException {
         Thread.sleep(4000);
-        String Idle = driver.findElement(IdleFee).getText().replaceAll("Idle Fee: ","");
+        String Idle = driver.findElement(IdleFeeRate).getText().replaceAll("Idle Fee: ","");
         System.out.println(Idle);
         String Expected = "$2.15/Min After 10 Min";
         if (Idle.equals(Expected)){
@@ -418,6 +422,7 @@ public class GuestFlow extends BasePage {
 
 
     public boolean verifyTotalFee() throws InterruptedException {
+        Thread.sleep(5000);
         waitforPresence(EnergyConsumed);
         String EC = driver.findElement(EnergyConsumed).getText().replaceAll("[^.0-9]","");
         float EnergyConsumed = Float.parseFloat(EC);
@@ -453,6 +458,124 @@ public class GuestFlow extends BasePage {
 
 
 
+    public boolean verifyTotalFeeIncludingIdleFee() throws InterruptedException {
+        waitforPresence(EnergyConsumed);
+        String EC = driver.findElement(EnergyConsumed).getText().replaceAll("[^.0-9]","");
+        double EnergyConsumed = Double.parseDouble(EC);
+        click(FeeBreakdown);
+        Thread.sleep(2500);
+        waitforPresence(SessionFee);
+        String SF = driver.findElement(SessionFee).getText().replaceAll("[^.0-9]","");
+        Thread.sleep(5000);
+        double SessionFee = Double.parseDouble(SF);
+        String UF = driver.findElement(UtilizationFee).getText().replaceAll("[^.0-9]","");
+        double UtilizationFee = Double.parseDouble(UF);
+        double IdleFee = IdleFeeCalculation();
+        double TF = (UtilizationFee*EnergyConsumed)+SessionFee+IdleFee;
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        double TotalFee = Double.valueOf(decimalFormat.format(TF));
+        System.out.println("Formula calculated Total fee: "+TotalFee);
+        click(BreakDownFeeClose);
+        Thread.sleep(2500);
+        waitforPresence(TotalPaid);
+        String TP = driver.findElement(TotalPaid).getText().replaceAll(".*\\$(\\d+\\.\\d+).*","$1");
+        double TotalPaidAmount = Double.parseDouble(TP);
+        System.out.println("System showing total fee: "+TotalPaidAmount);
+        if (TotalFee==TotalPaidAmount){
+            System.out.println("Total fee is correct");
+            return true;
+        }
+        else{
+            System.out.println("Total fee is not correct");
+            return false;
+        }
+
+
+    }
+
+    public int ExtractMinValue(){
+        waitforPresence(GeneratedIdleSession);
+        String IdleFeeGenerated = driver.findElement(GeneratedIdleSession).getText();
+        // Define the regular expression pattern
+        Pattern pattern = Pattern.compile("(\\d+) min (\\d+) sec");
+
+        // Match the pattern against the time string
+        Matcher matcher = pattern.matcher(IdleFeeGenerated);
+
+        // Extract the hour and minute values
+        int min = 0;
+        if (matcher.find()) {
+            min = Integer.parseInt(matcher.group(1));
+        }
+        System.out.println("min: " + min);
+        return min;
+
+    }
+
+    public int ExtractSecValue(){
+        waitforPresence(GeneratedIdleSession);
+        String IdleFeeGenerated = driver.findElement(GeneratedIdleSession).getText();
+        // Define the regular expression pattern
+        Pattern pattern = Pattern.compile("(\\d+) min (\\d+) sec");
+
+        // Match the pattern against the time string
+        Matcher matcher = pattern.matcher(IdleFeeGenerated);
+
+        // Extract the hour and minute values
+        int sec = 0;
+        if (matcher.find()) {
+            sec = Integer.parseInt(matcher.group(2));
+        }
+        System.out.println("sec: " + sec);
+        return sec;
+
+    }
+
+    public double IdleFeeCalculation(){
+        waitforPresence(IdleFeeRate);
+        String IF = extractIdleFeeFromIdleFeeText();
+        double IdleFee = Double.parseDouble(IF);
+        System.out.println("Idle fee rate: "+IdleFee);
+        int sec = ExtractSecValue();
+        int min = ExtractMinValue();
+        double totalMinutes = min + (sec/60.0);
+        System.out.println("Total minutes: "+totalMinutes);
+        // Calculate the fee
+        double fee = totalMinutes * IdleFee;
+        // Round the fee to two decimal places
+        System.out.println(fee);
+        return fee;
+
+
+    }
+
+    public String extractIdleFeeFromIdleFeeText(){
+        waitforPresence(IdleFeeRate);
+        String IF = driver.findElement(IdleFeeRate).getText();
+        // Define the regular expression pattern
+        Pattern pattern = Pattern.compile("([\\d.]+)");
+
+        // Match the pattern against the fee string
+        Matcher matcher = pattern.matcher(IF);
+
+        // Extract the dollar amount
+        String dollarAmount = "";
+        if (matcher.find()) {
+            dollarAmount = matcher.group(1);
+
+
+        }
+        System.out.println("Dollar amount: " + dollarAmount);
+        return dollarAmount;
+
+
+    }
+
 
 
 }
+
+
+
+
+

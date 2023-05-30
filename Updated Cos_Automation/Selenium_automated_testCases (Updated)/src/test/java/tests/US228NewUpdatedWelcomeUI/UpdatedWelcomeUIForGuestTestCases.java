@@ -423,7 +423,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
 
     @Test(priority = 38)
     @TestParameters(testCaseId = {"TC-37"})
-    public void TC_37_CheckWhatHappensWhenGuestClickOnContinueAsGuestProvidingAValidPhoneNumber() throws InterruptedException {
+    public void TC_37_69_CheckWhatHappensWhenGuestClickOnContinueAsGuestProvidingAValidPhoneNumber() throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger operation =new CreateCharger(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
@@ -581,10 +581,91 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         operation.ClickButton(OTPVerificationPage.VerifyButton,500);
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(2000,OTPVerificationPage.SuccessFullyVerified));
         Assert.assertTrue(otpPage.verifyAFieldIsEnable(2500,GuestVerificationPage.StatChargingButton));
+        Assert.assertTrue(otpPage.verifyAFieldIsEnable(500,GuestVerificationPage.ShareButton));
+        Assert.assertTrue(otpPage.verifyAFieldIsEnable(500,GuestVerificationPage.MaxChargingRate));
+        Assert.assertTrue(otpPage.verifyAFieldIsEnable(500,GuestVerificationPage.ChargerFeeBox));
+        Assert.assertTrue(otpPage.verifyAFieldIsEnable(500,GuestVerificationPage.IdleFee));
+        Assert.assertTrue(otpPage.verifyAFieldIsEnable(500,GuestVerificationPage.NearbyLocationTab));
+        Assert.assertTrue(otpPage.verifyAFieldIsEnable(500,GuestVerificationPage.PropertyLocationAddress));
+
+
+
+    }
+
+    @Test(priority = 56)
+    @TestParameters(testCaseId = {"TC-103"})
+    public void TC_103_CheckIfTheStatusOfTheChargerIsShowingInWelcomePage() throws InterruptedException {
+        CreateCharger operation =new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
+        OTPVerificationPage otpPage = new OTPVerificationPage(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+//        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
+//        dashboard.RefreshBrowser();
+//        operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4447889989",2000);
+//        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
+//        operation.ClickButton(OTPVerificationPage.ChangePhoneNumber,1000);
+//        guestFlow.ClearPhoneNumberField(GuestVerificationPage.PhoneNumberField);
+//        operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4441254632",2000);
+//        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
+//        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,OTPVerificationPage.OTPPageTitle));
+//        otpPage.ClearOTPField();
+//        operation.ClickButton(OTPVerificationPage.FirstOTPField,1500);
+//        guestFlow.SendOtp(2000,"666666");
+//        operation.ClickButton(OTPVerificationPage.VerifyButton,500);
+//        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(2000,OTPVerificationPage.SuccessFullyVerified));
+        Assert.assertTrue(guestVerificationPage.verifyAnyOfTheChargerStatusIsShowing());
 
     }
 
 
+    @Test(priority = 57)
+    @TestParameters(testCaseId = {"TC-103"})
+    public void TC_119_CheckMenuButtonIsShowingAfterLoginAsCustomer() throws InterruptedException {
+        CreateCharger operation =new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
+        OTPVerificationPage otpPage = new OTPVerificationPage(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        customerLogin.GoToCustomerLoginPage();
+        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
+        Assert.assertTrue(customerLogin.verifyAnElementDisplayedOrNot(2000,CustomerLogin.Menu));
+
+    }
+
+    @Test(priority = 58)
+    @TestParameters(testCaseId = {"TC-121"})
+    public void TC_121_CheckTheTitleForCustomerAfterScanningACharger() throws InterruptedException {
+        CreateCharger operation =new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
+        OTPVerificationPage otpPage = new OTPVerificationPage(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        CustomerSignUp customer = new CustomerSignUp(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithNoTicket"),"EitaPassword@11@");
+        customer.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/p-4_iE");
+        operation.ClickButton(OTPVerificationPage.ChangePhoneNumber,2000);
+        Assert.assertTrue(guestVerificationPage.verifyWelcomeTitleForCustomerAfterScanningAnCharger());
+
+    }
+
+    @Test(priority = 59)
+    @TestParameters(testCaseId = {"TC-122,123"})
+    public void TC_122_23_CheckTheProvidePhoneNoFieldAndTitleForCustomerAfterScanningACharger() throws InterruptedException {
+        CreateCharger operation =new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
+        OTPVerificationPage otpPage = new OTPVerificationPage(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithNoTicket"),"EitaPassword@11@");
+        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(2000,GuestVerificationPage.ProvidePhnNumberTitle));
+        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(2000,GuestVerificationPage.PhoneNumberField));
+
+    }
 
 
 

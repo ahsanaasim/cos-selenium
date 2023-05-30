@@ -13,6 +13,7 @@ import pages.*;
 import tests.BaseTest;
 import tests.US1AdminLogin.TestParameters;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -53,14 +54,12 @@ public class GuestFlowTestCases extends BaseTest {
         Assert.assertTrue(operation.ClickButton(GuestFlow.AuthorizeButton,1500));
         System.out.println("URL  =  "+driver.getCurrentUrl());
         Assert.assertTrue(guestFlow.verifyChargingNowTitle());
-        guestFlow.LengthOfSession(60000);
+        guestFlow.LengthOfSession(45000);
         guestFlow.SwitchToTab(0);
         operation.ClickButton(GuestFlow.DisconnectChargerbtn,3000);
         guestFlow.SwitchToTab(1);
         Assert.assertTrue(guestFlow.verifyTotalFee());
         Assert.assertTrue(guestFlow.verifyChargingSessionEnded());
-
-
 
 
   }
@@ -76,7 +75,7 @@ public class GuestFlowTestCases extends BaseTest {
         SimulationPage simulationPage = new SimulationPage(driver);
         loginPage.VerifyValidLogin();
         guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 272"));
+        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 529"));
         Assert.assertTrue(operation.ClickButton(SimulationPage.BootChargerButton,2000));
         Assert.assertTrue(operation.ClickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
@@ -100,10 +99,11 @@ public class GuestFlowTestCases extends BaseTest {
         Assert.assertTrue(guestFlow.verifyChargingNowTitle());
         guestFlow.LengthOfSession(10000);
         guestFlow.PressAndHold(GuestFlow.PressAndHoldButton);
-//        guestFlow.SwitchToTab(0);
-//        operation.ClickButton(GuestFlow.DisconnectChargerbtn,3000);
-//        guestFlow.SwitchToTab(1);
-//        Assert.assertTrue(guestFlow.verifyTotalFee());
+        guestFlow.LengthOfSession(810000);
+        guestFlow.SwitchToTab(0);
+        operation.ClickButton(GuestFlow.DisconnectChargerbtn,3000);
+        guestFlow.SwitchToTab(1);
+        Assert.assertTrue(guestFlow.verifyTotalFeeIncludingIdleFee());
 //        Assert.assertTrue(guestFlow.verifyChargingSessionEnded());
 
 

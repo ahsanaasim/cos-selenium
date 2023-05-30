@@ -12,6 +12,7 @@ public class GuestVerificationPage extends BasePage{
 
 
     public static By ThanksForScanningTitle = By.xpath("//h1[@class='headingText'][contains(text(),'Thanks For Scanning')]");
+    public static By WelcomeTitleForCustomer = By.xpath("//h1[@class='headingText']");
     public static By ProvidePhnNumberTitle = By.xpath("//h4[@class='subheadingText'][contains(text(),'Provide phone no.')]");
     public static By USAFlag = By.xpath("//div[@title='United States: + 1']");
     public static By PhoneNumberField = By.xpath("//input[@class='form-control ']");
@@ -40,6 +41,9 @@ public class GuestVerificationPage extends BasePage{
     public static By ChargerFeeBox = By.xpath("//div[@class='chargerFeeBox']");
     public static By MaxChargingRate = By.xpath("//div[@class='feeHeading']");
     public static By MaxChargingRateHeading = By.xpath("//div[@class='feeSubheading']");
+    public static By SavePhoneNumberCheckbox = By.xpath("//input[@type='checkbox']");
+    public static By SavePhoneNumberText = By.xpath("//div[@class='checkboxText']");
+
 
 
     public boolean GoToAvailableCharger (String url) throws InterruptedException{
@@ -96,6 +100,36 @@ public class GuestVerificationPage extends BasePage{
             System.out.println("Nearby locations tab is not expanded");
             return false;
         }
+    }
+
+
+    public boolean verifyAnyOfTheChargerStatusIsShowing(){
+        waitforPresence(GetDirectionText);
+        if (driver.findElement(ChargerAvailableStatus).isDisplayed() || driver.findElement(ChargerInUseStatus).isDisplayed()){
+            System.out.println("Charger status is showing");
+            return true;
+        }
+        else {
+            System.out.println("Charger status is not showing");
+            return false;
+        }
+
+    }
+
+    public boolean verifyWelcomeTitleForCustomerAfterScanningAnCharger(){
+        waitforPresence(WelcomeTitleForCustomer);
+        String welcomeTitle = driver.findElement(WelcomeTitleForCustomer).getText();
+        System.out.println("Title of the welcome page: "+welcomeTitle);
+        if (welcomeTitle.contains("Welcome")){
+            System.out.println("Welcome page title is showing correctly");
+            return true;
+
+        }
+        else{
+            System.out.println("Welcome page title is not showing correctly");
+            return false;
+        }
+
     }
 
 
