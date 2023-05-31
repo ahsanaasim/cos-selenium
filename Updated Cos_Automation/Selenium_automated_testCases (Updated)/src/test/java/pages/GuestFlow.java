@@ -572,6 +572,12 @@ public class GuestFlow extends BasePage {
     }
 
 
+    //Selenium 889
+    public void GoToAvailableCharger(){
+
+    }
+
+
 
 }
 

@@ -5,10 +5,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
 
+import java.util.Properties;
+
 public class GuestVerificationPage extends BasePage{
     public GuestVerificationPage(WebDriver driver) {
         super(driver);
     }
+    SimulationPage simulator = new SimulationPage(driver);
+    Properties prop = ConfigUtill.getConfig();
+
 
 
     public static By ThanksForScanningTitle = By.xpath("//h1[@class='headingText'][contains(text(),'Thanks For Scanning')]");
@@ -24,12 +29,15 @@ public class GuestVerificationPage extends BasePage{
     public static By ChargerUnavailableStatus = By.xpath("//div[@class='chargerUnavailable'][contains(text(),'unavailable')]");
     public static By ChargerInUseStatus = By.xpath("//div[@class='chargerUnavailable'][contains(text(),'In Use')]");
     public static By ChargerRestrictedStatus = By.xpath("//div[@class='chargerUnavailable'][contains(text(),'Restricted')]");
+    public static By ChargerDownStatus = By.xpath("//div[@class='chargerUnavailable'][contains(text(),'Down')]");
+    public static By ChargerInvalidQRStatus = By.xpath("//div[@class='chargerUnavailable'][contains(text(),'Invalid QR Code')]");
     public static By PropertyLocationAddress = By.xpath("//div[@class='chargerLocationAddress mt-10']");
     public static By FavoriteIcon = By.xpath("//div[@class='heartDiv']");
     public static By ShareButton = By.xpath("//div[@class='shareDiv cursor-pointer']");
     public static By CopiedToolTip = By.xpath("//div[@role='tooltip'][contains(text(),'Copied')]");
     public static By GetDirectionText = By.xpath("//div[@class='getDirectionText']");
     public static By GetDirectionIcon = By.xpath("//img[@src='/map/getDirection.svg']");
+    public static By PlugType = By.xpath("//div[@class='plugIcon plugIconGreen plugIconSmall']");
     public static By CarImage = By.xpath("//img[@src='/scan-charger/car.svg']");
     public static By IdleFee = By.xpath("//div[@class='idleFeeText flex items-center']");
     public static By NearbyLocation = By.xpath("//div[@class='nearbyChargersText'][contains(text(),'Nearby Locations')]");
@@ -41,8 +49,14 @@ public class GuestVerificationPage extends BasePage{
     public static By ChargerFeeBox = By.xpath("//div[@class='chargerFeeBox']");
     public static By MaxChargingRate = By.xpath("//div[@class='feeHeading']");
     public static By MaxChargingRateHeading = By.xpath("//div[@class='feeSubheading']");
-    public static By SavePhoneNumberCheckbox = By.xpath("//input[@type='checkbox']");
-    public static By SavePhoneNumberText = By.xpath("//div[@class='checkboxText']");
+
+    public static By FeeToInitiate = By.xpath("(//div[@class='feeHeading'])[2]");
+    public static By FeeToInitiateHeading = By.xpath("(//div[@class='feeSubheading'])[2]");
+    public static By FeePerKwh = By.xpath("(//div[@class='feeHeading'])[3]");
+    public static By FeePerKwhHeading = By.xpath("(//div[@class='feeSubheading'])[3]");
+    public static By SavePhoneNumberCheckbox = By.xpath("//span[@class='ant-checkbox']");
+    public static By SavePhoneNumberCheckboxChecked = By.xpath("//span[@class='ant-checkbox ant-checkbox-checked']");
+    public static By SavePhoneNumberText = By.xpath("//div[@class='checkboxText'][contains(text(),'Save this phone number')]");
 
 
 
@@ -51,6 +65,25 @@ public class GuestVerificationPage extends BasePage{
         urlCheck(url);
         return true;
     }
+
+    public boolean GoToDownCharger (String url) throws InterruptedException{
+        driver.get(url);
+        urlCheck(url);
+        return true;
+    }
+
+    public boolean GoToRestrictedCharger (String url) throws InterruptedException{
+        driver.get(url);
+        urlCheck(url);
+        return true;
+    }
+
+    public boolean GoToBrokenLinkOfACharger(String url) throws InterruptedException{
+        driver.get(url);
+        urlCheck(url);
+        return true;
+    }
+
 
     public boolean verifyContinueAsGuestAsButtonColor() throws InterruptedException {
         Thread.sleep(3000);
@@ -130,6 +163,20 @@ public class GuestVerificationPage extends BasePage{
             return false;
         }
 
+    }
+
+
+    public boolean verifyClipboardIsGettingTheCorrectURLAfterClickingOnShareButton(){
+        waitforPresence(ShareButton);
+        String Url = simulator.getClipboardURL();
+        if (Url.contains("https://test-app.chargeonsite.com/customer/map?")){
+            System.out.println("Correct URL is copied in the clipboard");
+            return true;
+        }
+        else {
+            System.out.println("Correct URL is not copied in the clipboard");
+            return false;
+        }
     }
 
 

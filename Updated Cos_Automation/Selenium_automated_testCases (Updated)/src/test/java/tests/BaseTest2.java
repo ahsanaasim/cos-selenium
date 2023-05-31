@@ -40,7 +40,7 @@ public class BaseTest2 {
             System.err.println("Error While setting Cookies: "+ e.getMessage());
         }
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("use-fake-ui-for-media-stream");
+        options.addArguments("--remote-allow-origins=*");
         String driverPath = System.getProperty("user.dir");
         System.setProperty("webdriver.chrome.driver", driverPath + "\\drivers\\chromedriver.exe");
         driver = new ChromeDriver(options);

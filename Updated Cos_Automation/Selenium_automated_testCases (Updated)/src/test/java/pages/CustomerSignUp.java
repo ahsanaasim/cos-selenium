@@ -54,6 +54,14 @@ public class CustomerSignUp extends BasePage{
 
 
     public boolean GoToAvailableCharger (String url) throws InterruptedException{
+        Thread.sleep(1000);
+        driver.get(url);
+        urlCheck(url);
+        return true;
+    }
+
+    public boolean GoToAvailableChargerAfterLoginAsCustomer(String url) throws InterruptedException{
+        Thread.sleep(4000);
         driver.get(url);
         urlCheck(url);
         return true;

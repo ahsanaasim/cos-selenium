@@ -54,7 +54,7 @@ public class GuestFlowTestCases extends BaseTest {
         Assert.assertTrue(operation.ClickButton(GuestFlow.AuthorizeButton,1500));
         System.out.println("URL  =  "+driver.getCurrentUrl());
         Assert.assertTrue(guestFlow.verifyChargingNowTitle());
-        guestFlow.LengthOfSession(45000);
+        guestFlow.LengthOfSession(90000);
         guestFlow.SwitchToTab(0);
         operation.ClickButton(GuestFlow.DisconnectChargerbtn,3000);
         guestFlow.SwitchToTab(1);
