@@ -2393,7 +2393,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(createcharger.verifyAddNewChargerButtonHasDisplayed());
     }
 
-    @Test(priority = 28)//Done
+    @Test(priority = 130)//Done
     @TestParameters(testCaseId = {"TC-82"})
     public void TC_82_CheckEditedDataFromDrawerInAuditLog() throws InterruptedException{
         HomePage homePage = new HomePage(driver);
@@ -2411,7 +2411,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(editChargerCosAdminUpdated.verifyChangeNameInAuditLog());
     }
 
-    @Test(priority = 29)//Done
+    @Test(priority = 131)//Done
     @TestParameters(testCaseId = {"TC-83"})
     public void TC_83_CheckUserNameOfAuditLogMatchWithAccountName() throws InterruptedException{
         HomePage homePage = new HomePage(driver);
@@ -2447,7 +2447,7 @@ public class ChargerModuleTestCases extends BaseTest {
 //        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(UpdateChargerPropertyAdmin.ToggleButton,1000));
 //        Assert.assertTrue(editChargerCosAdminUpdated.verifyUpdatedTime());
 //    }
-    @Test(priority = 31)//Done
+    @Test(priority = 132)//Done
     @TestParameters(testCaseId = {"TC-85"})
     public void TC_85_CheckUpdateDateOfAuditLog() throws InterruptedException{
         HomePage homePage = new HomePage(driver);
@@ -2467,7 +2467,7 @@ public class ChargerModuleTestCases extends BaseTest {
     }
     //Max Rate and plug type related start
 
-    @Test(priority = 33)//Done
+    @Test(priority = 133)//Done
     @TestParameters(testCaseId = {"TC-90"})
     public void TC_90_CheckChargingRateFieldIsOccupiedWithValidRates() throws InterruptedException{
         HomePage homePage = new HomePage(driver);
@@ -2487,7 +2487,7 @@ public class ChargerModuleTestCases extends BaseTest {
     }
 
 
-    @Test(priority = 34)//Done
+    @Test(priority = 134)//Done
     @TestParameters(testCaseId = {"TC-91"})
     public void TC_91_CheckUpdatedChargingRateIsShowingCorrectlyAfterScanningCharger() throws InterruptedException, IOException, UnsupportedFlavorException {
         HomePage homePage = new HomePage(driver);

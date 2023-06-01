@@ -480,7 +480,7 @@ public class GuestFlow extends BasePage {
         waitforPresence(TotalPaid);
         String TP = driver.findElement(TotalPaid).getText().replaceAll(".*\\$(\\d+\\.\\d+).*","$1");
         double TotalPaidAmount = Double.parseDouble(TP);
-        System.out.println("System showing total fee: "+TotalPaidAmount);
+        System.out.println("System showing Total fee: "+TotalPaidAmount);
         if (TotalFee==TotalPaidAmount){
             System.out.println("Total fee is correct");
             return true;

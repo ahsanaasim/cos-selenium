@@ -38,6 +38,9 @@ public class GuestVerificationPage extends BasePage{
     public static By GetDirectionText = By.xpath("//div[@class='getDirectionText']");
     public static By GetDirectionIcon = By.xpath("//img[@src='/map/getDirection.svg']");
     public static By PlugType = By.xpath("//div[@class='plugIcon plugIconGreen plugIconSmall']");
+    public static By PlugTypeForUnavailableChargers = By.xpath("//div[@class='plugIcon plugIconRed']");
+    public static By OfflineTextInBox = By.xpath("//div[@class='invalidQrCodeOfflineText'][contains(text(),'Offline')]");
+    public static By ReportAProblem = By.xpath("//button[@class='ant-btn ant-btn-default reportProblemButton']");
     public static By CarImage = By.xpath("//img[@src='/scan-charger/car.svg']");
     public static By IdleFee = By.xpath("//div[@class='idleFeeText flex items-center']");
     public static By NearbyLocation = By.xpath("//div[@class='nearbyChargersText'][contains(text(),'Nearby Locations')]");
@@ -57,6 +60,7 @@ public class GuestVerificationPage extends BasePage{
     public static By SavePhoneNumberCheckbox = By.xpath("//span[@class='ant-checkbox']");
     public static By SavePhoneNumberCheckboxChecked = By.xpath("//span[@class='ant-checkbox ant-checkbox-checked']");
     public static By SavePhoneNumberText = By.xpath("//div[@class='checkboxText'][contains(text(),'Save this phone number')]");
+    public static By MsgUnderInvalidQRCode = By.xpath("//div[contains(text(),'Please scan the QR code again or try with another charger.')]");
 
 
 

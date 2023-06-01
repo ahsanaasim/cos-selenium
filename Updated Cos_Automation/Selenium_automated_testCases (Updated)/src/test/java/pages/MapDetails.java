@@ -10,6 +10,7 @@ public class MapDetails extends BasePage{
 
     public static By UpperDrawer = By.xpath("//div[@class='ant-drawer-body']");
     public static By LowerDrawer = By.xpath("(//div[@class='ant-drawer-body'])[2]");
+    public static By LocationMarker = By.xpath("//img[@src='https://maps.gstatic.com/mapfiles/transparent.png']");
 
 
 

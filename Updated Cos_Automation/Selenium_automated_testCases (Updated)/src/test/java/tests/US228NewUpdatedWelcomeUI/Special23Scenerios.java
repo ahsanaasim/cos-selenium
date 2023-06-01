@@ -63,9 +63,17 @@ public class Special23Scenerios extends BaseTest2 {
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
         guestVerificationPage.GoToRestrictedCharger(prop.getProperty("InvalidChargerQR"));
-        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.ChargerInvalidQRStatus));
-        
-        driver.close();
+        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(3000,GuestVerificationPage.ChargerInvalidQRStatus));
+        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(200,GuestVerificationPage.MsgUnderInvalidQRCode));
+        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(200,GuestVerificationPage.PlugTypeForUnavailableChargers));
+        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(200,GuestVerificationPage.OfflineTextInBox));
+        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(200,GuestVerificationPage.ReportAProblem));
+        Assert.assertTrue(guestVerificationPage.verifyTextMatching(200,GuestVerificationPage.MaxChargingRate,"N/A"));
+        Assert.assertTrue(guestVerificationPage.verifyTextMatching(200,GuestVerificationPage.FeeToInitiate,"N/A"));
+        Assert.assertTrue(guestVerificationPage.verifyTextMatching(200,GuestVerificationPage.FeePerKwh,"N/A"));
+
+
+
 
     }
 

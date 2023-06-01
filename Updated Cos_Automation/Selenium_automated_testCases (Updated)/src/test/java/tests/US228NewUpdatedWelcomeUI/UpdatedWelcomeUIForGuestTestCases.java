@@ -14,9 +14,6 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
     @Test(priority = 1)
     @TestParameters(testCaseId = {"TC-1"})
     public void TC_1_CheckIfMenuButtonIsNotShowingAtTopRightCornerOfThePage() throws InterruptedException {
-        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
-        CreateCharger operation =new CreateCharger(driver);
-        CustomerLogin customerLogin = new CustomerLogin(driver);
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
         guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/tIljMh");
@@ -27,9 +24,6 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
     @Test(priority = 2)
     @TestParameters(testCaseId = {"TC-2"})
     public void TC_2_CheckTitleOfTheGuestVerificationPage() throws InterruptedException {
-        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
-        CreateCharger operation =new CreateCharger(driver);
-        CustomerLogin customerLogin = new CustomerLogin(driver);
         Dashboard dashboard = new Dashboard(driver);
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
@@ -42,8 +36,6 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
     @Test(priority = 3)
     @TestParameters(testCaseId = {"TC-3"})
     public void TC_3_CheckProvidePhoneNoTitleIsShowingAbovePhoneNumberField() throws InterruptedException {
-        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
-        CreateCharger operation =new CreateCharger(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
         Dashboard dashboard = new Dashboard(driver);
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
@@ -70,8 +62,6 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
     @Test(priority = 5)
     @TestParameters(testCaseId = {"TC-5"})
     public void TC_5_CheckCountryFlagWithCodeInPhoneNoIsShowingOrNot() throws InterruptedException {
-        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
-        CreateCharger operation =new CreateCharger(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
         Dashboard dashboard = new Dashboard(driver);
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
@@ -84,9 +74,6 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
     @Test(priority = 6)
     @TestParameters(testCaseId = {"TC-6"})
     public void TC_6_CheckContinueAsAGuestButtonIsShowingSameAsTheDesign() throws InterruptedException {
-        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
-        CreateCharger operation =new CreateCharger(driver);
-        CustomerLogin customerLogin = new CustomerLogin(driver);
         Dashboard dashboard = new Dashboard(driver);
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
@@ -98,9 +85,6 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
     @Test(priority = 7)
     @TestParameters(testCaseId = {"TC-7"})
     public void TC_7_CheckTheColorContinueAsAGuestButtonIsShowingSameAsTheDesign() throws InterruptedException {
-        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
-        CreateCharger operation =new CreateCharger(driver);
-        CustomerLogin customerLogin = new CustomerLogin(driver);
         Dashboard dashboard = new Dashboard(driver);
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
@@ -112,9 +96,6 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
     @Test(priority = 8)
     @TestParameters(testCaseId = {"TC-8"})
     public void TC_8_CheckLoginButtonIsShowingSameAsTheDesign() throws InterruptedException {
-        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
-        CreateCharger operation =new CreateCharger(driver);
-        CustomerLogin customerLogin = new CustomerLogin(driver);
         Dashboard dashboard = new Dashboard(driver);
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
@@ -125,9 +106,6 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
     @Test(priority = 9)
     @TestParameters(testCaseId = {"TC-9"})
     public void TC_9_CheckSignUpButtonIsShowingSameAsTheDesign() throws InterruptedException {
-        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
-        CreateCharger operation =new CreateCharger(driver);
-        CustomerLogin customerLogin = new CustomerLogin(driver);
         Dashboard dashboard = new Dashboard(driver);
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
@@ -139,9 +117,6 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
     @Test(priority = 10)
     @TestParameters(testCaseId = {"TC-10"})
     public void TC_10_CheckAvailabilityStatusForAvailableCharger() throws InterruptedException {
-        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
-        CreateCharger operation =new CreateCharger(driver);
-        CustomerLogin customerLogin = new CustomerLogin(driver);
         Dashboard dashboard = new Dashboard(driver);
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
@@ -167,9 +142,6 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
     @Test(priority = 13)
     @TestParameters(testCaseId = {"TC-13"})
     public void TC_13_CheckTheFavoriteIconIsNotShowing() throws InterruptedException {
-        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
-        CreateCharger operation =new CreateCharger(driver);
-        CustomerLogin customerLogin = new CustomerLogin(driver);
         Dashboard dashboard = new Dashboard(driver);
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
@@ -181,9 +153,6 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
     @Test(priority = 14)
     @TestParameters(testCaseId = {"TC-14"})
     public void TC_14_CheckShareButtonIsShowingSameAsDesign() throws InterruptedException {
-        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
-        CreateCharger operation =new CreateCharger(driver);
-        CustomerLogin customerLogin = new CustomerLogin(driver);
         Dashboard dashboard = new Dashboard(driver);
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
@@ -196,9 +165,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
     @Test(priority = 15)
     @TestParameters(testCaseId = {"TC-14.1"})
     public void TC_14_1_CheckShareButtonIsResponding() throws InterruptedException {
-        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger operation =new CreateCharger(driver);
-        CustomerLogin customerLogin = new CustomerLogin(driver);
         Dashboard dashboard = new Dashboard(driver);
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
@@ -212,9 +179,6 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
     @Test(priority = 15)
     @TestParameters(testCaseId = {"TC-15"})
     public void TC_15_CheckLocationAddressIsShowingOrNot() throws InterruptedException {
-        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
-        CreateCharger operation =new CreateCharger(driver);
-        CustomerLogin customerLogin = new CustomerLogin(driver);
         Dashboard dashboard = new Dashboard(driver);
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
@@ -228,8 +192,6 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
     @TestParameters(testCaseId = {"TC-16"})
     public void TC_16_CheckGETDIRECTIONIsShowingOrNot() throws InterruptedException {
         CreateCharger operation =new CreateCharger(driver);
-        CustomerLogin customerLogin = new CustomerLogin(driver);
-        Dashboard dashboard = new Dashboard(driver);
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
@@ -241,9 +203,6 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
     @Test(priority = 17)
     @TestParameters(testCaseId = {"TC-17"})
     public void TC_17_CheckPlugTypeIsShowingOrNot() throws InterruptedException {
-        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
-        CreateCharger operation =new CreateCharger(driver);
-        CustomerLogin customerLogin = new CustomerLogin(driver);
         Dashboard dashboard = new Dashboard(driver);
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
@@ -256,8 +215,6 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
     @Test(priority = 18)
     @TestParameters(testCaseId = {"TC-18"})
     public void TC_18_CheckIfTheCarImageIsShowingOrNot() throws InterruptedException {
-        CreateCharger operation =new CreateCharger(driver);
-        CustomerLogin customerLogin = new CustomerLogin(driver);
         Dashboard dashboard = new Dashboard(driver);
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
