@@ -75,7 +75,7 @@ public class GuestFlowTestCases extends BaseTest {
         SimulationPage simulationPage = new SimulationPage(driver);
         loginPage.VerifyValidLogin();
         guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 2"));
+        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Property avenue charger"));
         Assert.assertTrue(operation.ClickButton(SimulationPage.BootChargerButton,2000));
         Assert.assertTrue(operation.ClickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
@@ -97,9 +97,9 @@ public class GuestFlowTestCases extends BaseTest {
         Assert.assertTrue(operation.ClickButton(GuestFlow.AuthorizeButton,1500));
         System.out.println("URL  =  "+driver.getCurrentUrl());
         Assert.assertTrue(guestFlow.verifyChargingNowTitle());
-        guestFlow.LengthOfSession(10000);
+        guestFlow.LengthOfSession(100000);
         guestFlow.PressAndHold(GuestFlow.PressAndHoldButton);
-        guestFlow.LengthOfSession(810000);
+        guestFlow.LengthOfSession(300000);
         guestFlow.SwitchToTab(0);
         operation.ClickButton(GuestFlow.DisconnectChargerbtn,3000);
         guestFlow.SwitchToTab(1);

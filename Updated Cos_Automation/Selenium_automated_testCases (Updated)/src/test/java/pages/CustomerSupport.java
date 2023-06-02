@@ -28,7 +28,7 @@ public class CustomerSupport extends BasePage{
     public static By MandatoryMessageSign = By.xpath("(//span[@class='red-color'][contains(text(),'*')])[3]");
     public static By SelectASessionTitle = By.xpath("//div[contains(text(),' Select A session')]");
     public static By SelectASessionField = By.xpath("(//input[@class='ant-select-selection-search-input'])[2]");
-    public static By UploadButton = By.xpath("//button[@class='ant-btn ant-btn-text uploadButton']");
+    public static By UploadButton = By.xpath("//div[@class='uploadBtn']");
     public static By MessageField = By.xpath("//textarea[@class='ant-input']");
     public static By UploadField = By.xpath("//div[@class='uploadDiv']");
     public static By UploadText = By.xpath("//div[@class='uploadText']");
