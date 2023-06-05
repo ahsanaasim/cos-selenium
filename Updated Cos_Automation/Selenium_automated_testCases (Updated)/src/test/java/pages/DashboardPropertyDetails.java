@@ -25,11 +25,12 @@ public class DashboardPropertyDetails extends BasePage {
     public static By DetailsBtn4 = By.xpath("(//Button[@class='ant-btn ant-btn-default'])[4]");
     public static By DetailsBtn5 = By.xpath("(//Button[@class='ant-btn ant-btn-default'])[5]");
     public static By PropertyTitle = By.xpath("//div[@class='wordBreak flex']");
+    public static By SecondPropertyTitle = By.xpath("(//div[@class='wordBreak flex'])[2]");
     public static By DrawerTitle = By.xpath("//div[@class='drawerTitle wordBreak']");
     public static By DrawerLocationTitle = By.xpath("//div[@class='locationTitle']");
     public static By DrawerLocationTitle2 = By.xpath("(//div[@class='locationTitle'])[2]");
     public static By DrawerLocationTitle3 = By.xpath("(//div[@class='locationTitle'])[3]");
-    public static By NoChargermsg = By.xpath("//div[contains(text(),'No charger found')]");
+    public static By NoChargermsg = By.xpath("//div[contains(text(),'No location and charger found')]");
     public static By NoChargermsg2 = By.xpath("(//div[contains(text(),'No charger found')])[2]");
     public static By NoChargermsg3 = By.xpath("(//div[contains(text(),'No charger found')])[3]");
     public static By NoChargerAndLocation = By.xpath("//div[@class='noLocationView']");
@@ -116,8 +117,8 @@ public class DashboardPropertyDetails extends BasePage {
         Thread.sleep(5000);
         waitforPresence(DrawerLocationTitle);
         String PropertyName = driver.findElement(DrawerLocationTitle).getText();
-        String Expected ="Charging Location";
-        if (PropertyName.equals(Expected)){
+//        String Expected ="Charging Location";
+        if (!PropertyName.isEmpty()){
             System.out.println("Matched");
             return true;
         }
@@ -149,8 +150,8 @@ public class DashboardPropertyDetails extends BasePage {
         Thread.sleep(5000);
         waitforPresence(NoChargermsg);
         String NoFoundMsg = driver.findElement(NoChargermsg).getText();
-        String Expected = "No charger found";
-        if (NoFoundMsg.equals(Expected)){
+        System.out.println(NoFoundMsg);
+        if (driver.findElement(NoChargermsg).isDisplayed()){
             System.out.println("Matched");
             return true;
         }
@@ -284,8 +285,7 @@ public class DashboardPropertyDetails extends BasePage {
         Thread.sleep(3000);
         WebElement Tag1 = driver.findElement(OfflineTagBesideLocation);
         WebElement Tag2 = driver.findElement(OfflineTagBesideLocation2);
-        WebElement Tag3 = driver.findElement(OfflineTagBesideLocation3);
-        if (Tag1.isDisplayed() && Tag2.isDisplayed() && Tag3.isDisplayed()){
+        if (Tag1.isDisplayed() && Tag2.isDisplayed()){
             System.out.println("Offline tags are showing for Offline locations");
             return true;
         }

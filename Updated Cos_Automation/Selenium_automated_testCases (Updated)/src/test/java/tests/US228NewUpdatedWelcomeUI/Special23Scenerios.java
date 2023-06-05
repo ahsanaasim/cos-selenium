@@ -50,7 +50,11 @@ public class Special23Scenerios extends BaseTest2 {
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
         guestVerificationPage.GoToRestrictedCharger(prop.getProperty("DownChargerQR"));
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.ChargerDownStatus));
-        driver.close();
+        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(200,GuestVerificationPage.PlugTypeForUnavailableChargers));
+        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(200,GuestVerificationPage.OfflineTextInBox));
+        Assert.assertTrue(guestVerificationPage.verifyNearByLocationsTabIsExpanded());
+
+//        driver.close();
 
     }
 
