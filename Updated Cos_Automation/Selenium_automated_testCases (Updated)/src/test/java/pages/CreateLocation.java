@@ -54,6 +54,11 @@ public class CreateLocation extends BasePage {
         driver.get("https://test-admin.chargeonsite.com/property/location");
     }
 
+    public void writeINLocationSearchBar(String location){
+        waitforPresence(ChargerListPropertyAdmin.detailsbutton);
+        writeText(searchbar,"Paikare shop");
+    }
+
 
 
     public boolean clickonCreateNewLocationbutton () throws InterruptedException {

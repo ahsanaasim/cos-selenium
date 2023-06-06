@@ -8,6 +8,7 @@ public class MapDetails extends BasePage{
         super(driver);
     }
     LoginPage loginPage = new LoginPage(driver);
+    GuestFlow guestFlow = new GuestFlow(driver);
 
     public static By UpperDrawer = By.xpath("//div[@class='ant-drawer-body']");
     public static By LowerDrawer = By.xpath("(//div[@class='ant-drawer-body'])[2]");
@@ -33,17 +34,29 @@ public class MapDetails extends BasePage{
     public static By AvailableStatus = By.xpath("//div[@class='availableText']");
     public static By OfflineStatus = By.xpath("//div[@class='offlineText']");
     public static By PlugAvailable = By.xpath("//div[@class='plugAvailable']");
+    public static By DownStatus = By.xpath("//div[@class='downText'][contains(text(),'Down')]");
+    public static By InUseStatus = By.xpath("//div[@class='inUseText'][contains(text(),'In Use')]");
     public static By SCanQRCodeText = By.xpath("//h4[@class='drawerBottomSecondaryText mt-5 mb-5 ml-15']");
     public static By ScanQrCodeWithCellPhoneText = By.xpath("//div[@class='ant-alert-message'][contains(text(),'To start charging please scan the QR code with your cell phone.')]");
+    public static By NoChargerAvailableButton = By.xpath("//button[@class='ant-btn ant-btn-default no-charger-btn pt-5 pb-5']");
 
 
 
 
 
+    public void makeD10LocationAndRampuraBridgeChargerAvailable() throws InterruptedException {
+        SimulationPage simulationPage = new SimulationPage(driver);
+        String[] D10LocationCharger = {"D 10 charger 1170", "D-10 Charger", "D10 Charger-24", "D 11 charger", "Space 5","charger for noone"};
+        // Loop through the array and print each element
+        for (String Charger : D10LocationCharger) {
+            System.out.println(Charger);
+            guestFlow.GoToSimulator();
+            simulationPage.SelectChargerFromSimulator(Charger);
+            simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
+            click(SimulationPage.BootChargerButton);
 
-
-
-
+        }
+    }
     public boolean verifySystemIsRedirectingToMapPage() throws InterruptedException {
         Thread.sleep(3000);
         String currentPage = driver.getCurrentUrl();
@@ -59,7 +72,7 @@ public class MapDetails extends BasePage{
     }
 
     public boolean verifyGetDirectionButtonIsWorking() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         String currentPage = driver.getCurrentUrl();
         System.out.println("Current page URL is: "+currentPage);
         if (currentPage.contains("https://www.google.com/maps/dir/")){
@@ -78,11 +91,27 @@ public class MapDetails extends BasePage{
 
     }
 
-    //LocationWithNoAvailableChargersAndRes
+    //LocationWithNoAvailableChargersAndRestricted
     public void GoToShantaHoldingsLocationInMapDetails() throws InterruptedException {
         Thread.sleep(3000);
         driver.get("https://test-app.chargeonsite.com/customer/map?latitude=23.766160943146946&longitude=90.42558830046805&locationMarkerId=1220abce-ba9b-456b-b33b-0968f4fc9ecf");
 
+    }
+
+    //This location has down charger
+    public void GoToWaterPumpLocation() throws InterruptedException {
+        Thread.sleep(2500);
+        driver.get("https://test-app.chargeonsite.com/customer/map?latitude=23.76079166763266&longitude=90.4345617503801&locationMarkerId=86a28a5f-a90e-411d-ba93-2fb0d9ec1308");
+    }
+
+    public void GoToRampuraLocation() throws InterruptedException {
+        Thread.sleep(2500);
+        driver.get("https://test-app.chargeonsite.com/customer/map?latitude=23.76836177360211&longitude=90.42349129915237&locationMarkerId=6282ba03-f41d-4016-ac5f-2ab7da2d75b3");
+    }
+
+    public void GoToPaikareLocation() throws InterruptedException {
+        Thread.sleep(2500);
+        driver.get("https://test-app.chargeonsite.com/customer/map?latitude=23.75816740396393&longitude=90.42778544106802&locationMarkerId=55a8c1f9-0c9e-41f5-bdae-de6bf8e8542d");
     }
 
     public void GoToChargerModule() throws InterruptedException {
@@ -153,7 +182,7 @@ public class MapDetails extends BasePage{
         int chargerAvailable = GetAvailableChargerCountFromAvailabilitySection();
         System.out.println("Number of available charger in availability section: "+chargerAvailable);
         NewTabOpenAndSwitchToNewTab(1);
-        loginPage.VerifyValidLogin();
+//        loginPage.VerifyValidLogin();
         GoToChargerModule();
         chargerList.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"D 11 charger",1000);
         click(CreateCharger.searchargerbtn);

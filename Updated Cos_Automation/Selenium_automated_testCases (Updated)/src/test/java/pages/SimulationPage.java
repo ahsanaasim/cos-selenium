@@ -78,4 +78,15 @@ public class SimulationPage extends BasePage {
         return true;
 
     }
+
+    public void clickOnDisconnectTheChargerIfIsEnabled(){
+        waitforPresence(DisconnectCharger);
+        if (driver.findElement(DisconnectCharger).isEnabled()){
+            click(DisconnectCharger);
+        }
+        else {
+            System.out.println("Disconnect button is disabled");
+        }
+
+    }
 }

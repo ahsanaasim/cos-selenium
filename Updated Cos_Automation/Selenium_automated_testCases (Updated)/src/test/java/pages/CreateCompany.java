@@ -40,8 +40,6 @@ public class CreateCompany extends BasePage {
     By spinner = By.xpath("/html/body/div[2]/div/div[2]/div/div/div[2]/div/div/span");
 
 
-
-
     public boolean ClickonCreateCompanybutton () throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
         waitforInVisibility(spinner);

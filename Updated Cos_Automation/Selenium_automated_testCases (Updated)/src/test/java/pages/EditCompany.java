@@ -43,6 +43,23 @@ public class EditCompany extends BasePage {
     By discardbtn = By.xpath("//button[contains(.,'Discard')]");
     public static By EinUpdatedStatus = By.xpath("//span[@id='einAuditLog']");
 
+    public static By SearchCompany = By.xpath("//input[@placeholder='Search by name, email or phone no']");
+    public static By AccessCompanyPortal = By.xpath("//span[@class='actionTag cursor']");
+
+
+
+
+    public void GoToCompanyPage() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.get("https://test-admin.chargeonsite.com/company/company-management");
+
+    }
+
+    public void writeInCompanySearchBar(String company){
+        waitforPresence(EditCompanyBtn);
+        writeText(SearchCompany,company);
+    }
+
 
 
 

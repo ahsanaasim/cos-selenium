@@ -26,6 +26,8 @@ public class EditLocation extends BasePage{
     CreateCompany createCompany= new CreateCompany(driver);
     CreateLocation createLocation=new CreateLocation(driver);
 
+
+
     public boolean clickonEditbuttonFromPropertyInfoSection () throws InterruptedException {
         createCompany.waitForSpinner();
       // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
