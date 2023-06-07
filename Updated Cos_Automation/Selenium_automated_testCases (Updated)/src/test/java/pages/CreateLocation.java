@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class CreateLocation extends BasePage {
 
@@ -54,9 +53,17 @@ public class CreateLocation extends BasePage {
         driver.get("https://test-admin.chargeonsite.com/property/location");
     }
 
-    public void writeINLocationSearchBar(String location){
+    public void writeINLocationSearchBarCompanyPortal(String location){
         waitforPresence(ChargerListPropertyAdmin.detailsbutton);
-        writeText(searchbar,"Paikare shop");
+        writeText(searchbar,location);
+    }
+
+    public void writeINLocationSearchBar(String location){
+        waitforPresence(editbtn);
+        writeText(searchbar,location);
+    }
+    public void GoToLocationPageInCompanyPortal(){
+        driver.get("https://test-company.chargeonsite.com/property/location");
     }
 
 

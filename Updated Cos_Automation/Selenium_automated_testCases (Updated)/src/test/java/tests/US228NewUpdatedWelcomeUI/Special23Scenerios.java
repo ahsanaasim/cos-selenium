@@ -14,15 +14,13 @@ public class Special23Scenerios extends BaseTest2 {
     @Test(priority = 1)
     @TestParameters(testCaseId = {"TC-1"})
     public void TC_1_CheckAvailableStatusForAvailableCharger() throws InterruptedException {
-        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger operation =new CreateCharger(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
-        FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
         guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/tIljMh");
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.ChargerAvailableStatus));
-
-        driver.close();
+        Assert.assertTrue(guestVerificationPage.verifyAFieldIsDisable(1000,GuestVerificationPage.StatChargingButton));
+//        driver.close();
 
     }
 

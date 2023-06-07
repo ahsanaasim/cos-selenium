@@ -143,6 +143,21 @@ public class MapDetails extends BasePage{
         }
     }
 
+    public boolean verifyPlugAvailableTextForSinglePlugAvailable() throws InterruptedException {
+        Thread.sleep(4000);
+        waitforPresence(ChargerAvailableText);
+        String text = driver.findElement(ChargerAvailableText).getText();
+        System.out.println(text);
+        if (text.matches("\\d+ Plug Available")){
+            System.out.println("Plug available text is showing correctly");
+            return true;
+        }
+        else {
+            System.out.println("Plug available text is not showing correctly");
+            return false;
+        }
+    }
+
 
 
 

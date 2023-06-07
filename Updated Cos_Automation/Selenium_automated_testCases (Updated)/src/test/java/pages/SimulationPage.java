@@ -79,7 +79,8 @@ public class SimulationPage extends BasePage {
 
     }
 
-    public void clickOnDisconnectTheChargerIfIsEnabled(){
+    public void clickOnDisconnectTheChargerIfIsEnabled() throws InterruptedException {
+        Thread.sleep(1200);
         waitforPresence(DisconnectCharger);
         if (driver.findElement(DisconnectCharger).isEnabled()){
             click(DisconnectCharger);

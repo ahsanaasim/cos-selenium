@@ -53,7 +53,7 @@ public class GuestFlowTestCases extends BaseTest {
         Assert.assertTrue(operation.writeInputText(GuestFlow.CardNumber,"424242424242424242424242424",6000));
         guestFlow.SwitchToDefaultFromIframe();
         Assert.assertTrue(operation.ClickButton(GuestFlow.AuthorizeButton,1500));
-        dashboard.RefreshBrowser();
+//        dashboard.RefreshBrowser();
         System.out.println("URL  =  "+driver.getCurrentUrl());
         Assert.assertTrue(guestFlow.verifyChargingNowTitle());
         guestFlow.LengthOfSession(90000);
@@ -85,7 +85,7 @@ public class GuestFlowTestCases extends BaseTest {
         Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
         Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
         operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
-        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.StatChargingButton,2000));
+        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.StatChargingButton,5000));
         guestFlow.SwitchToIframe();
         operation.click(GuestFlow.CardNumber);
         Assert.assertTrue(operation.writeInputText(GuestFlow.CardNumber,"424242424242424242424242424",6000));

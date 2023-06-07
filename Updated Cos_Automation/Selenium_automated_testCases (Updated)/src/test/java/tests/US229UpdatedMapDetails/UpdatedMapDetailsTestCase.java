@@ -2,7 +2,6 @@ package tests.US229UpdatedMapDetails;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 import pages.*;
 import tests.BaseTest;
 import tests.US1AdminLogin.TestParameters;
@@ -157,7 +156,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         mapDetails.GoToD10LocationInMapDetails();
 //        dashboard.RefreshBrowser();
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,MapDetails.AvailabilityTitle));
-        Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(500,MapDetails.DetailsButton));
+        Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1500,MapDetails.DetailsButton));
 
 
     }
@@ -229,7 +228,6 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
 //        dashboard.RefreshBrowser();
         operation.ClickButton(MapDetails.DetailsButton,2000);
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,MapDetails.ChargersDetailsTitle));
-
 
 
     }
@@ -383,9 +381,10 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
     public void TC_24_CheckDownChargerStatus() throws InterruptedException {
         MapDetails mapDetails =new MapDetails(driver);
         Dashboard dashboard = new Dashboard(driver);
-        FavoriteLocation favoriteLocation= new FavoriteLocation(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
         CreateCharger operation = new CreateCharger(driver);
+        guestFlow.SwitchToTab(0);
         customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         mapDetails.GoToWaterPumpLocation();
@@ -407,6 +406,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         GuestFlow guestFlow = new GuestFlow(driver);
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
+        guestFlow.SwitchToTab(0);
         mapDetails.GoToRampuraLocation();
         mapDetails.SwitchToTab(1);
         guestFlow.GoToSimulator();
@@ -433,6 +433,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         Assert.assertTrue(operation.ClickButton(GuestFlow.AuthorizeButton,1500));
         System.out.println("URL  =  "+driver.getCurrentUrl());
         Assert.assertTrue(guestFlow.verifyChargingNowTitle());
+        driver.close();
         guestFlow.SwitchToTab(0);
         dashboard.RefreshBrowser();
         operation.ClickButton(MapDetails.DetailsButton,1500);
@@ -456,39 +457,152 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         GuestFlow guestFlow = new GuestFlow(driver);
         LoginPage login = new LoginPage(driver);
         customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
-        guestFlow.NewTabOpenAndSwitchToNewTab(1);
-//        guestFlow.SwitchToTab(1);
-        login.VerifyValidLogin();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
+//        guestFlow.NewTabOpenAndSwitchToNewTab(1);
+        guestFlow.SwitchToTab(1);
+        Thread.sleep(2000);
+//        login.VerifyValidLogin();
         company.GoToCompanyPage();
         company.writeInCompanySearchBar("Local company");
         company.click(EditCompany.searchbtn);
         company.click(EditCompany.AccessCompanyPortal);
         Thread.sleep(5000);
         guestFlow.SwitchToTab(2);
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonLocations());
-        location.writeINLocationSearchBar("Paikare shop");
+        location.GoToLocationPageInCompanyPortal();
+        location.writeINLocationSearchBarCompanyPortal("Water pump");
         location.click(EditCompany.searchbtn);
         location.click(ChargerListPropertyAdmin.detailsbutton);
         charger.clickToggleButtonIfItIsOn();
-        operation.ClickButton(UpdateChargerPropertyAdmin.SaveCharger,2000);
+        operation.ClickButton(CreateLocation.savelocationbtn,2000);
         guestFlow.SwitchToTab(0);
         dashboard.RefreshBrowser();
-        mapDetails.GoToPaikareLocation();
+        mapDetails.GoToWaterPumpLocation();
+        Assert.assertTrue(mapDetails.verifyElementNotDisplayed(2000,MapDetails.DetailsButton));
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.NoChargersAvailable));
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.NoChargerAvailableButton));
 
 
+    }
 
-
-
-
-
-
+    @Test(priority = 26)
+    @TestParameters(testCaseId = {"TC-27"})
+    public void TC_27_CheckAfterMakingAnLocationOnlineToOffline() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        EditCompany company = new EditCompany(driver);
+        CreateLocation location = new CreateLocation(driver);
+        UpdateChargerPropertyAdmin charger = new UpdateChargerPropertyAdmin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        LoginPage login = new LoginPage(driver);
+        guestFlow.SwitchToTab(0);
+        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
+//        guestFlow.NewTabOpenAndSwitchToNewTab(1);
+        guestFlow.SwitchToTab(2);
+        Thread.sleep(2000);
+//        login.VerifyValidLogin();
+//        company.GoToCompanyPage();
+//        company.writeInCompanySearchBar("Local company");
+//        company.click(EditCompany.searchbtn);
+//        company.click(EditCompany.AccessCompanyPortal);
+//        Thread.sleep(5000);
+        location.GoToLocationPageInCompanyPortal();
+        location.writeINLocationSearchBarCompanyPortal("Water pump");
+        location.click(EditCompany.searchbtn);
+        location.click(ChargerListPropertyAdmin.detailsbutton);
+        charger.clickToggleButtonIfItIsOff();
+        operation.ClickButton(CreateLocation.savelocationbtn,2000);
+        guestFlow.SwitchToTab(0);
+        dashboard.RefreshBrowser();
+        mapDetails.GoToWaterPumpLocation();
+        Assert.assertTrue(mapDetails.verifyPlugAvailableTextForSinglePlugAvailable());
+        Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.ScanNow));
 
 
     }
+
+
+    @Test(priority = 27)
+    @TestParameters(testCaseId = {"TC-28"})
+    public void TC_28_CheckAfterMakingAnLocationOffline() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        EditCompany company = new EditCompany(driver);
+        CreateLocation location = new CreateLocation(driver);
+        UpdateChargerPropertyAdmin charger = new UpdateChargerPropertyAdmin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        LoginPage login = new LoginPage(driver);
+        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
+//        guestFlow.NewTabOpenAndSwitchToNewTab(1);
+        guestFlow.SwitchToTab(1);
+        Thread.sleep(2000);
+//        login.VerifyValidLogin();
+        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickonLocations());
+        location.writeINLocationSearchBar("Water pump");
+        location.click(EditCompany.searchbtn);
+        location.ClickonEditbutton();
+        charger.clickToggleButtonIfItIsOn();
+        operation.ClickButton(CreateLocation.savelocationbtn,2000);
+        guestFlow.SwitchToTab(0);
+        dashboard.RefreshBrowser();
+        mapDetails.GoToWaterPumpLocation();
+        Assert.assertTrue(mapDetails.verifyElementNotDisplayed(2000,MapDetails.DetailsButton));
+        Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.NoChargersAvailable));
+        Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.NoChargerAvailableButton));
+        Assert.assertTrue(mapDetails.verifyElementNotDisplayed(2000,MapDetails.ScanNow));
+
+
+    }
+
+    @Test(priority = 28)
+    @TestParameters(testCaseId = {"TC-29"})
+    public void TC_29_CheckAfterMakingAnLocationOnlineToOffline() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        EditCompany company = new EditCompany(driver);
+        CreateLocation location = new CreateLocation(driver);
+        UpdateChargerPropertyAdmin charger = new UpdateChargerPropertyAdmin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        LoginPage login = new LoginPage(driver);
+        guestFlow.SwitchToTab(0);
+        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
+//        guestFlow.NewTabOpenAndSwitchToNewTab(1);
+        guestFlow.SwitchToTab(1);
+        Thread.sleep(2000);
+//        login.VerifyValidLogin();
+//        company.GoToCompanyPage();
+//        company.writeInCompanySearchBar("Local company");
+//        company.click(EditCompany.searchbtn);
+//        company.click(EditCompany.AccessCompanyPortal);
+//        Thread.sleep(5000);
+        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickonLocations());
+        location.writeINLocationSearchBar("Water pump");
+        location.click(EditCompany.searchbtn);
+        location.ClickonEditbutton();
+        charger.clickToggleButtonIfItIsOff();
+        operation.ClickButton(CreateLocation.savelocationbtn,2000);
+        guestFlow.SwitchToTab(0);
+        dashboard.RefreshBrowser();
+        mapDetails.GoToWaterPumpLocation();
+        Assert.assertTrue(mapDetails.verifyPlugAvailableTextForSinglePlugAvailable());
+        Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.ScanNow));
+
+
+    }
+
 
 
 
