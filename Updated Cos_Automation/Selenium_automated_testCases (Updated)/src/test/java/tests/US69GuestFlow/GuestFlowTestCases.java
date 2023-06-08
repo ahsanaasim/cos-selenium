@@ -34,6 +34,7 @@ public class GuestFlowTestCases extends BaseTest {
         loginPage.VerifyValidLogin();
         guestFlow.GoToSimulator();
         Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 889"));
+        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Assert.assertTrue(operation.ClickButton(SimulationPage.BootChargerButton,2000));
         Assert.assertTrue(operation.ClickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
@@ -76,7 +77,8 @@ public class GuestFlowTestCases extends BaseTest {
         SimulationPage simulationPage = new SimulationPage(driver);
         loginPage.VerifyValidLogin();
         guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 889"));
+        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Raw charger"));
+        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Assert.assertTrue(operation.ClickButton(SimulationPage.BootChargerButton,2000));
         Assert.assertTrue(operation.ClickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
@@ -120,6 +122,7 @@ public class GuestFlowTestCases extends BaseTest {
         loginPage.VerifyValidLogin();
         guestFlow.GoToSimulator();
         Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Property avenue charger"));
+        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Assert.assertTrue(operation.ClickButton(SimulationPage.BootChargerButton,2000));
         Assert.assertTrue(operation.ClickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();

@@ -57,6 +57,24 @@ public class MapDetails extends BasePage{
 
         }
     }
+
+
+    public void MakeExpectedChargerOnline(String chargerName) throws InterruptedException {
+        EditChargerCosAdminUpdated charger = new EditChargerCosAdminUpdated(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
+        charger.writeInSearchBar(CreateCharger.searchchargerfield,chargerName,1000);
+        click(CreateCharger.searchargerbtn);
+        operation.ClickButton(CosAdminChargerList.EditButton,1000);
+        editCharger.clickToggleButtonIfItIsOff();
+        click(UpdateChargerPropertyAdmin.SaveCharger);
+
+    }
+
+
+
+
+
     public boolean verifySystemIsRedirectingToMapPage() throws InterruptedException {
         Thread.sleep(3000);
         String currentPage = driver.getCurrentUrl();
@@ -210,7 +228,7 @@ public class MapDetails extends BasePage{
         int expected = chargerAvailable-1;
         int chargerAvailable2 = GetAvailableChargerCountFromAvailabilitySection();
         System.out.println("Number of available charger in availability section after making a charger offline: "+chargerAvailable2);
-        if (chargerAvailable==expected){
+        if (chargerAvailable2==expected){
             System.out.println("Charger available count is decreasing after making a charger offline");
             return true;
         }
@@ -239,7 +257,7 @@ public class MapDetails extends BasePage{
         int expected = chargerAvailable+1;
         int chargerAvailable2 = GetAvailableChargerCountFromAvailabilitySection();
         System.out.println("Number of available charger in availability section after making a charger online: "+chargerAvailable2);
-        if (chargerAvailable==expected){
+        if (chargerAvailable2==expected){
             System.out.println("Charger available count is increasing after making a charger online");
             return true;
         }
@@ -300,7 +318,7 @@ public class MapDetails extends BasePage{
         int availableCharger2 = driver.findElements(By.className("availableText")).size();
         System.out.println("Number of available chargers in details drawer after making a charger online: "+availableCharger2);
         int expected = availableCharger+1;
-        if (driver.findElement(AvailableStatus).isDisplayed() && availableCharger==expected){
+        if (driver.findElement(AvailableStatus).isDisplayed() && availableCharger2==expected){
             System.out.println("Charger status Is changing to Offline");
             return true;
         }

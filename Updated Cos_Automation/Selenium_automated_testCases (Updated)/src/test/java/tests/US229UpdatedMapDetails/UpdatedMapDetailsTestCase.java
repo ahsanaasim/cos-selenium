@@ -21,10 +21,14 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         MapDetails mapDetails =new MapDetails(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
         LoginPage loginPage = new LoginPage(driver);
-        GuestFlow guestFlow = new GuestFlow(driver);
-        SimulationPage simulationPage = new SimulationPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
         loginPage.VerifyValidLogin();
         mapDetails.makeD10LocationAndRampuraBridgeChargerAvailable();
+        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnChargers());
+        mapDetails.MakeExpectedChargerOnline("D 11 charger");
+
+
 
     }
 
@@ -305,7 +309,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         mapDetails.GoToD10LocationInMapDetails();
-        mapDetails.verifyAvailableChargerCountMatchWithDetailsDrawer();
+        Assert.assertTrue(mapDetails.verifyAvailableChargerCountMatchWithDetailsDrawer());
 //        dashboard.RefreshBrowser();
 
     }
@@ -323,7 +327,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         mapDetails.GoToD10LocationInMapDetails();
-        mapDetails.verifyAvailableChargerCountIsDecreasingAfterMakingAChargerOffline();
+        Assert.assertTrue(mapDetails.verifyAvailableChargerCountIsDecreasingAfterMakingAChargerOffline());
 //        dashboard.RefreshBrowser();
 
     }
@@ -339,7 +343,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         mapDetails.GoToD10LocationInMapDetails();
-        mapDetails.verifyAvailableChargerCountIsIncreasingAfterMakingAChargerOnline();
+        Assert.assertTrue(mapDetails.verifyAvailableChargerCountIsIncreasingAfterMakingAChargerOnline());
 //        dashboard.RefreshBrowser();
 
     }
@@ -355,7 +359,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         mapDetails.GoToD10LocationInMapDetails();
-        mapDetails.verifyOfflineStatusOfChargerAfterMakingItOffline();
+        Assert.assertTrue(mapDetails.verifyOfflineStatusOfChargerAfterMakingItOffline());
 //        dashboard.RefreshBrowser();
 
     }
@@ -371,7 +375,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         mapDetails.GoToD10LocationInMapDetails();
-        mapDetails.verifyAvailableStatusOfChargerAfterMakingItOnline();
+        Assert.assertTrue(mapDetails.verifyAvailableStatusOfChargerAfterMakingItOnline());
 //        dashboard.RefreshBrowser();
 
     }
@@ -389,7 +393,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         mapDetails.GoToWaterPumpLocation();
         operation.ClickButton(MapDetails.DetailsButton,1500);
-        mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.DownStatus);
+        Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.DownStatus));
 //        dashboard.RefreshBrowser();
 
     }
@@ -437,7 +441,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         guestFlow.SwitchToTab(0);
         dashboard.RefreshBrowser();
         operation.ClickButton(MapDetails.DetailsButton,1500);
-        mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.InUseStatus);
+        Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.InUseStatus));
 //        dashboard.RefreshBrowser();
 
     }
@@ -546,7 +550,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
 //        login.VerifyValidLogin();
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        location.writeINLocationSearchBar("Water pump");
+         location.writeINLocationSearchBar("Water pump");
         location.click(EditCompany.searchbtn);
         location.ClickonEditbutton();
         charger.clickToggleButtonIfItIsOn();
