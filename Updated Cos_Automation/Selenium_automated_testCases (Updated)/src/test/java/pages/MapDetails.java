@@ -21,7 +21,7 @@ public class MapDetails extends BasePage{
     public static By FavoriteIcon = By.xpath("//span[@class='anticon anticon-heart drawerIcon']");
     public static By ShareButton = By.xpath("//span[@class='anticon anticon-share-alt drawerIcon']");
     public static By AvailabilityTitle = By.xpath("//h2[@class='drawerBottomMainText'][contains(text(),'Availability')]");
-    public static By DetailsButton = By.xpath("//span[@class='detailsBtn'][contains(text(),'Details')]");
+    public static By PlugType = By.xpath("//span[@class='plugTypeBtn'][contains(text(),'Plug Type')]");
     public static By ChargersDetailsTitle = By.xpath("//div[@class='ant-drawer-title'][contains(text(),'Chargers Details')]");
     public static By CloseButton = By.xpath("(//span[@class='anticon anticon-close'])[3]");
     public static By GetDirection = By.xpath("//img[@class='cursor-pointer ml-auto direction-img']");
@@ -195,7 +195,7 @@ public class MapDetails extends BasePage{
     public boolean verifyAvailableChargerCountMatchWithDetailsDrawer(){
         int chargerAvailable = GetAvailableChargerCountFromAvailabilitySection();
         System.out.println("Number of available charger in availability section: "+chargerAvailable);
-        click(DetailsButton);
+        click(PlugType);
         int chargerAvailableInDrawer = AvailableChargerCountInChargerDetailsDrawer();
         System.out.println("Number of available charger in chargers details drawer: "+ chargerAvailableInDrawer);
         if (chargerAvailable==chargerAvailableInDrawer){
@@ -281,7 +281,7 @@ public class MapDetails extends BasePage{
         Thread.sleep(2500);
         SwitchToTab(0);
         driver.navigate().refresh();
-        click(DetailsButton);
+        click(PlugType);
         waitforPresence(OfflineStatus);
         int offlineCharger = driver.findElements(By.className("offlineText")).size();
         System.out.println("Number of Offline chargers: "+offlineCharger);
@@ -299,7 +299,7 @@ public class MapDetails extends BasePage{
     public boolean verifyAvailableStatusOfChargerAfterMakingItOnline() throws InterruptedException {
         EditChargerCosAdminUpdated chargerList = new EditChargerCosAdminUpdated(driver);
         UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
-        click(DetailsButton);
+        click(PlugType);
         waitforPresence(AvailableStatus);
         int availableCharger = driver.findElements(By.className("availableText")).size();
         System.out.println("Number of available chargers: "+availableCharger);
@@ -313,7 +313,7 @@ public class MapDetails extends BasePage{
         Thread.sleep(2500);
         SwitchToTab(0);
         driver.navigate().refresh();
-        click(DetailsButton);
+        click(PlugType);
         waitforPresence(AvailableStatus);
         int availableCharger2 = driver.findElements(By.className("availableText")).size();
         System.out.println("Number of available chargers in details drawer after making a charger online: "+availableCharger2);
