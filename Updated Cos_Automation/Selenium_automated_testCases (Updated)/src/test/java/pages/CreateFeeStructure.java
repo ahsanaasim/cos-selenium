@@ -49,10 +49,27 @@ public class CreateFeeStructure extends BasePage{
     public static By IdleFeeGracePeriodUnit = By.xpath("//div[@class='idle-fee-align'][contains(text(),'Minutes')]");
     public static By FeeAfterThat = By.xpath("(//div[@class='idle-fee-align'])[3]");
     public static By IdleFeeRateField = By.id("basic_idleFeeRate");
-
     public static By IdleFeeRateUnit = By.xpath("//div[@class='idle-fee-align bold']");
+    public static By FeeModifierEffectRates = By.xpath("(//span[@class='ant-typography ant-typography-secondary'])[6]");
+    public static By FeeModifierNameFieldTitle = By.xpath("//div[@class='drawerInputTitle'][contains(text(),'Modifier Name')]");
+    public static By FeeModifierRateFieldTitle = By.xpath("//div[@class='drawerInputTitle'][contains(text(),'Fee Modifier')]");
+    public static By FeeModifierRateField = By.xpath("(//input[@name='rate'])[4]");
+    public static By FeeStructureNameRequired = By.xpath("//div[@role='alert']");
+    public static By SessionNameRequired = By.xpath("(//div[@role='alert'])[2]");
+    public static By SessionFeeRateRequired = By.xpath("(//div[@role='alert'])[3]");
+    public static By UtilizationFeeNameRequired = By.xpath("(//div[@role='alert'])[4]");
+    public static By UtilizationFeeRateRequired = By.xpath("(//div[@role='alert'])[5]");
+    public static By GracePeriodRequired = By.xpath("(//div[@role='alert'])[6]");
+    public static By GracePeriodFeeRequired = By.xpath("(//div[@role='alert'])[7]");
+    public static By Alert = By.xpath("//div[@role='alert']");
+    public static By Alert2 = By.xpath("(//div[@role='alert'])[2]");
+    public static By Alert3 = By.xpath("(//div[@role='alert'])[3]");
+    public static By Alert4 = By.xpath("(//div[@role='alert'])[4]");
+    public static By Alert5 = By.xpath("(//div[@role='alert'])[5]");
+    public static By Alert6 = By.xpath("(//div[@role='alert'])[6]");
+    public static By Alert7 = By.xpath("(//div[@role='alert'])[7]");
     public static By SaveFeeStructureButton = By.xpath("//button[@class='ant-btn ant-btn-primary ml-15 h-40 drawerFBtn']");
-
+    public static By CancelButton = By.xpath("//span[contains(text(),'Cancel')]");
     public static By SaveFeeStructureText = By.xpath("//span[normalize-space()='Save Fee Structure']");
 
 
@@ -73,6 +90,12 @@ public class CreateFeeStructure extends BasePage{
     public String CustomerWillSeeAmountInReceipt(){
         return "Your customers will see the total amount in their receipt.";
     }
+
+    public String FeeModifierAffectTheRates(){
+        return "Fee modifier will effect all the rates";
+    }
+
+
 
 
 

@@ -19,7 +19,7 @@ public class MapDetails extends BasePage{
     public static By LocationName = By.xpath("//h2[@class='drawerTopMainText']");
     public static By PropertyLocationAddress = By.xpath("//h4[@class='drawerTopSecondaryText']");
     public static By FavoriteIcon = By.xpath("//span[@class='anticon anticon-heart drawerIcon']");
-    public static By ShareButton = By.xpath("//span[@class='anticon anticon-share-alt drawerIcon']");
+    public static By ShareButton = By.xpath("//img[@alt='share']");
     public static By AvailabilityTitle = By.xpath("//h2[@class='drawerBottomMainText'][contains(text(),'Availability')]");
     public static By PlugType = By.xpath("//span[@class='plugTypeBtn'][contains(text(),'Plug Type')]");
     public static By ChargersDetailsTitle = By.xpath("//div[@class='ant-drawer-title'][contains(text(),'Chargers Details')]");
