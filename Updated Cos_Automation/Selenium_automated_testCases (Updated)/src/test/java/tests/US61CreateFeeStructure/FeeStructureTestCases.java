@@ -1081,9 +1081,9 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
+//        loginPage.VerifyValidLoginForPropertyAdmin();
         dashboard.RefreshBrowser();
-        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+//        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
         operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
@@ -1093,11 +1093,487 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"0",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
         operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Grace period is not valid"));
+        Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
+
+
+    }
+
+    @Test(priority = 43)//Done
+    @TestParameters(testCaseId = {"TC-37.1"})
+    public void TC_37_1_CheckGracePeriodForLessThanTenMinutes() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+//        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
+        operation.writeInputText(CreateFeeStructure.GracePeriodField,"1.25",500);
+        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
+        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Grace period must be at least 3 minutes"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
 
     }
+    @Test(priority = 44)//Done
+    @TestParameters(testCaseId = {"TC-37.2"})
+    public void TC_37_2_CheckGracePeriodForLessThanTenMinutes() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+//        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
+        operation.writeInputText(CreateFeeStructure.GracePeriodField,"2.99",500);
+        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
+        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Grace period must be at least 3 minutes"));
+        Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
+
+
+    }
+
+    @Test(priority = 45)//Done
+    @TestParameters(testCaseId = {"TC-37.3"})
+    public void TC_37_3_CheckGracePeriodForLessThanTenMinutes() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+//        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
+        operation.writeInputText(CreateFeeStructure.GracePeriodField,"1",500);
+        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
+        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Grace period must be at least 3 minutes"));
+        Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
+
+
+    }
+
+    @Test(priority = 46)//Done
+    @TestParameters(testCaseId = {"TC-38"})
+    public void TC_38_CheckGracePeriodForInvalidValue() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+//        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
+        operation.writeInputText(CreateFeeStructure.GracePeriodField,"-2",500);
+        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
+        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Grace period is not valid"));
+        Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
+
+
+    }
+
+    @Test(priority = 47)//Done
+    @TestParameters(testCaseId = {"TC-38.2"})
+    public void TC_38_2_CheckGracePeriodForInvalidValue() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+//        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
+        operation.writeInputText(CreateFeeStructure.GracePeriodField,"-2",500);
+        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
+        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Grace period is not valid"));
+        Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
+
+
+    }
+
+    @Test(priority = 48)//Done
+    @TestParameters(testCaseId = {"TC-39"})
+    public void TC_39_CheckGracePeriodRateForInValidValue() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
+        operation.writeInputText(CreateFeeStructure.GracePeriodField,"4",500);
+        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"-2",500);
+        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Grace period fee is not valid"));
+        Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
+
+
+    }
+
+    @Test(priority = 49)//Done
+    @TestParameters(testCaseId = {"TC-39.2"})
+    public void TC_39_2_CheckGracePeriodRateForInValidValue() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
+        operation.writeInputText(CreateFeeStructure.GracePeriodField,"4",500);
+        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"-65",500);
+        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Grace period fee is not valid"));
+        Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
+
+
+    }
+
+    @Test(priority = 50)//Done
+    @TestParameters(testCaseId = {"TC-40"})
+    public void TC_40_CheckInvalidValueForFeeModifierRateField() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
+        operation.writeInputText(CreateFeeStructure.GracePeriodField,"4",500);
+        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"0",500);
+        operation.writeInputText(CreateFeeStructure.FeeModifierNameField,"Modifier",500);
+        operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"0",500);
+        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Fee Modifier rate is not valid"));
+        Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
+
+
+    }
+
+    @Test(priority = 51)//Done
+    @TestParameters(testCaseId = {"TC-40.2"})
+    public void TC_40_2_CheckInvalidValueForFeeModifierRateField() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
+        operation.writeInputText(CreateFeeStructure.GracePeriodField,"4",500);
+        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"0",500);
+        operation.writeInputText(CreateFeeStructure.FeeModifierNameField,"Modifier",500);
+        operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"-5",500);
+        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Fee Modifier rate is not valid"));
+        Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
+
+
+    }
+
+    @Test(priority = 52)//Done
+    @TestParameters(testCaseId = {"TC-40.3"})
+    public void TC_40_3_CheckInvalidValueForFeeModifierField() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
+        operation.writeInputText(CreateFeeStructure.GracePeriodField,"4",500);
+        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"0",500);
+        operation.writeInputText(CreateFeeStructure.FeeModifierNameField,"Modifier",500);
+        operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"-1",500);
+        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Fee Modifier rate is not valid"));
+        Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
+
+
+    }
+
+
+    @Test(priority = 53)//Done
+    @TestParameters(testCaseId = {"TC-40.4"})
+    public void TC_40_4_CheckInvalidValueForFeeModifierField() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
+        operation.writeInputText(CreateFeeStructure.GracePeriodField,"4",500);
+        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"0",500);
+        operation.writeInputText(CreateFeeStructure.FeeModifierNameField,"Modifier",500);
+        operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"-500",500);
+        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Fee Modifier rate is not valid"));
+        Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
+
+
+    }
+
+    @Test(priority = 54)//Done
+    @TestParameters(testCaseId = {"TC-41"})
+    public void TC_41_CheckValueAboveHundredForFeeModifierField() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
+        operation.writeInputText(CreateFeeStructure.GracePeriodField,"4",500);
+        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"0",500);
+        operation.writeInputText(CreateFeeStructure.FeeModifierNameField,"Modifier",500);
+        operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"100.01",500);
+        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Fee Modifier can't be more than 100%"));
+        Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
+
+
+    }
+
+    @Test(priority = 55)//Done
+    @TestParameters(testCaseId = {"TC-41.1"})
+    public void TC_41_1_CheckValueAboveHundredForFeeModifierField() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
+        operation.writeInputText(CreateFeeStructure.GracePeriodField,"4",500);
+        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"0",500);
+        operation.writeInputText(CreateFeeStructure.FeeModifierNameField,"Modifier",500);
+        operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"120",500);
+        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Fee Modifier can't be more than 100%"));
+        Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
+
+
+    }
+
+    @Test(priority = 56)//Done
+    @TestParameters(testCaseId = {"TC-42"})
+    public void TC_42_CheckSessionFeeIsUpdated() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        Assert.assertTrue(feeStructure.verifySessionFeeIsUpdating());;
+
+
+    }
+
+
+    @Test(priority = 58)//Done
+    @TestParameters(testCaseId = {"TC-44"})
+    public void TC_44_CheckUtilizationFeeIsUpdated() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        Assert.assertTrue(feeStructure.verifyUtilizationFeeIsUpdating());
+
+
+    }
+
+    @Test(priority = 59)//Done
+    @TestParameters(testCaseId = {"TC-45"})
+    public void TC_45_CheckIdleFeeIsUpdated() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        Assert.assertTrue(feeStructure.verifyIdleFeeIsUpdating());
+
+
+    }
+    @Test(priority = 60)//Done
+    @TestParameters(testCaseId = {"TC-46"})
+    public void TC_46_CheckFeeModifierIsUpdated() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        Assert.assertTrue(feeStructure.verifyFeeModifierIsUpdating());
+
+    }
+
+    @Test(priority = 61)//Done
+    @TestParameters(testCaseId = {"TC-47"})
+    public void TC_47_CheckSessionFeeIsUpdatingToZeroAfterClearingField() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+//        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"56",1500);
+        operation.FieldClear(CreateFeeStructure.SessionFeeAmountField);
+        Assert.assertTrue(feeStructure.verifyFeeIsUpdatingToZeroAfterClearingField(feeStructure.SessionFeeExtractor()));
+
+
+    }
+
+    @Test(priority = 62)//Done
+    @TestParameters(testCaseId = {"TC-48"})
+    public void TC_48_CheckUtilizationFeeIsUpdatingToZeroAfterClearingField() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+//        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"13.06",1500);
+        operation.FieldClear(CreateFeeStructure.UtilizationFeeAmountField);
+        Assert.assertTrue(feeStructure.verifyFeeIsUpdatingToZeroAfterClearingField(feeStructure.UtilizationFeeExtractor()));
+
+
+    }
+
+    @Test(priority = 63)//Done
+    @TestParameters(testCaseId = {"TC-49"})
+    public void TC_49_CheckIdleFeeIsUpdatingToZeroAfterClearingField() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+//        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"16.2",1500);
+        operation.FieldClear(CreateFeeStructure.IdleFeeRateField);
+        Assert.assertTrue(feeStructure.verifyFeeIsUpdatingToZeroAfterClearingField(feeStructure.IdleFeeExtractor()));
+
+
+    }
+
+    @Test(priority = 64)//Done
+    @TestParameters(testCaseId = {"TC-50"})
+    public void TC_50_CheckFeeModifierIsUpdatingToZeroAfterClearingField() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+//        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.RefreshBrowser();
+//        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"10.00",1500);
+        operation.FieldClear(CreateFeeStructure.FeeModifierRateField);
+        Assert.assertTrue(feeStructure.verifyFeeIsUpdatingToZeroAfterClearingField(feeStructure.FeeModifierExtractor()));
+
+
+    }
+
+
+
+
 
 
 

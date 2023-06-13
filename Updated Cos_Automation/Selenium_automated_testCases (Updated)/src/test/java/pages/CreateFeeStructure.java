@@ -3,6 +3,10 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.text.DecimalFormat;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class CreateFeeStructure extends BasePage{
     public CreateFeeStructure(WebDriver driver)
     {
@@ -95,6 +99,166 @@ public class CreateFeeStructure extends BasePage{
         return "Fee modifier will effect all the rates";
     }
 
+
+    public boolean verifySessionFeeIsUpdating() throws InterruptedException {
+        waitforPresence(SessionFeeHeading);
+        String SessionFee = "12.30";
+        writeText(SessionFeeAmountField,SessionFee);
+        String expected = SessionFeeExtractor();
+        if (SessionFee.equals(expected)) {
+            System.out.println("Session fee is updating");
+            return true;
+        }
+        else {
+            System.out.println("Session fee is not updating");
+            return false;
+        }
+    }
+
+
+
+    public String SessionFeeExtractor() throws InterruptedException {
+        Thread.sleep(2000);
+        waitforPresence(SessionFeeHeading);
+        String inputString = driver.findElement(SessionFeeHeading).getText();
+        // Define the regular expression pattern
+        Pattern pattern = Pattern.compile("\\$(\\d+\\.\\d+)");
+        // Match the pattern against the input string
+        Matcher matcher = pattern.matcher(inputString);
+        // Extract the value
+        String value = "";
+        if (matcher.find()) {
+            value = matcher.group(1);
+        }
+        System.out.println("Value: " + value);
+        return value;
+    }
+
+
+    public boolean verifyUtilizationFeeIsUpdating() throws InterruptedException {
+        waitforPresence(UtilizationFeeHeadingForkWh);
+        String UtilizationFee = "12.30";
+        double SFee = Double.parseDouble(UtilizationFee);
+        writeText(UtilizationFeeAmountField,UtilizationFee);
+        String expected = UtilizationFeeExtractor();
+        if (UtilizationFee.equals(expected)) {
+            System.out.println("Utilization fee is updating");
+            return true;
+        }
+        else {
+            System.out.println("Utilization fee is not updating");
+            return false;
+        }
+    }
+
+
+
+    public String UtilizationFeeExtractor() throws InterruptedException {
+        Thread.sleep(2000);
+        waitforPresence(UtilizationFeeHeadingForkWh);
+        String inputString = driver.findElement(UtilizationFeeHeadingForkWh).getText();
+        // Define the regular expression pattern
+        Pattern pattern = Pattern.compile("\\$(\\d+\\.\\d+)");
+        // Match the pattern against the input string
+        Matcher matcher = pattern.matcher(inputString);
+        // Extract the value
+        String value = "";
+        if (matcher.find()) {
+            value = matcher.group(1);
+        }
+        System.out.println("Value: " + value);
+        return value;
+    }
+
+
+    public boolean verifyIdleFeeIsUpdating() throws InterruptedException {
+        waitforPresence(IdleFeeHeading);
+        String IFee = "12";
+        double IFee2 = Double.parseDouble(IFee);
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        double IFee3 = Double.valueOf(decimalFormat.format(IFee2));
+        System.out.println("decimal format of input:"+IFee3);
+        writeText(IdleFeeRateField,IFee);
+        String IdleFee = IdleFeeExtractor();
+        double expected = Double.parseDouble(IdleFee);
+        System.out.println("value in system: "+expected);
+        if (IFee3==expected) {
+            System.out.println("Idle fee is updating");
+            return true;
+        }
+        else {
+            System.out.println("Idle fee is not updating");
+            return false;
+        }
+    }
+
+
+
+    public String IdleFeeExtractor() throws InterruptedException {
+        Thread.sleep(2000);
+        waitforPresence(IdleFeeHeading);
+        String inputString = driver.findElement(IdleFeeHeading).getText();
+        // Define the regular expression pattern
+        Pattern pattern = Pattern.compile("\\$(\\d+\\.\\d+)");
+        // Match the pattern against the input string
+        Matcher matcher = pattern.matcher(inputString);
+        // Extract the value
+        String value = "";
+        if (matcher.find()) {
+            value = matcher.group(1);
+        }
+        System.out.println("Value: " + value);
+        return value;
+    }
+
+
+    public boolean verifyFeeModifierIsUpdating() throws InterruptedException {
+        waitforPresence(FeeModifier);
+        String Mod = "7.50";
+        writeText(FeeModifierRateField,Mod);
+        String expected = FeeModifierExtractor();
+        if (Mod.equals(expected)) {
+            System.out.println("Fee modifier is updating");
+            return true;
+        }
+        else {
+            System.out.println("Fee modifier is not updating");
+            return false;
+        }
+    }
+
+
+
+    public String FeeModifierExtractor() throws InterruptedException {
+        Thread.sleep(2000);
+        String inputString = driver.findElement(By.xpath("(//span[@class='drawerInsideTitle'])[3]")).getText();
+        // Define the regular expression pattern
+        Pattern pattern = Pattern.compile("(\\d+\\.\\d+)");
+        // Match the pattern against the input string
+        Matcher matcher = pattern.matcher(inputString);
+        // Extract the value
+        String value = "";
+        if (matcher.find()) {
+            value = matcher.group(1);
+        }
+        System.out.println("Value: " + value);
+        return value;
+    }
+
+
+    public boolean verifyFeeIsUpdatingToZeroAfterClearingField(String Fee) throws InterruptedException {
+        waitforPresence(SessionFeeHeading);
+        String s = Fee;
+        String s2 = "0.00";
+        if (s.equals(s2)){
+            System.out.println("Data is updated after clearing field");
+            return true;
+        }
+        else {
+            System.out.println("Data is not updated after clearing field");
+            return false;
+        }
+    }
 
 
 
