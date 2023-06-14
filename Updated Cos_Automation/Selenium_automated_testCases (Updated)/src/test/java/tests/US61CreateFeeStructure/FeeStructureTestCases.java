@@ -1571,6 +1571,34 @@ public class FeeStructureTestCases extends BaseTest {
 
     }
 
+    @Test(priority = 70)//Done
+    @TestParameters(testCaseId = {"TC-51"})
+    public void TC_51_CheckFeeStructureIsCreatedSuccessfullyForValidInfo() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
+        loginPage.VerifyValidLoginForPropertyAdmin();
+//        dashboard.RefreshBrowser();
+        operation.writeInputText(CreateFeeStructure.FeeStructureNameField, feeStructure.GenerateFeeName(),500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
+        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"10",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
+        operation.writeInputText(CreateFeeStructure.GracePeriodField,"4",500);
+        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"1.5",500);
+//        operation.writeInputText(CreateFeeStructure.FeeModifierNameField,"Modifier",500);
+//        operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"100.01",500);
+        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.FeeStructureCreatedSuccessfully,"Fee structure created successfully"));
+        Assert.assertTrue(feeStructure.verifyElementNotDisplayed(2000,CreateFeeStructure.DrawerTitle));
+
+
+
+    }
+
+
+
 
 
 

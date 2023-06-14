@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import java.text.DecimalFormat;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,6 +13,7 @@ public class CreateFeeStructure extends BasePage{
     {
         super(driver);
     }
+    Random random = new Random();
 
     public static By CreateFeeStructure = By.xpath("//span[normalize-space()='Create A Fee Structure']");
     public static By FeeStructureFromMenu = By.xpath("//a[@href='/fee-structure']");
@@ -75,6 +77,7 @@ public class CreateFeeStructure extends BasePage{
     public static By SaveFeeStructureButton = By.xpath("//button[@class='ant-btn ant-btn-primary ml-15 h-40 drawerFBtn']");
     public static By CancelButton = By.xpath("//span[contains(text(),'Cancel')]");
     public static By SaveFeeStructureText = By.xpath("//span[normalize-space()='Save Fee Structure']");
+    public static By FeeStructureCreatedSuccessfully = By.xpath("//div[@class='ant-message-custom-content ant-message-success']");
 
 
 
@@ -83,6 +86,13 @@ public class CreateFeeStructure extends BasePage{
     public void GoToFeeStructurePage() throws InterruptedException {
         Thread.sleep(2000);
         driver.get("https://test-company.chargeonsite.com/fee-structure");
+    }
+
+    public String GenerateFeeName(){
+        int num = random.nextInt(100000);
+        String name = "Selenium fee"+num;
+        return name;
+
     }
 
 

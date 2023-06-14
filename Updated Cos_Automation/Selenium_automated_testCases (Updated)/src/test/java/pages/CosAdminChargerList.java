@@ -114,7 +114,7 @@ public class CosAdminChargerList extends BasePage {
         }
         if (resultColumnIndex != IndexOfTitle) {
             // The "Result" column was not found
-            throw new RuntimeException("The 'Status' column was not found");
+            throw new RuntimeException("The column was not found");
         }
 
         WebElement myrows = driver.findElement(By.xpath("//tbody"));
