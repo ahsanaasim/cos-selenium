@@ -214,7 +214,7 @@ public class UpdateChargerPropertyAdmin extends BasePage {
 
     public boolean clickToggleButtonIfItIsOff() throws InterruptedException {
         Thread.sleep(1500);
-        waitforPresence(DetailsDrawerAuditLog);
+        waitforPresence(ToggleButton);
         try{
             String ToggleButtonStatus = driver.findElement(ToggleButton).getAttribute("aria-checked");
             if (ToggleButtonStatus.equals("true")) {

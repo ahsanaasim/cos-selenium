@@ -24,7 +24,7 @@ public class MapDetails extends BasePage{
     public static By PlugType = By.xpath("//span[@class='plugTypeBtn'][contains(text(),'Plug Type')]");
     public static By ChargersDetailsTitle = By.xpath("//div[@class='ant-drawer-title'][contains(text(),'Chargers Details')]");
     public static By CloseButton = By.xpath("(//span[@class='anticon anticon-close'])[3]");
-    public static By GetDirection = By.xpath("//img[@class='cursor-pointer ml-auto direction-img']");
+    public static By GetDirection = By.xpath("//img[@src='/map/direction.svg']");
     public static By AssistMeButton = By.xpath("//button[@class='ant-btn ant-btn-default assist-me-btn pt-5 pb-5']");
     public static By ScanNow = By.xpath("//button[@class='ant-btn ant-btn-default scan-now-btn pt-5 pb-5']");
     public static By ChargerRestrictedButton = By.xpath("//button[@class='ant-btn ant-btn-default charger-restricted-btn pt-5 pb-5']");

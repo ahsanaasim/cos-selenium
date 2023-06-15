@@ -366,7 +366,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
 
     @Test(priority = 22)
     @TestParameters(testCaseId = {"TC-23"})
-    public void TC_23_CheckChargerStatusIsChangingToOffline() throws InterruptedException {
+    public void TC_23_CheckChargerStatusIsChangingToOnline() throws InterruptedException {
         MapDetails mapDetails =new MapDetails(driver);
         Dashboard dashboard = new Dashboard(driver);
         FavoriteLocation favoriteLocation= new FavoriteLocation(driver);

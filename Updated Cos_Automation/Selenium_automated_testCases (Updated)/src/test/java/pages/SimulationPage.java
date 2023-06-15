@@ -84,6 +84,7 @@ public class SimulationPage extends BasePage {
         waitforPresence(DisconnectCharger);
         if (driver.findElement(DisconnectCharger).isEnabled()){
             click(DisconnectCharger);
+            System.out.println("Disconnect charger button is clicked");
         }
         else {
             System.out.println("Disconnect button is disabled");
