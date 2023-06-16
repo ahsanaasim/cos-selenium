@@ -426,21 +426,21 @@ public class LoginPage extends BasePage {
         }
     }
     public void VerifyValidLoginForPropertyManager()  {
-        String home = prop.getProperty("HomeURL");
-        String signin = prop.getProperty("BaseURL");
-        String Dashboard = prop.getProperty("DashboardURL");
+        String home = prop.getProperty("HomeURLPropertyAdmin");
+        String signin = prop.getProperty("BaseURLPropertyAdmin");
+        String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
         String currURL = driver.getCurrentUrl();
         System.out.println();
         System.out.println(currURL);
         if (currURL.equals(home) || currURL.equals(signin) || currURL.equals("data:,") ) {
             HomePage homePage = new HomePage(driver);
             Dashboard dashboard=new Dashboard(driver);
-            homePage.geturl();
+            homePage.geturlPropertyAdmin();
             Assert.assertTrue(EnterEmail(prop.getProperty("PropertyManager")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsonDashboardAfterLogin());
+            Assert.assertTrue(VerifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
