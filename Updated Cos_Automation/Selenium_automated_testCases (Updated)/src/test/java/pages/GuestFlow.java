@@ -150,6 +150,7 @@ public class GuestFlow extends BasePage {
         driver.switchTo().window(tabs.get(num));
     }
     public void SwitchToTab(int num) throws InterruptedException{
+        Thread.sleep(1000);
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(num));
     }

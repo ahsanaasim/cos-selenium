@@ -30,6 +30,8 @@ public class SimulationPage extends BasePage {
     public static By FullBoxDisable = By.xpath("//div[@class='disabledDiv']");
     public static By BootChargerButton = By.xpath("//button[@class='ant-btn ant-btn-default boot-button mt-15']");
     public static By ChargerQRCodeCopyLink = By.xpath("//div[@class='copy-button ml-10']");
+    public static By RegisterField = By.xpath("//input[@placeholder='QR code url']");
+    public static By BootChargerAsDummy = By.xpath("//button[@class='ant-btn ant-btn-default charger-dummy-button']");
 
 
     public boolean SelectChargerFromSimulator(String text) throws InterruptedException {
@@ -37,7 +39,7 @@ public class SimulationPage extends BasePage {
         waitforPresence(EmptySearchFieldBeforeClicking);
         writeText(EmptySearchFieldBeforeClicking,text);
         WebElement selectitem = driver.findElement(EmptySearchFieldBeforeClicking);
-        Thread.sleep(2000);
+        Thread.sleep(2500);
         selectitem.sendKeys(Keys.ENTER);
         return true;
 
@@ -68,6 +70,11 @@ public class SimulationPage extends BasePage {
         return null;
     }
 
+    public void GoToRegisterPage() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.get("https://test-admin.chargeonsite.com/simulation/register-charger");
+    }
+
     public boolean SelectChargerStatusFromSimulator(String text) throws InterruptedException {
         Thread.sleep(2000);
         waitforPresence(GuestFlow.SearchFieldSimulator);
@@ -80,7 +87,7 @@ public class SimulationPage extends BasePage {
     }
 
     public void clickOnDisconnectTheChargerIfIsEnabled() throws InterruptedException {
-        Thread.sleep(1200);
+        Thread.sleep(1500);
         waitforPresence(DisconnectCharger);
         if (driver.findElement(DisconnectCharger).isEnabled()){
             click(DisconnectCharger);

@@ -70,14 +70,15 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
 
     @Test(priority = 5)
     @TestParameters(testCaseId = {"TC-5"})
-    public void TC_5_CheckMarkerForLocation() throws InterruptedException {
+    public void TC_5_CheckPropertyNameAndAddress() throws InterruptedException {
         MapDetails mapDetails =new MapDetails(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
         Dashboard dashboard = new Dashboard(driver);
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
+        mapDetails.GoToD10LocationInMapDetails();
 //        dashboard.RefreshBrowser();
-        Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,MapDetails.LocationMarker));
+        Assert.assertTrue(mapDetails.verifyPropertyNameAndItsAddress());
 
     }
 
@@ -90,6 +91,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         CustomerLogin customerLogin = new CustomerLogin(driver);
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
+        mapDetails.SwitchToTab(0);
         mapDetails.GoToD10LocationInMapDetails();
 //        dashboard.RefreshBrowser();
         Assert.assertTrue(mapDetails.verifyElementNotDisplayed(1000,MapDetails.ChargeONSiteLogo));
@@ -358,6 +360,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
+        mapDetails.SwitchToTab(0);
         mapDetails.GoToD10LocationInMapDetails();
         Assert.assertTrue(mapDetails.verifyOfflineStatusOfChargerAfterMakingItOffline());
 //        dashboard.RefreshBrowser();
@@ -374,6 +377,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
+        mapDetails.SwitchToTab(0);
         mapDetails.GoToD10LocationInMapDetails();
         Assert.assertTrue(mapDetails.verifyAvailableStatusOfChargerAfterMakingItOnline());
 //        dashboard.RefreshBrowser();
@@ -437,10 +441,11 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         Assert.assertTrue(operation.ClickButton(GuestFlow.AuthorizeButton,1500));
         System.out.println("URL  =  "+driver.getCurrentUrl());
         Assert.assertTrue(guestFlow.verifyChargingNowTitle());
+        Thread.sleep(2000);
         driver.close();
         guestFlow.SwitchToTab(0);
         dashboard.RefreshBrowser();
-        operation.ClickButton(MapDetails.PlugType,1500);
+        operation.ClickButton(MapDetails.PlugType,2500);
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.InUseStatus));
 //        dashboard.RefreshBrowser();
 
@@ -460,7 +465,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         CustomerLogin customerLogin = new CustomerLogin(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
         LoginPage login = new LoginPage(driver);
-        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
 //        guestFlow.NewTabOpenAndSwitchToNewTab(1);
         guestFlow.SwitchToTab(1);
@@ -472,7 +477,8 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         company.click(EditCompany.AccessCompanyPortal);
         Thread.sleep(5000);
         guestFlow.SwitchToTab(2);
-        location.GoToLocationPageInCompanyPortal();
+        operation.ClickButton(Dashboard.properties,3000);
+        operation.ClickButton(Dashboard.locations,3000);
         location.writeINLocationSearchBarCompanyPortal("Water pump");
         location.click(EditCompany.searchbtn);
         location.click(ChargerListPropertyAdmin.detailsbutton);
@@ -502,7 +508,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         GuestFlow guestFlow = new GuestFlow(driver);
         LoginPage login = new LoginPage(driver);
         guestFlow.SwitchToTab(0);
-        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
 //        guestFlow.NewTabOpenAndSwitchToNewTab(1);
         guestFlow.SwitchToTab(2);
@@ -513,10 +519,12 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
 //        company.click(EditCompany.searchbtn);
 //        company.click(EditCompany.AccessCompanyPortal);
 //        Thread.sleep(5000);
-        location.GoToLocationPageInCompanyPortal();
-        location.writeINLocationSearchBarCompanyPortal("Water pump");
-        location.click(EditCompany.searchbtn);
-        location.click(ChargerListPropertyAdmin.detailsbutton);
+//        location.GoToLocationPageInCompanyPortal();
+//        operation.FieldClear(CreateLocation.searchbar);
+//        location.writeINLocationSearchBarCompanyPortal("Water pump");
+//        operation.ClickButton(EditCompany.searchbtn,1500);
+        dashboard.RefreshBrowser();
+        operation.ClickButton(ChargerListPropertyAdmin.detailsbutton,2500);
         charger.clickToggleButtonIfItIsOff();
         operation.ClickButton(CreateLocation.savelocationbtn,2000);
         guestFlow.SwitchToTab(0);
@@ -542,15 +550,16 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         CustomerLogin customerLogin = new CustomerLogin(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
         LoginPage login = new LoginPage(driver);
-        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
 //        guestFlow.NewTabOpenAndSwitchToNewTab(1);
         guestFlow.SwitchToTab(1);
         Thread.sleep(2000);
 //        login.VerifyValidLogin();
+        dashboard.RefreshBrowser();
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-         location.writeINLocationSearchBar("Water pump");
+        location.writeINLocationSearchBar("Water pump");
         location.click(EditCompany.searchbtn);
         location.ClickonEditbutton();
         charger.clickToggleButtonIfItIsOn();

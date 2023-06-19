@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 public class EditLocation extends BasePage{
 
-      public EditLocation(WebDriver driver)
+    public EditLocation(WebDriver driver)
     {
         super(driver);
     }
@@ -22,6 +22,8 @@ public class EditLocation extends BasePage{
     By propertyField = By.xpath("(//input[@class='ant-select-selection-search-input'])[2]");
     By togglebtn = By.xpath("//button[@role='switch']");
     By Alert = By.xpath("//div[@class='ant-modal-confirm-content'][contains(.,'Do you want to discard or continue?')]");
+    public static By PropertyName1InColumn = By.xpath("(//td[@class='ant-table-cell ant-table-cell-ellipsis'])[2]");
+    public static By PropertyAddressInDrawer = By.xpath("//div[@class='propertyAddress']");
 
     CreateCompany createCompany= new CreateCompany(driver);
     CreateLocation createLocation=new CreateLocation(driver);
@@ -30,7 +32,7 @@ public class EditLocation extends BasePage{
 
     public boolean clickonEditbuttonFromPropertyInfoSection () throws InterruptedException {
         createCompany.waitForSpinner();
-      // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         waitVisibility(propertyeditbtn);
         waitelemtclickable(propertyeditbtn);
         click(propertyeditbtn);
@@ -55,7 +57,7 @@ public class EditLocation extends BasePage{
     }
 
     public boolean clickonToggleButton () throws InterruptedException {
-         Thread.sleep(3000);
+        Thread.sleep(3000);
         createCompany.waitForSpinner();
         //   waitelementtobedisplayed(propertyeditbtn);
         waitelemtclickable(togglebtn);
@@ -64,7 +66,7 @@ public class EditLocation extends BasePage{
     }
 
     public boolean clickonCompanyDropdown() throws InterruptedException {
-     // createCompany.waitForSpinner();
+        // createCompany.waitForSpinner();
         waitelementtobedisplayed(companydropdown);
         waitelemtclickable(companydropdown);
         click(companydropdown);
@@ -119,8 +121,8 @@ public class EditLocation extends BasePage{
     }
 
     public boolean removeLocationLandmark () throws InterruptedException {
-     //   createCompany.waitForSpinner();
-      //  waitelementtobedisplayed(createLocation.locationtitle);
+        //   createCompany.waitForSpinner();
+        //  waitelementtobedisplayed(createLocation.locationtitle);
        /* driver.manage().timeouts().implicitlyWait(03, TimeUnit.SECONDS);
         clear(createLocation.locationtitle);*/
         WebElement locationtitle= driver.findElement(By.xpath("//textarea[@placeholder='Location Landmark']"));
@@ -150,7 +152,7 @@ public class EditLocation extends BasePage{
     }
 
     public boolean verifyToggleButtonisOn() {
-     //   createCompany.waitForSpinner();
+        //   createCompany.waitForSpinner();
         WebElement toggleButton = driver.findElement(By.xpath("//button[@role='switch']"));
         if (toggleButton.isEnabled()) {
             System.out.println("Toggle button is enabled");
@@ -319,7 +321,7 @@ public class EditLocation extends BasePage{
     }
 
     public boolean verifyConfirmationPopupHasClosed() throws InterruptedException {
-          try{
+        try{
             WebElement confirmationpopup= driver.findElement(By.xpath("//div[@class='ant-modal-confirm-content'][contains(.,'Do you want to discard or continue?')]"));
             if (!confirmationpopup.isDisplayed()) {
                 System.out.println("Verification Successful!!! Confirmation Popup Has Closed ");

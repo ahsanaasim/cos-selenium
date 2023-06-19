@@ -377,4 +377,24 @@ public class CreateCharger extends BasePage {
         return true;
     }
 
+
+    public void bootAChargerAsDummy(String ChargerName) throws InterruptedException {
+        EditChargerCosAdminUpdated edit = new EditChargerCosAdminUpdated(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        SimulationPage register = new SimulationPage(driver);
+        GoToChargers();
+        edit.writeInSearchBar(searchchargerfield,ChargerName,3500);
+        ClickButton(CreateCharger.searchargerbtn,2000);
+        ClickButton(CosAdminChargerList.EditButton,2000);
+        ClickButton(UpdateChargerPropertyAdmin.CopyButton,2000);
+        dashboard.RefreshBrowser();
+        ClickButton(SimulationPage.SimulationTab,2000);
+        register.GoToRegisterPage();
+        writeInputText(SimulationPage.RegisterField,register.getClipboardURL(),1500);
+        ClickButton(SimulationPage.BootChargerAsDummy,1000);
+
+
+
+    }
+
 }

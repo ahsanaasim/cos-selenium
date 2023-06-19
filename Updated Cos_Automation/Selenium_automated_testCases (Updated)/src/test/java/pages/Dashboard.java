@@ -19,23 +19,23 @@ public class Dashboard extends BasePage {
     Properties prop = ConfigUtill.getConfig();
 
 
-    By loginmsg = By.xpath("//span[contains(.,'Login Successful')]");
-    By dropdown = By.xpath("//span[@class='anticon anticon-user']//*[name()='svg']");
-    By logout = By.xpath("//div[@class='flex flex-center-v'][contains(.,'Logout')]");
-    By company = By.xpath("(//span[contains(.,'Company')])[1]");
-    By cmanagementtext = By.xpath("//a[@href='/company/company-management']");
-    By entitymanagement = By.xpath("//a[@href='/company/entity-management']");
-    By locations = By.xpath("(//li[@role='menuitem'])[3]");
-    By properties = By.xpath("//span[@class='ant-menu-title-content'][contains(.,'Properties')]");
-    By property = By.xpath("//span[@class='ant-menu-title-content']//a[normalize-space()='Property']");
-//    By dashboard = By.xpath("(//li[@role='menuitem'])[1]");
-    By dashboard = By.xpath("//span[@class='ant-menu-title-content']//a[@href='/dashboard']");
+    public static By loginmsg = By.xpath("//span[contains(.,'Login Successful')]");
+    public static By dropdown = By.xpath("//span[@class='anticon anticon-user']//*[name()='svg']");
+    public static By logout = By.xpath("//div[@class='flex flex-center-v'][contains(.,'Logout')]");
+    public static By company = By.xpath("(//span[contains(.,'Company')])[1]");
+    public static By cmanagementtext = By.xpath("//a[@href='/company/company-management']");
+    public static By entitymanagement = By.xpath("//a[@href='/company/entity-management']");
+    public static By locations = By.xpath("//a[@href='/property/location']");
+    public static By properties = By.xpath("//span[@class='ant-menu-title-content'][contains(.,'Properties')]");
+    public static By property = By.xpath("//span[@class='ant-menu-title-content']//a[normalize-space()='Property']");
+    //    By dashboard = By.xpath("(//li[@role='menuitem'])[1]");
+    public static By dashboard = By.xpath("//span[@class='ant-menu-title-content']//a[@href='/dashboard']");
 
     CreateCompany Createcompany=new CreateCompany(driver);
 
     public boolean ClickonDropdownArrow () {
-       waitVisibility(dropdown);
-       click(dropdown);
+        waitVisibility(dropdown);
+        click(dropdown);
         return true;
     }
 
@@ -57,7 +57,7 @@ public class Dashboard extends BasePage {
     public boolean clickonProperty () throws InterruptedException {
         Thread.sleep(3000);
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-      //  Createcompany.waitForSpinner();
+        //  Createcompany.waitForSpinner();
         waitVisibility(property);
         waitelemtclickable(property);
         waitelementtobedisplayed(property);
@@ -81,8 +81,7 @@ public class Dashboard extends BasePage {
     }
 
     public boolean clickonPropertiesFromLeftMenu () {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-     //   Createcompany.waitForSpinner();
+        //   Createcompany.waitForSpinner();
         waitVisibility(properties);
         waitelemtclickable(properties);
         click(properties);
@@ -90,7 +89,7 @@ public class Dashboard extends BasePage {
     }
 
     public boolean clickonLocations () throws InterruptedException {
-     //   Createcompany.waitForSpinner();
+        //   Createcompany.waitForSpinner();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
        /* waitVisibility(locations);
         waitelementtobedisplayed(locations);
@@ -128,7 +127,7 @@ public class Dashboard extends BasePage {
 
     public boolean RefreshBrowser () throws InterruptedException {
         Thread.sleep(3000);
-      //  Createcompany.waitForSpinner();
+        //  Createcompany.waitForSpinner();
         //waitforInVisibility(Createcompany.spinner);
         driver.navigate().refresh();
         return true;

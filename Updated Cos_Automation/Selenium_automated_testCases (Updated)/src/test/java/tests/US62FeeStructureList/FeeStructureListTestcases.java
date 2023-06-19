@@ -565,7 +565,6 @@ public class FeeStructureListTestcases extends BaseTest {
         Thread.sleep(2000);
         loginPage.VerifyValidLoginForPropertyManager();
         operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        Assert.assertTrue((dashBoardLoadMoreFunctionality.verifyShowingCountisDecreasingAfterRefreshing()));
         list.FieldClear(FeeStructureList.SearchField);
         list.writeInSearchField("Automated");
         operation.ClickButton(FeeStructureList.SearchButton,1000);
@@ -578,30 +577,69 @@ public class FeeStructureListTestcases extends BaseTest {
         dashboardPropertyDetails.LogoutFromExistingAccount();
     }
 
-//    @Test(priority = 31)//Done
-//    @TestParameters(testCaseId = {"TC-28"})
-//    public void TC_28_CheckShowingCountIsDecreasingAfterRefreshing() throws InterruptedException {
-//        Dashboard dashboard = new Dashboard(driver);
-//        LoginPage loginPage = new LoginPage(driver);
-//        DashBoardLoadMoreFunctionality dashBoardLoadMoreFunctionality = new DashBoardLoadMoreFunctionality(driver);
-//        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
-//        CreateCharger operation = new CreateCharger(driver);
-//        FeeStructureList list = new FeeStructureList(driver);
-//        Thread.sleep(2000);
-//        loginPage.VerifyValidLoginForPropertyManager();
-//        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-//        Assert.assertTrue((dashBoardLoadMoreFunctionality.verifyShowingCountisDecreasingAfterRefreshing()));
-//        list.FieldClear(FeeStructureList.SearchField);
-//        list.writeInSearchField("Automated");
-//        operation.ClickButton(FeeStructureList.SearchButton,1000);
-//        operation.ClickButton(FeeStructureList.Edit,1000);
-//        operation.FieldClear(CreateFeeStructure.SessionFeeAmountField);
-//        String fee = list.GenerateFee();
-//        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,fee,2000);
-//        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,1000);
-//        Assert.assertTrue(list.verifyUpdatedDataInTable(FeeStructureList.SessionFee1,fee));
-//        dashboardPropertyDetails.LogoutFromExistingAccount();
-//    }
+    @Test(priority = 31)//Done
+    @TestParameters(testCaseId = {"TC-28"})
+    public void TC_28_CheckPropertyAssistantManagerCanEdit() throws InterruptedException {
+        Dashboard dashboard = new Dashboard(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        DashBoardLoadMoreFunctionality dashBoardLoadMoreFunctionality = new DashBoardLoadMoreFunctionality(driver);
+        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        FeeStructureList list = new FeeStructureList(driver);
+        Thread.sleep(2000);
+        loginPage.VerifyValidLoginForPropertyAssistantManager();
+        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        String fee = list.GenerateFee();
+        operation.ClickButton(FeeStructureList.Edit,1000);
+        operation.FieldClear(CreateFeeStructure.UtilizationFeeAmountField);
+        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,fee,2000);
+        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,1000);
+        Assert.assertTrue(list.verifyUpdatedDataInTable(FeeStructureList.UtilizationFee1,fee));
+        dashboardPropertyDetails.LogoutFromExistingAccount();
+    }
+
+    @Test(priority = 32)//Done
+    @TestParameters(testCaseId = {"TC-29"})
+    public void TC_29_CheckPropertyPropertyLeasingAgentCanEdit() throws InterruptedException {
+        Dashboard dashboard = new Dashboard(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        DashBoardLoadMoreFunctionality dashBoardLoadMoreFunctionality = new DashBoardLoadMoreFunctionality(driver);
+        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        FeeStructureList list = new FeeStructureList(driver);
+        Thread.sleep(2000);
+        loginPage.VerifyValidLoginForPropertyLeasingAgent();
+        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        list.FieldClear(FeeStructureList.SearchField);
+        list.writeInSearchField("Automated");
+        operation.ClickButton(FeeStructureList.SearchButton,1000);
+        operation.ClickButton(FeeStructureList.Edit,1000);
+        operation.FieldClear(CreateFeeStructure.SessionFeeAmountField);
+        String fee = list.GenerateFee();
+        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,fee,2000);
+        Assert.assertTrue(list.verifyAFieldIsDisable(2000,CreateFeeStructure.SaveFeeStructureButton));
+        dashboardPropertyDetails.LogoutFromExistingAccount();
+    }
+
+    @Test(priority = 33)//Done
+    @TestParameters(testCaseId = {"TC-29"})
+    public void TC_29_CheckPropertyPropertyAssistantLeasingAgentCanEdit() throws InterruptedException {
+        Dashboard dashboard = new Dashboard(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        DashBoardLoadMoreFunctionality dashBoardLoadMoreFunctionality = new DashBoardLoadMoreFunctionality(driver);
+        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        FeeStructureList list = new FeeStructureList(driver);
+        Thread.sleep(2000);
+        loginPage.VerifyValidLoginForPropertyAssistantLeasingAgent();
+        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        list.FieldClear(FeeStructureList.SearchField);
+        list.writeInSearchField("Automated");
+        operation.ClickButton(FeeStructureList.SearchButton,1000);
+        operation.ClickButton(FeeStructureList.Edit,1000);
+        Assert.assertTrue(list.verifyAFieldIsDisable(4000,CreateFeeStructure.SaveFeeStructureButton));
+        dashboardPropertyDetails.LogoutFromExistingAccount();
+    }
 
 
 

@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class MapDetails extends BasePage{
     public MapDetails(WebDriver driver) {
@@ -12,7 +13,7 @@ public class MapDetails extends BasePage{
 
     public static By UpperDrawer = By.xpath("//div[@class='ant-drawer-body']");
     public static By LowerDrawer = By.xpath("(//div[@class='ant-drawer-body'])[2]");
-    public static By LocationMarker = By.xpath("//img[@src='https://maps.gstatic.com/mapfiles/transparent.png']");
+    public static By LocationMarker = By.xpath("//div[@role='button']");
     public static By SearchLocation = By.xpath("//input[@placeholder='Search location']");
     public static By FavoritesButton = By.xpath("//span[normalize-space()='Favorites']");
     public static By ChargeONSiteLogo = By.xpath("//img[@src='/images/cosLogo4.svg']");
@@ -166,7 +167,7 @@ public class MapDetails extends BasePage{
         waitforPresence(ChargerAvailableText);
         String text = driver.findElement(ChargerAvailableText).getText();
         System.out.println(text);
-        if (text.matches("\\d+ Plug Available")){
+        if (text.matches("1 Plug Available")){
             System.out.println("Plug available text is showing correctly");
             return true;
         }
@@ -271,7 +272,11 @@ public class MapDetails extends BasePage{
     public boolean verifyOfflineStatusOfChargerAfterMakingItOffline() throws InterruptedException {
         EditChargerCosAdminUpdated chargerList = new EditChargerCosAdminUpdated(driver);
         UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+//        NewTabOpenAndSwitchToNewTab(1);
         SwitchToTab(1);
+        Thread.sleep(2000);
+        loginPage.VerifyValidLogin();
         GoToChargerModule();
         chargerList.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"D 11 charger",1000);
         click(CreateCharger.searchargerbtn);
@@ -281,7 +286,7 @@ public class MapDetails extends BasePage{
         Thread.sleep(2500);
         SwitchToTab(0);
         driver.navigate().refresh();
-        click(PlugType);
+        operation.ClickButton(PlugType,2500);
         waitforPresence(OfflineStatus);
         int offlineCharger = driver.findElements(By.className("offlineText")).size();
         System.out.println("Number of Offline chargers: "+offlineCharger);
@@ -299,7 +304,8 @@ public class MapDetails extends BasePage{
     public boolean verifyAvailableStatusOfChargerAfterMakingItOnline() throws InterruptedException {
         EditChargerCosAdminUpdated chargerList = new EditChargerCosAdminUpdated(driver);
         UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
-        click(PlugType);
+        CreateCharger operation = new CreateCharger(driver);
+        operation.ClickButton(PlugType,2500);
         waitforPresence(AvailableStatus);
         int availableCharger = driver.findElements(By.className("availableText")).size();
         System.out.println("Number of available chargers: "+availableCharger);
@@ -313,7 +319,7 @@ public class MapDetails extends BasePage{
         Thread.sleep(2500);
         SwitchToTab(0);
         driver.navigate().refresh();
-        click(PlugType);
+        operation.ClickButton(PlugType,2500);
         waitforPresence(AvailableStatus);
         int availableCharger2 = driver.findElements(By.className("availableText")).size();
         System.out.println("Number of available chargers in details drawer after making a charger online: "+availableCharger2);
@@ -327,6 +333,45 @@ public class MapDetails extends BasePage{
             return false;
 
         }
+    }
+
+
+    public boolean verifyPropertyNameAndItsAddress() throws InterruptedException {
+        CreateLocation location = new CreateLocation(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        waitforPresence(LocationName);
+        String s = readText(LocationName);
+        String s2 = readText(PropertyLocationAddress);
+        System.out.println("Property name and its address in map details: "+s2);
+        NewTabOpenAndSwitchToNewTab(1);
+        dashboard.clickonLocations();
+        location.GoToLocationPage();
+        location.writeINLocationSearchBar(s);
+        operation.ClickButton(EditCompany.searchbtn,1500);
+        waitforPresence(EditLocation.PropertyName1InColumn);
+        String propertyName = readText(EditLocation.PropertyName1InColumn);
+        operation.ClickButton(EditLocation.EditButton,1500);
+        waitforPresence(EditLocation.PropertyAddressInDrawer);
+        String propertyLocationAddress = readText(EditLocation.PropertyAddressInDrawer);
+        String Expected = propertyName+","+" "+propertyLocationAddress;
+        System.out.println("Property name and its address in drawer: "+Expected);
+        driver.close();
+        if (s2.equals(Expected)){
+            System.out.println("Property name and its address is showing correctly");
+            return true;
+        }
+        else {
+            System.out.println("Property name and its address is not showing correctly");
+            return false;
+        }
+
+
+
+
+
+
+
     }
 
 

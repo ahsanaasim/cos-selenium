@@ -49,11 +49,13 @@ public class CreateLocation extends BasePage {
     By ConfirmLocationAlert = By.xpath("//span[contains(.,'Confirm the location first')]");
 
 
-    public void GoToLocationPage(){
+    public void GoToLocationPage() throws InterruptedException {
+        Thread.sleep(1000);
         driver.get("https://test-admin.chargeonsite.com/property/location");
     }
 
-    public void writeINLocationSearchBarCompanyPortal(String location){
+    public void writeINLocationSearchBarCompanyPortal(String location) throws InterruptedException {
+        Thread.sleep(2500);
         waitforPresence(ChargerListPropertyAdmin.detailsbutton);
         writeText(searchbar,location);
     }

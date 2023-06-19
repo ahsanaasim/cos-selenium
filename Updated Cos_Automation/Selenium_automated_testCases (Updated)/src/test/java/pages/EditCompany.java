@@ -55,7 +55,8 @@ public class EditCompany extends BasePage {
 
     }
 
-    public void writeInCompanySearchBar(String company){
+    public void writeInCompanySearchBar(String company) throws InterruptedException {
+        Thread.sleep(2500);
         waitforPresence(EditCompanyBtn);
         writeText(SearchCompany,company);
     }
@@ -192,7 +193,7 @@ public class EditCompany extends BasePage {
 
     public boolean VerifyEditButtonHasDisplayed() {
         company.waitForSpinner();
-         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         if( driver.findElement(By.xpath("(//button[contains(.,'Edit')])[2]")).isDisplayed())
         {
             System.out.println("Edit button has displayed");
@@ -416,6 +417,5 @@ public class EditCompany extends BasePage {
 
 
 }
-
 
 
