@@ -45,8 +45,8 @@ public class FeeStructureListTestcases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
-//        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+//        dashboard.RefreshBrowser();
+        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
         list.ContiniousClickOnLoadMoreButton();
         Assert.assertTrue(list.verifyExpectedTitleColumnOccupiedWithContent("Fee Structure Name",0));
 

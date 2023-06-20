@@ -191,7 +191,7 @@ public class FeeStructureList extends BasePage{
 
 
     public void ContiniousClickOnLoadMoreButton(){
-        for (int i=0; i<20;i++ ){
+        for (int i=0; i<82;i++ ){
             waitforPresence(LoadMoreButton);
             click(LoadMoreButton);
         }
@@ -199,7 +199,7 @@ public class FeeStructureList extends BasePage{
     }
 
     public void writeInSearchField(String feeStructure) throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(2500);
         waitforPresence(Edit);
         FieldClear(SearchField);
         writeText(SearchField,feeStructure);
@@ -291,7 +291,7 @@ public class FeeStructureList extends BasePage{
         String s = driver.findElement(FeeModifier1).getText();
         System.out.println("Fee modifier in table: "+s);
         click(Edit);
-        waitforPresence(CreateFeeStructure.FeeModifier);
+        waitforPresence(EditFeeStructure.FeeModifier);
         String s2 = FeeModifierExtractorWithPercentage();
         System.out.println("Fee modifier in drawer: "+s2);
         if (s.equals(s2)){
@@ -402,6 +402,7 @@ public class FeeStructureList extends BasePage{
         String s = FeeExtractorFromTable(element);
         System.out.println("Fee in table: "+s);
         String s2 = value;
+        System.out.println("Generated fee: "+s2);
         if (s.equals(s2)){
             System.out.println("Fee is Updated");
             return true;

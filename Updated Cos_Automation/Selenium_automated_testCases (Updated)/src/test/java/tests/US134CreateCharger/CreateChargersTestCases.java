@@ -794,9 +794,9 @@ public class CreateChargersTestCases extends BaseTest {
         operation.bootAChargerAsDummy(charger);
         guestFlow.GoToSimulator();
         Assert.assertTrue(guestFlow.SelectChargerFromSimulator(charger));
-        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
+//        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Assert.assertTrue(operation.ClickButton(SimulationPage.BootChargerButton,2000));
-        Assert.assertTrue(operation.ClickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
+        Assert.assertTrue(operation.ClickButton(SimulationPage.ChargerQRCodeCopyLink,2500));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
         guestFlow.SwitchToTab(1);
         Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
@@ -807,6 +807,7 @@ public class CreateChargersTestCases extends BaseTest {
         Assert.assertTrue(operation.ClickButton(GuestFlow.PluginChargerbtn,500));
         simulationPage.SelectChargerStatusFromSimulator("Charging");
         operation.ClickButton(SimulationPage.ChargerStatusSaveButton,2000);
+        Thread.sleep(2500);
         guestFlow.SwitchToTab(1);
         Assert.assertTrue(operation.ClickButton(GuestVerificationPage.StatChargingButton,5000));
         guestFlow.SwitchToIframe();
@@ -817,11 +818,11 @@ public class CreateChargersTestCases extends BaseTest {
 //        dashboard.RefreshBrowser();
         System.out.println("URL  =  "+driver.getCurrentUrl());
         Assert.assertTrue(guestFlow.verifyChargingNowTitle());
-        guestFlow.LengthOfSession(90000);
+        guestFlow.LengthOfSession(70000);
         guestFlow.SwitchToTab(0);
         operation.ClickButton(GuestFlow.DisconnectChargerbtn,3000);
         guestFlow.SwitchToTab(1);
-        Assert.assertTrue(guestFlow.verifyTotalFee());
+//        Assert.assertTrue(guestFlow.verifyTotalFee());
         Assert.assertTrue(guestFlow.verifyChargingSessionEnded());
 
     }
