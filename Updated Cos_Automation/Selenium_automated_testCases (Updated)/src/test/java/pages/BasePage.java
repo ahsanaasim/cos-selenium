@@ -98,6 +98,21 @@ public class BasePage {
         }
     }
 
+    public boolean verifyTextMatchingWithAttribute(int delay, By element,String attribute, String expected) throws InterruptedException {
+        Thread.sleep(delay);
+        waitforPresence(element);
+        String S = driver.findElement(element).getAttribute(attribute);
+        System.out.println(S);
+        String ExpectedText = expected;
+        if (S.equals(ExpectedText)) {
+            System.out.println("Matched with Expected");
+            return true;
+        } else {
+            System.out.println("Not Matched with the expected");
+            return false;
+        }
+    }
+
     public boolean verifyFieldIsNotEmpty(int delay, By element) throws InterruptedException {
         Thread.sleep(delay);
         waitforPresence(element);

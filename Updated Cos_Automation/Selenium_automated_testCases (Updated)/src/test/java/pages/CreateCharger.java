@@ -23,6 +23,7 @@ public class CreateCharger extends BasePage {
     public static By cancelbuttonofdrawer = By.xpath("//span[contains(text(),'Cancel')]");
     public static By discardandcontinuepopup = By.xpath("//div[@class='ant-modal-confirm-content'][contains(.,'Do you want to discard or continue?')]");
     public static By discardbtn = By.xpath("//button[@class='ant-btn ant-btn-default'][contains(.,'Discard')]");
+    public static By continuebtn = By.xpath("//button[@class='ant-btn ant-btn-primary'][contains(.,'Continue')]");
     public static By Chargername = By.xpath("//input[@placeholder='Charger Name']");
     public static By ChargerPlugType = By.xpath("//span[@title='J1772']");
     public static By ChargingRateField = By.xpath("(//input[@class='ant-select-selection-search-input'])[2]");

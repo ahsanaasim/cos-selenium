@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
 
 import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class GuestVerificationPage extends BasePage{
     public GuestVerificationPage(WebDriver driver) {
@@ -182,6 +184,37 @@ public class GuestVerificationPage extends BasePage{
             return false;
         }
     }
+
+
+    public String extractIdleFee(){
+        String input = readText(IdleFee);
+        // Define the regular expression pattern
+        Pattern pattern = Pattern.compile("\\$\\d+\\.\\d+");
+        // Match the pattern against the input string
+        Matcher matcher = pattern.matcher(input);
+        // Extract the substring
+        String idleFee = "";
+        if (matcher.find()) {
+            idleFee = matcher.group();
+        }
+        System.out.println("Extracted idleFee: " + idleFee);
+        return idleFee;
+    }
+
+    public boolean verifyIdleFee(String Expected){
+        waitforPresence(IdleFee);
+        String s = extractIdleFee();
+        String s2 = Expected;
+        if (s.equals(s2)){
+            System.out.println("IdleFee is showing correctly");
+            return true;
+        }
+        else {
+            System.out.println("IdleFee is not showing correctly");
+            return false;
+        }
+    }
+
 
 
 

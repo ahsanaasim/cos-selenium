@@ -191,7 +191,7 @@ public class FeeStructureList extends BasePage{
 
 
     public void ContiniousClickOnLoadMoreButton(){
-        for (int i=0; i<82;i++ ){
+        for (int i=0; i<4;i++ ){
             waitforPresence(LoadMoreButton);
             click(LoadMoreButton);
         }
@@ -199,7 +199,7 @@ public class FeeStructureList extends BasePage{
     }
 
     public void writeInSearchField(String feeStructure) throws InterruptedException {
-        Thread.sleep(2500);
+        Thread.sleep(3000);
         waitforPresence(Edit);
         FieldClear(SearchField);
         writeText(SearchField,feeStructure);
@@ -416,13 +416,15 @@ public class FeeStructureList extends BasePage{
 
     public String GenerateFee() throws InterruptedException {
         Thread.sleep(1000);
-        String[] Fees = {"11.00", "5.00", "4.00","15.38","1.00","1.25","11.00","8.05","11.30","9.00"};
+        String[] Fees = {"11.00", "5.00", "4.00","15.38","1.00","1.25","13.00","8.05","11.30","9.00"};
         int index = random.nextInt(Fees.length);
         return Fees[index];
 
 
 
     }
+
+
 
 
 
