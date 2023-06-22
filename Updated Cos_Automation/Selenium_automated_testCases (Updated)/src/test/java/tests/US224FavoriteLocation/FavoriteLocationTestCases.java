@@ -25,8 +25,8 @@ public class FavoriteLocationTestCases extends BaseTest {
         customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithNoTicket"),"EitaiPassword10");
         operation.ClickButton(CustomerLogin.Menu,2000);
         operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
-        Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(2000,FavoriteLocation.NoDataInTableImage));
-        Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(2000,FavoriteLocation.NoFavoriteLocationText));
+        Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(5000,FavoriteLocation.NoDataInTableImage));
+        Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(500,FavoriteLocation.NoFavoriteLocationText));
 
     }
 
@@ -167,8 +167,10 @@ public class FavoriteLocationTestCases extends BaseTest {
 //        dashboard.RefreshBrowser();
 //        operation.ClickButton(CustomerSupport.Menu,2000);
 //        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
-        Assert.assertTrue(favoriteLocation.verifyAFieldIsDisable(2000,FavoriteLocation.ReserveButton1));
-        Assert.assertTrue(favoriteLocation.verifyAFieldIsDisable(2000,FavoriteLocation.ReserveButton2));
+        Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(2000,FavoriteLocation.AddToWatchListButton1));
+        Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(500,FavoriteLocation.AddToWatchListButton2));
+        Assert.assertTrue(favoriteLocation.verifyTextMatching(2000,FavoriteLocation.AddToWatchListButton1,"Add to Watchlist"));
+        Assert.assertTrue(favoriteLocation.verifyTextMatching(2000,FavoriteLocation.AddToWatchListButton2,"Add to Watchlist"));
 
     }
 
@@ -187,8 +189,8 @@ public class FavoriteLocationTestCases extends BaseTest {
 //        dashboard.RefreshBrowser();
 //        operation.ClickButton(CustomerSupport.Menu,2000);
 //        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
-        Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(2000,FavoriteLocation.SeeDetailsButtonText1));
-        Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(500,FavoriteLocation.SeeDetailsButtonText2));
+        Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(2000,FavoriteLocation.SeeInMapButtonText1));
+        Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(500,FavoriteLocation.SeeInMapButtonText2));
 
     }
 
@@ -226,11 +228,30 @@ public class FavoriteLocationTestCases extends BaseTest {
 //        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
         dashboard.RefreshBrowser();
 //        operation.ClickButton(CustomerSupport.Menu,2000);
-        operation.ClickButton(FavoriteLocation.SeeDetailsButton,2000);
-        mapDetails.SwitchToTab(1);
+        operation.ClickButton(FavoriteLocation.SeeInMap,2000);
         Assert.assertTrue(mapDetails.verifySystemIsRedirectingToMapPage());
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,MapDetails.UpperDrawer));
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(500,MapDetails.LowerDrawer));
+
+    }
+
+
+    @Test(priority = 27)
+    @TestParameters(testCaseId = {"TC-27"})
+    public void TC_27_CheckFavoriteLocationCountAndNumberOfLocationInTheListMatching () throws InterruptedException {
+        CustomerLogin login = new CustomerLogin(driver);
+        CreateCharger operation =new CreateCharger(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
+        MapDetails mapDetails = new MapDetails(driver);
+        Dashboard dashboard = new Dashboard(driver);
+//        login.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+//        operation.ClickButton(CustomerLogin.Menu,2000);
+//        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
+        favoriteLocation.GoToFavoriteLocationPage();
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+        Assert.assertTrue(favoriteLocation.verifyFavoriteLocationsCountInTitleMatchWithList());
 
     }
 }
