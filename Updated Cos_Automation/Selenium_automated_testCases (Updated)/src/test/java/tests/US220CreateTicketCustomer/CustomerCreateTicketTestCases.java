@@ -101,7 +101,7 @@ public class CustomerCreateTicketTestCases extends BaseTest {
 //        operation.ClickButton(CustomerSupport.Menu,2000);
 //        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
         operation.ClickButton(CustomerSupport.CreateATicket,2000);
-        Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(1000,CustomerSupport.CustomerSupportTitle));
+        Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(1000,CustomerSupport.CreateTicketPageTitle));
 
     }
 

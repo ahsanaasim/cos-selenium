@@ -21,7 +21,7 @@ public class CustomerSupport extends BasePage{
     public static By Menu = By.xpath("//div[@class='ml-5 font-bold'][contains(text(),'Menu')]");
     public static By CustomerSupport = By.xpath("//h4[@class='mb-0 ml-10'][contains(text(),'Customer Support')]");
     public static By CreateATicket = By.xpath("//button[@class='ant-btn ant-btn-default createButton']");
-    public static By CustomerSupportTitle = By.xpath("//div[@class='mainTitle'][contains(text(),'Customer Support')]");
+    public static By CreateTicketPageTitle = By.xpath("//div[@class='mainTitle'][contains(text(),'Open a Ticket')]");
     public static By CategoryField = By.xpath("//input[@class='ant-select-selection-search-input']");
     public static By MandatoryCategorySign = By.xpath("//span[@class='red-color'][contains(text(),'*')]");
     public static By MandatorySubjectSign = By.xpath("(//span[@class='red-color'][contains(text(),'*')])[2]");
