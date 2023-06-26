@@ -252,8 +252,8 @@ public class COSAFromMenuTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 12)
-    @TestParameters(testCaseId = {"TC-25,26"})
+    @Test(priority = 13)
+    @TestParameters(testCaseId = {"TC-27"})
     public void TC_27_CheckDatePickerDisappearedAfterSelectingADateFromDatePicker() throws InterruptedException {
         MapDetails mapDetails =new MapDetails(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
@@ -275,5 +275,286 @@ public class COSAFromMenuTestCases extends BaseTest {
 
 
     }
+
+    @Test(priority = 14)
+    @TestParameters(testCaseId = {"TC-28"})
+    public void TC_28_CheckWhenUserTriesToAddPastDatesInTheDateField() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        cosa.GoToCOSAChatbot();
+//        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        Assert.assertTrue(cosa.verifyPastDateIsDisabled());
+
+
+
+
+    }
+
+    @Test(priority = 15)
+    @TestParameters(testCaseId = {"TC-29,30"})
+    public void TC_29_30_CheckWhenCustomerSelectsAStartingTimeFromTheOptions() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+//        cosa.GoToCOSAChatbot();
+        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        Assert.assertTrue(cosa.verifyTimeIsPostedCorrectlyOnChatBot("07"));
+
+
+
+
+    }
+
+    @Test(priority = 16)
+    @TestParameters(testCaseId = {"TC-31"})
+    public void TC_31_CheckTimeBoxIsVanishedAfterSelectingATime() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        cosa.GoToCOSAChatbot();
+//        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        cosa.clickOnFutureDate();
+        cosa.selectTime("05");
+        Assert.assertTrue(cosa.verifyElementNotDisplayed(2500,COSA.DateBox));
+        Assert.assertTrue(cosa.verifyElementNotDisplayed(2500,COSA.TimeBox));
+
+
+
+
+
+    }
+
+    @Test(priority = 17)
+    @TestParameters(testCaseId = {"TC-32"})
+    public void TC_32_CheckWhenUserStartsTypingToAddressFieldForEnteringTheAddress() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+//        cosa.GoToCOSAChatbot();
+        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        cosa.clickOnFutureDate();
+        cosa.selectTime("05");
+        operation.writeInputText(COSA.AddressBox,"Aftab Nagar",1500);
+        Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(2500,COSA.SearchBoxList));
+        Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(2500,COSA.Area));
+
+
+
+
+
+    }
+
+    @Test(priority = 18)
+    @TestParameters(testCaseId = {"TC-33"})
+    public void TC_33_CheckWhenUserSelectALocationFromSuggestion() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        cosa.GoToCOSAChatbot();
+//        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        cosa.clickOnFutureDate();
+        cosa.selectTime("05");
+        cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
+        Assert.assertTrue(cosa.verifyTextMatching(3000,COSA.CustomerFourthMessage,"Address: Aftab Nagar, Dhaka, Bangladesh"));
+
+
+
+
+    }
+    @Test(priority = 19)
+    @TestParameters(testCaseId = {"TC-34"})
+    public void TC_34_CheckAddressFieldIsDisappearingAfterSelectingAnAddress() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        cosa.GoToCOSAChatbot();
+//        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
+        Assert.assertTrue(cosa.verifyElementNotDisplayed(2500,COSA.AddressBox));
+
+
+
+    }
+
+
+    @Test(priority = 20)
+    @TestParameters(testCaseId = {"TC-35"})
+    public void TC_35_CheckCOSAReplyAfterSelectingDateTimeAndAddress() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+//        cosa.GoToCOSAChatbot();
+        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        cosa.clickOnFutureDate();
+        cosa.selectTime("05");
+        cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
+        Assert.assertTrue(cosa.verifyElementNotDisplayed(2500,COSA.DateBox));
+        Assert.assertTrue(cosa.verifyElementNotDisplayed(500,COSA.TimeBox));
+        Assert.assertTrue(cosa.verifyElementNotDisplayed(500,COSA.AddressBox));
+        Assert.assertTrue(cosa.verifyTextMatching(500,COSA.COSASecondReply, cosa.COSAReplyAfterProvidingAllInformationCorrectly()));
+
+
+
+    }
+
+    @Test(priority = 21)
+    @TestParameters(testCaseId = {"TC-36"})
+    public void TC_36_CheckSuggestedNearbyLocationCount() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        cosa.GoToCOSAChatbot();
+//        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        cosa.clickOnFutureDate();
+        cosa.selectTime("05");
+        cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
+        Assert.assertTrue(cosa.verifyElementNotDisplayed(2500,COSA.DateBox));
+        Assert.assertTrue(cosa.verifyElementNotDisplayed(500,COSA.TimeBox));
+        Assert.assertTrue(cosa.verifyElementNotDisplayed(500,COSA.AddressBox));
+        Assert.assertTrue(cosa.verifyFourNearbyLocationsAreShowing());
+
+
+
+    }
+
+    @Test(priority = 22)
+    @TestParameters(testCaseId = {"TC-36.2"})
+    public void TC_36_2_CheckSuggestedNearbyLocationCount() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        cosa.GoToCOSAChatbot();
+//        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        cosa.clickOnFutureDate();
+        cosa.selectTime("04");
+        cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
+        Assert.assertTrue(cosa.verifySuggestedNearbyLocation(COSA.SuggestedLocation1));
+        Assert.assertTrue(cosa.verifySuggestedNearbyLocation(COSA.SuggestedLocation2));
+        Assert.assertTrue(cosa.verifySuggestedNearbyLocation(COSA.SuggestedLocation3));
+        Assert.assertTrue(cosa.verifySuggestedNearbyLocation(COSA.SuggestedLocation4));
+
+
+
+    }
+
+    @Test(priority = 23)
+    @TestParameters(testCaseId = {"TC-37"})
+    public void TC_37_CheckCustomerResponseMessageAfterClickOnWatch() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        cosa.GoToCOSAChatbot();
+//        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        cosa.clickOnFutureDate();
+        cosa.selectTime("07");
+        cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
+        operation.ClickButton(COSA.WatchButton,2000);
+        Assert.assertTrue(cosa.verifyCustomerResponseMessageAfterWatchingALocation());
+
+
+
+    }
+
+    @Test(priority = 24)
+    @TestParameters(testCaseId = {"TC-38"})
+    public void TC_38_CheckCOSAResponseAfterAddingALocationToWatchlist() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        cosa.GoToCOSAChatbot();
+//        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        cosa.clickOnFutureDate();
+        cosa.selectTime("03");
+        cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
+        operation.ClickButton(COSA.WatchButton,2000);
+        Assert.assertTrue(cosa.verifyCOSAResponseAfterAddingALocationToWatchlist());
+
+
+
+    }
+
+    @Test(priority = 25)
+    @TestParameters(testCaseId = {"TC-43"})
+    public void TC_43_CheckWatchButtonINSuggestedNearbyLocations() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        cosa.GoToCOSAChatbot();
+//        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        cosa.clickOnFutureDate();
+        cosa.selectTime("01");
+        cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
+        Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1500,COSA.WatchButton));
+        Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(500,COSA.WatchButton2));
+        Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(500,COSA.WatchButton3));
+        Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(500,COSA.WatchButton4));
+
+
+
+    }
+
+
+
 
 }

@@ -24,7 +24,8 @@ public class CustomerLogin extends BasePage {
     public static By Logout = By.xpath("//h4[normalize-space()='Sign Out']");
 
 
-    public void GoToCustomerLoginPage(){
+    public void GoToCustomerLoginPage() throws InterruptedException {
+        Thread.sleep(1500);
         driver.get("https://test-app.chargeonsite.com/customer/login");
     }
 
@@ -97,7 +98,7 @@ public class CustomerLogin extends BasePage {
     }
 
     public void LoginToACustomerAccount(String email, String password) throws InterruptedException {
-        Thread.sleep(1500);
+        Thread.sleep(2000);
         waitforPresence(EmailField);
         operation.writeInputText(CustomerLogin.EmailField,email,2000);
         operation.writeInputText(CustomerLogin.PasswordField,password,500);

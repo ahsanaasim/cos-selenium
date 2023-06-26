@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 public class MapDetails extends BasePage{
     public MapDetails(WebDriver driver) {
@@ -19,7 +18,8 @@ public class MapDetails extends BasePage{
     public static By ChargeONSiteLogo = By.xpath("//img[@src='/images/cosLogo4.svg']");
     public static By LocationName = By.xpath("//h2[@class='drawerTopMainText']");
     public static By PropertyLocationAddress = By.xpath("//h4[@class='drawerTopSecondaryText']");
-    public static By FavoriteIcon = By.xpath("//span[@class='anticon anticon-heart drawerIcon']");
+    public static By FavoriteIcon = By.xpath("//span[@class='anticon anticon-heart drawerIcon heartOutlined']");
+    public static By FavoriteIconMarked = By.xpath("//span[@class='anticon anticon-heart drawerIcon heartFilled']");
     public static By ShareButton = By.xpath("//img[@alt='share']");
     public static By AvailabilityTitle = By.xpath("//h2[@class='drawerBottomMainText'][contains(text(),'Availability')]");
     public static By PlugType = By.xpath("//span[@class='plugTypeBtn'][contains(text(),'Plug Type')]");
@@ -118,9 +118,9 @@ public class MapDetails extends BasePage{
     }
 
     //This location has down charger
-    public void GoToWaterPumpLocation() throws InterruptedException {
+    public void GoToSundarbanCourierLocation() throws InterruptedException {
         Thread.sleep(2500);
-        driver.get("https://test-app.chargeonsite.com/customer/map?latitude=23.76079166763266&longitude=90.4345617503801&locationMarkerId=86a28a5f-a90e-411d-ba93-2fb0d9ec1308");
+        driver.get("https://test-app.chargeonsite.com/customer/map?latitude=23.759977825336062&longitude=90.42947810701023&locationMarkerId=6e9e6ba2-5ada-42e5-9cbd-bbfdc34968eb");
     }
 
     public void GoToRampuraLocation() throws InterruptedException {

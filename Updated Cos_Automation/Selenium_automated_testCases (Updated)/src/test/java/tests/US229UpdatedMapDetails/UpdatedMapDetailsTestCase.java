@@ -395,7 +395,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         guestFlow.SwitchToTab(0);
         customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
-        mapDetails.GoToWaterPumpLocation();
+        mapDetails.GoToSundarbanCourierLocation();
         operation.ClickButton(MapDetails.PlugType,1500);
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.DownStatus));
 //        dashboard.RefreshBrowser();
@@ -486,7 +486,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         operation.ClickButton(CreateLocation.savelocationbtn,2000);
         guestFlow.SwitchToTab(0);
         dashboard.RefreshBrowser();
-        mapDetails.GoToWaterPumpLocation();
+        mapDetails.GoToSundarbanCourierLocation();
         Assert.assertTrue(mapDetails.verifyElementNotDisplayed(2000,MapDetails.PlugType));
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.NoChargersAvailable));
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.NoChargerAvailableButton));
@@ -529,7 +529,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         operation.ClickButton(CreateLocation.savelocationbtn,2000);
         guestFlow.SwitchToTab(0);
         dashboard.RefreshBrowser();
-        mapDetails.GoToWaterPumpLocation();
+        mapDetails.GoToSundarbanCourierLocation();
         Assert.assertTrue(mapDetails.verifyPlugAvailableTextForSinglePlugAvailable());
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.ScanNow));
 
@@ -566,7 +566,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         operation.ClickButton(CreateLocation.savelocationbtn,2000);
         guestFlow.SwitchToTab(0);
         dashboard.RefreshBrowser();
-        mapDetails.GoToWaterPumpLocation();
+        mapDetails.GoToSundarbanCourierLocation();
         Assert.assertTrue(mapDetails.verifyElementNotDisplayed(2000,MapDetails.PlugType));
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.NoChargersAvailable));
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.NoChargerAvailableButton));
@@ -609,7 +609,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         operation.ClickButton(CreateLocation.savelocationbtn,2000);
         guestFlow.SwitchToTab(0);
         dashboard.RefreshBrowser();
-        mapDetails.GoToWaterPumpLocation();
+        mapDetails.GoToSundarbanCourierLocation();
         Assert.assertTrue(mapDetails.verifyPlugAvailableTextForSinglePlugAvailable());
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.ScanNow));
 
