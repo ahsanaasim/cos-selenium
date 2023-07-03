@@ -22,6 +22,8 @@ public class EditLocation extends BasePage{
     By propertyField = By.xpath("(//input[@class='ant-select-selection-search-input'])[2]");
     By togglebtn = By.xpath("//button[@role='switch']");
     By Alert = By.xpath("//div[@class='ant-modal-confirm-content'][contains(.,'Do you want to discard or continue?')]");
+
+    public static By LocationName1InColumn = By.xpath("//td[@class='ant-table-cell ant-table-cell-ellipsis']");
     public static By PropertyName1InColumn = By.xpath("(//td[@class='ant-table-cell ant-table-cell-ellipsis'])[2]");
     public static By PropertyAddressInDrawer = By.xpath("//div[@class='propertyAddress']");
 

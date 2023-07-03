@@ -33,9 +33,41 @@ public class FavoriteLocation extends BasePage{
 
 
     public void GoToFavoriteLocationPage() throws InterruptedException {
-        Thread.sleep(1500);
+        Thread.sleep(2000);
         driver.get("https://test-app.chargeonsite.com/customer/favorites");
     }
+
+    public void GoToZboncakAvenue94377709Location() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.get("https://test-app.chargeonsite.com/customer/map?latitude=55.78445&longitude=-103.74461&locationMarkerId=02d084be-7e6a-4694-a2c3-e5c1b14655c4");
+    }
+
+    public void GoToBillingLocation() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.get("https://test-app.chargeonsite.com/customer/map?latitude=33.2043261&longitude=-87.4636565&locationMarkerId=59a6e048-3732-478a-a36c-3d908d639fa4");
+    }
+
+    public void GoToBotsfordAvenue62659569Location() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.get("https://test-app.chargeonsite.com/customer/map?latitude=35.01764&longitude=-118.27717&locationMarkerId=7439b651-2916-49e6-af25-3c803ee4f4e6");
+    }
+    public void GoToElectricChargerLocation() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.get("https://test-app.chargeonsite.com/customer/map?latitude=43.1478841&longitude=-77.5651629&locationMarkerId=4c3eec15-cbd1-4057-a2cd-1b15a1868eca");
+    }
+
+    public void ScanChargerOFElectricChargerLocation() throws InterruptedException {
+        Thread.sleep(2000);
+        GoToWebsite("https://test-app.chargeonsite.com/charger/byjUql");
+
+    }
+
+    public void ScanChargerOFEBotsfordAvenue62659569Location() throws InterruptedException {
+        Thread.sleep(2000);
+        GoToWebsite("https://test-app.chargeonsite.com/charger/tIljMh");
+
+    }
+
 
 
     public boolean AddGoldnerAvenue3LocationToFavoriteLocation() throws InterruptedException{
@@ -47,12 +79,12 @@ public class FavoriteLocation extends BasePage{
                 click(MapDetails.FavoriteIcon);
                 return true;
             } else {
-                System.out.println("Already listed as favorite list");;
+                System.out.println("Already listed as favorite");;
                 return true;
             }
         }
         catch (NoSuchElementException e) {
-            System.out.println("Already listed as favorite list");
+            System.out.println("Already listed as favorite");
             return true;
         }
     }
@@ -85,13 +117,85 @@ public class FavoriteLocation extends BasePage{
                 click(MapDetails.FavoriteIcon);
                 return true;
             } else {
-                System.out.println("Already listed as favorite list");;
+                System.out.println("Already listed as favorite");;
                 return true;
             }
         }
         catch (NoSuchElementException e) {
-            System.out.println("Already listed as favorite list");
+            System.out.println("Already listed as favorite");
             return true;
+        }
+    }
+
+    public void AddAutomatedLocation9129ToFavoriteLocation() throws InterruptedException{
+        Thread.sleep(2000);
+        driver.get("https://test-app.chargeonsite.com/customer/map?latitude=33.8528917&longitude=-96.5617912&locationMarkerId=06acaf60-a0ae-4aab-81c5-1846ca206e71");
+        try {
+            Thread.sleep(3500);
+            if (driver.findElement(MapDetails.FavoriteIcon).isDisplayed()) {
+                click(MapDetails.FavoriteIcon);
+            }
+        }
+        catch (NoSuchElementException e) {
+            System.out.println("Already listed as favorite");
+        }
+    }
+
+
+    public void RemoveBillingLocationFromFavorites() throws InterruptedException{
+        Thread.sleep(1000);
+        GoToBillingLocation();
+        try {
+            Thread.sleep(3500);
+            if (driver.findElement(MapDetails.FavoriteIconMarked).isDisplayed()) {
+                click(MapDetails.FavoriteIconMarked);
+            }
+        }
+        catch (NoSuchElementException e) {
+            System.out.println("Already removed from favorites");
+        }
+    }
+
+
+    public void RemoveZboncakAvenue94377709FromFavorites() throws InterruptedException{
+        Thread.sleep(2000);
+        GoToZboncakAvenue94377709Location();
+        try {
+            Thread.sleep(3500);
+            if (driver.findElement(MapDetails.FavoriteIconMarked).isDisplayed()) {
+                click(MapDetails.FavoriteIconMarked);
+            }
+        }
+        catch (NoSuchElementException e) {
+            System.out.println("Already removed from favorites");
+        }
+    }
+
+    public void RemoveElectricChargerFromFavorites() throws InterruptedException{
+        Thread.sleep(2000);
+        GoToElectricChargerLocation();
+        try {
+            Thread.sleep(3500);
+            if (driver.findElement(MapDetails.FavoriteIconMarked).isDisplayed()) {
+                click(MapDetails.FavoriteIconMarked);
+            }
+        }
+        catch (NoSuchElementException e) {
+            System.out.println("Already removed from favorites");
+        }
+    }
+
+    public void RemoveBotsfordAvenue62659569FromFavorites() throws InterruptedException{
+        Thread.sleep(2000);
+        GoToBotsfordAvenue62659569Location();
+        try {
+            Thread.sleep(3500);
+            if (driver.findElement(MapDetails.FavoriteIconMarked).isDisplayed()) {
+                click(MapDetails.FavoriteIconMarked);
+            }
+        }
+        catch (NoSuchElementException e) {
+            System.out.println("Already removed from favorites");
         }
     }
 
@@ -177,6 +281,66 @@ public class FavoriteLocation extends BasePage{
 
     }
 
+
+
+    public boolean verifyFavoriteLocationCountIsIncreasingAfterAddingFavorites() throws InterruptedException {
+        CreateCharger operation = new CreateCharger(driver);
+        Thread.sleep(1500);
+        waitforPresence(LocationName);
+        String LCount = driver.findElement(FavoriteLocationsTitle).getText().replaceAll("[^0-9]","");
+        int count = Integer.parseInt(LCount);
+        System.out.println("Location count before adding: "+count);
+        GoToBillingLocation();
+        operation.ClickButton(MapDetails.FavoriteIcon,2500);
+        Thread.sleep(2000);
+        GoToFavoriteLocationPage();
+        waitforPresence(LocationName);
+        String LCountAfter = driver.findElement(FavoriteLocationsTitle).getText().replaceAll("[^0-9]","");
+        int count2 = Integer.parseInt(LCountAfter);
+        System.out.println("Location count after adding: "+count2);
+        int expected =count+1;
+        if (count2==expected){
+            System.out.println("Location count is increased by one after adding");
+            return true;
+        }
+        else {
+            System.out.println("Location count is not increased by one after adding");
+            return false;
+
+        }
+
+
+
+    }
+
+
+    public boolean verifyLocationIsShowingInTheFavoritesListAfterAdding() throws InterruptedException {
+        CreateCharger operation = new CreateCharger(driver);
+        Thread.sleep(1500);
+        waitforPresence(LocationName);
+        GoToZboncakAvenue94377709Location();
+        waitforPresence(MapDetails.LocationName);
+        String LName = driver.findElement(MapDetails.LocationName).getText();
+        System.out.println("Location name in map details: "+LName);
+        operation.ClickButton(MapDetails.FavoriteIcon,2500);
+        Thread.sleep(2000);
+        GoToFavoriteLocationPage();
+        waitforPresence(LocationName);
+        String LName2 = driver.findElement(LocationName).getText();
+        System.out.println("Location name in the favorite location list: "+LName2);
+        if (LName.equals(LName2)){
+            System.out.println("Location is added successfully as favorites");
+            return true;
+        }
+        else {
+            System.out.println("Location is not added as favorites");
+            return false;
+
+        }
+
+
+    }
+
     public boolean verifyLocationIsRemovedFromTheList() throws InterruptedException {
         Thread.sleep(1500);
         waitforPresence(LocationName);
@@ -197,6 +361,89 @@ public class FavoriteLocation extends BasePage{
 
         }
 
+
+
+    }
+
+    public boolean verifyPropertyNameAndItsAddress() throws InterruptedException {
+        CreateLocation location = new CreateLocation(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        waitforPresence(LocationName);
+        String s = readText(LocationName);
+        String s2 = readText(LocationAddress);
+        System.out.println("Property name and its address in favorites: " + s2);
+        SwitchToTab(1);
+        location.GoToLocationPage();
+        location.writeINLocationSearchBar(s);
+        operation.ClickButton(EditCompany.searchbtn, 1500);
+        waitforPresence(EditLocation.PropertyName1InColumn);
+        String propertyName = readText(EditLocation.PropertyName1InColumn);
+        operation.ClickButton(EditLocation.EditButton, 1500);
+        waitforPresence(EditLocation.PropertyAddressInDrawer);
+        String propertyLocationAddress = readText(EditLocation.PropertyAddressInDrawer);
+        String Expected = propertyName + "," + " " + propertyLocationAddress;
+        System.out.println("Property name and its address in drawer: " + Expected);
+        if (s2.equals(Expected)) {
+            System.out.println("Property name and its address is showing correctly");
+            return true;
+        } else {
+            System.out.println("Property name and its address is not showing correctly");
+            return false;
+        }
+    }
+
+    public boolean verifyFavoriteLocationCountIsIncreasingAfterAddingFavoritesFromChargerDetails() throws InterruptedException {
+        CreateCharger operation = new CreateCharger(driver);
+        Thread.sleep(1500);
+        waitforPresence(LocationName);
+        String LCount = driver.findElement(FavoriteLocationsTitle).getText().replaceAll("[^0-9]","");
+        int count = Integer.parseInt(LCount);
+        System.out.println("Location count before adding: "+count);
+        ScanChargerOFElectricChargerLocation();
+        operation.ClickButton(GuestVerificationPage.FavoriteIcon,2500);
+        Thread.sleep(2000);
+        GoToFavoriteLocationPage();
+        waitforPresence(LocationName);
+        String LCountAfter = driver.findElement(FavoriteLocationsTitle).getText().replaceAll("[^0-9]","");
+        int count2 = Integer.parseInt(LCountAfter);
+        System.out.println("Location count after adding: "+count2);
+        int expected =count+1;
+        if (count2==expected){
+            System.out.println("Location count is increased by one after adding");
+            return true;
+        }
+        else {
+            System.out.println("Location count is not increased by one after adding");
+            return false;
+
+        }
+
+
+
+    }
+    public boolean verifyLocationIsShowingInTheFavoritesListAfterAddingFromChargerDetails() throws InterruptedException {
+        CreateCharger operation = new CreateCharger(driver);
+        Thread.sleep(1500);
+        ScanChargerOFEBotsfordAvenue62659569Location();
+        waitforPresence(GuestVerificationPage.LocationName);
+        String LName = driver.findElement(GuestVerificationPage.LocationName).getText();
+        System.out.println("Location name in charger details: "+LName);
+        operation.ClickButton(GuestVerificationPage.FavoriteIcon,3000);
+        Thread.sleep(2000);
+        GoToFavoriteLocationPage();
+        waitforPresence(LocationName);
+        String LName2 = driver.findElement(LocationName).getText();
+        System.out.println("Location name in the favorite location list: "+LName2);
+        if (LName.equals(LName2)){
+            System.out.println("Location is added successfully as favorites");
+            return true;
+        }
+        else {
+            System.out.println("Location is not added as favorites");
+            return false;
+
+        }
 
 
     }

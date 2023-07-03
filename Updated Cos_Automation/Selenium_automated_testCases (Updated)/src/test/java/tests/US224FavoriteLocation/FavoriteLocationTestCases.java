@@ -15,7 +15,7 @@ public class FavoriteLocationTestCases extends BaseTest {
 
     @Test(priority = 1)
     @TestParameters(testCaseId = {"TC-0"})
-    public void TC_1_MakeLocationsAllOnline() throws InterruptedException {
+    public void TC_0_PreConditionMakeTestingLocationsOnline() throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CustomerLogin login = new CustomerLogin(driver);
         CreateCharger operation =new CreateCharger(driver);
@@ -26,13 +26,36 @@ public class FavoriteLocationTestCases extends BaseTest {
         favoriteLocation.AddRawLocation3ToFavoriteLocation();
         favoriteLocation.AddOrtizAvenue80799629ToFavoriteLocation();
         favoriteLocation.AddGoldnerAvenue3LocationToFavoriteLocation();
+        favoriteLocation.AddAutomatedLocation9129ToFavoriteLocation();
+        favoriteLocation.RemoveBillingLocationFromFavorites();
+        favoriteLocation.RemoveZboncakAvenue94377709FromFavorites();
+        favoriteLocation.RemoveElectricChargerFromFavorites();
+        favoriteLocation.RemoveBotsfordAvenue62659569FromFavorites();
         login.LogoutFromCustomerAccount();
 
 
     }
 
 
+
     @Test(priority = 2)
+    @TestParameters(testCaseId = {"TC-0"})
+    public void TC_0_PreConditionLoginToCOSAdmin() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateLocation createLocation=new CreateLocation(driver);
+        createLocation.NewTabOpenAndSwitchToNewTab(1);
+        Thread.sleep(2500);
+        loginPage.VerifyValidLogin();
+        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickonLocations());
+
+
+    }
+
+
+    @Test(priority = 3)
     @TestParameters(testCaseId = {"TC-1"})
     public void TC_1_CheckWhatHappensWhenCustomerClickOnFavLocationFromMenu () throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
@@ -40,6 +63,7 @@ public class FavoriteLocationTestCases extends BaseTest {
         CreateCharger operation =new CreateCharger(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
+        favoriteLocation.SwitchToTab(0);
         login.GoToCustomerLoginPage();
         customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithNoTicket"),"EitaiPassword10");
         operation.ClickButton(CustomerLogin.Menu,2000);
@@ -50,7 +74,7 @@ public class FavoriteLocationTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 3)
+    @Test(priority = 4)
     @TestParameters(testCaseId = {"TC-2"})
     public void TC_2_CheckLogoOfChargeOnSiteExistInFavoriteLocationsPage () throws InterruptedException {
         CustomerLogin login = new CustomerLogin(driver);
@@ -64,7 +88,7 @@ public class FavoriteLocationTestCases extends BaseTest {
         Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(2000,FavoriteLocation.ChargeOnSiteLogo));
 
     }
-    @Test(priority = 4)
+    @Test(priority = 5)
     @TestParameters(testCaseId = {"TC-3"})
     public void TC_3_CheckMenuExistInFavoriteLocationsPage () throws InterruptedException {
         CustomerLogin login = new CustomerLogin(driver);
@@ -80,7 +104,7 @@ public class FavoriteLocationTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 5)
+    @Test(priority = 6)
     @TestParameters(testCaseId = {"TC-4"})
     public void TC_4_CheckIfFavLocationOptionIsShowingUpOnMenuDrawer() throws InterruptedException {
         CustomerLogin login = new CustomerLogin(driver);
@@ -97,7 +121,7 @@ public class FavoriteLocationTestCases extends BaseTest {
         Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(2000,CustomerMenu.FavoriteFromMenu));
 
     }
-    @Test(priority = 6)
+    @Test(priority = 7)
     @TestParameters(testCaseId = {"TC-5"})
     public void TC_5_CheckIfFavIconIsShowingUpOnMenuDrawer() throws InterruptedException {
         CustomerLogin login = new CustomerLogin(driver);
@@ -115,7 +139,7 @@ public class FavoriteLocationTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 7)
+    @Test(priority = 8)
     @TestParameters(testCaseId = {"TC-6"})
     public void TC_6_CheckIfFavoeiteLocationsTitleInFavoriteLocationsList() throws InterruptedException {
         CustomerLogin login = new CustomerLogin(driver);
@@ -168,7 +192,7 @@ public class FavoriteLocationTestCases extends BaseTest {
 //        dashboard.RefreshBrowser();
 //        operation.ClickButton(CustomerSupport.Menu,2000);
 //        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
-        Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(1000,FavoriteLocation.LocationAddress));
+        Assert.assertTrue(favoriteLocation.verifyPropertyNameAndItsAddress());
 
     }
 
@@ -180,6 +204,7 @@ public class FavoriteLocationTestCases extends BaseTest {
         CustomerLogin customerLogin = new CustomerLogin(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
         Dashboard dashboard = new Dashboard(driver);
+        customerLogin.SwitchToTab(0);
 //        login.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithNoTicket"),"EitaiPassword10");
 //        operation.ClickButton(CustomerLogin.Menu,2000);
@@ -187,6 +212,7 @@ public class FavoriteLocationTestCases extends BaseTest {
 //        dashboard.RefreshBrowser();
 //        operation.ClickButton(CustomerSupport.Menu,2000);
 //        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
+        favoriteLocation.GoToFavoriteLocationPage();
         Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(2000,FavoriteLocation.AddToWatchListButton1));
         Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(500,FavoriteLocation.AddToWatchListButton2));
         Assert.assertTrue(favoriteLocation.verifyTextMatching(2000,FavoriteLocation.AddToWatchListButton1,"Add to Watchlist"));
@@ -196,7 +222,7 @@ public class FavoriteLocationTestCases extends BaseTest {
 
     @Test(priority = 13)
     @TestParameters(testCaseId = {"TC-11,18"})
-    public void TC_11_18_CheckSeeDetailsButton () throws InterruptedException {
+    public void TC_11_18_CheckSeeInMapButton () throws InterruptedException {
         CustomerLogin login = new CustomerLogin(driver);
         CreateCharger operation =new CreateCharger(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
@@ -256,8 +282,8 @@ public class FavoriteLocationTestCases extends BaseTest {
     }
 
     @Test(priority = 21)
-    @TestParameters(testCaseId = {"TC-22"})
-    public void TC_22_CheckLocationIsRemovedFromTheListAfterUnselecting() throws InterruptedException {
+    @TestParameters(testCaseId = {"TC-22,24"})
+    public void TC_22_24_CheckLocationIsRemovedFromTheListAfterUnselecting() throws InterruptedException {
         CustomerLogin login = new CustomerLogin(driver);
         CreateCharger operation =new CreateCharger(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
@@ -277,7 +303,7 @@ public class FavoriteLocationTestCases extends BaseTest {
 
     @Test(priority = 22)
     @TestParameters(testCaseId = {"TC-22.2"})
-    public void TC_22_2_CheckLocationIsRemovedFromTheListAfterUnselecting() throws InterruptedException {
+    public void TC_22_2_CheckSuccessAlertAfterUnselecting() throws InterruptedException {
         CustomerLogin login = new CustomerLogin(driver);
         CreateCharger operation =new CreateCharger(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
@@ -316,6 +342,47 @@ public class FavoriteLocationTestCases extends BaseTest {
     }
 
 
+    @Test(priority = 24)
+    @TestParameters(testCaseId = {"TC-26"})
+    public void TC_26_CheckLocationCountIsIncreasingAfterAddingAsFavorites() throws InterruptedException {
+        CustomerLogin login = new CustomerLogin(driver);
+        CreateCharger operation =new CreateCharger(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
+        MapDetails mapDetails = new MapDetails(driver);
+        Dashboard dashboard = new Dashboard(driver);
+//        login.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+//        operation.ClickButton(CustomerLogin.Menu,2000);
+//        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
+        favoriteLocation.GoToFavoriteLocationPage();
+//        dashboard.RefreshBrowser();
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+        Assert.assertTrue(favoriteLocation.verifyFavoriteLocationCountIsIncreasingAfterAddingFavorites());
+
+    }
+
+    @Test(priority = 25)
+    @TestParameters(testCaseId = {"TC-26.2"})
+    public void TC_26_2_CheckNewlyAddedLocationIsShowingInTheList() throws InterruptedException {
+        CustomerLogin login = new CustomerLogin(driver);
+        CreateCharger operation =new CreateCharger(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
+        MapDetails mapDetails = new MapDetails(driver);
+        Dashboard dashboard = new Dashboard(driver);
+//        login.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+//        operation.ClickButton(CustomerLogin.Menu,2000);
+//        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
+        favoriteLocation.GoToFavoriteLocationPage();
+//        dashboard.RefreshBrowser();
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+        Assert.assertTrue(favoriteLocation.verifyLocationIsShowingInTheFavoritesListAfterAdding());
+
+    }
+
+
 
     @Test(priority = 28)
     @TestParameters(testCaseId = {"TC-27"})
@@ -335,4 +402,65 @@ public class FavoriteLocationTestCases extends BaseTest {
         Assert.assertTrue(favoriteLocation.verifyFavoriteLocationsCountInTitleMatchWithList());
 
     }
+
+//    @Test(priority = 1)//Done
+//    @TestParameters(testCaseId = {"TC-1"})
+//    public void TC_1_VerifyEditLocationButtonIsShowingontheLocationsPage() throws InterruptedException {
+//        HomePage homePage = new HomePage(driver);
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard=new Dashboard(driver);
+//        CreateCompany company = new CreateCompany(driver);
+//        EditLocation editLocation=new EditLocation(driver);
+//        FeeStructureList feeStructureList = new FeeStructureList(driver);
+//        loginPage.VerifyValidLogin();
+//        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+//        Assert.assertTrue(dashboard.clickonLocations());
+//        Assert.assertTrue(editLocation.verifyEditDetailsButtonHasDisplayed());
+//        feeStructureList.ContiniousClickOnLoadMoreButton();
+//
+//    }
+
+
+    @Test(priority = 45)
+    @TestParameters(testCaseId = {"TC-45"})
+    public void TC_45_CheckFavoriteLocationCountAfterAddingFromChargerDetails() throws InterruptedException {
+        CustomerLogin login = new CustomerLogin(driver);
+        CreateCharger operation =new CreateCharger(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
+        MapDetails mapDetails = new MapDetails(driver);
+        Dashboard dashboard = new Dashboard(driver);
+//        customerLogin.LogoutFromCustomerAccount();
+//        login.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("lomina8480@dekaps.com","EitaiPassword@10");
+//        operation.ClickButton(CustomerLogin.Menu,2000);
+//        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
+        favoriteLocation.GoToFavoriteLocationPage();
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+        Assert.assertTrue(favoriteLocation.verifyFavoriteLocationCountIsIncreasingAfterAddingFavoritesFromChargerDetails());
+
+    }
+
+    @Test(priority = 46)
+    @TestParameters(testCaseId = {"TC-46"})
+    public void TC_46_CheckNewlyAddedLocationAsFavoritesFromChargerDetails() throws InterruptedException {
+        CustomerLogin login = new CustomerLogin(driver);
+        CreateCharger operation =new CreateCharger(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
+        MapDetails mapDetails = new MapDetails(driver);
+        Dashboard dashboard = new Dashboard(driver);
+//        customerLogin.LogoutFromCustomerAccount();
+//        login.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("lomina8480@dekaps.com","EitaiPassword@10");
+//        operation.ClickButton(CustomerLogin.Menu,2000);
+//        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
+        favoriteLocation.GoToFavoriteLocationPage();
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+        Assert.assertTrue(favoriteLocation.verifyLocationIsShowingInTheFavoritesListAfterAddingFromChargerDetails());
+
+    }
+
+
+
 }

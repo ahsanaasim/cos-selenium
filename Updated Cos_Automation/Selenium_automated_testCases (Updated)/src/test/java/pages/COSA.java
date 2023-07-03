@@ -19,6 +19,10 @@ public class COSA extends BasePage{
     public static By COSAFirstReply = By.xpath("(//div[@class='cosaBubble'])[2]");
     public static By COSASecondReply = By.xpath("(//div[@class='cosaBubble'])[3]");
     public static By COSAThirdReply = By.xpath("(//div[@class='cosaBubble'])[4]");
+    public static By COSAForthReply = By.xpath("(//div[@class='cosaBubble'])[5]");
+    public static By COSAFifthReply = By.xpath("(//div[@class='cosaBubble'])[6]");
+    public static By COSASixthReply = By.xpath("(//div[@class='cosaBubble'])[7]");
+    public static By COSASeventhReply = By.xpath("(//div[@class='cosaBubble'])[8]");
     public static By KeepAnEyeOnSomeLocations = By.xpath("//div[@class='options'][contains(text(),'Keep an eye on some locations')]");
     public static By ShowMeWatchList = By.xpath("//a[@href='/customer/cosa/watchlist']");
     public static By ReportAProblem = By.xpath("//a[@href='/customer/customer-support/create-ticket']");
@@ -28,12 +32,16 @@ public class COSA extends BasePage{
     public static By CustomerThirdMessage = By.xpath("(//div[@class='userBubble'])[3]");
     public static By CustomerFourthMessage = By.xpath("(//div[@class='userBubble'])[4]");
     public static By CustomerFifthMessage = By.xpath("(//div[@class='userBubble'])[5]");
+    public static By CustomerSixthMessage = By.xpath("(//div[@class='userBubble'])[6]");
+    public static By CustomerSeventhMessage = By.xpath("(//div[@class='userBubble'])[7]");
+    public static By CustomerEighthMessage = By.xpath("(//div[@class='userBubble'])[8]");
     public static By DateBox = By.xpath("//input[@placeholder='Date']");
     public static By CalenderIcon = By.xpath("//span[@class='anticon anticon-calendar']");
     public static By TimeBox = By.xpath("//input[@placeholder='Time']");
     public static By ClockIcon = By.xpath("//span[@class='anticon anticon-clock-circle']");
     public static By AddressBox = By.xpath("//input[@placeholder='Address']");
     public static By SearchIcon = By.xpath("//span[@class='anticon anticon-search']");
+    public static By WatchAnotherLocationInThisArea = By.xpath("//div[@class='options'][contains(text(),'Watch another location in this area')]");
     public static By ReturnToMainMenu = By.xpath("//div[@class='options returnOption'][contains(text(),'Return to the main menu')]");
     public static By TodayDate = By.xpath("//a[@class='ant-picker-today-btn']");
     public static By PM = By.xpath("//div[@class='ant-picker-time-panel-cell-inner'][contains(text(),'PM')]");
@@ -42,11 +50,11 @@ public class COSA extends BasePage{
     public static By SearchBoxList = By.xpath("//div[@class='isCosa-searchbox-list']");
     public static By FirstSuggestedAddressFromOption = By.xpath("//li[@role='option']");
     public static By SecondSuggestedAddressFromOption = By.xpath("(//li[@role='option'])[2]");
-
     public static By WatchButton = By.xpath("//div[@class='locationWatchButton'][contains(text(),'Watch')]");
     public static By WatchButton2 = By.xpath("(//div[@class='locationWatchButton'][contains(text(),'Watch')])[2]");
     public static By WatchButton3 = By.xpath("(//div[@class='locationWatchButton'][contains(text(),'Watch')])[3]");
     public static By WatchButton4 = By.xpath("(//div[@class='locationWatchButton'][contains(text(),'Watch')])[4]");
+    public static By WatchingButton = By.xpath("//div[@class='locationWatchButton'][contains(text(),'Watching')]");
     public static By SuggestedLocation1 = By.xpath("//div[@class='locationName']");
     public static By SuggestedLocation2 = By.xpath("(//div[@class='locationName'])[2]");
     public static By SuggestedLocation3 = By.xpath("(//div[@class='locationName'])[3]");
@@ -55,6 +63,7 @@ public class COSA extends BasePage{
     public static By AddressOfSuggestedLocation2 = By.xpath("(//div[@class='locationAddress'])[2]");
     public static By AddressOfSuggestedLocation3 = By.xpath("(//div[@class='locationAddress'])[3]");
     public static By AddressOfSuggestedLocation4 = By.xpath("(//div[@class='locationAddress'])[4]");
+    public static By LocationDistance = By.xpath("//div[@class='locationDistance']");
 
 
 
@@ -62,7 +71,7 @@ public class COSA extends BasePage{
 
 
     public void GoToCOSAChatbot() throws InterruptedException {
-        Thread.sleep(1500);
+        Thread.sleep(3500);
         driver.get("https://test-app.chargeonsite.com/customer/cosa");
 
     }
@@ -95,6 +104,10 @@ public class COSA extends BasePage{
         return "Thank You. Here are some locations that might work for you. Please select one to add it to your watchlist.";
     }
 
+    public String COSAReplyForNoNearbyLocations(){
+        return "I am sorry. I couldn't find any suitable locations at the moment. Please check back later for more options.";
+    }
+
 
     public boolean verifyCurrentDateIsShowingInChatAfterSelectingToday(){
         waitforPresence(TodayDate);
@@ -121,6 +134,7 @@ public class COSA extends BasePage{
 
 
     public void clickOnFutureDate() throws InterruptedException {
+        Thread.sleep(1500);
         // Locate and click on the date picker element
         WebElement datePicker = driver.findElement(By.xpath("//div[@class='ant-picker-input']"));
         datePicker.click();
@@ -261,11 +275,11 @@ public class COSA extends BasePage{
 
     }
 
-    public boolean verifyCustomerResponseMessageAfterWatchingALocation() throws InterruptedException {
+    public boolean verifyCustomerResponseMessageAfterWatchingALocation(By SuggestedLoc, By AddressOfLoc, By CustomerMsg) throws InterruptedException {
         Thread.sleep(2500);
-        String LocationName = readText(SuggestedLocation1);
-        String Address = readText(AddressOfSuggestedLocation1);
-        String CustomerMessage = readText(CustomerFifthMessage);
+        String LocationName = readText(SuggestedLoc);
+        String Address = readText(AddressOfLoc);
+        String CustomerMessage = readText(CustomerMsg);
         System.out.println("Customer response after click on watch: "+CustomerMessage);
         String expected = "Keep me in the watchlist on the "+LocationName+", "+Address;
         if (CustomerMessage.equals(expected)){
@@ -280,13 +294,13 @@ public class COSA extends BasePage{
 
     }
 
-    public boolean verifyCOSAResponseAfterAddingALocationToWatchlist() throws InterruptedException {
+    public boolean verifyCOSAResponseAfterAddingALocationToWatchlist(By SuggestedLoc, By AddressOfLoc, By Cosareply) throws InterruptedException {
         Thread.sleep(2500);
-        String LocationName = readText(SuggestedLocation1);
-        String Address = readText(AddressOfSuggestedLocation1);
+        String LocationName = readText(SuggestedLoc);
+        String Address = readText(AddressOfLoc);
         String DateMsg = readText(CustomerSecondMessage).replaceAll("Date: ","");
         System.out.println("Date msg :"+DateMsg);
-        String COSAMessage = readText(COSAThirdReply);
+        String COSAMessage = readText(Cosareply);
         System.out.println("COSA response after click on watch: "+COSAMessage);
         String expected = "I have added "+LocationName+", "+Address+" to your watchlist. I will keep you updated on the availability of this location on "+DateMsg+".";
         System.out.println(expected);
@@ -300,6 +314,89 @@ public class COSA extends BasePage{
         }
 
 
+    }
+
+    public boolean verifyCOSAResponseWhileAddingAlreadyAddedLocationToWatchlist() throws InterruptedException {
+        Thread.sleep(2500);
+        String TimeMsg = readText(CustomerThirdMessage).replaceAll("Time: ","");
+        String DateMsg = readText(CustomerSecondMessage).replaceAll("Date: ","");
+        System.out.println("Date msg :"+DateMsg);
+        String COSAMessage = readText(COSAForthReply);
+        System.out.println("COSA response after click on watching: "+COSAMessage);
+        String expected = "You are already watching this location for "+TimeMsg+", "+DateMsg;
+        System.out.println(expected);
+        if (COSAMessage.equals(expected)){
+            System.out.println("COSA response message is showing correctly");
+            return true;
+        }
+        else {
+            System.out.println("COSA response message is not showing correctly");
+            return false;
+        }
+
+
+    }
+
+    public boolean verifyLocationName() throws InterruptedException {
+        CreateLocation location = new CreateLocation(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        Thread.sleep(1500);
+        waitforPresence(FavoriteLocation.LocationName);
+        String s = readText(FavoriteLocation.LocationName);
+        System.out.println("Location name in COSA: " + s);
+        SwitchToTab(1);
+        location.GoToLocationPage();
+        location.writeINLocationSearchBar(s);
+        operation.ClickButton(EditCompany.searchbtn,1500);
+        waitforPresence(EditLocation.PropertyName1InColumn);
+        String LocationName = readText(EditLocation.LocationName1InColumn);
+        System.out.println("location address in drawer: " + LocationName);
+        if (s.equals(LocationName)) {
+            System.out.println("Location name is showing correctly");
+            return true;
+        } else {
+            System.out.println("Location name is not showing correctly");
+            return false;
+        }
+    }
+
+    public boolean verifyLocationAddress() throws InterruptedException {
+        CreateLocation location = new CreateLocation(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        Thread.sleep(1500);
+        waitforPresence(FavoriteLocation.LocationName);
+        String s = readText(FavoriteLocation.LocationName);
+        String s2 = readText(FavoriteLocation.LocationAddress);
+        System.out.println("Location address: " + s2);
+        SwitchToTab(1);
+        location.GoToLocationPage();
+        location.writeINLocationSearchBar(s);
+        operation.ClickButton(EditCompany.searchbtn,1500);
+        operation.ClickButton(EditLocation.EditButton,1500);
+        waitforPresence(EditLocation.PropertyName1InColumn);
+        String propertyLocationAddress = readText(EditLocation.PropertyAddressInDrawer);
+        System.out.println("location address in drawer: " + propertyLocationAddress);
+        if (s2.equals(propertyLocationAddress)) {
+            System.out.println("Location address is showing correctly");
+            return true;
+        } else {
+            System.out.println("Location address is not showing correctly");
+            return false;
+        }
+    }
+
+    public boolean verifyLocationDistanceSectionIsShowing() throws InterruptedException {
+        Thread.sleep(1500);
+        String s = readText(LocationDistance);
+        if (s.matches("\\d mi")) {
+            System.out.println("Location distance is showing in mile");
+            return true;
+        } else {
+            System.out.println("Location distance is not showing in mile");
+            return false;
+        }
     }
 
 

@@ -33,8 +33,10 @@ public class GuestVerificationPage extends BasePage{
     public static By ChargerRestrictedStatus = By.xpath("//div[@class='chargerUnavailable'][contains(text(),'Restricted')]");
     public static By ChargerDownStatus = By.xpath("//div[@class='chargerUnavailable'][contains(text(),'Down')]");
     public static By ChargerInvalidQRStatus = By.xpath("//div[@class='chargerUnavailable'][contains(text(),'Invalid QR Code')]");
+    public static By LocationName = By.xpath("//div[@class='chargerLocationName mt-10 ml-20']");
     public static By PropertyLocationAddress = By.xpath("//div[@class='chargerLocationAddress mt-10']");
-    public static By FavoriteIcon = By.xpath("//div[@class='heartDiv']");
+    public static By FavoriteIcon = By.xpath("//span[@class='anticon anticon-heart heartOutlined drawerIcon']");
+    public static By FavoriteIconMarked = By.xpath("//span[@class='anticon anticon-heart heartFilled drawerIcon']");
     public static By ShareButton = By.xpath("//div[@class='shareDiv cursor-pointer']");
     public static By CopiedToolTip = By.xpath("//div[@role='tooltip'][contains(text(),'Copied')]");
     public static By GetDirectionText = By.xpath("//div[@class='getDirectionText']");
@@ -54,7 +56,6 @@ public class GuestVerificationPage extends BasePage{
     public static By ChargerFeeBox = By.xpath("//div[@class='chargerFeeBox']");
     public static By MaxChargingRate = By.xpath("//div[@class='feeHeading']");
     public static By MaxChargingRateHeading = By.xpath("//div[@class='feeSubheading']");
-
     public static By FeeToInitiate = By.xpath("(//div[@class='feeHeading'])[2]");
     public static By FeeToInitiateHeading = By.xpath("(//div[@class='feeSubheading'])[2]");
     public static By FeePerKwh = By.xpath("(//div[@class='feeHeading'])[3]");

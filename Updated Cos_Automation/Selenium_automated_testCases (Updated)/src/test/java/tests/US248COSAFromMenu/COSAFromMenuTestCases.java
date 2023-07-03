@@ -1,4 +1,4 @@
-package tests.COSAFromMenu;
+package tests.US248COSAFromMenu;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -12,14 +12,30 @@ public class COSAFromMenuTestCases extends BaseTest {
     Properties prop = ConfigUtill.getConfig();
 
 
-
     @Test(priority = 1)
+    @TestParameters(testCaseId = {"TC-0"})
+    public void TC_0_PreConditionLoginToCOSAdmin() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateLocation createLocation=new CreateLocation(driver);
+        createLocation.NewTabOpenAndSwitchToNewTab(1);
+        Thread.sleep(2500);
+        loginPage.VerifyValidLogin();
+        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickonLocations());
+
+
+    }
+
+    @Test(priority = 2)
     @TestParameters(testCaseId = {"TC-1"})
     public void TC_1_CheckCOSAInMenu() throws InterruptedException {
         MapDetails mapDetails =new MapDetails(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
         CreateCharger operation = new CreateCharger(driver);
         Dashboard dashboard = new Dashboard(driver);
+        customerLogin.SwitchToTab(0);
         customerLogin.GoToCustomerLoginPage();
         customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         operation.ClickButton(CustomerSupport.Menu,2000);
@@ -30,7 +46,7 @@ public class COSAFromMenuTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 2)
+    @Test(priority = 3)
     @TestParameters(testCaseId = {"TC-6,20"})
     public void TC_6_20_CheckAfterClickingCOSAButtonFromMenu() throws InterruptedException {
         MapDetails mapDetails =new MapDetails(driver);
@@ -51,7 +67,7 @@ public class COSAFromMenuTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 3)
+    @Test(priority = 4)
     @TestParameters(testCaseId = {"TC-7"})
     public void TC_7_CheckFirstMsgFromCOSA() throws InterruptedException {
         MapDetails mapDetails =new MapDetails(driver);
@@ -70,7 +86,7 @@ public class COSAFromMenuTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 4)
+    @Test(priority = 5)
     @TestParameters(testCaseId = {"TC-8"})
     public void TC_8_CheckAllTheMsgBoxInChatBot() throws InterruptedException {
         MapDetails mapDetails =new MapDetails(driver);
@@ -92,7 +108,7 @@ public class COSAFromMenuTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 5)
+    @Test(priority = 6)
     @TestParameters(testCaseId = {"TC-13"})
     public void TC_13_CheckCOSALogoAboveAllBoxes() throws InterruptedException {
         MapDetails mapDetails =new MapDetails(driver);
@@ -112,7 +128,7 @@ public class COSAFromMenuTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 6)
+    @Test(priority = 7)
     @TestParameters(testCaseId = {"TC-21"})
     public void TC_21_CheckLoggedOutUserCanAccessCOSA() throws InterruptedException {
         MapDetails mapDetails =new MapDetails(driver);
@@ -459,8 +475,8 @@ public class COSAFromMenuTestCases extends BaseTest {
     }
 
     @Test(priority = 22)
-    @TestParameters(testCaseId = {"TC-36.2"})
-    public void TC_36_2_CheckSuggestedNearbyLocationCount() throws InterruptedException {
+    @TestParameters(testCaseId = {"TC-40"})
+    public void TC_40_CheckSuggestedNearbyLocations() throws InterruptedException {
         MapDetails mapDetails =new MapDetails(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
         CreateCharger operation = new CreateCharger(driver);
@@ -500,7 +516,7 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.selectTime("07");
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
         operation.ClickButton(COSA.WatchButton,2000);
-        Assert.assertTrue(cosa.verifyCustomerResponseMessageAfterWatchingALocation());
+        Assert.assertTrue(cosa.verifyCustomerResponseMessageAfterWatchingALocation(COSA.SuggestedLocation1,COSA.AddressOfSuggestedLocation1,COSA.CustomerFifthMessage));
 
 
 
@@ -523,15 +539,15 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.selectTime("03");
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
         operation.ClickButton(COSA.WatchButton,2000);
-        Assert.assertTrue(cosa.verifyCOSAResponseAfterAddingALocationToWatchlist());
+        Assert.assertTrue(cosa.verifyCOSAResponseAfterAddingALocationToWatchlist(COSA.SuggestedLocation1,COSA.AddressOfSuggestedLocation1,COSA.COSAThirdReply));
 
 
 
     }
 
     @Test(priority = 25)
-    @TestParameters(testCaseId = {"TC-43"})
-    public void TC_43_CheckWatchButtonINSuggestedNearbyLocations() throws InterruptedException {
+    @TestParameters(testCaseId = {"TC-45"})
+    public void TC_45_CheckWatchButtonINSuggestedNearbyLocations() throws InterruptedException {
         MapDetails mapDetails =new MapDetails(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
         CreateCharger operation = new CreateCharger(driver);
@@ -553,6 +569,234 @@ public class COSAFromMenuTestCases extends BaseTest {
 
 
     }
+
+    @Test(priority = 26)
+    @TestParameters(testCaseId = {"TC-47"})
+    public void TC_47_CheckWhenUserClicksOnTheWatchButtonFromTheLocationList() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        cosa.GoToCOSAChatbot();
+//        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        cosa.clickOnFutureDate();
+        cosa.selectTime("12");
+        cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
+        operation.ClickButton(COSA.WatchButton,2000);
+        Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1000,COSA.WatchingButton));
+
+
+
+    }
+
+    @Test(priority = 27)
+    @TestParameters(testCaseId = {"TC-46"})
+    public void TC_46_CheckWhenNoNearbyLocationFoundBesideTheUsersArea() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        cosa.GoToCOSAChatbot();
+//        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        cosa.clickOnFutureDate();
+        cosa.selectTime("01");
+        cosa.selectLocationFromAddressField("Buenos Aires, Argentina");
+        Assert.assertTrue(cosa.verifyTextMatching(3000,COSA.COSASecondReply, cosa.COSAReplyForNoNearbyLocations()));
+
+
+
+    }
+
+    @Test(priority = 28)
+    @TestParameters(testCaseId = {"TC-42"})
+    public void TC_42_CheckLocationName() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        cosa.GoToCOSAChatbot();
+//        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        cosa.clickOnFutureDate();
+        cosa.selectTime("04");
+        cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
+        Assert.assertTrue(cosa.verifyLocationName());
+
+
+
+    }
+
+    @Test(priority = 28)
+    @TestParameters(testCaseId = {"TC-43"})
+    public void TC_43_CheckLocationAddress() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        cosa.SwitchToTab(0);
+        cosa.GoToCOSAChatbot();
+//        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        cosa.clickOnFutureDate();
+        cosa.selectTime("04");
+        cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
+        Assert.assertTrue(cosa.verifyLocationAddress());
+
+
+
+    }
+
+    @Test(priority = 29)
+    @TestParameters(testCaseId = {"TC-44"})
+    public void TC_44_CheckLocationDistanceIsShowingInMile() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        cosa.SwitchToTab(0);
+        cosa.GoToCOSAChatbot();
+//        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        cosa.clickOnFutureDate();
+        cosa.selectTime("04");
+        cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
+        Assert.assertTrue(cosa.verifyLocationDistanceSectionIsShowing());
+
+
+
+    }
+
+
+
+
+
+    @Test(priority = 48)
+    @TestParameters(testCaseId = {"TC-62"})
+    public void TC_62_CheckTheOptionsInCOSAAfterAddingTheLocationsToWatchlist() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+        cosa.SwitchToTab(0);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        cosa.GoToCOSAChatbot();
+//        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        cosa.clickOnFutureDate();
+        cosa.selectTime("05");
+        cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
+        operation.ClickButton(COSA.WatchButton,2000);
+        Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(2000,COSA.WatchAnotherLocationInThisArea));
+        Assert.assertTrue(cosa.verifyTextMatching(2000,COSA.ShowMeWatchList,"Show me the locations I am watching"));
+        Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(2000,COSA.ReturnToMainMenu));
+
+
+
+    }
+
+
+    @Test(priority = 50)
+    @TestParameters(testCaseId = {"TC-64,65"})
+    public void TC_64_65_CheckWhatHappenedWhenUserTriesToAddTheSameLocationTwice() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        cosa.GoToCOSAChatbot();
+//        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        cosa.clickOnFutureDate();
+        cosa.selectTime("02");
+        cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
+        operation.ClickButton(COSA.WatchButton,2000);
+        operation.ClickButton(COSA.WatchingButton,2000);
+        Assert.assertTrue(cosa.verifyCOSAResponseWhileAddingAlreadyAddedLocationToWatchlist());
+
+
+
+    }
+
+    @Test(priority = 55)
+    @TestParameters(testCaseId = {"TC-68"})
+    public void TC_68_CheckWhenUserTriesToAddDifferentLocationAtASameTime() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        cosa.GoToCOSAChatbot();
+//        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        cosa.clickOnFutureDate();
+        cosa.selectTime("06");
+        cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
+        operation.ClickButton(COSA.WatchButton,2000);
+        operation.ClickButton(COSA.WatchButton2,2000);
+        operation.ClickButton(COSA.WatchButton3,2000);
+        Assert.assertTrue(cosa.verifyCustomerResponseMessageAfterWatchingALocation(COSA.SuggestedLocation1,COSA.AddressOfSuggestedLocation1,COSA.CustomerFifthMessage));
+        Assert.assertTrue(cosa.verifyCOSAResponseAfterAddingALocationToWatchlist(COSA.SuggestedLocation1,COSA.AddressOfSuggestedLocation1,COSA.COSAThirdReply));
+        Assert.assertTrue(cosa.verifyCustomerResponseMessageAfterWatchingALocation(COSA.SuggestedLocation2,COSA.AddressOfSuggestedLocation2,COSA.CustomerSixthMessage));
+        Assert.assertTrue(cosa.verifyCOSAResponseAfterAddingALocationToWatchlist(COSA.SuggestedLocation2,COSA.AddressOfSuggestedLocation2,COSA.COSAForthReply));
+        Assert.assertTrue(cosa.verifyCustomerResponseMessageAfterWatchingALocation(COSA.SuggestedLocation3,COSA.AddressOfSuggestedLocation3,COSA.CustomerSeventhMessage));
+        Assert.assertTrue(cosa.verifyCOSAResponseAfterAddingALocationToWatchlist(COSA.SuggestedLocation3,COSA.AddressOfSuggestedLocation3,COSA.COSAFifthReply));
+
+
+    }
+
+
+    @Test(priority = 60)
+    @TestParameters(testCaseId = {"TC-77,78"})
+    public void TC_77_78_CheckWhatHappensAfterClickOnReturnToMainMenu() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        cosa.GoToCOSAChatbot();
+//        dashboard.RefreshBrowser();
+        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        cosa.clickOnFutureDate();
+        cosa.selectTime("01");
+        cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
+        operation.ClickButton(COSA.WatchButton,2000);
+        operation.ClickButton(COSA.ReturnToMainMenu,2000);
+        Assert.assertTrue(cosa.verifyTextMatching(2000,COSA.COSAFirstMsg,cosa.COSFirstMsgForTester()));
+        Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(2000,COSA.KeepAnEyeOnSomeLocations));
+        Assert.assertTrue(cosa.verifyTextMatching(1000,COSA.ShowMeWatchList,"Show me the locations I am watching"));
+        Assert.assertTrue(cosa.verifyTextMatching(1000,COSA.ReportAProblem,"Report a problem"));
+        Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1000,COSA.HowDoIUseCharger));
+        Assert.assertTrue(cosa.verifyElementNotDisplayed(1000,COSA.CustomerFirstMessage));
+        Assert.assertTrue(cosa.verifyElementNotDisplayed(1000,COSA.CustomerSecondMessage));
+        Assert.assertTrue(cosa.verifyElementNotDisplayed(1000,COSA.COSAFirstReply));
+
+    }
+
 
 
 
