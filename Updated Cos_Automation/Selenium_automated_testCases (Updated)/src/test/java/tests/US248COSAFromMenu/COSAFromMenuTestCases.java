@@ -80,7 +80,7 @@ public class COSAFromMenuTestCases extends BaseTest {
         dashboard.RefreshBrowser();
 //        operation.ClickButton(CustomerSupport.Menu,2000);
 //        operation.ClickButton(CustomerMenu.COSAFromMenu,2000);
-        Assert.assertTrue(cosa.verifyTextMatching(2000,COSA.COSAFirstMsg,cosa.COSFirstMsgForTester()));
+        Assert.assertTrue(cosa.verifyTextMatching(2000,COSA.COSAFirstMsg,cosa.COSAFirstMsgForTester()));
 
 
 
@@ -786,7 +786,7 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
         operation.ClickButton(COSA.WatchButton,2000);
         operation.ClickButton(COSA.ReturnToMainMenu,2000);
-        Assert.assertTrue(cosa.verifyTextMatching(2000,COSA.COSAFirstMsg,cosa.COSFirstMsgForTester()));
+        Assert.assertTrue(cosa.verifyTextMatching(2000,COSA.COSAFirstMsg,cosa.COSAFirstMsgForTester()));
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(2000,COSA.KeepAnEyeOnSomeLocations));
         Assert.assertTrue(cosa.verifyTextMatching(1000,COSA.ShowMeWatchList,"Show me the locations I am watching"));
         Assert.assertTrue(cosa.verifyTextMatching(1000,COSA.ReportAProblem,"Report a problem"));

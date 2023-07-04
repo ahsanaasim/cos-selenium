@@ -261,7 +261,7 @@ public class FavoriteLocation extends BasePage{
         int count = Integer.parseInt(LCount);
         System.out.println("Location count before unselecting fav icon: "+count);
         click(FavoriteLocationIcon1InList);
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         waitforPresence(LocationName);
         String LCountAfter = driver.findElement(FavoriteLocationsTitle).getText().replaceAll("[^0-9]","");
         int count2 = Integer.parseInt(LCountAfter);

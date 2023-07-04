@@ -18,14 +18,14 @@ public class GuestFlow extends BasePage {
 
     RandomData rdata = new RandomData();
 
-    public static By PhoneNoField = By.xpath("(//input[@class='form-control '])[2]");
+    public static By PhoneNoField = By.xpath("//input[@class='form-control ']");
     public static By PhoneNoFieldAfterRefresh = By.xpath("//input[@class='form-control ']");
     public static By ChangePhoneNumber = By.xpath("//span[@class='cursor']");
     public static By ChangePhoneNumberTab2 = By.xpath("(//span[@class='cursor'])[2]");
     public static By NumberVerifiedPageTitle = By.xpath("(//div[@class='pageTitle'][normalize-space()='Thanks for Verifying'])[2]");
     public static By PageTitleBrokenCharger = By.xpath("(//div[@class='pageTitle'][normalize-space()='We are sorry!'])[2]");
     public static By invalidPhnNumErrMsg = By.xpath("//div[@class='ant-form-item-explain-error']");
-    public static By ContinueGuestBtn = By.xpath("//div[@class='ant-col ant-col-16']//div//div//form[@id='basic']//div//button[@type='submit']");
+    public static By ContinueGuestBtn = By.xpath("//button[@class='ant-btn ant-btn-default ant-btn-block phoneButton']");
     public static By CountryFlagWithCode = By.xpath("(//div[@class='selected-flag'])[2]");
     public static By ResendButton = By.xpath("//div[@class='underline cursor']");
     public static By ResendButton2 = By.xpath("(//div[@class='underline cursor'])[2]");
@@ -130,6 +130,11 @@ public class GuestFlow extends BasePage {
         selectitem.sendKeys(Keys.ENTER);
         return true;
 
+    }
+
+    public void ScanQROFSeleniumCharger() throws InterruptedException {
+        Thread.sleep(2500);
+        GoToWebsite("https://test-app.chargeonsite.com/charger/byjUql");
     }
 
 

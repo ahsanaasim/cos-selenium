@@ -281,6 +281,27 @@ public class FavoriteLocationTestCases extends BaseTest {
 
     }
 
+    @Test(priority = 16)
+    @TestParameters(testCaseId = {"TC-21"})
+    public void TC_21_CheckFavIconIsMarkedInLocationDetails() throws InterruptedException {
+        CustomerLogin login = new CustomerLogin(driver);
+        CreateCharger operation =new CreateCharger(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
+        MapDetails mapDetails = new MapDetails(driver);
+        Dashboard dashboard = new Dashboard(driver);
+//        login.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+//        operation.ClickButton(CustomerLogin.Menu,2000);
+//        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
+        favoriteLocation.GoToFavoriteLocationPage();
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+        operation.ClickButton(FavoriteLocation.SeeInMap,2000);
+        Assert.assertTrue(mapDetails.verifySystemIsRedirectingToMapPage());
+        Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,MapDetails.FavoriteIconMarked));
+
+    }
+
     @Test(priority = 21)
     @TestParameters(testCaseId = {"TC-22,24"})
     public void TC_22_24_CheckLocationIsRemovedFromTheListAfterUnselecting() throws InterruptedException {
@@ -422,8 +443,8 @@ public class FavoriteLocationTestCases extends BaseTest {
 
 
     @Test(priority = 45)
-    @TestParameters(testCaseId = {"TC-45"})
-    public void TC_45_CheckFavoriteLocationCountAfterAddingFromChargerDetails() throws InterruptedException {
+    @TestParameters(testCaseId = {"TC-37"})
+    public void TC_37_CheckFavoriteLocationCountAfterAddingFromChargerDetails() throws InterruptedException {
         CustomerLogin login = new CustomerLogin(driver);
         CreateCharger operation =new CreateCharger(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
@@ -442,8 +463,8 @@ public class FavoriteLocationTestCases extends BaseTest {
     }
 
     @Test(priority = 46)
-    @TestParameters(testCaseId = {"TC-46"})
-    public void TC_46_CheckNewlyAddedLocationAsFavoritesFromChargerDetails() throws InterruptedException {
+    @TestParameters(testCaseId = {"TC-38"})
+    public void TC_38_CheckNewlyAddedLocationAsFavoritesFromChargerDetails() throws InterruptedException {
         CustomerLogin login = new CustomerLogin(driver);
         CreateCharger operation =new CreateCharger(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);

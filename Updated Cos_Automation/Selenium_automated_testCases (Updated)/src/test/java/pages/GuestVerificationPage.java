@@ -49,7 +49,7 @@ public class GuestVerificationPage extends BasePage{
     public static By IdleFee = By.xpath("//div[@class='idleFeeText flex items-center']");
     public static By NearbyLocation = By.xpath("//div[@class='nearbyChargersText'][contains(text(),'Nearby Locations')]");
     public static By NearbyLocationTab = By.xpath("//div[@class='ant-menu-submenu-title']");
-    public static By AssistMeButton = By.xpath("//button[@class='ant-btn ant-btn-default assistButton']");
+    public static By AskCosaButton = By.xpath("//button[@class='ant-btn ant-btn-default assistButton']");
     public static By StatChargingButton = By.xpath("//button[@class='ant-btn ant-btn-default chargingButton']");
     public static By PhoneNumberRequiredErrorMsg = By.xpath("//div[@class='ant-form-item-explain-error'][contains(text(),'Phone number is required')]");
     public static By InvalidNumberErrorMsg = By.xpath("//div[@class='ant-form-item-explain-error'][contains(text(),'Please provide a valid phone number')]");

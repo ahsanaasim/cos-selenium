@@ -24,6 +24,7 @@ public class COSA extends BasePage{
     public static By COSASixthReply = By.xpath("(//div[@class='cosaBubble'])[7]");
     public static By COSASeventhReply = By.xpath("(//div[@class='cosaBubble'])[8]");
     public static By KeepAnEyeOnSomeLocations = By.xpath("//div[@class='options'][contains(text(),'Keep an eye on some locations')]");
+    public static By KeepAnEyeOnThisLocation = By.xpath("//div[@class='options'][contains(text(),'Keep an eye on this location')]");
     public static By ShowMeWatchList = By.xpath("//a[@href='/customer/cosa/watchlist']");
     public static By ReportAProblem = By.xpath("//a[@href='/customer/customer-support/create-ticket']");
     public static By HowDoIUseCharger = By.xpath("//a[@href='https://support.chargeonsite.com'][contains(text(),'How do I use a charger?')]");
@@ -76,6 +77,18 @@ public class COSA extends BasePage{
 
     }
 
+    public void GoToCOSAWithD10LocationID() throws InterruptedException {
+        Thread.sleep(3500);
+        driver.get("https://test-app.chargeonsite.com/customer/cosa/de085847-54de-4734-b108-426c7d61f8f4");
+
+    }
+
+    public void ScanRawLocationCharger() throws InterruptedException {
+        Thread.sleep(3500);
+        GoToWebsite("https://test-app.chargeonsite.com/charger/8RZGZQ");
+
+    }
+
     public boolean CurrentPageURLCheck(String expected) throws InterruptedException {
         Thread.sleep(3000);
         wait.until(ExpectedConditions.urlToBe(expected));
@@ -92,9 +105,47 @@ public class COSA extends BasePage{
 
     }
 
-    public String COSFirstMsgForTester(){
+    public boolean URLCheckAfterMovingToCOSAFromLocationDetails() throws InterruptedException {
+        Thread.sleep(3000);
+        String expectedURL = "https://test-app.chargeonsite.com/customer/cosa/"+D10LocationId();
+        wait.until(ExpectedConditions.urlToBe(expectedURL));
+        String currentUrl = driver.getCurrentUrl();
+        if (currentUrl.equals(expectedURL)){
+            System.out.println("Navigating to COSA Chatbot page from location details page");
+            return true;
+        }
+        else {
+            System.out.println("System is not navigating to COSA Chatbot page");
+            return false;
+        }
+
+    }
+
+    public boolean URLCheckAfterMovingToCOSAFromSessionDetails() throws InterruptedException {
+        Thread.sleep(3000);
+        String expectedURL = "https://test-app.chargeonsite.com/customer/cosa/"+D10LocationId();
+        wait.until(ExpectedConditions.urlToBe(expectedURL));
+        String currentUrl = driver.getCurrentUrl();
+        if (currentUrl.equals(expectedURL)){
+            System.out.println("Navigating to COSA Chatbot page from location details page");
+            return true;
+        }
+        else {
+            System.out.println("System is not navigating to COSA Chatbot page");
+            return false;
+        }
+
+    }
+
+    public String COSAFirstMsgForTester(){
         return "Hi Tester, I am COSA, your EV Assistant. How can I help you today?";
     }
+
+    public String COSAFirstMsgForLM10(){
+        return "Hi LM, I am COSA, your EV Assistant. How can I help you today?";
+    }
+
+
 
     public String COSFResponseAfterClickingKeepOnEyeSomeLocations(){
         return "Sure Tester, Please give me an address near where you would like to charge and a date and time, and I will locate options for you.";
@@ -106,6 +157,10 @@ public class COSA extends BasePage{
 
     public String COSAReplyForNoNearbyLocations(){
         return "I am sorry. I couldn't find any suitable locations at the moment. Please check back later for more options.";
+    }
+
+    public String D10LocationId(){
+        return "de085847-54de-4734-b108-426c7d61f8f4";
     }
 
 

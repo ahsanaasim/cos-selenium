@@ -266,7 +266,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
-        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(500,GuestVerificationPage.AssistMeButton));
+        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(500,GuestVerificationPage.AskCosaButton));
 
     }
 
@@ -892,8 +892,8 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
-        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(500,GuestVerificationPage.AssistMeButton));
-        Assert.assertTrue(guestVerificationPage.verifyAFieldIsEnable(500,GuestVerificationPage.AssistMeButton));
+        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(500,GuestVerificationPage.AskCosaButton));
+        Assert.assertTrue(guestVerificationPage.verifyAFieldIsEnable(500,GuestVerificationPage.AskCosaButton));
 
     }
 
@@ -1255,9 +1255,9 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         Assert.assertTrue(guestVerificationPage.verifyElementNotDisplayed(2000,GuestVerificationPage.PhoneNumberField));
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(2000,CustomerLogin.Menu));
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(2000,GuestVerificationPage.StatChargingButton));
-        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(2000,GuestVerificationPage.AssistMeButton));
+        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(2000,GuestVerificationPage.AskCosaButton));
         Assert.assertTrue(guestVerificationPage.verifyAFieldIsEnable(2000,GuestVerificationPage.StatChargingButton));
-        Assert.assertTrue(guestVerificationPage.verifyAFieldIsEnable(2000,GuestVerificationPage.AssistMeButton));
+        Assert.assertTrue(guestVerificationPage.verifyAFieldIsEnable(2000,GuestVerificationPage.AskCosaButton));
 
     }
 

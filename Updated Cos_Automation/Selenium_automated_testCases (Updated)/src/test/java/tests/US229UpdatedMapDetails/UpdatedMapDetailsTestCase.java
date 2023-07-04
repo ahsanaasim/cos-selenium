@@ -196,7 +196,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         mapDetails.GoToD10LocationInMapDetails();
 //        dashboard.RefreshBrowser();
-        Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,MapDetails.AssistMeButton));
+        Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,MapDetails.AskCOSAButton));
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,MapDetails.ScanNow));
 
 
@@ -293,7 +293,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,MapDetails.GetDirection));
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,MapDetails.NoChargersAvailable));
         Assert.assertTrue(mapDetails.verifyTextMatching(1000,MapDetails.RestrictedLocationAlertMsg,mapDetails.RestrictedLocationMessage()));
-        Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(500,MapDetails.AssistMeButton));
+        Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(500,MapDetails.AskCOSAButton));
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(500,MapDetails.ChargerRestrictedButton));
         Assert.assertTrue(mapDetails.verifyElementNotDisplayed(500,MapDetails.PlugType));
 

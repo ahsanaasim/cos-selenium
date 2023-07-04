@@ -26,7 +26,7 @@ public class MapDetails extends BasePage{
     public static By ChargersDetailsTitle = By.xpath("//div[@class='ant-drawer-title'][contains(text(),'Chargers Details')]");
     public static By CloseButton = By.xpath("(//span[@class='anticon anticon-close'])[3]");
     public static By GetDirection = By.xpath("//img[@src='/map/direction.svg']");
-    public static By AssistMeButton = By.xpath("//button[@class='ant-btn ant-btn-default assist-me-btn pt-5 pb-5']");
+    public static By AskCOSAButton = By.xpath("//button[@class='ant-btn ant-btn-default assist-me-btn pt-5 pb-5']");
     public static By ScanNow = By.xpath("//button[@class='ant-btn ant-btn-default scan-now-btn pt-5 pb-5']");
     public static By ChargerRestrictedButton = By.xpath("//button[@class='ant-btn ant-btn-default charger-restricted-btn pt-5 pb-5']");
     public static By NoChargersAvailable = By.xpath("//div[@class='plugUnavailable'][contains(text(),'No chargers available')]");
@@ -109,6 +109,7 @@ public class MapDetails extends BasePage{
         driver.get("https://test-app.chargeonsite.com/customer/map?latitude=23.75840847262525&longitude=90.4292787187873&locationMarkerId=de085847-54de-4734-b108-426c7d61f8f4");
 
     }
+
 
     //LocationWithNoAvailableChargersAndRestricted
     public void GoToShantaHoldingsLocationInMapDetails() throws InterruptedException {
