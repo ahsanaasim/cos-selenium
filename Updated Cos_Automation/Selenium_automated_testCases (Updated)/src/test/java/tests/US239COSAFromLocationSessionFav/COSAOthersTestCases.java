@@ -8,6 +8,8 @@ import tests.US1AdminLogin.TestParameters;
 
 import java.util.Properties;
 
+//In TC-68, Check The Location id from console that it is showing correctly
+
 public class COSAOthersTestCases extends BaseTest {
 
     Properties prop = ConfigUtill.getConfig();
@@ -143,7 +145,6 @@ public class COSAOthersTestCases extends BaseTest {
         Assert.assertTrue(mapDetails.verifyTextMatching(2000,COSA.COSAFirstMsg,cosa.COSAFirstMsgForLM10()));
 
 
-
     }
 
     @Test(priority = 8)
@@ -229,10 +230,30 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
 //        fav.ScanChargerOFElectricChargerLocation();
         customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"), "EitaiPassword@10");
+        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         fav.ScanChargerOFEBotsfordAvenue62659569Location();
         operation.ClickButton(GuestVerificationPage.AskCosaButton,2000);
-        Assert.assertTrue(mapDetails.verifyTextMatching(2000,COSA.COSAFirstMsg,cosa.COSAFirstMsgForLM10()));
+        Assert.assertTrue(mapDetails.verifyTextMatching(2000,COSA.COSAFirstMsg,cosa.COSAFirstMsgForTester()));
+
+
+
+    }
+
+
+    @Test(priority = 12)
+    @TestParameters(testCaseId = {"TC-40"})
+    public void TC_40_CheckWhenCustomerClickOnTheAskCOSAButtonFromSessionDetailsPage() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        FavoriteLocation fav = new FavoriteLocation(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.SwitchToTab(0);
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+//        fav.ScanChargerOFElectricChargerLocation();
+        fav.ScanChargerOFEBotsfordAvenue62659569Location();
+        operation.ClickButton(GuestVerificationPage.AskCosaButton,2000);
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,COSA.KeepAnEyeOnThisLocation));
         Assert.assertTrue(cosa.verifyTextMatching(500,COSA.ShowMeWatchList,"Show me the locations I am watching"));
         Assert.assertTrue(cosa.verifyTextMatching(500,COSA.ReportAProblem,"Report a problem"));
@@ -241,11 +262,8 @@ public class COSAOthersTestCases extends BaseTest {
 
 
 
-
-
     }
-
-    @Test(priority = 11)
+    @Test(priority = 13)
     @TestParameters(testCaseId = {"TC-36"})
     public void TC_36_CheckIfGuestClicksOnTheAskCosaButtonAsAGuest() throws InterruptedException {
         MapDetails mapDetails =new MapDetails(driver);
@@ -262,38 +280,39 @@ public class COSAOthersTestCases extends BaseTest {
         guestFlow.ScanQROFSeleniumCharger();
         operation.ClickButton(GuestVerificationPage.AskCosaButton,2000);
         Assert.assertTrue(cosa.CurrentPageURLCheck("https://test-app.chargeonsite.com/customer/login"));
+        Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1000,CustomerLogin.SignUpLink));
 
 
 
 
     }
 
-    @Test(priority = 11)
-    @TestParameters(testCaseId = {"TC-37"})
-    public void TC_37_CheckGuestIsRedirectingToCosaAfterLoginWhenGuestClicksOnTheAskCosaButtonAsAGuest() throws InterruptedException {
-        MapDetails mapDetails =new MapDetails(driver);
-        CustomerLogin customerLogin = new CustomerLogin(driver);
-        CreateCharger operation = new CreateCharger(driver);
-        Dashboard dashboard = new Dashboard(driver);
-        FavoriteLocation fav = new FavoriteLocation(driver);
-        COSA cosa = new COSA(driver);
-        GuestFlow guestFlow = new GuestFlow(driver);
-//        customerLogin.SwitchToTab(0);
-//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
-//        fav.ScanChargerOFElectricChargerLocation();
-        guestFlow.ScanQROFSeleniumCharger();
-        operation.ClickButton(GuestVerificationPage.AskCosaButton,2000);
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"), "EitaiPassword10");
-        Assert.assertTrue(cosa.CurrentPageURLCheck("https://test-app.chargeonsite.com/customer/login"));
+//    @Test(priority = 11)
+//    @TestParameters(testCaseId = {"TC-37"})
+//    public void TC_37_CheckGuestIsRedirectingToCosaAfterLoginWhenGuestClicksOnTheAskCosaButtonAsAGuest() throws InterruptedException {
+//        MapDetails mapDetails =new MapDetails(driver);
+//        CustomerLogin customerLogin = new CustomerLogin(driver);
+//        CreateCharger operation = new CreateCharger(driver);
+//        Dashboard dashboard = new Dashboard(driver);
+//        FavoriteLocation fav = new FavoriteLocation(driver);
+//        COSA cosa = new COSA(driver);
+//        GuestFlow guestFlow = new GuestFlow(driver);
+////        customerLogin.SwitchToTab(0);
+////        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+////        fav.ScanChargerOFElectricChargerLocation();
+//        guestFlow.ScanQROFSeleniumCharger();
+//        operation.ClickButton(GuestVerificationPage.AskCosaButton,2000);
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"), "EitaiPassword10");
+//        Assert.assertTrue(cosa.CurrentPageURLCheck("https://test-app.chargeonsite.com/customer/login"));
+//
+//
+//
+//
+//
+//
+//    }
 
-
-
-
-
-
-    }
-
-    @Test(priority = 12)
+    @Test(priority = 16)
     @TestParameters(testCaseId = {"TC-52"})
     public void TC_52_CheckURLWhenCustomerComingToCosaPageFromSessionPage() throws InterruptedException {
         MapDetails mapDetails =new MapDetails(driver);
@@ -304,19 +323,278 @@ public class COSAOthersTestCases extends BaseTest {
         COSA cosa = new COSA(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
 //        customerLogin.SwitchToTab(0);
-//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
-//        fav.ScanChargerOFElectricChargerLocation();
+//        customerLogin.GoToCustomerLoginPage();
+        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+        fav.ScanChargerOFElectricChargerLocation();
         cosa.ScanRawLocationCharger();
         operation.ClickButton(GuestVerificationPage.AskCosaButton,2000);
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"), "EitaiPassword@10");
+        Assert.assertTrue(cosa.CurrentPageURLCheck("https://test-app.chargeonsite.com/customer/cosa/58e27a8d-9215-4b10-a579-815e124fbf92"));
+
+
+    }
+
+    @Test(priority = 17)
+    @TestParameters(testCaseId = {"TC-53"})
+    public void TC_53_CheckIfALoggedOutUserTriesToAccessCosaPageByCopingTheUrl() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        FavoriteLocation fav = new FavoriteLocation(driver);
+        COSA cosa = new COSA(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+//        customerLogin.SwitchToTab(0);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+        customerLogin.LogoutFromCustomerAccount();
+        cosa.GoToCOSAWithRawLocationID();
         Assert.assertTrue(cosa.CurrentPageURLCheck("https://test-app.chargeonsite.com/customer/login"));
 
 
+    }
+
+    @Test(priority = 18)
+    @TestParameters(testCaseId = {"TC-54,55"})
+    public void TC_54_55_CheckWhenCustomerClickOnAddToWatchlistFromFavoritesPage() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        FavoriteLocation fav = new FavoriteLocation(driver);
+        COSA cosa = new COSA(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+//        customerLogin.SwitchToTab(0);
+        customerLogin.GoToCustomerLoginPage();
+        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+        fav.GoToFavoriteLocationPage();
+        operation.ClickButton(FavoriteLocation.AddToWatchListButton1,2000);
+        Assert.assertTrue(mapDetails.verifyTextMatching(2000,COSA.COSAFirstMsg,cosa.COSAFirstMsgForTester()));
+
+
+    }
+
+    @Test(priority = 19)
+    @TestParameters(testCaseId = {"TC-56"})
+    public void TC_56_CheckAllExpectedBoxWhenCustomerClickOnAddToWatchlistFromFavoritesPage() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        FavoriteLocation fav = new FavoriteLocation(driver);
+        COSA cosa = new COSA(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+        fav.GoToFavoriteLocationPage();
+        operation.ClickButton(FavoriteLocation.AddToWatchListButton1,2000);
+        Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,COSA.KeepAnEyeOnThisLocation));
+        Assert.assertTrue(cosa.verifyTextMatching(500,COSA.ShowMeWatchList,"Show me the locations I am watching"));
+        Assert.assertTrue(cosa.verifyTextMatching(500,COSA.ReportAProblem,"Report a problem"));
+        Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(500,COSA.HowDoIUseCharger));
+        Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(500,COSA.COSALOGOInChatBot));
+
+
+
+    }
+
+    @Test(priority = 22)
+    @TestParameters(testCaseId = {"TC-68"})
+    public void TC_68_CheckAllExpectedBoxWhenCustomerClickOnAddToWatchlistFromFavoritesPage() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        FavoriteLocation fav = new FavoriteLocation(driver);
+        COSA cosa = new COSA(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+        fav.GoToFavoriteLocationPage();
+        operation.ClickButton(FavoriteLocation.AddToWatchListButton1,2000);
+        Assert.assertTrue(cosa.verifyCosaPageUrlWhenMovingFromFavorites());
+
+
+
+    }
+
+    @Test(priority = 24)
+    @TestParameters(testCaseId = {"TC-70"})
+    public void TC_70_CheckWhenCustomerClicksOnkeepOnEyeOnThisLocationFromTheChatbox() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        FavoriteLocation fav = new FavoriteLocation(driver);
+        COSA cosa = new COSA(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+        mapDetails.GoToD10LocationInMapDetails();
+        operation.ClickButton(MapDetails.AskCOSAButton,2000);
+        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        Assert.assertTrue(cosa.verifyTextMatching(2000,COSA.CustomerFirstMessage,"Keep an eye on this location"));
+
+
+
+    }
+
+    @Test(priority = 25)
+    @TestParameters(testCaseId = {"TC-71"})
+    public void TC_71_CheckCOSAResponseWhenKeepOnEyeOnThisLocationClickedMovingFromLocationDetails() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        FavoriteLocation fav = new FavoriteLocation(driver);
+        COSA cosa = new COSA(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+        mapDetails.GoToD10LocationInMapDetails();
+        operation.ClickButton(MapDetails.AskCOSAButton,2000);
+        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        Assert.assertTrue(cosa.verifyTextMatching(2500,COSA.COSAFirstReply,cosa.COSAMsgForD10LocationWhenTesterIsLoggedIn()));
+
+
+
+    }
+
+    @Test(priority = 26)
+    @TestParameters(testCaseId = {"TC-72"})
+    public void TC_72_CheckExpectedOptionsInCOSAWhenKeepOnEyeOnThisLocationClickedMovingFromLocationDetails() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        FavoriteLocation fav = new FavoriteLocation(driver);
+        COSA cosa = new COSA(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+        mapDetails.GoToD10LocationInMapDetails();
+        operation.ClickButton(MapDetails.AskCOSAButton,2000);
+        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(2000,COSA.TimeBox));
+        Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1000,COSA.DateBox));
+        Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1000,COSA.ReturnToMainMenu));
+        Assert.assertTrue(cosa.verifyElementNotDisplayed(1000,COSA.AddressBox));
+
+
+    }
+
+    @Test(priority = 27)
+    @TestParameters(testCaseId = {"TC-73,74"})
+    public void TC_73_74_CheckWhenDateIsSelectedFromDatePicker() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        FavoriteLocation fav = new FavoriteLocation(driver);
+        COSA cosa = new COSA(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+//        dashboard.RefreshBrowser();
+        mapDetails.GoToD10LocationInMapDetails();
+        operation.ClickButton(MapDetails.AskCOSAButton,2000);
+        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        operation.ClickButton(COSA.DateBox,2000);
+        Assert.assertTrue(cosa.verifyCurrentDateIsShowingInChatAfterSelectingToday());
+
+
+
+    }
+
+    @Test(priority = 28)
+    @TestParameters(testCaseId = {"TC-75"})
+    public void TC_75_CheckDateBoxIsDisappearedAfterPostingTheDate() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        FavoriteLocation fav = new FavoriteLocation(driver);
+        COSA cosa = new COSA(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+//        dashboard.RefreshBrowser();
+        mapDetails.GoToD10LocationInMapDetails();
+        operation.ClickButton(MapDetails.AskCOSAButton,2000);
+        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        operation.ClickButton(COSA.DateBox,2000);
+        cosa.clickOnFutureDate();
+        Assert.assertTrue(cosa.verifyElementNotDisplayed(2000,COSA.DateBox));
 
 
 
 
     }
+
+    @Test(priority = 29)
+    @TestParameters(testCaseId = {"TC-76"})
+    public void TC_76_CheckPastDatesAreDisabled() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        FavoriteLocation fav = new FavoriteLocation(driver);
+        COSA cosa = new COSA(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+        dashboard.RefreshBrowser();
+//        mapDetails.GoToD10LocationInMapDetails();
+//        operation.ClickButton(MapDetails.AskCOSAButton,2000);
+        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        operation.ClickButton(COSA.DateBox,2000);
+        Assert.assertTrue(cosa.verifyPastDateIsDisabled());
+
+
+    }
+
+    @Test(priority = 30)
+    @TestParameters(testCaseId = {"TC-77,78"})
+    public void TC_77_78_CheckSelectedTimeIsPostedWithCorrectFormat() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        FavoriteLocation fav = new FavoriteLocation(driver);
+        COSA cosa = new COSA(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+//        dashboard.RefreshBrowser();
+        mapDetails.GoToD10LocationInMapDetails();
+        operation.ClickButton(MapDetails.AskCOSAButton,2000);
+        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        Assert.assertTrue(cosa.verifyTimeIsPostedCorrectlyOnChatBot("02"));
+
+
+    }
+
+    @Test(priority = 31)
+    @TestParameters(testCaseId = {"TC-79"})
+    public void TC_79_CheckTimeFieldIsVanishedAfterSelectingTime() throws InterruptedException {
+        MapDetails mapDetails =new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        FavoriteLocation fav = new FavoriteLocation(driver);
+        COSA cosa = new COSA(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+        dashboard.RefreshBrowser();
+//        mapDetails.GoToD10LocationInMapDetails();
+//        operation.ClickButton(MapDetails.AskCOSAButton,2000);
+        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        cosa.selectTime("03");
+        Assert.assertTrue(cosa.verifyElementNotDisplayed(2000,COSA.TimeBox));
+
+
+    }
+
 
 
 

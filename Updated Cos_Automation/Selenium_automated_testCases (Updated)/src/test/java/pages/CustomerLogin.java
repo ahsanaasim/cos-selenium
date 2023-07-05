@@ -16,6 +16,7 @@ public class CustomerLogin extends BasePage {
     public static By CustomerLoginButton = By.xpath("//button[@class='ant-btn ant-btn-primary ant-btn-block input-field-login-email']");
     public static By EmailField = By.xpath("//input[@placeholder='Email']");
     public static By PasswordField = By.xpath("//input[@placeholder='Password']");
+    public static By SignUpLink = By.xpath("//span[normalize-space()='Sign Up']");
     public static By LoginErrorMsgNoEmail = By.xpath("//div[@role='alert'][contains(text(),'Email field is required')]");
     public static By NoPasswordErrorMsg = By.xpath("//div[@class='ant-form-item-explain-error']");
     public static By Menu = By.xpath("//div[@class='flex items-center cursor-pointer']");

@@ -83,6 +83,12 @@ public class COSA extends BasePage{
 
     }
 
+    public void GoToCOSAWithRawLocationID() throws InterruptedException {
+        Thread.sleep(2500);
+        GoToWebsite("https://test-app.chargeonsite.com/customer/cosa/58e27a8d-9215-4b10-a579-815e124fbf92");
+
+    }
+
     public void ScanRawLocationCharger() throws InterruptedException {
         Thread.sleep(3500);
         GoToWebsite("https://test-app.chargeonsite.com/charger/8RZGZQ");
@@ -161,6 +167,10 @@ public class COSA extends BasePage{
 
     public String D10LocationId(){
         return "de085847-54de-4734-b108-426c7d61f8f4";
+    }
+
+    public String COSAMsgForD10LocationWhenTesterIsLoggedIn(){
+        return "Sure Tester, Please give me a date and time to watch the location named Banasree D-10 located in Police park, Banasree";
     }
 
 
@@ -453,6 +463,23 @@ public class COSA extends BasePage{
             return false;
         }
     }
+
+    public boolean verifyCosaPageUrlWhenMovingFromFavorites() throws InterruptedException {
+        Thread.sleep(3000);
+        String currentUrl = driver.getCurrentUrl();
+        String LocID = currentUrl.replaceAll("https://test-app.chargeonsite.com/customer/cosa/","");
+        System.out.println("Location id: "+LocID);
+        if (!LocID.isEmpty()) {
+            System.out.println("Url is showing with location id");
+            return true;
+        } else {
+            System.out.println("Url is not showing with location id");
+            return false;
+        }
+
+    }
+
+
 
 
 
