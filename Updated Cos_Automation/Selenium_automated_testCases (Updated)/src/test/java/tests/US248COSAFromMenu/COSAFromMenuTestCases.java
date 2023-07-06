@@ -345,8 +345,8 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
         operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
-        cosa.clickOnFutureDate();
-        cosa.selectTime("05");
+        cosa.clickOnFutureDate(01);
+        cosa.selectTime("05",COSA.AM);
         Assert.assertTrue(cosa.verifyElementNotDisplayed(2500,COSA.DateBox));
         Assert.assertTrue(cosa.verifyElementNotDisplayed(2500,COSA.TimeBox));
 
@@ -369,8 +369,8 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        cosa.GoToCOSAChatbot();
         dashboard.RefreshBrowser();
         operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
-        cosa.clickOnFutureDate();
-        cosa.selectTime("05");
+        cosa.clickOnFutureDate(02);
+        cosa.selectTime("05",COSA.PM);
         operation.writeInputText(COSA.AddressBox,"Aftab Nagar",1500);
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(2500,COSA.SearchBoxList));
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(2500,COSA.Area));
@@ -394,8 +394,8 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
         operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
-        cosa.clickOnFutureDate();
-        cosa.selectTime("05");
+        cosa.clickOnFutureDate(03);
+        cosa.selectTime("05",COSA.AM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
         Assert.assertTrue(cosa.verifyTextMatching(3000,COSA.CustomerFourthMessage,"Address: Aftab Nagar, Dhaka, Bangladesh"));
 
@@ -437,8 +437,8 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        cosa.GoToCOSAChatbot();
         dashboard.RefreshBrowser();
         operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
-        cosa.clickOnFutureDate();
-        cosa.selectTime("05");
+        cosa.clickOnFutureDate(04);
+        cosa.selectTime("05",COSA.PM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
         Assert.assertTrue(cosa.verifyElementNotDisplayed(2500,COSA.DateBox));
         Assert.assertTrue(cosa.verifyElementNotDisplayed(500,COSA.TimeBox));
@@ -462,8 +462,8 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
         operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
-        cosa.clickOnFutureDate();
-        cosa.selectTime("05");
+        cosa.clickOnFutureDate(05);
+        cosa.selectTime("05",COSA.AM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
         Assert.assertTrue(cosa.verifyElementNotDisplayed(2500,COSA.DateBox));
         Assert.assertTrue(cosa.verifyElementNotDisplayed(500,COSA.TimeBox));
@@ -487,8 +487,8 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
         operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
-        cosa.clickOnFutureDate();
-        cosa.selectTime("04");
+        cosa.clickOnFutureDate(4);
+        cosa.selectTime("4",COSA.PM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
         Assert.assertTrue(cosa.verifySuggestedNearbyLocation(COSA.SuggestedLocation1));
         Assert.assertTrue(cosa.verifySuggestedNearbyLocation(COSA.SuggestedLocation2));
@@ -512,8 +512,8 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
         operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
-        cosa.clickOnFutureDate();
-        cosa.selectTime("07");
+        cosa.clickOnFutureDate(2);
+        cosa.selectTime("07",COSA.PM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
         operation.ClickButton(COSA.WatchButton,2000);
         Assert.assertTrue(cosa.verifyCustomerResponseMessageAfterWatchingALocation(COSA.SuggestedLocation1,COSA.AddressOfSuggestedLocation1,COSA.CustomerFifthMessage));
@@ -535,8 +535,8 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
         operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
-        cosa.clickOnFutureDate();
-        cosa.selectTime("03");
+        cosa.clickOnFutureDate(4);
+        cosa.selectTime("03",COSA.AM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
         operation.ClickButton(COSA.WatchButton,2000);
         Assert.assertTrue(cosa.verifyCOSAResponseAfterAddingALocationToWatchlist(COSA.SuggestedLocation1,COSA.AddressOfSuggestedLocation1,COSA.COSAThirdReply));
@@ -558,8 +558,8 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
         operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
-        cosa.clickOnFutureDate();
-        cosa.selectTime("01");
+        cosa.clickOnFutureDate(5);
+        cosa.selectTime("01",COSA.AM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1500,COSA.WatchButton));
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(500,COSA.WatchButton2));
@@ -583,8 +583,8 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
         operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
-        cosa.clickOnFutureDate();
-        cosa.selectTime("12");
+        cosa.clickOnFutureDate(6);
+        cosa.selectTime("12",COSA.PM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
         operation.ClickButton(COSA.WatchButton,2000);
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1000,COSA.WatchingButton));
@@ -606,8 +606,8 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
         operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
-        cosa.clickOnFutureDate();
-        cosa.selectTime("01");
+        cosa.clickOnFutureDate(6);
+        cosa.selectTime("01",COSA.AM);
         cosa.selectLocationFromAddressField("Buenos Aires, Argentina");
         Assert.assertTrue(cosa.verifyTextMatching(3000,COSA.COSASecondReply, cosa.COSAReplyForNoNearbyLocations()));
 
@@ -628,8 +628,8 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
         operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
-        cosa.clickOnFutureDate();
-        cosa.selectTime("04");
+        cosa.clickOnFutureDate(2);
+        cosa.selectTime("04",COSA.PM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
         Assert.assertTrue(cosa.verifyLocationName());
 
@@ -651,8 +651,8 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
         operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
-        cosa.clickOnFutureDate();
-        cosa.selectTime("04");
+        cosa.clickOnFutureDate(7);
+        cosa.selectTime("04",COSA.AM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
         Assert.assertTrue(cosa.verifyLocationAddress());
 
@@ -674,8 +674,8 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
         operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
-        cosa.clickOnFutureDate();
-        cosa.selectTime("04");
+        cosa.clickOnFutureDate(1);
+        cosa.selectTime("04",COSA.PM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
         Assert.assertTrue(cosa.verifyLocationDistanceSectionIsShowing());
 
@@ -701,8 +701,8 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
         operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
-        cosa.clickOnFutureDate();
-        cosa.selectTime("05");
+        cosa.clickOnFutureDate(2);
+        cosa.selectTime("05",COSA.AM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
         operation.ClickButton(COSA.WatchButton,2000);
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(2000,COSA.WatchAnotherLocationInThisArea));
@@ -727,12 +727,12 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
         operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
-        cosa.clickOnFutureDate();
-        cosa.selectTime("02");
+        cosa.clickOnFutureDate(8);
+        cosa.selectTime("02",COSA.PM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
         operation.ClickButton(COSA.WatchButton,2000);
         operation.ClickButton(COSA.WatchingButton,2000);
-        Assert.assertTrue(cosa.verifyCOSAResponseWhileAddingAlreadyAddedLocationToWatchlist());
+        Assert.assertTrue(cosa.verifyCOSAResponseWhileAddingAlreadyAddedLocationToWatchlist(COSA.COSAForthReply));
 
 
 
@@ -751,8 +751,8 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
         operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
-        cosa.clickOnFutureDate();
-        cosa.selectTime("06");
+        cosa.clickOnFutureDate(3);
+        cosa.selectTime("06",COSA.AM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
         operation.ClickButton(COSA.WatchButton,2000);
         operation.ClickButton(COSA.WatchButton2,2000);
@@ -781,8 +781,8 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
         operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
-        cosa.clickOnFutureDate();
-        cosa.selectTime("01");
+        cosa.clickOnFutureDate(4);
+        cosa.selectTime("01",COSA.PM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
         operation.ClickButton(COSA.WatchButton,2000);
         operation.ClickButton(COSA.ReturnToMainMenu,2000);

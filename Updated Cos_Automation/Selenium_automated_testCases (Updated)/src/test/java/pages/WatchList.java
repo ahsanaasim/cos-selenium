@@ -10,4 +10,18 @@ public class WatchList extends BasePage{
 
     public static By WatchListTitle = By.xpath("//div[@class='mainTitle']");
     public static By WatchListContainer = By.xpath("//div[@class='watchlist-container']");
+
+    public static By LocationName = By.xpath("//div[@class='locationName mt-5']");
+    public static By LocationAddress = By.xpath("//div[@class='locationAddress']");
+    public static By CrossButton = By.xpath("//span[@class='anticon anticon-close']");
+    public static By YesButton = By.xpath("//span[normalize-space()='Yes']");
+
+
+
+
+    public void GoToWatchList() throws InterruptedException {
+        Thread.sleep(2500);
+        GoToWebsite("https://test-app.chargeonsite.com/customer/cosa/watchlist");
+
+    }
 }

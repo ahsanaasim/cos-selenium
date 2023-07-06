@@ -1,12 +1,16 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class COSA extends BasePage{
     public COSA(WebDriver driver)  {
@@ -45,6 +49,7 @@ public class COSA extends BasePage{
     public static By WatchAnotherLocationInThisArea = By.xpath("//div[@class='options'][contains(text(),'Watch another location in this area')]");
     public static By ReturnToMainMenu = By.xpath("//div[@class='options returnOption'][contains(text(),'Return to the main menu')]");
     public static By TodayDate = By.xpath("//a[@class='ant-picker-today-btn']");
+    public static By AM = By.xpath("//div[@class='ant-picker-time-panel-cell-inner'][contains(text(),'AM')]");
     public static By PM = By.xpath("//div[@class='ant-picker-time-panel-cell-inner'][contains(text(),'PM')]");
     public static By TimePickerOK = By.xpath("//button[@class='ant-btn ant-btn-primary ant-btn-sm']");
     public static By Area = By.xpath("//div[contains(text(),'Area')]");
@@ -170,7 +175,7 @@ public class COSA extends BasePage{
     }
 
     public String COSAMsgForD10LocationWhenTesterIsLoggedIn(){
-        return "Sure Tester, Please give me a date and time to watch the location named Banasree D-10 located in Police park, Banasree";
+        return "Sure Tester, Please give me a date and time to watch the location named Banasree D-10 located in Police park, Banasree.";
     }
 
 
@@ -198,15 +203,16 @@ public class COSA extends BasePage{
     }
 
 
-    public void clickOnFutureDate() throws InterruptedException {
-        Thread.sleep(1500);
+    public void clickOnFutureDate(int days) throws InterruptedException {
+        Thread.sleep(2000);
+        waitforPresence(DateBox);
         // Locate and click on the date picker element
         WebElement datePicker = driver.findElement(By.xpath("//div[@class='ant-picker-input']"));
         datePicker.click();
 
         // Calculate the future date you want to select (e.g., 7 days from today)
         LocalDate currentDate = LocalDate.now();
-        LocalDate futureDate = currentDate.plusDays(4);
+        LocalDate futureDate = currentDate.plusDays(days);
 
         // Define the desired date format
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -248,7 +254,7 @@ public class COSA extends BasePage{
 
     }
 
-    public void selectTime(String time) throws InterruptedException {
+    public void selectTime(String time,By period) throws InterruptedException {
         waitforPresence(TimeBox);
         WebElement TimePicker = driver.findElement(By.xpath("//div[@class='ant-picker timePick']"));
         TimePicker.click();
@@ -257,11 +263,31 @@ public class COSA extends BasePage{
         Thread.sleep(2500);
         TimeElement.click();
         Thread.sleep(1500);
-        click(PM);
+        click(period);
         click(TimePickerOK);
 
 
     }
+
+    public void selectTiming(String time,By period) throws InterruptedException {
+        waitforPresence(TimeBox);
+        WebElement TimePicker = driver.findElement(By.xpath("//div[@class='ant-picker timePick']"));
+        TimePicker.click();
+        // Locate and interact with the specific date element representing the future date
+        WebElement TimeElement = driver.findElement(By.xpath("//div[@class='ant-picker-time-panel-cell-inner'][contains(text(),'07')]"));
+        TimeElement.click();
+        Thread.sleep(2500);
+        TimeElement.click();
+        WebElement TimeElement2 = driver.findElement(By.xpath("//div[@class='ant-picker-time-panel-cell-inner'][contains(text(),'"+time+"')]"));
+        Thread.sleep(1500);
+        TimeElement2.click();
+        click(period);
+        click(TimePickerOK);
+
+
+    }
+
+
 
     public boolean verifyTimeIsPostedCorrectlyOnChatBot(String time) throws InterruptedException {
         Thread.sleep(1500);
@@ -381,12 +407,118 @@ public class COSA extends BasePage{
 
     }
 
-    public boolean verifyCOSAResponseWhileAddingAlreadyAddedLocationToWatchlist() throws InterruptedException {
+
+    public boolean verifyCOSAResponseAfterAddingASpecificLocationToWatchlist(By Cosareply) throws InterruptedException {
+        MapDetails mapDetails = new MapDetails(driver);
+        mapDetails.GoToPaikareLocation();
+        Thread.sleep(2500);
+        waitforPresence(MapDetails.LocationName);
+        String LocationName = readText(MapDetails.LocationName);
+        String Address = readText(MapDetails.PropertyLocationAddress);
+        String[] parts = Address.split(",");
+        String LocationAddress = parts[1]+","+parts[2];
+        System.out.println("Location address : "+LocationAddress);
+        click(MapDetails.AskCOSAButton);
+        click(KeepAnEyeOnThisLocation);
+        clickOnFutureDate(05);
+        selectTime("03",COSA.PM);
+        Thread.sleep(2500);
+        String DateMsg = readText(CustomerSecondMessage).replaceAll("Date: ","");
+        System.out.println("Date msg :"+DateMsg);
+        String COSAMessage = readText(Cosareply);
+        System.out.println("COSA response after click on watch: "+COSAMessage);
+        String expected = "I have added "+LocationName+","+LocationAddress+" to your watchlist. I will keep you updated on the availability of this location on "+DateMsg+".";
+        System.out.println(expected);
+        if (COSAMessage.equals(expected)){
+            System.out.println("COSA response message is showing correctly");
+            return true;
+        }
+        else {
+            System.out.println("COSA response message is not showing correctly");
+            return false;
+        }
+
+
+    }
+
+    public boolean verifyLocationIsAddedToWatchlist() throws InterruptedException {
+        MapDetails mapDetails = new MapDetails(driver);
+        mapDetails.GoToShantaHoldingsLocationInMapDetails();
+        Thread.sleep(2500);
+        waitforPresence(MapDetails.LocationName);
+        String LocationName = readText(MapDetails.LocationName);
+        String Address = readText(MapDetails.PropertyLocationAddress);
+        System.out.println("Location address : "+Address);
+        click(MapDetails.AskCOSAButton);
+        click(KeepAnEyeOnThisLocation);
+        clickOnFutureDate(9);
+        selectTiming("10",COSA.PM);
+        Thread.sleep(2500);
+        click(ShowMeWatchList);
+        Thread.sleep(2500);
+        String LocationName2 = readText(WatchList.LocationName);
+        System.out.println("Location name in watchlist: "+LocationName2);
+        String Address2 = readText(WatchList.LocationAddress);
+        System.out.println("Location address in watchlist :"+Address2);
+        if (LocationName.equals(LocationName2) || Address.equals(Address2)){
+            System.out.println("Location is added to watchlist");
+            return true;
+        }
+        else {
+            System.out.println("Location is not added to watchlist");
+            return false;
+        }
+
+
+    }
+
+    public boolean verifyLocationIsAddedToWatchlist2() throws InterruptedException {
+        MapDetails mapDetails = new MapDetails(driver);
+        mapDetails.GoToShantaHoldingsLocationInMapDetails();
+        Thread.sleep(2500);
+        waitforPresence(MapDetails.LocationName);
+        String LocationName = readText(MapDetails.LocationName);
+        String Address = readText(MapDetails.PropertyLocationAddress);
+        System.out.println("Location address : "+Address);
+        click(MapDetails.AskCOSAButton);
+        click(KeepAnEyeOnThisLocation);
+        clickOnFutureDate(04);
+        selectTiming("10",COSA.PM);
+        Thread.sleep(2500);
+        click(ShowMeWatchList);
+        Thread.sleep(2500);
+        List<WebElement> locationElements = driver.findElements(By.className("locationName mt-5"));
+        System.out.println("location elements: "+ locationElements);
+        // Create an ArrayList to store the text values
+        ArrayList<String> locationTexts = new ArrayList<>();
+        // Iterate through each location element and add its text to the ArrayList
+        for (WebElement element : locationElements) {
+            locationTexts.add(element.getText());
+        }
+        // Verify if the expected string is present in the ArrayList
+        String expected = LocationName;
+        boolean isExpectedPresent = locationTexts.contains(expected);
+        if (isExpectedPresent){
+            System.out.println("Location is added to watchlist");
+            return true;
+        }
+        else {
+            System.out.println("Location is not added to watchlist");
+            return false;
+        }
+
+
+    }
+
+
+
+
+    public boolean verifyCOSAResponseWhileAddingAlreadyAddedLocationToWatchlist(By Cosareply) throws InterruptedException {
         Thread.sleep(2500);
         String TimeMsg = readText(CustomerThirdMessage).replaceAll("Time: ","");
         String DateMsg = readText(CustomerSecondMessage).replaceAll("Date: ","");
         System.out.println("Date msg :"+DateMsg);
-        String COSAMessage = readText(COSAForthReply);
+        String COSAMessage = readText(Cosareply);
         System.out.println("COSA response after click on watching: "+COSAMessage);
         String expected = "You are already watching this location for "+TimeMsg+", "+DateMsg;
         System.out.println(expected);
@@ -475,6 +607,23 @@ public class COSA extends BasePage{
         } else {
             System.out.println("Url is not showing with location id");
             return false;
+        }
+
+    }
+
+
+    public void clearWatchList() throws InterruptedException {
+        Thread.sleep(4000);
+        try {
+            while (driver.findElement(WatchList.CrossButton).isDisplayed()){
+                Thread.sleep(2500);
+                click(WatchList.CrossButton);
+                click(WatchList.YesButton);
+
+            }
+        }
+        catch (NoSuchElementException e){
+            System.out.println("not found");
         }
 
     }
