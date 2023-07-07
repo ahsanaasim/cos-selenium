@@ -209,17 +209,13 @@ public class COSA extends BasePage{
         // Locate and click on the date picker element
         WebElement datePicker = driver.findElement(By.xpath("//div[@class='ant-picker-input']"));
         datePicker.click();
-
         // Calculate the future date you want to select (e.g., 7 days from today)
         LocalDate currentDate = LocalDate.now();
         LocalDate futureDate = currentDate.plusDays(days);
-
         // Define the desired date format
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
         // Format the future date as per the desired format
         String formattedFutureDate = futureDate.format(dateFormatter);
-
         // Locate and interact with the specific date element representing the future date
         WebElement futureDateElement = driver.findElement(By.xpath("//td[@title='"+formattedFutureDate+"']"));
         Thread.sleep(2500);

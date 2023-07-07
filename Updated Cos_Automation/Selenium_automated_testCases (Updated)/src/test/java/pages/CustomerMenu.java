@@ -13,4 +13,6 @@ public class CustomerMenu extends BasePage{
     public static By FavoriteIconFromMenu = By.xpath("//img[@src='/menu-icons/favorite.svg']");
     public static By COSAFromMenu = By.xpath("//div[@class='cosaDiv']");
     public static By COSALOGOFromMenu = By.xpath("//img[@src='/images/cosaMenu.svg']");
+    public static By Watchlist = By.xpath("//h4[@class='mb-0 ml-10'][contains(text(),'Watchlist')]");
+    public static By WatchlistLogo = By.xpath("//img[@src='/menu-icons/chargingAccess.svg']");
 }

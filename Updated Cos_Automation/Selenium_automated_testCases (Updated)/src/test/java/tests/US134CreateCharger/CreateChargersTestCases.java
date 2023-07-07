@@ -59,7 +59,7 @@ public class CreateChargersTestCases extends BaseTest {
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         int randomNumber = objGenerator.nextInt(10000);
         System.out.println(randomNumber);
-        String temp="C4X- "+randomNumber;
+        String temp="Selenium- "+randomNumber;
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,temp,2000));
         createcharger.selectChargingRate("9.90");
         createcharger.selectProperty("Sydney Nienow");

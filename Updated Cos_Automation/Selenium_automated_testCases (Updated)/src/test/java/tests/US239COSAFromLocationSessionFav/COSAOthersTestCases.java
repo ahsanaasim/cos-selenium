@@ -784,7 +784,7 @@ public class COSAOthersTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 56)
+    @Test(priority = 100)
     @TestParameters(testCaseId = {"TC-100"})
     public void TC_100_ClearWatchList() throws InterruptedException {
         MapDetails mapDetails =new MapDetails(driver);

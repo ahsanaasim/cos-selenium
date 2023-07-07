@@ -15,6 +15,7 @@ public class WatchList extends BasePage{
     public static By LocationAddress = By.xpath("//div[@class='locationAddress']");
     public static By CrossButton = By.xpath("//span[@class='anticon anticon-close']");
     public static By YesButton = By.xpath("//span[normalize-space()='Yes']");
+    public static By NoLocationInWatchlistText = By.xpath("//div[contains(text(),'No locations in watchlist')]");
 
 
 
