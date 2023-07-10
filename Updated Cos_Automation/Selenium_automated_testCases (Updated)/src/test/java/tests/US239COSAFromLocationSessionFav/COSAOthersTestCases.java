@@ -9,6 +9,7 @@ import tests.US1AdminLogin.TestParameters;
 import java.util.Properties;
 
 //In TC-68, Check The Location id from console that it is showing correctly or not
+// Run the TC_100 to clear the watchlist
 
 public class COSAOthersTestCases extends BaseTest {
 
@@ -323,7 +324,7 @@ public class COSAOthersTestCases extends BaseTest {
         COSA cosa = new COSA(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
 //        customerLogin.SwitchToTab(0);
-//        customerLogin.GoToCustomerLoginPage();
+        customerLogin.GoToCustomerLoginPage();
         customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         fav.ScanChargerOFElectricChargerLocation();
         cosa.ScanRawLocationCharger();
@@ -448,12 +449,12 @@ public class COSAOthersTestCases extends BaseTest {
         FavoriteLocation fav = new FavoriteLocation(driver);
         COSA cosa = new COSA(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
-        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         mapDetails.GoToD10LocationInMapDetails();
         operation.ClickButton(MapDetails.AskCOSAButton,2000);
         operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
-        Assert.assertTrue(cosa.verifyTextMatching(3000,COSA.COSAFirstReply,cosa.COSAMsgForD10LocationWhenTesterIsLoggedIn()));
+        Assert.assertTrue(cosa.verifyTextMatching(4500,COSA.COSAFirstReply,cosa.COSAMsgForD10LocationWhenTesterIsLoggedIn()));
 
 
 
@@ -785,8 +786,8 @@ public class COSAOthersTestCases extends BaseTest {
     }
 
     @Test(priority = 100)
-    @TestParameters(testCaseId = {"TC-100"})
-    public void TC_100_ClearWatchList() throws InterruptedException {
+    @TestParameters(testCaseId = {"TC-200"})
+    public void TC_200_ClearWatchList() throws InterruptedException {
         MapDetails mapDetails =new MapDetails(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
         CreateCharger operation = new CreateCharger(driver);
@@ -795,8 +796,8 @@ public class COSAOthersTestCases extends BaseTest {
         WatchList watchList = new WatchList(driver);
         COSA cosa = new COSA(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
-        customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         watchList.GoToWatchList();
         cosa.clearWatchList();
 

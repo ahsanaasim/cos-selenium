@@ -99,7 +99,7 @@ public class CustomerLogin extends BasePage {
     }
 
     public void LoginToACustomerAccount(String email, String password) throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(2500);
         waitforPresence(EmailField);
         operation.writeInputText(CustomerLogin.EmailField,email,2000);
         operation.writeInputText(CustomerLogin.PasswordField,password,500);

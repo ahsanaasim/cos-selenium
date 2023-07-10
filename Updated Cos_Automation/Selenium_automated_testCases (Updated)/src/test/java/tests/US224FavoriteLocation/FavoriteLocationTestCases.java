@@ -198,7 +198,7 @@ public class FavoriteLocationTestCases extends BaseTest {
 
     @Test(priority = 12)
     @TestParameters(testCaseId = {"TC-10"})
-    public void TC_10_CheckReserveOptionUnderTheLocationAddressShouldBeDisabled () throws InterruptedException {
+    public void TC_10_CheckAddToWatchListUnderTheLocationAddressShouldBeDisabled () throws InterruptedException {
         CustomerLogin login = new CustomerLogin(driver);
         CreateCharger operation =new CreateCharger(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);

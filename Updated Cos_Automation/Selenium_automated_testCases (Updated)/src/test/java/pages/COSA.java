@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class COSA extends BasePage{
     public COSA(WebDriver driver)  {
@@ -270,6 +271,7 @@ public class COSA extends BasePage{
         WebElement TimePicker = driver.findElement(By.xpath("//div[@class='ant-picker timePick']"));
         TimePicker.click();
         // Locate and interact with the specific date element representing the future date
+        waitelemtclickable(By.xpath("//div[@class='ant-picker-time-panel-cell-inner'][contains(text(),'07')]"));
         WebElement TimeElement = driver.findElement(By.xpath("//div[@class='ant-picker-time-panel-cell-inner'][contains(text(),'07')]"));
         TimeElement.click();
         Thread.sleep(2500);
@@ -609,12 +611,14 @@ public class COSA extends BasePage{
 
 
     public void clearWatchList() throws InterruptedException {
+        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         Thread.sleep(4000);
         try {
             while (driver.findElement(WatchList.CrossButton).isDisplayed()){
-                Thread.sleep(2500);
-                click(WatchList.CrossButton);
-                click(WatchList.YesButton);
+                Thread.sleep(3000);
+                driver.findElement(WatchList.CrossButton).click();
+                Thread.sleep(2000);
+                driver.findElement(WatchList.YesButton).click();
 
             }
         }
