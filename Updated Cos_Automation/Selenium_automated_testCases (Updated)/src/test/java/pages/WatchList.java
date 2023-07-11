@@ -1,11 +1,9 @@
 package pages;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Properties;
-import java.util.function.Function;
 
 public class WatchList extends BasePage{
     public WatchList(WebDriver driver){
@@ -46,7 +44,7 @@ public class WatchList extends BasePage{
 
     public boolean verifyWatchListTitle() throws InterruptedException {
         Thread.sleep(3000);
-        waitforPresence(WatchListTitle);
+        waitVisibility(WatchListTitle);
         String title = driver.findElement(WatchListTitle).getText();
         System.out.println(title);
         if (title.matches("Watchlist \\(\\d+\\)")){
@@ -68,6 +66,7 @@ public class WatchList extends BasePage{
         operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
         cosa.clickOnFutureDate(days);
         cosa.selectTiming(time,TimePeriod);
+        Thread.sleep(2000);
     }
 
     public void AddPaikareShopLocationToWatchlist(int days, String time, By TimePeriod) throws InterruptedException {
@@ -79,6 +78,19 @@ public class WatchList extends BasePage{
         operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
         cosa.clickOnFutureDate(days);
         cosa.selectTiming(time,TimePeriod);
+        Thread.sleep(2000);
+    }
+
+    public void AddRauAvenueLocationToWatchlist(int days, String time, By TimePeriod) throws InterruptedException {
+        CreateCharger operation = new CreateCharger(driver);
+        MapDetails mapDetails = new MapDetails(driver);
+        COSA cosa = new COSA(driver);
+        mapDetails.GoToRauAvenue81Location();
+        operation.ClickButton(MapDetails.AskCOSAButton,2500);
+        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2500);
+        cosa.clickOnFutureDate(days);
+        cosa.selectTiming(time,TimePeriod);
+        Thread.sleep(2500);
     }
 
     public String AlertForRemoveALocationFromWatchlist(){
@@ -104,13 +116,14 @@ public class WatchList extends BasePage{
     }
 
     public boolean verifyLocationIsRemovedFromTheWatchList() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(2500);
         waitforPresence(FeeDetails);
         String FeeBefore = readText(FeeDetails);
         System.out.println("Before remove: "+FeeBefore);
         click(CrossButton);
         click(YesButton);
         Thread.sleep(2500);
+        waitVisibility(FeeDetails);
         String FeeAfter = readText(FeeDetails);
         System.out.println("After remove: "+FeeAfter);
         if (!FeeBefore.equals(FeeAfter)){
@@ -122,6 +135,86 @@ public class WatchList extends BasePage{
             return false;
         }
 
+    }
+
+
+    public boolean verifyLocationCountIsIncreasingAfterAddingToWatchlist() throws InterruptedException {
+        CreateCharger operation = new CreateCharger(driver);
+        COSA cosa = new COSA(driver);
+        GoToWatchList();
+        Thread.sleep(2000);
+        waitforPresence(LocationName);
+        String LCount = driver.findElement(WatchListTitle).getText().replaceAll("[^0-9]","");
+        int count = Integer.parseInt(LCount);
+        System.out.println("Location count in list before adding: "+count);
+        cosa.AddLocationToWatchlistWithCurrentTiming();
+        GoToWatchList();
+        Thread.sleep(2000);
+        waitforPresence(LocationName);
+        String LCountAfter = driver.findElement(WatchListTitle).getText().replaceAll("[^0-9]","");
+        int count2 = Integer.parseInt(LCountAfter);
+        System.out.println("Location count in list after adding: "+count2);
+        int expected =count+1;
+        if (count2==expected){
+            System.out.println("Location count is increased by one after adding");
+            return true;
+        }
+        else {
+            System.out.println("Location count is not increased by one after adding");
+            return false;
+
+        }
+
+
+    }
+
+    public boolean verifyLocationCountIsDecreasingAfterRemovingFromWatchlist() throws InterruptedException {
+        CreateCharger operation = new CreateCharger(driver);
+        COSA cosa = new COSA(driver);
+        GoToWatchList();
+        Thread.sleep(2000);
+        waitforPresence(LocationName);
+        String LCount = driver.findElement(WatchListTitle).getText().replaceAll("[^0-9]","");
+        int count = Integer.parseInt(LCount);
+        System.out.println("Location count in list before : "+count);
+        Thread.sleep(2000);
+        click(CrossButton);
+        click(YesButton);
+        Thread.sleep(3000);
+        waitVisibility(WatchListTitle);
+        String LCountAfter = driver.findElement(WatchListTitle).getText().replaceAll("[^0-9]","");
+        int count2 = Integer.parseInt(LCountAfter);
+        System.out.println("Location count in list after removing : "+count2);
+        int expected =count-1;
+        if (count2==expected){
+            System.out.println("Location count is decreased by one after removing");
+            return true;
+        }
+        else {
+            System.out.println("Location count is not increased by one after adding");
+            return false;
+
+        }
+
+
+    }
+
+    public boolean verifyLocationsCountInTitleMatchWithList() throws InterruptedException {
+        Thread.sleep(4000);
+        waitforPresence(WatchListTitle);
+        String title = driver.findElement(WatchListTitle).getText().replaceAll("[^0-9]","");
+        int titleCount = Integer.parseInt(title);
+        System.out.println("Location count in title: "+titleCount);
+        int locationsInList = driver.findElements(By.className("watchlistDetailsDiv")).size();
+        System.out.println("Loctions in the watchlist: "+locationsInList);
+        if (titleCount==locationsInList){
+            System.out.println("Title count is matching with list");
+            return true;
+        }
+        else {
+            System.out.println("Title count is not matching with list");
+            return false;
+        }
     }
 
 

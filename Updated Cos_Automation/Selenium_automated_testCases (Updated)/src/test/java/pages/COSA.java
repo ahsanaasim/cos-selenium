@@ -50,6 +50,7 @@ public class COSA extends BasePage{
     public static By WatchAnotherLocationInThisArea = By.xpath("//div[@class='options'][contains(text(),'Watch another location in this area')]");
     public static By ReturnToMainMenu = By.xpath("//div[@class='options returnOption'][contains(text(),'Return to the main menu')]");
     public static By TodayDate = By.xpath("//a[@class='ant-picker-today-btn']");
+    public static By Now = By.xpath("//a[@class='ant-picker-now-btn']");
     public static By AM = By.xpath("//div[@class='ant-picker-time-panel-cell-inner'][contains(text(),'AM')]");
     public static By PM = By.xpath("//div[@class='ant-picker-time-panel-cell-inner'][contains(text(),'PM')]");
     public static By TimePickerOK = By.xpath("//button[@class='ant-btn ant-btn-primary ant-btn-sm']");
@@ -625,6 +626,24 @@ public class COSA extends BasePage{
         catch (NoSuchElementException e){
             System.out.println("not found");
         }
+
+    }
+
+    public void AddLocationToWatchlistWithCurrentTiming() throws InterruptedException {
+        CreateCharger operation = new CreateCharger(driver);
+        MapDetails mapDetails = new MapDetails(driver);
+        COSA cosa = new COSA(driver);
+        mapDetails.GoToPaikareLocation();
+        operation.ClickButton(MapDetails.AskCOSAButton,2000);
+        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        operation.ClickButton(COSA.DateBox,2000);
+        operation.ClickButton(COSA.TodayDate,2000);
+        operation.ClickButton(COSA.TimeBox,2000);
+        operation.ClickButton(COSA.Now,1500);
+        Thread.sleep(2000);
+
+
+
 
     }
 

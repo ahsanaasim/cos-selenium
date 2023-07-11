@@ -310,7 +310,6 @@ public class FavoriteLocation extends BasePage{
         }
 
 
-
     }
 
 

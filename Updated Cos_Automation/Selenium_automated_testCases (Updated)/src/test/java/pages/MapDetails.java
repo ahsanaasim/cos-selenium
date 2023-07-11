@@ -134,6 +134,12 @@ public class MapDetails extends BasePage{
         driver.get("https://test-app.chargeonsite.com/customer/map?latitude=23.75816740396393&longitude=90.42778544106802&locationMarkerId=55a8c1f9-0c9e-41f5-bdae-de6bf8e8542d");
     }
 
+    public void GoToRauAvenue81Location() throws InterruptedException {
+        Thread.sleep(2500);
+        GoToWebsite("https://test-app.chargeonsite.com/customer/map?latitude=28.23587&longitude=-104.30161&locationMarkerId=1ddb1600-abb7-437e-b45a-f53ec1091480");
+
+    }
+
     public void GoToChargerModule() throws InterruptedException {
         Thread.sleep(2000);
         driver.get("https://test-admin.chargeonsite.com/property/charger");
