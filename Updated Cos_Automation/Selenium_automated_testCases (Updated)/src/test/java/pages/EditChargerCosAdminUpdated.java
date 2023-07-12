@@ -53,6 +53,34 @@ public class EditChargerCosAdminUpdated extends BasePage {
 
 
 
+
+    public void makeAChargerOnlineFromDrawer(String charger) throws InterruptedException {
+        CreateCharger createCharger = new CreateCharger(driver);
+        UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
+        Thread.sleep(2500);
+        createCharger.GoToChargers();
+        writeInSearchBar(CreateCharger.searchchargerfield,charger,1000);
+        click(CreateCharger.searchargerbtn);
+        click(CosAdminChargerList.EditButton);
+        editCharger.clickToggleButtonIfItIsOff();
+        click(UpdateChargerPropertyAdmin.SaveCharger);
+        Thread.sleep(2500);
+
+    }
+
+    public void makeAChargerOfflineFromDrawer(String charger) throws InterruptedException {
+        CreateCharger createCharger = new CreateCharger(driver);
+        UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
+        Thread.sleep(2500);
+        createCharger.GoToChargers();
+        writeInSearchBar(CreateCharger.searchchargerfield,charger,1000);
+        click(CreateCharger.searchargerbtn);
+        click(CosAdminChargerList.EditButton);
+        editCharger.clickToggleButtonIfItIsOn();
+        click(UpdateChargerPropertyAdmin.SaveCharger);
+        Thread.sleep(2500);
+
+    }
     public boolean verifyEditButton() throws InterruptedException {
         waitforPresence(CosAdminChargerList.EditButton);
         Thread.sleep(3000);

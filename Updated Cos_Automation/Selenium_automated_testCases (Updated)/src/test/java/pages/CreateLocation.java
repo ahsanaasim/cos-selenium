@@ -50,7 +50,7 @@ public class CreateLocation extends BasePage {
 
 
     public void GoToLocationPage() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(2500);
         driver.get("https://test-admin.chargeonsite.com/property/location");
     }
 

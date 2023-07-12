@@ -32,6 +32,18 @@ public class EditLocation extends BasePage{
 
 
 
+
+    public void makeALocationOnline(String location) throws InterruptedException {
+        UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
+        Thread.sleep(2500);
+        createLocation.GoToLocationPage();
+        createLocation.writeINLocationSearchBar(location);
+        click(EditButton);
+        editCharger.clickToggleButtonIfItIsOff();
+        click(CreateLocation.savelocationbtn);
+        Thread.sleep(2500);
+
+    }
     public boolean clickonEditbuttonFromPropertyInfoSection () throws InterruptedException {
         createCompany.waitForSpinner();
         // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

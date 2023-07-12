@@ -48,7 +48,8 @@ public class CreateCharger extends BasePage {
     public static By nodatafromsearch = By.xpath("//*[name()='path' and contains(@class,'ant-empty-')]");
     public static By loader = By.xpath("(//i[@class='ant-spin-dot-item'])[3]");
 
-    public void GoToChargers(){
+    public void GoToChargers() throws InterruptedException {
+        Thread.sleep(3000);
         driver.get("https://test-admin.chargeonsite.com/property/charger");
     }
 

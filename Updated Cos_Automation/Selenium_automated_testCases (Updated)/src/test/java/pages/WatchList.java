@@ -28,15 +28,15 @@ public class WatchList extends BasePage{
     public static By PhoneNumberAddingText = By.xpath("//div[@class='ant-alert-message']");
     public static By ClickHereToUpdateLink = By.xpath("//a[@href='/customer/profile']");
     public static By ClickHereToUpdateText = By.xpath("//span[@class='underline'][contains(text(),'Click here to update')]");
-    public static By AvailableStatus = By.xpath("//div[@class='availableText']");
-    public static By UnavailableStatus = By.xpath("//div[@class='unavailableText']");
+    public static By AvailableStatus = By.xpath("//div[@class='availableText'][contains(text(),'Available')]");
+    public static By UnavailableStatus = By.xpath("//div[@class='unavailableText'][contains(text(),'Unavailable')]");
     public static By RemoveAlert = By.xpath("//div[@class='modalText']");
     public static By WatcherButton = By.xpath("//div[@class='totalWatchersText']");
     public static By FeeDetails= By.xpath("//div[@class='feeDetails']");
 
 
     public void GoToWatchList() throws InterruptedException {
-        Thread.sleep(2500);
+        Thread.sleep(4000);
         GoToWebsite(prop.getProperty("WatchListPageURL"));
 
     }
@@ -77,7 +77,7 @@ public class WatchList extends BasePage{
         operation.ClickButton(MapDetails.AskCOSAButton,2000);
         operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
         cosa.clickOnFutureDate(days);
-        cosa.selectTiming(time,TimePeriod);
+        cosa.selectTime(time,TimePeriod);
         Thread.sleep(2000);
     }
 
@@ -213,6 +213,106 @@ public class WatchList extends BasePage{
         }
         else {
             System.out.println("Title count is not matching with list");
+            return false;
+        }
+    }
+
+
+    public boolean verifyPropertyNameAndItsAddress() throws InterruptedException {
+        CreateLocation location = new CreateLocation(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        waitforPresence(LocationName);
+        String s = readText(LocationName);
+        String s2 = readText(LocationAddress);
+        System.out.println("Property name and its address in watchlist: " + s2);
+        SwitchToTab(1);
+        location.GoToLocationPage();
+        location.writeINLocationSearchBar(s);
+        operation.ClickButton(EditCompany.searchbtn, 1500);
+        waitforPresence(EditLocation.PropertyName1InColumn);
+        String propertyName = readText(EditLocation.PropertyName1InColumn);
+        operation.ClickButton(EditLocation.EditButton, 1500);
+        waitforPresence(EditLocation.PropertyAddressInDrawer);
+        String propertyLocationAddress = readText(EditLocation.PropertyAddressInDrawer);
+        String Expected = propertyName + "," + " " + propertyLocationAddress;
+        System.out.println("Property name and its address in drawer: " + Expected);
+        if (s2.equals(Expected)) {
+            System.out.println("Property name and its address is showing correctly");
+            return true;
+        } else {
+            System.out.println("Property name and its address is not showing correctly");
+            return false;
+        }
+    }
+
+
+
+    public boolean verifyAvailableLocationStatus() throws InterruptedException {
+        CreateLocation location = new CreateLocation(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
+        LoginPage login = new LoginPage(driver);
+        waitforPresence(LocationName);
+        String s = readText(LocationName);
+        String s2 = readText(LocationAddress);
+        System.out.println("Location name : " + s);
+//        NewTabOpenAndSwitchToNewTab(1);
+//        login.VerifyValidLogin();
+        SwitchToTab(1);
+        location.GoToLocationPage();
+        location.writeINLocationSearchBar("Rampura Bridge");
+        operation.ClickButton(EditCompany.searchbtn, 1500);
+        waitforPresence(EditLocation.EditButton);
+        operation.ClickButton(EditLocation.EditButton, 1500);
+        waitforPresence(UpdateChargerPropertyAdmin.ToggleButton);
+        editCharger.clickToggleButtonIfItIsOff();
+        operation.ClickButton(CreateLocation.savelocationbtn,1500);
+        Thread.sleep(2000);
+        SwitchToTab(0);
+        dashboard.RefreshBrowser();
+        waitVisibility(LocationName);
+        if (driver.findElement(AvailableStatus).isDisplayed()) {
+            System.out.println("Location status is showing available");
+            return true;
+        } else {
+            System.out.println("Location status is not showing available");
+            return false;
+        }
+    }
+
+
+    public boolean verifyUnavailableLocationStatus() throws InterruptedException {
+        CreateLocation location = new CreateLocation(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
+        LoginPage login = new LoginPage(driver);
+        waitforPresence(LocationName);
+        String s = readText(LocationName);
+        String s2 = readText(LocationAddress);
+        System.out.println("Location name : " + s);
+//        NewTabOpenAndSwitchToNewTab(1);
+//        login.VerifyValidLogin();
+        SwitchToTab(1);
+        location.GoToLocationPage();
+        location.writeINLocationSearchBar("Rampura Bridge");
+        operation.ClickButton(EditCompany.searchbtn, 1500);
+        waitforPresence(EditLocation.EditButton);
+        operation.ClickButton(EditLocation.EditButton, 1500);
+        waitforPresence(UpdateChargerPropertyAdmin.ToggleButton);
+        editCharger.clickToggleButtonIfItIsOn();
+        operation.ClickButton(CreateLocation.savelocationbtn,1500);
+        Thread.sleep(2000);
+        SwitchToTab(0);
+        dashboard.RefreshBrowser();
+        waitVisibility(LocationName);
+        if (driver.findElement(UnavailableStatus).isDisplayed()) {
+            System.out.println("Location status is showing unavailable");
+            return true;
+        } else {
+            System.out.println("Location status is not showing unavailable");
             return false;
         }
     }

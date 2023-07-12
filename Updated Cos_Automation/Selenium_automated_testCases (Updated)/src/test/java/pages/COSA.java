@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.sql.SQLOutput;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -612,13 +613,13 @@ public class COSA extends BasePage{
 
 
     public void clearWatchList() throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         Thread.sleep(4000);
         try {
             while (driver.findElement(WatchList.CrossButton).isDisplayed()){
                 Thread.sleep(3000);
                 driver.findElement(WatchList.CrossButton).click();
-                Thread.sleep(2000);
+                Thread.sleep(3000);
                 driver.findElement(WatchList.YesButton).click();
 
             }

@@ -44,6 +44,7 @@ public class GuestVerificationPage extends BasePage{
     public static By PlugType = By.xpath("//div[@class='plugIcon plugIconGreen plugIconSmall']");
     public static By PlugTypeForUnavailableChargers = By.xpath("//div[@class='plugIcon plugIconRed']");
     public static By OfflineTextInBox = By.xpath("//div[@class='invalidQrCodeOfflineText'][contains(text(),'Offline')]");
+    public static By RestrictedTextInBox = By.xpath("//div[@class='invalidQrCodeOfflineText'][contains(text(),'Restricted')]");
     public static By ReportAProblem = By.xpath("//button[@class='ant-btn ant-btn-default reportProblemButton']");
     public static By CarImage = By.xpath("//img[@src='/scan-charger/car.svg']");
     public static By IdleFee = By.xpath("//div[@class='idleFeeText flex items-center']");

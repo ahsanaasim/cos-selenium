@@ -42,6 +42,28 @@ public class WatchListTestCases extends BaseTest {
     }
 
 
+    @Test(priority = 2)
+    @TestParameters(testCaseId = {"TC-0"})
+    public void TC_0_PreConditionLoginToCOSAdmin() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateLocation createLocation=new CreateLocation(driver);
+        EditLocation editLocation = new EditLocation(driver);
+        createLocation.NewTabOpenAndSwitchToNewTab(1);
+        Thread.sleep(2500);
+        loginPage.VerifyValidLogin();
+        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickonLocations());
+        editLocation.makeALocationOnline("Ramrpura Bridge");
+
+
+    }
+
+
+
+
+
     @Test(priority = 4)
     @TestParameters(testCaseId = {"TC-1"})
     public void TC_1_CheckWatchListISAccessibleWithoutLoginAsCustomer() throws InterruptedException {
@@ -50,6 +72,7 @@ public class WatchListTestCases extends BaseTest {
         CustomerLogin customerLogin = new CustomerLogin(driver);
 //        customerLogin.SwitchToTab(0);
 //        customerLogin.LogoutFromCustomerAccount();
+        watchList.SwitchToTab(0);
         watchList.GoToWatchList();
         Assert.assertTrue(cosa.CurrentPageURLCheck("https://test-app.chargeonsite.com/customer/login"));
 
@@ -178,17 +201,37 @@ public class WatchListTestCases extends BaseTest {
 
     }
 
-
-
-
     @Test(priority = 12)
+    @TestParameters(testCaseId = {"TC-13"})
+    public void TC_13_CheckPropertyNameAndItsAddress() throws InterruptedException {
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        WatchList watchList = new WatchList(driver);
+//        customerLogin.SwitchToTab(0);
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"), "EitaiPassword10");
+        watchList.AddRampuraLocationToWatchlist(5,"10",COSA.AM);
+        watchList.GoToWatchList();
+//        operation.ClickButton(CustomerSupport.Menu,2000);
+//        operation.ClickButton(CustomerMenu.Watchlist,2000);
+        Assert.assertTrue(watchList.verifyPropertyNameAndItsAddress());
+
+
+
+    }
+
+
+
+
+    @Test(priority = 13)
     @TestParameters(testCaseId = {"TC-14"})
     public void TC_14_CheckAvailableChargersAndSeeInMapButtonVisibility() throws InterruptedException {
         CustomerLogin customerLogin = new CustomerLogin(driver);
         CreateCharger operation = new CreateCharger(driver);
         Dashboard dashboard = new Dashboard(driver);
         WatchList watchList = new WatchList(driver);
-//        customerLogin.SwitchToTab(0);
+        customerLogin.SwitchToTab(0);
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"), "EitaiPassword10");
         watchList.AddRampuraLocationToWatchlist(1,"9",COSA.PM);
@@ -201,6 +244,9 @@ public class WatchListTestCases extends BaseTest {
 
 
     }
+
+
+
 
     @Test(priority = 14)
     @TestParameters(testCaseId = {"TC-18"})
@@ -220,6 +266,8 @@ public class WatchListTestCases extends BaseTest {
 
 
     }
+
+
 
     @Test(priority = 15)
     @TestParameters(testCaseId = {"TC-22"})
@@ -329,7 +377,7 @@ public class WatchListTestCases extends BaseTest {
 
     @Test(priority = 22)
     @TestParameters(testCaseId = {"TC-34"})
-    public void TC_34_CheckWhatHappenAfterOnWatchButton() throws InterruptedException {
+    public void TC_34_CheckWhatHappenAfterOnCrossButtonToRemoveALocationFromWatchList() throws InterruptedException {
         CustomerLogin customerLogin = new CustomerLogin(driver);
         CreateCharger operation = new CreateCharger(driver);
         Dashboard dashboard = new Dashboard(driver);
@@ -339,7 +387,7 @@ public class WatchListTestCases extends BaseTest {
 //        customerLogin.LogoutFromCustomerAccount();
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
-        watchList.AddPaikareShopLocationToWatchlist(3,"09",COSA.PM);
+        watchList.AddPaikareShopLocationToWatchlist(2,"01",COSA.PM);
         watchList.GoToWatchList();
         operation.ClickButton(WatchList.CrossButton,2000);
         Assert.assertTrue(watchList.verifyTextMatching(1000,WatchList.RemoveAlert,watchList.AlertForRemoveALocationFromWatchlist()));
@@ -363,7 +411,7 @@ public class WatchListTestCases extends BaseTest {
 //        customerLogin.LogoutFromCustomerAccount();
         customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
-        watchList.AddPaikareShopLocationToWatchlist(5,"01",COSA.PM);
+        watchList.AddPaikareShopLocationToWatchlist(5,"04",COSA.PM);
         watchList.GoToWatchList();
         operation.ClickButton(WatchList.CrossButton,2000);
         operation.ClickButton(WatchList.No,2000);
@@ -384,7 +432,7 @@ public class WatchListTestCases extends BaseTest {
 //        customerLogin.LogoutFromCustomerAccount();
         customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
-        watchList.AddPaikareShopLocationToWatchlist(5,"01",COSA.PM);
+        watchList.AddPaikareShopLocationToWatchlist(5,"02",COSA.PM);
         watchList.GoToWatchList();
         operation.ClickButton(WatchList.CrossButton,2000);
         operation.ClickButton(WatchList.YesButton,2000);
@@ -405,7 +453,7 @@ public class WatchListTestCases extends BaseTest {
 //        customerLogin.LogoutFromCustomerAccount();
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
-        watchList.AddPaikareShopLocationToWatchlist(5,"10",COSA.PM);
+        watchList.AddPaikareShopLocationToWatchlist(4,"03",COSA.AM);
         watchList.GoToWatchList();
         Assert.assertTrue(watchList.verifyLocationIsRemovedFromTheWatchList());
 
@@ -424,11 +472,11 @@ public class WatchListTestCases extends BaseTest {
 //        customerLogin.LogoutFromCustomerAccount();
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
-        watchList.AddPaikareShopLocationToWatchlist(1,"03",COSA.PM);
+        watchList.AddPaikareShopLocationToWatchlist(1,"03",COSA.AM);
         watchList.GoToWatchList();
         operation.ClickButton(WatchList.CrossButton,2000);
         operation.ClickButton(WatchList.YesButton,2000);
-        Assert.assertTrue(watchList.verifyAnElementDisplayedOrNot(1500,WatchList.RemoveSuccessfully));
+        Assert.assertTrue(watchList.verifyAnElementDisplayedOrNot(1200,WatchList.RemoveSuccessfully));
 
 
     }
@@ -465,7 +513,7 @@ public class WatchListTestCases extends BaseTest {
         MapDetails mapDetails = new MapDetails(driver);
         COSA cosa = new COSA(driver);
         customerLogin.LogoutFromCustomerAccount();
-        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.GoToCustomerLoginPage();
         customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithNoTicket"),"EitaiPassword10");
         watchList.GoToWatchList();
         cosa.clearWatchList();
@@ -487,7 +535,7 @@ public class WatchListTestCases extends BaseTest {
         MapDetails mapDetails = new MapDetails(driver);
         COSA cosa = new COSA(driver);
         customerLogin.LogoutFromCustomerAccount();
-        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.GoToCustomerLoginPage();
         customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         watchList.GoToWatchList();
         cosa.clearWatchList();
@@ -509,7 +557,7 @@ public class WatchListTestCases extends BaseTest {
         MapDetails mapDetails = new MapDetails(driver);
         COSA cosa = new COSA(driver);
         customerLogin.LogoutFromCustomerAccount();
-        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.GoToCustomerLoginPage();
         customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         watchList.GoToWatchList();
         Assert.assertTrue(watchList.verifyTextMatching(1500,WatchList.WatcherButton,"3 watchers"));
@@ -599,6 +647,79 @@ public class WatchListTestCases extends BaseTest {
 
 
     }
+
+
+    @Test(priority = 40)
+    @TestParameters(testCaseId = {"TC-40"})
+    public void TC_40_CheckLocationStatusForAvailable() throws InterruptedException {
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        WatchList watchList = new WatchList(driver);
+        MapDetails mapDetails = new MapDetails(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.LogoutFromCustomerAccount();
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+        watchList.GoToWatchList();
+        cosa.clearWatchList();
+        watchList.AddRampuraLocationToWatchlist(7,"09",COSA.PM);
+        watchList.GoToWatchList();
+        Assert.assertTrue(watchList.verifyAvailableLocationStatus());
+
+
+
+    }
+
+
+    @Test(priority = 41)
+    @TestParameters(testCaseId = {"TC-41"})
+    public void TC_41_CheckLocationStatusForUnavailability() throws InterruptedException {
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        WatchList watchList = new WatchList(driver);
+        MapDetails mapDetails = new MapDetails(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.LogoutFromCustomerAccount();
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+        watchList.GoToWatchList();
+        cosa.clearWatchList();
+        watchList.AddRampuraLocationToWatchlist(8,"10",COSA.PM);
+        watchList.GoToWatchList();
+        Assert.assertTrue(watchList.verifyUnavailableLocationStatus());
+
+
+
+    }
+
+    @Test(priority = 42)
+    @TestParameters(testCaseId = {"TC-42"})
+    public void TC_42_CheckLocationStatusForUnavailabilityForNoChargers() throws InterruptedException {
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        WatchList watchList = new WatchList(driver);
+        MapDetails mapDetails = new MapDetails(driver);
+        COSA cosa = new COSA(driver);
+//        customerLogin.LogoutFromCustomerAccount();
+//        customerLogin.GoToCustomerLoginPage();
+//        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+        watchList.GoToWatchList();
+        cosa.clearWatchList();
+        watchList.AddPaikareShopLocationToWatchlist(7,"12",COSA.PM);
+        watchList.GoToWatchList();
+        Assert.assertTrue(watchList.verifyAnElementDisplayedOrNot(2500,WatchList.UnavailableStatus));
+
+
+
+    }
+
+
+
+
+
 
 
 
