@@ -36,7 +36,7 @@ public class WatchList extends BasePage{
 
 
     public void GoToWatchList() throws InterruptedException {
-        Thread.sleep(4000);
+        Thread.sleep(3500);
         GoToWebsite(prop.getProperty("WatchListPageURL"));
 
     }
@@ -272,6 +272,7 @@ public class WatchList extends BasePage{
         Thread.sleep(2000);
         SwitchToTab(0);
         dashboard.RefreshBrowser();
+        Thread.sleep(2500);
         waitVisibility(LocationName);
         if (driver.findElement(AvailableStatus).isDisplayed()) {
             System.out.println("Location status is showing available");

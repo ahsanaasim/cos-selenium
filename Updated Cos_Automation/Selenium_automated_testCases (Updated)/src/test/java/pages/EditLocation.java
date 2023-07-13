@@ -38,6 +38,7 @@ public class EditLocation extends BasePage{
         Thread.sleep(2500);
         createLocation.GoToLocationPage();
         createLocation.writeINLocationSearchBar(location);
+        click(CreateCharger.searchargerbtn);
         click(EditButton);
         editCharger.clickToggleButtonIfItIsOff();
         click(CreateLocation.savelocationbtn);

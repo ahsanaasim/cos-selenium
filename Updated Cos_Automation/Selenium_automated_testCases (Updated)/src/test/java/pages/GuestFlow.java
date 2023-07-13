@@ -49,6 +49,7 @@ public class GuestFlow extends BasePage {
     public static By ForMembersSubTitle = By.xpath("(//div[@class='doSignUp ml-15 mt-5'])[2]");
     public static By AuthorizeLoading = By.xpath("//span[@class='anticon anticon-loading anticon-spin']");
     public static By ChargerNotConnected = By.xpath("//span[@class='red-color weight-600']");
+    public static By AlertUnderChargerNotConnected = By.xpath("//div[@class='ant-alert-description']");
     public static By CardNumber = By.xpath("//input[@placeholder='Card number']");
     public static By AuthorizeButton = By.xpath("(//button[@class='ant-btn ant-btn-primary ant-btn-block common-btn-primary authorizeButton'])[2]");
     public static By PluginChargerbtn = By.xpath("//div[@class='ml-10'][contains(text(),'Plug In Your Charger')]");
@@ -80,6 +81,9 @@ public class GuestFlow extends BasePage {
 
 
 
+    public String AlertTextUnderChargerNotConnected(){
+        return "Please attach the charger plug into your car to complete the authorization.";
+    }
     public boolean SendOtp(int delay, String text) throws InterruptedException {
         Thread.sleep(delay);
         WebElement currentElement = driver.switchTo().activeElement();
@@ -142,6 +146,7 @@ public class GuestFlow extends BasePage {
 
     public void SwitchToIframe() throws InterruptedException{
         Thread.sleep(4000);
+        waitVisibility(CardPaymentIFrameTitle);
         WebElement iframeByTitleContains = driver.findElement(CardPaymentIFrameTitle);
         driver.switchTo().frame(iframeByTitleContains);
     }

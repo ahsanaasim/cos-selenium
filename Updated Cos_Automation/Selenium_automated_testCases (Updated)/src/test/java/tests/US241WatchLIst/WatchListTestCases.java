@@ -55,7 +55,7 @@ public class WatchListTestCases extends BaseTest {
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        editLocation.makeALocationOnline("Ramrpura Bridge");
+        editLocation.makeALocationOnline("Rampura Bridge");
 
 
     }

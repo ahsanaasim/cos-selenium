@@ -159,6 +159,13 @@ public class GuestFlowTestCases extends BaseTest {
     }
 
 
+    public void MakeAChargerIntoAvailableState() throws InterruptedException {
+        Thread.sleep(4000);
+
+
+    }
+
+
 
 
 
