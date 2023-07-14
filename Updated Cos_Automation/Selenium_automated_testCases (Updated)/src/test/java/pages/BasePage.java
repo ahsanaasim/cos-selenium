@@ -183,12 +183,14 @@ public class BasePage {
     }
 
     public void GoToWebsite (String url) throws InterruptedException{
+        Thread.sleep(2000);
         driver.get(url);
     }
 
 
 
-    public Boolean waitelementtobeEnabled(By elementBy) {
+    public Boolean waitelementtobeEnabled(By elementBy) throws InterruptedException {
+        Thread.sleep(3000);
         if( driver.findElement((elementBy)).isEnabled()){
             System.out.println("Verification Successful!!! Element is Enabled");
 

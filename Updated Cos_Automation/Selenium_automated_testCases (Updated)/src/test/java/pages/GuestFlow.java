@@ -49,6 +49,7 @@ public class GuestFlow extends BasePage {
     public static By ForMembersSubTitle = By.xpath("(//div[@class='doSignUp ml-15 mt-5'])[2]");
     public static By AuthorizeLoading = By.xpath("//span[@class='anticon anticon-loading anticon-spin']");
     public static By ChargerNotConnected = By.xpath("//span[@class='red-color weight-600']");
+    public static By PlugConnected = By.xpath("//span[@class='green-color weight-600']");
     public static By AlertUnderChargerNotConnected = By.xpath("//div[@class='ant-alert-description']");
     public static By CardNumber = By.xpath("//input[@placeholder='Card number']");
     public static By AuthorizeButton = By.xpath("(//button[@class='ant-btn ant-btn-primary ant-btn-block common-btn-primary authorizeButton'])[2]");
@@ -81,8 +82,45 @@ public class GuestFlow extends BasePage {
 
 
 
+    public void makeScriptUsedChargerAvailable() throws InterruptedException {
+        SimulationPage simulationPage = new SimulationPage(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        String[] D10LocationCharger = {"Messi Charger","D 10 charger 1170", "D-10 Charger", "D10 Charger-24", "D 11 charger", "Space 5","charger for noone"};
+        // Loop through the array and print each element
+        for (String Charger : D10LocationCharger) {
+            System.out.println(Charger);
+            guestFlow.GoToSimulator();
+            simulationPage.SelectChargerFromSimulator(Charger);
+            simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
+            Thread.sleep(2000);
+
+        }
+    }
+
+    public void makeChargerAvailableFromAuthorizeState(String Charger) throws InterruptedException {
+        CreateCharger operation = new CreateCharger(driver);
+        SimulationPage simulator = new SimulationPage(driver);
+        simulator.SelectChargerFromSimulator(Charger);
+        String SessionState = readText(SimulationPage.SessionStatus).replaceAll(": ","");
+        System.out.println(SessionState);
+        if (SessionState.equals("Authorized")){
+            operation.ClickButton(SimulationPage.PlugInCharger,1500);
+            simulator.SelectChargerStatusFromSimulator("Charging");
+            operation.ClickButton(SimulationPage.ChargerStatusSaveButton,3000);
+            waitelementtobeEnabled(DisconnectChargerbtn);
+            simulator.clickOnDisconnectTheChargerIfIsEnabled();
+            Thread.sleep(2500);
+        }
+
+
+    }
+
     public String AlertTextUnderChargerNotConnected(){
         return "Please attach the charger plug into your car to complete the authorization.";
+    }
+
+    public String AlertTextUnderPlugConnected(){
+        return "Your charging session will begin shortly.";
     }
     public boolean SendOtp(int delay, String text) throws InterruptedException {
         Thread.sleep(delay);
@@ -122,7 +160,7 @@ public class GuestFlow extends BasePage {
 
 
     public void GoToSimulator() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(2500);
         driver.get("https://test-admin.chargeonsite.com/simulation/simulator");
     }
     public boolean SelectChargerFromSimulator(String text) throws InterruptedException {
@@ -134,6 +172,36 @@ public class GuestFlow extends BasePage {
         selectitem.sendKeys(Keys.ENTER);
         return true;
 
+    }
+    public void MakeAllChargerOfSimulatorOnline() throws InterruptedException {
+        SimulationPage simulator = new SimulationPage(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        guestFlow.GoToSimulator();
+        for (int i = 0; i < 229; i++) {
+            Thread.sleep(2000);
+            waitforPresence(GuestFlow.SearchFieldSimulator);
+            WebElement selectitem = driver.findElement(SearchFieldSimulator);
+            Thread.sleep(3500);
+            selectitem.sendKeys(Keys.DOWN);
+            selectitem.sendKeys(Keys.DOWN);
+            selectitem.sendKeys(Keys.ENTER);
+            simulator.clickOnDisconnectTheChargerIfIsEnabled();
+            Thread.sleep(2000);
+            String ChargerName = driver.findElement(SimulationPage.SelectedCharger).getAttribute("title");
+            System.out.println("Charger name: "+ChargerName);
+            String SessionState = readText(SimulationPage.SessionStatus).replaceAll(": ","");
+            System.out.println("Session Status: "+SessionState);
+            System.out.println("Sl no."+i);
+            if (SessionState.equals("Authorized")){
+                operation.ClickButton(SimulationPage.PlugInCharger,1500);
+                simulator.SelectChargerStatusFromSimulator("Charging");
+                operation.ClickButton(SimulationPage.ChargerStatusSaveButton,3000);
+                waitelementtobeEnabled(DisconnectChargerbtn);
+                simulator.clickOnDisconnectTheChargerIfIsEnabled();
+                Thread.sleep(2000);
+            }
+        }
     }
 
     public void ScanQROFSeleniumCharger() throws InterruptedException {

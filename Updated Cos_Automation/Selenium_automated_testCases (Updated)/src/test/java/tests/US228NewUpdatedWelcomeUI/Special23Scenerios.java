@@ -11,6 +11,39 @@ import java.util.Properties;
 public class Special23Scenerios extends BaseTest2 {
     Properties prop = ConfigUtill.getConfig();
 
+
+    @Test(priority = 1)
+    @TestParameters(testCaseId = {"TC-00"})
+    public void TC_00_MakeChargerToAvailableFromAuthorizedState() throws InterruptedException {
+        CreateCharger operation =new CreateCharger(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
+        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.VerifyValidLogin();
+        guestFlow.GoToSimulator();
+        guestFlow.makeChargerAvailableFromAuthorizeState("Charger ev updated");
+        driver.quit();
+
+    }
+
+
+    @Test(priority = 2)
+    @TestParameters(testCaseId = {"TC-0"})
+    public void TC_00_MakeUsedChargerAvailable() throws InterruptedException {
+        MapDetails mapDetails = new MapDetails(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        loginPage.VerifyValidLogin();
+        guestFlow.makeScriptUsedChargerAvailable();
+    }
+
+
+
 //    @Test(priority = 6)
 //    @TestParameters(testCaseId = {"TC-1"})
 //    public void TC_1_CheckAvailableStatusForAvailableCharger() throws InterruptedException {
@@ -20,6 +53,9 @@ public class Special23Scenerios extends BaseTest2 {
 //        guestVerificationPage.GoToAvailableCharger(prop.getProperty("Selenium889ChargerQR"));//Selenium 889
 //        Assert.assertTrue(guestVerificationPage.verifyTextMatching(1000,GuestVerificationPage.ChargerAvailableStatus,"Available Now"));
 //        Assert.assertTrue(guestVerificationPage.verifyAFieldIsDisable(1000,GuestVerificationPage.StatChargingButton));
+//        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.ThanksForScanningTitle));
+//        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.ProvidePhnNumberTitle));
+//        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.PhoneNumberField));
 //        driver.close();
 //
 //    }
@@ -115,8 +151,8 @@ public class Special23Scenerios extends BaseTest2 {
 //    }
 //
 //    @Test(priority = 11)
-//    @TestParameters(testCaseId = {"TC-5.2"})
-//    public void TC_5_2_CheckAvailableStatusAfterChangingFromUnavailable() throws InterruptedException {
+//    @TestParameters(testCaseId = {"TC-6"})
+//    public void TC_6_CheckAvailableStatusAfterChangingFromUnavailable() throws InterruptedException {
 //        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
 //        CreateCharger operation =new CreateCharger(driver);
 //        CustomerLogin customerLogin = new CustomerLogin(driver);
@@ -136,9 +172,9 @@ public class Special23Scenerios extends BaseTest2 {
 //
 //
 //    }
-
-
-    @Test(priority = 11)
+//
+//
+    @Test(priority = 12)
     @TestParameters(testCaseId = {"TC-7"})
     public void TC_7_CheckWhenGuest1ComingBackBrowserAfter2MinVerifyingPhoneNumber() throws InterruptedException {
         CreateCharger operation =new CreateCharger(driver);
@@ -181,28 +217,28 @@ public class Special23Scenerios extends BaseTest2 {
 
 
     }
-
-    @Test(priority = 12)
-    @TestParameters(testCaseId = {"TC-7.2"})
-    public void TC_7_2_CheckWhenGuest1ComingBackBrowserAfter2MinVerifyingPhoneNumber() throws InterruptedException {
-        CreateCharger operation =new CreateCharger(driver);
-        CustomerLogin customerLogin = new CustomerLogin(driver);
-        GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
-        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
-        SimulationPage simulationPage = new SimulationPage(driver);
-        GuestFlow guestFlow = new GuestFlow(driver);
-        LoginPage login = new LoginPage(driver);
-        guestVerificationPage.GoToAvailableCharger(prop.getProperty("Selenium5ChargerQR"));//Selenium 5
-        Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
-        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
-        Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
-        operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
-        Assert.assertTrue(guestFlow.verifyAnElementDisplayedOrNot(5000,IdlePage.IdlePageTitle));
-
-
-
-
-    }
+//
+//    @Test(priority = 13)
+//    @TestParameters(testCaseId = {"TC-8"})
+//    public void TC_8_CheckWhenGuest1ComingBackBrowserAfter2MinVerifyingPhoneNumber() throws InterruptedException {
+//        CreateCharger operation =new CreateCharger(driver);
+//        CustomerLogin customerLogin = new CustomerLogin(driver);
+//        GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
+//        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
+//        SimulationPage simulationPage = new SimulationPage(driver);
+//        GuestFlow guestFlow = new GuestFlow(driver);
+//        LoginPage login = new LoginPage(driver);
+//        guestVerificationPage.GoToAvailableCharger(prop.getProperty("Selenium5ChargerQR"));//Selenium 5
+//        Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
+//        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
+//        Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
+//        operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
+//        Assert.assertTrue(guestFlow.verifyAnElementDisplayedOrNot(5000,IdlePage.IdlePageTitle));
+//
+//
+//
+//
+//    }
 
     @Test(priority = 15)
     @TestParameters(testCaseId = {"TC-10"})
@@ -234,7 +270,70 @@ public class Special23Scenerios extends BaseTest2 {
         Assert.assertTrue(operation.ClickButton(GuestFlow.AuthorizeButton,1500));
         Assert.assertTrue(guestVerificationPage.verifyTextMatching(3000,GuestFlow.ChargerNotConnected,"Charger Not Connected"));
         Assert.assertTrue(guestVerificationPage.verifyTextMatching(3000,GuestFlow.AlertUnderChargerNotConnected,guestFlow.AlertTextUnderChargerNotConnected()));
-        driver.quit();
+//        driver.quit();
+
+
+
+    }
+
+
+    @Test(priority = 16)
+    @TestParameters(testCaseId = {"TC-12"})
+    public void TC_12_CheckChargerNotConnectedAlertAfterAuthorizing() throws InterruptedException {
+        CreateCharger operation =new CreateCharger(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
+        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.VerifyValidLogin();
+        guestFlow.GoToSimulator();
+        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Messi Charger"));
+        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
+        Assert.assertTrue(operation.ClickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
+        simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
+        guestFlow.SwitchToTab(1);
+        Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
+        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
+        Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
+        operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
+        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.StatChargingButton,5000));
+        guestFlow.SwitchToIframe();
+        operation.click(GuestFlow.CardNumber);
+        Assert.assertTrue(operation.writeInputText(GuestFlow.CardNumber,"424242424242424242424242424",6000));
+        guestFlow.SwitchToDefaultFromIframe();
+        Assert.assertTrue(operation.ClickButton(GuestFlow.AuthorizeButton,1500));
+        guestFlow.SwitchToTab(0);
+        Assert.assertTrue(operation.ClickButton(GuestFlow.PluginChargerbtn,2500));
+        guestFlow.SwitchToTab(1);
+        Assert.assertTrue(guestVerificationPage.verifyTextMatching(3000,GuestFlow.PlugConnected,"Plug Connected."));
+        Assert.assertTrue(guestVerificationPage.verifyTextMatching(3000,GuestFlow.AlertUnderChargerNotConnected,guestFlow.AlertTextUnderPlugConnected()));
+
+//        driver.quit();
+
+
+
+    }
+
+
+
+
+    @Test(priority = 17)
+    @TestParameters(testCaseId = {"TC-11"})
+    public void TC_15_ChangeTheStatusOfAllSimulatorChargerOnline() throws InterruptedException {
+        CreateCharger operation =new CreateCharger(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
+        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.VerifyValidLogin();
+        guestFlow.MakeAllChargerOfSimulatorOnline();
+
+
+//        driver.quit();
 
 
 

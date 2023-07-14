@@ -130,7 +130,7 @@ public class MapDetails extends BasePage{
     }
 
     public void GoToPaikareLocation() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(3500);
         driver.get("https://test-app.chargeonsite.com/customer/map?latitude=23.75816740396393&longitude=90.42778544106802&locationMarkerId=55a8c1f9-0c9e-41f5-bdae-de6bf8e8542d");
     }
 

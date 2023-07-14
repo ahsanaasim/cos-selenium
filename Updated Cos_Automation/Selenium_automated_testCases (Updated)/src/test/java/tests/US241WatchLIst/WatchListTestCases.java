@@ -387,7 +387,7 @@ public class WatchListTestCases extends BaseTest {
 //        customerLogin.LogoutFromCustomerAccount();
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
-        watchList.AddPaikareShopLocationToWatchlist(2,"01",COSA.PM);
+        watchList.AddPaikareShopLocationToWatchlist(2,"03",COSA.PM);
         watchList.GoToWatchList();
         operation.ClickButton(WatchList.CrossButton,2000);
         Assert.assertTrue(watchList.verifyTextMatching(1000,WatchList.RemoveAlert,watchList.AlertForRemoveALocationFromWatchlist()));
@@ -436,7 +436,7 @@ public class WatchListTestCases extends BaseTest {
         watchList.GoToWatchList();
         operation.ClickButton(WatchList.CrossButton,2000);
         operation.ClickButton(WatchList.YesButton,2000);
-        Assert.assertTrue(watchList.verifyElementNotDisplayed(2000,WatchList.RemoveAlert));
+        Assert.assertTrue(watchList.verifyElementNotDisplayed(2500,WatchList.RemoveAlert));
 
 
     }

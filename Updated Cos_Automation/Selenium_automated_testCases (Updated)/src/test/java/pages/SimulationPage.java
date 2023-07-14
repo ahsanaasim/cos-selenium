@@ -32,6 +32,8 @@ public class SimulationPage extends BasePage {
     public static By ChargerQRCodeCopyLink = By.xpath("//div[@class='copy-button ml-10']");
     public static By RegisterField = By.xpath("//input[@placeholder='QR code url']");
     public static By BootChargerAsDummy = By.xpath("//button[@class='ant-btn ant-btn-default charger-dummy-button']");
+    public static By SessionStatus = By.xpath("(//div[@class='ant-col ant-col-12'])[26]");
+    public static By SelectedCharger = By.xpath("//span[@class='ant-select-selection-item']");
 
 
     public boolean SelectChargerFromSimulator(String text) throws InterruptedException {
@@ -46,7 +48,7 @@ public class SimulationPage extends BasePage {
     }
 
     public void pasteTheCopiedChargerQRCodeToAnotherPage() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         // Open a new tab
         String url = getClipboardURL();
         Thread.sleep(1000);

@@ -418,7 +418,7 @@ public class CreateLocation extends BasePage {
 
     }
 
-    public boolean verifyConfirmLocationButtonisShowingandEnabled() {
+    public boolean verifyConfirmLocationButtonisShowingandEnabled() throws InterruptedException {
         //waitVisibility(landmark);
         waitelementtobedisplayed(confirmlocationbtn);
         waitelementtobeEnabled(confirmlocationbtn);
