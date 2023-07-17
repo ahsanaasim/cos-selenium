@@ -619,7 +619,7 @@ public class COSA extends BasePage{
             while (driver.findElement(WatchList.CrossButton).isDisplayed()){
                 Thread.sleep(3000);
                 driver.findElement(WatchList.CrossButton).click();
-                Thread.sleep(3000);
+                Thread.sleep(2000);
                 driver.findElement(WatchList.YesButton).click();
 
             }

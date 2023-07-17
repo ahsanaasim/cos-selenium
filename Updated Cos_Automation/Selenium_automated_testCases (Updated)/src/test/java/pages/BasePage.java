@@ -217,7 +217,7 @@ public class BasePage {
     //Click Method
     public void click (By elementBy) {
         waitVisibility(elementBy);
-        //waitelemtclickable(elementBy);
+        waitelemtclickable(elementBy);
         driver.findElement(elementBy).click();
     }
 

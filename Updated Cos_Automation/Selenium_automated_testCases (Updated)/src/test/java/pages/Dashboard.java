@@ -30,6 +30,9 @@ public class Dashboard extends BasePage {
     public static By property = By.xpath("//span[@class='ant-menu-title-content']//a[normalize-space()='Property']");
     //    By dashboard = By.xpath("(//li[@role='menuitem'])[1]");
     public static By dashboard = By.xpath("//span[@class='ant-menu-title-content']//a[@href='/dashboard']");
+    public static By PropertyFilterField = By.xpath("//div[@class='ant-select-selection-overflow']");
+    public static By StardewValleyPropertyFromOption = By.xpath("//div[@class='ant-select-item-option-content'][contains(text(),'Stardew Valley')]");
+    public static By AutomationPropertyFromOption = By.xpath("//div[@class='ant-select-item-option-content'][contains(text(),'Automation Property')]");
 
     CreateCompany Createcompany=new CreateCompany(driver);
 

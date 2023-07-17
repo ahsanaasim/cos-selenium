@@ -49,8 +49,9 @@ public class GuestFlow extends BasePage {
     public static By ForMembersSubTitle = By.xpath("(//div[@class='doSignUp ml-15 mt-5'])[2]");
     public static By AuthorizeLoading = By.xpath("//span[@class='anticon anticon-loading anticon-spin']");
     public static By ChargerNotConnected = By.xpath("//span[@class='red-color weight-600']");
-    public static By PlugConnected = By.xpath("//span[@class='green-color weight-600']");
+    public static By PlugConnected = By.xpath("(//span[@class='green-color weight-600'])[2]");
     public static By AlertUnderChargerNotConnected = By.xpath("//div[@class='ant-alert-description']");
+    public static By AlertUnderPlugConnected = By.xpath("(//div[@class='ant-alert-description'])[2]");
     public static By CardNumber = By.xpath("//input[@placeholder='Card number']");
     public static By AuthorizeButton = By.xpath("(//button[@class='ant-btn ant-btn-primary ant-btn-block common-btn-primary authorizeButton'])[2]");
     public static By PluginChargerbtn = By.xpath("//div[@class='ml-10'][contains(text(),'Plug In Your Charger')]");
@@ -85,7 +86,8 @@ public class GuestFlow extends BasePage {
     public void makeScriptUsedChargerAvailable() throws InterruptedException {
         SimulationPage simulationPage = new SimulationPage(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
-        String[] D10LocationCharger = {"Messi Charger","D 10 charger 1170", "D-10 Charger", "D10 Charger-24", "D 11 charger", "Space 5","charger for noone"};
+        CreateCharger operation = new CreateCharger(driver);
+        String[] D10LocationCharger = {"Messi Charger","Selenium 18","Selenium 5","Selenium 272","Selenium 92","Selenium 889","Selenium 2","Selenium 529","D 10 charger 1170", "D-10 Charger", "D10 Charger-24", "D 11 charger", "Space 5","charger for noone","Charger ev updated"};
         // Loop through the array and print each element
         for (String Charger : D10LocationCharger) {
             System.out.println(Charger);
@@ -93,6 +95,19 @@ public class GuestFlow extends BasePage {
             simulationPage.SelectChargerFromSimulator(Charger);
             simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
             Thread.sleep(2000);
+            String ChargerName = driver.findElement(SimulationPage.SelectedCharger).getAttribute("title");
+            System.out.println("Charger name: "+ChargerName);
+            waitVisibility(SimulationPage.SessionStatus);
+            String SessionState = readText(SimulationPage.SessionStatus).replaceAll(": ","");
+            System.out.println("Session Status: "+SessionState);
+            if (SessionState.equals("Authorized")){
+                operation.ClickButton(SimulationPage.PlugInCharger,1500);
+                simulationPage.SelectChargerStatusFromSimulator("Charging");
+                operation.ClickButton(SimulationPage.ChargerStatusSaveButton,3000);
+                waitelementtobeEnabled(DisconnectChargerbtn);
+                simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
+                Thread.sleep(2000);
+            }
 
         }
     }
@@ -178,7 +193,7 @@ public class GuestFlow extends BasePage {
         CreateCharger operation = new CreateCharger(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
         guestFlow.GoToSimulator();
-        for (int i = 0; i < 229; i++) {
+        for (int i = 0; i < 227; i++) {
             Thread.sleep(2000);
             waitforPresence(GuestFlow.SearchFieldSimulator);
             WebElement selectitem = driver.findElement(SearchFieldSimulator);
@@ -656,8 +671,3 @@ public class GuestFlow extends BasePage {
 
 
 }
-
-
-
-
-

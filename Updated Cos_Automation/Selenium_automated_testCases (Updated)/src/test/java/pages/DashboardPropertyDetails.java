@@ -30,17 +30,27 @@ public class DashboardPropertyDetails extends BasePage {
     public static By DrawerLocationTitle = By.xpath("//div[@class='locationTitle']");
     public static By DrawerLocationTitle2 = By.xpath("(//div[@class='locationTitle'])[2]");
     public static By DrawerLocationTitle3 = By.xpath("(//div[@class='locationTitle'])[3]");
-    public static By NoChargermsg = By.xpath("//div[contains(text(),'No location and charger found')]");
+    public static By DrawerLocationTitle4 = By.xpath("(//div[@class='locationTitle'])[4]");
+    public static By NoChargermsg = By.xpath("//div[contains(text(),'No charger found')]");
     public static By NoChargermsg2 = By.xpath("(//div[contains(text(),'No charger found')])[2]");
     public static By NoChargermsg3 = By.xpath("(//div[contains(text(),'No charger found')])[3]");
     public static By NoChargerAndLocation = By.xpath("//div[@class='noLocationView']");
     public static By OfflineTagBesideLocation = By.xpath("//span[@class='ant-tag ant-tag-warning offlineTag']");
     public static By OfflineTagBesideLocation2 = By.xpath("(//span[@class='ant-tag ant-tag-warning offlineTag'])[2]");
     public static By OfflineTagBesideLocation3 = By.xpath("(//span[@class='ant-tag ant-tag-warning offlineTag'])[3]");
-    public static By ChargerOfflineStatus = By.xpath("//div[@class=' offlineText']");
-    public static By ChargerOfflineStatus2 = By.xpath("(//div[@class=' offlineText'])[2]");
-    public static By ChargerOfflineStatus3 = By.xpath("(//div[@class=' offlineText'])[3]");
-    public static By ChargerOtherStatus = By.xpath("//div[@class=' othersText']");
+    public static By ChargerName = By.xpath("//div[@class='chargerName']");
+    public static By ChargerName2 = By.xpath("(//div[@class='chargerName'])[2]");
+    public static By ChargerName3 = By.xpath("(//div[@class='chargerName'])[3]");
+    public static By ChargerName4 = By.xpath("(//div[@class='chargerName'])[4]");
+    public static By ChargerName5 = By.xpath("(//div[@class='chargerName'])[5]");
+    public static By ChargerName6 = By.xpath("(//div[@class='chargerName'])[6]");
+    public static By ChargerName7 = By.xpath("(//div[@class='chargerName'])[7]");
+    public static By ChargerName25 = By.xpath("(//div[@class='chargerName'])[25]");
+
+    public static By ChargerOfflineStatus = By.xpath("//div[@class='statusText offlineText']");
+    public static By ChargerOfflineStatus2 = By.xpath("(//div[@class='statusText offlineText'])[2]");
+    public static By ChargerOfflineStatus3 = By.xpath("(//div[@class='statusText offlineText'])[3]");
+    public static By ChargerOtherStatus = By.xpath("//div[@class='statusText othersText'][contains(text(),'Others')]");
     public static By TopAccountName = By.xpath("//div[@class='primary-color mr-10 capitalizeIt']");
     public static By SimulatorChargerStatusField = By.id("rc_select_0");
     public static By AvailableStatus = By.xpath("//div[@class=' availableText']");
@@ -97,10 +107,12 @@ public class DashboardPropertyDetails extends BasePage {
         Thread.sleep(5000);
         waitforPresence(DetailsBtn1);
         String PropertyName = driver.findElement(PropertyTitle).getText();
+        System.out.println("Property name in table: "+PropertyName);
         click(DetailsBtn1);
         Thread.sleep(5000);
         waitforPresence(DrawerTitle);
         String Expected = driver.findElement(DrawerTitle).getText();
+        System.out.println("Drawer title: "+Expected);
         if (PropertyName.equals(Expected)){
             System.out.println("Matched");
             return true;
@@ -146,12 +158,12 @@ public class DashboardPropertyDetails extends BasePage {
 //    }
     public boolean verifyNoChargerMsg() throws InterruptedException {
         waitforPresence(DetailsBtn1);
-        click(DetailsBtn4);
+        click(DetailsBtn1);
         Thread.sleep(5000);
         waitforPresence(NoChargermsg);
         String NoFoundMsg = driver.findElement(NoChargermsg).getText();
         System.out.println(NoFoundMsg);
-        if (driver.findElement(NoChargermsg).isDisplayed()){
+        if (driver.findElement(NoChargermsg).isDisplayed() || driver.findElement(NoChargermsg2).isDisplayed() || driver.findElement(NoChargermsg3).isDisplayed()){
             System.out.println("Matched");
             return true;
         }
@@ -255,32 +267,7 @@ public class DashboardPropertyDetails extends BasePage {
         driver.close();
     }
 
-    public boolean verifyLocationsUnderAProperty() throws InterruptedException {
-        Thread.sleep(6000);
-        waitforPresence(DrawerLocationTitle3);
-        if (driver.findElement(DrawerLocationTitle).isDisplayed() && driver.findElement(DrawerLocationTitle2).isDisplayed() && driver.findElement(DrawerLocationTitle3).isDisplayed()){
-            System.out.println("All Location are showing");
-            return true;
-        }
-        else {
-            System.out.println("All Location are not showing");
-            return false;
-        }
 
-    }
-    public boolean verifyNoChargesAreShowingForOnlyLocations() throws InterruptedException {
-        Thread.sleep(4000);
-        waitforPresence(NoChargermsg3);
-        if (driver.findElement(NoChargermsg).isDisplayed() && driver.findElement(NoChargermsg2).isDisplayed() && driver.findElement(NoChargermsg3).isDisplayed()){
-            System.out.println("All Location are showing");
-            return true;
-        }
-        else {
-            System.out.println("All Location are not showing");
-            return false;
-        }
-
-    }
     public boolean verifyOfflineTagsAreShowingForOfflineLocations() throws InterruptedException {
         Thread.sleep(3000);
         WebElement Tag1 = driver.findElement(OfflineTagBesideLocation);
@@ -298,10 +285,19 @@ public class DashboardPropertyDetails extends BasePage {
     public boolean verifyChargerStatusOfflineForOfflineLocations() throws InterruptedException {
         Thread.sleep(5000);
         waitforPresence(ChargerOfflineStatus3);
-        WebElement Status1 = driver.findElement(ChargerOfflineStatus);
-        WebElement Status2 = driver.findElement(ChargerOfflineStatus2);
-        WebElement Status3 = driver.findElement(ChargerOfflineStatus3);
-        if (Status1.isDisplayed() && Status2.isDisplayed() && Status3.isDisplayed()){
+        String Charger = readText(ChargerName);
+        String Status = readText(ChargerOfflineStatus);
+        String ChargerNameWithStatus = Charger+" "+Status;
+        System.out.println("Charger name:  "+Charger+" | "+"Status: "+Status);
+        String Charger2 = readText(ChargerName2);
+        String Status2 = readText(ChargerOfflineStatus2);
+        String ChargerNameWithStatus2 = Charger2+" "+Status2;
+        System.out.println("Charger name:  "+Charger2+" | "+"Status: "+Status2);
+        String Charger3 = readText(ChargerName3);
+        String Status3 = readText(ChargerOfflineStatus3);
+        String ChargerNameWithStatus3 = Charger3+" "+Status3;
+        System.out.println("Charger name:  "+Charger3+" | "+"Status: "+Status3);
+        if (ChargerNameWithStatus.contains("Offline") && ChargerNameWithStatus2.contains("Offline") && ChargerNameWithStatus3.contains("Offline")){
             System.out.println("Offline status are showing for Offline locations Chargers");
             return true;
         }
@@ -365,6 +361,27 @@ public class DashboardPropertyDetails extends BasePage {
         }
 
     }
+
+    public boolean verifyLocationCountInTableMatchWithDrawer() throws InterruptedException {
+        Thread.sleep(1500);
+        waitVisibility(LocationCount);
+        String Locations = driver.findElement(LocationCount).getText();
+        int locationsCount = Integer.parseInt(Locations);
+        System.out.println("Locations count in table: "+locationsCount);
+        click(DetailsBtn1);
+        waitforPresence(DrawerLocationTitle2);
+        int locationsCountDrawer = driver.findElements(By.className("locationTitle")).size();
+        System.out.println("Locations count in drawer:"+locationsCountDrawer);
+        if (locationsCount==locationsCountDrawer){
+            System.out.println("Locations count in table match with drawer");
+            return true;
+        }
+        else {
+            System.out.println("Locations count in table is not matching with drawer");
+            return false;
+        }
+
+    }
     public boolean verifyChargerCountIncreasing() throws InterruptedException {
         Thread.sleep(7000);
         waitforPresence(DetailsBtn1);
@@ -401,6 +418,28 @@ public class DashboardPropertyDetails extends BasePage {
         }
         else {
             System.out.println("Charger Count is not increased");
+            return false;
+        }
+
+    }
+
+    public boolean verifyChargerCountInTableMatchWithDrawer() throws InterruptedException {
+        Thread.sleep(1500);
+        waitVisibility(LocationCount);
+        String Chargers = driver.findElement(TotalChargerCount).getText();
+        int chargersCount = Integer.parseInt(Chargers);
+        System.out.println("Chargers count in table: "+chargersCount);
+        click(DetailsBtn1);
+        Thread.sleep(5000);
+        waitVisibility(ChargerName7);
+        int chargersCountDrawer = driver.findElements(By.className("chargerName")).size();
+        System.out.println("Chargers count in drawer: "+chargersCountDrawer);
+        if (chargersCount==chargersCountDrawer){
+            System.out.println("Chargers count in table match with drawer");
+            return true;
+        }
+        else {
+            System.out.println("Chargers count in table is not matching with drawer");
             return false;
         }
 
