@@ -79,6 +79,7 @@ public class GuestFlow extends BasePage {
     public static By EnergyConsumed = By.xpath("(//div[@class='sessionEndCountText'])[5]");
     public static By TotalPaid = By.xpath("(//div[@class='totalFeeText'])[2]");
     public static By PressAndHoldButton = By.xpath("(//button[@class='ant-btn ant-btn-round ant-btn-default ant-btn-lg swipe-button'])[2]");
+    public static By FirstAlertInChargingPage = By.xpath("(//div[@class='ant-alert-message'])[3]");
 
 
 
@@ -112,6 +113,32 @@ public class GuestFlow extends BasePage {
         }
     }
 
+    public void makeASpecificChargerAvailable(String chargername) throws InterruptedException {
+        SimulationPage simulationPage = new SimulationPage(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        String[] D10LocationCharger = {chargername};
+        guestFlow.GoToSimulator();
+        simulationPage.SelectChargerFromSimulator(chargername);
+        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
+        Thread.sleep(2000);
+        String ChargerName = driver.findElement(SimulationPage.SelectedCharger).getAttribute("title");
+        System.out.println("Charger name: "+ChargerName);
+        waitVisibility(SimulationPage.SessionStatus);
+        String SessionState = readText(SimulationPage.SessionStatus).replaceAll(": ","");
+        System.out.println("Session Status: "+SessionState);
+        if (SessionState.equals("Authorized")){
+            operation.ClickButton(SimulationPage.PlugInCharger,1500);
+            simulationPage.SelectChargerStatusFromSimulator("Charging");
+            operation.ClickButton(SimulationPage.ChargerStatusSaveButton,3000);
+            waitelementtobeEnabled(DisconnectChargerbtn);
+            simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
+            Thread.sleep(2000);
+            }
+
+
+    }
+
     public void makeChargerAvailableFromAuthorizeState(String Charger) throws InterruptedException {
         CreateCharger operation = new CreateCharger(driver);
         SimulationPage simulator = new SimulationPage(driver);
@@ -137,6 +164,12 @@ public class GuestFlow extends BasePage {
     public String AlertTextUnderPlugConnected(){
         return "Your charging session will begin shortly.";
     }
+
+
+    public String AlertTextForFaultedCharger(){
+        return "We found some technical issues. Please unplug your charger.";
+    }
+
     public boolean SendOtp(int delay, String text) throws InterruptedException {
         Thread.sleep(delay);
         WebElement currentElement = driver.switchTo().activeElement();

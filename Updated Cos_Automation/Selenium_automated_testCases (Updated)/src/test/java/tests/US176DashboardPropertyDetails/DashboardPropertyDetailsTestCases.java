@@ -13,11 +13,28 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
     Properties prop = ConfigUtill.getConfig();
     Messages msg = new Messages();
 
+    @Test(priority = 1)
+    @TestParameters(testCaseId = {"TC-0"})
+    public void TC_0_PreConditionLoginToCOSAdmin() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateLocation createLocation=new CreateLocation(driver);
+        createLocation.NewTabOpenAndSwitchToNewTab(1);
+        Thread.sleep(2500);
+        loginPage.VerifyValidLogin();
+        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickonLocations());
+
+
+    }
+
     @Test(priority = 1)//Done
     @TestParameters(testCaseId = {"TC-1"})
     public void TC_1_CheckTheSeeDetailsButtonsUnderActionColumn() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
+        dashboardPropertyDetails.SwitchToTab(0);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue((dashboardPropertyDetails.verifyDetailsBesideEveryProperty()));
     }
@@ -56,7 +73,7 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         dashboard.RefreshBrowser();
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue((dashboardPropertyDetails.verifyDetailsDrawerTitle()));
-        dashboardPropertyDetails.LogoutFromExistingAccount();
+
     }
     //    @Test(priority = 6)//Done
 //    @TestParameters(testCaseId = {"TC-10"})
@@ -72,7 +89,8 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         CreateCharger operation = new CreateCharger(driver);
-        Thread.sleep(2500);
+        dashboardPropertyDetails.LogoutFromExistingAccount();
+        Thread.sleep(3000);
         loginPage.VerifyValidLoginForPropertyAdminWithPerfectCombination();
         operation.ClickButton(Dashboard.PropertyFilterField,2000);
         operation.ClickButton(Dashboard.StardewValleyPropertyFromOption,2000);
@@ -82,12 +100,13 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
     @Test(priority = 7)//Done
     @TestParameters(testCaseId = {"TC-13"})
     public void TC_13_CheckNoLocationAndChargerMessage() throws InterruptedException {
-        Dashboard dashboard =new Dashboard(driver);
+        DashboardPropertyAdmin dashboard =new DashboardPropertyAdmin(driver);
         LoginPage loginPage = new LoginPage(driver);
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         CreateCharger operation = new CreateCharger(driver);
 //        loginPage.VerifyValidLoginForPropertyAdminWithPerfectCombination();
-        dashboard.RefreshBrowser();
+//        dashboard.RefreshBrowser();
+        dashboard.GotoDashboard();
         operation.ClickButton(Dashboard.PropertyFilterField,2000);
         operation.ClickButton(Dashboard.AutomationPropertyFromOption,2000);
         Assert.assertTrue((dashboardPropertyDetails.verifyNoLocationAndCharger()));
@@ -185,7 +204,7 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
     public void TC_20_CheckLocationCountInTableMatchWithDrawerLocationCount() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
-//        dashboardPropertyDetails.LogoutFromExistingAccount();
+        dashboardPropertyDetails.LogoutFromExistingAccount();
         Thread.sleep(3000);
         loginPage.VerifyValidLoginForPropertyAdminCountTest();
         Assert.assertTrue((dashboardPropertyDetails.verifyLocationCountInTableMatchWithDrawer()));
@@ -205,9 +224,11 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
     public void TC_23_2_CheckChargersCountInTableMatchWithDrawerChargersCount() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
+        Dashboard dashboard = new Dashboard(driver);
 //        dashboardPropertyDetails.LogoutFromExistingAccount();
-        Thread.sleep(3000);
-        loginPage.VerifyValidLoginForPropertyAdminCountTest();
+//        Thread.sleep(3000);
+//        loginPage.VerifyValidLoginForPropertyAdminCountTest();
+        dashboard.RefreshBrowser();
         Assert.assertTrue((dashboardPropertyDetails.verifyChargerCountInTableMatchWithDrawer()));
     }
 
@@ -223,7 +244,7 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         dashboard.RefreshBrowser();
         Assert.assertTrue(createCharger.ClickButton(DashboardPropertyDetails.DetailsBtn1,5000));
         Assert.assertTrue((dashboardPropertyDetails.verifyOthersStatus()));
-        dashboardPropertyDetails.LogoutFromExistingAccount();
+
     }
 
 
@@ -231,137 +252,149 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
     @TestParameters(testCaseId = {"TC-30,31"})
     public void TC_30_31_CheckWhenLocationIsTurningIntoOfflineWhileChargerSessionGoing () throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
-        CreateCharger createCharger = new CreateCharger(driver);
+        CreateCharger operation = new CreateCharger(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         CreateLocation createLocation =new CreateLocation(driver);
-//        dashboardPropertyDetails.LogoutFromExistingAccount();
-//        Thread.sleep(5000);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
+        dashboardPropertyDetails.LogoutFromExistingAccount();
+        Thread.sleep(5000);
         loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
         Thread.sleep(5000);
-        guestFlow.NewTabOpenAndSwitchToNewTab(1);
-        loginPage.VerifyValidLogin();
-        guestFlow.GoToSimulator();
-        Thread.sleep(5000);
-        guestFlow.SelectChargerFromSimulator("Automatable Charger");
-        createCharger.ClickButton(SimulationPage.PlugInCharger,2000);
-        dashboardPropertyDetails.selectChargerStatus("Charging");
-        createCharger.ClickButton(DashboardPropertyDetails.SimulatorChargerStatusSaveBtn,1000);
+        guestFlow.SwitchToTab(1);
+//        guestFlow.NewTabOpenAndSwitchToNewTab(1);
+//        loginPage.VerifyValidLogin();
         createLocation.GoToLocationPage();
-        createCharger.writeInputText(CreateLocation.searchbar,"Beautiful Location",8000);
-        createCharger.ClickButton(CreateCharger.searchargerbtn,1000);
-        createCharger.ClickButton(EditLocation.EditButton,1000);
-        createCharger.ClickButton(UpdateChargerPropertyAdmin.ToggleButton,6000);
+        operation.writeInputText(CreateLocation.searchbar,"Beautiful Location",8000);
+        operation.ClickButton(CreateCharger.searchargerbtn,1000);
+        operation.ClickButton(EditLocation.EditButton,1000);
+        editCharger.clickToggleButtonIfItIsOn();
+        operation.ClickButton(CreateLocation.savelocationbtn,2000);
+        guestFlow.SwitchToTab(0);
+        operation.ClickButton(DashboardPropertyDetails.DetailsBtn1,3000);
+        Assert.assertTrue(dashboardPropertyDetails.verifyOfflineLocationAndOfflineCharger());
+    }
+    @Test(priority = 18)//Done
+    @TestParameters(testCaseId = {"TC-32,33"})
+    public void TC_32_33_CheckWhenLocationIsTurningOnlineFromOfflineWhileChargerSessionGoing () throws InterruptedException {
+        CreateCharger createCharger = new CreateCharger(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
+        Dashboard dashboard =new Dashboard(driver);
+        UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
+        dashboard.RefreshBrowser();
+        guestFlow.SwitchToTab(1);
+        createCharger.ClickButton(EditLocation.EditButton,2000);
+        editCharger.clickToggleButtonIfItIsOff();
         createCharger.ClickButton(CreateLocation.savelocationbtn,2000);
         guestFlow.SwitchToTab(0);
         createCharger.ClickButton(DashboardPropertyDetails.DetailsBtn1,3000);
-        Assert.assertTrue(dashboardPropertyDetails.verifyOfflineLocationAndOfflineCharger());
-    }
-//    @Test(priority = 18)//Done
-//    @TestParameters(testCaseId = {"TC-32,33"})
-//    public void TC_32_33_CheckWhenLocationIsTurningOnlineFromOfflineWhileChargerSessionGoing () throws InterruptedException {
-//        CreateCharger createCharger = new CreateCharger(driver);
-//        GuestFlow guestFlow = new GuestFlow(driver);
-//        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
-//        Dashboard dashboard =new Dashboard(driver);
-//        dashboard.RefreshBrowser();
-//        guestFlow.SwitchToTab(1);
-//        createCharger.ClickButton(EditLocation.EditButton,2000);
-//        createCharger.ClickButton(UpdateChargerPropertyAdmin.ToggleButton,6000);
-//        createCharger.ClickButton(CreateLocation.savelocationbtn,2000);
-//        guestFlow.SwitchToTab(0);
-//        createCharger.ClickButton(DashboardPropertyDetails.DetailsBtn1,3000);
-//        Assert.assertTrue(dashboardPropertyDetails.verifyOnlineLocation());
+        Assert.assertTrue(dashboardPropertyDetails.verifyOnlineLocation());
 //        Assert.assertTrue(dashboardPropertyDetails.verifyInUseCharger());
-//        guestFlow.SwitchToTab(1);
-//        guestFlow.GoToSimulator();
-//        Thread.sleep(4000);
-//        guestFlow.SelectChargerFromSimulator("Automatable Charger");
-//        createCharger.ClickButton(GuestFlow.DisconnectChargerbtn,5000);
-//        Thread.sleep(5000);
-//        dashboardPropertyDetails.CloseTab();
-//        guestFlow.SwitchToTab(0);
-//
-//    }
-//    @Test(priority = 19)//Done
-//    @TestParameters(testCaseId = {"TC-34"})
-//    public void TC_34_CheckWhatHappenedIfTheUserClickOutsideTheDrawer() throws InterruptedException {
-//        LoginPage loginPage = new LoginPage(driver);
-//        CreateCharger createCharger = new CreateCharger(driver);
-//        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
-//        Dashboard dashboard =new Dashboard(driver);
-//        dashboard.RefreshBrowser();
-//        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
-//        Assert.assertTrue(createCharger.ClickButton(DashboardPropertyDetails.DetailsBtn1,5000));
-//        Assert.assertTrue(createCharger.ClickButton(CreateCharger.outsidedrawer,5000));
-//        Assert.assertTrue(dashboardPropertyDetails.verifyDrawerClosed());
-//    }
-//    @Test(priority = 20)//Done
-//    @TestParameters(testCaseId = {"TC-35"})
-//    public void TC_35_CheckWhatHappenedIfTheUserClickCrossButtonOfTheDrawer() throws InterruptedException {
-//        LoginPage loginPage = new LoginPage(driver);
-//        CreateCharger createCharger = new CreateCharger(driver);
-//        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
-//        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
-//        Assert.assertTrue(createCharger.ClickButton(DashboardPropertyDetails.DetailsBtn1,5000));
-//        Assert.assertTrue(createCharger.ClickButton(CreateCharger.crossbtnofdrawer,5000));
-//        Assert.assertTrue(dashboardPropertyDetails.verifyDrawerClosed());
-//    }
-//    @Test(priority = 21)//Done
-//    @TestParameters(testCaseId = {"TC-37"})
-//    public void TC_37_CheckTheChargerStatusWhenChargerIsInAvailableStatus() throws InterruptedException {
-//        Dashboard dashboard =new Dashboard(driver);
-//        LoginPage loginPage = new LoginPage(driver);
-//        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
-//        GuestFlow guestFlow = new GuestFlow(driver);
-//        dashboard.RefreshBrowser();
-//        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
+
+    }
+    @Test(priority = 19)//Done
+    @TestParameters(testCaseId = {"TC-34"})
+    public void TC_34_CheckWhatHappenedIfTheUserClickOutsideTheDrawer() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
+        Dashboard dashboard =new Dashboard(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        guestFlow.SwitchToTab(0);
+        dashboard.RefreshBrowser();
+        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
+        Assert.assertTrue(createCharger.ClickButton(DashboardPropertyDetails.DetailsBtn1,5000));
+        Assert.assertTrue(createCharger.ClickButton(CreateCharger.outsidedrawer,5000));
+        Assert.assertTrue(dashboardPropertyDetails.verifyDrawerClosed());
+    }
+    @Test(priority = 20)//Done
+    @TestParameters(testCaseId = {"TC-35"})
+    public void TC_35_CheckWhatHappenedIfTheUserClickCrossButtonOfTheDrawer() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
+        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
+        Assert.assertTrue(createCharger.ClickButton(DashboardPropertyDetails.DetailsBtn1,5000));
+        Assert.assertTrue(createCharger.ClickButton(CreateCharger.crossbtnofdrawer,5000));
+        Assert.assertTrue(dashboardPropertyDetails.verifyDrawerClosed());
+    }
+    @Test(priority = 21)//Done
+    @TestParameters(testCaseId = {"TC-37"})
+    public void TC_37_CheckTheChargerStatusWhenChargerIsInAvailableStatus() throws InterruptedException {
+        Dashboard dashboard =new Dashboard(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        dashboard.RefreshBrowser();
+        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
 //        guestFlow.NewTabOpenAndSwitchToNewTab(1);
+        guestFlow.SwitchToTab(1);
 //        loginPage.VerifyValidLogin();
-//        guestFlow.GoToSimulator();
-//        guestFlow.SelectChargerFromSimulator("Automatable Charger");
-//        Assert.assertTrue(dashboardPropertyDetails.verifyChargerAvailabilityInSeeDetails());
-//    }
-//    @Test(priority = 22)//Done
-//    @TestParameters(testCaseId = {"TC-38"})
-//    public void TC_38_CheckTheChargerStatusWhenChargerIsInPreparingStatus() throws InterruptedException {
-//        LoginPage loginPage = new LoginPage(driver);
-//        CreateCharger createCharger = new CreateCharger(driver);
-//        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
-//        GuestFlow guestFlow = new GuestFlow(driver);
-//        Dashboard dashboard =new Dashboard(driver);
-//        dashboard.RefreshBrowser();
-//        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
+        guestFlow.GoToSimulator();
+        guestFlow.makeASpecificChargerAvailable("Automatable Charger");
+        Assert.assertTrue(dashboardPropertyDetails.verifyChargerAvailabilityInSeeDetails());
+    }
+    @Test(priority = 22)//Done
+    @TestParameters(testCaseId = {"TC-38"})
+    public void TC_38_CheckTheChargerStatusWhenChargerIsInPreparingStatus() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        Dashboard dashboard =new Dashboard(driver);
+        dashboard.RefreshBrowser();
+        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
 //        guestFlow.NewTabOpenAndSwitchToNewTab(1);
+        guestFlow.SwitchToTab(1);
 //        loginPage.VerifyValidLogin();
-//        guestFlow.GoToSimulator();
-//        guestFlow.SelectChargerFromSimulator("Automatable Charger");
-//        dashboardPropertyDetails.selectChargerStatus("Preparing");
-//        Assert.assertTrue(createCharger.ClickButton(DashboardPropertyDetails.SimulatorChargerStatusSaveBtn,2000));
-//        dashboardPropertyDetails.CloseTab();
-//        guestFlow.SwitchToTab(0);
-//        Assert.assertTrue(dashboardPropertyDetails.verifyChargerInUseStatusSeeDetails());
-//    }
-//    @Test(priority = 23)//Done
-//    @TestParameters(testCaseId = {"TC-39"})
-//    public void TC_39_CheckTheChargerStatusWhenChargerIsInChargingStatus() throws InterruptedException {
-//        LoginPage loginPage = new LoginPage(driver);
-//        CreateCharger createCharger = new CreateCharger(driver);
-//        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
-//        GuestFlow guestFlow = new GuestFlow(driver);
-//        Dashboard dashboard =new Dashboard(driver);
-//        dashboard.RefreshBrowser();
-//        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
-//        guestFlow.NewTabOpenAndSwitchToNewTab(1);
-//        loginPage.VerifyValidLogin();
-//        guestFlow.GoToSimulator();
-//        guestFlow.SelectChargerFromSimulator("Automatable Charger");
-//        dashboardPropertyDetails.selectChargerStatus("Charging");
-//        Assert.assertTrue(createCharger.ClickButton(DashboardPropertyDetails.SimulatorChargerStatusSaveBtn,2000));
-//        dashboardPropertyDetails.CloseTab();
-//        guestFlow.SwitchToTab(0);
-//        Assert.assertTrue(dashboardPropertyDetails.verifyChargerInUseStatusSeeDetails());
-//    }
+        guestFlow.GoToSimulator();
+        guestFlow.makeASpecificChargerAvailable("Automatable Charger");
+        guestFlow.SelectChargerFromSimulator("Automatable Charger");
+        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
+        Assert.assertTrue(operation.ClickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
+        simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
+        guestFlow.SwitchToTab(2);
+        Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
+        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
+        Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
+        operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
+        guestFlow.SwitchToTab(1);
+        Assert.assertTrue(operation.ClickButton(GuestFlow.PluginChargerbtn,1000));
+        guestFlow.SwitchToTab(0);
+        Assert.assertTrue(dashboardPropertyDetails.verifyChargerInUseStatusSeeDetails());
+
+    }
+
+
+
+    @Test(priority = 23)//Done
+    @TestParameters(testCaseId = {"TC-39"})
+    public void TC_39_CheckTheChargerStatusWhenChargerIsInChargingStatus() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        Dashboard dashboard =new Dashboard(driver);
+        dashboard.RefreshBrowser();
+        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
+        guestFlow.SwitchToTab(1);
+        guestFlow.GoToSimulator();
+        guestFlow.SelectChargerFromSimulator("Automatable Charger");
+        dashboardPropertyDetails.selectChargerStatus("Charging");
+        Assert.assertTrue(operation.ClickButton(DashboardPropertyDetails.SimulatorChargerStatusSaveBtn,2000));
+        guestFlow.SwitchToTab(2);
+        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.StatChargingButton,5000));
+        guestFlow.SwitchToIframe();
+        operation.click(GuestFlow.CardNumber);
+        Assert.assertTrue(operation.writeInputText(GuestFlow.CardNumber,"424242424242424242424242424",6000));
+        guestFlow.SwitchToDefaultFromIframe();
+        Assert.assertTrue(operation.ClickButton(GuestFlow.AuthorizeButton,1500));
+        guestFlow.SwitchToTab(0);
+        Assert.assertTrue(dashboardPropertyDetails.verifyChargerInUseStatusSeeDetails());
+    }
 //    @Test(priority = 24)//Done
 //    @TestParameters(testCaseId = {"TC-40"})
 //    public void TC_40_CheckTheChargerStatusWhenChargerIsInSuspendedEVStatus() throws InterruptedException {
@@ -372,36 +405,35 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
 //        Dashboard dashboard =new Dashboard(driver);
 //        dashboard.RefreshBrowser();
 //        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
-//        guestFlow.NewTabOpenAndSwitchToNewTab(1);
-//        loginPage.VerifyValidLogin();
+//        guestFlow.SwitchToTab(1);
 //        guestFlow.GoToSimulator();
 //        guestFlow.SelectChargerFromSimulator("Automatable Charger");
 //        dashboardPropertyDetails.selectChargerStatus("Suspended EV");
 //        Assert.assertTrue(createCharger.ClickButton(DashboardPropertyDetails.SimulatorChargerStatusSaveBtn,2000));
-//        dashboardPropertyDetails.CloseTab();
 //        guestFlow.SwitchToTab(0);
 //        Assert.assertTrue(dashboardPropertyDetails.verifyChargerInUseStatusSeeDetails());
 //    }
-//    @Test(priority = 25)//Done
-//    @TestParameters(testCaseId = {"TC-41"})
-//    public void TC_41_CheckTheChargerStatusWhenChargerIsInSuspendedEVSEStatus() throws InterruptedException {
-//        LoginPage loginPage = new LoginPage(driver);
-//        CreateCharger createCharger = new CreateCharger(driver);
-//        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
-//        GuestFlow guestFlow = new GuestFlow(driver);
-//        Dashboard dashboard =new Dashboard(driver);
+    @Test(priority = 25)//Done
+    @TestParameters(testCaseId = {"TC-41"})
+    public void TC_41_CheckTheChargerStatusWhenChargerIsInSuspendedEVSEStatus() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        Dashboard dashboard =new Dashboard(driver);
 //        dashboard.RefreshBrowser();
 //        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
-//        guestFlow.NewTabOpenAndSwitchToNewTab(1);
-//        loginPage.VerifyValidLogin();
-//        guestFlow.GoToSimulator();
-//        guestFlow.SelectChargerFromSimulator("Automatable Charger");
-//        dashboardPropertyDetails.selectChargerStatus("Suspended EVSE");
-//        Assert.assertTrue(createCharger.ClickButton(DashboardPropertyDetails.SimulatorChargerStatusSaveBtn,2000));
-//        dashboardPropertyDetails.CloseTab();
-//        guestFlow.SwitchToTab(0);
-//        Assert.assertTrue(dashboardPropertyDetails.verifyChargerInUseStatusSeeDetails());
-//    }
+        guestFlow.SwitchToTab(1);
+        guestFlow.GoToSimulator();
+        guestFlow.SelectChargerFromSimulator("Automatable Charger");
+        dashboardPropertyDetails.selectChargerStatus("Faulted");
+        Assert.assertTrue(createCharger.ClickButton(DashboardPropertyDetails.SimulatorChargerStatusSaveBtn,2000));
+        guestFlow.SwitchToTab(0);
+        Assert.assertTrue(dashboardPropertyDetails.verifyChargerDownStatusSeeDetails());
+    }
+
+
+
 //    @Test(priority = 26)//Done
 //    @TestParameters(testCaseId = {"TC-43"})
 //    public void TC_43_CheckTheChargerStatusWhenChargerIsInFinishingStatus() throws InterruptedException {
@@ -422,24 +454,22 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
 //        guestFlow.SwitchToTab(0);
 //        Assert.assertTrue(dashboardPropertyDetails.verifyChargerInUseStatusSeeDetails());
 //    }
-//    @Test(priority = 27)//Done
-//    @TestParameters(testCaseId = {"TC-44"})
-//    public void TC_44_CheckTheChargerStatusWhenChargerIsInAvailableStatusFromFinishStatus() throws InterruptedException {
-//        LoginPage loginPage = new LoginPage(driver);
-//        CreateCharger createCharger = new CreateCharger(driver);
-//        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
-//        GuestFlow guestFlow = new GuestFlow(driver);
-//        Dashboard dashboard =new Dashboard(driver);
-//        dashboard.RefreshBrowser();
-//        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
-//        guestFlow.NewTabOpenAndSwitchToNewTab(1);
-//        loginPage.VerifyValidLogin();
-//        guestFlow.GoToSimulator();
-//        guestFlow.SelectChargerFromSimulator("Automatable Charger");
-//        dashboardPropertyDetails.selectChargerStatus("Available");
-//        Assert.assertTrue(createCharger.ClickButton(DashboardPropertyDetails.SimulatorChargerStatusSaveBtn,2000));
-//        Assert.assertTrue(dashboardPropertyDetails.verifyChargerAvailabilityInSeeDetails());
-//    }
+    @Test(priority = 27)//Done
+    @TestParameters(testCaseId = {"TC-44"})
+    public void TC_44_CheckTheChargerStatusWhenChargerIsInAvailableStatusFromFinishStatus() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        Dashboard dashboard =new Dashboard(driver);
+        dashboard.RefreshBrowser();
+        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
+        guestFlow.SwitchToTab(1);
+        guestFlow.GoToSimulator();
+        guestFlow.SelectChargerFromSimulator("Automatable Charger");
+        Assert.assertTrue(createCharger.ClickButton(SimulationPage.DisconnectCharger,2000));
+        Assert.assertTrue(dashboardPropertyDetails.verifyChargerAvailabilityInSeeDetails());
+    }
 
 
 

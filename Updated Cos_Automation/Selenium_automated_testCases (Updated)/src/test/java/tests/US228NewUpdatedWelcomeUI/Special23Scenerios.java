@@ -387,6 +387,51 @@ public class Special23Scenerios extends BaseTest2 {
     }
 
 
+    @Test(priority = 21)
+    @TestParameters(testCaseId = {"TC-20"})
+    public void TC_20_CheckFaultedMessage() throws InterruptedException {
+        CreateCharger operation =new CreateCharger(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
+        EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.VerifyValidLogin();
+        guestFlow.GoToSimulator();
+        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 272"));
+        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
+        Assert.assertTrue(operation.ClickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
+        simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
+        guestFlow.SwitchToTab(1);
+        Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
+        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
+        Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
+        operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
+        guestFlow.SwitchToTab(0);
+        Assert.assertTrue(operation.ClickButton(GuestFlow.PluginChargerbtn,2500));
+        simulationPage.SelectChargerStatusFromSimulator("Charging");
+        operation.ClickButton(SimulationPage.ChargerStatusSaveButton,3000);
+        guestFlow.SwitchToTab(1);
+        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.StatChargingButton,5000));
+        guestFlow.SwitchToIframe();
+        operation.click(GuestFlow.CardNumber);
+        Assert.assertTrue(operation.writeInputText(GuestFlow.CardNumber,"424242424242424242424242424",6000));
+        guestFlow.SwitchToDefaultFromIframe();
+        Assert.assertTrue(operation.ClickButton(GuestFlow.AuthorizeButton,1500));
+        System.out.println("URL  =  "+driver.getCurrentUrl());
+        Assert.assertTrue(guestFlow.verifyChargingNowTitle());
+        guestFlow.SwitchToTab(0);
+        simulationPage.SelectChargerStatusFromSimulator("Faulted");
+        operation.ClickButton(SimulationPage.ChargerStatusSaveButton,10000);
+        guestFlow.SwitchToTab(1);
+        Assert.assertTrue(guestFlow.verifyTextMatching(30000,GuestFlow.FirstAlertInChargingPage,guestFlow.AlertTextForFaultedCharger()));
+
+
+
+    }
+
+
 
 
 //    @Test(priority = 17)
@@ -401,8 +446,6 @@ public class Special23Scenerios extends BaseTest2 {
 //        LoginPage loginPage = new LoginPage(driver);
 //        loginPage.VerifyValidLogin();
 //        guestFlow.MakeAllChargerOfSimulatorOnline();
-
-
 //        driver.quit();
 
 

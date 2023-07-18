@@ -53,9 +53,12 @@ public class DashboardPropertyDetails extends BasePage {
     public static By ChargerOtherStatus = By.xpath("//div[@class='statusText othersText'][contains(text(),'Others')]");
     public static By TopAccountName = By.xpath("//div[@class='primary-color mr-10 capitalizeIt']");
     public static By SimulatorChargerStatusField = By.id("rc_select_0");
-    public static By AvailableStatus = By.xpath("//div[@class=' availableText']");
+    public static By AvailableStatus = By.xpath("//div[@class='statusText availableText']");
     public static By AvailableStatusInDashboard = By.xpath("//span[@class='ant-tag ant-tag-success']");
-    public static By InUseStatus = By.xpath("//div[@class=' isUseText']");
+    public static By InUseStatus = By.xpath("//div[@class='plugText inUseText']");
+    public static By DownStatus = By.xpath("//div[@class='statusText downText'][contains(text(),'Down')]");
+    public static By DownStatusInDashboard = By.xpath("//span[@class='ant-tag ant-tag-error']");
+    public static By CarImage = By.xpath("//img[@src='/dashboard/car.svg']");
     public static By InUseStatusInDashboard = By.xpath("//span[@class='ant-tag ant-tag-processing']");
     public static By AvailableStatusSimulator = By.xpath("//div[@class='ant-row mt-20 subTitle']//div[2]");
     public static By SimulatorChargerStatusSaveBtn = By.xpath("//button[@class='ant-btn ant-btn-default save-button']");
@@ -210,11 +213,11 @@ public class DashboardPropertyDetails extends BasePage {
 
     }
     public boolean verifyChargerAvailabilityInSeeDetails() throws InterruptedException {
-        Thread.sleep(10000);
+        Thread.sleep(7000);
         waitforPresence(AvailableStatusSimulator);
         String SimulatorStatus = driver.findElement(AvailableStatusSimulator).getText().replaceAll(": ","");
         System.out.println(SimulatorStatus);
-        CloseTab();
+//        CloseTab();
         guestFlow.SwitchToTab(0);
         driver.navigate().refresh();
         Thread.sleep(7000);
@@ -251,7 +254,7 @@ public class DashboardPropertyDetails extends BasePage {
         waitforPresence(DrawerLocationTitle);
         String DetailsStatus = driver.findElement(InUseStatus).getText();
         System.out.println(DetailsStatus);
-        if (DetailsStatus.equals("In Use") && InUseCount==1){
+        if (driver.findElement(InUseStatus).isDisplayed() && InUseCount==1 && driver.findElement(CarImage).isDisplayed() ){
             System.out.println("Charger Status Matched");
             return true;
         }
@@ -268,20 +271,7 @@ public class DashboardPropertyDetails extends BasePage {
     }
 
 
-    public boolean verifyOfflineTagsAreShowingForOfflineLocations() throws InterruptedException {
-        Thread.sleep(3000);
-        WebElement Tag1 = driver.findElement(OfflineTagBesideLocation);
-        WebElement Tag2 = driver.findElement(OfflineTagBesideLocation2);
-        if (Tag1.isDisplayed() && Tag2.isDisplayed()){
-            System.out.println("Offline tags are showing for Offline locations");
-            return true;
-        }
-        else {
-            System.out.println("Offline tags are not showing for Offline locations");
-            return false;
-        }
 
-    }
     public boolean verifyChargerStatusOfflineForOfflineLocations() throws InterruptedException {
         Thread.sleep(5000);
         waitforPresence(ChargerOfflineStatus3);
@@ -498,6 +488,28 @@ public class DashboardPropertyDetails extends BasePage {
         }
         else {
             System.out.println("Fail");
+            return false;
+        }
+
+
+    }
+
+    public boolean verifyChargerDownStatusSeeDetails() throws InterruptedException {
+        Thread.sleep(40000);
+        driver.navigate().refresh();
+        waitforPresence(DownStatusInDashboard);
+        String Down = driver.findElement(DownStatusInDashboard).getText().replaceAll("[^0-9]","");
+        int DownCount = Integer.parseInt(Down);
+        System.out.println(Down);
+        click(DetailsBtn1);
+        Thread.sleep(5000);
+        waitforPresence(DrawerLocationTitle);
+        if (driver.findElement(DownStatus).isDisplayed() && DownCount==1 ){
+            System.out.println("Charger Status Matched");
+            return true;
+        }
+        else{
+            System.out.println("Not Matched");
             return false;
         }
 

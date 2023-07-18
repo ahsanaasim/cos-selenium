@@ -111,7 +111,7 @@ public class CreateCharger extends BasePage {
     public boolean ClickButton(By element,int delay)  throws InterruptedException {
         Thread.sleep(delay);
         waitforPresence(element);
-        //waitforInVisibility(loader);
+        waitelemtclickable(element);
         waitelementtobedisplayed(element);
         click(element);
         return true;
