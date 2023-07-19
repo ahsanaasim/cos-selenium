@@ -214,6 +214,7 @@ public class GuestFlow extends BasePage {
     public boolean SelectChargerFromSimulator(String text) throws InterruptedException {
         Thread.sleep(2000);
         waitforPresence(GuestFlow.SearchFieldSimulator);
+        waitelemtclickable(GuestFlow.SearchFieldSimulator);
         writeText(SearchFieldSimulator,text);
         WebElement selectitem = driver.findElement(SearchFieldSimulator);
         Thread.sleep(3500);

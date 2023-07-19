@@ -5,6 +5,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Properties;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class CreateCompany extends BasePage {
@@ -14,12 +16,12 @@ public class CreateCompany extends BasePage {
         super(driver);
     }
 
-
+    Properties prop = ConfigUtill.getConfig();
     RandomData rdata = new RandomData();
 
     By createcompanybtn = By.xpath("//button[contains(.,'Create New Company')]");
     By companyname = By.xpath("//input[@placeholder='Company Name']");
-    By phone = By.xpath("//input[@placeholder='Phone']");
+    By phone = By.xpath("//input[@placeholder='Phone Number']");
     By email = By.xpath("//input[@placeholder='Email']");
     By website = By.xpath("//input[@placeholder='Website']");
     public static By ein = By.xpath("//input[@placeholder='EIN']");
@@ -93,7 +95,17 @@ public class CreateCompany extends BasePage {
         return true;
     }
 
+    public String WriteAutomatedCompanyName() throws InterruptedException {
+        Random numGenerator = new Random();
+        Thread.sleep(1000);
+        waitVisibility(companyname);
+        int randomNumber = numGenerator.nextInt(10000);
+        String company=prop.getProperty("CompanyNameForAutomation")+randomNumber;
+        return company;
+    }
+
     public boolean WriteCompanyPhoneNumber(String Phone) {
+        waitVisibility(phone);
         writeText(phone, Phone);
         return true;
     }
@@ -334,5 +346,7 @@ public class CreateCompany extends BasePage {
         }
         return true;
     }
+
+
 
 }

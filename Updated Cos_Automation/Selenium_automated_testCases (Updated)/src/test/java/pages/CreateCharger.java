@@ -248,7 +248,6 @@ public class CreateCharger extends BasePage {
     public boolean VerifySearchResultCount() throws InterruptedException {
         Thread.sleep(4000);
         waitVisibility(SearchResultCount);
-
         String countText = driver.findElement(SearchResultCount).getText();
         countText = countText.replaceAll("Showing Chargers: ", "");
         int count = Integer.parseInt(countText);
@@ -302,7 +301,7 @@ public class CreateCharger extends BasePage {
         return true;
     }
     public boolean verifyDrawerContainsAllNecessarySection() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         if(driver.getPageSource().contains("Charger Name") && driver.getPageSource().contains("Plug Type") && driver.getPageSource().contains("Charging Rate") && driver.getPageSource().contains("Select Property") && driver.getPageSource().contains("Select Location")) {
             System.out.println("Verification Successful - All the Necessary Section in Drawer Showing");
 

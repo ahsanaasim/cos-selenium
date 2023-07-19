@@ -71,6 +71,6 @@ public class BaseTest2 {
         {
             System.err.println("Error While getting Cookies:" + e.getMessage());
         }
-        // driver.quit();
+//         driver.quit();
     }
 }

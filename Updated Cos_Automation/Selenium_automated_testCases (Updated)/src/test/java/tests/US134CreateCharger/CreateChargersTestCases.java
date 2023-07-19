@@ -148,6 +148,8 @@ public class CreateChargersTestCases extends BaseTest {
         Assert.assertTrue(createcharger.ClickButton(CreateCharger.searchargerbtn,2000));
         Assert.assertTrue(createcharger.VerifySearchResultCount());
     }
+
+
     @Test(priority = 8)//Done
     @TestParameters(testCaseId = {"TC-16"})
     public void TC_16_CosPropertySupportCanSeeAddChargerButton() throws InterruptedException {

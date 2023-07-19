@@ -49,6 +49,7 @@ public class EditCompany extends BasePage {
 
 
 
+
     public void GoToCompanyPage() throws InterruptedException {
         Thread.sleep(2000);
         driver.get("https://test-admin.chargeonsite.com/company/company-management");
@@ -412,6 +413,24 @@ public class EditCompany extends BasePage {
             return false;
         }
 
+    }
+
+    public boolean VerifySearchResultCount() throws InterruptedException {
+        Thread.sleep(4000);
+        waitVisibility(CreateCharger.SearchResultCount);
+        String countText = driver.findElement(CreateCharger.SearchResultCount).getText();
+        countText = countText.replaceAll("Showing Companies: ", "");
+        int count = Integer.parseInt(countText);
+        System.out.println(count);
+        if(count==1)
+        {
+            System.out.println("Search Count is 1");
+            return true;
+        }
+        else{
+            System.out.println("Something Went Wrong!!");
+            return false;
+        }
     }
 
 

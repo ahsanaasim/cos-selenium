@@ -133,7 +133,7 @@ public class CreateCompanyTestCases extends BaseTest {
     }
 
 
-  /*  @Test(priority = 9)//Done
+    @Test(priority = 9)//Done
     @TestParameters(testCaseId = {"TC-8"})
     public void TC_8_WhenAdminProvideInvalidPhoneNumberonCreateNewCompanyDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -142,9 +142,9 @@ public class CreateCompanyTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
-        *//*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonCompanyManagement());
-        Assert.assertTrue(company.VerifyCreateNewCompanyButtonHasDisplayed());*//*
+        Assert.assertTrue(company.VerifyCreateNewCompanyButtonHasDisplayed());
         Assert.assertTrue(company.ClickonCreateCompanybutton());
         Assert.assertTrue(company.WriteCompanyName(prop.getProperty("CompanyName")));
         Assert.assertTrue(company.WriteCompanyPhoneNumber(prop.getProperty("InvalidPhone")));
@@ -166,8 +166,8 @@ public class CreateCompanyTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
-        *//*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonCompanyManagement());*//*
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
         Assert.assertTrue(company.VerifyCreateNewCompanyButtonHasDisplayed());
         Assert.assertTrue(company.ClickonCreateCompanybutton());
         Assert.assertTrue(company.WriteCompanyName(prop.getProperty("CompanyName")));
@@ -178,7 +178,7 @@ public class CreateCompanyTestCases extends BaseTest {
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(company.EnterAddress(prop.getProperty("CompnayAddress")));
         Assert.assertTrue(company.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
+        Assert.assertTrue(company.VerifyPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
     }
 
     @Test(priority = 11)//Done
@@ -190,9 +190,9 @@ public class CreateCompanyTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
-        *//*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonCompanyManagement());
-        Assert.assertTrue(company.VerifyCreateNewCompanyButtonHasDisplayed());*//*
+        Assert.assertTrue(company.VerifyCreateNewCompanyButtonHasDisplayed());
         Assert.assertTrue(company.ClickonCreateCompanybutton());
         Assert.assertTrue(company.WriteCompanyName(prop.getProperty("CompanyName")));
         Assert.assertTrue(company.WriteCompanyPhoneNumber(prop.getProperty("InvalidPhone2")));
@@ -214,9 +214,9 @@ public class CreateCompanyTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
-        *//*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonCompanyManagement());
-        Assert.assertTrue(company.VerifyCreateNewCompanyButtonHasDisplayed());*//*
+        Assert.assertTrue(company.VerifyCreateNewCompanyButtonHasDisplayed());
         Assert.assertTrue(company.ClickonCreateCompanybutton());
         Assert.assertTrue(company.WriteCompanyName(prop.getProperty("CompanyName")));
         Assert.assertTrue(company.WriteCompanyPhoneNumber(prop.getProperty("InvalidPhone3")));
@@ -227,7 +227,7 @@ public class CreateCompanyTestCases extends BaseTest {
         Assert.assertTrue(company.EnterAddress(prop.getProperty("CompnayAddress")));
         Assert.assertTrue(company.ClickonSaveButton());
         Assert.assertTrue(company.VerifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
-    }*/
+    }
 
     @Test(priority = 13)//Done
     @TestParameters(testCaseId = {"TC-12"})
@@ -773,12 +773,15 @@ public class CreateCompanyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
+        EditCompany editCompany = new EditCompany(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
-       /* Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonCompanyManagement());*/
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
         Assert.assertTrue(company.ClickonCreateCompanybutton());
-        Assert.assertTrue(company.WriteCompanyName(prop.getProperty("CompanyName")));
+        String companyName = company.WriteAutomatedCompanyName();
+        Assert.assertTrue(company.WriteCompanyName(companyName));
         Assert.assertTrue(company.WriteCompanyPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(company.WriteRandomCompanyEmail());
         Assert.assertTrue(company.EnterCompanyWebsite(prop.getProperty("CompanyWebsite")));
@@ -786,7 +789,10 @@ public class CreateCompanyTestCases extends BaseTest {
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(company.WriteRandomCompanyAddress());
         Assert.assertTrue(company.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyCreateNewCompanyButtonHasDisplayed());
+        Assert.assertTrue(company.verifyAnElementDisplayedOrNot(2500,DashboardPropertyDetails.TopAccountName));
+        Assert.assertTrue(createCharger.writeInputText(EditCompany.searchbar,companyName,3000));
+        Assert.assertTrue(createCharger.ClickButton(EditCompany.searchbtn,2000));
+        Assert.assertTrue(editCompany.VerifySearchResultCount());
     }
 
     @Test(priority = 36)//Done
