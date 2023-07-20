@@ -170,6 +170,10 @@ public class GuestFlow extends BasePage {
         return "We found some technical issues. Please unplug your charger.";
     }
 
+    public String AlertTextForSuspendedEvCharger(){
+        return "Your EV is taking a break for a while. After the break, charging will automatically start.";
+    }
+
     public boolean SendOtp(int delay, String text) throws InterruptedException {
         Thread.sleep(delay);
         WebElement currentElement = driver.switchTo().activeElement();
@@ -214,7 +218,7 @@ public class GuestFlow extends BasePage {
     public boolean SelectChargerFromSimulator(String text) throws InterruptedException {
         Thread.sleep(2000);
         waitforPresence(GuestFlow.SearchFieldSimulator);
-        waitelemtclickable(GuestFlow.SearchFieldSimulator);
+        click(SearchFieldSimulator);
         writeText(SearchFieldSimulator,text);
         WebElement selectitem = driver.findElement(SearchFieldSimulator);
         Thread.sleep(3500);

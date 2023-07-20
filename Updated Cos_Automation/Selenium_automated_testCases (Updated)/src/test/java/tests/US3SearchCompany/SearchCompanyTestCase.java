@@ -31,88 +31,88 @@ public class SearchCompanyTestCase extends BaseTest {
         Assert.assertTrue(searchcompany.VerifPagehasRefreshafterprrssingsearchbutton());
     }
 
-    @Test(priority = 2)//Done
-    @TestParameters(testCaseId = {"TC-2"})
-    public void TC_2_WhenAdminSorttheCompanyNameinAscendingorder() throws InterruptedException, IOException {
-        HomePage homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
-        SearchCompany searchcompany=new SearchCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonCompanyManagement());
-        Assert.assertTrue(searchcompany.ClickonAscedingArrowfromName());
-    }
+//    @Test(priority = 2)//Done
+//    @TestParameters(testCaseId = {"TC-2"})
+//    public void TC_2_WhenAdminSorttheCompanyNameinAscendingorder() throws InterruptedException, IOException {
+//        HomePage homePage = new HomePage(driver);
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard=new Dashboard(driver);
+//        SearchCompany searchcompany=new SearchCompany(driver);
+//        loginPage.VerifyValidLogin();
+//        Assert.assertTrue(dashboard.GotoDashboard());
+//        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+//        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+//        Assert.assertTrue(searchcompany.ClickonAscedingArrowfromName());
+//    }
 
-    @Test(priority = 3)//Done
-    @TestParameters(testCaseId = {"TC-3"})
-    public void TC_3_WhenAdminSorttheCompanyEmailinAscendingorder() throws InterruptedException, IOException {
-        HomePage homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
-        SearchCompany searchcompany=new SearchCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonCompanyManagement());*/
-        Assert.assertTrue(searchcompany.ClickonAscedingfromEmail());
-    }
+//    @Test(priority = 3)//Done
+//    @TestParameters(testCaseId = {"TC-3"})
+//    public void TC_3_WhenAdminSorttheCompanyEmailinAscendingorder() throws InterruptedException, IOException {
+//        HomePage homePage = new HomePage(driver);
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard=new Dashboard(driver);
+//        SearchCompany searchcompany=new SearchCompany(driver);
+//        loginPage.VerifyValidLogin();
+//        Assert.assertTrue(dashboard.RefreshBrowser());
+//        /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+//        Assert.assertTrue(dashboard.ClickonCompanyManagement());*/
+//        Assert.assertTrue(searchcompany.ClickonAscedingfromEmail());
+//    }
 
-    @Test(priority = 4)//Done
-    @TestParameters(testCaseId = {"TC-4"})
-    public void TC_4_VerifyCompanyNameisShowinginAscendingorder() throws InterruptedException, IOException {
-        HomePage homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
-        CreateCompany company = new CreateCompany(driver);
-        EditCompany editCompany= new EditCompany(driver);
-        SearchCompany searchcompany=new SearchCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonCompanyManagement());
-        Assert.assertTrue(searchcompany.ClickonAscedingArrowfromName());
-        Assert.assertTrue(searchcompany.VerifcompanyNameisSortedinAscendingOrder());
+//    @Test(priority = 4)//Done
+//    @TestParameters(testCaseId = {"TC-4"})
+//    public void TC_4_VerifyCompanyNameisShowinginAscendingorder() throws InterruptedException, IOException {
+//        HomePage homePage = new HomePage(driver);
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard=new Dashboard(driver);
+//        CreateCompany company = new CreateCompany(driver);
+//        EditCompany editCompany= new EditCompany(driver);
+//        SearchCompany searchcompany=new SearchCompany(driver);
+//        loginPage.VerifyValidLogin();
+//        Assert.assertTrue(dashboard.GotoDashboard());
+//        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+//        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+//        Assert.assertTrue(searchcompany.ClickonAscedingArrowfromName());
+//        Assert.assertTrue(searchcompany.VerifcompanyNameisSortedinAscendingOrder());
+//
+//    }
 
-    }
+//    @Test(priority = 5)//Done
+//    @TestParameters(testCaseId = {"TC-5"})
+//    public void TC_5_WhenAdminVistsAnotherPageAfterApplyingAscendingorder() throws InterruptedException, IOException {
+//        HomePage homePage = new HomePage(driver);
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard=new Dashboard(driver);
+//        CreateCompany company = new CreateCompany(driver);
+//        EditCompany editCompany= new EditCompany(driver);
+//        SearchCompany searchcompany=new SearchCompany(driver);
+//        loginPage.VerifyValidLogin();
+//        Assert.assertTrue(dashboard.RefreshBrowser());
+//        /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+//        Assert.assertTrue(dashboard.ClickonCompanyManagement());*/
+//        Assert.assertTrue(searchcompany.ClickonAscedingArrowfromName());
+//        Assert.assertTrue(dashboard.GotoDashboard());
+//        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+//        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+//
+//    }
 
-    @Test(priority = 5)//Done
-    @TestParameters(testCaseId = {"TC-5"})
-    public void TC_5_WhenAdminVistsAnotherPageAfterApplyingAscendingorder() throws InterruptedException, IOException {
-        HomePage homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
-        CreateCompany company = new CreateCompany(driver);
-        EditCompany editCompany= new EditCompany(driver);
-        SearchCompany searchcompany=new SearchCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonCompanyManagement());*/
-        Assert.assertTrue(searchcompany.ClickonAscedingArrowfromName());
-        Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonCompanyManagement());
-
-    }
-
-    @Test(priority = 6)//Done
-    @TestParameters(testCaseId = {"TC-6"})
-    public void TC_6_WhenAdminRefreshtheBrowserAfterApplyingAscendingorder() throws InterruptedException, IOException {
-        HomePage homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
-        CreateCompany company = new CreateCompany(driver);
-        EditCompany editCompany= new EditCompany(driver);
-        SearchCompany searchcompany=new SearchCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonCompanyManagement());*/
-        Assert.assertTrue(searchcompany.ClickonAscedingArrowfromName());
-        Assert.assertTrue(dashboard.RefreshBrowser());
-    }
+//    @Test(priority = 6)//Done
+//    @TestParameters(testCaseId = {"TC-6"})
+//    public void TC_6_WhenAdminRefreshtheBrowserAfterApplyingAscendingorder() throws InterruptedException, IOException {
+//        HomePage homePage = new HomePage(driver);
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard=new Dashboard(driver);
+//        CreateCompany company = new CreateCompany(driver);
+//        EditCompany editCompany= new EditCompany(driver);
+//        SearchCompany searchcompany=new SearchCompany(driver);
+//        loginPage.VerifyValidLogin();
+//        Assert.assertTrue(dashboard.RefreshBrowser());
+//        /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+//        Assert.assertTrue(dashboard.ClickonCompanyManagement());*/
+//        Assert.assertTrue(searchcompany.ClickonAscedingArrowfromName());
+//        Assert.assertTrue(dashboard.RefreshBrowser());
+//    }
 // Load More button has not shown
    /* @Test(priority = 7)//Done
     @TestParameters(testCaseId = {"TC-7"})

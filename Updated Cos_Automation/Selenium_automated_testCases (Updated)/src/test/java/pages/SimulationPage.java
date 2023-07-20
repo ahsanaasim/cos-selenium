@@ -37,11 +37,11 @@ public class SimulationPage extends BasePage {
 
 
     public boolean SelectChargerFromSimulator(String text) throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(2500);
         waitforPresence(EmptySearchFieldBeforeClicking);
         writeText(EmptySearchFieldBeforeClicking,text);
         WebElement selectitem = driver.findElement(EmptySearchFieldBeforeClicking);
-        Thread.sleep(2500);
+        Thread.sleep(3500);
         selectitem.sendKeys(Keys.ENTER);
         return true;
 

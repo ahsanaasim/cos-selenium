@@ -81,7 +81,7 @@ public class Special23Scenerios extends BaseTest2 {
         Assert.assertTrue(guestVerificationPage.verifyTextMatching(200,GuestVerificationPage.MaxChargingRate,"N/A"));
         Assert.assertTrue(guestVerificationPage.verifyTextMatching(200,GuestVerificationPage.FeeToInitiate,"N/A"));
         Assert.assertTrue(guestVerificationPage.verifyTextMatching(200,GuestVerificationPage.FeePerKwh,"N/A"));
-        driver.close();
+//        driver.close();
 
     }
 
@@ -241,9 +241,10 @@ public class Special23Scenerios extends BaseTest2 {
         guestVerificationPage.GoToAvailableCharger(prop.getProperty("Selenium5ChargerQR"));//Selenium 5
         Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
         Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
-        Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
+        Assert.assertTrue(guestFlow.SendOtp(3500,"666666"));
         operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
         Assert.assertTrue(guestFlow.verifyAnElementDisplayedOrNot(5000,IdlePage.IdlePageTitle));
+        driver.close();
 
 
 
@@ -376,7 +377,7 @@ public class Special23Scenerios extends BaseTest2 {
         SimulationPage simulationPage = new SimulationPage(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
         LoginPage login = new LoginPage(driver);
-        guestVerificationPage.GoToAvailableCharger(prop.getProperty("Selenium719ChargerQR"));//Selenium 18
+        guestVerificationPage.GoToAvailableCharger(prop.getProperty("Selenium719ChargerQR"));//Selenium 719
         Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
         Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
         Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
@@ -434,8 +435,8 @@ public class Special23Scenerios extends BaseTest2 {
 
 
     @Test(priority = 22)
-    @TestParameters(testCaseId = {"TC-20"})
-    public void TC_20_CheckSuspendedEVAlertMessage() throws InterruptedException {
+    @TestParameters(testCaseId = {"TC-21"})
+    public void TC_21_CheckSuspendedEVAlertMessage() throws InterruptedException {
         CreateCharger operation =new CreateCharger(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
@@ -445,7 +446,7 @@ public class Special23Scenerios extends BaseTest2 {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.VerifyValidLogin();
         guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 529"));
+        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("D-10 Charger"));
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Assert.assertTrue(operation.ClickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
@@ -468,10 +469,10 @@ public class Special23Scenerios extends BaseTest2 {
         System.out.println("URL  =  "+driver.getCurrentUrl());
         Assert.assertTrue(guestFlow.verifyChargingNowTitle());
         guestFlow.SwitchToTab(0);
-        simulationPage.SelectChargerStatusFromSimulator("Faulted");
+        simulationPage.SelectChargerStatusFromSimulator("Suspended EV");
         operation.ClickButton(SimulationPage.ChargerStatusSaveButton,10000);
         guestFlow.SwitchToTab(1);
-        Assert.assertTrue(guestFlow.verifyTextMatching(40000,GuestFlow.FirstAlertInChargingPage,guestFlow.AlertTextForFaultedCharger()));
+        Assert.assertTrue(guestFlow.verifyTextMatching(25000,GuestFlow.FirstAlertInChargingPage,guestFlow.AlertTextForSuspendedEvCharger()));
 
 
 

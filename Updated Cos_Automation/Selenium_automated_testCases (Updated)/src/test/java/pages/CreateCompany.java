@@ -100,7 +100,7 @@ public class CreateCompany extends BasePage {
         Thread.sleep(1000);
         waitVisibility(companyname);
         int randomNumber = numGenerator.nextInt(10000);
-        String company=prop.getProperty("CompanyNameForAutomation")+randomNumber;
+        String company=prop.getProperty("CompanyNameForAutomation")+" "+randomNumber;
         return company;
     }
 
