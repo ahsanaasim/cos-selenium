@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.time.Duration;
+import java.util.Properties;
 
 public class CreateLocation extends BasePage {
 
@@ -16,12 +17,13 @@ public class CreateLocation extends BasePage {
 
     CreateCompany createCompany=new CreateCompany(driver);
     RandomData rdata= new RandomData();
+    Properties prop = ConfigUtill.getConfig();
 
     By createlocationbtn = By.xpath("//button[contains(.,'Create New Location')]");
     By selectcompanydropdown = By.xpath("(//input[contains(@class,'ant-select-selection-search-input')])[1]");
     By selectpropertydropdown = By.xpath("(//input[contains(@class,'ant-select-selection-search-input')])[2]");
     By locationtitle = By.xpath("//textarea[@placeholder='Location Title']");
-    By landmark = By.xpath("//textarea[@placeholder='Location Landmark']");
+    By landmark = By.xpath("//textarea[@placeholder='Location landmark']");
     By locationmsg = By.xpath("//div[@class='locInfoText'][contains(.,'Customers will see this title when searching for a charging station')]");
     By locationlandmarkmsg = By.xpath("//div[@class='locInfoText'][contains(.,'For example, The location is just south of the front entrance. Etc. Use this area to give the first time users more context.')]");
     By locationcoordinatemsg = By.xpath("//div[@class='drawerInputTitle'][contains(.,'Confirm your location coordinates by using map')]");
@@ -47,6 +49,7 @@ public class CreateLocation extends BasePage {
     By DrawerCreateLocation = By.xpath("//span[normalize-space()='Save Location']");
     By ClearSearchContent = By.xpath("//span[@class='anticon anticon-close-circle']");
     By ConfirmLocationAlert = By.xpath("//span[contains(.,'Confirm the location first')]");
+    By newLocationmsg = By.xpath("//span[contains(.,'Location created successfully')]");
 
 
     public void GoToLocationPage() throws InterruptedException {
@@ -88,9 +91,9 @@ public class CreateLocation extends BasePage {
     }
 
     public boolean clickonPropertyDropdown() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         //waitelementtobeEnabled(selectpropertydropdown);
-        //waitelemtclickable(selectpropertydropdown);
+        waitelemtclickable(selectpropertydropdown);
         //waitVisibility(selectpropertydropdown);
         click(selectpropertydropdown);
         return true;
@@ -179,6 +182,18 @@ public class CreateLocation extends BasePage {
         waitVisibility(propertyname);
         waitelemtclickable(propertyname);
         click(propertyname1);
+        return true;
+    }
+
+    public boolean selectTemporaryPropertyNameFromSelectProperty() throws InterruptedException {
+        Thread.sleep(2000);
+        waitelementtobeEnabled(selectpropertydropdown);
+        waitelemtclickable(selectpropertydropdown);
+        click(selectpropertydropdown);
+        writeText(selectpropertydropdown,prop.getProperty("PropertyName5"));
+        WebElement selectitem = driver.findElement(selectpropertydropdown);
+        Thread.sleep(3500);
+        selectitem.sendKeys(Keys.ENTER);
         return true;
     }
 
@@ -693,6 +708,11 @@ public class CreateLocation extends BasePage {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public boolean verifyNewLocationHasCreated(String expectedText) {
+        assertEquals(newLocationmsg, expectedText);
+        return true;
     }
 
 

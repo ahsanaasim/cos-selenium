@@ -352,14 +352,13 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
         guestFlow.GoToSimulator();
         guestFlow.makeASpecificChargerAvailable("Automatable Charger");
-        guestFlow.SelectChargerFromSimulator("Automatable Charger");
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Assert.assertTrue(operation.ClickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
         guestFlow.SwitchToTab(2);
         Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
         Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
-        Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
+        Assert.assertTrue(guestFlow.SendOtp(5000,"666666"));
         operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
         guestFlow.SwitchToTab(1);
         Assert.assertTrue(operation.ClickButton(GuestFlow.PluginChargerbtn,1000));

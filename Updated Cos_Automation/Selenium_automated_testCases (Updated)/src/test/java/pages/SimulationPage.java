@@ -39,6 +39,7 @@ public class SimulationPage extends BasePage {
     public boolean SelectChargerFromSimulator(String text) throws InterruptedException {
         Thread.sleep(2500);
         waitforPresence(EmptySearchFieldBeforeClicking);
+        waitelemtclickable(EmptySearchFieldBeforeClicking);
         writeText(EmptySearchFieldBeforeClicking,text);
         WebElement selectitem = driver.findElement(EmptySearchFieldBeforeClicking);
         Thread.sleep(3500);

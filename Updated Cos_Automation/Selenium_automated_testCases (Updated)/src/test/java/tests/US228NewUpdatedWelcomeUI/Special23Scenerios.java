@@ -47,7 +47,7 @@ public class Special23Scenerios extends BaseTest2 {
         GuestFlow guestFlow = new GuestFlow(driver);
         loginPage.VerifyValidLogin();
         guestFlow.makeScriptUsedChargerAvailable();
-        driver.close();
+        driver.quit();
     }
 
 
@@ -64,7 +64,7 @@ public class Special23Scenerios extends BaseTest2 {
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.ThanksForScanningTitle));
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.ProvidePhnNumberTitle));
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.PhoneNumberField));
-        driver.close();
+        driver.quit();
 
     }
 
@@ -81,7 +81,7 @@ public class Special23Scenerios extends BaseTest2 {
         Assert.assertTrue(guestVerificationPage.verifyTextMatching(200,GuestVerificationPage.MaxChargingRate,"N/A"));
         Assert.assertTrue(guestVerificationPage.verifyTextMatching(200,GuestVerificationPage.FeeToInitiate,"N/A"));
         Assert.assertTrue(guestVerificationPage.verifyTextMatching(200,GuestVerificationPage.FeePerKwh,"N/A"));
-//        driver.close();
+        driver.quit();
 
     }
 
@@ -100,7 +100,7 @@ public class Special23Scenerios extends BaseTest2 {
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(200,GuestVerificationPage.AskCosaButton));
         Assert.assertTrue(guestVerificationPage.verifyElementNotDisplayed(200,GuestVerificationPage.StatChargingButton));
         Assert.assertTrue(guestVerificationPage.verifyElementNotDisplayed(200,GuestVerificationPage.ThanksForScanningTitle));
-        driver.close();
+        driver.quit();
 
     }
 
@@ -124,7 +124,7 @@ public class Special23Scenerios extends BaseTest2 {
         Assert.assertTrue(guestVerificationPage.verifyTextMatching(200,GuestVerificationPage.MaxChargingRate,"N/A"));
         Assert.assertTrue(guestVerificationPage.verifyTextMatching(200,GuestVerificationPage.FeeToInitiate,"N/A"));
         Assert.assertTrue(guestVerificationPage.verifyTextMatching(200,GuestVerificationPage.FeePerKwh,"N/A"));
-        driver.close();
+        driver.quit();
 
 
 
@@ -152,7 +152,7 @@ public class Special23Scenerios extends BaseTest2 {
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(200,GuestVerificationPage.ReportAProblem));
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(200,GuestVerificationPage.AskCosaButton));
         Assert.assertTrue(guestVerificationPage.verifyElementNotDisplayed(200,GuestVerificationPage.StatChargingButton));
-        driver.close();
+        driver.quit();
 
 
 
@@ -176,7 +176,7 @@ public class Special23Scenerios extends BaseTest2 {
         guestVerificationPage.SwitchToTab(1);
         Assert.assertTrue(guestVerificationPage.verifyTextMatching(1000,GuestVerificationPage.ChargerAvailableStatus,"Available Now"));
         Assert.assertTrue(guestVerificationPage.verifyAFieldIsDisable(1000,GuestVerificationPage.StatChargingButton));
-        driver.close();
+        driver.quit();
 
 
 
@@ -203,7 +203,7 @@ public class Special23Scenerios extends BaseTest2 {
         guestFlow.SwitchToTab(1);
         Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
         Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
-        Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
+        Assert.assertTrue(guestFlow.SendOtp(5000,"666666"));
         operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
         guestFlow.SwitchToTab(0);
         Assert.assertTrue(operation.ClickButton(GuestFlow.PluginChargerbtn,2500));
@@ -222,7 +222,7 @@ public class Special23Scenerios extends BaseTest2 {
         guestFlow.PressAndHold(GuestFlow.PressAndHoldButton);
         Assert.assertTrue(guestFlow.verifyAnElementDisplayedOrNot(5000,IdlePage.IdlePageTitle));
         guestFlow.LengthOfSession(20000);
-        driver.close();
+        driver.quit();
 
 
 
@@ -241,10 +241,10 @@ public class Special23Scenerios extends BaseTest2 {
         guestVerificationPage.GoToAvailableCharger(prop.getProperty("Selenium5ChargerQR"));//Selenium 5
         Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
         Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
-        Assert.assertTrue(guestFlow.SendOtp(3500,"666666"));
+        Assert.assertTrue(guestFlow.SendOtp(5000,"666666"));
         operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
         Assert.assertTrue(guestFlow.verifyAnElementDisplayedOrNot(5000,IdlePage.IdlePageTitle));
-        driver.close();
+        driver.quit();
 
 
 
@@ -271,7 +271,7 @@ public class Special23Scenerios extends BaseTest2 {
         guestFlow.SwitchToTab(1);
         Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
         Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
-        Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
+        Assert.assertTrue(guestFlow.SendOtp(5000,"666666"));
         operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
         Assert.assertTrue(operation.ClickButton(GuestVerificationPage.StatChargingButton,5000));
         guestFlow.SwitchToIframe();
@@ -307,7 +307,7 @@ public class Special23Scenerios extends BaseTest2 {
         guestFlow.SwitchToTab(1);
         Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
         Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
-        Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
+        Assert.assertTrue(guestFlow.SendOtp(5000,"666666"));
         operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
         Assert.assertTrue(operation.ClickButton(GuestVerificationPage.StatChargingButton,5000));
         guestFlow.SwitchToIframe();
@@ -320,8 +320,7 @@ public class Special23Scenerios extends BaseTest2 {
         guestFlow.SwitchToTab(1);
         Assert.assertTrue(guestVerificationPage.verifyTextMatching(4000,GuestFlow.PlugConnected,"Plug Connected."));
         Assert.assertTrue(guestVerificationPage.verifyTextMatching(1000,GuestFlow.AlertUnderPlugConnected,guestFlow.AlertTextUnderPlugConnected()));
-
-//        driver.quit();
+        driver.quit();
 
 
 
@@ -347,7 +346,7 @@ public class Special23Scenerios extends BaseTest2 {
         guestFlow.SwitchToTab(1);
         Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
         Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
-        Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
+        Assert.assertTrue(guestFlow.SendOtp(5000,"666666"));
         operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
         guestFlow.SwitchToTab(0);
         Assert.assertTrue(operation.ClickButton(GuestFlow.PluginChargerbtn,2500));
@@ -362,6 +361,7 @@ public class Special23Scenerios extends BaseTest2 {
         Assert.assertTrue(operation.ClickButton(GuestFlow.AuthorizeButton,1500));
         System.out.println("URL  =  "+driver.getCurrentUrl());
         Assert.assertTrue(guestFlow.verifyChargingNowTitle());
+        driver.quit();
 
 
 
@@ -380,9 +380,10 @@ public class Special23Scenerios extends BaseTest2 {
         guestVerificationPage.GoToAvailableCharger(prop.getProperty("Selenium719ChargerQR"));//Selenium 719
         Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
         Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
-        Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
+        Assert.assertTrue(guestFlow.SendOtp(5000,"666666"));
         operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
         Assert.assertTrue(guestFlow.verifyChargingNowTitle());
+        driver.quit();
 
 
 
@@ -408,7 +409,7 @@ public class Special23Scenerios extends BaseTest2 {
         guestFlow.SwitchToTab(1);
         Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
         Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
-        Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
+        Assert.assertTrue(guestFlow.SendOtp(5000,"666666"));
         operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
         guestFlow.SwitchToTab(0);
         Assert.assertTrue(operation.ClickButton(GuestFlow.PluginChargerbtn,2500));
@@ -428,6 +429,7 @@ public class Special23Scenerios extends BaseTest2 {
         operation.ClickButton(SimulationPage.ChargerStatusSaveButton,10000);
         guestFlow.SwitchToTab(1);
         Assert.assertTrue(guestFlow.verifyTextMatching(40000,GuestFlow.FirstAlertInChargingPage,guestFlow.AlertTextForFaultedCharger()));
+        driver.quit();
 
 
 
@@ -453,7 +455,7 @@ public class Special23Scenerios extends BaseTest2 {
         guestFlow.SwitchToTab(1);
         Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
         Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
-        Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
+        Assert.assertTrue(guestFlow.SendOtp(5000,"666666"));
         operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
         guestFlow.SwitchToTab(0);
         Assert.assertTrue(operation.ClickButton(GuestFlow.PluginChargerbtn,2500));
@@ -473,6 +475,7 @@ public class Special23Scenerios extends BaseTest2 {
         operation.ClickButton(SimulationPage.ChargerStatusSaveButton,10000);
         guestFlow.SwitchToTab(1);
         Assert.assertTrue(guestFlow.verifyTextMatching(25000,GuestFlow.FirstAlertInChargingPage,guestFlow.AlertTextForSuspendedEvCharger()));
+        driver.quit();
 
 
 
@@ -488,7 +491,7 @@ public class Special23Scenerios extends BaseTest2 {
         GuestFlow guestFlow = new GuestFlow(driver);
         loginPage.VerifyValidLogin();
         guestFlow.makeScriptUsedChargerAvailable();
-        driver.close();
+        driver.quit();
     }
 
 

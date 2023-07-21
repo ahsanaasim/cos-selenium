@@ -668,20 +668,18 @@ public class CreateLocationTestCases extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
-        /*Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonLocations());*/
+//        Assert.assertTrue(dashboard.GotoDashboard());
+//        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+//        Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
-        Assert.assertTrue(properties.clickonCompanyDropdown());
-        Assert.assertTrue(properties.selectCompanyNameFromSelectCompanyDropdown());
-        Assert.assertTrue(createLocation.clickonPropertyDropdown());
-        Assert.assertTrue(createLocation.clickOnPropertyName());
-        Assert.assertTrue(createLocation.enterLocationTitle(prop.getProperty("LocationTitle")));
+        Assert.assertTrue(properties.selectAutomatedCompanyFromSelectCompanyDropdown());
+        Assert.assertTrue(createLocation.selectTemporaryPropertyNameFromSelectProperty());
+        Assert.assertTrue(createLocation.enterLocationTitle(prop.getProperty("TemporaryLocation")));
         Assert.assertTrue(createLocation.enterLocationLandmark(prop.getProperty("LocationLandmark")));
         Assert.assertTrue(createLocation.RemoveLongitude());
-        Assert.assertTrue(createLocation.enterLocationLongitude(prop.getProperty("ValidLongitude")));
+        Assert.assertTrue(createLocation.enterLocationLongitude(prop.getProperty("ValidLongitude2")));
         Assert.assertTrue(createLocation.RemoveLatitude());
-        Assert.assertTrue(createLocation.enterLocationLatitude(prop.getProperty("ValidLatitude")));
+        Assert.assertTrue(createLocation.enterLocationLatitude(prop.getProperty("ValidLatitude2")));
         Assert.assertTrue(createLocation.verifyConfirmLocationButtonisShowingandEnabled());
         Assert.assertTrue(createLocation.clickConfirmLocationButton());
         Assert.assertTrue(createLocation.verifyConfirmLocationButtonisNotShowing());
@@ -728,19 +726,23 @@ public class CreateLocationTestCases extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
-       /* Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonLocations());*/
+        Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
-        Assert.assertTrue(properties.clickonCompanyDropdown());
-        Assert.assertTrue(properties.selectCompanyNameFromSelectCompanyDropdown());
-        Assert.assertTrue(createLocation.clickonPropertyDropdown());
-        Assert.assertTrue(createLocation.clickOnPropertyName());
-        Assert.assertTrue(createLocation.enterLocationTitle(prop.getProperty("LocationTitle")));
+        Assert.assertTrue(properties.selectAutomatedCompanyFromSelectCompanyDropdown());
+        Assert.assertTrue(createLocation.selectTemporaryPropertyNameFromSelectProperty());
+        Assert.assertTrue(createLocation.enterLocationTitle(prop.getProperty("TemporaryLocation")));
         Assert.assertTrue(createLocation.enterLocationLandmark(prop.getProperty("LocationLandmark")));
+        Assert.assertTrue(createLocation.RemoveLongitude());
+        Assert.assertTrue(createLocation.enterLocationLongitude(prop.getProperty("ValidLongitude2")));
+        Assert.assertTrue(createLocation.RemoveLatitude());
+        Assert.assertTrue(createLocation.enterLocationLatitude(prop.getProperty("ValidLatitude2")));
+        Assert.assertTrue(createLocation.verifyConfirmLocationButtonisShowingandEnabled());
         Assert.assertTrue(createLocation.clickConfirmLocationButton());
         Assert.assertTrue(createLocation.clickSaveLocationButton());
-        Assert.assertTrue(createLocation.verifyCreateNewLocationDrawerHasClosed());
+        Assert.assertTrue(createLocation.verifyAnElementDisplayedOrNot(2500,DashboardPropertyDetails.TopAccountName));
+        Assert.assertTrue(createLocation.verifyNewLocationHasCreated(msg.NewlyCreatedLocationmsg()));
 
     }
 

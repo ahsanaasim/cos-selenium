@@ -1,17 +1,23 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+
+
 
 public class CreateProperty extends BasePage {
     public CreateProperty(WebDriver driver) {
 
         super(driver);
     }
+
+    Properties prop = ConfigUtill.getConfig();
 
 
     By createnewpropertyybtn = By.xpath("//button[contains(.,'Create New Property')]");
@@ -362,6 +368,18 @@ public class CreateProperty extends BasePage {
         return true;
     }
 
+    public boolean selectAutomatedCompanyFromSelectCompanyDropdown() throws InterruptedException {
+        Thread.sleep(2000);
+        waitelemtclickable(dropdown);
+        writeText(dropdown,prop.getProperty("CompanyNameForAutomation"));
+        WebElement selectitem = driver.findElement(dropdown);
+        Thread.sleep(3500);
+        selectitem.sendKeys(Keys.ENTER);
+        return true;
+    }
+
+
+
     public boolean selectStaticCompanyFromSelectCompanyDropdown() throws InterruptedException {
         Thread.sleep(4000);
         waitelementtobedisplayed(cname2);
@@ -383,6 +401,16 @@ public class CreateProperty extends BasePage {
         waitVisibility(ename);
         waitelemtclickable(ename);
         click(ename);
+        return true;
+    }
+    public boolean SelectEntityNameFromSelectEntityDropdown() throws InterruptedException {
+        Thread.sleep(1000);
+        waitelementtobeEnabled(entitydropdown);
+        waitelemtclickable(entitydropdown);
+        writeText(entitydropdown,prop.getProperty("Entity2"));
+        WebElement selectitem = driver.findElement(entitydropdown);
+        Thread.sleep(3500);
+        selectitem.sendKeys(Keys.ENTER);
         return true;
     }
 
@@ -971,9 +999,8 @@ public class CreateProperty extends BasePage {
         }
     }
     public boolean SelectToday() throws InterruptedException {
-        Thread.sleep(5000);
-        driver.findElement(ServiceStartDate).click();
-        waitforPresence(ServiceStartDate);
+        Thread.sleep(1000);
+        click(ServiceStartDate);
         click(TodayDate);
         return true;
     }

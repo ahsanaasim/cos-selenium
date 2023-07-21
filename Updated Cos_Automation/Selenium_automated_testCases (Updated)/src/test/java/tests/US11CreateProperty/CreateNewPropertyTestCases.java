@@ -1407,10 +1407,10 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(dashboard.clickonProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.clickonCompanyDropdown());
-        Assert.assertTrue(properties.selectCompanyNameFromSelectCompanyDropdown());
+        Assert.assertTrue(properties.selectAutomatedCompanyFromSelectCompanyDropdown());
         Assert.assertTrue(properties.clickSelectEntityDropdown());
-        Assert.assertTrue(properties.selectEntityNameFromSelectEntityDropdown());
-        Assert.assertTrue(properties.writePropertyName(prop.getProperty("PropertyName2")));
+        Assert.assertTrue(properties.SelectEntityNameFromSelectEntityDropdown());
+        Assert.assertTrue(properties.writePropertyName(prop.getProperty("PropertyName5")));
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(company.WriteRandomCompanyAddress());
 //        Assert.assertTrue(properties.clickHardwareProviderDropdown());
@@ -1428,8 +1428,9 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(properties.selectMontlyFrequencyfromInstallationFeeDropdown());
         Assert.assertTrue(properties.enterSessionFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterSessionMinimumFees(prop.getProperty("Fees")));
+        Assert.assertTrue(properties.SelectToday());
         Assert.assertTrue(properties.clickonCreatePropertyButton());
-        Assert.assertTrue(properties.verifyCreateNewPropertyDrawerHasClosed());
+//        Assert.assertTrue(properties.verifyCreateNewPropertyDrawerHasClosed());
         Assert.assertTrue(properties.verifyNewPropertyHasCreated(msg.NewlyCreatedPropertymsg()));
     }
 

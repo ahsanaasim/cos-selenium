@@ -2579,29 +2579,29 @@ public class TestCases extends BaseTest {
 
     }
 
-    @Test(priority = 131)//Done
-    public void WhenAdminChoosetheCompanyNamefromDropdownonEntiysameasCompanyDrawer() throws InterruptedException {
-        HomePage homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
-        CreateEntity createentity = new CreateEntity(driver);
-        CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
-        Assert.assertTrue(createentity.ClickoEntitysameasCompany());
-        //Assert.assertTrue(createentity.ClickonSelectCompanydropdownFromEntitysameasCompanyDrawer());
-        Assert.assertTrue(createentity.SelectCompanyNamefromDropdown());
-        Assert.assertTrue(createentity.VerifyAlertMessageisShowingAfterSelectingtheCopmayfromCompanyList());
-        Assert.assertTrue(createentity.VerifyEntityInformationareShowingonCreateNewEntityDrawer());
-        Assert.assertTrue(createentity.VerifyEntityLocationInformationareShowingonCreateNewCompanyDrawer());
-        Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(createentity.VerifyCreateNewEntityDrawerHasClosed());
-        Assert.assertTrue(createentity.VerifyEntityNameisShowinginEntityTable());
-
-    }
+//    @Test(priority = 131)//Done
+//    public void WhenAdminChoosetheCompanyNamefromDropdownonEntiysameasCompanyDrawer() throws InterruptedException {
+//        HomePage homePage = new HomePage(driver);
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard=new Dashboard(driver);
+//        CreateEntity createentity = new CreateEntity(driver);
+//        CreateCompany company=new CreateCompany(driver);
+//        loginPage.VerifyValidLogin();
+//        Assert.assertTrue(dashboard.RefreshBrowser());
+//        /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+//        Assert.assertTrue(dashboard.ClickonEntityManagement());*/
+//        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+//        Assert.assertTrue(createentity.ClickoEntitysameasCompany());
+//        //Assert.assertTrue(createentity.ClickonSelectCompanydropdownFromEntitysameasCompanyDrawer());
+//        Assert.assertTrue(createentity.SelectCompanyNamefromDropdown());
+//        Assert.assertTrue(createentity.VerifyAlertMessageisShowingAfterSelectingtheCopmayfromCompanyList());
+//        Assert.assertTrue(createentity.VerifyEntityInformationareShowingonCreateNewEntityDrawer());
+//        Assert.assertTrue(createentity.VerifyEntityLocationInformationareShowingonCreateNewCompanyDrawer());
+//        Assert.assertTrue(createentity.ClickonSaveButton());
+//        Assert.assertTrue(createentity.VerifyCreateNewEntityDrawerHasClosed());
+//        Assert.assertTrue(createentity.VerifyEntityNameisShowinginEntityTable());
+//
+//    }
 
     @Test(priority = 132)//Done
     public void WhenAdminClickSearchButtonWithouttypingAnythingFromEntityManagementPage() throws InterruptedException, IOException {

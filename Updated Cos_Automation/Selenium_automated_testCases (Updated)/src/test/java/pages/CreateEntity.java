@@ -2,6 +2,8 @@ package pages;
 
 import org.openqa.selenium.*;
 
+import java.util.Properties;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class CreateEntity extends BasePage {
@@ -13,26 +15,29 @@ public class CreateEntity extends BasePage {
     }
 
 
+
+    Properties prop = ConfigUtill.getConfig();
     RandomData rdata = new RandomData();
 
-    By createentitybtn = By.xpath("//button[contains(.,'Create New Entity')]");
-    By enttitydrawer = By.xpath("//span[@class='drawerTitle'][contains(.,'Create New Entity')]");
-    By entityname = By.xpath("//input[@placeholder='Name']");
-    By phone = By.xpath("//input[@placeholder='Phone Number']");
-    By notes = By.xpath("//textarea[contains(@placeholder,'Note')]");
-    By entityascompany = By.xpath("//div[@class='entityHeader'][contains(.,'Entity Same as a company?')]");
+    public static By createentitybtn = By.xpath("//button[contains(.,'Create New Entity')]");
+    public static By enttitydrawer = By.xpath("//span[@class='drawerTitle'][contains(.,'Create New Entity')]");
+    public static By entityname = By.xpath("//input[@placeholder='Name']");
+    public static By phone = By.xpath("//input[@placeholder='Phone Number']");
+    public static By notes = By.xpath("//textarea[contains(@placeholder,'Note')]");
+    public static By entityascompany = By.xpath("//div[@class='entityHeader'][contains(.,'Entity Same as a company?')]");
   //  By dropdown = By.xpath("//span[@class='ant-select-selection-item']");
-    By selectcompany = By.xpath("(//div[@class='ant-select-item-option-content'])[5]");
-    By companyname = By.id("rc_select_2");
-    By dropdown = By.id("rc_select_0");
-    By address = By.xpath("//input[contains(@placeholder,'Address')]");
-    By savebtn = By.xpath("//button[contains(.,'Save Entity')]");
-    By alertmsg = By.xpath("//div[@class='companySelectConfirmation'][contains(.,'The information below is populated by company-selected results')]");
-    By entitynameerrmsg = By.xpath("//div[@role='alert'][contains(.,'Entity Name is required')]");
-    By enttityname = By.xpath("(//div[contains(.,'New Entity')])[10]");
-    By invalidemailerrmsg = By.xpath("//div[@role='alert'][contains(.,'Invalid email')]");
-    By companyemailerrmsg = By.xpath("//div[@role='alert'][contains(.,'Company is required')]");
-    By loader = By.xpath("(//i[@class='ant-spin-dot-item'])[3]");
+    public static By selectcompany = By.xpath("(//div[@class='ant-select-item-option-content'])[5]");
+    public static By companyname = By.id("rc_select_2");
+    public static By dropdown = By.id("rc_select_0");
+    public static By address = By.xpath("//input[contains(@placeholder,'Address')]");
+    public static By savebtn = By.xpath("//button[contains(.,'Save Entity')]");
+    public static By alertmsg = By.xpath("//div[@class='companySelectConfirmation'][contains(.,'The information below is populated by company-selected results')]");
+    public static By entitynameerrmsg = By.xpath("//div[@role='alert'][contains(.,'Entity Name is required')]");
+    public static By enttityname = By.xpath("(//div[contains(.,'New Entity')])[10]");
+    public static By invalidemailerrmsg = By.xpath("//div[@role='alert'][contains(.,'Invalid email')]");
+    public static By companyemailerrmsg = By.xpath("//div[@role='alert'][contains(.,'Company is required')]");
+    public static By loader = By.xpath("(//i[@class='ant-spin-dot-item'])[3]");
+    public static By SelectCompanyField = By.xpath("//input[@class='ant-select-selection-search-input']");
 
 
 
@@ -80,10 +85,31 @@ public class CreateEntity extends BasePage {
         return true;
     }
 
-    public boolean SelectCompanyNamefromDropdown() {
-        waitVisibility(selectcompany);
-        click(selectcompany);
-        click(enttitydrawer);
+//    public boolean SelectCompanyNamefromDropdown() {
+//        waitVisibility(selectcompany);
+//        click(selectcompany);
+//        click(enttitydrawer);
+//        return true;
+//    }
+
+    public boolean SelectCompanyNameFromDropdown() throws InterruptedException {
+        waitVisibility(SelectCompanyField);
+        waitelemtclickable(SelectCompanyField);
+        click(SelectCompanyField);
+        writeText(SelectCompanyField,prop.getProperty("CompanyNameForAutomation"));
+        WebElement selectitem = driver.findElement(SelectCompanyField);
+        Thread.sleep(3500);
+        selectitem.sendKeys(Keys.ENTER);
+        return true;
+    }
+
+    public boolean WriteAutomatedEntityName() throws InterruptedException {
+        Random numGenerator = new Random();
+        Thread.sleep(1000);
+        int randomNumber = numGenerator.nextInt(10000);
+        String EntityName=prop.getProperty("Entity2")+" "+randomNumber;
+        waitVisibility(entityname);
+        writeText(entityname, EntityName);
         return true;
     }
 

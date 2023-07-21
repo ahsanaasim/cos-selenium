@@ -688,19 +688,20 @@ public class CreateEntityTestCases extends BaseTest {
         CreateCompany company=new CreateCompany(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
-        /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());*/
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonEntityManagement());
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
-        Assert.assertTrue(createentity.ClickonSelectCompanydropdownFromEntityDrawer());
-        Assert.assertTrue(createentity.SelectCompanyNamefromDropdown());
-        Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
+//        Assert.assertTrue(createentity.ClickonSelectCompanydropdownFromEntityDrawer());
+        Assert.assertTrue(createentity.SelectCompanyNameFromDropdown());
+        Assert.assertTrue(createentity.WriteAutomatedEntityName());
         Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.WriteRandomEINNumber());
         Assert.assertTrue(createentity.EnterNotesinEntityInformation());
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
         Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(company.verifyAnElementDisplayedOrNot(2500,DashboardPropertyDetails.TopAccountName));
     }
 
     /*@Test(priority = 31)//Done

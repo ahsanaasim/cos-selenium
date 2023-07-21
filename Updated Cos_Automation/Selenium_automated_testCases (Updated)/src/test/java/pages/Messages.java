@@ -168,6 +168,10 @@ public class Messages {
         return "Property created successfully";
     }
 
+    public String NewlyCreatedLocationmsg(){
+        return "Location created successfully";
+    }
+
     public String EntityNameErrorMsg(){
         return "Entity Name is required";
     }

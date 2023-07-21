@@ -88,7 +88,7 @@ public class GuestFlow extends BasePage {
         SimulationPage simulationPage = new SimulationPage(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
         CreateCharger operation = new CreateCharger(driver);
-        String[] D10LocationCharger = {"Messi Charger","Selenium 18","Selenium 5","Selenium 272","Selenium 92","Selenium 889","Selenium 2","Selenium 529","D 10 charger 1170", "D-10 Charger", "D10 Charger-24", "D 11 charger", "Space 5","charger for noone","Charger ev updated"};
+        String[] D10LocationCharger = {"Messi Charger","Selenium 18","Selenium 5","Selenium 719","Selenium 92","Selenium 889","Selenium 2","Selenium 529","D 10 charger 1170", "D-10 Charger", "D10 Charger-24", "D 11 charger", "Space 5","charger for noone","Charger ev updated"};
         // Loop through the array and print each element
         for (String Charger : D10LocationCharger) {
             System.out.println(Charger);
@@ -117,7 +117,6 @@ public class GuestFlow extends BasePage {
         SimulationPage simulationPage = new SimulationPage(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
         CreateCharger operation = new CreateCharger(driver);
-        String[] D10LocationCharger = {chargername};
         guestFlow.GoToSimulator();
         simulationPage.SelectChargerFromSimulator(chargername);
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
@@ -281,7 +280,7 @@ public class GuestFlow extends BasePage {
         driver.switchTo().window(tabs.get(num));
     }
     public void SwitchToTab(int num) throws InterruptedException{
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(num));
     }
