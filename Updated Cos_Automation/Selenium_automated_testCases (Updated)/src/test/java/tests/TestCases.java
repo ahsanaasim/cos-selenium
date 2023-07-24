@@ -1575,7 +1575,7 @@ public class TestCases extends BaseTest {
         Assert.assertTrue(dashboard.ClickonCompanyManagement());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.ClickonUploadButton());
-        Assert.assertTrue(editCompany.updateLogoUsingInvalidDimension());
+        Assert.assertTrue(editCompany.uploadMoreThan3MBSizeLogo());
         Assert.assertTrue(editCompany.VerifyInvalidImageDimesionErrorMessage(msg.Invalidimagedimensionerrormsg()));
     }
 
@@ -1829,7 +1829,7 @@ public class TestCases extends BaseTest {
         Assert.assertTrue(dashboard.ClickonCompanyManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchcompany.ClickonSelectStateFromAdvanceFilterDrawer());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
         Assert.assertTrue(searchcompany.VerifStateNameTagisShowingaAfterSelectingtheStateFromAdncedFilter());
     }
@@ -1871,13 +1871,13 @@ public class TestCases extends BaseTest {
         Assert.assertTrue(dashboard.ClickonCompanyManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchcompany.ClickonSelectStateFromAdvanceFilterDrawer());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchcompany.ClickonZipCodeDropdownFromAdvanceFilterDrawer());
         Assert.assertTrue(searchcompany.SelectZipFromDropDown());
         Assert.assertTrue(searchcompany.SelectComapnyStatus());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
         Assert.assertTrue(searchcompany.VerifStateNameTagisShowingaAfterSelectingtheStateFromAdncedFilter());
-        Assert.assertTrue(searchcompany.VerifZipcodeTagisShowingaAfterSelectingtheZipFromAdncedFilter());
+        Assert.assertTrue(searchcompany.VerifyZipcodeTagisShowingAfterSelectingtheZipFromAdvancedFilter());
         Assert.assertTrue(searchcompany.VerifCompanyStatusTagisShowingaAfterSelectingtheZipFromAdncedFilter());
     }
 
@@ -2803,7 +2803,7 @@ public class TestCases extends BaseTest {
         Assert.assertTrue(dashboard.ClickonEntityManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
         Assert.assertTrue(searchcompany.VerifStateNameTagisShowingaAfterSelectingtheStateFromAdncedFilter());
     }
@@ -2841,7 +2841,7 @@ public class TestCases extends BaseTest {
         Assert.assertTrue(dashboard.ClickonCompanyManagement());*/
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
         //Assert.assertTrue(searchcompany.VerifStateNameTagisShowingaAfterSelectingtheStateFromAdncedFilter());
         Assert.assertTrue(searchcompany.ClickonCrosstoRemoveStateTag());
@@ -2864,12 +2864,12 @@ public class TestCases extends BaseTest {
         Assert.assertTrue(dashboard.ClickonEntityManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchEntity.ClickonSelectZipdropdownFromAdvanceFilterDrawer());
         Assert.assertTrue(searchcompany.SelectZipFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
         Assert.assertTrue(searchcompany.VerifStateNameTagisShowingaAfterSelectingtheStateFromAdncedFilter());
-        Assert.assertTrue(searchcompany.VerifZipcodeTagisShowingaAfterSelectingtheZipFromAdncedFilter());
+        Assert.assertTrue(searchcompany.VerifyZipcodeTagisShowingAfterSelectingtheZipFromAdvancedFilter());
     }
 
 
@@ -2887,7 +2887,7 @@ public class TestCases extends BaseTest {
         Assert.assertTrue(dashboard.ClickonEntityManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchEntity.ClickonSelectZipdropdownFromAdvanceFilterDrawer());
         Assert.assertTrue(searchcompany.SelectZipFromDropDown());
         Assert.assertTrue(searchcompany.ClickonResetButton());

@@ -514,7 +514,7 @@ public class EditCompanyTestCases extends BaseTest {
         Assert.assertTrue(editCompany.RemoveEINFromEditCompanyDrawer());
         Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Alphabates")));
         Assert.assertTrue(company.ClickonSaveButton());
-//        Assert.assertTrue(company.VerifyInvalidEINNumberErrorMessage(msg.InvalidEINNumberErrorMsg()));
+        Assert.assertTrue(company.VerifyInvalidEINNumberErrorMessage(msg.InvalidEINNumberErrorMsg()));
     }
 
     @Test(priority = 28)//Done
@@ -533,7 +533,7 @@ public class EditCompanyTestCases extends BaseTest {
         Assert.assertTrue(editCompany.RemoveEINFromEditCompanyDrawer());
         Assert.assertTrue(company.EnterEINNumber(prop.getProperty("SpecialCharacter")));
         Assert.assertTrue(company.ClickonSaveButton());
-//        Assert.assertTrue(company.VerifyInvalidEINNumberErrorMessage(msg.InvalidEINNumberErrorMsg()));
+        Assert.assertTrue(company.VerifyInvalidEINNumberErrorMessage(msg.InvalidEINNumberErrorMsg()));
     }
 
     @Test(priority = 29)//Done
@@ -653,20 +653,20 @@ public class EditCompanyTestCases extends BaseTest {
 // User is able to upload the image using invalid dimension
     @Test(priority = 35)//Done
     @TestParameters(testCaseId = {"TC-35"})
-    public void TC_35_VerifyErrorMessageisShowingWhenAdminUploadtheImageUsingInvalidDimensionOnEditCompanyDrawer() throws InterruptedException, IOException {
+    public void TC_35_VerifyErrorMessageisShowingWhenAdminUploadtheImageMoreThan3MBOnEditCompanyDrawer() throws InterruptedException, IOException {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonCompanyManagement());*/
+//        Assert.assertTrue(dashboard.RefreshBrowser());
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.ClickonUploadButton());
-        Assert.assertTrue(editCompany.updateLogoUsingInvalidDimension());
-      //  Assert.assertTrue(editCompany.VerifyInvalidImageDimesionErrorMessage(msg.Invalidimagedimensionerrormsg()));
+        Assert.assertTrue(editCompany.uploadMoreThan3MBSizeLogo());
+        Assert.assertTrue(editCompany.verifyTextMatching(2000,EditCompany.ErrorMsg,msg.Maximumimagesizeerrormsg()));
     }
 
     @Test(priority = 36)//Done

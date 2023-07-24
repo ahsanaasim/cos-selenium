@@ -230,7 +230,7 @@ public class SearchCompanyTestCase extends BaseTest {
         Assert.assertTrue(dashboard.ClickonCompanyManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchcompany.ClickonSelectStateFromAdvanceFilterDrawer());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
         Assert.assertTrue(searchcompany.VerifStateNameTagisShowingaAfterSelectingtheStateFromAdncedFilter());
     }
@@ -246,11 +246,11 @@ public class SearchCompanyTestCase extends BaseTest {
         SearchCompany searchcompany=new SearchCompany(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
-       /* Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonCompanyManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchcompany.ClickonSelectStateFromAdvanceFilterDrawer());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());*/
         Assert.assertTrue(searchcompany.VerifStateNameTagisShowingaAfterSelectingtheStateFromAdncedFilter());
         Assert.assertTrue(searchcompany.ClickonCrosstoRemoveStateTag());
@@ -261,7 +261,6 @@ public class SearchCompanyTestCase extends BaseTest {
 
     @Test(priority = 14)//Done
     @TestParameters(testCaseId = {"TC-14"})
-
     public void TC_14_WhenAdminSearchCompanybySelectingMultipleTagsFromAdnaceFilterDrawer() throws InterruptedException, IOException {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
@@ -276,14 +275,13 @@ public class SearchCompanyTestCase extends BaseTest {
         Assert.assertTrue(dashboard.ClickonCompanyManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchcompany.ClickonSelectStateFromAdvanceFilterDrawer());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
-        Assert.assertTrue(searchcompany.ClickonZipCodeDropdownFromAdvanceFilterDrawer());
-        Assert.assertTrue(searchcompany.SelectZipFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectZipFromAdvancedFilterDropDown());
         Assert.assertTrue(searchcompany.SelectComapnyStatus());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
-//        Assert.assertTrue(searchcompany.VerifStateNameTagisShowingaAfterSelectingtheStateFromAdncedFilter());
-        Assert.assertTrue(searchcompany.VerifZipcodeTagisShowingaAfterSelectingtheZipFromAdncedFilter());
-        Assert.assertTrue(searchcompany.VerifCompanyStatusTagisShowingaAfterSelectingtheZipFromAdncedFilter());
+        Assert.assertTrue(searchcompany.VerifStateNameTagisShowingaAfterSelectingtheStateFromAdncedFilter());
+        Assert.assertTrue(searchcompany.VerifyZipcodeTagisShowingAfterSelectingtheZipFromAdvancedFilter());
+        Assert.assertTrue(searchcompany.verifyAnElementDisplayedOrNot(1000,SearchCompany.ClearAll));
     }
 
 
@@ -303,9 +301,8 @@ public class SearchCompanyTestCase extends BaseTest {
         Assert.assertTrue(dashboard.ClickonCompanyManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchcompany.ClickonSelectStateFromAdvanceFilterDrawer());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
-        Assert.assertTrue(searchcompany.ClickonZipCodeDropdownFromAdvanceFilterDrawer());
-        Assert.assertTrue(searchcompany.SelectZipFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectZipFromAdvancedFilterDropDown());
         Assert.assertTrue(searchcompany.SelectComapnyStatus());
         Assert.assertTrue(searchcompany.ClickonResetButton());
         Assert.assertTrue(searchcompany.VerifyAdvanceFilterDrawerhasnotclosedAfterclcikingResetButton());

@@ -6,9 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
-
+import java.time.Duration;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class SearchCompany extends BasePage{
@@ -18,23 +17,28 @@ public class SearchCompany extends BasePage{
         super(driver);
     }
 
-    By companyemail = By.xpath("(//div[@class='wordBreak'][contains(.,'test@test.com')])[1]");
-    By advancefilterbtn = By.xpath("//button[contains(.,'Add Advance Filter')]");
-    By statedroddown = By.xpath("(//div[@class='ant-select-selection-overflow'])[1]");
-    By zipdroddown = By.xpath("(//div[@class='ant-select-selection-overflow'])[2]");
-    By selectstate = By.xpath("//div[@class='ant-select-item-option-content'][contains(.,'Alaska')]");
-    By selectzip = By.xpath("//div[@class='ant-select-item-option-content'][contains(.,'35005')]");
-    By statename = By.xpath("//span[@class='ant-tag tagCss mb-10'][contains(.,'Alaska')]");
-    By companystatus = By.xpath("//span[contains(.,'Include deactivated companies')]");
-    By applybtn = By.xpath("//button[contains(.,'Apply')]");
-    By resetbtn = By.xpath("//button[contains(.,'Reset all')]");
-    By advancefilter= By.xpath("//span[@class='drawerTitle'][contains(.,'Advanced Filter')]");
-    By ascendingcompanyname = By.xpath("//span[contains(.,'Company Name')]");
-    By ascendingemail = By.xpath("//span[contains(.,'Company Email')]");
-    By loadmorebtn = By.xpath("//span[contains(.,'Load 3 More')]");
-    By nodataimg = By.xpath("//img[@src='/images/noDataTable.svg']");
-    By brandifocheckbox = By.xpath("//span[contains(.,'Show companies with logo')]");
-    By removebtn = By.xpath("//span[@class='anticon anticon-close ant-tag-close-icon']");
+    Properties prop = ConfigUtill.getConfig();
+
+    public static By companyEmail1InTable = By.xpath("(//div[@class='wordBreak'])[2]");
+    public static By companyPhoneNumber1InTable = By.xpath("(//div[@class='wordBreak'])[3]");
+    public static By advancefilterbtn = By.xpath("//button[contains(.,'Add Advance Filter')]");
+    public static By statedroddown = By.xpath("(//div[@class='ant-select-selection-overflow'])[1]");
+    public static By zipdroddown = By.xpath("(//div[@class='ant-select-selection-overflow'])[2]");
+    public static By zipFieldToWrite = By.xpath("(//input[@class='ant-select-selection-search-input'])[2]");
+    public static By selectstate = By.xpath("//div[@class='ant-select-item-option-content'][contains(.,'Alaska')]");
+    public static By selectzip = By.xpath("//div[@class='ant-select-item-option-content'][contains(.,'99950')]");
+    public static By statename = By.xpath("//span[@class='ant-tag'][contains(.,'Alaska')]");
+    public static By companystatus = By.xpath("//span[contains(.,'Include deactivated companies')]");
+    public static By applybtn = By.xpath("//button[contains(.,'Apply')]");
+    public static By resetbtn = By.xpath("//button[contains(.,'Reset all')]");
+    public static By advancefilter= By.xpath("//span[@class='drawerTitle'][contains(.,'Advanced Filter')]");
+    public static By ascendingcompanyname = By.xpath("//span[contains(.,'Company Name')]");
+    public static By ascendingemail = By.xpath("//span[contains(.,'Company Email')]");
+    public static By loadmorebtn = By.xpath("//span[contains(.,'Load 3 More')]");
+    public static By nodataimg = By.xpath("//img[@src='/images/noDataTable.svg']");
+    public static By brandifocheckbox = By.xpath("//span[contains(.,'Show companies with logo')]");
+    public static By removebtn = By.xpath("//span[@class='anticon anticon-close ant-tag-close-icon']");
+    public static By ClearAll = By.xpath("//span[@class='ant-tag cursor tagCss clearAllTag']");
 
 
 
@@ -110,7 +114,7 @@ public class SearchCompany extends BasePage{
         return true;
     }
 
-    public boolean SelectStateFromDropDown() throws InterruptedException {
+    public boolean SelectAlaskaStateFromDropDown() throws InterruptedException {
         Thread.sleep(2000);
         waitVisibility(selectstate);
       //  waitelementtobedisplayed(selectstate);
@@ -127,9 +131,19 @@ public class SearchCompany extends BasePage{
 
     public boolean SelectZipFromDropDown() throws InterruptedException {
       //  company.waitForSpinner();
-        driver.manage().timeouts().implicitlyWait(03, TimeUnit.SECONDS);
-        waitelemtclickable(selectzip);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         waitVisibility(selectzip);
+        click(selectzip);
+        return true;
+    }
+
+    public boolean SelectZipFromAdvancedFilterDropDown() throws InterruptedException {
+        //  company.waitForSpinner();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        waitVisibility(zipdroddown);
+        click(advancefilter);
+        click(zipdroddown);
+        writeText(zipFieldToWrite,prop.getProperty("ZipCode"));
         click(selectzip);
         return true;
     }
@@ -162,20 +176,27 @@ public class SearchCompany extends BasePage{
 
     public boolean VerifCompanywiththeEnteredEmailAddressIsShowing() {
         company.waitForSpinner();
-        waitVisibility(companyemail);
-        if( driver.findElement(By.xpath("//div[@class='wordBreak'][contains(.,'test@test.com')]")).isDisplayed())
+        waitVisibility(companyEmail1InTable);
+        String CompanyNameInFirstRow = readText(companyEmail1InTable);
+        System.out.println("Company name in table: "+CompanyNameInFirstRow);
+        String Expected = prop.getProperty("CompanyEmail");
+        if(CompanyNameInFirstRow.equals(Expected))
         {
             System.out.println("Searched Email has displayed");
+            return true;
         }else{
             System.out.println("Something Went Wrong!!");
+            return false;
         }
-        return true;
     }
 
     public boolean VerifCompanywiththeEnteredPhoneNumberIsShowing() {
         company.waitForSpinner();
-        waitVisibility(companyemail);
-        if( driver.findElement(By.xpath("(//div[@class='wordBreak'][contains(.,'14844731064')])")).isDisplayed())
+        waitVisibility(companyPhoneNumber1InTable);
+        String CompanyPhoneNumberInFirstRow = readText(companyPhoneNumber1InTable);
+        System.out.println("Phone number showing in table: "+CompanyPhoneNumberInFirstRow);
+        String Expected = prop.getProperty("Phone");
+        if(CompanyPhoneNumberInFirstRow.equals(Expected))
         {
             System.out.println("Company with the provided phone number is showing");
         }else{
@@ -188,7 +209,7 @@ public class SearchCompany extends BasePage{
         //waitVisibility(nodataimg);
         company.waitForSpinner();
         Thread.sleep(2000);
-        if( driver.findElement(By.xpath("//img[@src='/images/noDataTable.svg']")).isDisplayed())
+        if(driver.findElement(nodataimg).isDisplayed())
         {
             System.out.println("No Company is showing with the provided data ");
         }else{
@@ -200,18 +221,21 @@ public class SearchCompany extends BasePage{
     public boolean VerifStateNameTagisShowingaAfterSelectingtheStateFromAdncedFilter() {
         company.waitForSpinner();
         waitVisibility(statename);
-        if( driver.findElement(By.xpath("//span[@class='ant-tag tagCss mb-10'][contains(.,'Alaska')]")).isDisplayed())
+        if( driver.findElement(statename).isDisplayed())
         {
             System.out.println("Alaska State name is showing");
+            return true;
         }else{
             System.out.println("Something Went Wrong!!");
+            return false;
         }
-        return true;
     }
 
-    public boolean VerifZipcodeTagisShowingaAfterSelectingtheZipFromAdncedFilter() {
+    public boolean VerifyZipcodeTagisShowingAfterSelectingtheZipFromAdvancedFilter() {
         waitVisibility(statename);
-        if( driver.findElement(By.xpath("//span[@class='ant-tag tagCss mb-10'][contains(.,'35005')]")).isDisplayed())
+        waitVisibility(companyEmail1InTable);
+        waitVisibility(companyPhoneNumber1InTable);
+        if( driver.findElement(By.xpath("//span[@class='ant-tag'][contains(.,'99950')]")).isDisplayed())
         {
             System.out.println("Zip code is showing");
         }else{
@@ -296,7 +320,7 @@ public class SearchCompany extends BasePage{
 
     public boolean VerifyStateTagHasbeenremoved() {
         try{
-            WebElement statetag= driver.findElement(By.xpath("//span[@class='ant-tag tagCss mb-10'][contains(.,'Alaska')]"));
+            WebElement statetag= driver.findElement(statename);
             if(!statetag.isDisplayed())
             {
             }else {

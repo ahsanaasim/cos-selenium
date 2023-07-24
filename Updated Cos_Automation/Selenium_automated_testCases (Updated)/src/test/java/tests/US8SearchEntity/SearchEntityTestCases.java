@@ -229,7 +229,7 @@ public class SearchEntityTestCases extends BaseTest {
         Assert.assertTrue(dashboard.ClickonEntityManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
         Assert.assertTrue(searchcompany.VerifStateNameTagisShowingaAfterSelectingtheStateFromAdncedFilter());
     }
@@ -250,7 +250,7 @@ public class SearchEntityTestCases extends BaseTest {
         Assert.assertTrue(dashboard.ClickonEntityManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
         Assert.assertTrue(searchEntity.ClickonClearAllTag());
         Assert.assertTrue(searchEntity.VerifyEntityManagementPageHasSettoDefaultVauleafterPressingCleerAllTag());
@@ -272,7 +272,7 @@ public class SearchEntityTestCases extends BaseTest {
         Assert.assertTrue(dashboard.ClickonEntityManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
         //Assert.assertTrue(searchcompany.VerifStateNameTagisShowingaAfterSelectingtheStateFromAdncedFilter());
         Assert.assertTrue(searchcompany.ClickonCrosstoRemoveStateTag());
@@ -297,12 +297,12 @@ public class SearchEntityTestCases extends BaseTest {
         Assert.assertTrue(dashboard.ClickonEntityManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchEntity.ClickonSelectZipdropdownFromAdvanceFilterDrawer());
         Assert.assertTrue(searchcompany.SelectZipFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
         Assert.assertTrue(searchcompany.VerifStateNameTagisShowingaAfterSelectingtheStateFromAdncedFilter());
-        Assert.assertTrue(searchcompany.VerifZipcodeTagisShowingaAfterSelectingtheZipFromAdncedFilter());
+        Assert.assertTrue(searchcompany.VerifyZipcodeTagisShowingAfterSelectingtheZipFromAdvancedFilter());
     }
 
 
@@ -322,7 +322,7 @@ public class SearchEntityTestCases extends BaseTest {
         Assert.assertTrue(dashboard.ClickonEntityManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchEntity.ClickonSelectZipdropdownFromAdvanceFilterDrawer());
         Assert.assertTrue(searchcompany.SelectZipFromDropDown());
         Assert.assertTrue(searchcompany.ClickonResetButton());

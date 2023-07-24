@@ -475,7 +475,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchandfilter.clickStateDropdown());
         Assert.assertTrue(searchandfilter.verifStateNameisShowingonAdvnaceFilter());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
         Assert.assertTrue(searchandfilter.verifyAdvanceFilterDrawerHasClosed());
 
@@ -499,7 +499,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchandfilter.clickStateDropdown());
         Assert.assertTrue(searchandfilter.verifStateNameisShowingonAdvnaceFilter());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
         Assert.assertTrue(searchandfilter.verifyAdvanceFilterDrawerHasClosed());
         Assert.assertTrue(searchandfilter.verifyStateTagisShowingonPropertyPage());
@@ -527,7 +527,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         Assert.assertTrue(searchandfilter.clickononEntityDropdown());
         Assert.assertTrue(searchandfilter.selectEntityNameFromAdvanceFilter());
         Assert.assertTrue(searchandfilter.clickStateDropdown());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchandfilter.clickonZipcodeDropdown());
         Assert.assertTrue(searchcompany.SelectZipFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
@@ -557,7 +557,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         Assert.assertTrue(searchandfilter.clickononEntityDropdown());
         Assert.assertTrue(searchandfilter.selectEntityNameFromAdvanceFilter());
         Assert.assertTrue(searchandfilter.clickStateDropdown());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchandfilter.clickonZipcodeDropdown());
         Assert.assertTrue(searchcompany.SelectZipFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
@@ -594,7 +594,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         Assert.assertTrue(searchandfilter.clickononEntityDropdown());
         Assert.assertTrue(searchandfilter.selectAnotherEntityNameFromAdvanceFilter());
         Assert.assertTrue(searchandfilter.clickStateDropdown());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchandfilter.clickonZipcodeDropdown());
         Assert.assertTrue(searchcompany.SelectZipFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
@@ -632,7 +632,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         Assert.assertTrue(searchandfilter.clickononEntityDropdown());
         Assert.assertTrue(searchandfilter.selectAnotherEntityNameFromAdvanceFilter());
         Assert.assertTrue(searchandfilter.clickStateDropdown());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchandfilter.clickonZipcodeDropdown());
         Assert.assertTrue(searchcompany.SelectZipFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
@@ -675,7 +675,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         Assert.assertTrue(searchandfilter.clickononEntityDropdown());
         Assert.assertTrue(searchandfilter.selectAnotherEntityNameFromAdvanceFilter());
         Assert.assertTrue(searchandfilter.clickStateDropdown());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchandfilter.clickonZipcodeDropdown());
         Assert.assertTrue(searchcompany.SelectZipFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
@@ -707,7 +707,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         Assert.assertTrue(searchandfilter.clickononEntityDropdown());
         Assert.assertTrue(searchandfilter.selectAnotherEntityNameFromAdvanceFilter());
         Assert.assertTrue(searchandfilter.clickStateDropdown());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchandfilter.clickonZipcodeDropdown());
         Assert.assertTrue(searchcompany.SelectZipFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
@@ -742,7 +742,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         Assert.assertTrue(searchandfilter.clickononEntityDropdown());
         Assert.assertTrue(searchandfilter.selectEntityNameFromAdvanceFilter());
         Assert.assertTrue(searchandfilter.clickStateDropdown());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchandfilter.clickonZipcodeDropdown());
         Assert.assertTrue(searchcompany.SelectZipFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
@@ -774,7 +774,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         Assert.assertTrue(searchandfilter.clickononEntityDropdown());
         Assert.assertTrue(searchandfilter.selectEntityNameFromAdvanceFilter());
         Assert.assertTrue(searchandfilter.clickStateDropdown());
-        Assert.assertTrue(searchcompany.SelectStateFromDropDown());
+        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchandfilter.clickonZipcodeDropdown());
         Assert.assertTrue(searchcompany.SelectZipFromDropDown());
         Assert.assertTrue(searchcompany.ClickonResetButton());

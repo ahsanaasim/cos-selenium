@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 
 import java.time.Duration;
 import java.util.Properties;
+import java.util.Random;
 
 public class CreateLocation extends BasePage {
 
@@ -160,6 +161,17 @@ public class CreateLocation extends BasePage {
         return true;
     }
 
+    public boolean enterLocationTitle() throws InterruptedException {
+        Random numGenerator = new Random();
+        Thread.sleep(1000);
+        int randomNumber = numGenerator.nextInt(10000);
+        String LocationName=prop.getProperty("TemporaryLocation")+" "+randomNumber;
+        waitVisibility(locationtitle);
+        waitelemtclickable(locationtitle);
+        writeText(locationtitle,LocationName);
+        return true;
+    }
+
     public boolean enterSpaceinLocationTitle() throws InterruptedException {
         Thread.sleep(2000);
         WebElement locationtitle= driver.findElement(By.xpath("//textarea[@placeholder='Location Title']"));
@@ -273,6 +285,13 @@ public class CreateLocation extends BasePage {
         return true;
     }
 
+    public boolean enterLocationLongitude() throws InterruptedException {
+        waitelementtobedisplayed(longitude);
+        waitVisibility(longitude);
+        writeText(longitude,GenerateLongitude(80.37340057073518,93.23347257083418));
+        return true;
+    }
+
     public boolean enterLocationLatitude(String Latitude) throws InterruptedException {
         //   Thread.sleep(3000);
         waitelementtobedisplayed(latitude);
@@ -280,6 +299,32 @@ public class CreateLocation extends BasePage {
         writeText(latitude,Latitude);
         return true;
     }
+    public boolean enterLocationLatitude() throws InterruptedException {
+        //   Thread.sleep(3000);
+        waitelementtobedisplayed(latitude);
+        // waitVisibility(latitude);
+        writeText(latitude,GenerateLatitude(22.743706971704885,27.743706971704885));
+        return true;
+    }
+
+
+
+    public String GenerateLatitude(double minLatitude, double maxLatitude){
+        Random random = new Random();
+        double lat = minLatitude + random.nextDouble() * (maxLatitude - minLatitude);
+        String Latitude = String.valueOf(lat);
+        return Latitude;
+    }
+
+    public String GenerateLongitude(double minLongitude, double maxLongitude){
+        Random random = new Random();
+        double longi = minLongitude + random.nextDouble() * (minLongitude - maxLongitude);
+        String Longitude = String.valueOf(longi);
+        return Longitude;
+    }
+
+
+
 
     public boolean SelectChargers() throws InterruptedException {
         waitVisibility(charger1);

@@ -77,7 +77,7 @@ public class CreateLocationTestCases extends BaseTest {
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
         Assert.assertTrue(createLocation.verifyCreateNewPropertyOptionsisShowing());
 
-   }
+    }
 
     @Test(priority = 5)//Done
     @TestParameters(testCaseId = {"TC-6"})
@@ -154,17 +154,17 @@ public class CreateLocationTestCases extends BaseTest {
 
     }
 
-   /* @Test(priority = 9)//Done
-    @TestParameters(testCaseId = {"TC-9"})
-    public void TC_9_VerifyMessageisShowingUnderLocationCoordinateSectionOnCreateNewLocationDrawer() throws InterruptedException {
-        HomePage homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
-        CreateProperty properties = new CreateProperty(driver);
-        CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-       *//* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+    /* @Test(priority = 9)//Done
+     @TestParameters(testCaseId = {"TC-9"})
+     public void TC_9_VerifyMessageisShowingUnderLocationCoordinateSectionOnCreateNewLocationDrawer() throws InterruptedException {
+         HomePage homePage = new HomePage(driver);
+         LoginPage loginPage = new LoginPage(driver);
+         Dashboard dashboard=new Dashboard(driver);
+         CreateProperty properties = new CreateProperty(driver);
+         CreateLocation createLocation=new CreateLocation(driver);
+         loginPage.VerifyValidLogin();
+         Assert.assertTrue(dashboard.RefreshBrowser());
+        *//* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*//*
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
         Assert.assertTrue(createLocation.verifyLocationCoordinateMessage(msg.LocationCoordinateMsg()));
@@ -423,8 +423,8 @@ public class CreateLocationTestCases extends BaseTest {
         Assert.assertTrue(createLocation.clickonCreateNewPropertyLink());
         Assert.assertTrue(properties.verifyContinueButtonisShowingonPopup());
         Assert.assertTrue(properties.clickonLeaveButton());
-     //   Assert.assertTrue(properties.verifyCreateNewPropertyyDrawerDisplayed());
-      //  Assert.assertTrue(properties.clickonCreateNewPropertyButton());
+        //   Assert.assertTrue(properties.verifyCreateNewPropertyyDrawerDisplayed());
+        //  Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.clickonCompanyDropdown());
         Assert.assertTrue(properties.selectCompanyNameFromSelectCompanyDropdown());
         Assert.assertTrue(properties.clickSelectEntityDropdown());
@@ -452,7 +452,7 @@ public class CreateLocationTestCases extends BaseTest {
         Assert.assertTrue(properties.verifyNewPropertyHasCreated(msg.NewlyCreatedPropertymsg()));
 
 
-   }
+    }
 
     @Test(priority = 20)//Done
     @TestParameters(testCaseId = {"TC-22"})
@@ -649,7 +649,7 @@ public class CreateLocationTestCases extends BaseTest {
         Assert.assertTrue(createLocation.enterLocationTitle(prop.getProperty("LocationTitle")));
         Assert.assertTrue(createLocation.enterLocationLandmark(prop.getProperty("LocationLandmark")));
         Assert.assertTrue(createLocation.enterLocationLongitude(prop.getProperty("InvalidLongitude")));
-        Assert.assertTrue(createLocation.enterLocationLatitude(prop.getProperty("InvalidLatitude")));
+        Assert.assertTrue(createLocation.enterLocationLatitude());
         Assert.assertTrue(createLocation.verifyConfirmLocationButtonisShowingandEnabled());
         Assert.assertTrue(createLocation.clickConfirmLocationButton());
         Assert.assertTrue(createLocation.verifyErrorMessageisShowingAfterEnteringInvalidLongitudeandLatitude());
@@ -679,43 +679,43 @@ public class CreateLocationTestCases extends BaseTest {
         Assert.assertTrue(createLocation.RemoveLongitude());
         Assert.assertTrue(createLocation.enterLocationLongitude(prop.getProperty("ValidLongitude2")));
         Assert.assertTrue(createLocation.RemoveLatitude());
-        Assert.assertTrue(createLocation.enterLocationLatitude(prop.getProperty("ValidLatitude2")));
+        Assert.assertTrue(createLocation.enterLocationLatitude());
         Assert.assertTrue(createLocation.verifyConfirmLocationButtonisShowingandEnabled());
         Assert.assertTrue(createLocation.clickConfirmLocationButton());
         Assert.assertTrue(createLocation.verifyConfirmLocationButtonisNotShowing());
 
     }
 
-   /* @Test(priority = 35)//Done
-    @TestParameters(testCaseId = {"TC-33"})
-    public void TC_33_CheckWhatHappensWhenAdminEntersValidDatanCreateLocationDrawer() throws InterruptedException {
-        HomePage homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
-        CreateProperty properties = new CreateProperty(driver);
-        CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
-        Assert.assertTrue(properties.clickonCompanyDropdown());
-        Assert.assertTrue(properties.selectCompanyNameFromSelectCompanyDropdown());
-        Assert.assertTrue(createLocation.clickonPropertyDropdown());
-        Assert.assertTrue(createLocation.writePropertyName(prop.getProperty("Propertywithchargers")));
-        Assert.assertTrue(createLocation.clickOnPropertyName());
-        Assert.assertTrue(createLocation.enterLocationTitle(prop.getProperty("LocationTitle2")));
-        Assert.assertTrue(createLocation.enterLocationLandmark(prop.getProperty("LocationLandmark")));
-        Assert.assertTrue(createLocation.clickConfirmLocationButton());
-        Assert.assertTrue(createLocation.SelectChargers());
-        Assert.assertTrue(createLocation.clickonRightSwapArrow());
-        Assert.assertTrue(createLocation.verifyUnassignedChargersHaveMovedtoAssignedChargerSection());
+    /* @Test(priority = 35)//Done
+     @TestParameters(testCaseId = {"TC-33"})
+     public void TC_33_CheckWhatHappensWhenAdminEntersValidDatanCreateLocationDrawer() throws InterruptedException {
+         HomePage homePage = new HomePage(driver);
+         LoginPage loginPage = new LoginPage(driver);
+         Dashboard dashboard=new Dashboard(driver);
+         CreateProperty properties = new CreateProperty(driver);
+         CreateLocation createLocation=new CreateLocation(driver);
+         loginPage.VerifyValidLogin();
+         Assert.assertTrue(dashboard.RefreshBrowser());
+         Assert.assertTrue(dashboard.GotoDashboard());
+         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+         Assert.assertTrue(dashboard.clickonLocations());
+         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
+         Assert.assertTrue(properties.clickonCompanyDropdown());
+         Assert.assertTrue(properties.selectCompanyNameFromSelectCompanyDropdown());
+         Assert.assertTrue(createLocation.clickonPropertyDropdown());
+         Assert.assertTrue(createLocation.writePropertyName(prop.getProperty("Propertywithchargers")));
+         Assert.assertTrue(createLocation.clickOnPropertyName());
+         Assert.assertTrue(createLocation.enterLocationTitle(prop.getProperty("LocationTitle2")));
+         Assert.assertTrue(createLocation.enterLocationLandmark(prop.getProperty("LocationLandmark")));
+         Assert.assertTrue(createLocation.clickConfirmLocationButton());
+         Assert.assertTrue(createLocation.SelectChargers());
+         Assert.assertTrue(createLocation.clickonRightSwapArrow());
+         Assert.assertTrue(createLocation.verifyUnassignedChargersHaveMovedtoAssignedChargerSection());
 
 
-    }
+     }
 
-*/
+ */
     @Test(priority = 30)//Done
     @TestParameters(testCaseId = {"TC-42"})
     public void TC_42_CheckWhatHappensWhenAdminPressSaveLocationButtonAfterEntersValidDatanCreateLocationDrawer() throws InterruptedException {
@@ -735,9 +735,9 @@ public class CreateLocationTestCases extends BaseTest {
         Assert.assertTrue(createLocation.enterLocationTitle(prop.getProperty("TemporaryLocation")));
         Assert.assertTrue(createLocation.enterLocationLandmark(prop.getProperty("LocationLandmark")));
         Assert.assertTrue(createLocation.RemoveLongitude());
-        Assert.assertTrue(createLocation.enterLocationLongitude(prop.getProperty("ValidLongitude2")));
+        Assert.assertTrue(createLocation.enterLocationLongitude());
         Assert.assertTrue(createLocation.RemoveLatitude());
-        Assert.assertTrue(createLocation.enterLocationLatitude(prop.getProperty("ValidLatitude2")));
+        Assert.assertTrue(createLocation.enterLocationLatitude());
         Assert.assertTrue(createLocation.verifyConfirmLocationButtonisShowingandEnabled());
         Assert.assertTrue(createLocation.clickConfirmLocationButton());
         Assert.assertTrue(createLocation.clickSaveLocationButton());
@@ -756,7 +756,7 @@ public class CreateLocationTestCases extends BaseTest {
         EditProperty editProperty=new EditProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
         loginPage.VerifyValidLogin();
-         Assert.assertTrue(dashboard.RefreshBrowser());
+        Assert.assertTrue(dashboard.RefreshBrowser());
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
@@ -839,7 +839,7 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         EditProperty editProperty=new EditProperty(driver);
-         EditCompany editCompany=new EditCompany(driver);
+        EditCompany editCompany=new EditCompany(driver);
         CreateLocation createLocation=new CreateLocation(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());

@@ -235,8 +235,8 @@ public class BasePage {
 
     //Write Text
     public void writeText (By elementBy, String text) {
-        waitforPresence(elementBy);
         waitVisibility(elementBy);
+        waitelemtclickable(elementBy);
         driver.findElement(elementBy).sendKeys(text);
     }
 

@@ -19,35 +19,34 @@ public class CreateCompany extends BasePage {
     Properties prop = ConfigUtill.getConfig();
     RandomData rdata = new RandomData();
 
-    By createcompanybtn = By.xpath("//button[contains(.,'Create New Company')]");
-    By companyname = By.xpath("//input[@placeholder='Company Name']");
-    By phone = By.xpath("//input[@placeholder='Phone Number']");
-    By email = By.xpath("//input[@placeholder='Email']");
-    By website = By.xpath("//input[@placeholder='Website']");
+    public static By createcompanybtn = By.xpath("//button[contains(.,'Create New Company')]");
+    public static By companyname = By.xpath("//input[@placeholder='Company Name']");
+    public static By phone = By.xpath("//input[@placeholder='Phone Number']");
+    public static By email = By.xpath("//input[@placeholder='Email']");
+    public static By website = By.xpath("//input[@placeholder='Website']");
     public static By ein = By.xpath("//input[@placeholder='EIN']");
-    By zipcode = By.xpath("//input[@placeholder='Zip Code']");
-    By address = By.xpath("//textarea[contains(@placeholder,'Address')]");
-    By savebtn = By.xpath("//button[contains(.,'Save Company')]");
-    By crossbtn = By.xpath("//*[name()='path' and contains(@d,'M563.8 512')]");
-    By companynameerrmsg = By.xpath("//div[@role='alert'][contains(.,'Company Name is required')]");
-    By phoneerrormsg = By.xpath("//div[@role='alert'][contains(.,'Please provide a valid Phone number')]");
-    By Blankphoneerrormsg = By.xpath("//div[@role='alert'][contains(.,'Phone number is required')]");
-    By invalidemailerrmsg = By.xpath("//div[@role='alert'][contains(.,'Invalid email address')]");
-    By blankemailerrmsg = By.xpath("//div[@role='alert'][contains(.,'Email is required')]");
-    By websiteerrmsg = By.xpath("//div[@role='alert'][contains(.,'Please provide a valid Website')]");
-    By einerrmsg = By.xpath("//div[@role='alert'][contains(.,'EIN is required')]");
-    By zipcodeerrmsg = By.xpath("//div[@role='alert'][contains(.,'Please provide a valid Zip Code')]");
-    By blankzipcodeerrmsg = By.xpath("//div[@role='alert'][contains(.,'Zip code is required')]");
-    By blankaddresseerrmsg = By.xpath("//div[@role='alert'][contains(.,'Address is required')]");
-    By spinner = By.xpath("/html/body/div[2]/div/div[2]/div/div/div[2]/div/div/span");
+    public static By zipcode = By.xpath("//input[@placeholder='Zip Code']");
+    public static By address = By.xpath("//textarea[contains(@placeholder,'Address')]");
+    public static By savebtn = By.xpath("//button[contains(.,'Save Company')]");
+    public static By crossbtn = By.xpath("//*[name()='path' and contains(@d,'M563.8 512')]");
+    public static By companynameerrmsg = By.xpath("//div[@role='alert'][contains(.,'Company Name is required')]");
+    public static By phoneerrormsg = By.xpath("//div[@role='alert'][contains(.,'Please provide a valid Phone number')]");
+    public static By Blankphoneerrormsg = By.xpath("//div[@role='alert'][contains(.,'Phone number is required')]");
+    public static By invalidemailerrmsg = By.xpath("//div[@role='alert'][contains(.,'Invalid email address')]");
+    public static By blankemailerrmsg = By.xpath("//div[@role='alert'][contains(.,'Email is required')]");
+    public static By websiteerrmsg = By.xpath("//div[@role='alert'][contains(.,'Please provide a valid Website')]");
+    public static By einerrmsg = By.xpath("//div[@role='alert'][contains(.,'EIN is required')]");
+    public static By zipcodeerrmsg = By.xpath("//div[@role='alert'][contains(.,'Please provide a valid Zip Code')]");
+    public static By blankzipcodeerrmsg = By.xpath("//div[@role='alert'][contains(.,'Zip code is required')]");
+    public static By blankaddresseerrmsg = By.xpath("//div[@role='alert'][contains(.,'Address is required')]");
+    public static By spinner = By.xpath("/html/body/div[2]/div/div[2]/div/div/div[2]/div/div/span");
 
 
     public boolean ClickonCreateCompanybutton () throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         waitforInVisibility(spinner);
         waitVisibility(createcompanybtn);
         click(createcompanybtn);
-
         return true;
     }
 
@@ -106,6 +105,7 @@ public class CreateCompany extends BasePage {
 
     public boolean WriteCompanyPhoneNumber(String Phone) {
         waitVisibility(phone);
+        waitelemtclickable(phone);
         writeText(phone, Phone);
         return true;
     }

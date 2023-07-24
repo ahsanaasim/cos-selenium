@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 import java.util.Properties;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 
@@ -92,7 +93,7 @@ public class CreateProperty extends BasePage {
     SearchCompany searchCompany= new SearchCompany(driver);
 
     public boolean clickonCreateNewPropertyButton() throws InterruptedException {
-     //   company.waitForSpinner();
+        //   company.waitForSpinner();
         Thread.sleep(3000);
         waitVisibility(createnewpropertyybtn);
         click(createnewpropertyybtn);
@@ -102,7 +103,7 @@ public class CreateProperty extends BasePage {
     public boolean searchPropertyByName(String PropertyName) {
         driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
         company.waitForSpinner();
-     //   waitelemtclickable(searchbar);
+        //   waitelemtclickable(searchbar);
         waitVisibility(searchbar);
         click(searchbar);
         writeText(searchbar,PropertyName);
@@ -180,6 +181,18 @@ public class CreateProperty extends BasePage {
     public boolean writePropertyName(String PropertyName) throws InterruptedException {
         Thread.sleep(1000);
         waitVisibility(propertyname);
+        waitelemtclickable(propertyname);
+        writeText(propertyname, PropertyName);
+        return true;
+    }
+
+    public boolean writeTemporaryPropertyNameInPropertyNameField() throws InterruptedException {
+        Random numGenerator = new Random();
+        Thread.sleep(1000);
+        int randomNumber = numGenerator.nextInt(10000);
+        String PropertyName=prop.getProperty("PropertyName5")+" "+randomNumber;
+        waitVisibility(propertyname);
+        waitelemtclickable(propertyname);
         writeText(propertyname, PropertyName);
         return true;
     }
@@ -191,7 +204,7 @@ public class CreateProperty extends BasePage {
     }
 
     public boolean clickonCompanyName() throws InterruptedException {
-      //  company.waitForSpinner();
+        //  company.waitForSpinner();
         Thread.sleep(3000);
         waitelementtobedisplayed(compnayname);
         waitVisibility(compnayname);
@@ -363,7 +376,7 @@ public class CreateProperty extends BasePage {
     public boolean selectCompanyNameFromSelectCompanyDropdown() throws InterruptedException {
         Thread.sleep(4000);
         waitelementtobedisplayed(cname);
-      //  waitelemtclickable(cname);
+        //  waitelemtclickable(cname);
         click(cname);
         return true;
     }
@@ -848,7 +861,7 @@ public class CreateProperty extends BasePage {
 
     public boolean verifyNewlyCreatedPropertisShowingonPropertyPage() {
         company.waitForSpinner();
-       // waitVisibility(companyname);
+        // waitVisibility(companyname);
         if( driver.findElement(By.xpath("//div[contains(.,'Selenium Property 2')]")).isDisplayed()) ////div[contains(.,'My New Property')])[9]
         {
             System.out.println("Newly Created property is Showing on All properties Page");
@@ -967,9 +980,9 @@ public class CreateProperty extends BasePage {
     }
 
     public boolean verifyErrorMessageisShowingAfterUploadingImageMorethan3Mb(String expectedText) {
-            waitelementtobedisplayed(imageerr);
-            assertEquals(imageerr, expectedText);
-            return true;
+        waitelementtobedisplayed(imageerr);
+        assertEquals(imageerr, expectedText);
+        return true;
 
 
     }

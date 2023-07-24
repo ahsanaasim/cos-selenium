@@ -28,7 +28,7 @@ public class SearchChargers extends BasePage {
     By dropdown1 = By.xpath("(//input[@role='combobox'])[2]");
     By locationyname = By.xpath("//div[@class='ant-select-item-option-content'][contains(.,'Atom power station')]");
     By closebtn = By.xpath("//span[@title='Atom power station']//span[@aria-label='close']");
-    By count = By.xpath("//span[@class='underline cursor']");
+    By count = By.xpath("//div[@class='wordBreak underline cursor inline-block']");
 
 
     public boolean clickonChargersSearchbar() throws InterruptedException {
@@ -55,7 +55,8 @@ public class SearchChargers extends BasePage {
 
     public boolean clickOnChargerCount() throws InterruptedException {
         createCompany.waitForSpinner();
-        // waitVisibility(count);
+        waitVisibility(count);
+        waitelemtclickable(count);
         click(count);
         return true;
     }
@@ -118,7 +119,7 @@ public class SearchChargers extends BasePage {
 
     public boolean verifyAdminHasRedirectedToTheChargersPage () throws InterruptedException {
         createCompany.waitForSpinner();
-        driver.get(prop.getProperty("ChargerpageURL"));
+//        driver.get(prop.getProperty("ChargerpageURL"));
         urlCheck(prop.getProperty("ChargerpageURL"));
         return true;
     }
@@ -281,11 +282,12 @@ public class SearchChargers extends BasePage {
 
     public boolean verifyAllChargersAreShowingAfterClickingonChargerCountFromLocationpage() {
         createCompany.waitForSpinner();
-        WebElement name = driver.findElement(By.xpath("(//div[@class='wordBreak'])[1]"));
-        WebElement charger = driver.findElement(By.xpath("(//div[@class='wordBreak'])[2]"));
-        if( name.isDisplayed() && charger.isDisplayed())
+        waitVisibility(ChargerListPropertyAdmin.ChargerTitle);
+        WebElement charger1 = driver.findElement(By.xpath("(//div[@class='wordBreak'])[1]"));
+        WebElement charger2 = driver.findElement(By.xpath("(//div[@class='wordBreak'])[5]"));
+        if( charger1.isDisplayed() && charger2.isDisplayed())
         {
-            System.out.println("Verification Successful!!!Chargers  Under the Location are :" +name.getText() + '\n' + charger.getText());
+            System.out.println("Verification Successful!!!Chargers  Under the Location are :" +'\n'+ charger1.getText() + '\n' + charger2.getText());
             return true;
         }else{
             System.out.println("Verification UnSuccessful!!!Something Went Wrong!!");

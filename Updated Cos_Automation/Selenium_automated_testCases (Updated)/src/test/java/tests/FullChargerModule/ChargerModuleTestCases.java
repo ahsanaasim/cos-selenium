@@ -1882,18 +1882,18 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
-       /* Assert.assertTrue(dashboard.GotoDashboard());
+//        Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchLocation.enterLocationName(prop.getProperty("LocationTitle3")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
-        Assert.assertTrue(searchChargers.clickOnChargerCount());*/
+        Assert.assertTrue(searchChargers.clickOnChargerCount());
         Assert.assertTrue(searchChargers.verifyAllChargersAreShowingAfterClickingonChargerCountFromLocationpage());
 
 
     }
 
-    //US-136 Edi charger starts
+    //US-136 Edit charger starts
 
     @Test(priority = 101)//Done
     @TestParameters(testCaseId = {"TC-1"})

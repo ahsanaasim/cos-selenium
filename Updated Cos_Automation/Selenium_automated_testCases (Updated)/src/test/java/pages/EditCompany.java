@@ -1,13 +1,10 @@
 package pages;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
 
 public class EditCompany extends BasePage {
 
@@ -29,6 +26,7 @@ public class EditCompany extends BasePage {
     public static By DisabledShowButton = By.xpath("//button[@class='ant-btn ant-btn-default ml-10']");
     public static By HideButtonEin= By.xpath("//span[normalize-space()='Hide']");
     public static By InvalidEinErrorMsg = By.xpath("//div[@role='alert'][contains(text(),'Please provide a valid EIN number')]");
+
     By activestatus = By.xpath("//div[@class='mt-5'][contains(.,'Active')]");
     By deactivatebutton = By.xpath("//span[contains(.,'Deactivate Company')]");
     By auditlogs = By.xpath("//span[@class='drawerInsideTitle'][contains(.,'Audit Log')]");
@@ -45,6 +43,7 @@ public class EditCompany extends BasePage {
 
     public static By SearchCompany = By.xpath("//input[@placeholder='Search by name, email or phone no']");
     public static By AccessCompanyPortal = By.xpath("//span[@class='actionTag cursor']");
+    public static By ErrorMsg = By.xpath("//div[@class='ant-form-item-explain-error']");
 
 
 
@@ -97,7 +96,7 @@ public class EditCompany extends BasePage {
 
     public boolean ClickonSearchButton() {
         //   company.waitForSpinner();
-        waitelemtclickable(searchbtn);
+        waitVisibility(searchbtn);
         //  waitelementtobedisplayed(searchbtn);
         click(searchbtn);
         return true;
@@ -111,10 +110,10 @@ public class EditCompany extends BasePage {
         return true;
     }
 
-    public boolean updateLogoUsingInvalidDimension() throws IOException, InterruptedException {
+    public boolean uploadMoreThan3MBSizeLogo() throws IOException, InterruptedException {
         Thread.sleep(2000);
         String workingDir = System.getProperty("user.dir");
-        Runtime.getRuntime().exec(workingDir + "\\resources\\UploadImage.exe");
+        Runtime.getRuntime().exec(workingDir + "\\resources\\MoreThan3MB.exe");
         return true;
     }
 
@@ -131,7 +130,7 @@ public class EditCompany extends BasePage {
 
     public boolean RemovePhoneNumberFromEditCompanyDrawer () throws InterruptedException {
         waitVisibility(company.phone);
-        WebElement phonenumber= driver.findElement(By.xpath("//input[@placeholder='Phone']"));
+        WebElement phonenumber= driver.findElement(CreateCompany.phone);
        /* driver.manage().timeouts().implicitlyWait(02, TimeUnit.SECONDS);
         clear(company.companyname);*/
         phonenumber.sendKeys(Keys.CONTROL + "a");
@@ -161,6 +160,7 @@ public class EditCompany extends BasePage {
     public boolean RemoveEINFromEditCompanyDrawer () throws InterruptedException {
         waitVisibility(company.ein);
         Thread.sleep(3000);
+        click(EditCompany.ShowButtonEin);
         WebElement web= driver.findElement(By.xpath("(//input[contains(@class,'ant-input')])[5]"));
         // driver.manage().timeouts().implicitlyWait(02, TimeUnit.SECONDS);
         web.sendKeys(Keys.CONTROL + "a");
@@ -436,5 +436,3 @@ public class EditCompany extends BasePage {
 
 
 }
-
-

@@ -1387,7 +1387,7 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(editCompany.ClickonUploadButton());
-        Assert.assertTrue(editCompany.updateLogoUsingInvalidDimension());
+        Assert.assertTrue(editCompany.uploadMoreThan3MBSizeLogo());
 //        Assert.assertTrue(editCompany.VerifyInvalidImageDimesionErrorMessage(msg.Invalidimagedimensionerrormsg()));
 
     }
