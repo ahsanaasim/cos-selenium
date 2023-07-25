@@ -30,7 +30,7 @@ public class CreateCompany extends BasePage {
     public static By savebtn = By.xpath("//button[contains(.,'Save Company')]");
     public static By crossbtn = By.xpath("//*[name()='path' and contains(@d,'M563.8 512')]");
     public static By companynameerrmsg = By.xpath("//div[@role='alert'][contains(.,'Company Name is required')]");
-    public static By phoneerrormsg = By.xpath("//div[@role='alert'][contains(.,'Please provide a valid Phone number')]");
+    public static By phoneerrormsg = By.xpath("//div[@role='alert'][contains(.,'Please provide a valid phone number')]");
     public static By Blankphoneerrormsg = By.xpath("//div[@role='alert'][contains(.,'Phone number is required')]");
     public static By invalidemailerrmsg = By.xpath("//div[@role='alert'][contains(.,'Invalid email address')]");
     public static By blankemailerrmsg = By.xpath("//div[@role='alert'][contains(.,'Email is required')]");
@@ -74,7 +74,7 @@ public class CreateCompany extends BasePage {
     }
 
     public boolean ClickonSaveButton () throws InterruptedException {
-       Thread.sleep(3000);
+        Thread.sleep(3000);
         waitelemtclickable(savebtn);
         click(savebtn);
         return true;
@@ -138,6 +138,8 @@ public class CreateCompany extends BasePage {
     }
 
     public boolean EnterCompanyWebsite(String Website) {
+        waitVisibility(website);
+        waitelemtclickable(website);
         writeText(website, Website);
         return true;
     }
@@ -172,7 +174,7 @@ public class CreateCompany extends BasePage {
     }
 
     public boolean VerifyPhoneNumberErrorMessage(String expectedText) {
-        waitVisibility(companynameerrmsg);
+        waitVisibility(phoneerrormsg);
         waitelementtobedisplayed(phoneerrormsg);
             assertEquals(phoneerrormsg, expectedText);
             return true;
@@ -200,8 +202,8 @@ public class CreateCompany extends BasePage {
     }
 
     public boolean VerifyInvalidWebsiteErrorMessage(String expectedText) {
-        waitelementtobedisplayed(websiteerrmsg);
-         assertEquals(websiteerrmsg, expectedText);
+        waitVisibility(websiteerrmsg);
+        assertEquals(websiteerrmsg, expectedText);
             return true;
 
     }

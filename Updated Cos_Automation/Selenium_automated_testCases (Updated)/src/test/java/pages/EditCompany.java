@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.*;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -20,30 +21,31 @@ public class EditCompany extends BasePage {
     CustomerSignUp customerSignUp = new CustomerSignUp(driver);
     CreateCharger createCharger = new CreateCharger(driver);
 
-    By editcompanybtn = By.xpath("(//span[contains(.,'Edit')])[2]");
+    public static By editcompanybtn = By.xpath("(//span[contains(.,'Edit')])[2]");
     public static By EditCompanyBtn = By.xpath("//span[contains(.,'Edit')]");
     public static By ShowButtonEin= By.xpath("//span[normalize-space()='Show']");
     public static By DisabledShowButton = By.xpath("//button[@class='ant-btn ant-btn-default ml-10']");
     public static By HideButtonEin= By.xpath("//span[normalize-space()='Hide']");
     public static By InvalidEinErrorMsg = By.xpath("//div[@role='alert'][contains(text(),'Please provide a valid EIN number')]");
-
-    By activestatus = By.xpath("//div[@class='mt-5'][contains(.,'Active')]");
-    By deactivatebutton = By.xpath("//span[contains(.,'Deactivate Company')]");
-    By auditlogs = By.xpath("//span[@class='drawerInsideTitle'][contains(.,'Audit Log')]");
-    By loadmorebtn = By.xpath("//li[contains(@class,'ant-timeline-item ant-timeline-item-last ant-timeline-item-left')]");
-    By invalidemailerrmsg = By.xpath("//div[@role='alert'][contains(.,'Invalid email address')]");
-    By uploadbtn = By.xpath("//span[@class='ant-upload']");
-    By invalidimesionerrmsg = By.xpath("//div[@role='alert'][contains(.,'Image resolution should be 300x40 px')]");
+    public static By activestatus = By.xpath("//div[@class='mt-5'][contains(.,'Active')]");
+    public static By deactivatebutton = By.xpath("//span[contains(.,'Deactivate Company')]");
+    public static By auditlogs = By.xpath("//span[@class='drawerInsideTitle'][contains(.,'Audit Log')]");
+    public static By loadmorebtn = By.xpath("//li[contains(@class,'ant-timeline-item ant-timeline-item-last ant-timeline-item-left')]");
+    public static By invalidemailerrmsg = By.xpath("//div[@role='alert'][contains(.,'Invalid email address')]");
+    public static By uploadbtn = By.xpath("//span[@class='ant-upload']");
+    public static By invalidimesionerrmsg = By.xpath("//div[@role='alert'][contains(.,'Image resolution should be 300x40 px')]");
     public static By searchbar = By.xpath("//input[@placeholder='Search by name, email or phone no']");
     public static By searchbtn = By.xpath("//button[contains(.,'Search')]");
-    By companyname = By.xpath("(//div[@class='wordBreak'][contains(.,'Walmart')])[1]");
-    By cancelbtn = By.xpath("//button[@type='button'][contains(.,'Cancel')]");
-    By discardbtn = By.xpath("//button[contains(.,'Discard')]");
+    public static By companyname = By.xpath("(//div[@class='wordBreak'][contains(.,'Walmart')])[1]");
+    public static By cancelbtn = By.xpath("//button[@type='button'][contains(.,'Cancel')]");
+    public static By discardbtn = By.xpath("//button[contains(.,'Discard')]");
     public static By EinUpdatedStatus = By.xpath("//span[@id='einAuditLog']");
 
     public static By SearchCompany = By.xpath("//input[@placeholder='Search by name, email or phone no']");
     public static By AccessCompanyPortal = By.xpath("//span[@class='actionTag cursor']");
     public static By ErrorMsg = By.xpath("//div[@class='ant-form-item-explain-error']");
+    public static By SaveCompanyButton = By.xpath("//button[@class='ant-btn ant-btn-primary ml-15 h-40 drawerFBtn']");
+    public static By ShowButtonBesideEINField = By.xpath("//button[@class='ant-btn ant-btn-default ml-10']");
 
 
 
@@ -68,6 +70,7 @@ public class EditCompany extends BasePage {
     public boolean ClickonEditbutton () throws InterruptedException {
         company.waitForSpinner();
         waitVisibility(editcompanybtn);
+        waitelemtclickable(editcompanybtn);
         // waitelementtobedisplayed(editcompanybtn);
         //  wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("(//span[contains(.,'Edit')])[2]")));
         click(editcompanybtn);
@@ -124,6 +127,7 @@ public class EditCompany extends BasePage {
        /* driver.manage().timeouts().implicitlyWait(02, TimeUnit.SECONDS);
         clear(company.companyname);*/
         companyname.sendKeys(Keys.CONTROL + "a");
+        Thread.sleep(2500);
         companyname.sendKeys(Keys.DELETE);
         return true;
     }
@@ -133,6 +137,7 @@ public class EditCompany extends BasePage {
         WebElement phonenumber= driver.findElement(CreateCompany.phone);
        /* driver.manage().timeouts().implicitlyWait(02, TimeUnit.SECONDS);
         clear(company.companyname);*/
+        Thread.sleep(1500);
         phonenumber.sendKeys(Keys.CONTROL + "a");
         phonenumber.sendKeys(Keys.DELETE);
         return true;
@@ -141,10 +146,9 @@ public class EditCompany extends BasePage {
     public boolean RemoveEmailFromEditCompanyDrawer () throws InterruptedException {
         waitVisibility(company.email);
         WebElement email= driver.findElement(By.xpath("//input[@placeholder='Email']"));
+        Thread.sleep(3000);
         email.sendKeys(Keys.CONTROL + "a");
-        driver.manage().timeouts().implicitlyWait(02, TimeUnit.SECONDS);
         email.sendKeys(Keys.DELETE);
-        Thread.sleep(2000);
         return true;
     }
 
@@ -153,6 +157,7 @@ public class EditCompany extends BasePage {
         WebElement web= driver.findElement(By.xpath("//input[@placeholder='Website']"));
         //driver.manage().timeouts().implicitlyWait(02, TimeUnit.SECONDS);
         web.sendKeys(Keys.CONTROL + "a");
+        Thread.sleep(2500);
         web.sendKeys(Keys.DELETE);
         return true;
     }
@@ -161,11 +166,11 @@ public class EditCompany extends BasePage {
         waitVisibility(company.ein);
         Thread.sleep(3000);
         click(EditCompany.ShowButtonEin);
+        Thread.sleep(2000);
         WebElement web= driver.findElement(By.xpath("(//input[contains(@class,'ant-input')])[5]"));
         // driver.manage().timeouts().implicitlyWait(02, TimeUnit.SECONDS);
         web.sendKeys(Keys.CONTROL + "a");
         web.sendKeys(Keys.DELETE);
-        //Thread.sleep(2000);
         return true;
     }
 
@@ -194,7 +199,7 @@ public class EditCompany extends BasePage {
 
     public boolean VerifyEditButtonHasDisplayed() {
         company.waitForSpinner();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         if( driver.findElement(By.xpath("(//button[contains(.,'Edit')])[2]")).isDisplayed())
         {
             System.out.println("Edit button has displayed");
@@ -358,12 +363,12 @@ public class EditCompany extends BasePage {
         }
 
     }
-    public boolean verifyErrorMsgForInvalidInput() throws InterruptedException {
+    public boolean verifyErrorMsgForInvalidEINInput() throws InterruptedException {
         Thread.sleep(2000);
         String EinErrMsg = driver.findElement(InvalidEinErrorMsg).getText();
         String Expected = "Please provide a valid EIN number";
         if (EinErrMsg.equals(Expected)){
-            System.out.println("Error Message is showing perfecty");
+            System.out.println("Error Message is showing perfectly");
             return true;
         }
         else {

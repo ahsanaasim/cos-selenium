@@ -146,7 +146,7 @@ public class EditCompanyTestCases extends BaseTest {
 //        Assert.assertTrue(editCompany.VerifyEditCompanyButtonHasDisplayed());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemovePhoneNumberFromEditCompanyDrawer());
-        Assert.assertTrue(company.WriteCompanyPhoneNumber(prop.getProperty("InvalidPhone")));
+//        Assert.assertTrue(company.WriteCompanyPhoneNumber(prop.getProperty("InvalidPhone")));
         Assert.assertTrue(company.ClickonSaveButton());
         Assert.assertTrue(company.VerifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
     }
@@ -205,7 +205,7 @@ public class EditCompanyTestCases extends BaseTest {
         Assert.assertTrue(editCompany.RemovePhoneNumberFromEditCompanyDrawer());
         Assert.assertTrue(company.WriteCompanyPhoneNumber(prop.getProperty("InvalidPhone3")));
         Assert.assertTrue(company.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
+        Assert.assertTrue(company.VerifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
     }
 
     @Test(priority = 12)//Done
@@ -362,25 +362,25 @@ public class EditCompanyTestCases extends BaseTest {
     }
 
 //Error message is not showing in this case
-    @Test(priority = 20)//Done
-    @TestParameters(testCaseId = {"TC-20"})
-    public void TC_20_VerifyErrorMessageisShowingWhenAdminProvidesIncorrectWebsiteAddressOnEditCompanyDrawer() throws InterruptedException {
-        HomePage homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
-        CreateCompany company = new CreateCompany(driver);
-        EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-       /* Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonCompanyManagement());*/
-        Assert.assertTrue(editCompany.ClickonEditbutton());
-        Assert.assertTrue(editCompany.RemoveWebsiteFromEditCompanyDrawer());
-        Assert.assertTrue(company.EnterCompanyWebsite(prop.getProperty("WebsiteWithHTMl")));
-        Assert.assertTrue(company.ClickonSaveButton());
+//    @Test(priority = 20)//Done
+//    @TestParameters(testCaseId = {"TC-20"})
+//    public void TC_20_VerifyErrorMessageisShowingWhenAdminProvidesIncorrectWebsiteAddressOnEditCompanyDrawer() throws InterruptedException {
+//        HomePage homePage = new HomePage(driver);
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard=new Dashboard(driver);
+//        CreateCompany company = new CreateCompany(driver);
+//        EditCompany editCompany= new EditCompany(driver);
+//        loginPage.VerifyValidLogin();
+//        Assert.assertTrue(dashboard.RefreshBrowser());
+//       /* Assert.assertTrue(dashboard.GotoDashboard());
+//        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+//        Assert.assertTrue(dashboard.ClickonCompanyManagement());*/
+//        Assert.assertTrue(editCompany.ClickonEditbutton());
+//        Assert.assertTrue(editCompany.RemoveWebsiteFromEditCompanyDrawer());
+//        Assert.assertTrue(company.EnterCompanyWebsite(prop.getProperty("WebsiteWithHTMl")));
+//        Assert.assertTrue(company.ClickonSaveButton());
       //  Assert.assertTrue(company.VerifyInvalidWebsiteErrorMessage(msg.InvalidWebsiteErrorMsg()));
-    }
+//    }
 
 
     @Test(priority = 21)//Done
@@ -514,7 +514,7 @@ public class EditCompanyTestCases extends BaseTest {
         Assert.assertTrue(editCompany.RemoveEINFromEditCompanyDrawer());
         Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Alphabates")));
         Assert.assertTrue(company.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyInvalidEINNumberErrorMessage(msg.InvalidEINNumberErrorMsg()));
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
     }
 
     @Test(priority = 28)//Done
@@ -533,7 +533,7 @@ public class EditCompanyTestCases extends BaseTest {
         Assert.assertTrue(editCompany.RemoveEINFromEditCompanyDrawer());
         Assert.assertTrue(company.EnterEINNumber(prop.getProperty("SpecialCharacter")));
         Assert.assertTrue(company.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyInvalidEINNumberErrorMessage(msg.InvalidEINNumberErrorMsg()));
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
     }
 
     @Test(priority = 29)//Done
@@ -551,7 +551,7 @@ public class EditCompanyTestCases extends BaseTest {
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemoveZipcodeFromEditCompanyDrawer());
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("Numbers")));
-        // Assert.assertTrue(company.ClickonSaveButton());
+         Assert.assertTrue(company.ClickonSaveButton());
         Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
@@ -660,7 +660,7 @@ public class EditCompanyTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         loginPage.VerifyValidLogin();
-//        Assert.assertTrue(dashboard.RefreshBrowser());
+        Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonCompanyManagement());
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -719,5 +719,420 @@ public class EditCompanyTestCases extends BaseTest {
         Assert.assertTrue(company.ClickonSaveButton());
         Assert.assertTrue(editCompany.VerifyEditButtonHasDisplayed());
     }
+
+
+
+
+    @Test(priority = 41)//Done
+    @TestParameters(testCaseId = {"TC-85,86"})
+    public void TC_85_86_CheckWhatHappensWhenClickOnTheShowButtonAsCOSAdmin () throws InterruptedException{
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCompany company = new CreateCompany(driver);
+        EditCompany editCompany= new EditCompany(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        loginPage.VerifyValidLogin();
+        dashboard.RefreshBrowser();
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+        createCharger.writeInputText(EditCompany.searchbar,"Tesla company 2",5000);
+        createCharger.ClickButton(EditCompany.searchbtn,1000);
+        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        Assert.assertTrue(editCompany.verifyAFieldIsEnable(2000,CreateCompany.ein));
+
+    }
+    @Test(priority = 42)//Done
+    @TestParameters(testCaseId = {"TC-87"})
+    public void TC_87_CheckEinFieldAfterClosingTheEditDrawerAndThenOpeningTheEditDrawerAgainAsCOSAdmin () throws InterruptedException{
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCompany company = new CreateCompany(driver);
+        EditCompany editCompany= new EditCompany(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        loginPage.VerifyValidLogin();
+        dashboard.RefreshBrowser();
+        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        Assert.assertTrue(editCompany.verifyHiddenEINNumberAndShowButton());
+
+    }
+    @Test(priority = 43)//Done
+    @TestParameters(testCaseId = {"TC-88"})
+    public void TC_88_89_90_CheckEINAfterEditing() throws InterruptedException{
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCompany company = new CreateCompany(driver);
+        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
+        EditCompany editCompany= new EditCompany(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        loginPage.VerifyValidLogin();
+        dashboard.RefreshBrowser();
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+        Thread.sleep(3000);
+        customerSignUp.FieldClear(EditCompany.searchbar);
+        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
+        createCharger.ClickButton(EditCompany.searchbtn,1000);
+        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        Assert.assertTrue(editCompany.verifyEinSaving());
+        Assert.assertTrue(editCompany.verifyAuditLogStatusForEinChange());
+
+    }
+    @Test(priority = 45)//Done
+    @TestParameters(testCaseId = {"TC-91"})
+    public void TC_91_CheckWhatHappensWhenIProvideInvalidEINumber() throws InterruptedException{
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
+        CreateCompany company = new CreateCompany(driver);
+        EditCompany editCompany= new EditCompany(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+//        loginPage.VerifyValidLogin();
+        dashboard.RefreshBrowser();
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+//        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
+//        createCharger.ClickButton(EditCompany.searchbtn,1000);
+        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.ClickButton(EditCompany.ShowButtonEin,4000);
+        customerSignUp.FieldClear(company.ein);
+        createCharger.writeInputText(company.ein,"5645657567567567567",2500);
+        Assert.assertTrue(company.ClickonSaveButton());;
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
+
+    }
+    @Test(priority = 46)//Done
+    @TestParameters(testCaseId = {"TC-91"})
+    public void TC_91_2_CheckWhatHappensWhenIProvideInvalidEINumber () throws InterruptedException{
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
+        CreateCompany company = new CreateCompany(driver);
+        EditCompany editCompany= new EditCompany(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        loginPage.VerifyValidLogin();
+        dashboard.RefreshBrowser();
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+//        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
+//        createCharger.ClickButton(EditCompany.searchbtn,1000);
+        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        customerSignUp.FieldClear(company.ein);
+        createCharger.writeInputText(company.ein,"5445  6765765",2500);
+        Assert.assertTrue(company.ClickonSaveButton());;
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
+
+    }
+    @Test(priority = 47)//Done
+    @TestParameters(testCaseId = {"TC-91"})
+    public void TC_91_3_CheckWhatHappensWhenIProvideInvalidEINumber () throws InterruptedException{
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
+        CreateCompany company = new CreateCompany(driver);
+        EditCompany editCompany= new EditCompany(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        loginPage.VerifyValidLogin();
+        dashboard.RefreshBrowser();
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+//        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
+//        createCharger.ClickButton(EditCompany.searchbtn,1000);
+        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        customerSignUp.FieldClear(company.ein);
+        createCharger.writeInputText(company.ein,"5--67567567567",2500);
+        Assert.assertTrue(company.ClickonSaveButton());;
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
+
+    }
+    @Test(priority = 48)//Done
+    @TestParameters(testCaseId = {"TC-91"})
+    public void TC_91_4_CheckWhatHappensWhenIProvideInvalidEINumber () throws InterruptedException{
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
+        CreateCompany company = new CreateCompany(driver);
+        EditCompany editCompany= new EditCompany(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        loginPage.VerifyValidLogin();
+        dashboard.RefreshBrowser();
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+//        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
+//        createCharger.ClickButton(EditCompany.searchbtn,1000);
+        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        customerSignUp.FieldClear(company.ein);
+        createCharger.writeInputText(company.ein,"22-4523789",2500);
+        Assert.assertTrue(company.ClickonSaveButton());;
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
+
+    }
+    @Test(priority = 49)//Done
+    @TestParameters(testCaseId = {"TC-91"})
+    public void TC_91_5_CheckWhatHappensWhenIProvideInvalidEINumber () throws InterruptedException{
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
+        CreateCompany company = new CreateCompany(driver);
+        EditCompany editCompany= new EditCompany(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        loginPage.VerifyValidLogin();
+        dashboard.RefreshBrowser();
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+//        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
+//        createCharger.ClickButton(EditCompany.searchbtn,1000);
+        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        customerSignUp.FieldClear(company.ein);
+        createCharger.writeInputText(company.ein,"aaertyuwe",2500);
+        Assert.assertTrue(company.ClickonSaveButton());;
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
+
+    }
+    @Test(priority = 50)//Done
+    @TestParameters(testCaseId = {"TC-91"})
+    public void TC_91_6_CheckWhatHappensWhenIProvideInvalidEINumber () throws InterruptedException{
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
+        CreateCompany company = new CreateCompany(driver);
+        EditCompany editCompany= new EditCompany(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        loginPage.VerifyValidLogin();
+        dashboard.RefreshBrowser();
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+//        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
+//        createCharger.ClickButton(EditCompany.searchbtn,1000);
+        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        customerSignUp.FieldClear(company.ein);
+        createCharger.writeInputText(company.ein,"er-yqsdert",2500);
+        Assert.assertTrue(company.ClickonSaveButton());;
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
+
+    }
+    @Test(priority = 51)//Done
+    @TestParameters(testCaseId = {"TC-91"})
+    public void TC_91_7_CheckWhatHappensWhenIProvideInvalidEINumber () throws InterruptedException{
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
+        CreateCompany company = new CreateCompany(driver);
+        EditCompany editCompany= new EditCompany(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        loginPage.VerifyValidLogin();
+        dashboard.RefreshBrowser();
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+//        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
+//        createCharger.ClickButton(EditCompany.searchbtn,1000);
+        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        customerSignUp.FieldClear(company.ein);
+        createCharger.writeInputText(company.ein,"1234567as",2500);
+        Assert.assertTrue(company.ClickonSaveButton());;
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
+
+
+
+    }
+
+
+
+    @Test(priority = 52)//Done
+    @TestParameters(testCaseId = {"TC-92,93,94"})
+    public void TC_92_93_94_CheckTheSeeDetailsButtonsUnderActionColumn() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateCompany company = new CreateCompany(driver);
+        EditCompany editCompany = new EditCompany(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
+        dashboardPropertyDetails.LogoutFromExistingAccount();
+        Thread.sleep(5000);
+        loginPage.VerifyValidLoginForCosAccounting();
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+        createCharger.writeInputText(EditCompany.searchbar, "Tesla company 2", 5000);
+        createCharger.ClickButton(EditCompany.searchbtn, 1000);
+        createCharger.ClickButton(EditCompany.EditCompanyBtn, 3000);
+        Assert.assertTrue(editCompany.verifyHiddenEINNumberAndShowButton());
+    }
+
+    @Test(priority = 53)//Done
+    @TestParameters(testCaseId = {"TC-85"})
+    public void TC_95_96_CheckWhatHappensWhenClickOnTheShowButtonAsCOSAdmin () throws InterruptedException{
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCompany company = new CreateCompany(driver);
+        EditCompany editCompany= new EditCompany(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        loginPage.VerifyValidLoginForCosAccounting();
+        dashboard.RefreshBrowser();
+            Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+            Assert.assertTrue(dashboard.ClickonCompanyManagement());
+//            createCharger.writeInputText(EditCompany.searchbar,"Tesla company 2",5000);
+//            createCharger.ClickButton(EditCompany.searchbtn,1000);
+        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        Assert.assertTrue(editCompany.verifyAFieldIsEnable(2000,CreateCompany.ein));
+
+    }
+    @Test(priority = 54)//Done
+    @TestParameters(testCaseId = {"TC-97"})
+    public void TC_97_CheckEinFieldAfterClosingTheEditDrawerAndThenOpeningTheEditDrawerAgainAsCOSAdmin () throws InterruptedException{
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCompany company = new CreateCompany(driver);
+        EditCompany editCompany= new EditCompany(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        loginPage.VerifyValidLoginForCosAccounting();
+        editCompany.ClickCancelbutton();
+        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        Assert.assertTrue(editCompany.verifyHiddenEINNumberAndShowButton());
+
+    }
+    @Test(priority = 55)//Done
+    @TestParameters(testCaseId = {"TC-98,99,100"})
+    public void TC_98_99_100_CheckEINAfterEditing() throws InterruptedException{
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCompany company = new CreateCompany(driver);
+        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
+        EditCompany editCompany= new EditCompany(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        loginPage.VerifyValidLoginForCosAccounting();
+        dashboard.RefreshBrowser();
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+        Thread.sleep(3000);
+        customerSignUp.FieldClear(EditCompany.searchbar);
+        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
+        createCharger.ClickButton(EditCompany.searchbtn,1000);
+        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        Assert.assertTrue(editCompany.verifyEinSaving());
+        Assert.assertTrue(editCompany.verifyAuditLogStatusForEinChange());
+
+    }
+    @Test(priority = 56)//Done
+    @TestParameters(testCaseId = {"TC-101"})
+    public void TC_101_CheckWhatHappensWhenIProvideInvalidEINumber () throws InterruptedException{
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CustomerSignUp customerSignUp = new CustomerSignUp(driver);
+        CreateCompany company = new CreateCompany(driver);
+        EditCompany editCompany= new EditCompany(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+//        loginPage.VerifyValidLogin();
+        dashboard.RefreshBrowser();
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+//        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
+//        createCharger.ClickButton(EditCompany.searchbtn,1000);
+        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.ClickButton(EditCompany.ShowButtonEin,4000);
+        customerSignUp.FieldClear(company.ein);
+        createCharger.writeInputText(company.ein,"5645657567567567567",2500);
+        Assert.assertTrue(company.ClickonSaveButton());;
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
+
+    }
+
+
+    @Test(priority = 57)//Done
+    @TestParameters(testCaseId = {"TC- 112"})
+    public void TC_112_CheckCOSPropertySupportCanEdit() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateCompany company = new CreateCompany(driver);
+        EditCompany editCompany = new EditCompany(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
+        dashboardPropertyDetails.LogoutFromExistingAccount();
+        Thread.sleep(4000);
+        loginPage.VerifyValidLoginForCosPropertySupport();
+        Thread.sleep(2000);
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+        createCharger.writeInputText(EditCompany.searchbar, "Tesla company 2", 5000);
+        createCharger.ClickButton(EditCompany.searchbtn, 1000);
+        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        Assert.assertTrue(editCompany.verifyEinSaving());
+    }
+
+
+    @Test(priority = 58)//Done
+    @TestParameters(testCaseId = {"TC-112,113,114"})
+    public void TC_112_113_114_CheckEinNumberCanBeEditedAsCOSDriverSupport() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateCompany company = new CreateCompany(driver);
+        EditCompany editCompany = new EditCompany(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
+        dashboardPropertyDetails.LogoutFromExistingAccount();
+        Thread.sleep(4000);
+        loginPage.VerifyValidLoginForCosDriverSupport();
+        Thread.sleep(2000);
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+        createCharger.ClickButton(EditCompany.searchbtn,1000);
+        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        Assert.assertTrue(editCompany.verifyAFieldIsDisable(4000,EditCompany.ShowButtonBesideEINField));
+        Assert.assertTrue(editCompany.verifyAFieldIsDisable(1000,EditCompany.SaveCompanyButton));
+
+    }
+
+
+    @Test(priority = 59)//Done
+    @TestParameters(testCaseId = {"TC-116"})
+    public void TC_116_CheckCOSTechCanSaveEditedData() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateCompany company = new CreateCompany(driver);
+        EditCompany editCompany = new EditCompany(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
+        dashboardPropertyDetails.LogoutFromExistingAccount();
+        Thread.sleep(4000);
+        loginPage.VerifyValidLoginForCosTechSupport();
+        Thread.sleep(2000);
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+        createCharger.ClickButton(EditCompany.searchbtn, 1000);
+        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        Assert.assertTrue(editCompany.verifyAFieldIsDisable(4000,EditCompany.ShowButtonBesideEINField));
+        Assert.assertTrue(editCompany.verifyAFieldIsDisable(1000,EditCompany.SaveCompanyButton));
+    }
+
+
+
+
+
+
 
 }

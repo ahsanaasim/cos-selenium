@@ -45,7 +45,7 @@ public class Messages {
     }
 
     public String InvalidPhoneErrorMsg(){
-        return "Please provide a valid Phone number";
+        return "Please provide a valid phone number";
     }
 
     public String InvalidemailErrorMsg(){
@@ -59,9 +59,11 @@ public class Messages {
     public String InvalidWebsiteErrorMsg(){
         return "Please provide a valid Website";}
 
-        public String InvalidEINNumberErrorMsg(){
-            return "EIN is required";
+    public String InvalidEINNumberErrorMsg(){
+        return "EIN is required";
     }
+
+
 
     public String InvalidZipCodeErrorMsg(){
         return "Please provide a valid Zip Code";

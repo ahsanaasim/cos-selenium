@@ -112,7 +112,7 @@ public class CreateCharger extends BasePage {
         Thread.sleep(delay);
         waitforPresence(element);
         waitelemtclickable(element);
-        waitelementtobedisplayed(element);
+        waitelementtobeEnabled(element);
         click(element);
         return true;
     }

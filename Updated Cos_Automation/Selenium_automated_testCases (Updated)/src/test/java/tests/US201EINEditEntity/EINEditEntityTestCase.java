@@ -113,7 +113,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5645657567567567567",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
     @Test(priority = 6)//Done
@@ -138,7 +138,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5445  6765765",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
     @Test(priority = 7)//Done
@@ -163,7 +163,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5--67567567567",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
     @Test(priority = 8)//Done
@@ -188,7 +188,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"22-4523789",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
     @Test(priority = 9)//Done
@@ -213,7 +213,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"aaertyuwe",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
     @Test(priority = 10)//Done
@@ -238,7 +238,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"er-yqsdert",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
     @Test(priority = 11)//Done
@@ -264,7 +264,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"1234567as",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
         dashboardPropertyDetails.LogoutFromExistingAccount();
 
 
@@ -373,7 +373,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5645657567567567567",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
     @Test(priority = 17)//Done
@@ -398,7 +398,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5445  6765765",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
     @Test(priority = 18)//Done
@@ -423,7 +423,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5--67567567567",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
     @Test(priority = 19)//Done
@@ -448,7 +448,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"22-4523789",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
     @Test(priority = 20)//Done
@@ -473,7 +473,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"aaertyuwe",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
     @Test(priority = 21)//Done
@@ -498,7 +498,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"er-yqsdert",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
     @Test(priority = 22)//Done
@@ -524,7 +524,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"1234567as",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
         dashboardPropertyDetails.LogoutFromExistingAccount();
 
 
@@ -632,7 +632,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5645657567567567567",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
     @Test(priority = 28)//Done
@@ -657,7 +657,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5445  6765765",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
     @Test(priority = 29)//Done
@@ -682,7 +682,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5--67567567567",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
     @Test(priority = 30)//Done
@@ -707,7 +707,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"22-4523789",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
     @Test(priority = 31)//Done
@@ -732,7 +732,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"aaertyuwe",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
     @Test(priority = 32)//Done
@@ -757,7 +757,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"er-yqsdert",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
     @Test(priority = 33)//Done
@@ -783,7 +783,7 @@ public class EINEditEntityTestCase extends BaseTest {
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"1234567as",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
-        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidInput());
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
         dashboardPropertyDetails.LogoutFromExistingAccount();
 
 
