@@ -720,6 +720,48 @@ public class EditCompanyTestCases extends BaseTest {
         Assert.assertTrue(editCompany.VerifyEditButtonHasDisplayed());
     }
 
+    @Test(priority = 38)//Done
+    @TestParameters(testCaseId = {"TC-38"})
+    public void TC_38_CheckEinIsRemovedAfterClearingEinField() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        EditCompany editCompany= new EditCompany(driver);
+        CreateCompany company = new CreateCompany(driver);
+        CreateCharger operations = new CreateCharger(driver);
+        loginPage.VerifyValidLogin();
+        Assert.assertTrue(dashboard.RefreshBrowser());
+       /* Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());*/
+        Assert.assertTrue(editCompany.ClickonEditbutton());
+        Assert.assertTrue(operations.ClickButton(EditCompany.ShowButtonBesideEINField,2000));
+        Assert.assertTrue(editCompany.FieldClear(CreateCompany.ein));
+        Assert.assertTrue(company.ClickonSaveButton());
+        Assert.assertTrue(editCompany.ClickonEditbutton());
+        Assert.assertTrue(operations.ClickButton(EditCompany.ShowButtonBesideEINField,2000));
+        Assert.assertTrue(editCompany.verifyFieldIsEmpty(2000,CreateCompany.ein));
+    }
+
+    @Test(priority = 39)//Done
+    @TestParameters(testCaseId = {"TC-39"})
+    public void TC_39_CheckEinIsRemovedAfterClearingEinField() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        EditCompany editCompany= new EditCompany(driver);
+        CreateCompany company = new CreateCompany(driver);
+        CreateCharger operations = new CreateCharger(driver);
+        loginPage.VerifyValidLogin();
+        Assert.assertTrue(dashboard.RefreshBrowser());
+       /* Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());*/
+        Assert.assertTrue(editCompany.ClickonEditbutton());
+        Assert.assertTrue(editCompany.FieldClear(CreateCompany.website));
+        Assert.assertTrue(company.ClickonSaveButton());
+        Assert.assertTrue(editCompany.ClickonEditbutton());
+        Assert.assertTrue(editCompany.verifyFieldIsEmpty(2000,CreateCompany.website));
+    }
+
+
+
 
 
 

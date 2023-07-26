@@ -778,12 +778,13 @@ public class ChargerModuleTestCases extends BaseTest {
 
     @Test(priority = 50)//Done
     @TestParameters(testCaseId = {"TC-1"})
-    public void TC_1_CheckTheHeaderOfColumnAlternative() throws InterruptedException {
+    public void TC_1_CheckTheHeaderOfColumn() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         loginPage.VerifyValidLogin();
+        dashboard.RefreshBrowser();
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(chargerListPropertyAdmin.verifyHeaderColumnAlternative());
@@ -810,10 +811,12 @@ public class ChargerModuleTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
         CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
+        FeeStructureList feelist = new FeeStructureList(driver);
         loginPage.VerifyValidLogin();
         dashboard.RefreshBrowser();
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickOnChargers());
+        feelist.ContiniousClickOnLoadMoreButton();
         Assert.assertTrue(cosAdminChargerList.verifyExpectedTitleColumnOccupiedWithContent("Charger Title",0));
         Assert.assertTrue(cosAdminChargerList.verifyExpectedTitleColumnOccupiedWithContent("Property Name",1));
         Assert.assertTrue(cosAdminChargerList.verifyExpectedTitleColumnOccupiedWithContent("Property Address",2));
@@ -2106,8 +2109,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
-        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(EditChargerCosAdminUpdated.DeactivateChargerButton,2000));
-        Assert.assertTrue(editChargerCosAdminUpdated.verifyPopUpMsgWithTwoButtonsOfDeactivateCharger());
+        Assert.assertTrue(chargerListPropertyAdmin.verifyAFieldIsDisable(3000,EditChargerCosAdminUpdated.DeactivateChargerButton));
     }
     @Test(priority = 114)//Done
     @TestParameters(testCaseId = {"TC-62"})
@@ -2536,6 +2538,7 @@ public class ChargerModuleTestCases extends BaseTest {
         GuestFlow guestFlow = new GuestFlow(driver);
         SimulationPage simulationPage = new SimulationPage(driver);
         Random numGenerator = new Random();
+        guestFlow.SwitchToTab(0);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());

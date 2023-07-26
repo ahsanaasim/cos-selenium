@@ -28,7 +28,7 @@ public class SearchCompanyTestCase extends BaseTest {
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonCompanyManagement());
         Assert.assertTrue(editCompany.ClickonSearchButton());
-        Assert.assertTrue(searchcompany.VerifPagehasRefreshafterprrssingsearchbutton());
+        Assert.assertTrue(searchcompany.verifyAnElementDisplayedOrNot(200,SearchCompany.Spiner));
     }
 
 //    @Test(priority = 2)//Done

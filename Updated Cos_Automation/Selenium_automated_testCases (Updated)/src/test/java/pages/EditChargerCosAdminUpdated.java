@@ -37,7 +37,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
     public static By CreateLocationDrawerTitle = By.xpath("//span[@class='drawerTitle'][contains(text(),'Create New Location')]");
     public static By PopUpMsgDeactivateCharger = By.xpath("//div[@class='mt-5'][contains(text(),'Are you sure you want to deactivate this charger? This will impact on multiple areas.')]");
     public static By CancelButtonDeactivateCharger = By.xpath("//button[@class='ant-btn ant-btn-default']//span[contains(text(),'Cancel')]");
-    public static By DeactivateChargerButton = By.xpath("//span[text()=' Deactivate Charger']");
+    public static By DeactivateChargerButton = By.xpath("//button[@class='ant-btn ant-btn-default ant-btn-dangerous']");
     public static By RequestDeactivationButton = By.xpath("//button[@class='ant-btn ant-btn-primary ant-btn-dangerous']//span[contains(text(),'Request for Deactivation')]");
     public static By ViewLocation = By.xpath("//span[@class='underline cursor'][contains(text(),'View location')]");
     public static By ProfileTop = By.xpath("//div[@class='primary-color mr-10 capitalizeIt']");
@@ -544,15 +544,11 @@ public class EditChargerCosAdminUpdated extends BasePage {
 // Open a new tab
         String myText = (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor); // extracting the text that was copied to the clipboard
         ((JavascriptExecutor) driver).executeScript("window.open(\""+myText+"\")");// launching a new tab window.location = \'"+url+"\'
-        ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
-// Switch to the new tab
-        driver.switchTo().window(newTab.get(1));
+        SwitchToTab(1);
         Thread.sleep(2000);
         waitforPresence(GuestVerificationPage.MaxChargingRate);
         String UpdatedChargingRateInScanningPage = driver.findElement(GuestVerificationPage.MaxChargingRate).getText();
         System.out.println("Charging rate in scanning page: "+UpdatedChargingRateInScanningPage);
-        driver.close();
-        driver.switchTo().window(newTab.get(0));
         if (UpdatedChargingRateInDrawer.equals(UpdatedChargingRateInScanningPage)){
             System.out.println("Updated charging rate is showing accurately");
             return true;

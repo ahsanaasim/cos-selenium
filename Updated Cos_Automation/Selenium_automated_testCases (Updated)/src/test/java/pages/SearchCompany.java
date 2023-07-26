@@ -39,6 +39,7 @@ public class SearchCompany extends BasePage{
     public static By brandifocheckbox = By.xpath("//span[contains(.,'Show companies with logo')]");
     public static By removebtn = By.xpath("//span[@class='anticon anticon-close ant-tag-close-icon']");
     public static By ClearAll = By.xpath("//span[@class='ant-tag cursor tagCss clearAllTag']");
+    public static By Spiner = By.xpath("//span[@class='ant-spin-dot ant-spin-dot-spin']");
 
 
 

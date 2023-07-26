@@ -97,10 +97,10 @@ public class EditCompany extends BasePage {
         return true;
     }
 
-    public boolean ClickonSearchButton() {
-        //   company.waitForSpinner();
+    public boolean ClickonSearchButton() throws InterruptedException {
+        company.waitForSpinner();
         waitVisibility(searchbtn);
-        //  waitelementtobedisplayed(searchbtn);
+        waitelemtclickable(searchbtn);
         click(searchbtn);
         return true;
     }
@@ -123,11 +123,12 @@ public class EditCompany extends BasePage {
 
     public boolean ClearCompanyNameFromEditCompanyDrawer () throws InterruptedException {
         waitVisibility(company.companyname);
-        WebElement companyname= driver.findElement(By.xpath("//input[@placeholder='Company Name']"));
+        Thread.sleep(2000);
+        WebElement companyname= driver.findElement(company.companyname);
        /* driver.manage().timeouts().implicitlyWait(02, TimeUnit.SECONDS);
         clear(company.companyname);*/
         companyname.sendKeys(Keys.CONTROL + "a");
-        Thread.sleep(2500);
+        Thread.sleep(1000);
         companyname.sendKeys(Keys.DELETE);
         return true;
     }
@@ -154,10 +155,11 @@ public class EditCompany extends BasePage {
 
     public boolean RemoveWebsiteFromEditCompanyDrawer () throws InterruptedException {
         waitVisibility(company.website);
-        WebElement web= driver.findElement(By.xpath("//input[@placeholder='Website']"));
+        Thread.sleep(1500);
+        WebElement web= driver.findElement(company.website);
         //driver.manage().timeouts().implicitlyWait(02, TimeUnit.SECONDS);
         web.sendKeys(Keys.CONTROL + "a");
-        Thread.sleep(2500);
+        Thread.sleep(1000);
         web.sendKeys(Keys.DELETE);
         return true;
     }
