@@ -8,16 +8,17 @@ import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Properties;
 
 public class BasePage {
     public WebDriver driver;
     public WebDriverWait wait;
 
     //Constructor
-    public BasePage (WebDriver driver){
+    public BasePage(WebDriver driver) {
         this.driver = driver;
         Duration time = Duration.ofSeconds(20);
-        this.wait = new WebDriverWait(driver,time);
+        this.wait = new WebDriverWait(driver, time);
     }
 
     //Wait Wrapper Method
@@ -44,9 +45,9 @@ public class BasePage {
     }
 
     public void waitelementtobedisplayed(By elementBy) {
-        if( driver.findElement((elementBy)).isDisplayed()){
+        if (driver.findElement((elementBy)).isDisplayed()) {
             System.out.println("Element has displayed");
-        }else{
+        } else {
             System.out.println("Something wnet wrong.Element has not dislyed");
         }
 
@@ -55,18 +56,17 @@ public class BasePage {
     public boolean verifyAnElementDisplayedOrNot(int delay, By element) throws InterruptedException {
         Thread.sleep(delay);
         waitforPresence(element);
-        if(driver.findElement(element).isDisplayed()){
+        if (driver.findElement(element).isDisplayed()) {
             System.out.println("Expected element is displayed");
             return true;
-        }
-        else{
+        } else {
             System.out.println("Expected element is not displayed");
             return false;
 
         }
     }
 
-    public boolean verifyElementNotDisplayed(int delay, By element) throws InterruptedException{
+    public boolean verifyElementNotDisplayed(int delay, By element) throws InterruptedException {
         Thread.sleep(delay);
         try {
             if (!driver.findElement(element).isDisplayed()) {
@@ -76,8 +76,7 @@ public class BasePage {
                 System.out.println("Fail");
                 return false;
             }
-        }
-        catch (NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             System.out.println("Not Found");
             return true;
         }
@@ -98,7 +97,7 @@ public class BasePage {
         }
     }
 
-    public boolean verifyTextMatchingWithAttribute(int delay, By element,String attribute, String expected) throws InterruptedException {
+    public boolean verifyTextMatchingWithAttribute(int delay, By element, String attribute, String expected) throws InterruptedException {
         Thread.sleep(delay);
         waitforPresence(element);
         String S = driver.findElement(element).getAttribute(attribute);
@@ -144,13 +143,12 @@ public class BasePage {
     public boolean verifyAFieldIsDisable(int delay, By element) throws InterruptedException {
         Thread.sleep(delay);
         waitforPresence(element);
-        Boolean Show=driver.findElement(element).isEnabled();
+        Boolean Show = driver.findElement(element).isEnabled();
         System.out.println(Show);
-        if (Show){
+        if (Show) {
             System.out.println("Expected Button is Enabled");
             return false;
-        }
-        else {
+        } else {
             System.out.println("Expected Button is disabled");
             return true;
         }
@@ -159,42 +157,41 @@ public class BasePage {
 
     public boolean verifyAFieldIsEnable(int delay, By element) throws InterruptedException {
         Thread.sleep(delay);
-        Boolean Show=driver.findElement(element).isEnabled();
+        Boolean Show = driver.findElement(element).isEnabled();
         System.out.println(Show);
-        if (Show){
+        if (Show) {
             System.out.println("Expected Button is Enabled");
             return true;
-        }
-        else {
+        } else {
             System.out.println("Expected Button is disabled");
             return false;
         }
     }
 
 
-    public void NewTabOpenAndSwitchToNewTab(int num) throws InterruptedException{
-        ((JavascriptExecutor)driver).executeScript("window.open()");
-        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(num));
-    }
-    public void SwitchToTab(int num) throws InterruptedException{
+    public void NewTabOpenAndSwitchToNewTab(int num) throws InterruptedException {
+        ((JavascriptExecutor) driver).executeScript("window.open()");
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(num));
     }
 
-    public void GoToWebsite (String url) throws InterruptedException{
+    public void SwitchToTab(int num) throws InterruptedException {
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(num));
+    }
+
+    public void GoToWebsite(String url) throws InterruptedException {
         Thread.sleep(2000);
         driver.get(url);
     }
 
 
-
     public Boolean waitelementtobeEnabled(By elementBy) throws InterruptedException {
         Thread.sleep(3000);
-        if( driver.findElement((elementBy)).isEnabled()){
+        if (driver.findElement((elementBy)).isEnabled()) {
             System.out.println("Verification Successful!!! Element is Enabled");
 
-        }else{
+        } else {
             System.out.println("Something wnet wrong.Element has not dislyed");
             return false;
         }
@@ -202,10 +199,10 @@ public class BasePage {
     }
 
     public Boolean waitelementtobeDisabled(By elementBy) {
-        if(! driver.findElement((elementBy)).isEnabled()){
+        if (!driver.findElement((elementBy)).isEnabled()) {
             System.out.println("Verification Successful!!! Element is Disabled");
 
-        }else{
+        } else {
             System.out.println("Something wnet wrong.Element has not dislyed");
             return false;
         }
@@ -213,28 +210,28 @@ public class BasePage {
     }
 
 
-
     //Click Method
-    public void click (By elementBy) {
+    public void click(By elementBy) {
         waitVisibility(elementBy);
         waitelemtclickable(elementBy);
         driver.findElement(elementBy).click();
     }
 
-   //Clear Text
-    public void clear (By elementBy) {
+    //Clear Text
+    public void clear(By elementBy) {
         waitVisibility(elementBy);
         driver.findElement(elementBy).clear();
     }
-    public boolean FieldClear(By element) throws InterruptedException{
+
+    public boolean FieldClear(By element) throws InterruptedException {
         Thread.sleep(2000);
         waitforPresence(element);
-        driver.findElement(element).sendKeys(Keys.chord(Keys.CONTROL+"a", Keys.DELETE));
+        driver.findElement(element).sendKeys(Keys.chord(Keys.CONTROL + "a", Keys.DELETE));
         return true;
     }
 
     //Write Text
-    public void writeText (By elementBy, String text) {
+    public void writeText(By elementBy, String text) {
         waitVisibility(elementBy);
         waitelemtclickable(elementBy);
         driver.findElement(elementBy).sendKeys(text);
@@ -242,20 +239,47 @@ public class BasePage {
 
 
     //Read Text
-    public String readText (By elementBy) {
+    public String readText(By elementBy) {
         waitVisibility(elementBy);
         return driver.findElement(elementBy).getText();
     }
 
     //Assert
-   public void assertEquals (By elementBy, String expectedText) {
+    public void assertEquals(By elementBy, String expectedText) {
         waitVisibility(elementBy);
         Assert.assertEquals(readText(elementBy), expectedText);
     }
 
-    public void urlCheck(String actualUrl){
+    public void urlCheck(String actualUrl) {
         wait.until(ExpectedConditions.urlToBe(actualUrl));
-        String expectedUrl= driver.getCurrentUrl();
-        Assert.assertEquals(expectedUrl,actualUrl);
+        String expectedUrl = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl, actualUrl);
+    }
+
+
+    public boolean checkPageSize(By waitElement, String PageSize) throws InterruptedException {
+        Thread.sleep(2500);
+        waitelemtclickable(waitElement);
+        try {
+            if (driver.findElement(ChargerListPropertyAdmin.LoadMoreButton).isDisplayed()) {
+                String pageSize = driver.findElement(ChargerListPropertyAdmin.LoadMoreButton).getText().replaceAll("[^0-9]", "");
+                System.out.println("Page size: "+pageSize);
+                if (pageSize.equals(PageSize)) {
+                    System.out.println("Page size is ok");
+                    return true;
+                } else {
+                    System.out.println("Page size is not OK");
+                    return false;
+                }
+            }
+            else {
+                System.out.println("Load more buton not found");
+                return false;
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("Load more button not found");
+            return false;
+        }
+
     }
 }

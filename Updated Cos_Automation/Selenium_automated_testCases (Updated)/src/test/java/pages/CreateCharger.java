@@ -279,7 +279,7 @@ public class CreateCharger extends BasePage {
     public boolean verifyDiscadContinuePopupHasDisplayed() throws InterruptedException {
         //company.waitForSpinner();
         Thread.sleep(1000);
-        //waitVisibility(addchargerbtn);
+        waitVisibility(discardandcontinuepopup);
         if (driver.findElement(discardandcontinuepopup).isDisplayed()) {
             System.out.println("Discard or Continue Pop up has displayed");
             return true;

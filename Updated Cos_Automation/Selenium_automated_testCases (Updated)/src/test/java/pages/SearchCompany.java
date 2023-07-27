@@ -105,6 +105,7 @@ public class SearchCompany extends BasePage{
 
     public boolean SearchbyEmail(String CompanyEmail) {
         company.waitForSpinner();
+        waitelemtclickable(editCompany.searchbar);
         writeText(editCompany.searchbar,CompanyEmail);
         return true;
     }

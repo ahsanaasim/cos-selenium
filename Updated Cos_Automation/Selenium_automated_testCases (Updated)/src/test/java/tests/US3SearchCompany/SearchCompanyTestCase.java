@@ -150,7 +150,7 @@ public class SearchCompanyTestCase extends BaseTest {
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonCompanyManagement());*/
         Assert.assertTrue(searchcompany.ClickonSearchbar());
-        Assert.assertTrue(editCompany.SearchbyName(prop.getProperty("CompanyName")));
+        Assert.assertTrue(editCompany.SearchbyName(prop.getProperty("CompanyName4")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
         Assert.assertTrue(editCompany.VerifUpdatedCompanyInformationIsShowing());
     }

@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import tests.US1AdminLogin.TestParameters;
 
+import java.util.Properties;
 import java.util.Random;
 
 public class InvoiceListAndSearch extends BasePage{
@@ -17,6 +18,7 @@ public class InvoiceListAndSearch extends BasePage{
         super(driver);
     }
     Random rand = new Random();
+    Properties prop = ConfigUtill.getConfig();
 
     public static By FinancialTab = By.xpath("//span[@class='ant-menu-title-content'][contains(.,'Financials')]");
     public static By InvoicesTab  = By.xpath("//a[@href='/financials/invoices']");
@@ -49,6 +51,12 @@ public class InvoiceListAndSearch extends BasePage{
 
 
 
+
+    public void GoToInvoicePage() throws InterruptedException {
+        Thread.sleep(3500);
+        GoToWebsite(prop.getProperty("InvoicePageURL"));
+
+    }
 
     public boolean verifyBreadBarNameMatchWithTabName() throws InterruptedException {
         Thread.sleep(1000);

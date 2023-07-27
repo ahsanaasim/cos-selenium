@@ -36,7 +36,7 @@ public class EditCompany extends BasePage {
     public static By invalidimesionerrmsg = By.xpath("//div[@role='alert'][contains(.,'Image resolution should be 300x40 px')]");
     public static By searchbar = By.xpath("//input[@placeholder='Search by name, email or phone no']");
     public static By searchbtn = By.xpath("//button[contains(.,'Search')]");
-    public static By companyname = By.xpath("(//div[@class='wordBreak'][contains(.,'Walmart')])[1]");
+    public static By companyname = By.xpath("(//div[@class='wordBreak'][contains(.,'Rich Information Technology')])[1]");
     public static By cancelbtn = By.xpath("//button[@type='button'][contains(.,'Cancel')]");
     public static By discardbtn = By.xpath("//button[contains(.,'Discard')]");
     public static By EinUpdatedStatus = By.xpath("//span[@id='einAuditLog']");
@@ -134,13 +134,15 @@ public class EditCompany extends BasePage {
     }
 
     public boolean RemovePhoneNumberFromEditCompanyDrawer () throws InterruptedException {
+        Thread.sleep(2000);
         waitVisibility(company.phone);
-        WebElement phonenumber= driver.findElement(CreateCompany.phone);
-       /* driver.manage().timeouts().implicitlyWait(02, TimeUnit.SECONDS);
-        clear(company.companyname);*/
-        Thread.sleep(1500);
-        phonenumber.sendKeys(Keys.CONTROL + "a");
-        phonenumber.sendKeys(Keys.DELETE);
+        waitforPresence(CreateCompany.phone);
+        waitelemtclickable(CreateCompany.phone);
+        WebElement NumberField = driver.findElement(CreateCompany.phone);
+        for(int i = 0; i <10 ;i++)
+        {
+            NumberField.sendKeys(Keys.chord(Keys.BACK_SPACE));
+        }
         return true;
     }
 
@@ -258,7 +260,7 @@ public class EditCompany extends BasePage {
     public boolean VerifUpdatedCompanyInformationIsShowing() {
         company.waitForSpinner();
         waitVisibility(companyname);
-        if( driver.findElement(By.xpath("(//div[@class='wordBreak'][contains(.,'Walmart')])[1]")).isDisplayed())
+        if( driver.findElement(By.xpath("(//div[@class='wordBreak'][contains(.,'Rich Information Technology')])[1]")).isDisplayed())
         {
             System.out.println("Updated Company Name has displayed");
         }else{
