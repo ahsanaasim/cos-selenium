@@ -138,7 +138,7 @@ public class CreateEntityTestCases extends BaseTest {
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
         Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
+        Assert.assertTrue(company.VerifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
     }
 
     @Test(priority = 8)//Done
@@ -162,7 +162,7 @@ public class CreateEntityTestCases extends BaseTest {
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
         Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
+        Assert.assertTrue(company.VerifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
     }
 
     @Test(priority = 9)//Done
@@ -186,7 +186,7 @@ public class CreateEntityTestCases extends BaseTest {
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
         Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
+        Assert.assertTrue(company.VerifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
     }
 
     @Test(priority = 10)//Done
@@ -214,6 +214,30 @@ public class CreateEntityTestCases extends BaseTest {
     }
 
     @Test(priority = 11)//Done
+    @TestParameters(testCaseId = {"TC-17.2"})
+    public void TC_17_2_WhenAdminEnter8DigitPhoneNumberInPhoneNumberFieldOnCreateNewEntityDrawer() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateEntity createentity = new CreateEntity(driver);
+        CreateCompany company=new CreateCompany(driver);
+        loginPage.VerifyValidLogin();
+        Assert.assertTrue(dashboard.RefreshBrowser());
+        /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonEntityManagement());*/
+        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
+        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("InvalidPhone4")));
+        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
+        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
+        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(company.VerifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
+    }
+
+    @Test(priority = 12)//Done
     @TestParameters(testCaseId = {"TC-18"})
     public void TC_18_WhenAdminEnterIvlaidEmailinemailFieldonCreateNewEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -238,7 +262,7 @@ public class CreateEntityTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 12)//Done
+    @Test(priority = 13)//Done
     @TestParameters(testCaseId = {"TC-23"})
     public void TC_23_WhenAdminEnterNumbersinemailFieldonCreateNewEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -263,7 +287,7 @@ public class CreateEntityTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 13)//Done
+    @Test(priority = 14)//Done
     @TestParameters(testCaseId = {"TC-21_22"})
     public void TC_21_22_WhenAdminEnterAplhabtesinemailFieldonCreateNewEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -289,7 +313,7 @@ public class CreateEntityTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 14)//Done
+    @Test(priority = 15)//Done
     @TestParameters(testCaseId = {"TC-24"})
     public void TC_24_WhenAdminprovidesincompletemailinemailFieldonCreateNewEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -314,7 +338,7 @@ public class CreateEntityTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 15)//Done
+    @Test(priority = 16)//Done
     @TestParameters(testCaseId = {"TC-20"})
     public void TC_20_WhenAdminEnterSpecialCharactersinemailFieldonCreateNewEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -339,7 +363,7 @@ public class CreateEntityTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 16)//Done
+    @Test(priority = 17)//Done
     @TestParameters(testCaseId = {"TC-26"})
     public void TC_26_WhenAdminEnterInvalidEmailFormatinemailFieldonCreateNewEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -364,7 +388,7 @@ public class CreateEntityTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 17)//Done
+    @Test(priority = 18)//Done
     @TestParameters(testCaseId = {"TC-19"})
     public void TC_19_WhenAdminEnterWrongEmailFormatinemailFieldonCreateNewEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -389,7 +413,7 @@ public class CreateEntityTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 18)//Done
+    @Test(priority = 19)//Done
     @TestParameters(testCaseId = {"TC-27"})
     public void TC_27_WhenAdminLeavesEmailFieldBlankonCreateNewEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -415,9 +439,9 @@ public class CreateEntityTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 19)//Done
+    @Test(priority = 20)//Done
     @TestParameters(testCaseId = {"TC-30"})
-    public void TC_30_WhenAdminEnterSpecialCharctersinEINFieldCreateNewEntityDrawer() throws InterruptedException {
+    public void TC_30_WhenAdminKeepEINFieldEmptyInCreateNewEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
@@ -428,11 +452,11 @@ public class CreateEntityTestCases extends BaseTest {
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.SelectCompanyNameFromDropdown());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
         Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("SpecialCharacter")));
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
         Assert.assertTrue(createentity.ClickonSaveButton());
@@ -440,7 +464,7 @@ public class CreateEntityTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 20)//Done
+    @Test(priority = 21)//Done
     @TestParameters(testCaseId = {"TC-31"})
     public void TC_31_WhenAdminEnterAlphabatesinEINFieldonCreateNewEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -448,6 +472,7 @@ public class CreateEntityTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
+        EditCompany editCompany = new EditCompany(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
@@ -461,11 +486,11 @@ public class CreateEntityTestCases extends BaseTest {
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
         Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyInvalidEINNumberErrorMessage(msg.InvalidEINNumberErrorMsg()));
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
-// Error message is not showing
-    @Test(priority = 21)//Done
+
+    @Test(priority = 22)//Done
     @TestParameters(testCaseId = {"TC-28"})
     public void TC_28_WhenAdminEnterInvalidNumbersinEINFieldCreateNewEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -473,6 +498,7 @@ public class CreateEntityTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
+        EditCompany editCompany = new EditCompany(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
@@ -486,7 +512,7 @@ public class CreateEntityTestCases extends BaseTest {
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
         Assert.assertTrue(createentity.ClickonSaveButton());
-//        Assert.assertTrue(company.VerifyInvalidEINNumberErrorMessage(msg.InvalidEINNumberErrorMsg()));
+        Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
 
@@ -514,6 +540,9 @@ public class CreateEntityTestCases extends BaseTest {
         Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
 
     }
+
+
+
 
     @Test(priority = 24)//Done
     @TestParameters(testCaseId = {"TC-34"})

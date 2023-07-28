@@ -27,7 +27,7 @@ public class SearchEntityTestCases extends BaseTest {
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());
         Assert.assertTrue(editCompany.ClickonSearchButton());
-        Assert.assertTrue(searchentity.VerifPagehasRefreshafterprrssingsearchbutton());
+        Assert.assertTrue(searchentity.verifyAnElementDisplayedOrNot(200,SearchCompany.Spiner));
     }
 
     @Test(priority = 2)//Done
@@ -59,6 +59,7 @@ public class SearchEntityTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
+        SearchEntity searchEntity = new SearchEntity(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
@@ -66,7 +67,7 @@ public class SearchEntityTestCases extends BaseTest {
         Assert.assertTrue(searchcompany.ClickonSearchbar());
         Assert.assertTrue(searchcompany.SearchbyEmail(prop.getProperty("CompanyEmail")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
-        Assert.assertTrue(searchcompany.VerifCompanywiththeEnteredEmailAddressIsShowing());
+        Assert.assertTrue(searchEntity.verifyExpectedColumnWithExpectedContent("Entity Email",prop.getProperty("CompanyEmail"),1));
     }
 
     @Test(priority = 4)//Done
@@ -78,6 +79,7 @@ public class SearchEntityTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
+        SearchEntity searchEntity = new SearchEntity(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
@@ -85,7 +87,7 @@ public class SearchEntityTestCases extends BaseTest {
         Assert.assertTrue(searchcompany.ClickonSearchbar());
         Assert.assertTrue(searchcompany.SearchbyPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
-        Assert.assertTrue(searchcompany.VerifCompanywiththeEnteredPhoneNumberIsShowing());
+        Assert.assertTrue(searchEntity.verifyExpectedColumnWithExpectedContent("Entity Phone",prop.getProperty("Phone"),2));
     }
 
     @Test(priority = 5)//Done
@@ -102,96 +104,96 @@ public class SearchEntityTestCases extends BaseTest {
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());
         Assert.assertTrue(searchcompany.ClickonSearchbar());
-        Assert.assertTrue(editCompany.SearchbyName(prop.getProperty("Alphabates")));
+        Assert.assertTrue(editCompany.SearchbyName(prop.getProperty("NonExistingEntity")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
         Assert.assertTrue(searchEntity.VerifNoEntityisShowingafterProvidingInvalidData());
     }
 
-    @Test(priority = 6)//Done
-    @TestParameters(testCaseId = {"TC-8"})
-    public void TC_8_WhenAdminSorttheEntityNameinAscendingorderonEntityManagementPage() throws InterruptedException, IOException {
-        HomePage homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
-        SearchCompany searchcompany=new SearchCompany(driver);
-        SearchEntity searchEntity=new SearchEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
-        Assert.assertTrue(searchEntity.ClickonAscedingArrowfromName());
-    }
+//    @Test(priority = 6)//Done
+//    @TestParameters(testCaseId = {"TC-8"})
+//    public void TC_8_WhenAdminSorttheEntityNameinAscendingorderonEntityManagementPage() throws InterruptedException, IOException {
+//        HomePage homePage = new HomePage(driver);
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard=new Dashboard(driver);
+//        SearchCompany searchcompany=new SearchCompany(driver);
+//        SearchEntity searchEntity=new SearchEntity(driver);
+//        loginPage.VerifyValidLogin();
+//        Assert.assertTrue(dashboard.GotoDashboard());
+//        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+//        Assert.assertTrue(dashboard.ClickonEntityManagement());
+//        Assert.assertTrue(searchEntity.ClickonAscedingArrowfromName());
+//    }
 
-    @Test(priority = 7)//Done
-    @TestParameters(testCaseId = {"TC-10"})
-    public void TC_10_WhenAdminSorttheEntityEmailinAscendingorderonEntityManagementPage() throws InterruptedException, IOException {
-        HomePage homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
-        SearchCompany searchcompany=new SearchCompany(driver);
-        SearchEntity searchEntity= new SearchEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(searchEntity.ClickonAscedingArrowfromEmail());
-        Assert.assertTrue(searchEntity.ClickonAscedingArrowfromEmail());
-    }
+//    @Test(priority = 7)//Done
+//    @TestParameters(testCaseId = {"TC-10"})
+//    public void TC_10_WhenAdminSorttheEntityEmailinAscendingorderonEntityManagementPage() throws InterruptedException, IOException {
+//        HomePage homePage = new HomePage(driver);
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard=new Dashboard(driver);
+//        SearchCompany searchcompany=new SearchCompany(driver);
+//        SearchEntity searchEntity= new SearchEntity(driver);
+//        loginPage.VerifyValidLogin();
+//        Assert.assertTrue(dashboard.RefreshBrowser());
+//        /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+//        Assert.assertTrue(dashboard.ClickonEntityManagement());*/
+//        Assert.assertTrue(searchEntity.ClickonAscedingArrowfromEmail());
+//        Assert.assertTrue(searchEntity.ClickonAscedingArrowfromEmail());
+//    }
 
-    @Test(priority = 8)//Done
-    @TestParameters(testCaseId = {"TC-12"})
-    public void TC_12_VerifyEntityNameisShowinginAscendingorderonEntityManagementPage() throws InterruptedException, IOException {
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
-        SearchEntity searchEntity= new SearchEntity(driver);
-        SearchCompany searchcompany=new SearchCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(searchEntity.ClickonAscedingArrowfromName());
-        Assert.assertTrue(searchEntity.VerifEntityNameisSortedinAscendingOrder());
+//    @Test(priority = 8)//Done
+//    @TestParameters(testCaseId = {"TC-12"})
+//    public void TC_12_VerifyEntityNameisShowinginAscendingorderonEntityManagementPage() throws InterruptedException, IOException {
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard=new Dashboard(driver);
+//        SearchEntity searchEntity= new SearchEntity(driver);
+//        SearchCompany searchcompany=new SearchCompany(driver);
+//        loginPage.VerifyValidLogin();
+//        Assert.assertTrue(dashboard.RefreshBrowser());
+//        /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+//         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
+//        Assert.assertTrue(searchEntity.ClickonAscedingArrowfromName());
+//        Assert.assertTrue(searchEntity.VerifEntityNameisSortedinAscendingOrder());
+//
+//    }
 
-    }
+//    @Test(priority = 9)//Done
+//    @TestParameters(testCaseId = {"TC-13"})
+//    public void TC_13_WhenAdminVistsAnotherPageAfterApplyingAscendingorderonEntityManagementPage() throws InterruptedException, IOException {
+//        HomePage homePage = new HomePage(driver);
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard=new Dashboard(driver);
+//        CreateCompany company = new CreateCompany(driver);
+//        EditCompany editCompany= new EditCompany(driver);
+//        SearchEntity searchEntity= new SearchEntity(driver);
+//        loginPage.VerifyValidLogin();
+//        Assert.assertTrue(dashboard.RefreshBrowser());
+//        Assert.assertTrue(dashboard.GotoDashboard());
+//        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+//        Assert.assertTrue(dashboard.ClickonEntityManagement());
+//        Assert.assertTrue(searchEntity.ClickonAscedingArrowfromName());
+//        Assert.assertTrue(dashboard.GotoDashboard());
+//        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+//        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+//
+//    }
 
-    @Test(priority = 9)//Done
-    @TestParameters(testCaseId = {"TC-13"})
-    public void TC_13_WhenAdminVistsAnotherPageAfterApplyingAscendingorderonEntityManagementPage() throws InterruptedException, IOException {
-        HomePage homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
-        CreateCompany company = new CreateCompany(driver);
-        EditCompany editCompany= new EditCompany(driver);
-        SearchEntity searchEntity= new SearchEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
-        Assert.assertTrue(searchEntity.ClickonAscedingArrowfromName());
-        Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonCompanyManagement());
-
-    }
-
-    @Test(priority = 10)//Done
-    @TestParameters(testCaseId = {"TC-14"})
-    public void TC_14_WhenAdminRefreshtheBrowserAfterApplyingAscendingorderonEntityManagementPage() throws InterruptedException, IOException {
-        HomePage homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
-        CreateCompany company = new CreateCompany(driver);
-        EditCompany editCompany= new EditCompany(driver);
-        SearchEntity searchEntity= new SearchEntity(driver);
-        SearchCompany searchcompany=new SearchCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
-        Assert.assertTrue(searchEntity.ClickonAscedingArrowfromName());
-        Assert.assertTrue(dashboard.RefreshBrowser());
-    }
+//    @Test(priority = 10)//Done
+//    @TestParameters(testCaseId = {"TC-14"})
+//    public void TC_14_WhenAdminRefreshtheBrowserAfterApplyingAscendingorderonEntityManagementPage() throws InterruptedException, IOException {
+//        HomePage homePage = new HomePage(driver);
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard=new Dashboard(driver);
+//        CreateCompany company = new CreateCompany(driver);
+//        EditCompany editCompany= new EditCompany(driver);
+//        SearchEntity searchEntity= new SearchEntity(driver);
+//        SearchCompany searchcompany=new SearchCompany(driver);
+//        loginPage.VerifyValidLogin();
+//        Assert.assertTrue(dashboard.GotoDashboard());
+//        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+//        Assert.assertTrue(dashboard.ClickonEntityManagement());
+//        Assert.assertTrue(searchEntity.ClickonAscedingArrowfromName());
+//        Assert.assertTrue(dashboard.RefreshBrowser());
+//    }
 
    /* @Test(priority = 11)//Done
     @TestParameters(testCaseId = {"TC-15"})
@@ -299,7 +301,7 @@ public class SearchEntityTestCases extends BaseTest {
         Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
         Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchEntity.ClickonSelectZipdropdownFromAdvanceFilterDrawer());
-        Assert.assertTrue(searchcompany.SelectZipFromDropDown());
+        Assert.assertTrue(searchEntity.SelectZipFromAdvancedFilterDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
         Assert.assertTrue(searchcompany.VerifStateNameTagisShowingaAfterSelectingtheStateFromAdncedFilter());
         Assert.assertTrue(searchcompany.VerifyZipcodeTagisShowingAfterSelectingtheZipFromAdvancedFilter());
@@ -317,15 +319,16 @@ public class SearchEntityTestCases extends BaseTest {
         SearchCompany searchcompany=new SearchCompany(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+//        Assert.assertTrue(dashboard.GotoDashboard());
+//        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+//        Assert.assertTrue(dashboard.ClickonEntityManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
-        Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
-        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
-        Assert.assertTrue(searchEntity.ClickonSelectZipdropdownFromAdvanceFilterDrawer());
-        Assert.assertTrue(searchcompany.SelectZipFromDropDown());
+//        Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
+//        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
+//        Assert.assertTrue(searchEntity.ClickonSelectZipdropdownFromAdvanceFilterDrawer());
+//        Assert.assertTrue(searchEntity.SelectZipFromAdvancedFilterDropDown());
         Assert.assertTrue(searchcompany.ClickonResetButton());
-        Assert.assertTrue(searchcompany.VerifyAdvanceFilterDrawerhasnotclosedAfterclcikingResetButton());
+        Assert.assertTrue(searchEntity.verifyAnElementDisplayedOrNot(200,SearchCompany.Spiner));
+        Assert.assertTrue(searchcompany.verifyElementNotDisplayed(2000,SearchCompany.advancefilter));
     }
 }

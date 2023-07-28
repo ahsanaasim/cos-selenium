@@ -171,7 +171,7 @@ public class EditCompany extends BasePage {
         Thread.sleep(3000);
         click(EditCompany.ShowButtonEin);
         Thread.sleep(2000);
-        WebElement web= driver.findElement(By.xpath("(//input[contains(@class,'ant-input')])[5]"));
+        WebElement web= driver.findElement(CreateCompany.ein);
         // driver.manage().timeouts().implicitlyWait(02, TimeUnit.SECONDS);
         web.sendKeys(Keys.CONTROL + "a");
         web.sendKeys(Keys.DELETE);

@@ -116,6 +116,7 @@ public class CreateEntity extends BasePage {
     public boolean WriteEntityName(String EntityName) throws InterruptedException {
         Thread.sleep(3000);
         waitVisibility(entityname);
+        waitelemtclickable(entityname);
         writeText(entityname, EntityName);
         return true;
     }

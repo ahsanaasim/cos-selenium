@@ -1060,6 +1060,30 @@ public class CompanyModule extends BaseTest {
     }
 
 
+    @Test(priority = 55)//Done
+    @TestParameters(testCaseId = {"TC-17"})
+    public void TC_17_WhenAdminClicksOnAccessCompanyPortal() throws InterruptedException, IOException {
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateCompany company = new CreateCompany(driver);
+        EditCompany editCompany= new EditCompany(driver);
+        SearchCompany searchcompany=new SearchCompany(driver);
+        CreateCharger operation = new CreateCharger(driver);
+        COSA cosa = new COSA(driver);
+        loginPage.VerifyValidLogin();
+        Assert.assertTrue(dashboard.RefreshBrowser());
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+        Assert.assertTrue(operation.ClickButton(EditCompany.AccessCompanyPortal,2000));
+        searchcompany.SwitchToTab(1);
+        Assert.assertTrue(cosa.CurrentPageURLCheck(prop.getProperty("DashboardURLPropertyAdmin")));
+
+    }
+
+
+
+    //Search company ends here
     //Edit Company starts from here
 
 
@@ -1072,8 +1096,10 @@ public class CompanyModule extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
+        company.SwitchToTab(0);
         loginPage.VerifyValidLogin();
         dashboard.RefreshBrowser();
+        dashboard.GotoDashboard();
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonCompanyManagement());
         Assert.assertTrue(editCompany.VerifyEditButtonHasDisplayed());

@@ -8,6 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+import java.util.Properties;
+
 public class SearchEntity extends BasePage{
 
     public SearchEntity(WebDriver driver)
@@ -15,20 +18,24 @@ public class SearchEntity extends BasePage{
         super(driver);
     }
 
+    Properties prop = ConfigUtill.getConfig();
+
     EditCompany editCompany= new EditCompany(driver);
     CreateEntity createEntity= new CreateEntity(driver);
     SearchCompany searchCompany= new SearchCompany(driver);
     CreateCompany company= new CreateCompany(driver);
 
-    By enttity = By.xpath("//span[contains(.,'Entity Name')]");
-    By entitynumber= By.xpath("//span[@class='showCount'][contains(.,'Showing Entities: 0')]");
-    By entityname= By.xpath("(//div[contains(.,'101')])[8]");
-    By statedroddown= By.xpath("(//div[@class='ant-select-selection-overflow'])[2]");
-    By zipdroddown= By.xpath("(//div[@class='ant-select-selection-overflow'])[3]");
-    By cleartag= By.xpath("//span[@class='ant-tag cursor tagCss clearAllTag'][contains(.,'Clear All')]");
-    By ascendingnamearrow= By.xpath("//span[contains(.,'Entity Name')]");
-    By ascendingnemail= By.xpath("//span[contains(.,'Entity Email')]");
-    By ascendingnphone= By.xpath("//span[contains(.,'Entity Phone')]");
+    public static By enttity = By.xpath("//span[contains(.,'Entity Name')]");
+    public static By entitynumber= By.xpath("//span[@class='showCount'][contains(.,'Showing Entities: 0')]");
+    public static By entityname= By.xpath("(//div[contains(.,'101')])[8]");
+    public static By statedroddown= By.xpath("(//div[@class='ant-select-selection-overflow'])[2]");
+    public static By zipdroddown= By.xpath("(//div[@class='ant-select-selection-overflow'])[3]");
+    public static By zipFieldToWrite = By.xpath("(//input[@class='ant-select-selection-search-input'])[3]");
+    public static By cleartag= By.xpath("//span[@class='ant-tag cursor tagCss clearAllTag'][contains(.,'Clear All')]");
+    public static By ascendingnamearrow= By.xpath("//span[contains(.,'Entity Name')]");
+    public static By ascendingnemail= By.xpath("//span[contains(.,'Entity Email')]");
+    public static By ascendingnphone= By.xpath("//span[contains(.,'Entity Phone')]");
+    By EntityEmail1InTable = By.xpath("//div[@class='wordBreak']");
 
 
     public boolean ClickonAscedingArrowfromName() throws InterruptedException {
@@ -64,6 +71,17 @@ public class SearchEntity extends BasePage{
     public boolean ClickonSelectZipdropdownFromAdvanceFilterDrawer() {
         waitVisibility(zipdroddown);
         click(zipdroddown);
+        return true;
+    }
+
+    public boolean SelectZipFromAdvancedFilterDropDown() throws InterruptedException {
+        //  company.waitForSpinner();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        waitVisibility(zipdroddown);
+        click(SearchCompany.advancefilter);
+        click(zipdroddown);
+        writeText(zipFieldToWrite,prop.getProperty("ZipCode"));
+        click(SearchCompany.selectzip);
         return true;
     }
 
@@ -156,5 +174,46 @@ public class SearchEntity extends BasePage{
         }
         return true;
     }
+
+
+    public boolean verifyExpectedColumnWithExpectedContent(String Header, String content, int IndexOfTitle) throws InterruptedException {
+        Thread.sleep(3000);
+        waitforPresence(FeeStructureList.Edit);
+        WebElement mytable = driver.findElement(By.xpath("//thead"));
+        List<WebElement> headers = mytable.findElements(By.tagName("th"));
+        int resultColumnIndex = 0;
+        for (int i = 0; i < headers.size(); i++) {
+            if (headers.get(i).getText().equals(Header)) {
+                resultColumnIndex = i;
+                System.out.println(resultColumnIndex);
+                System.out.println(Header);
+                break;
+            }
+        }
+        if (resultColumnIndex != IndexOfTitle) {
+            // The "Result" column was not found
+            throw new RuntimeException("The column was not found");
+        }
+
+        WebElement myrows = driver.findElement(By.xpath("//tbody"));
+        List<WebElement> rows = myrows.findElements(By.tagName("tr"));
+        for (int i = 1; i < rows.size(); i++) { // start at index 1 to skip the header row
+            List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));
+            String result = cells.get(resultColumnIndex).getText();
+            System.out.println(result);
+            if (!result.equals(content)) {
+                // Verification failed
+                throw new RuntimeException("Verification failed. Expected 'Edit', but got '" + result + "' in row " + i);
+
+            }
+
+        }
+        System.out.println("Action column occupied with edit button");
+        return true;
+
+
+    }
+
+
 
 }

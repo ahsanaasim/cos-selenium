@@ -15,8 +15,10 @@ public class EditEntity extends BasePage {
     CreateEntity entity= new CreateEntity(driver);
     CreateCompany createCompany= new CreateCompany(driver);
 
-    By entityinfo = By.xpath("//span[contains(.,'Entity Information')]");
-    By entityname = By.xpath("(//div[contains(.,'New Entity')])[10]");
+
+    public static By companyInformationTitle = By.xpath("//span[@class='drawerInsideTitle'][contains(text(),'Company Information')]");
+    public static By entityinfo = By.xpath("//span[contains(.,'Entity Information')]");
+    public static By entityname = By.xpath("(//div[contains(.,'New Entity')])[10]");
     public static By SaveEntityButton = By.xpath("//button[@class='ant-btn ant-btn-primary ml-15 h-40 drawerFBtn']");
 
 
@@ -63,7 +65,7 @@ public class EditEntity extends BasePage {
     public boolean RemoveAddressFromEditEntityDrawer () throws InterruptedException {
        createCompany.waitForSpinner();
         Thread.sleep(3000);
-        WebElement web= driver.findElement(By.xpath("//textarea[contains(@placeholder,'Address')]"));
+        WebElement web= driver.findElement(By.xpath("//input[contains(@placeholder,'Address')]"));
         //driver.manage().timeouts().implicitlyWait(02, TimeUnit.SECONDS);
         web.sendKeys(Keys.CONTROL + "a");
         web.sendKeys(Keys.DELETE);
