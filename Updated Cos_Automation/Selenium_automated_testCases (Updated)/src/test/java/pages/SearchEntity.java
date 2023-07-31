@@ -109,7 +109,7 @@ public class SearchEntity extends BasePage{
 
     public boolean VerifNoEntityisShowingafterProvidingInvalidData() {
         waitVisibility(entitynumber);
-        if( driver.findElement(By.xpath("//span[@class='showCount'][contains(.,'Showing Entities: 0')]")).isDisplayed())
+        if( driver.findElement(SearchCompany.nodataimg).isDisplayed())
         {
             System.out.println("No entity has found with this name");
         }else{

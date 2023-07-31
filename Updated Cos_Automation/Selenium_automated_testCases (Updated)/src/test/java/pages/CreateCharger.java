@@ -134,7 +134,8 @@ public class CreateCharger extends BasePage {
 
     public boolean writeInputText(By element, String text, int delay)  throws InterruptedException {
         Thread.sleep(delay);
-        waitforPresence(element);
+        waitVisibility(element);
+        waitelemtclickable(element);
         writeText(element, text);
         return true;
     }

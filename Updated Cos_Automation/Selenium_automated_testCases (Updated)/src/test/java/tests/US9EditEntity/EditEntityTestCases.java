@@ -91,15 +91,19 @@ public class EditEntityTestCases extends BaseTest{
         EditEntity editEntity=new EditEntity(driver);
         CreateCompany company=new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
-        /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());*/
+        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        editEntity.FieldClear(EditCompany.searchbar);
+        createCharger.writeInputText(EditCompany.searchbar,prop.getProperty("Entity2"), 5000);
+        createCharger.ClickButton(EditCompany.searchbtn,1000);
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editEntity.RemoveEntityPhoneNumber());
         Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("InvalidPhone")));
         Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
+        Assert.assertTrue(company.VerifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
     }
 
     @Test(priority = 6)//Done
@@ -120,7 +124,7 @@ public class EditEntityTestCases extends BaseTest{
         Assert.assertTrue(editEntity.RemoveEntityPhoneNumber());
         Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Alphabates")));
         Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
+        Assert.assertTrue(company.VerifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
     }
 
     @Test(priority = 7)//Done
@@ -141,7 +145,7 @@ public class EditEntityTestCases extends BaseTest{
         Assert.assertTrue(editEntity.RemoveEntityPhoneNumber());
         Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("InvalidPhone2")));
         Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
+        Assert.assertTrue(company.VerifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
     }
 
     @Test(priority = 8)//Done
@@ -156,7 +160,7 @@ public class EditEntityTestCases extends BaseTest{
         EditCompany editCompany= new EditCompany(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
-        /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+/*        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editEntity.RemoveEntityPhoneNumber());
@@ -167,6 +171,28 @@ public class EditEntityTestCases extends BaseTest{
 
 
     @Test(priority = 9)//Done
+    @TestParameters(testCaseId = {"TC-23"})
+    public void TC_23_2_WhenAdminEnter8digitPhoneNumberOnPhoneNumberField() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreateEntity createentity = new CreateEntity(driver);
+        EditEntity editEntity=new EditEntity(driver);
+        CreateCompany company=new CreateCompany(driver);
+        EditCompany editCompany= new EditCompany(driver);
+        loginPage.VerifyValidLogin();
+        Assert.assertTrue(dashboard.RefreshBrowser());
+        /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        Assert.assertTrue(dashboard.ClickonEntityManagement());*/
+        Assert.assertTrue(editCompany.ClickonEditbutton());
+        Assert.assertTrue(editEntity.RemoveEntityPhoneNumber());
+        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("InvalidPhone4")));
+        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(company.VerifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
+    }
+
+
+    @Test(priority = 10)//Done
     @TestParameters(testCaseId = {"TC-25"})
     public void TC_25_WhenAdminEnterInvalidEmailOnEditEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -188,7 +214,7 @@ public class EditEntityTestCases extends BaseTest{
     }
 
 
-    @Test(priority = 10)//Done
+    @Test(priority = 11)//Done
     @TestParameters(testCaseId = {"TC-29"})
     public void TC_29_WhenAdminEnterNumbersinEmailOnEditEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -209,7 +235,7 @@ public class EditEntityTestCases extends BaseTest{
         Assert.assertTrue(createentity.VerifyInvalidEmailErrorMessage(msg.InvalidemailErrorMsgonCreateNewEntityDrawer()));
     }
 
-    @Test(priority = 11)//Done
+    @Test(priority = 12)//Done
     @TestParameters(testCaseId = {"TC-27_28"})
     public void TC_27_WhenAdminEnterAlphabatesinEmailOnEditEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -230,7 +256,7 @@ public class EditEntityTestCases extends BaseTest{
         Assert.assertTrue(createentity.VerifyInvalidEmailErrorMessage(msg.InvalidemailErrorMsgonCreateNewEntityDrawer()));
     }
 
-    @Test(priority = 12)//Done
+    @Test(priority = 13)//Done
     @TestParameters(testCaseId = {"TC-30"})
     public void TC_30_WhenAdminEnterIncompleteEmailinEmailOnEditEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -251,7 +277,7 @@ public class EditEntityTestCases extends BaseTest{
         Assert.assertTrue(createentity.VerifyInvalidEmailErrorMessage(msg.InvalidemailErrorMsgonCreateNewEntityDrawer()));
     }
 
-    @Test(priority = 13)//Done
+    @Test(priority = 14)//Done
     @TestParameters(testCaseId = {"TC-26"})
     public void TC_26_WhenAdminEnterSpecialCharactersinEmailOnEditEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -272,7 +298,7 @@ public class EditEntityTestCases extends BaseTest{
         Assert.assertTrue(createentity.VerifyInvalidEmailErrorMessage(msg.InvalidemailErrorMsgonCreateNewEntityDrawer()));
     }
 
-    @Test(priority = 14)//Done
+    @Test(priority = 15)//Done
     @TestParameters(testCaseId = {"TC-32"})
     public void TC_32_WhenAdminEnterinvalidEmailFormatinEmailOnEditEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -293,7 +319,7 @@ public class EditEntityTestCases extends BaseTest{
         Assert.assertTrue(createentity.VerifyInvalidEmailErrorMessage(msg.InvalidemailErrorMsgonCreateNewEntityDrawer()));
     }
 
-    @Test(priority = 15)//Done
+    @Test(priority = 16)//Done
     @TestParameters(testCaseId = {"TC-31"})
     public void TC_31_WhenAdminAddEmaiwithoutdotcominEmailOnEditEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -314,7 +340,7 @@ public class EditEntityTestCases extends BaseTest{
         Assert.assertTrue(createentity.VerifyInvalidEmailErrorMessage(msg.InvalidemailErrorMsgonCreateNewEntityDrawer()));
     }
 
-    @Test(priority = 16)//Done
+    @Test(priority = 17)//Done
     @TestParameters(testCaseId = {"TC-33"})
     public void TC_33_WhenAdminLeavesEmailFieldBlankOnEditEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -336,7 +362,7 @@ public class EditEntityTestCases extends BaseTest{
 
 
 
-    @Test(priority = 17)//Done
+    @Test(priority = 18)//Done
     @TestParameters(testCaseId = {"TC-37"})
     public void TC_37_VerifyErrorMessageisShowingWhenAdminprovidesSpecialCharactersinEINNumberOnEditEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -356,7 +382,7 @@ public class EditEntityTestCases extends BaseTest{
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
     }
 
-    @Test(priority = 18)//Done
+    @Test(priority = 19)//Done
     @TestParameters(testCaseId = {"TC-38"})
     public void TC_38_VerifyErrorMessageisShowingWhenAdminprovidesAlphabatesinEINNumberOnEditEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -376,7 +402,7 @@ public class EditEntityTestCases extends BaseTest{
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
     }
 
-    @Test(priority = 19)//Done
+    @Test(priority = 20)//Done
     @TestParameters(testCaseId = {"TC-36"})
     public void TC_36_VerifyErrorMessageisShowingWhenAdminprovidesInvalidZipcodeOnEditEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -395,7 +421,7 @@ public class EditEntityTestCases extends BaseTest{
         Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
-    @Test(priority = 20)//Done
+    @Test(priority = 21)//Done
     @TestParameters(testCaseId = {"TC-42"})
     public void TC_42_VerifyErrorMessageisShowingWhenAdminEnterInvalidFromatInZipcodeOnEditEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -414,7 +440,7 @@ public class EditEntityTestCases extends BaseTest{
         Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
-    @Test(priority = 21)//Done
+    @Test(priority = 22)//Done
     @TestParameters(testCaseId = {"TC-41"})
     public void TC_41_VerifyErrorMessageisShowingWhenAdminEnterZipcodewithlessthanfivedigitsOnEditEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -434,7 +460,7 @@ public class EditEntityTestCases extends BaseTest{
         Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
-    @Test(priority = 22)//Done
+    @Test(priority = 23)//Done
     @TestParameters(testCaseId = {"TC-43"})
     public void TC_43_VerifyErrorMessageisShowingWhenAdminEnterInvalidZipcodeFormatOnEditEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -453,7 +479,7 @@ public class EditEntityTestCases extends BaseTest{
         Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
-    @Test(priority = 23)//Done
+    @Test(priority = 24)//Done
     @TestParameters(testCaseId = {"TC-44"})
     public void TC_44_WhenAdminEnterInvalidZipcodeFormatOnEditEntityDrawer() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -472,7 +498,7 @@ public class EditEntityTestCases extends BaseTest{
         Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
-    @Test(priority = 24)//Done
+    @Test(priority = 25)//Done
     @TestParameters(testCaseId = {"TC-61"})
     public void TC_61_WhenAdminChangeInputFieldWithValidDataonEditEntityDrawer() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
@@ -502,7 +528,7 @@ public class EditEntityTestCases extends BaseTest{
         Assert.assertTrue(createentity.VerifyCreateNewEntityButtonHasDisplayed());
     }
 
-    @Test(priority = 25)//Done
+    @Test(priority = 26)//Done
     @TestParameters(testCaseId = {"TC-70"})
     public void TC_70_VerifyUpdatedInformationsisShowingAfterUpdatingtheEntity() throws InterruptedException, IOException {
         HomePage homePage = new HomePage(driver);
@@ -523,7 +549,7 @@ public class EditEntityTestCases extends BaseTest{
         Assert.assertTrue(editEntity.VerifyUpdatedEntityisShowinginEntityTable());
     }
 
-    @Test(priority = 26)//Done
+    @Test(priority = 27)//Done
     @TestParameters(testCaseId = {"TC-75"})
     public void TC_75_WhenAdminpressCancelButtonAfterChangingEntityNameFromEditCompanyDrawer() throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
@@ -627,11 +653,15 @@ public class EditEntityTestCases extends BaseTest{
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
+        EditEntity editEntity = new EditEntity(driver);
         loginPage.VerifyValidLogin();
         dashboard.RefreshBrowser();
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());
-        Assert.assertTrue(editCompany.ClickonEditbutton());
+        customerSignUp.FieldClear(EditCompany.searchbar);
+        createCharger.writeInputText(EditCompany.searchbar,prop.getProperty("Entity3"), 5000);
+        createCharger.ClickButton(EditCompany.searchbtn,1000);
+        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
         createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
         Assert.assertTrue(editCompany.verifyEinSaving());
         Assert.assertTrue(editCompany.verifyAuditLogStatusForEinChange());
@@ -647,16 +677,18 @@ public class EditEntityTestCases extends BaseTest{
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
+        CreateEntity createEntity = new CreateEntity(driver);
 //        loginPage.VerifyValidLogin();
         dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+/*        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());
-//        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
-//        createCharger.ClickButton(EditCompany.searchbtn,1000);
+        createCharger.writeInputText(EditCompany.searchbar, prop.getProperty("Entity3"), 5000);
+        createCharger.ClickButton(EditCompany.searchbtn,1000);*/
+        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
         createCharger.ClickButton(EditCompany.ShowButtonEin,4000);
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5645657567567567567",2500);
-        Assert.assertTrue(company.ClickonSaveButton());;
+        Assert.assertTrue(createEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
@@ -670,6 +702,7 @@ public class EditEntityTestCases extends BaseTest{
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
+        CreateEntity createentity = new CreateEntity(driver);
         loginPage.VerifyValidLogin();
         dashboard.RefreshBrowser();
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
@@ -680,7 +713,7 @@ public class EditEntityTestCases extends BaseTest{
         createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5445  6765765",2500);
-        Assert.assertTrue(company.ClickonSaveButton());;
+        Assert.assertTrue(createentity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
@@ -694,6 +727,7 @@ public class EditEntityTestCases extends BaseTest{
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
+        CreateEntity createentity = new CreateEntity(driver);
         loginPage.VerifyValidLogin();
         dashboard.RefreshBrowser();
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
@@ -704,7 +738,7 @@ public class EditEntityTestCases extends BaseTest{
         createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5--67567567567",2500);
-        Assert.assertTrue(company.ClickonSaveButton());;
+        Assert.assertTrue(createentity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
@@ -718,6 +752,7 @@ public class EditEntityTestCases extends BaseTest{
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
+        CreateEntity createentity = new CreateEntity(driver);
         loginPage.VerifyValidLogin();
         dashboard.RefreshBrowser();
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
@@ -728,7 +763,7 @@ public class EditEntityTestCases extends BaseTest{
         createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"22-4523789",2500);
-        Assert.assertTrue(company.ClickonSaveButton());;
+        Assert.assertTrue(createentity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
@@ -742,6 +777,7 @@ public class EditEntityTestCases extends BaseTest{
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
+        CreateEntity createentity = new CreateEntity(driver);
         loginPage.VerifyValidLogin();
         dashboard.RefreshBrowser();
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
@@ -752,7 +788,7 @@ public class EditEntityTestCases extends BaseTest{
         createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"aaertyuwe",2500);
-        Assert.assertTrue(company.ClickonSaveButton());;
+        Assert.assertTrue(createentity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
@@ -766,6 +802,7 @@ public class EditEntityTestCases extends BaseTest{
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
+        CreateEntity createentity = new CreateEntity(driver);
         loginPage.VerifyValidLogin();
         dashboard.RefreshBrowser();
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
@@ -776,7 +813,7 @@ public class EditEntityTestCases extends BaseTest{
         createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"er-yqsdert",2500);
-        Assert.assertTrue(company.ClickonSaveButton());;
+        Assert.assertTrue(createentity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
@@ -790,6 +827,7 @@ public class EditEntityTestCases extends BaseTest{
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
+        CreateEntity createentity = new CreateEntity(driver);
         loginPage.VerifyValidLogin();
         dashboard.RefreshBrowser();
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
@@ -800,7 +838,7 @@ public class EditEntityTestCases extends BaseTest{
         createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"1234567as",2500);
-        Assert.assertTrue(company.ClickonSaveButton());;
+        Assert.assertTrue(createentity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
 
@@ -874,11 +912,15 @@ public class EditEntityTestCases extends BaseTest{
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
+        EditEntity editEntity = new EditEntity(driver);
         loginPage.VerifyValidLoginForCosAccounting();
         dashboard.RefreshBrowser();
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        editEntity.FieldClear(EditCompany.searchbar);
+        createCharger.writeInputText(EditCompany.searchbar,prop.getProperty("Entity2"),5000);
+        createCharger.ClickButton(EditCompany.searchbtn,1000);
+        editCompany.ClickonEditbutton();
         createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
         Assert.assertTrue(editCompany.verifyEinSaving());
         Assert.assertTrue(editCompany.verifyAuditLogStatusForEinChange());
@@ -894,17 +936,18 @@ public class EditEntityTestCases extends BaseTest{
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
+        CreateEntity createentity = new CreateEntity(driver);
 //        loginPage.VerifyValidLogin();
         dashboard.RefreshBrowser();
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+        Assert.assertTrue(dashboard.ClickonEntityManagement());
 //        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        editCompany.ClickonEditbutton();
         createCharger.ClickButton(EditCompany.ShowButtonEin,4000);
         customerSignUp.FieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5645657567567567567",2500);
-        Assert.assertTrue(company.ClickonSaveButton());;
+        Assert.assertTrue(createentity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
@@ -926,6 +969,8 @@ public class EditEntityTestCases extends BaseTest{
         Thread.sleep(2000);
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());
+        createCharger.writeInputText(EditCompany.searchbar,"Apple A",5000);
+        createCharger.ClickButton(EditCompany.searchbtn,1000);
         createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
         createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
         Assert.assertTrue(editCompany.verifyEinSaving());

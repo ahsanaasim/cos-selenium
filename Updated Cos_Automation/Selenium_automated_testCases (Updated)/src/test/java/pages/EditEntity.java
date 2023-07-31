@@ -45,11 +45,14 @@ public class EditEntity extends BasePage {
     }
 
     public boolean RemoveEntityPhoneNumber () throws InterruptedException {
+        Thread.sleep(1500);
         waitVisibility(entity.phone);
-        Thread.sleep(3000);
-        WebElement phonenumber= driver.findElement(By.xpath("//input[@placeholder='Phone Number']"));
-        phonenumber.sendKeys(Keys.CONTROL + "a");
-        phonenumber.sendKeys(Keys.DELETE);
+        waitelemtclickable(entity.phone);
+        WebElement NumberField = driver.findElement(entity.phone);
+        for(int i = 0; i <10 ;i++)
+        {
+            NumberField.sendKeys(Keys.chord(Keys.BACK_SPACE));
+        }
         return true;
     }
 

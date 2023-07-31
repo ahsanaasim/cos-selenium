@@ -68,7 +68,8 @@ public class CustomerSignUp extends BasePage{
     }
     public boolean FieldClear(By element) throws InterruptedException{
         Thread.sleep(2000);
-        waitforPresence(element);
+        waitVisibility(element);
+        waitelemtclickable(element);
         driver.findElement(element).sendKeys(Keys.chord(Keys.CONTROL+"a", Keys.DELETE));
         return true;
     }

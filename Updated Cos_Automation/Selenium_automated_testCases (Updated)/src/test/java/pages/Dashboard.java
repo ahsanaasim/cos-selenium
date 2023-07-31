@@ -49,9 +49,8 @@ public class Dashboard extends BasePage {
     }
 
     public boolean ClickonCompanyfromLeftMenuBar ()  {
-        driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         Createcompany.waitForSpinner();
-        waitelementtobedisplayed(company);
         waitVisibility(company);
         click(company);
         return true;
@@ -76,9 +75,9 @@ public class Dashboard extends BasePage {
     }
 
     public boolean ClickonEntityManagement () throws InterruptedException {
-        Thread.sleep(3000);
-        waitelementtobedisplayed(entitymanagement);
+        Thread.sleep(1500);
         waitVisibility(entitymanagement);
+        waitelemtclickable(entitymanagement);
         click(entitymanagement);
         return true;
     }

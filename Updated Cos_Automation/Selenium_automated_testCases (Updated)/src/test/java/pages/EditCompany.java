@@ -68,12 +68,9 @@ public class EditCompany extends BasePage {
 
 
     public boolean ClickonEditbutton () throws InterruptedException {
-        company.waitForSpinner();
-        waitVisibility(editcompanybtn);
-        waitelemtclickable(editcompanybtn);
-        // waitelementtobedisplayed(editcompanybtn);
-        //  wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("(//span[contains(.,'Edit')])[2]")));
-        click(editcompanybtn);
+//        company.waitForSpinner();
+        waitVisibility(EditCompanyBtn);
+        click(EditCompanyBtn);
         return true;
     }
 
@@ -203,7 +200,7 @@ public class EditCompany extends BasePage {
 
     public boolean VerifyEditButtonHasDisplayed() {
         company.waitForSpinner();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         if( driver.findElement(By.xpath("(//button[contains(.,'Edit')])[2]")).isDisplayed())
         {
             System.out.println("Edit button has displayed");
@@ -352,7 +349,7 @@ public class EditCompany extends BasePage {
         String LatestEin = Integer.toString(EinNumber);
         System.out.println("Ein Number: "+EinNumber);
         createCharger.writeInputText(company.ein,LatestEin,1000);
-        createCharger.ClickButton(EditEntity.SaveEntityButton,1500);
+        createCharger.ClickButton(EditCompany.SaveCompanyButton,1500);
         createCharger.ClickButton(EditCompanyBtn,3500);
         createCharger.ClickButton(ShowButtonEin,2000);
         Thread.sleep(1500);

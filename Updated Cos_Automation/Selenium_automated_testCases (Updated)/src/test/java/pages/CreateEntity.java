@@ -42,9 +42,9 @@ public class CreateEntity extends BasePage {
 
 
 
+
     public boolean ClickonCreateEntitybutton () {
-        waitforInVisibility(loader);
-        waitelementtobedisplayed(createentitybtn);
+//        waitforInVisibility(loader);
         click(createentitybtn);
         return true;
     }
@@ -55,7 +55,7 @@ public class CreateEntity extends BasePage {
     }
 
     public boolean ClickonSaveButton () throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(1500);
         waitelemtclickable(savebtn);
         click(savebtn);
         return true;
@@ -122,7 +122,8 @@ public class CreateEntity extends BasePage {
     }
 
     public boolean WriteEntityPhoneNumber(String Phone) {
-        writeText(phone, Phone);
+        waitelemtclickable(phone);
+        writeText(phone,Phone);
         return true;
     }
 
