@@ -570,4 +570,22 @@ public class EditProperty extends BasePage {
         return true;
     }
 
+    public boolean VerifySearchResultCount() throws InterruptedException {
+        Thread.sleep(4000);
+        waitVisibility(CreateCharger.SearchResultCount);
+        String countText = driver.findElement(CreateCharger.SearchResultCount).getText();
+        countText = countText.replaceAll("Showing Properties: ", "");
+        int count = Integer.parseInt(countText);
+        System.out.println(count);
+        if(count>0)
+        {
+            System.out.println("Search Count is :"+count);
+            return true;
+        }
+        else{
+            System.out.println("Something Went Wrong!!");
+            return false;
+        }
+    }
+
 }

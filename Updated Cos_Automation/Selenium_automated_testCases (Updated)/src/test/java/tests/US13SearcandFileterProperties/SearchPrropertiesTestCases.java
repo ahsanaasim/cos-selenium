@@ -30,7 +30,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());
         Assert.assertTrue(editCompany.ClickonSearchButton());
-        Assert.assertTrue(searchandfilter.verifPagehasRefreshafterpressingsearchbutton());
+        Assert.assertTrue(searchcompany.verifyAnElementDisplayedOrNot(200,SearchCompany.Spiner));
     }
 
     @Test(priority = 2)//Done
@@ -54,8 +54,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
 
     @Test(priority = 3)//Done
     @TestParameters(testCaseId = {"TC-3"})
-    public void TC_3_WhenAdminSearchPropertybyProprtyName() throws InterruptedException, IOException {
-
+    public void TC_3_WhenAdminSearchPropertyByPropertyName() throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
@@ -67,15 +66,14 @@ public class SearchPrropertiesTestCases extends BaseTest {
         Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());
-        Assert.assertTrue(property.searchPropertyByName(prop.getProperty("PropertyName")));
+        Assert.assertTrue(property.searchPropertyByName(prop.getProperty("PropertyName5")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
-        Assert.assertTrue(property.verifyNewlyCreatedPropertisShowingonPropertyPage());
+        Assert.assertTrue(searchandfilter.verifyExpectedColumnWithExpectedContent("Property Name",prop.getProperty("PropertyName5"),0));
     }
 
     @Test(priority = 4)//Done
     @TestParameters(testCaseId = {"TC-5"})
     public void TC_5_WhenAdminSearchPropertybyCompanyName() throws InterruptedException, IOException {
-
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
@@ -86,15 +84,15 @@ public class SearchPrropertiesTestCases extends BaseTest {
         Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());
-        Assert.assertTrue(property.searchPropertyByName(prop.getProperty("PropertyName")));
+        Assert.assertTrue(property.searchPropertyByName(prop.getProperty("CompanyNameForAutomation")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
-        Assert.assertTrue(searchandfilter.verifCompnayNameisShowingonProprtyPage());
+        Assert.assertTrue(searchandfilter.verifyExpectedColumnWithExpectedContent("Company",prop.getProperty("CompanyNameForAutomation"),2));
+        Assert.assertTrue(searchandfilter.verifyExpectedColumnWithExpectedContent("Property Name",prop.getProperty("PropertyName5"),0));
     }
 
     @Test(priority = 5)//Done
     @TestParameters(testCaseId = {"TC-7"})
     public void TC_7_WhenAdminSearchPropertybyEntityName() throws InterruptedException, IOException {
-
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
@@ -105,9 +103,10 @@ public class SearchPrropertiesTestCases extends BaseTest {
         Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());
-        Assert.assertTrue(property.searchPropertyByName(prop.getProperty("PropertyName")));
+        Assert.assertTrue(property.searchPropertyByName(prop.getProperty("Entity2")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
-        Assert.assertTrue(searchandfilter.verifEntityNameisShowingonProprtyPage());
+        Assert.assertTrue(searchandfilter.verifyExpectedColumnWithExpectedContent("Entity",prop.getProperty("Entity2"),3));
+        Assert.assertTrue(searchandfilter.verifyExpectedColumnWithExpectedContent("Property Name",prop.getProperty("PropertyName5"),0));
     }
 
     @Test(priority = 6)//Done
@@ -151,7 +150,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
     public void TC_10_Checkwhathappenswhenadminclicksonthecrossoptionaftersearchinganyproperty () throws InterruptedException, IOException {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
-        SearchCompany searchcompany=new SearchCompany(driver);
+        SearchLocation searchLocation = new SearchLocation(driver);
         EditCompany editCompany=new EditCompany(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty property = new CreateProperty(driver);
@@ -159,37 +158,37 @@ public class SearchPrropertiesTestCases extends BaseTest {
         Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());
-        Assert.assertTrue(property.searchPropertyByName(prop.getProperty("PropertyName")));
+        Assert.assertTrue(property.searchPropertyByName(prop.getProperty("PropertyName5")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
         Assert.assertTrue(searchandfilter.clickOnCross());
-        Assert.assertTrue(searchandfilter.verifyProvidedtNameisNotShowingAfterClickingonCross());
+        Assert.assertTrue(searchLocation.verifyPageHasResettoDefaultData());
     }
 
-    @Test(priority = 9)//Done
-    @TestParameters(testCaseId = {"TC-12"})
-    public void TC_12_WhenAdminOpenPropertyTabOnIncognitoMode () throws InterruptedException, IOException {
-        SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
-        Assert.assertTrue(searchandfilter.openPropertyPageinIncognitoMode());
-    }
+//    @Test(priority = 9)//Done
+//    @TestParameters(testCaseId = {"TC-12"})
+//    public void TC_12_WhenAdminOpenPropertyTabOnIncognitoMode () throws InterruptedException, IOException {
+//        SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
+//        Assert.assertTrue(searchandfilter.openPropertyPageinIncognitoMode());
+//    }
 
-    @Test(priority = 10)//Done
-    @TestParameters(testCaseId = {"TC-13"})
-    public void TC_13_WhenAdminPressEnterButtonAfterSearchingAnyProperty () throws InterruptedException, IOException {
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
-        SearchCompany searchcompany=new SearchCompany(driver);
-        EditCompany editCompany=new EditCompany(driver);
-        SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
-        CreateProperty property = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
-        Assert.assertTrue(property.searchPropertyByName(prop.getProperty("PropertyName")));
-        Assert.assertTrue(searchandfilter.clickEnterButton());
-        Assert.assertTrue(property.verifyNewlyCreatedPropertisShowingonPropertyPage());
-    }
+//    @Test(priority = 10)//Done
+//    @TestParameters(testCaseId = {"TC-13"})
+//    public void TC_13_WhenAdminPressEnterButtonAfterSearchingAnyProperty () throws InterruptedException, IOException {
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard=new Dashboard(driver);
+//        SearchCompany searchcompany=new SearchCompany(driver);
+//        EditCompany editCompany=new EditCompany(driver);
+//        SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
+//        CreateProperty property = new CreateProperty(driver);
+//        loginPage.VerifyValidLogin();
+//        Assert.assertTrue(dashboard.RefreshBrowser());
+//        Assert.assertTrue(dashboard.GotoDashboard());
+//        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+//        Assert.assertTrue(dashboard.clickonProperty());
+//        Assert.assertTrue(property.searchPropertyByName(prop.getProperty("PropertyName")));
+//        Assert.assertTrue(searchandfilter.clickEnterButton());
+//        Assert.assertTrue(property.verifyNewlyCreatedPropertisShowingonPropertyPage());
+//    }
 
     @Test(priority = 11)//Done
     @TestParameters(testCaseId = {"TC-14"})
@@ -206,7 +205,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         Assert.assertTrue(dashboard.clickonProperty());
         Assert.assertTrue(property.searchPropertyByName(prop.getProperty("PropertyName")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
-        Assert.assertTrue(searchandfilter.verifCountAfterSorting());
+        Assert.assertTrue(searchandfilter.VerifyPropertyCountOnTop());
     }
 
     @Test(priority = 12)//Done

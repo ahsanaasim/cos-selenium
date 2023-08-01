@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -26,8 +27,8 @@ public class SearchandFilterProperties extends BasePage {
     By cross = By.xpath("//span[@aria-label='close-circle']//*[name()='svg']");
     By removebtn = By.xpath("//span[contains(text(),'Unknown Entity')]//span[@aria-label='close']//*[name()='svg']");
     By closebtn = By.xpath("//span[@title='Unknown Entity']//span[@aria-label='close']//*[name()='svg']");
-   By count = By.xpath("//span[contains(@class,'showCount')]");
-   By compnaydropdown = By.xpath("(//div[@class='ant-select-selection-overflow'])[1]");
+    By count = By.xpath("//span[contains(@class,'showCount')]");
+    By compnaydropdown = By.xpath("(//div[@class='ant-select-selection-overflow'])[1]");
     By entitydropdown = By.xpath("(//div[@class='ant-select-selection-overflow'])[2]");
     By cmpnyname = By.xpath("(//div[@class='ant-select-item-option-content'])[2]");
     By entityname = By.xpath("(//div[contains(.,'Unknown Entity')])[10]");
@@ -59,13 +60,15 @@ public class SearchandFilterProperties extends BasePage {
 
 
 
-    public boolean clickOnCross() {
+    public boolean clickOnCross() throws InterruptedException {
+        Thread.sleep(1500);
         waitVisibility(cross);
         click(cross);
         return true;
     }
 
-    public boolean clickOnDrawerTitle() {
+    public boolean clickOnDrawerTitle() throws InterruptedException {
+        Thread.sleep(1500);
         waitVisibility(drawertitle);
         click(drawertitle);
         return true;
@@ -354,16 +357,6 @@ public class SearchandFilterProperties extends BasePage {
     }
 
 
-    public boolean verifCountAfterSorting() {
-        waitVisibility(count);
-        if(driver.getPageSource().contains("Showing Properties: 2"))
-        {
-            System.out.println("Total 2 Properties are showing");
-        }else{
-            System.out.println("Something Went Wrong!!");
-        }
-        return true;
-    }
 
     public boolean verifyCompanyTagisShowingonPropertyPage() {
         company.waitForSpinner();
@@ -526,6 +519,60 @@ public class SearchandFilterProperties extends BasePage {
     public boolean verifyUserHasRedirectedTowardtheChargerTable() {
         urlCheck(prop.getProperty("ChargerURL"));
         return true;
+    }
+
+    public boolean verifyExpectedColumnWithExpectedContent(String Header, String content, int IndexOfTitle) throws InterruptedException {
+        Thread.sleep(3000);
+        waitforPresence(FeeStructureList.Edit);
+        WebElement mytable = driver.findElement(By.xpath("//thead"));
+        List<WebElement> headers = mytable.findElements(By.tagName("th"));
+        int resultColumnIndex = 0;
+        for (int i = 0; i < headers.size(); i++) {
+            if (headers.get(i).getText().equals(Header)) {
+                resultColumnIndex = i;
+                System.out.println(resultColumnIndex);
+                System.out.println(Header);
+                break;
+            }
+        }
+        if (resultColumnIndex != IndexOfTitle) {
+            // The "Result" column was not found
+            throw new RuntimeException("The column was not found");
+        }
+
+        WebElement myrows = driver.findElement(By.xpath("//tbody"));
+        List<WebElement> rows = myrows.findElements(By.tagName("tr"));
+        for (int i = 1; i < rows.size(); i++) { // start at index 1 to skip the header row
+            List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));
+            String result = cells.get(resultColumnIndex).getText();
+            System.out.println(result);
+            if (!result.contains(content)) {
+                // Verification failed
+                throw new RuntimeException("Verification failed. Expected "+content+", but got '" + result + "' in row " + i);
+
+            }
+
+        }
+        System.out.println("Given column occupied with expected content");
+        return true;
+
+
+    }
+
+
+    public boolean VerifyPropertyCountOnTop() throws InterruptedException {
+        waitVisibility(CreateCharger.SearchResultCount);
+        String countText = driver.findElement(CreateCharger.SearchResultCount).getText();
+        System.out.println("Cont Text: "+countText);
+        if(countText.matches("Showing Properties: \\d+"))
+        {
+            System.out.println("Search Count is :");
+            return true;
+        }
+        else{
+            System.out.println("Something Went Wrong!!");
+            return false;
+        }
     }
 
 

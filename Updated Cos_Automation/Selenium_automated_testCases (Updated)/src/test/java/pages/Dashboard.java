@@ -50,8 +50,7 @@ public class Dashboard extends BasePage {
 
     public boolean ClickonCompanyfromLeftMenuBar ()  {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        Createcompany.waitForSpinner();
-        waitVisibility(company);
+//        Createcompany.waitForSpinner();
         click(company);
         return true;
     }

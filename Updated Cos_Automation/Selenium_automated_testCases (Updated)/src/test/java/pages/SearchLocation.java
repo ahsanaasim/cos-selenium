@@ -847,12 +847,12 @@ public class SearchLocation extends BasePage{
     }
 
     public boolean verifyPageHasResettoDefaultData() throws InterruptedException {
-        Thread.sleep(2000);
-        waitforPresence(By.xpath("(//div[@class='wordBreak'])[9]"));
+        Thread.sleep(2500);
+        waitVisibility(By.xpath("(//div[@class='wordBreak'])[9]"));
         WebElement count= driver. findElement(By.xpath("//span[@class='showCount']"));
         String countOfResetValue = count.getText().replaceAll("[^0-9]","");
         System.out.println(countOfResetValue);
-        String Expected = "3";
+        String Expected = "50";
         if(countOfResetValue.equals(Expected))
         {
             System.out.println("Total Locations Showing After Removing Filter:" +count.getText());

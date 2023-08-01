@@ -792,7 +792,7 @@ public class EntityModuleTestCases extends BaseTest {
         SearchCompany searchcompany=new SearchCompany(driver);
         SearchEntity searchEntity = new SearchEntity(driver);
         loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+//        Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());

@@ -50,7 +50,6 @@ public class ChargerListPropertyAdmin extends BasePage {
     public boolean ClickButton(By element, int delay) throws InterruptedException {
         Thread.sleep(delay);
         //waitforInVisibility(loader);
-        waitelementtobedisplayed(element);
         click(element);
         return true;
     }

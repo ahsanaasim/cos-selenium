@@ -537,9 +537,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
         System.out.println("Charging rate in drawer: "+UpdatedChargingRateInDrawer);
         click(UpdateChargerPropertyAdmin.SaveCharger);
         Thread.sleep(1500);
-        waitforPresence(CosAdminChargerList.EditButton);
         click(CosAdminChargerList.EditButton);
-        waitforPresence(UpdateChargerPropertyAdmin.CopyButton);
         click(UpdateChargerPropertyAdmin.CopyButton);
 // Open a new tab
         String myText = (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor); // extracting the text that was copied to the clipboard

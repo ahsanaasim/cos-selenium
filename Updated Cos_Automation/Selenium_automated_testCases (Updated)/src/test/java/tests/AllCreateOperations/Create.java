@@ -83,6 +83,8 @@ public class Create extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
+        CreateCharger createCharger = new CreateCharger(driver);
+        EditProperty editProperty = new EditProperty(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
@@ -113,8 +115,11 @@ public class Create extends BaseTest {
         Assert.assertTrue(properties.enterSessionMinimumFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.SelectToday());
         Assert.assertTrue(properties.clickonCreatePropertyButton());
-//        Assert.assertTrue(properties.verifyCreateNewPropertyDrawerHasClosed());
         Assert.assertTrue(properties.verifyNewPropertyHasCreated(msg.NewlyCreatedPropertymsg()));
+        Assert.assertTrue(company.verifyAnElementDisplayedOrNot(2500,DashboardPropertyDetails.TopAccountName));
+        Assert.assertTrue(createCharger.writeInputText(CreateProperty.searchbar,prop.getProperty("PropertyName5"),3000));
+        Assert.assertTrue(createCharger.ClickButton(EditCompany.searchbtn,2000));
+        Assert.assertTrue(editProperty.VerifySearchResultCount());
     }
 
 

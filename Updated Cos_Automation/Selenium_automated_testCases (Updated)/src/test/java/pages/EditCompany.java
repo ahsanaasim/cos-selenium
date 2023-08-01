@@ -68,7 +68,7 @@ public class EditCompany extends BasePage {
 
 
     public boolean ClickonEditbutton () throws InterruptedException {
-//        company.waitForSpinner();
+        company.waitForSpinner();
         waitVisibility(EditCompanyBtn);
         click(EditCompanyBtn);
         return true;

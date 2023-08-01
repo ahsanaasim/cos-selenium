@@ -203,12 +203,12 @@ public class SearchEntity extends BasePage{
             System.out.println(result);
             if (!result.equals(content)) {
                 // Verification failed
-                throw new RuntimeException("Verification failed. Expected 'Edit', but got '" + result + "' in row " + i);
+                throw new RuntimeException("Verification failed. Expected "+content+", but got '" + result + "' in row " + i);
 
             }
 
         }
-        System.out.println("Action column occupied with edit button");
+        System.out.println("Given column occupied with expected content");
         return true;
 
 
