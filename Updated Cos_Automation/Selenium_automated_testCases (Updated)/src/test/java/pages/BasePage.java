@@ -28,6 +28,12 @@ public class BasePage {
         return true;
     }
 
+    public boolean waitToAvoidStaleness(WebElement element) {
+        wait.until(ExpectedConditions.stalenessOf(element));
+        //wait.until(ExpectedConditions.elementToBeClickable(elementBy));
+        return true;
+    }
+
     public void waitelemtclickable(By elementBy) {
         //driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         wait.until(ExpectedConditions.elementToBeClickable(elementBy));

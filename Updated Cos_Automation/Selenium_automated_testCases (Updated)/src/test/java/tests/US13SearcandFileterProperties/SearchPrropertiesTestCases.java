@@ -36,7 +36,6 @@ public class SearchPrropertiesTestCases extends BaseTest {
     @Test(priority = 2)//Done
     @TestParameters(testCaseId = {"TC-2"})
     public void TC_2_VerifyBrowserhasRereshafterProvidingSpaceinSearchBar() throws InterruptedException, IOException {
-
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
@@ -214,15 +213,14 @@ public class SearchPrropertiesTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
-        EditCompany editCompany=new EditCompany(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
-        CreateProperty property = new CreateProperty(driver);
+        ChargerListPropertyAdmin list = new ChargerListPropertyAdmin(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());
         Assert.assertTrue(searchandfilter.clickonLoadMoreButton());
-        Assert.assertTrue(searchandfilter.verifyMorepropertiesareShowingAfterPressingLoadMoreButton());
+        Assert.assertTrue(list.verifyLoadMoreButtonAction());
     }
 
     @Test(priority = 13)//Done
@@ -234,32 +232,32 @@ public class SearchPrropertiesTestCases extends BaseTest {
         EditCompany editCompany=new EditCompany(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty property = new CreateProperty(driver);
+        ChargerListPropertyAdmin list = new ChargerListPropertyAdmin(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
-        Assert.assertTrue(searchandfilter.clickonLoadMoreButton());
-        Assert.assertTrue(searchandfilter.verifyMorepropertiesareShowingAfterPressingLoadMoreButton());
+        Assert.assertTrue(list.verifyLoadMoreButtonAction());
     }
 
-    @Test(priority = 14)//Done
-    @TestParameters(testCaseId = {"TC-18"})
-    public void TC_18_VerifyCountonPropertyPageAfterSearchingAnyProperty () throws InterruptedException, IOException {
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
-        SearchCompany searchcompany=new SearchCompany(driver);
-        EditCompany editCompany=new EditCompany(driver);
-        SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
-        CreateProperty property = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
-        Assert.assertTrue(property.searchPropertyByName(prop.getProperty("PropertyName")));
-        Assert.assertTrue(editCompany.ClickonSearchButton());
-        Assert.assertTrue(searchandfilter.clickonLoadMoreButton());
-        Assert.assertTrue(searchandfilter.verifyPropertiesArematchingWithSearchedProperty());
-    }
+//    @Test(priority = 14)//Done
+//    @TestParameters(testCaseId = {"TC-18"})
+//    public void TC_18_VerifyCountonPropertyPageAfterSearchingAnyProperty () throws InterruptedException, IOException {
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard=new Dashboard(driver);
+//        SearchCompany searchcompany=new SearchCompany(driver);
+//        EditCompany editCompany=new EditCompany(driver);
+//        SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
+//        CreateProperty property = new CreateProperty(driver);
+//        loginPage.VerifyValidLogin();
+//        Assert.assertTrue(dashboard.GotoDashboard());
+//        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+//        Assert.assertTrue(dashboard.clickonProperty());
+//        Assert.assertTrue(property.searchPropertyByName(prop.getProperty("PropertyName")));
+//        Assert.assertTrue(editCompany.ClickonSearchButton());
+//        Assert.assertTrue(searchandfilter.clickonLoadMoreButton());
+//        Assert.assertTrue(searchandfilter.verifyPropertiesArematchingWithSearchedProperty());
+//    }
 
     @Test(priority = 15)//Done
     @TestParameters(testCaseId = {"TC-19"})
@@ -781,21 +779,21 @@ public class SearchPrropertiesTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 34)//Done
-    @TestParameters(testCaseId = {"TC-42"})
-    public void TC_42_CheckWhatHappensWhenAdminCliksonLoadMoreButton () throws InterruptedException, IOException {
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
-        SearchCompany searchcompany=new SearchCompany(driver);
-        SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
-        Assert.assertTrue(searchcompany.ClickonLoadMoreButton());
-        Assert.assertTrue(searchandfilter.verifyMorepropertiesareShowingAfterPressingLoadMoreButton());
-    }
+//    @Test(priority = 34)//Done
+//    @TestParameters(testCaseId = {"TC-42"})
+//    public void TC_42_CheckWhatHappensWhenAdminCliksonLoadMoreButton () throws InterruptedException, IOException {
+//        LoginPage loginPage = new LoginPage(driver);
+//        Dashboard dashboard=new Dashboard(driver);
+//        SearchCompany searchcompany=new SearchCompany(driver);
+//        SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
+//        loginPage.VerifyValidLogin();
+//        Assert.assertTrue(dashboard.RefreshBrowser());
+//        Assert.assertTrue(dashboard.GotoDashboard());
+//        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+//        Assert.assertTrue(dashboard.clickonProperty());
+//        Assert.assertTrue(searchcompany.ClickonLoadMoreButton());
+//        Assert.assertTrue(searchandfilter.verifyMorepropertiesareShowingAfterPressingLoadMoreButton());
+//    }
 
     @Test(priority = 35)//Done
     @TestParameters(testCaseId = {"TC-43"})

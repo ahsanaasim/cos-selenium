@@ -163,13 +163,13 @@ public class ChargerListPropertyAdmin extends BasePage {
         waitforPresence(LoadMoreButton);
         int PrevRowCount = driver.findElements(Rows).size();
         String LoadButtonText = driver.findElement(LoadMoreButton).getText();
-        System.out.println(LoadButtonText);
+        System.out.println("Text of Load more button: "+LoadButtonText);
         String KeepingNumbersOnly = LoadButtonText.replaceAll("[^0-9]","");
         System.out.println(KeepingNumbersOnly);
         int LoadButtonNumber = Integer.parseInt(KeepingNumbersOnly);
-        System.out.println(LoadButtonNumber);
+        System.out.println("Load count: "+LoadButtonNumber);
         int ExpectedRowCount = PrevRowCount+LoadButtonNumber;
-        driver.findElement(LoadMoreButton).click();
+        click(LoadMoreButton);
         Thread.sleep(2000);
         int LatestRowCount = driver.findElements(Rows).size();
         System.out.println(LatestRowCount);

@@ -30,6 +30,7 @@ public class SearchandFilterProperties extends BasePage {
     By count = By.xpath("//span[contains(@class,'showCount')]");
     By compnaydropdown = By.xpath("(//div[@class='ant-select-selection-overflow'])[1]");
     By entitydropdown = By.xpath("(//div[@class='ant-select-selection-overflow'])[2]");
+    By entityFieldToWrite = By.xpath("(//input[@class='ant-select-selection-search-input'])[2]");
     By cmpnyname = By.xpath("(//div[@class='ant-select-item-option-content'])[2]");
     By entityname = By.xpath("(//div[contains(.,'Unknown Entity')])[10]");
     By entityname1 = By.xpath("(//div[@class='ant-select-item-option-content'][contains(.,'New Entity')])[2]");
@@ -37,7 +38,7 @@ public class SearchandFilterProperties extends BasePage {
     By zipdropdown = By.xpath("(//div[@class='ant-select-selection-overflow'])[4]");
     By locationcount = By.xpath("(//span[@class='underline cursor'])[3]");
     By chargercount = By.xpath("(//span[@class='underline cursor'])[4]");
-    By loadmorebtn = By.xpath("//button[contains(.,'Load 3 More')]");
+    By loadmorebtn = By.xpath("//button[@class='ant-btn ant-btn-default primary-color']");
     By drawertitle = By.xpath("//div[@class='ant-drawer-title'][contains(.,'Advanced Filter')]");
 
     CreateCompany company= new CreateCompany(driver);
@@ -92,7 +93,8 @@ public class SearchandFilterProperties extends BasePage {
     }
 
     public boolean clickonLoadMoreButton() {
-        waitVisibility(loadmorebtn);
+        WebElement LoadMore = driver.findElement(loadmorebtn);
+        waitToAvoidStaleness(LoadMore);
         click(loadmorebtn);
         return true;
     }
@@ -100,9 +102,11 @@ public class SearchandFilterProperties extends BasePage {
     public boolean selectEntityNameFromAdvanceFilter() throws InterruptedException {
         // company.waitForSpinner();
         Thread.sleep(3000);
-        click(entityname);
+        writeText(entityFieldToWrite,prop.getProperty("Entity2"));
+        WebElement selectitem = driver.findElement(entityFieldToWrite);
+        Thread.sleep(3000);
+        selectitem.sendKeys(Keys.ENTER);
         click(searchcompany.advancefilter);
-
         return true;
     }
 
@@ -302,17 +306,6 @@ public class SearchandFilterProperties extends BasePage {
         return true;
     }
 
-    public boolean verifyMorepropertiesareShowingAfterPressingLoadMoreButton() {
-        company.waitForSpinner();
-      //  waitVisibility(ascendingcompanyname);
-        if(driver.getPageSource().contains("Showing Properties: 4"))
-        {
-            System.out.println("2 more properties are showing after Clicking on Load more button. Total 4 companies are showing");
-        }else{
-            System.out.println("Something Went Wrong!!");
-        }
-        return true;
-    }
 
     public boolean verifyAdvanceFilterDrawerHasClosed() throws InterruptedException {
         Thread.sleep(2000);
