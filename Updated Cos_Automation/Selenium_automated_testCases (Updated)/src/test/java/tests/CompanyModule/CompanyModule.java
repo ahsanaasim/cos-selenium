@@ -1076,6 +1076,7 @@ public class CompanyModule extends BaseTest {
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonCompanyManagement());
         Assert.assertTrue(operation.ClickButton(EditCompany.AccessCompanyPortal,2000));
+        Thread.sleep(3000);
         searchcompany.SwitchToTab(1);
         Assert.assertTrue(cosa.CurrentPageURLCheck(prop.getProperty("DashboardURLPropertyAdmin")));
 
