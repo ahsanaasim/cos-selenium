@@ -43,7 +43,7 @@ public class EditCompany extends BasePage {
 
     public static By SearchCompany = By.xpath("//input[@placeholder='Search by name, email or phone no']");
     public static By AccessCompanyPortal = By.xpath("//span[@class='actionTag cursor']");
-    public static By ErrorMsg = By.xpath("//div[@class='ant-form-item-explain-error']");
+    public static By ErrorMsg = By.xpath("//div[@class='red-color']");
     public static By SaveCompanyButton = By.xpath("//button[@class='ant-btn ant-btn-primary ml-15 h-40 drawerFBtn']");
     public static By ShowButtonBesideEINField = By.xpath("//button[@class='ant-btn ant-btn-default ml-10']");
 

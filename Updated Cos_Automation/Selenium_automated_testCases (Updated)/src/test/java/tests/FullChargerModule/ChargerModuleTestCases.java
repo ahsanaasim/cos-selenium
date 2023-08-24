@@ -2070,7 +2070,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(EditChargerCosAdminUpdated.CreateNewLocation,1000));
-        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(UpdateChargerPropertyAdmin.DiscardBtn,1000));
+        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(UpdateChargerPropertyAdmin.ContinueBtn,1000));
         Assert.assertTrue(editChargerCosAdminUpdated.verifyCreateNewLocationDrawerFromEditDrawer());
     }
     @Test(priority = 112)//Done
@@ -2143,7 +2143,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(editChargerCosAdminUpdated.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"Selenium",1000));
+        Assert.assertTrue(editChargerCosAdminUpdated.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"Selenium 18",1000));
         Assert.assertTrue(createcharger.ClickButton(CreateCharger.searchargerbtn,1000));
         Assert.assertTrue(createcharger.ClickButton(CosAdminChargerList.EditButton,1000));
         Assert.assertTrue(editChargerCosAdminUpdated.verifyTheEditedInfoInDrawer());
@@ -2151,7 +2151,7 @@ public class ChargerModuleTestCases extends BaseTest {
     }
     @Test(priority = 116)//Done
     @TestParameters(testCaseId = {"TC-64"})
-    public void TC_64_CheckErrorMsgForInvalidDataForMandatoryField() throws InterruptedException{
+    public void TC_64_CheckErrorMsgForInvalidDataForMandatoryChargerNameField() throws InterruptedException{
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
@@ -2203,7 +2203,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(createcharger.clickOnCrossButtonOfTheDrawer());
-        Assert.assertTrue(createcharger.verifyAddNewChargerButtonHasDisplayed());
+        Assert.assertTrue(createcharger.verifyElementNotDisplayed(2000,EditChargerCosAdminUpdated.EditDrawerChargerInfoTitle));
     }
 
     @Test(priority = 119)//Done
@@ -2216,11 +2216,11 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateCharger createcharger = new CreateCharger(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickOnChargers());
+/*        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnChargers());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(createcharger.clickOnCancelButtonOfTheDrawer());
-        Assert.assertTrue(createcharger.verifyAddNewChargerButtonHasDisplayed());
+        Assert.assertTrue(createcharger.verifyElementNotDisplayed(2000,EditChargerCosAdminUpdated.EditDrawerChargerInfoTitle));
     }
     @Test(priority = 120)//Done
     @TestParameters(testCaseId = {"TC-70"})
@@ -2232,12 +2232,13 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateCharger createcharger = new CreateCharger(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickOnChargers());
+/*        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnChargers());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue((createcharger.clickonoutsidethedrawer()));
-        Assert.assertTrue(createcharger.verifyAddNewChargerButtonHasDisplayed());
+        Assert.assertTrue(createcharger.verifyElementNotDisplayed(2000,EditChargerCosAdminUpdated.EditDrawerChargerInfoTitle));
     }
+
     @Test(priority = 121)//Done
     @TestParameters(testCaseId = {"TC-71"})
     public void TC_71_WhenAdminClicksCrossButtonOfEditDrawerAfterEnteringAnyInput() throws InterruptedException {
@@ -2461,7 +2462,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(editChargerCosAdminUpdated.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"Raw charger ", 1000));
+        Assert.assertTrue(editChargerCosAdminUpdated.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"Raw charger 7", 1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(CosAdminChargerList.EditButton,1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(UpdateChargerPropertyAdmin.ToggleButton,1000));

@@ -118,6 +118,7 @@ public class ChargerListPropertyAdmin extends BasePage {
 
     public boolean verifyloadMoreButtonWithDigit() throws InterruptedException {
         Thread.sleep(1000);
+        waitVisibility(LoadMoreButton);
         String loadmorebuttonbuttontext = driver.findElement(LoadMoreButton).getText();
         System.out.println(loadmorebuttonbuttontext);
         String expected = "Load \\d+ More";
