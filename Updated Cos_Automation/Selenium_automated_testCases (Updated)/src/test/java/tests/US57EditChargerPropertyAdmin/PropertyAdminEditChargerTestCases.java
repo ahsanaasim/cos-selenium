@@ -26,8 +26,10 @@ public class PropertyAdminEditChargerTestCases extends BaseTest {
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
-        Assert.assertTrue(updateChargerPropertyAdmin.verifyDetailsButtonUnderActionColumn());
+        Assert.assertTrue(updateChargerPropertyAdmin.verifyActionColumnOccupiedWithDetailsButton("Action",4));
     }
+
+
     @Test(priority = 2)//Done
     @TestParameters(testCaseId = {"TC-2"})
     public void TC_2_CheckWhenAdminClicksOnTheButton() throws InterruptedException{
@@ -44,6 +46,8 @@ public class PropertyAdminEditChargerTestCases extends BaseTest {
 
 
     }
+
+
     @Test(priority = 3)//Done
     @TestParameters(testCaseId = {"TC-3"})
     public void TC_3_CheckDrawerContainsNecessarySection() throws InterruptedException{
@@ -182,7 +186,7 @@ public class PropertyAdminEditChargerTestCases extends BaseTest {
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
         Assert.assertTrue(updateChargerPropertyAdmin.clickToggleButtonIfItIsOn());
         Assert.assertTrue(cosAdminChargerList.ClickButton(UpdateChargerPropertyAdmin.SaveCharger,1500));
-        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
+        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,2500));
         Assert.assertTrue(updateChargerPropertyAdmin.verifyChargerStatusInWelcomePageWhenToggleButtonIsOff());
 
     }
@@ -205,7 +209,6 @@ public class PropertyAdminEditChargerTestCases extends BaseTest {
         Assert.assertTrue(editCharger.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerWithLocation"),1000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1500));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,1000));
-//        Assert.assertTrue(cosAdminChargerList.ClickButton(UpdateChargerPropertyAdmin.ToggleButton,1000));
         Assert.assertTrue(updateChargerPropertyAdmin.clickToggleButtonIfItIsOff());
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(UpdateChargerPropertyAdmin.SaveCharger,1500));
         Assert.assertTrue(updateChargerPropertyAdmin.verifyChargerStatusAfterMakingItOnlineFromOffline());

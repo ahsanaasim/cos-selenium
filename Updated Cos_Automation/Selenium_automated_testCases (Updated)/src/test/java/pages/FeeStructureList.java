@@ -192,7 +192,6 @@ public class FeeStructureList extends BasePage{
 
     public void ContiniousClickOnLoadMoreButton(){
         for (int i=0; i<2;i++ ){
-            waitVisibility(LoadMoreButton);
             waitelemtclickable(LoadMoreButton);
             click(LoadMoreButton);
         }

@@ -31,7 +31,8 @@ public class UpdateChargerPropertyAdmin extends BasePage {
     public static By DetailsDrawerLocationInformation = By.xpath("//span[@class='drawerInsideTitle'][contains(text(),'Location Information')]");
     public static By DetailsDrawerAuditLog = By.xpath("//span[@class='drawerInsideTitle'][contains(text(),'Audit Log')]");
     public static By ToggleButton = By.xpath("//button[@role='switch']");
-    public static By ChargerUrl = By.xpath("//div[@class='mt-5']");
+    public static By ChargerUrl = By.xpath("(//span[@class='ant-input-group-addon'])[3]");
+    public static By QRCode = By.xpath("//input[@placeholder='Qr code']");
     public static By CopyButton = By.xpath("//button[@class='ant-btn ant-btn-default copy-button-qrCode']");
     public static By SaveCharger = By.xpath("//button[@type='button']//span[contains(text(),'Save Charger')]");
     public static By CancelButton = By.xpath("//button[@type='button']//span[contains(text(),'Cancel')]");
@@ -50,15 +51,42 @@ public class UpdateChargerPropertyAdmin extends BasePage {
 
 
 
-    public boolean verifyDetailsButtonUnderActionColumn(){
-        if (driver.findElement(ChargerListPropertyAdmin.detailsbutton).isDisplayed()){
-            System.out.println("Details Button is Visible");
-            return true;
+    public boolean verifyActionColumnOccupiedWithDetailsButton(String Title, int IndexOfTitle) throws InterruptedException {
+        Thread.sleep(3000);
+        waitforPresence(ChargerListPropertyAdmin.detailsbutton);
+        WebElement mytable = driver.findElement(By.xpath("//thead"));
+        java.util.List<WebElement> headers = mytable.findElements(By.tagName("th"));
+        int resultColumnIndex = 0;
+        for (int i = 0; i < headers.size(); i++) {
+            if (headers.get(i).getText().equals(Title)) {
+                resultColumnIndex = i;
+                System.out.println(resultColumnIndex);
+                System.out.println(Title);
+                break;
+            }
         }
-        else {
-            System.out.println("Details Button is not Visible");
-            return false;
+        if (resultColumnIndex != IndexOfTitle) {
+            // The "Result" column was not found
+            throw new RuntimeException("The column was not found");
         }
+
+        WebElement myrows = driver.findElement(By.xpath("//tbody"));
+        java.util.List<WebElement> rows = myrows.findElements(By.tagName("tr"));
+        for (int i = 1; i < rows.size(); i++) { // start at index 1 to skip the header row
+            java.util.List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));
+            String result = cells.get(resultColumnIndex).getText();
+            System.out.println(result);
+            if (!result.equals("Details")) {
+                // Verification failed
+                throw new RuntimeException("Verification failed. Expected 'Edit', but got '" + result + "' in row " + i);
+
+            }
+
+        }
+        System.out.println("Action column occupied with edit button");
+        return true;
+
+
     }
 
     public boolean verifyDrawerOpeningForDetailsButton(){
@@ -286,9 +314,11 @@ public class UpdateChargerPropertyAdmin extends BasePage {
     public boolean verifyChargerStatusInWelcomePageWhenToggleButtonIsOff() throws InterruptedException{
         waitVisibility(ChargerUrl);
         String url = driver.findElement(ChargerUrl).getText();
-        System.out.println(url);//copying the URL
+        String QR = driver.findElement(QRCode).getAttribute("value");
+        String fullURL = url+QR;
+        System.out.println(fullURL);//copying the URL
         Thread.sleep(1000);
-        ((JavascriptExecutor) driver).executeScript("window.open(\'"+url+"\')");// launching a new tab window.location = \'"+url+"\'
+        ((JavascriptExecutor) driver).executeScript("window.open(\'"+fullURL+"\')");// launching a new tab window.location = \'"+url+"\'
 //        Actions actions = new Actions(driver);
 //        actions.sendKeys(Keys.CONTROL + "v").sendKeys(Keys.ENTER).build().perform();//sending the paste command
         // hold all window handles in array list

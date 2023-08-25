@@ -34,28 +34,6 @@ public class CosAdminChargerList extends BasePage {
 
 
 
-    public boolean verifyingBlankContent() throws InterruptedException{
-        Thread.sleep(1000);
-        String ChargerTitleCheck = driver.findElement(ChargerTitle).getText();
-        System.out.println(ChargerTitleCheck);
-        String PropertyNameCheck = driver.findElement(PropertyName).getText();
-        System.out.println(PropertyNameCheck);
-        String PropertyAddressCheck = driver.findElement(PropertyAddress).getText();
-        System.out.println(PropertyAddressCheck);
-        String LocationNameCheck = driver.findElement(LocationName).getText();
-        System.out.println(LocationNameCheck);
-        String ActionCheck = driver.findElement(EditButton).getText();
-        System.out.println(ActionCheck);
-        if (!ChargerTitleCheck.isEmpty() && !PropertyNameCheck.isEmpty() && !PropertyAddressCheck.isEmpty() && !LocationNameCheck.isEmpty() && !ActionCheck.isEmpty()){
-            System.out.println("Oy hoy...mila gese");
-            return true;
-        }
-        else {
-            System.out.println("Something went wrong");
-            return false;
-        }
-    }
-
     public boolean verifyActualData() throws InterruptedException{
         driver.findElement(CreateCharger.addchargerbtn).click();
         Thread.sleep(3000);

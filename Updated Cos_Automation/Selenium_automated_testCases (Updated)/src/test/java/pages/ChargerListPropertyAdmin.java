@@ -74,17 +74,6 @@ public class ChargerListPropertyAdmin extends BasePage {
 
     }
 
-    public boolean verifyHeaderColumn() throws InterruptedException {
-        Thread.sleep(1000);
-        if (driver.getPageSource().contains("Charger Title") && driver.getPageSource().contains("Property Name") && driver.getPageSource().contains("Location Name") && driver.getPageSource().contains("Action")) {
-            System.out.println("Verification Successful - All the Necessary Section From Header of Table is Showing");
-
-        } else {
-            System.out.println("Verification UnSuccessful. Something Went Wrong!!");
-            return false;
-        }
-        return true;
-    }
     public boolean verifyHeaderColumnAlternative() throws InterruptedException {
         Thread.sleep(1000);
         waitforPresence(ChargerColumn);
@@ -150,7 +139,7 @@ public class ChargerListPropertyAdmin extends BasePage {
             }
             Thread.sleep(2500);
             int RowCount = driver.findElements(Rows).size();
-            System.out.println(RowCount);
+            System.out.println("Number of data in table is displaying: "+RowCount);
             Thread.sleep(2500);
             if (RowCount == TotalCount) {
                 System.out.println("Great");
@@ -159,6 +148,8 @@ public class ChargerListPropertyAdmin extends BasePage {
         }
         return true;
     }
+
+
     public boolean verifyLoadMoreButtonAction() throws InterruptedException{
         Thread.sleep(1000);
         waitforPresence(LoadMoreButton);

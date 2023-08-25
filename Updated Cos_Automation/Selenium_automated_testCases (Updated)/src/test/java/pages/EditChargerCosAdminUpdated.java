@@ -467,7 +467,9 @@ public class EditChargerCosAdminUpdated extends BasePage {
     public boolean verifyChangeNameInAuditLog() throws InterruptedException{
         Thread.sleep(2500);
         Random objGenerator = new Random();
-        int randomNumber = objGenerator.nextInt(10);
+        EditChargerCosAdminUpdated editChargerCosAdminUpdated = new EditChargerCosAdminUpdated(driver);
+        CreateCharger createcharger = new CreateCharger(driver);
+        int randomNumber = objGenerator.nextInt(20);
         WebElement ChargerNameField = driver.findElement(CreateCharger.Chargername);
         String EditedCharger = "Raw charger "+randomNumber;
         click(CreateCharger.Chargername);
@@ -476,8 +478,11 @@ public class EditChargerCosAdminUpdated extends BasePage {
         ChargerNameField.sendKeys(EditedCharger);
         click(UpdateChargerPropertyAdmin.SaveCharger);
         Thread.sleep(6000);
+        FieldClear(ChargerListPropertyAdmin.SearchChargerField);
+        createcharger.writeInputText(ChargerListPropertyAdmin.SearchChargerField,EditedCharger,1000);
+        createcharger.ClickButton(CreateCharger.searchargerbtn,1000);
         click(CosAdminChargerList.EditButton);
-        Thread.sleep(12000);
+        Thread.sleep(10000);
         String Edchar = driver.findElement(ChangeNameAuditLog).getText();
         System.out.println("Edited charger name in Audit log: "+Edchar);
         String ChargerNameInDrawer = driver.findElement(CreateCharger.Chargername).getAttribute("value");
