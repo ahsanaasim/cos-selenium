@@ -56,7 +56,6 @@ public class CreateCharger extends BasePage {
     public boolean ClickOnAddChargerButton () throws InterruptedException {
         Thread.sleep(2000);
         waitVisibility(addchargerbtn);
-        waitelementtobedisplayed(addchargerbtn);
         click(addchargerbtn);
         return true;
     }

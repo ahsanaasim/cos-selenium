@@ -272,14 +272,15 @@ public class EditChargerCosAdminUpdated extends BasePage {
         waitforPresence(DrawerTitle);
         WebElement ChargerLocationField = driver.findElement(CreateCharger.selectlocation);
         String Location = GenerateRandomLocationName();
+        System.out.println("Expected location name: "+Location);
         click(ChargerListPropertyAdmin.SelectedLocationName);
         Thread.sleep(1500);
         ChargerLocationField.sendKeys(Location);
         Thread.sleep(2500);
         ChargerLocationField.sendKeys(Keys.ENTER);
         click(UpdateChargerPropertyAdmin.SaveCharger);
-        Thread.sleep(2000);
-        waitforPresence(CosAdminChargerList.EditButton);
+        waitforInVisibility(DrawerTitle);
+        waitVisibility(ChargerListPropertyAdmin.LocationName);
         String EdLocTable = driver.findElement(ChargerListPropertyAdmin.LocationName).getText();
         System.out.println("Edited location in table: "+EdLocTable);
         if (EdLocTable.equals(Location)){

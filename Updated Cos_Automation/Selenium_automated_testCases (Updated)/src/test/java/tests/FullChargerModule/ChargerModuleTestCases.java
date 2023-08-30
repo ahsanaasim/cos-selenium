@@ -354,22 +354,6 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.verifyDrawerContainsAllNecessarySection());
     }
-    @Test(priority = 19)//Done
-    @TestParameters(testCaseId = {"TC-51"})
-    public void TC_51_CheckAdminCanWriteInInputFieldOfTheDrawer() throws InterruptedException {
-        HomePage homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard = new Dashboard(driver);
-        CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
-        Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,"My New Charger-20",2000));
-        createcharger.selectProperty("Automation Property 2");
-        createcharger.selectLocation("Beautiful Location");
-    }
     @Test(priority = 20)//Done
     @TestParameters(testCaseId = {"TC-53"})
     public void TC_53_CheckAdminCanWriteInInputAndGetSearchResultFromFieldOffTheDrawer() throws InterruptedException {
@@ -2595,16 +2579,21 @@ public class ChargerModuleTestCases extends BaseTest {
     //Property admin charger list starts here
 
 
-    @Test(priority = 2)//Done
+    @Test(priority = 135)//Done
     @TestParameters(testCaseId = {"TC-3"})
-    public void TC_3_CheckBlankContentUnderEachColumn() throws InterruptedException {
+    public void TC_3_CheckBlankContentUnderEachColumnInPropertyAdmin() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
         CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
+        DashboardPropertyDetails logoutOperation = new DashboardPropertyDetails(driver);
+        DashboardPropertyAdmin dashboardPropertyAdmin = new DashboardPropertyAdmin(driver);
+        cosAdminChargerList.SwitchToTab(0);
+        logoutOperation.LogoutFromExistingAccount();
+        dashboardPropertyAdmin.GoToCompanyPanelLoginPage();
+        Thread.sleep(4000);
         loginPage.VerifyValidLoginForPropertyAdmin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
         Assert.assertTrue(cosAdminChargerList.verifyExpectedTitleColumnOccupiedWithContent("Charger Title",0));
@@ -2613,14 +2602,15 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(cosAdminChargerList.verifyExpectedTitleColumnOccupiedWithContent("Location Name",3));
         Assert.assertTrue(cosAdminChargerList.verifyExpectedTitleColumnOccupiedWithContent("Action",4));
     }
-    @Test(priority = 3)//Done
+    @Test(priority = 136)//Done
     @TestParameters(testCaseId = {"TC-4"})
-    public void TC_4_CheckTheLocationColumnWhenAdminDidNotAssignAnyChargerToLocation() throws InterruptedException {
+    public void TC_4_CheckTheLocationColumnWhenAdminDidNotAssignAnyChargerToLocationInPropertyAdmin() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
+        Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
         Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"abc", 8000));
@@ -2629,9 +2619,9 @@ public class ChargerModuleTestCases extends BaseTest {
 
 
     }
-    @Test(priority = 4)//Done
+    @Test(priority = 137)//Done
     @TestParameters(testCaseId = {"TC-5"})
-    public void TC_5_CheckUpdatedLocation() throws InterruptedException {
+    public void TC_5_CheckUpdatedLocationInPropertyAdmin() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
@@ -2650,7 +2640,7 @@ public class ChargerModuleTestCases extends BaseTest {
 
     }
 
-    @Test(priority = 4)//Done
+    @Test(priority = 138)//Done
     @TestParameters(testCaseId = {"TC-6"})
     public void TC_6_CheckDetailsButtonUnderActionColumn() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -2663,12 +2653,12 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.detailsbutton,2000));
     }
-    @Test(priority = 5)//Done
+    @Test(priority = 139)//Done
     @TestParameters(testCaseId = {"TC-9"})
-    public void TC_9_CheckLoadMoreButton() throws InterruptedException {
+    public void TC_9_CheckLoadMoreButtonInCompanyPanel() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
+        Dashboard dashboard = new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.RefreshBrowser());
@@ -2677,12 +2667,12 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue((chargerListPropertyAdmin.verifyloadMoreButton()));
 //        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.LoadMoreButton,2000));
     }
-    @Test(priority = 6)//Done
+    @Test(priority = 140)//Done
     @TestParameters(testCaseId = {"TC-10"})
-    public void TC_10_CheckLoadMoreButtonWithText() throws InterruptedException {
+    public void TC_10_CheckLoadMoreButtonWithTextCompanyPanel() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
-        Dashboard dashboard=new Dashboard(driver);
+        Dashboard dashboard = new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
         loginPage.VerifyValidLoginForPropertyAdmin();
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
@@ -2691,9 +2681,9 @@ public class ChargerModuleTestCases extends BaseTest {
 //        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.LoadMoreButton,2000));
     }
 
-    @Test(priority = 7)//Done
+    @Test(priority = 141)//Done
     @TestParameters(testCaseId = {"TC-12"})
-    public void TC_12_CheckActualNumberOfChargerWithLeftSideOfLoadMoreButton() throws InterruptedException {
+    public void TC_12_CheckActualNumberOfChargerWithLeftSideOfLoadMoreButtonCompanyPanel() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
@@ -2704,9 +2694,9 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(chargerListPropertyAdmin.verifyTheChargerCountWithLeftSideOFLoadMoreButton());
     }
 
-    @Test(priority = 8)//Done
+    @Test(priority = 142)//Done
     @TestParameters(testCaseId = {"TC-11"})
-    public void TC_11_VerifyActualNumberOfChargerWithTableCharger() throws InterruptedException {
+    public void TC_11_VerifyActualNumberOfChargerWithTableChargerCompanyPanel() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
@@ -2717,9 +2707,9 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(chargerListPropertyAdmin.verifyTheWithTable());
     }
 
-    @Test(priority = 9)//Done
+    @Test(priority = 143)//Done
     @TestParameters(testCaseId = {"TC-13"})
-    public void TC_13_CheckWhatHappensWhenPAdminClicksOnTheLoadMoreButton() throws InterruptedException {
+    public void TC_13_CheckWhatHappensWhenPAdminClicksOnTheLoadMoreButtonCompanyPanel() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
@@ -2730,9 +2720,9 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(chargerListPropertyAdmin.verifyLoadMoreButtonAction());
     }
 
-    @Test(priority = 10)//Done
+    @Test(priority = 144)//Done
     @TestParameters(testCaseId = {"TC-14"})
-    public void TC_14_CheckTheChargerCountOnTopOfTheTable () throws InterruptedException {
+    public void TC_14_CheckTheChargerCountOnTopOfTheTableCompanyPanel () throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
@@ -2744,7 +2734,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(chargerListPropertyAdmin.verifyChargerCountOnTop());
     }
 
-    @Test(priority = 11)//Done
+    @Test(priority = 145)//Done
     @TestParameters(testCaseId = {"TC-15"})
     public void TC_15_CheckWhatHappensWhenPropertyAdminRefreshThePage() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -2756,7 +2746,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
         Assert.assertTrue(chargerListPropertyAdmin.verifyTableDataAfterRefreshing());
     }
-    @Test(priority = 12)//Done
+    @Test(priority = 146)//Done
     @TestParameters(testCaseId = {"TC-16"})
     public void TC_16_CheckWhatHappensWhenPropertyAdminRefreshThePage() throws InterruptedException {
         HomePage homePage = new HomePage(driver);

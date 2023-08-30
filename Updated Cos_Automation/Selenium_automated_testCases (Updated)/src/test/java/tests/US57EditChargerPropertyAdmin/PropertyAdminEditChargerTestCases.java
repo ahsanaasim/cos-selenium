@@ -167,6 +167,7 @@ public class PropertyAdminEditChargerTestCases extends BaseTest {
         Assert.assertTrue(updateChargerPropertyAdmin.verifyChargerStatusAfterMakingItOffline());
 
     }
+
     @Test(priority = 9)//Done
     @TestParameters(testCaseId = {"TC-12"})
     public void TC_12_CheckTheChargerAvailabilityAfterMakingItOffline () throws InterruptedException{
