@@ -48,6 +48,9 @@ public class CreateCharger extends BasePage {
     public static By nodatafromsearch = By.xpath("//*[name()='path' and contains(@class,'ant-empty-')]");
     public static By loader = By.xpath("(//i[@class='ant-spin-dot-item'])[3]");
 
+    public static By SelectManufacturer = By.xpath("(//input[@class='ant-select-selection-search-input'])[5]");
+    public static By SelectDeviceModel = By.xpath("(//input[@class='ant-select-selection-search-input'])[6]");
+
     public void GoToChargers() throws InterruptedException {
         Thread.sleep(3000);
         driver.get("https://test-admin.chargeonsite.com/property/charger");
@@ -397,5 +400,77 @@ public class CreateCharger extends BasePage {
 
 
     }
+
+    public String chargingRate() throws InterruptedException {
+        Random random = new Random();
+        Thread.sleep(1000);
+        String[] chargerRate = {"7.70 kW","19.20 kW","9.60 kW","11.50 kW"};
+        int index = random.nextInt(chargerRate.length);
+        return chargerRate[index];
+
+    }
+
+    public String deviceModelEaton() throws InterruptedException {
+        Random random = new Random();
+        Thread.sleep(1000);
+        String[] chargerRate = {"GMEV32BR-JB","GMEV32BR-WCPL","GMEV48CME1-WC","GMEV40CMC1B-WC","GMEV32BAB-DC","GMEV80CMC1B-WC"};
+        int index = random.nextInt(chargerRate.length);
+        return chargerRate[index];
+
+    }
+
+
+    public void selectChargingRate() throws InterruptedException {
+        waitforPresence(ChargingRateField);
+        click(ChargingRateField);
+        writeText(ChargingRateField,chargingRate());
+        WebElement selectitem = driver.findElement(ChargingRateField);
+        Thread.sleep(3000);
+        selectitem.sendKeys(Keys.ENTER);
+    }
+
+
+    public void selectManufacturer() throws InterruptedException {
+        waitforPresence(SelectManufacturer);
+        click(SelectManufacturer);
+        writeText(SelectManufacturer,"Eaton");
+        WebElement selectitem = driver.findElement(SelectManufacturer);
+        Thread.sleep(3000);
+        selectitem.sendKeys(Keys.ENTER);
+    }
+
+    public void selectDeviceModel() throws InterruptedException {
+        waitforPresence(SelectDeviceModel);
+        click(SelectDeviceModel);
+        writeText(SelectDeviceModel,deviceModelEaton());
+        WebElement selectitem = driver.findElement(SelectDeviceModel);
+        Thread.sleep(3000);
+        selectitem.sendKeys(Keys.ENTER);
+    }
+
+
+
+    public String chargerName() throws InterruptedException {
+        Random random = new Random();
+        Thread.sleep(1000);
+        String[] chargerName = {"Ac charger 7KW Wallbox", "Sinoliam", "Charger maker","Nanjing Kangni Energy","Zilong New Energy","Penoda Electrical Co"};
+        int index = random.nextInt(chargerName.length);
+        return chargerName[index];
+
+    }
+
+    public String writeChargerName() throws InterruptedException {
+        Random numGenerator = new Random();
+        Thread.sleep(1000);
+        int randomNumber = numGenerator.nextInt(100);
+        String company=chargerName()+" "+randomNumber;
+        return company;
+    }
+
+
+
+
+
+
 
 }

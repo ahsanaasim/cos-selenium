@@ -33,7 +33,7 @@ public class GuestFlowTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         loginPage.VerifyValidLogin();
         guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 889"));
+        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 2"));
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Assert.assertTrue(operation.ClickButton(SimulationPage.BootChargerButton,2000));
         Assert.assertTrue(operation.ClickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
@@ -57,7 +57,7 @@ public class GuestFlowTestCases extends BaseTest {
 //        dashboard.RefreshBrowser();
         System.out.println("URL  =  "+driver.getCurrentUrl());
         Assert.assertTrue(guestFlow.verifyChargingNowTitle());
-        guestFlow.LengthOfSession(90000);
+        guestFlow.LengthOfSession(900000);
         guestFlow.SwitchToTab(0);
         operation.ClickButton(GuestFlow.DisconnectChargerbtn,3000);
         guestFlow.SwitchToTab(1);

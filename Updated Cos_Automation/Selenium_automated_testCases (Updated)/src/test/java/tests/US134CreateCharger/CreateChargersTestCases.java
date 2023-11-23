@@ -829,4 +829,45 @@ public class CreateChargersTestCases extends BaseTest {
 
     }
 
+
+
+    public int HowManyChargerYouWantToCreate(){
+        return 100;
+    }
+
+
+
+
+
+
+    @Test(priority = 3000)//Done
+    @TestParameters(testCaseId = {"TC-00000"})
+    public void TC_000000_CreateUnlimitedCharger() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard = new Dashboard(driver);
+        CreateCharger createcharger = new CreateCharger(driver);
+        Random objGenerator = new Random();
+        loginPage.VerifyValidLogin();
+        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        createcharger.GoToWebsite("https://test-admin.chargeonsite.com/property/charger");
+        for (int i=0; i<=HowManyChargerYouWantToCreate(); i++) {
+            Thread.sleep(3000);
+            dashboard.RefreshBrowser();
+            Thread.sleep(3000);
+            createcharger.ClickOnAddChargerButton();
+            createcharger.writeInputText(CreateCharger.Chargername,createcharger.writeChargerName(),2000);
+            createcharger.selectChargingRate();
+            createcharger.selectProperty("Transaction company");
+            createcharger.selectLocation("Transaction location 34");
+            createcharger.selectManufacturer();
+            createcharger.selectDeviceModel();
+            createcharger.ClickButton(CreateCharger.savecharger,3500);
+
+        }
+    }
+
+
+
+
 }
