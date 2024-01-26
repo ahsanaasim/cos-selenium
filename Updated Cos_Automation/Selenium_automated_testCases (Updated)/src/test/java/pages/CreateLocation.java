@@ -23,7 +23,7 @@ public class CreateLocation extends BasePage {
     By createlocationbtn = By.xpath("//button[contains(.,'Create New Location')]");
     By selectcompanydropdown = By.xpath("(//input[contains(@class,'ant-select-selection-search-input')])[1]");
     By selectpropertydropdown = By.xpath("(//input[contains(@class,'ant-select-selection-search-input')])[2]");
-    By locationtitle = By.xpath("//textarea[@placeholder='Location Title']");
+    public static By locationtitle = By.xpath("//textarea[@placeholder='Location Title']");
     By landmark = By.xpath("//textarea[@placeholder='Location landmark']");
     By locationmsg = By.xpath("//div[@class='locInfoText'][contains(.,'Customers will see this title when searching for a charging station')]");
     By locationlandmarkmsg = By.xpath("//div[@class='locInfoText'][contains(.,'For example, The location is just south of the front entrance. Etc. Use this area to give the first time users more context.')]");
@@ -172,6 +172,17 @@ public class CreateLocation extends BasePage {
         return true;
     }
 
+    public String locationTitle() {
+        Random numGenerator = new Random();
+        int randomNumber = numGenerator.nextInt(10000);
+        String locationName=prop.getProperty("TemporaryLocation")+" "+randomNumber;
+        System.out.println("Created Location : "+locationName);
+        waitVisibility(locationtitle);
+        waitelemtclickable(locationtitle);
+        writeText(locationtitle,locationName);
+        return locationName;
+    }
+
     public boolean enterSpaceinLocationTitle() throws InterruptedException {
         Thread.sleep(2000);
         WebElement locationtitle= driver.findElement(By.xpath("//textarea[@placeholder='Location Title']"));
@@ -208,6 +219,19 @@ public class CreateLocation extends BasePage {
         selectitem.sendKeys(Keys.ENTER);
         return true;
     }
+
+    public boolean selectPropertyFromDropdown(String propertyName) throws InterruptedException {
+        Thread.sleep(2000);
+        waitelementtobeEnabled(selectpropertydropdown);
+        waitelemtclickable(selectpropertydropdown);
+        click(selectpropertydropdown);
+        writeText(selectpropertydropdown,propertyName);
+        WebElement selectitem = driver.findElement(selectpropertydropdown);
+        Thread.sleep(3500);
+        selectitem.sendKeys(Keys.ENTER);
+        return true;
+    }
+
 
     public boolean clickOnPropertyName2() throws InterruptedException {
         Thread.sleep(2000);

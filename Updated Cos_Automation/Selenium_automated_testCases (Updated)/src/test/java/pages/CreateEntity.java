@@ -27,7 +27,7 @@ public class CreateEntity extends BasePage {
     public static By entityascompany = By.xpath("//div[@class='entityHeader'][contains(.,'Entity Same as a company?')]");
   //  By dropdown = By.xpath("//span[@class='ant-select-selection-item']");
     public static By selectcompany = By.xpath("(//div[@class='ant-select-item-option-content'])[5]");
-    public static By companyname = By.id("rc_select_2");
+    public static By companyname = By.xpath("//input[@type='search']");
     public static By dropdown = By.id("rc_select_0");
     public static By address = By.xpath("//input[contains(@placeholder,'Address')]");
     public static By savebtn = By.xpath("//button[contains(.,'Save Entity')]");
@@ -103,6 +103,18 @@ public class CreateEntity extends BasePage {
         return true;
     }
 
+    public boolean SelectCompanyNameFromDropdown(String companyName) throws InterruptedException {
+        waitVisibility(SelectCompanyField);
+        waitelemtclickable(SelectCompanyField);
+        click(SelectCompanyField);
+        writeText(SelectCompanyField,companyName);
+        WebElement selectitem = driver.findElement(SelectCompanyField);
+        Thread.sleep(3500);
+        selectitem.sendKeys(Keys.ENTER);
+        return true;
+    }
+
+
     public boolean WriteAutomatedEntityName() throws InterruptedException {
         Random numGenerator = new Random();
         Thread.sleep(1000);
@@ -111,6 +123,14 @@ public class CreateEntity extends BasePage {
         waitVisibility(entityname);
         writeText(entityname, EntityName);
         return true;
+    }
+
+
+    public String WriteEntityName() {
+        Random numGenerator = new Random();
+        int randomNumber = numGenerator.nextInt(10000);
+        String entityName=prop.getProperty("Entity2")+" "+randomNumber;
+        return entityName;
     }
 
     public boolean WriteEntityName(String EntityName) throws InterruptedException {

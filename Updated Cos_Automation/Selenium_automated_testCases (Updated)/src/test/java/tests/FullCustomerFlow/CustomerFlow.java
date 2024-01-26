@@ -29,7 +29,7 @@ public class CustomerFlow extends BaseTest {
         Assert.assertTrue(operation.ClickButton(pages.GuestFlow.ContinueGuestBtn,2000));
         Assert.assertTrue(guestFlow.SendOtp(4000,"666666"));
         Assert.assertTrue(operation.ClickButton(GuestFlow.VerifyButton,300));
-        Assert.assertTrue(operation.ClickButton(GuestFlow.StartChargingButton,10000));
+        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.StatChargingButton,10000));
         guestFlow.SwitchToIframe();
         Assert.assertTrue(operation.writeInputText(GuestFlow.CardNumber,"424242424242424242424242424",6000));
         guestFlow.SwitchToDefaultFromIframe();
@@ -48,7 +48,7 @@ public class CustomerFlow extends BaseTest {
         operation.ClickButton(GuestFlow.DisconnectChargerbtn,3000);
         Thread.sleep(5000);
         guestFlow.SwitchToTab(0);
-        Thread.sleep(10000);
+        Thread.sleep(70000);
         Assert.assertTrue(guestFlow.verifyTotalFee());
         Assert.assertTrue(guestFlow.verifyChargingSessionEnded());
 

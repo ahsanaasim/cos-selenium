@@ -606,7 +606,7 @@ public class CreateNewPropertyTestCases extends BaseTest {
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
-        Assert.assertTrue(properties.writePropertyName(prop.getProperty("PropertyName")));
+        properties.writeText(CreateProperty.propertyname,properties.writePropertyName());
         Assert.assertTrue(properties.clickonCreateEntityLink());
         Assert.assertTrue(properties.verifyPopuphasdisplayedafterClickingonCreateCompanyLink());
     }
@@ -662,7 +662,7 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(properties.selectCompanyNameFromSelectCompanyDropdown());
         Assert.assertTrue(properties.clickSelectEntityDropdown());
         Assert.assertTrue(properties.selectEntityNameFromSelectEntityDropdown());
-        Assert.assertTrue(properties.writePropertyName(""));
+        properties.writeText(CreateProperty.propertyname,properties.writePropertyName());
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(company.WriteRandomCompanyAddress());
        /* Assert.assertTrue(properties.enterEquimentFees(prop.getProperty("Fees")));
@@ -692,7 +692,7 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(properties.selectCompanyNameFromSelectCompanyDropdown());
         Assert.assertTrue(properties.clickSelectEntityDropdown());
         Assert.assertTrue(properties.selectEntityNameFromSelectEntityDropdown());
-        Assert.assertTrue(properties.writePropertyName(prop.getProperty("PropertyName")));
+        properties.writeText(CreateProperty.propertyname,properties.writePropertyName());
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCodewithFourDigits")));
         Assert.assertTrue(company.WriteRandomCompanyAddress());
        /* Assert.assertTrue(properties.enterEquimentFees(prop.getProperty("Fees")));
@@ -722,7 +722,7 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(properties.selectCompanyNameFromSelectCompanyDropdown());
         Assert.assertTrue(properties.clickSelectEntityDropdown());
         Assert.assertTrue(properties.selectEntityNameFromSelectEntityDropdown());
-        Assert.assertTrue(properties.writePropertyName(prop.getProperty("PropertyName")));
+        properties.writeText(CreateProperty.propertyname,properties.writePropertyName());
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("InvalidZipcode")));
         Assert.assertTrue(company.WriteRandomCompanyAddress());
        /* Assert.assertTrue(properties.enterEquimentFees(prop.getProperty("Fees")));
@@ -752,7 +752,7 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(properties.selectCompanyNameFromSelectCompanyDropdown());
         Assert.assertTrue(properties.clickSelectEntityDropdown());
         Assert.assertTrue(properties.selectEntityNameFromSelectEntityDropdown());
-        Assert.assertTrue(properties.writePropertyName(prop.getProperty("PropertyName")));
+        properties.writeText(CreateProperty.propertyname,properties.writePropertyName());
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("InvalidZipcodeformat")));
         Assert.assertTrue(company.WriteRandomCompanyAddress());
        /* Assert.assertTrue(properties.enterEquimentFees(prop.getProperty("Fees")));
@@ -784,7 +784,7 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(properties.selectCompanyNameFromSelectCompanyDropdown());
         Assert.assertTrue(properties.clickSelectEntityDropdown());
         Assert.assertTrue(properties.selectEntityNameFromSelectEntityDropdown());
-        Assert.assertTrue(properties.writePropertyName(prop.getProperty("PropertyName")));
+        properties.writeText(CreateProperty.propertyname,properties.writePropertyName());
         Assert.assertTrue(company.EnterZipCode(prop.getProperty("Numbers")));
         Assert.assertTrue(company.WriteRandomCompanyAddress());
        /* Assert.assertTrue(properties.enterEquimentFees(prop.getProperty("Fees")));

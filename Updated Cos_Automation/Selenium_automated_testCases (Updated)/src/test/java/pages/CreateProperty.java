@@ -177,6 +177,13 @@ public class CreateProperty extends BasePage {
         return true;
     }
 
+    public String writePropertyName() {
+        Random numGenerator = new Random();
+        int randomNumber = numGenerator.nextInt(10000);
+        String propertyName=prop.getProperty("PropertyName5")+" "+randomNumber;
+        System.out.println("Created property : "+propertyName);
+        return propertyName;
+    }
     public boolean writePropertyName(String PropertyName) throws InterruptedException {
         Thread.sleep(1000);
         waitVisibility(propertyname);
@@ -419,7 +426,20 @@ public class CreateProperty extends BasePage {
         Thread.sleep(1000);
         waitelementtobeEnabled(entitydropdown);
         waitelemtclickable(entitydropdown);
+        click(entitydropdown);
         writeText(entitydropdown,prop.getProperty("Entity2"));
+        WebElement selectitem = driver.findElement(entitydropdown);
+        Thread.sleep(3500);
+        selectitem.sendKeys(Keys.ENTER);
+        return true;
+    }
+
+    public boolean SelectEntityNameFromSelectEntityDropdown(String entityName) throws InterruptedException {
+        Thread.sleep(1000);
+        waitelementtobeEnabled(entitydropdown);
+        waitelemtclickable(entitydropdown);
+        click(entitydropdown);
+        writeText(entitydropdown,entityName);
         WebElement selectitem = driver.findElement(entitydropdown);
         Thread.sleep(3500);
         selectitem.sendKeys(Keys.ENTER);

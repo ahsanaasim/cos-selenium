@@ -74,7 +74,7 @@ public class SimulationPage extends BasePage {
     }
 
     public void GoToRegisterPage() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         driver.get("https://test-admin.chargeonsite.com/simulation/register-charger");
     }
 

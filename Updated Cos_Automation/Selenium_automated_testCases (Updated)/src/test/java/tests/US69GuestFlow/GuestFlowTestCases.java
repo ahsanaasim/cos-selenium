@@ -57,7 +57,7 @@ public class GuestFlowTestCases extends BaseTest {
 //        dashboard.RefreshBrowser();
         System.out.println("URL  =  "+driver.getCurrentUrl());
         Assert.assertTrue(guestFlow.verifyChargingNowTitle());
-        guestFlow.LengthOfSession(900000);
+        guestFlow.LengthOfSession(200000);
         guestFlow.SwitchToTab(0);
         operation.ClickButton(GuestFlow.DisconnectChargerbtn,3000);
         guestFlow.SwitchToTab(1);

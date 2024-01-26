@@ -832,7 +832,7 @@ public class CreateChargersTestCases extends BaseTest {
 
 
     public int HowManyChargerYouWantToCreate(){
-        return 100;
+        return 20;
     }
 
 
@@ -848,21 +848,29 @@ public class CreateChargersTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
         Random objGenerator = new Random();
+        SimulationPage register = new SimulationPage(driver);
         loginPage.VerifyValidLogin();
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        createcharger.GoToWebsite("https://test-admin.chargeonsite.com/property/charger");
         for (int i=0; i<=HowManyChargerYouWantToCreate(); i++) {
-            Thread.sleep(3000);
-            dashboard.RefreshBrowser();
-            Thread.sleep(3000);
+            Thread.sleep(6000);
+            createcharger.GoToWebsite("https://test-admin.chargeonsite.com/property/charger");
+            Thread.sleep(5000);
             createcharger.ClickOnAddChargerButton();
-            createcharger.writeInputText(CreateCharger.Chargername,createcharger.writeChargerName(),2000);
+            String chargerName = createcharger.writeChargerName();
+            createcharger.writeInputText(CreateCharger.Chargername,chargerName,2000);
             createcharger.selectChargingRate();
             createcharger.selectProperty("Transaction company");
             createcharger.selectLocation("Transaction location 34");
             createcharger.selectManufacturer();
             createcharger.selectDeviceModel();
             createcharger.ClickButton(CreateCharger.savecharger,3500);
+            createcharger.writeInputText(CreateCharger.searchchargerfield,chargerName,6000);
+            createcharger.ClickButton(CreateCharger.searchargerbtn,2000);
+            createcharger.ClickButton(CosAdminChargerList.EditButton,2000);
+            createcharger.ClickButton(UpdateChargerPropertyAdmin.CopyButton,3000);
+            register.GoToRegisterPage();
+            createcharger.writeInputText(SimulationPage.RegisterField,register.getClipboardURL(),1500);
+            createcharger.ClickButton(SimulationPage.BootChargerAsDummy,3000);
 
         }
     }

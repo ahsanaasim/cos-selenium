@@ -128,6 +128,15 @@ public class CreateCharger extends BasePage {
         return true;
     }
 
+    public String writeChargerName(){
+        String [] chargerNamePrefix = {"BRT","WQAA","DSAZ","QAXZ"};
+        int ranPrefix = randomName.nextInt(chargerNamePrefix.length);
+        int ranNum = randomName.nextInt(100);
+        String chargerName=chargerNamePrefix[ranPrefix]+ranNum;
+        System.out.println("Created charger : "+chargerName);
+        return chargerName;
+    }
+
     public boolean writePropertyName(String PropertyName3) throws InterruptedException {
         Thread.sleep(2000);
         writeText(selectproperty,PropertyName3);
@@ -346,19 +355,19 @@ public class CreateCharger extends BasePage {
 
     public void selectProperty(String Property) throws InterruptedException {
         waitforPresence(selectproperty);
-        click(selectproperty);
-        writeText(selectproperty,Property);
+        ClickButton(selectproperty,2500);
+        writeInputText(selectproperty,Property,2500);
         WebElement selectitem = driver.findElement(selectproperty);
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         selectitem.sendKeys(Keys.ENTER);
     }
 
     public void selectLocation(String Location) throws InterruptedException {
         waitforPresence(location);
-        click(location);
-        writeText(location,Location);
+        ClickButton(location,2500);
+        writeInputText(location,Location,2500);
         WebElement selectitem = driver.findElement(location);
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         selectitem.sendKeys(Keys.ENTER);
     }
 
@@ -413,7 +422,7 @@ public class CreateCharger extends BasePage {
     public String deviceModelEaton() throws InterruptedException {
         Random random = new Random();
         Thread.sleep(1000);
-        String[] chargerRate = {"GMEV32BR-JB","GMEV32BR-WCPL","GMEV48CME1-WC","GMEV40CMC1B-WC","GMEV32BAB-DC","GMEV80CMC1B-WC"};
+        String[] chargerRate = {"GMEV32BR-JB","GMEV32BR-WCPL","GMEV48CME1-WC","GMEV40CMC1B-WC","GMEV32BAB-DC","GMEV80CMC1B-WC","GMEV32BAB-JB","GMEV80CME1B-WC"};
         int index = random.nextInt(chargerRate.length);
         return chargerRate[index];
 
@@ -425,7 +434,7 @@ public class CreateCharger extends BasePage {
         click(ChargingRateField);
         writeText(ChargingRateField,chargingRate());
         WebElement selectitem = driver.findElement(ChargingRateField);
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         selectitem.sendKeys(Keys.ENTER);
     }
 
@@ -435,7 +444,7 @@ public class CreateCharger extends BasePage {
         click(SelectManufacturer);
         writeText(SelectManufacturer,"Eaton");
         WebElement selectitem = driver.findElement(SelectManufacturer);
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         selectitem.sendKeys(Keys.ENTER);
     }
 
@@ -453,19 +462,19 @@ public class CreateCharger extends BasePage {
     public String chargerName() throws InterruptedException {
         Random random = new Random();
         Thread.sleep(1000);
-        String[] chargerName = {"Ac charger 7KW Wallbox", "Sinoliam", "Charger maker","Nanjing Kangni Energy","Zilong New Energy","Penoda Electrical Co"};
+        String[] chargerName = {"Ac charger 7KW Wallbox", "Sinoliam", "Charger maker","Nanjing Kangni Energy","Zilong New Energy","Penoda Electrical Co", "Enel x"};
         int index = random.nextInt(chargerName.length);
         return chargerName[index];
 
     }
 
-    public String writeChargerName() throws InterruptedException {
+    /*public String writeChargerName() throws InterruptedException {
         Random numGenerator = new Random();
         Thread.sleep(1000);
-        int randomNumber = numGenerator.nextInt(100);
+        int randomNumber = numGenerator.nextInt(10000);
         String company=chargerName()+" "+randomNumber;
         return company;
-    }
+    }*/
 
 
 

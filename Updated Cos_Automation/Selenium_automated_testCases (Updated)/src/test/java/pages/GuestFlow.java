@@ -37,7 +37,7 @@ public class GuestFlow extends BasePage {
     public static By StartChargingButton = By.xpath("//div[@class='ant-col ant-col-16']//span[contains(text(),'START CHARGING')]");
     public static By SignUpBtn = By.xpath("(//Button[@type='submit']/span[contains(text(),'Sign up')])[2]");
 
-    public static By LoginBtn = By.xpath("(//Button[@type='submit']//span[contains(text(),'Login')])[2]");
+    public static By LoginBtn = By.xpath("//a[@href='/customer/login']");
     public static By OtpField1 = By.xpath("(//input[@data-id='0'])[3]");
     public static By OtpField2 = By.xpath("//input[@id='25157da6-3d14-44d9-b2c8-1aa4716d903c-1']");
     public static By OtpField3 = By.xpath("//input[@id='25157da6-3d14-44d9-b2c8-1aa4716d903c-2']");
@@ -566,13 +566,14 @@ public class GuestFlow extends BasePage {
         String UF = driver.findElement(UtilizationFee).getText().replaceAll("[^.0-9]","");
         float UtilizationFee = Float.parseFloat(UF);
         Float TF = (UtilizationFee*EnergyConsumed)+SessionFee;
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
         Float TotalFee = Float.valueOf(decimalFormat.format(TF));
         System.out.println("Formula calculated Total fee: "+TotalFee);
         click(BreakDownFeeClose);
         Thread.sleep(2500);
         waitforPresence(TotalPaid);
         String TP = driver.findElement(TotalPaid).getText().replaceAll(".*\\$(\\d+\\.\\d+).*","$1");
+        System.out.println("Total paid in string : "+TP);
         float TotalPaidAmount = Float.parseFloat(TP);
         System.out.println("System showing total fee: "+TotalPaidAmount);
         if (TotalFee==TotalPaidAmount){

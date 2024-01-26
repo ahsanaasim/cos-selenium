@@ -94,12 +94,13 @@ public class CreateCompany extends BasePage {
         return true;
     }
 
-    public String WriteAutomatedCompanyName() throws InterruptedException {
+    public String WriteAutomatedCompanyName()  {
         Random numGenerator = new Random();
-        Thread.sleep(1000);
+        /*Thread.sleep(1000);*/
         waitVisibility(companyname);
         int randomNumber = numGenerator.nextInt(10000);
         String company=prop.getProperty("CompanyNameForAutomation")+" "+randomNumber;
+        System.out.println("Created company name : "+company);
         return company;
     }
 
