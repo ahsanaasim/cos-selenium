@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.*;
-import org.testng.Assert;
 
 import java.util.Properties;
 import java.util.Random;
@@ -319,7 +318,7 @@ public class DashboardPropertyDetails extends BasePage {
         int TotalLocNum = Integer.parseInt(Loaction);
         System.out.println(TotalLocNum);
         guestFlow.NewTabOpenAndSwitchToNewTab(1);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         createLocation.GoToLocationPage();
         click(createLocation.createlocationbtn);
         Thread.sleep(10000);
@@ -379,7 +378,7 @@ public class DashboardPropertyDetails extends BasePage {
         int TotalChargerNum = Integer.parseInt(Charger);
         System.out.println(TotalChargerNum);
         guestFlow.NewTabOpenAndSwitchToNewTab(1);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         createCharger.GoToChargers();
         click(CreateCharger.addchargerbtn);
         Thread.sleep(10000);

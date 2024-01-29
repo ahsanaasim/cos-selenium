@@ -6,13 +6,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.sql.SQLOutput;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class COSA extends BasePage{
     public COSA(WebDriver driver)  {
@@ -321,7 +319,7 @@ public class COSA extends BasePage{
         waitforPresence(COSA.AddressBox);
         click(COSA.AddressBox);
         operation.writeInputText(COSA.AddressBox,Address,1000);
-        operation.ClickButton(COSA.FirstSuggestedAddressFromOption,2000);
+        operation.clickButton(COSA.FirstSuggestedAddressFromOption,2000);
 
 
     }
@@ -545,7 +543,7 @@ public class COSA extends BasePage{
         SwitchToTab(1);
         location.GoToLocationPage();
         location.writeINLocationSearchBar(s);
-        operation.ClickButton(EditCompany.searchbtn,1500);
+        operation.clickButton(EditCompany.searchbtn,1500);
         waitforPresence(EditLocation.PropertyName1InColumn);
         String LocationName = readText(EditLocation.LocationName1InColumn);
         System.out.println("location address in drawer: " + LocationName);
@@ -570,8 +568,8 @@ public class COSA extends BasePage{
         SwitchToTab(1);
         location.GoToLocationPage();
         location.writeINLocationSearchBar(s);
-        operation.ClickButton(EditCompany.searchbtn,1500);
-        operation.ClickButton(EditLocation.EditButton,1500);
+        operation.clickButton(EditCompany.searchbtn,1500);
+        operation.clickButton(EditLocation.EditButton,1500);
         waitforPresence(EditLocation.PropertyName1InColumn);
         String propertyLocationAddress = readText(EditLocation.PropertyAddressInDrawer);
         System.out.println("location address in drawer: " + propertyLocationAddress);
@@ -635,12 +633,12 @@ public class COSA extends BasePage{
         MapDetails mapDetails = new MapDetails(driver);
         COSA cosa = new COSA(driver);
         mapDetails.GoToPaikareLocation();
-        operation.ClickButton(MapDetails.AskCOSAButton,2000);
-        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
-        operation.ClickButton(COSA.DateBox,2000);
-        operation.ClickButton(COSA.TodayDate,2000);
-        operation.ClickButton(COSA.TimeBox,2000);
-        operation.ClickButton(COSA.Now,1500);
+        operation.clickButton(MapDetails.AskCOSAButton,2000);
+        operation.clickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        operation.clickButton(COSA.DateBox,2000);
+        operation.clickButton(COSA.TodayDate,2000);
+        operation.clickButton(COSA.TimeBox,2000);
+        operation.clickButton(COSA.Now,1500);
         Thread.sleep(2000);
 
 

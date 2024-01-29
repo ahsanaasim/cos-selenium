@@ -1,11 +1,9 @@
 package tests.US183InvoiceListAndSearch;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
 import tests.BaseTest;
-import tests.US178DashboardLoadMoreFunctionality.LoadMoreFunctionalityTestCases;
 import tests.US1AdminLogin.TestParameters;
 
 public class InvoiceListTestCases extends BaseTest {
@@ -19,9 +17,9 @@ public class InvoiceListTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger operation = new CreateCharger(driver);
         InvoiceListAndSearch invoiceList = new InvoiceListAndSearch(driver);
-        loginPage.VerifyValidLogin();
-        operation.ClickButton(InvoiceListAndSearch.FinancialTab, 2000);
-        operation.ClickButton(InvoiceListAndSearch.InvoicesTab, 2000);
+        loginPage.verifyValidLogin();
+        operation.clickButton(InvoiceListAndSearch.FinancialTab, 2000);
+        operation.clickButton(InvoiceListAndSearch.InvoicesTab, 2000);
         Assert.assertTrue(invoiceList.verifyBreadBarNameMatchWithTabName());
     }
 
@@ -91,7 +89,7 @@ public class InvoiceListTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger operation = new CreateCharger(driver);
         InvoiceListAndSearch invoiceList = new InvoiceListAndSearch(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab, 2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab, 2000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(2000, InvoiceListAndSearch.CompanyNameColumn));
@@ -113,7 +111,7 @@ public class InvoiceListTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger operation = new CreateCharger(driver);
         InvoiceListAndSearch invoiceList = new InvoiceListAndSearch(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab, 2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab, 2000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(2000, InvoiceListAndSearch.DetailsButton));
@@ -142,11 +140,11 @@ public class InvoiceListTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         InvoiceListAndSearch invoiceList = new InvoiceListAndSearch(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab, 2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab, 2000);
         operation.writeInputText(InvoiceListAndSearch.SearchField,"INV-000042",3000);
-        operation.ClickButton(InvoiceListAndSearch.SearchButton,200);
+        operation.clickButton(InvoiceListAndSearch.SearchButton,200);
         Assert.assertTrue(invoiceList.verifyDraftStatusColor());
     }
     @Test(priority = 10)//Done
@@ -158,12 +156,12 @@ public class InvoiceListTestCases extends BaseTest {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger operation = new CreateCharger(driver);
         InvoiceListAndSearch invoiceList = new InvoiceListAndSearch(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab, 2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab, 2000);
-        customerSignUp.FieldClear(InvoiceListAndSearch.SearchField);
+        customerSignUp.fieldClear(InvoiceListAndSearch.SearchField);
         operation.writeInputText(InvoiceListAndSearch.SearchField,"INV-000018",3000);
-        operation.ClickButton(InvoiceListAndSearch.SearchButton,200);
+        operation.clickButton(InvoiceListAndSearch.SearchButton,200);
         Assert.assertTrue(invoiceList.verifySentStatusColor());
     }
 
@@ -176,12 +174,12 @@ public class InvoiceListTestCases extends BaseTest {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger operation = new CreateCharger(driver);
         InvoiceListAndSearch invoiceList = new InvoiceListAndSearch(driver);
-        loginPage.VerifyValidLogin();
-        customerSignUp.FieldClear(InvoiceListAndSearch.SearchField);
+        loginPage.verifyValidLogin();
+        customerSignUp.fieldClear(InvoiceListAndSearch.SearchField);
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab, 2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab, 2000);
         operation.writeInputText(InvoiceListAndSearch.SearchField,"INV-000015",3000);
-        operation.ClickButton(InvoiceListAndSearch.SearchButton,200);
+        operation.clickButton(InvoiceListAndSearch.SearchButton,200);
         Assert.assertTrue(invoiceList.verifyPartiallyPaidStatusColor());
     }
 
@@ -194,12 +192,12 @@ public class InvoiceListTestCases extends BaseTest {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger operation = new CreateCharger(driver);
         InvoiceListAndSearch invoiceList = new InvoiceListAndSearch(driver);
-        loginPage.VerifyValidLogin();
-        customerSignUp.FieldClear(InvoiceListAndSearch.SearchField);
+        loginPage.verifyValidLogin();
+        customerSignUp.fieldClear(InvoiceListAndSearch.SearchField);
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab, 2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab, 2000);
         operation.writeInputText(InvoiceListAndSearch.SearchField,"INV-000010",3000);
-        operation.ClickButton(InvoiceListAndSearch.SearchButton,200);
+        operation.clickButton(InvoiceListAndSearch.SearchButton,200);
         Assert.assertTrue(invoiceList.verifyPaidStatusColor());
     }
     @Test(priority = 13)//Done
@@ -211,9 +209,9 @@ public class InvoiceListTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         InvoiceListAndSearch invoiceList = new InvoiceListAndSearch(driver);
-        loginPage.VerifyValidLogin();
-        customerSignUp.FieldClear(InvoiceListAndSearch.SearchField);
-        operation.ClickButton(InvoiceListAndSearch.SearchButton,1000);
+        loginPage.verifyValidLogin();
+        customerSignUp.fieldClear(InvoiceListAndSearch.SearchField);
+        operation.clickButton(InvoiceListAndSearch.SearchButton,1000);
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab, 2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab, 2000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(200, InvoiceListAndSearch.SearchButton));
@@ -258,7 +256,7 @@ public class InvoiceListTestCases extends BaseTest {
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab, 2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab, 2000);
         operation.writeInputText(InvoiceListAndSearch.SearchField,"INV-000021",3000);
-        operation.ClickButton(InvoiceListAndSearch.SearchButton,200);
+        operation.clickButton(InvoiceListAndSearch.SearchButton,200);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(2000,InvoiceListAndSearch.DraftStatus));
     }
     @Test(priority = 17)//Done
@@ -271,11 +269,11 @@ public class InvoiceListTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         InvoiceListAndSearch invoiceList = new InvoiceListAndSearch(driver);
 //        loginPage.VerifyValidLogin();
-        customerSignUp.FieldClear(InvoiceListAndSearch.SearchField);
+        customerSignUp.fieldClear(InvoiceListAndSearch.SearchField);
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab, 2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab, 2000);
         operation.writeInputText(InvoiceListAndSearch.SearchField,"INV-000033",3000);
-        operation.ClickButton(InvoiceListAndSearch.SearchButton,200);
+        operation.clickButton(InvoiceListAndSearch.SearchButton,200);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(2000,InvoiceListAndSearch.PaidStatus));
     }
     @Test(priority = 18)//Done
@@ -287,12 +285,12 @@ public class InvoiceListTestCases extends BaseTest {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger operation = new CreateCharger(driver);
         InvoiceListAndSearch invoiceList = new InvoiceListAndSearch(driver);
-        customerSignUp.FieldClear(InvoiceListAndSearch.SearchField);
+        customerSignUp.fieldClear(InvoiceListAndSearch.SearchField);
 //        loginPage.VerifyValidLogin();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab, 2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab, 2000);
         operation.writeInputText(InvoiceListAndSearch.SearchField,"INV-000019",3000);
-        operation.ClickButton(InvoiceListAndSearch.SearchButton,200);
+        operation.clickButton(InvoiceListAndSearch.SearchButton,200);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(2000,InvoiceListAndSearch.SentStatus));
     }
     @Test(priority = 19)//Done
@@ -305,11 +303,11 @@ public class InvoiceListTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         InvoiceListAndSearch invoiceList = new InvoiceListAndSearch(driver);
 //        loginPage.VerifyValidLogin();
-        customerSignUp.FieldClear(InvoiceListAndSearch.SearchField);
+        customerSignUp.fieldClear(InvoiceListAndSearch.SearchField);
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab, 2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab, 2000);
         operation.writeInputText(InvoiceListAndSearch.SearchField,"INV-000052",3000);
-        operation.ClickButton(InvoiceListAndSearch.SearchButton,200);
+        operation.clickButton(InvoiceListAndSearch.SearchButton,200);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(2000,InvoiceListAndSearch.OverdueStatus));
     }
 
@@ -323,11 +321,11 @@ public class InvoiceListTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         InvoiceListAndSearch invoiceList = new InvoiceListAndSearch(driver);
 //        loginPage.VerifyValidLogin();
-        customerSignUp.FieldClear(InvoiceListAndSearch.SearchField);
+        customerSignUp.fieldClear(InvoiceListAndSearch.SearchField);
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab, 2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab, 2000);
         operation.writeInputText(InvoiceListAndSearch.SearchField,"INV-000004",3000);
-        operation.ClickButton(InvoiceListAndSearch.SearchButton,200);
+        operation.clickButton(InvoiceListAndSearch.SearchButton,200);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(2000,InvoiceListAndSearch.PartiallyPaidStatus));
     }
 

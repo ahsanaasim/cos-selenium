@@ -28,8 +28,8 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
@@ -48,8 +48,8 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
@@ -72,8 +72,8 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-         Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
@@ -97,8 +97,8 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
@@ -122,10 +122,10 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.GotoDashboard());
         //  Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
@@ -149,11 +149,11 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
         //  Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
@@ -179,10 +179,10 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-       Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+       Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
@@ -210,11 +210,11 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
         //  Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
@@ -237,11 +237,11 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
         //  Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
@@ -269,11 +269,11 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
         //  Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
@@ -300,10 +300,10 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
@@ -331,11 +331,11 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
         //  Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
@@ -362,8 +362,8 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.GotoDashboard());
         //  Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
@@ -393,8 +393,8 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.GotoDashboard());
         //  Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
@@ -421,10 +421,10 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
@@ -448,8 +448,8 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /*Assert.assertTrue(dashboard.GotoDashboard());
         //  Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
@@ -461,7 +461,7 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         Assert.assertTrue(searchLocation.writeZipCode());
         Assert.assertTrue(searchLocation.selectAnotherZipcodeFromDropdown());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(searchLocation.verifyElementCountonLocationpageAfterApllyingFilterFromAdvanceFilterDrawer(prop.getProperty("expectedCount")));
 
     }
@@ -474,11 +474,11 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         SearchLocation searchLocation=new SearchLocation(driver);
         SearchCompany searchCompany=new SearchCompany(driver);
         CreateLocation createLocation=new CreateLocation(driver);;
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
         //  Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
@@ -487,7 +487,7 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         Assert.assertTrue(searchLocation.writeZipCode());
         Assert.assertTrue(searchLocation.selectAnotherZipcodeFromDropdown());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(searchLocation.verifyTagsareShowing());
     }
 
@@ -502,10 +502,10 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
       //  Assert.assertTrue(searchandfilter.clickononCompanyDropdown());

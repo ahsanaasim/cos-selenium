@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.util.Random;
 
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 public class CreateCharger extends BasePage {
     public CreateCharger(WebDriver driver)
     {
@@ -110,16 +108,6 @@ public class CreateCharger extends BasePage {
         click(discardbtn);
         return true;
     }
-    public boolean ClickButton(By element,int delay)  throws InterruptedException {
-        Thread.sleep(delay);
-        waitforPresence(element);
-        waitelemtclickable(element);
-        waitelementtobeEnabled(element);
-        click(element);
-        return true;
-    }
-
-
 
 
     public boolean writeNewChargerName(String NewChargerName) throws InterruptedException {
@@ -143,13 +131,6 @@ public class CreateCharger extends BasePage {
         return true;
     }
 
-    public boolean writeInputText(By element, String text, int delay)  throws InterruptedException {
-        Thread.sleep(delay);
-        waitVisibility(element);
-        waitelemtclickable(element);
-        writeText(element, text);
-        return true;
-    }
 
     public boolean writeLocationName(String PropertyName3) throws InterruptedException {
         Thread.sleep(3000);
@@ -355,7 +336,7 @@ public class CreateCharger extends BasePage {
 
     public void selectProperty(String Property) throws InterruptedException {
         waitforPresence(selectproperty);
-        ClickButton(selectproperty,2500);
+        clickButton(selectproperty,2500);
         writeInputText(selectproperty,Property,2500);
         WebElement selectitem = driver.findElement(selectproperty);
         Thread.sleep(4000);
@@ -364,7 +345,7 @@ public class CreateCharger extends BasePage {
 
     public void selectLocation(String Location) throws InterruptedException {
         waitforPresence(location);
-        ClickButton(location,2500);
+        clickButton(location,2500);
         writeInputText(location,Location,2500);
         WebElement selectitem = driver.findElement(location);
         Thread.sleep(4000);
@@ -397,14 +378,14 @@ public class CreateCharger extends BasePage {
         SimulationPage register = new SimulationPage(driver);
         GoToChargers();
         edit.writeInSearchBar(searchchargerfield,ChargerName,3500);
-        ClickButton(CreateCharger.searchargerbtn,2000);
-        ClickButton(CosAdminChargerList.EditButton,2000);
-        ClickButton(UpdateChargerPropertyAdmin.CopyButton,2000);
-        dashboard.RefreshBrowser();
-        ClickButton(SimulationPage.SimulationTab,2000);
+        clickButton(CreateCharger.searchargerbtn,2000);
+        clickButton(CosAdminChargerList.EditButton,2000);
+        clickButton(UpdateChargerPropertyAdmin.CopyButton,2000);
+        dashboard.refreshBrowser();
+        clickButton(SimulationPage.SimulationTab,2000);
         register.GoToRegisterPage();
         writeInputText(SimulationPage.RegisterField,register.getClipboardURL(),1500);
-        ClickButton(SimulationPage.BootChargerAsDummy,1000);
+        clickButton(SimulationPage.BootChargerAsDummy,1000);
 
 
 

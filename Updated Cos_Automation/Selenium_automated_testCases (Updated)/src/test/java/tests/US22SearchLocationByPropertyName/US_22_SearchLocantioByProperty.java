@@ -26,8 +26,8 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononPropertyDropdown());
@@ -48,8 +48,8 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
@@ -73,8 +73,8 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
@@ -98,10 +98,10 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.GotoDashboard());
         //  Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononPropertyDropdown());
@@ -123,8 +123,8 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
@@ -148,10 +148,10 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.GotoDashboard());
         //Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononPropertyDropdown());
@@ -174,10 +174,10 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononPropertyDropdown());
@@ -203,9 +203,9 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononPropertyDropdown());
@@ -231,8 +231,8 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
@@ -257,10 +257,10 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.GotoDashboard());
         //  Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononPropertyDropdown());
@@ -284,8 +284,8 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.GotoDashboard());
         //  Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
@@ -316,8 +316,8 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.RefreshBrowser());
         //  Assert.assertTrue(dashboard.RefreshBrowser());
@@ -348,10 +348,10 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
          Assert.assertTrue(dashboard.GotoDashboard());
-         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononPropertyDropdown());
@@ -374,8 +374,8 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
@@ -400,8 +400,8 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
@@ -426,8 +426,8 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
@@ -437,7 +437,7 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         Assert.assertTrue(searchLocation.ClickonPropertyNameFromDropDown());
         Assert.assertTrue(searchLocation.selectAnotherPropertyFromDropdown());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(searchLocation.verifyLocatonsWithSelectedPropertyTagHasDisplayed());
 
     }
@@ -453,7 +453,7 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         /*Assert.assertTrue(dashboard.GotoDashboard());
         //  Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
@@ -465,7 +465,7 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         Assert.assertTrue(searchLocation.selectAnotherPropertyFromDropdown());
         Assert.assertTrue(searchLocation.clickOnDrawerTitle());
         Assert.assertTrue(searchCompany.ClickonApplyButton());*/
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(searchLocation.verifyPropertyTagsareShowingonLocationPage());
     }
 

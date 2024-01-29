@@ -104,7 +104,7 @@ public class CustomerLogin extends BasePage {
         waitVisibility(EmailField);
         operation.writeInputText(CustomerLogin.EmailField,email,2000);
         operation.writeInputText(CustomerLogin.PasswordField,password,500);
-        operation.ClickButton(CustomerLogin.CustomerLoginButton,500);
+        operation.clickButton(CustomerLogin.CustomerLoginButton,500);
     }
 
 

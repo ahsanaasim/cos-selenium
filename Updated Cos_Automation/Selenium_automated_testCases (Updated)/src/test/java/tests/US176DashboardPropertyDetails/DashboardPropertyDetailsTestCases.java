@@ -22,8 +22,8 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         createLocation.NewTabOpenAndSwitchToNewTab(1);
         Thread.sleep(2500);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
 
 
@@ -35,7 +35,7 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         dashboardPropertyDetails.SwitchToTab(0);
-        loginPage.VerifyValidLoginForPropertyAdmin();
+        loginPage.verifyValidLoginForPropertyAdmin();
         Assert.assertTrue((dashboardPropertyDetails.verifyDetailsBesideEveryProperty()));
     }
     @Test(priority = 2)//Done
@@ -43,7 +43,7 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
     public void TC_3_TextTitleShouldBeTheSameAsTheDesign() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
+        loginPage.verifyValidLoginForPropertyAdmin();
         Assert.assertTrue((dashboardPropertyDetails.verifySeeDetailsButtonText()));
     }
     @Test(priority = 3)//Done
@@ -51,7 +51,7 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
     public void TC_4_6_CheckTheTitleAboveTheDetailsDrawerAfterClickingOnDetailsButton() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
+        loginPage.verifyValidLoginForPropertyAdmin();
         Assert.assertTrue((dashboardPropertyDetails.verifyDetailsDrawerTitle()));
     }
     @Test(priority = 4)//Done
@@ -60,8 +60,8 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         Dashboard dashboard =new Dashboard(driver);
-        dashboard.RefreshBrowser();
-        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
         Assert.assertTrue((dashboardPropertyDetails.verifyDetailsDrawerLocationTitle()));
     }
     @Test(priority = 5)//Done
@@ -70,8 +70,8 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         Dashboard dashboard =new Dashboard(driver);
-        dashboard.RefreshBrowser();
-        loginPage.VerifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
         Assert.assertTrue((dashboardPropertyDetails.verifyDetailsDrawerTitle()));
 
     }
@@ -91,9 +91,9 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         dashboardPropertyDetails.LogoutFromExistingAccount();
         Thread.sleep(3000);
-        loginPage.VerifyValidLoginForPropertyAdminWithPerfectCombination();
-        operation.ClickButton(Dashboard.PropertyFilterField,2000);
-        operation.ClickButton(Dashboard.StardewValleyPropertyFromOption,2000);
+        loginPage.verifyValidLoginForPropertyAdminWithPerfectCombination();
+        operation.clickButton(Dashboard.PropertyFilterField,2000);
+        operation.clickButton(Dashboard.StardewValleyPropertyFromOption,2000);
         Assert.assertTrue((dashboardPropertyDetails.verifyNoChargerMsg()));
 
     }
@@ -107,8 +107,8 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
 //        loginPage.VerifyValidLoginForPropertyAdminWithPerfectCombination();
 //        dashboard.RefreshBrowser();
         dashboard.GotoDashboard();
-        operation.ClickButton(Dashboard.PropertyFilterField,2000);
-        operation.ClickButton(Dashboard.AutomationPropertyFromOption,2000);
+        operation.clickButton(Dashboard.PropertyFilterField,2000);
+        operation.clickButton(Dashboard.AutomationPropertyFromOption,2000);
         Assert.assertTrue((dashboardPropertyDetails.verifyNoLocationAndCharger()));
 //        dashboardPropertyDetails.LogoutFromExistingAccount();
     }
@@ -119,7 +119,7 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         dashboardPropertyDetails.LogoutFromExistingAccount();
         Thread.sleep(3000);
-        loginPage.VerifyValidLoginForPropertyAdminOnlyLocations();
+        loginPage.verifyValidLoginForPropertyAdminOnlyLocations();
         Assert.assertTrue((dashboardPropertyDetails.verifyDetailsDrawerTitle()));
     }
     @Test(priority = 9)//Done
@@ -129,9 +129,9 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         CreateCharger createCharger =new CreateCharger(driver);
         Dashboard dashboard =new Dashboard(driver);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        loginPage.VerifyValidLoginForPropertyAdminOnlyLocations();
-        Assert.assertTrue(createCharger.ClickButton(DashboardPropertyDetails.DetailsBtn1,6000));
+        Assert.assertTrue(createCharger.clickButton(DashboardPropertyDetails.DetailsBtn1,6000));
         Assert.assertTrue(dashboardPropertyDetails.verifyTextMatching(2000,DashboardPropertyDetails.DrawerLocationTitle,"Maven Location"));
         Assert.assertTrue(dashboardPropertyDetails.verifyTextMatching(2000,DashboardPropertyDetails.DrawerLocationTitle2,"Enterprise Location"));
         Assert.assertTrue(dashboardPropertyDetails.verifyTextMatching(2000,DashboardPropertyDetails.DrawerLocationTitle3,"Eastern Way"));
@@ -143,9 +143,9 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         CreateCharger createCharger =new CreateCharger(driver);
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         Dashboard dashboard =new Dashboard(driver);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        loginPage.VerifyValidLoginForPropertyAdminOnlyLocations();
-        Assert.assertTrue(createCharger.ClickButton(DashboardPropertyDetails.DetailsBtn1,4000));
+        Assert.assertTrue(createCharger.clickButton(DashboardPropertyDetails.DetailsBtn1,4000));
         Assert.assertTrue(dashboardPropertyDetails.verifyAnElementDisplayedOrNot(2000,DashboardPropertyDetails.NoChargermsg));
         Assert.assertTrue(dashboardPropertyDetails.verifyAnElementDisplayedOrNot(1000,DashboardPropertyDetails.NoChargermsg2));
         Assert.assertTrue(dashboardPropertyDetails.verifyAnElementDisplayedOrNot(1000,DashboardPropertyDetails.NoChargermsg3));
@@ -158,7 +158,7 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         dashboardPropertyDetails.LogoutFromExistingAccount();
         Thread.sleep(4000);
-        loginPage.VerifyValidLoginForPropertyAdminOfflineLocations();
+        loginPage.verifyValidLoginForPropertyAdminOfflineLocations();
         Assert.assertTrue((dashboardPropertyDetails.verifyDetailsDrawerTitle()));
     }
     @Test(priority = 12)//Done
@@ -168,9 +168,9 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         CreateCharger createCharger =new CreateCharger(driver);
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         Dashboard dashboard =new Dashboard(driver);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        loginPage.VerifyValidLoginForPropertyAdminOfflineLocations();
-        Assert.assertTrue(createCharger.ClickButton(DashboardPropertyDetails.DetailsBtn1,3000));
+        Assert.assertTrue(createCharger.clickButton(DashboardPropertyDetails.DetailsBtn1,3000));
         Assert.assertTrue(dashboardPropertyDetails.verifyAnElementDisplayedOrNot(2000,DashboardPropertyDetails.OfflineTagBesideLocation));
         Assert.assertTrue(dashboardPropertyDetails.verifyAnElementDisplayedOrNot(1000,DashboardPropertyDetails.OfflineTagBesideLocation2));
         Assert.assertTrue(dashboardPropertyDetails.verifyAnElementDisplayedOrNot(1000,DashboardPropertyDetails.OfflineTagBesideLocation3));
@@ -182,9 +182,9 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         CreateCharger createCharger =new CreateCharger(driver);
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         Dashboard dashboard =new Dashboard(driver);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        loginPage.VerifyValidLoginForPropertyAdminOfflineLocations();
-        Assert.assertTrue(createCharger.ClickButton(DashboardPropertyDetails.DetailsBtn1,5000));
+        Assert.assertTrue(createCharger.clickButton(DashboardPropertyDetails.DetailsBtn1,5000));
         Assert.assertTrue((dashboardPropertyDetails.verifyChargerStatusOfflineForOfflineLocations()));
 
     }
@@ -206,7 +206,7 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         dashboardPropertyDetails.LogoutFromExistingAccount();
         Thread.sleep(3000);
-        loginPage.VerifyValidLoginForPropertyAdminCountTest();
+        loginPage.verifyValidLoginForPropertyAdminCountTest();
         Assert.assertTrue((dashboardPropertyDetails.verifyLocationCountInTableMatchWithDrawer()));
     }
 //    @Test(priority = 15)//Done
@@ -228,7 +228,7 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
 //        dashboardPropertyDetails.LogoutFromExistingAccount();
 //        Thread.sleep(3000);
 //        loginPage.VerifyValidLoginForPropertyAdminCountTest();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue((dashboardPropertyDetails.verifyChargerCountInTableMatchWithDrawer()));
     }
 
@@ -241,8 +241,8 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         Dashboard dashboard =new Dashboard(driver);
 //        loginPage.VerifyValidLoginForPropertyAdminCountTest();
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(createCharger.ClickButton(DashboardPropertyDetails.DetailsBtn1,5000));
+        dashboard.refreshBrowser();
+        Assert.assertTrue(createCharger.clickButton(DashboardPropertyDetails.DetailsBtn1,5000));
         Assert.assertTrue((dashboardPropertyDetails.verifyOthersStatus()));
 
     }
@@ -260,19 +260,19 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
         dashboardPropertyDetails.LogoutFromExistingAccount();
         Thread.sleep(5000);
-        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
+        loginPage.verifyValidLoginForPropertyAdminChargerStatusCheck();
         Thread.sleep(5000);
         guestFlow.SwitchToTab(1);
 //        guestFlow.NewTabOpenAndSwitchToNewTab(1);
 //        loginPage.VerifyValidLogin();
         createLocation.GoToLocationPage();
         operation.writeInputText(CreateLocation.searchbar,"Beautiful Location",8000);
-        operation.ClickButton(CreateCharger.searchargerbtn,1000);
-        operation.ClickButton(EditLocation.EditButton,1000);
+        operation.clickButton(CreateCharger.searchargerbtn,1000);
+        operation.clickButton(EditLocation.EditButton,1000);
         editCharger.clickToggleButtonIfItIsOn();
-        operation.ClickButton(CreateLocation.savelocationbtn,2000);
+        operation.clickButton(CreateLocation.savelocationbtn,2000);
         guestFlow.SwitchToTab(0);
-        operation.ClickButton(DashboardPropertyDetails.DetailsBtn1,3000);
+        operation.clickButton(DashboardPropertyDetails.DetailsBtn1,3000);
         Assert.assertTrue(dashboardPropertyDetails.verifyOfflineLocationAndOfflineCharger());
     }
     @Test(priority = 18)//Done
@@ -283,13 +283,13 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         Dashboard dashboard =new Dashboard(driver);
         UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         guestFlow.SwitchToTab(1);
-        createCharger.ClickButton(EditLocation.EditButton,2000);
+        createCharger.clickButton(EditLocation.EditButton,2000);
         editCharger.clickToggleButtonIfItIsOff();
-        createCharger.ClickButton(CreateLocation.savelocationbtn,2000);
+        createCharger.clickButton(CreateLocation.savelocationbtn,2000);
         guestFlow.SwitchToTab(0);
-        createCharger.ClickButton(DashboardPropertyDetails.DetailsBtn1,3000);
+        createCharger.clickButton(DashboardPropertyDetails.DetailsBtn1,3000);
         Assert.assertTrue(dashboardPropertyDetails.verifyOnlineLocation());
 //        Assert.assertTrue(dashboardPropertyDetails.verifyInUseCharger());
 
@@ -303,10 +303,10 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         Dashboard dashboard =new Dashboard(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
         guestFlow.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
-        Assert.assertTrue(createCharger.ClickButton(DashboardPropertyDetails.DetailsBtn1,5000));
-        Assert.assertTrue(createCharger.ClickButton(CreateCharger.outsidedrawer,5000));
+        dashboard.refreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdminChargerStatusCheck();
+        Assert.assertTrue(createCharger.clickButton(DashboardPropertyDetails.DetailsBtn1,5000));
+        Assert.assertTrue(createCharger.clickButton(CreateCharger.outsidedrawer,5000));
         Assert.assertTrue(dashboardPropertyDetails.verifyDrawerClosed());
     }
     @Test(priority = 20)//Done
@@ -315,9 +315,9 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
-        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
-        Assert.assertTrue(createCharger.ClickButton(DashboardPropertyDetails.DetailsBtn1,5000));
-        Assert.assertTrue(createCharger.ClickButton(CreateCharger.crossbtnofdrawer,5000));
+        loginPage.verifyValidLoginForPropertyAdminChargerStatusCheck();
+        Assert.assertTrue(createCharger.clickButton(DashboardPropertyDetails.DetailsBtn1,5000));
+        Assert.assertTrue(createCharger.clickButton(CreateCharger.crossbtnofdrawer,5000));
         Assert.assertTrue(dashboardPropertyDetails.verifyDrawerClosed());
     }
     @Test(priority = 21)//Done
@@ -327,8 +327,8 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
-        dashboard.RefreshBrowser();
-        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
+        dashboard.refreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdminChargerStatusCheck();
 //        guestFlow.NewTabOpenAndSwitchToNewTab(1);
         guestFlow.SwitchToTab(1);
 //        loginPage.VerifyValidLogin();
@@ -345,23 +345,23 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         SimulationPage simulationPage = new SimulationPage(driver);
         CreateCharger operation = new CreateCharger(driver);
         Dashboard dashboard =new Dashboard(driver);
-        dashboard.RefreshBrowser();
-        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
+        dashboard.refreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdminChargerStatusCheck();
 //        guestFlow.NewTabOpenAndSwitchToNewTab(1);
         guestFlow.SwitchToTab(1);
 //        loginPage.VerifyValidLogin();
         guestFlow.GoToSimulator();
         guestFlow.makeASpecificChargerAvailable("Automatable Charger");
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
-        Assert.assertTrue(operation.ClickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
+        Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
         guestFlow.SwitchToTab(2);
         Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
-        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
+        Assert.assertTrue(operation.clickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
         Assert.assertTrue(guestFlow.SendOtp(5000,"666666"));
-        operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
+        operation.clickButton(OTPVerificationPage.VerifyButton,2000);
         guestFlow.SwitchToTab(1);
-        Assert.assertTrue(operation.ClickButton(GuestFlow.PluginChargerbtn,1000));
+        Assert.assertTrue(operation.clickButton(GuestFlow.PluginChargerbtn,1000));
         guestFlow.SwitchToTab(0);
         Assert.assertTrue(dashboardPropertyDetails.verifyChargerInUseStatusSeeDetails());
 
@@ -377,20 +377,20 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
         Dashboard dashboard =new Dashboard(driver);
-        dashboard.RefreshBrowser();
-        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
+        dashboard.refreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdminChargerStatusCheck();
         guestFlow.SwitchToTab(1);
         guestFlow.GoToSimulator();
         guestFlow.SelectChargerFromSimulator("Automatable Charger");
         dashboardPropertyDetails.selectChargerStatus("Charging");
-        Assert.assertTrue(operation.ClickButton(DashboardPropertyDetails.SimulatorChargerStatusSaveBtn,2000));
+        Assert.assertTrue(operation.clickButton(DashboardPropertyDetails.SimulatorChargerStatusSaveBtn,2000));
         guestFlow.SwitchToTab(2);
-        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.StatChargingButton,5000));
+        Assert.assertTrue(operation.clickButton(GuestVerificationPage.StatChargingButton,5000));
         guestFlow.SwitchToIframe();
         operation.click(GuestFlow.CardNumber);
         Assert.assertTrue(operation.writeInputText(GuestFlow.CardNumber,"424242424242424242424242424",6000));
         guestFlow.SwitchToDefaultFromIframe();
-        Assert.assertTrue(operation.ClickButton(GuestFlow.AuthorizeButton,1500));
+        Assert.assertTrue(operation.clickButton(GuestFlow.AuthorizeButton,1500));
         guestFlow.SwitchToTab(0);
         Assert.assertTrue(dashboardPropertyDetails.verifyChargerInUseStatusSeeDetails());
     }
@@ -426,7 +426,7 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         guestFlow.GoToSimulator();
         guestFlow.SelectChargerFromSimulator("Automatable Charger");
         dashboardPropertyDetails.selectChargerStatus("Faulted");
-        Assert.assertTrue(createCharger.ClickButton(DashboardPropertyDetails.SimulatorChargerStatusSaveBtn,2000));
+        Assert.assertTrue(createCharger.clickButton(DashboardPropertyDetails.SimulatorChargerStatusSaveBtn,2000));
         guestFlow.SwitchToTab(0);
         Assert.assertTrue(dashboardPropertyDetails.verifyChargerDownStatusSeeDetails());
     }
@@ -461,12 +461,12 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
         Dashboard dashboard =new Dashboard(driver);
-        dashboard.RefreshBrowser();
-        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
+        dashboard.refreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdminChargerStatusCheck();
         guestFlow.SwitchToTab(1);
         guestFlow.GoToSimulator();
         guestFlow.SelectChargerFromSimulator("Automatable Charger");
-        Assert.assertTrue(createCharger.ClickButton(SimulationPage.DisconnectCharger,2000));
+        Assert.assertTrue(createCharger.clickButton(SimulationPage.DisconnectCharger,2000));
         Assert.assertTrue(dashboardPropertyDetails.verifyChargerAvailabilityInSeeDetails());
     }
 

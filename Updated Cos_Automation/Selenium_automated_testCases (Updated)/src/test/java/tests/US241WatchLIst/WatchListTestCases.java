@@ -52,8 +52,8 @@ public class WatchListTestCases extends BaseTest {
         EditLocation editLocation = new EditLocation(driver);
         createLocation.NewTabOpenAndSwitchToNewTab(1);
         Thread.sleep(2500);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         editLocation.makeALocationOnline("Rampura Bridge");
 
@@ -109,7 +109,7 @@ public class WatchListTestCases extends BaseTest {
 //        customerLogin.SwitchToTab(0);
         customerLogin.GoToCustomerLoginPage();
         customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
-        operation.ClickButton(CustomerSupport.Menu,2000);
+        operation.clickButton(CustomerSupport.Menu,2000);
         Assert.assertTrue(watchList.verifyAnElementDisplayedOrNot(2000,CustomerMenu.Watchlist));
         Assert.assertTrue(watchList.verifyAnElementDisplayedOrNot(1000,CustomerMenu.WatchlistLogo));
 
@@ -128,9 +128,9 @@ public class WatchListTestCases extends BaseTest {
 //        customerLogin.SwitchToTab(0);
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"), "EitaiPassword10");
-        dashboard.RefreshBrowser();
-        operation.ClickButton(CustomerSupport.Menu,2000);
-        operation.ClickButton(CustomerMenu.Watchlist,2000);
+        dashboard.refreshBrowser();
+        operation.clickButton(CustomerSupport.Menu,2000);
+        operation.clickButton(CustomerMenu.Watchlist,2000);
         Assert.assertTrue(cosa.CurrentPageURLCheck("https://test-app.chargeonsite.com/customer/cosa/watchlist"));
 
 
@@ -170,7 +170,7 @@ public class WatchListTestCases extends BaseTest {
 //        customerLogin.SwitchToTab(0);
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"), "EitaiPassword10");
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CustomerSupport.Menu,2000);
 //        operation.ClickButton(CustomerMenu.Watchlist,2000);
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(3500,FavoriteLocation.NoDataInTableImage));
@@ -191,7 +191,7 @@ public class WatchListTestCases extends BaseTest {
 //        customerLogin.SwitchToTab(0);
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"), "EitaiPassword10");
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CustomerSupport.Menu,2000);
 //        operation.ClickButton(CustomerMenu.Watchlist,2000);
         Assert.assertTrue(watchList.verifyWatchListTitle());
@@ -280,7 +280,7 @@ public class WatchListTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"), "EitaiPassword10");
         watchList.GoToWatchList();
 //        operation.ClickButton(CustomerSupport.Menu,2000);
-        operation.ClickButton(WatchList.AvailableChargers,2000);
+        operation.clickButton(WatchList.AvailableChargers,2000);
         Assert.assertTrue(watchList.verifyAnElementDisplayedOrNot(2000,MapDetails.ChargersDetailsTitle));
         Assert.assertTrue(watchList.verifyAnElementDisplayedOrNot(1000,WatchList.ChargerDetailsCloseButton));
 
@@ -301,7 +301,7 @@ public class WatchListTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"), "EitaiPassword10");
         watchList.GoToWatchList();
 //        operation.ClickButton(CustomerSupport.Menu,2000);
-        operation.ClickButton(WatchList.SeeInMap,2000);
+        operation.clickButton(WatchList.SeeInMap,2000);
         Assert.assertTrue(mapDetails.verifySystemIsRedirectingToMapPage());
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,MapDetails.UpperDrawer));
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(500,MapDetails.LowerDrawer));
@@ -365,7 +365,7 @@ public class WatchListTestCases extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         watchList.GoToWatchList();
-        operation.ClickButton(WatchList.ClickHereToUpdateLink,2000);
+        operation.clickButton(WatchList.ClickHereToUpdateLink,2000);
         Assert.assertTrue(cosa.CurrentPageURLCheck("https://test-app.chargeonsite.com/customer/profile"));
         Assert.assertTrue(watchList.verifyAnElementDisplayedOrNot(1000,CustomerProfile.UpdateProfileButton));
         Assert.assertTrue(watchList.verifyAnElementDisplayedOrNot(1000,CustomerProfile.UpdatePhone));
@@ -389,7 +389,7 @@ public class WatchListTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         watchList.AddPaikareShopLocationToWatchlist(2,"03",COSA.PM);
         watchList.GoToWatchList();
-        operation.ClickButton(WatchList.CrossButton,2000);
+        operation.clickButton(WatchList.CrossButton,2000);
         Assert.assertTrue(watchList.verifyTextMatching(1000,WatchList.RemoveAlert,watchList.AlertForRemoveALocationFromWatchlist()));
         Assert.assertTrue(watchList.verifyAnElementDisplayedOrNot(1000,WatchList.YesButton));
         Assert.assertTrue(watchList.verifyAnElementDisplayedOrNot(1000,WatchList.No));
@@ -413,8 +413,8 @@ public class WatchListTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         watchList.AddPaikareShopLocationToWatchlist(5,"04",COSA.PM);
         watchList.GoToWatchList();
-        operation.ClickButton(WatchList.CrossButton,2000);
-        operation.ClickButton(WatchList.No,2000);
+        operation.clickButton(WatchList.CrossButton,2000);
+        operation.clickButton(WatchList.No,2000);
         Assert.assertTrue(watchList.verifyElementNotDisplayed(2000,WatchList.RemoveAlert));
 
 
@@ -434,8 +434,8 @@ public class WatchListTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         watchList.AddPaikareShopLocationToWatchlist(5,"02",COSA.PM);
         watchList.GoToWatchList();
-        operation.ClickButton(WatchList.CrossButton,2000);
-        operation.ClickButton(WatchList.YesButton,2000);
+        operation.clickButton(WatchList.CrossButton,2000);
+        operation.clickButton(WatchList.YesButton,2000);
         Assert.assertTrue(watchList.verifyElementNotDisplayed(2500,WatchList.RemoveAlert));
 
 
@@ -474,8 +474,8 @@ public class WatchListTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         watchList.AddPaikareShopLocationToWatchlist(1,"03",COSA.AM);
         watchList.GoToWatchList();
-        operation.ClickButton(WatchList.CrossButton,2000);
-        operation.ClickButton(WatchList.YesButton,2000);
+        operation.clickButton(WatchList.CrossButton,2000);
+        operation.clickButton(WatchList.YesButton,2000);
         Assert.assertTrue(watchList.verifyAnElementDisplayedOrNot(1200,WatchList.RemoveSuccessfully));
 
 

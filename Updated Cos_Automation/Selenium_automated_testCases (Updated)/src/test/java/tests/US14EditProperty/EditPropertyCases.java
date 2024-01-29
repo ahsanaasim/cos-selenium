@@ -24,9 +24,9 @@ public class EditPropertyCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateProperty property = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(editCompany.VerifyEditButtonHasDisplayed());
     }
 
@@ -40,8 +40,8 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty= new EditProperty(driver);
         EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -58,8 +58,8 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty= new EditProperty(driver);
         EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -103,8 +103,8 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty= new EditProperty(driver);
         EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -142,8 +142,8 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty= new EditProperty(driver);
         EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -161,8 +161,8 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty= new EditProperty(driver);
         EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -180,8 +180,8 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty= new EditProperty(driver);
         EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -199,8 +199,8 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty= new EditProperty(driver);
         EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -221,8 +221,8 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty= new EditProperty(driver);
         EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -241,8 +241,8 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty= new EditProperty(driver);
         EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -260,8 +260,8 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty= new EditProperty(driver);
         EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -279,8 +279,8 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty= new EditProperty(driver);
         EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -320,8 +320,8 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty= new EditProperty(driver);
         EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
@@ -341,8 +341,8 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty= new EditProperty(driver);
         EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -360,8 +360,8 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty= new EditProperty(driver);
         EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -384,8 +384,8 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty= new EditProperty(driver);
         EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -405,8 +405,8 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty= new EditProperty(driver);
         EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -425,11 +425,11 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty= new EditProperty(driver);
         EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editProperty.clickonEditbuttonFromResponsibilePartiesSection());
         Assert.assertTrue(editProperty.selectEntityFeildFromEditPropertyDrawer());
@@ -452,11 +452,11 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty= new EditProperty(driver);
         EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editProperty.enterSpaceinPropertyName());
         Assert.assertTrue(editProperty.clickonSavePropertyButton());
@@ -473,11 +473,11 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty= new EditProperty(driver);
         EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editProperty.RemovePropertyName());
         Assert.assertTrue(editProperty.clickonSavePropertyButton());
@@ -494,15 +494,15 @@ public class EditPropertyCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateEntity createentity = new CreateEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemoveZipcodeFromEditCompanyDrawer());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("Numbers")));
-        Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.verifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
     @Test(priority = 25)//Done
@@ -514,14 +514,14 @@ public class EditPropertyCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateEntity createentity = new CreateEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("Numbers")));
-        Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.verifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
     @Test(priority = 26)//Done
@@ -533,15 +533,15 @@ public class EditPropertyCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateEntity createentity = new CreateEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemoveZipcodeFromEditCompanyDrawer());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCodewithFourDigits")));
-        Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCodewithFourDigits")));
+        Assert.assertTrue(company.verifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
 
@@ -554,15 +554,15 @@ public class EditPropertyCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateEntity createentity = new CreateEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemoveZipcodeFromEditCompanyDrawer());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("InvalidZipcode")));
-        Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("InvalidZipcode")));
+        Assert.assertTrue(company.verifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
 
@@ -575,15 +575,15 @@ public class EditPropertyCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateEntity createentity = new CreateEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemoveZipcodeFromEditCompanyDrawer());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("InvalidZipcodeformat")));
-        Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("InvalidZipcodeformat")));
+        Assert.assertTrue(company.verifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
     @Test(priority = 29)//Done
@@ -595,15 +595,15 @@ public class EditPropertyCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateEntity createentity = new CreateEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemoveZipcodeFromEditCompanyDrawer());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("Numbers")));
-        Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.verifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
 
@@ -617,11 +617,11 @@ public class EditPropertyCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         EditProperty editProperty=new EditProperty(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemoveZipcodeFromEditCompanyDrawer());
         Assert.assertTrue(editProperty.clickonSavePropertyButton());
@@ -638,8 +638,8 @@ public class EditPropertyCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
         EditCompany editCompany=new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -655,13 +655,13 @@ public class EditPropertyCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
         EditCompany editCompany=new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemoveZipcodeFromEditCompanyDrawer());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("Numbers")));
         Assert.assertTrue(properties.verifyStateFieldisDisabled());
     }
 
@@ -673,8 +673,8 @@ public class EditPropertyCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
         EditCompany editCompany=new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -689,13 +689,13 @@ public class EditPropertyCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
         EditCompany editCompany=new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemoveZipcodeFromEditCompanyDrawer());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("Numbers")));
         Assert.assertTrue(properties.verifyCityFieldisDisabled());
     }
 
@@ -708,8 +708,8 @@ public class EditPropertyCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
         EditCompany editCompany=new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -724,13 +724,13 @@ public class EditPropertyCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
         EditCompany editCompany=new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemoveZipcodeFromEditCompanyDrawer());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("Numbers")));
         Assert.assertTrue(properties.verifyCountryFieldisDisabled());
     }
 
@@ -744,16 +744,16 @@ public class EditPropertyCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditEntity editEntity=new EditEntity(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editEntity.RemoveAddressFromEditEntityDrawer());
-        Assert.assertTrue(company.EnterAddress(""));
+        Assert.assertTrue(company.enterAddress(""));
        Assert.assertTrue(properties.clickonSavePropertyButton());
-        Assert.assertTrue(company.VerifyBlankAddressErrorMessage(msg.BlankAddressErrorMsg()));
+        Assert.assertTrue(company.verifyBlankAddressErrorMessage(msg.BlankAddressErrorMsg()));
     }
 
     @Test(priority = 38)//Done
@@ -764,11 +764,11 @@ public class EditPropertyCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.ClickonUploadButton());
         Assert.assertTrue(properties.uploadImageMorethan2Mb());
@@ -787,11 +787,11 @@ public class EditPropertyCases extends BaseTest {
         EditEntity editEntity=new EditEntity(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
        /* Assert.assertTrue(editProperty.clickonEditbuttonFromResponsibilePartiesSection());
         Assert.assertTrue(editProperty.clickonCompanyDropdown());
@@ -801,9 +801,9 @@ public class EditPropertyCases extends BaseTest {
         Assert.assertTrue(editProperty.RemovePropertyName());
         Assert.assertTrue(properties.writePropertyName(prop.getProperty("UpdatedProperty")));
         Assert.assertTrue(editCompany.RemoveZipcodeFromEditCompanyDrawer());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(editEntity.RemoveAddressFromEditEntityDrawer());
-        Assert.assertTrue(company.WriteRandomCompanyAddress());
+        Assert.assertTrue(company.writeRandomCompanyAddress());
 //        Assert.assertTrue(editProperty.clickonEditbuttonFromHardwareProviderSection());
 //        Assert.assertTrue(properties.clickHardwareProviderDropdown());
 //        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
@@ -823,11 +823,11 @@ public class EditPropertyCases extends BaseTest {
         EditEntity editEntity=new EditEntity(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.searchPropertyByName(prop.getProperty("UpdatedProperty")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
         Assert.assertTrue(editProperty.verifyUpdatedPropertyInformationisShowingonPropertyPage());
@@ -844,11 +844,11 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty= new EditProperty(driver);
         CreateProperty properties= new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.searchPropertyByName(prop.getProperty("UpdatedProperty")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
         Assert.assertTrue(editProperty.clickonEditbuttonFromPropertyPage());
@@ -865,11 +865,11 @@ public class EditPropertyCases extends BaseTest {
         EditProperty editProperty=new EditProperty(driver);
         CreateProperty properties= new CreateProperty(driver);
         CreateEntity createentity=new CreateEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editProperty.RemovePropertyName());
         Assert.assertTrue(properties.writePropertyName(prop.getProperty("UpdatedProperty2")));
@@ -888,11 +888,11 @@ public class EditPropertyCases extends BaseTest {
         EditProperty editProperty=new EditProperty(driver);
         CreateProperty properties= new CreateProperty(driver);
         CreateEntity createentity=new CreateEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editProperty.RemovePropertyName());
         Assert.assertTrue(properties.writePropertyName(prop.getProperty("UpdatedProperty2")));
@@ -913,11 +913,11 @@ public class EditPropertyCases extends BaseTest {
         EditProperty editProperty=new EditProperty(driver);
         CreateProperty properties= new CreateProperty(driver);
         CreateEntity createentity=new CreateEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editProperty.RemovePropertyName());
         Assert.assertTrue(properties.writePropertyName(prop.getProperty("UpdatedProperty2")));
@@ -939,11 +939,11 @@ public class EditPropertyCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditProperty editProperty=new EditProperty(driver);
         CreateProperty properties= new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editProperty.RemovePropertyName());
         Assert.assertTrue(properties.writePropertyName(prop.getProperty("UpdatedProperty2")));

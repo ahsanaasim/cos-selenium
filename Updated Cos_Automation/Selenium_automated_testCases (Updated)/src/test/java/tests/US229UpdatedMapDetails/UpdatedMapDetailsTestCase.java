@@ -22,9 +22,9 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         CustomerLogin customerLogin = new CustomerLogin(driver);
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         mapDetails.makeD10LocationAndRampuraBridgeChargerAvailable();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         mapDetails.MakeExpectedChargerOnline("D 11 charger");
 
@@ -63,7 +63,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.SearchLocation));
 
     }
@@ -214,7 +214,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         mapDetails.GoToD10LocationInMapDetails();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(MapDetails.ScanNow,1000);
+        operation.clickButton(MapDetails.ScanNow,1000);
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,MapDetails.ScanQrCodeWithCellPhoneText));
 
 
@@ -232,7 +232,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         mapDetails.GoToD10LocationInMapDetails();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(MapDetails.PlugType,2000);
+        operation.clickButton(MapDetails.PlugType,2000);
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,MapDetails.ChargersDetailsTitle));
 
 
@@ -250,9 +250,9 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         mapDetails.GoToD10LocationInMapDetails();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(MapDetails.PlugType,2000);
+        operation.clickButton(MapDetails.PlugType,2000);
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,MapDetails.ChargersDetailsTitle));
-        operation.ClickButton(MapDetails.CloseButton,2000);
+        operation.clickButton(MapDetails.CloseButton,2000);
         Assert.assertTrue(mapDetails.verifyElementNotDisplayed(2000,MapDetails.ChargersDetailsTitle));
 
 
@@ -272,7 +272,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         mapDetails.GoToD10LocationInMapDetails();
 //        dashboard.RefreshBrowser();
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,MapDetails.GetDirection));
-        operation.ClickButton(MapDetails.GetDirection,2000);
+        operation.clickButton(MapDetails.GetDirection,2000);
         Assert.assertTrue(mapDetails.verifyGetDirectionButtonIsWorking());
 
 
@@ -396,7 +396,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         mapDetails.GoToSundarbanCourierLocation();
-        operation.ClickButton(MapDetails.PlugType,1500);
+        operation.clickButton(MapDetails.PlugType,1500);
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.DownStatus));
 //        dashboard.RefreshBrowser();
 
@@ -420,32 +420,32 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         guestFlow.GoToSimulator();
         Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Space 5"));
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
-        Assert.assertTrue(operation.ClickButton(SimulationPage.BootChargerButton,3000));
-        Assert.assertTrue(operation.ClickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
+        Assert.assertTrue(operation.clickButton(SimulationPage.BootChargerButton,3000));
+        Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
         guestFlow.SwitchToTab(2);
         Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
-        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
+        Assert.assertTrue(operation.clickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
         Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
-        operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
+        operation.clickButton(OTPVerificationPage.VerifyButton,2000);
         guestFlow.SwitchToTab(1);
-        Assert.assertTrue(operation.ClickButton(GuestFlow.PluginChargerbtn,500));
+        Assert.assertTrue(operation.clickButton(GuestFlow.PluginChargerbtn,500));
         simulationPage.SelectChargerStatusFromSimulator("Charging");
         operation.click(SimulationPage.ChargerStatusSaveButton);
         guestFlow.SwitchToTab(2);
-        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.StatChargingButton,5000));
+        Assert.assertTrue(operation.clickButton(GuestVerificationPage.StatChargingButton,5000));
         guestFlow.SwitchToIframe();
         operation.click(GuestFlow.CardNumber);
         Assert.assertTrue(operation.writeInputText(GuestFlow.CardNumber,"424242424242424242424242424",6000));
         guestFlow.SwitchToDefaultFromIframe();
-        Assert.assertTrue(operation.ClickButton(GuestFlow.AuthorizeButton,1500));
+        Assert.assertTrue(operation.clickButton(GuestFlow.AuthorizeButton,1500));
         System.out.println("URL  =  "+driver.getCurrentUrl());
         Assert.assertTrue(guestFlow.verifyChargingNowTitle());
         Thread.sleep(2000);
         driver.close();
         guestFlow.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        operation.ClickButton(MapDetails.PlugType,2500);
+        dashboard.refreshBrowser();
+        operation.clickButton(MapDetails.PlugType,2500);
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.InUseStatus));
 //        dashboard.RefreshBrowser();
 
@@ -477,15 +477,15 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         company.click(EditCompany.AccessCompanyPortal);
         Thread.sleep(5000);
         guestFlow.SwitchToTab(2);
-        operation.ClickButton(Dashboard.properties,3000);
-        operation.ClickButton(Dashboard.locations,3000);
+        operation.clickButton(Dashboard.properties,3000);
+        operation.clickButton(Dashboard.locations,3000);
         location.writeINLocationSearchBarCompanyPortal("Water pump");
         location.click(EditCompany.searchbtn);
         location.click(ChargerListPropertyAdmin.detailsbutton);
         charger.clickToggleButtonIfItIsOn();
-        operation.ClickButton(CreateLocation.savelocationbtn,2000);
+        operation.clickButton(CreateLocation.savelocationbtn,2000);
         guestFlow.SwitchToTab(0);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         mapDetails.GoToSundarbanCourierLocation();
         Assert.assertTrue(mapDetails.verifyElementNotDisplayed(2000,MapDetails.PlugType));
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.NoChargersAvailable));
@@ -523,12 +523,12 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
 //        operation.FieldClear(CreateLocation.searchbar);
 //        location.writeINLocationSearchBarCompanyPortal("Water pump");
 //        operation.ClickButton(EditCompany.searchbtn,1500);
-        dashboard.RefreshBrowser();
-        operation.ClickButton(ChargerListPropertyAdmin.detailsbutton,2500);
+        dashboard.refreshBrowser();
+        operation.clickButton(ChargerListPropertyAdmin.detailsbutton,2500);
         charger.clickToggleButtonIfItIsOff();
-        operation.ClickButton(CreateLocation.savelocationbtn,2000);
+        operation.clickButton(CreateLocation.savelocationbtn,2000);
         guestFlow.SwitchToTab(0);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         mapDetails.GoToSundarbanCourierLocation();
         Assert.assertTrue(mapDetails.verifyPlugAvailableTextForSinglePlugAvailable());
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.ScanNow));
@@ -556,16 +556,16 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         guestFlow.SwitchToTab(1);
         Thread.sleep(2000);
 //        login.VerifyValidLogin();
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        dashboard.refreshBrowser();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         location.writeINLocationSearchBar("Water pump");
         location.click(EditCompany.searchbtn);
         location.ClickonEditbutton();
         charger.clickToggleButtonIfItIsOn();
-        operation.ClickButton(CreateLocation.savelocationbtn,2000);
+        operation.clickButton(CreateLocation.savelocationbtn,2000);
         guestFlow.SwitchToTab(0);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         mapDetails.GoToSundarbanCourierLocation();
         Assert.assertTrue(mapDetails.verifyElementNotDisplayed(2000,MapDetails.PlugType));
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.NoChargersAvailable));
@@ -600,15 +600,15 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
 //        company.click(EditCompany.searchbtn);
 //        company.click(EditCompany.AccessCompanyPortal);
 //        Thread.sleep(5000);
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         location.writeINLocationSearchBar("Water pump");
         location.click(EditCompany.searchbtn);
         location.ClickonEditbutton();
         charger.clickToggleButtonIfItIsOff();
-        operation.ClickButton(CreateLocation.savelocationbtn,2000);
+        operation.clickButton(CreateLocation.savelocationbtn,2000);
         guestFlow.SwitchToTab(0);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         mapDetails.GoToSundarbanCourierLocation();
         Assert.assertTrue(mapDetails.verifyPlugAvailableTextForSinglePlugAvailable());
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.ScanNow));

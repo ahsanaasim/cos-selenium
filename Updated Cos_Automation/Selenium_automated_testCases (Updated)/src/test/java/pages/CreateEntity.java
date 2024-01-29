@@ -4,7 +4,6 @@ import org.openqa.selenium.*;
 
 import java.util.Properties;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 public class CreateEntity extends BasePage {
 
@@ -20,7 +19,7 @@ public class CreateEntity extends BasePage {
     RandomData rdata = new RandomData();
 
     public static By createentitybtn = By.xpath("//button[contains(.,'Create New Entity')]");
-    public static By enttitydrawer = By.xpath("//span[@class='drawerTitle'][contains(.,'Create New Entity')]");
+    public static By entityDrawerTitle = By.xpath("//span[@class='drawerTitle'][contains(text(),'Create New Entity')]");
     public static By entityname = By.xpath("//input[@placeholder='Name']");
     public static By phone = By.xpath("//input[@placeholder='Phone Number']");
     public static By notes = By.xpath("//textarea[contains(@placeholder,'Note')]");
@@ -44,7 +43,7 @@ public class CreateEntity extends BasePage {
 
 
     public boolean ClickonCreateEntitybutton () {
-//        waitforInVisibility(loader);
+        waitVisibility(EditCompany.EditCompanyBtn);
         click(createentitybtn);
         return true;
     }
@@ -54,8 +53,8 @@ public class CreateEntity extends BasePage {
         return true;
     }
 
-    public boolean ClickonSaveButton () throws InterruptedException {
-        Thread.sleep(1500);
+    public boolean clickOnSaveButton() throws InterruptedException {
+        Thread.sleep(2000);
         waitelemtclickable(savebtn);
         click(savebtn);
         return true;
@@ -115,18 +114,15 @@ public class CreateEntity extends BasePage {
     }
 
 
-    public boolean WriteAutomatedEntityName() throws InterruptedException {
-        Random numGenerator = new Random();
-        Thread.sleep(1000);
-        int randomNumber = numGenerator.nextInt(10000);
-        String EntityName=prop.getProperty("Entity2")+" "+randomNumber;
+    public boolean writeAutomatedEntityName(String entityName) throws InterruptedException {
+        Thread.sleep(2000);
         waitVisibility(entityname);
-        writeText(entityname, EntityName);
+        writeText(entityname, entityName);
         return true;
     }
 
 
-    public String WriteEntityName() {
+    public String writeEntityName() {
         Random numGenerator = new Random();
         int randomNumber = numGenerator.nextInt(10000);
         String entityName=prop.getProperty("Entity2")+" "+randomNumber;
@@ -141,18 +137,18 @@ public class CreateEntity extends BasePage {
         return true;
     }
 
-    public boolean WriteEntityPhoneNumber(String Phone) {
+    public boolean writeEntityPhoneNumber(String Phone) {
         waitelemtclickable(phone);
         writeText(phone,Phone);
         return true;
     }
 
-    public boolean EnterNotesinEntityInformation() {
-        writeText(notes, rdata.RandomString());
+    public boolean enterNotesInEntityInformation() {
+        writeText(notes,rdata.RandomString());
         return true;
     }
 
-    public boolean EnterAddress(String Address) throws InterruptedException {
+    public boolean enterAddress(String Address) throws InterruptedException {
         waitVisibility(address);
         waitelementtobedisplayed(address);
         writeText(address, Address);
@@ -172,7 +168,7 @@ public class CreateEntity extends BasePage {
     }
 
     public boolean VerifyEntitySameasCompanyLinkisShowingonEntityInformationSection() {
-        waitVisibility(enttitydrawer);
+        waitVisibility(entityDrawerTitle);
         if( driver.findElement(By.xpath("//span[contains(.,'Entity Same as a company')]")).isDisplayed())
         {
             System.out.println("Create New Entity button has displayed");
@@ -209,7 +205,7 @@ public class CreateEntity extends BasePage {
 
 
     public boolean VerifyCreateNewEntityDrawerHasDisplayed() {
-        waitVisibility(enttitydrawer);
+        waitVisibility(entityDrawerTitle);
         if( driver.findElement(By.xpath("//span[@class='drawerTitle'][contains(.,'Create New Entity')]")).isDisplayed())
         {
             System.out.println("Create New Entity drawer has displayed");
@@ -244,7 +240,7 @@ public class CreateEntity extends BasePage {
     }
 
     public boolean VerifyEntityInformationareShowingonCreateNewEntityDrawer() {
-        waitVisibility(enttitydrawer);
+        waitVisibility(entityDrawerTitle);
         if(driver.getPageSource().contains("Company Name") && driver.getPageSource().contains("Phone") && driver.getPageSource().contains("Email") && driver.getPageSource().contains("Note") && driver.getPageSource().contains("EIN") ) {
             System.out.println("Verification Successful - Company Name,Phone,Email,Notes,EIN are Showing On Company Information Section");
 
@@ -303,7 +299,7 @@ public class CreateEntity extends BasePage {
     }
 
     public boolean verifyinputTypeisSerachOnCompanyInformationsectionOnCreateNewEntityDrawer() {
-        waitVisibility(enttitydrawer);
+        waitVisibility(entityDrawerTitle);
         if( driver.findElement(By.xpath("//input[@type='search'][contains(@id,'2')]")).isDisplayed())
         {
             System.out.println("Create New Entity drawer has displayed and Empty ");
@@ -325,7 +321,7 @@ public class CreateEntity extends BasePage {
     }
 
     public boolean verifyinputFieldIsShowingForCompanyInformationOnCreateNewEntityDrawer() {
-        waitVisibility(enttitydrawer);
+        waitVisibility(entityDrawerTitle);
         if( driver.findElement(By.xpath("//div[@class='drawerInputTitle'][contains(.,'*  Select Company')]")).isDisplayed())
         {
             System.out.println("Create New Entity drawer has displayed and Empty ");
@@ -344,6 +340,21 @@ public class CreateEntity extends BasePage {
             System.out.println("Something Went Wrong!!");
         }
         return true;
+    }
+
+
+
+    public void createEntity(String companyName,String entityName,String phoneNum,String email) throws InterruptedException {
+        CreateCompany createCompany = new CreateCompany(driver);
+        SelectCompanyNameFromDropdown(companyName);
+        writeAutomatedEntityName(entityName);
+        writeEntityPhoneNumber(phoneNum);
+        createCompany.writeCompanyEmail(email);
+        createCompany.writeRandomEINNumber();
+        enterNotesInEntityInformation();
+        createCompany.enterZipCode(createCompany.randomZipCode());
+        enterAddress((prop.getProperty("CompnayAddress")));
+        clickOnSaveButton();
     }
 
 }

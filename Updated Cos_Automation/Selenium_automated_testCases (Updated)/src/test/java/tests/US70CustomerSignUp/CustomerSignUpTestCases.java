@@ -1,7 +1,5 @@
 package tests.US70CustomerSignUp;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
@@ -32,8 +30,8 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_14_CheckWhenUserClickOnSigUpButtonOnVerificationPage  () throws InterruptedException, IOException, UnsupportedFlavorException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(createCharger.ClickButton(GuestVerificationPage.SignUPButton,5000));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpWithEmail,5000));
+        Assert.assertTrue(createCharger.clickButton(GuestVerificationPage.SignUPButton,5000));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpWithEmail,5000));
         Assert.assertTrue(customerSignUp.VerifyUserIsInRegistrationPage());
 
     }
@@ -47,8 +45,8 @@ public class CustomerSignUpTestCases extends BaseTest {
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.ZipField,"55555",500));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.Password,"A7777777",500));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.ConfirmPassword,"A7777777",500));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.AgreeCheckBox,500));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.AgreeCheckBox,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyFirstNameErrorMsg());
 
     }
@@ -58,7 +56,7 @@ public class CustomerSignUpTestCases extends BaseTest {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.FirstName,"@@",500));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyFirstNameErrorMsgForInvalidInput());
 
     }
@@ -67,9 +65,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_17_CheckIfSystemIsTakingInvalidInputInFirstName() throws InterruptedException, IOException, UnsupportedFlavorException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.FirstName));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.FirstName));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.FirstName,"!!",500));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyFirstNameErrorMsgForInvalidInput());
 
     }
@@ -78,9 +76,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_17_1_CheckIfSystemIsTakingInvalidInputInFirstName() throws InterruptedException, IOException, UnsupportedFlavorException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.FirstName));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.FirstName));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.FirstName,"&&",500));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyFirstNameErrorMsgForInvalidInput());
 
     }
@@ -89,9 +87,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_17_2_CheckIfSystemIsTakingInvalidInputInFirstName() throws InterruptedException, IOException, UnsupportedFlavorException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.FirstName));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.FirstName));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.FirstName,"++",500));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyFirstNameErrorMsgForInvalidInput());
 
     }
@@ -100,9 +98,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_17_3_CheckIfSystemIsTakingInvalidInputInFirstName() throws InterruptedException, IOException, UnsupportedFlavorException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.FirstName));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.FirstName));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.FirstName,"%",500));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyFirstNameErrorMsgForInvalidInput());
 
     }
@@ -111,9 +109,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_17_4_CheckIfSystemIsTakingInvalidInputInFirstName() throws InterruptedException, IOException, UnsupportedFlavorException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.FirstName));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.FirstName));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.FirstName,"##",500));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyFirstNameErrorMsgForInvalidInput());
 
     }
@@ -122,9 +120,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_17_5_CheckIfSystemIsTakingInvalidInputInFirstName() throws InterruptedException, IOException, UnsupportedFlavorException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.FirstName));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.FirstName));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.FirstName,"F@him",500));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyFirstNameErrorMsgForInvalidInput());
 
     }
@@ -133,9 +131,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_17_6_CheckIfSystemIsTakingInvalidInputInFirstName() throws InterruptedException, IOException, UnsupportedFlavorException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.FirstName));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.FirstName));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.FirstName,"!mran",300));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,300));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,300));
         Assert.assertTrue(customerSignUp.VerifyFirstNameErrorMsgForInvalidInput());
 
     }
@@ -144,10 +142,10 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_18_CheckIfSystemIsTakingInvalidInputInLastName() throws InterruptedException, IOException, UnsupportedFlavorException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.FirstName));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.FirstName));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.FirstName,"Fahim",500));
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.LastName));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.LastName));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyLastNameErrorMsg());
 
     }
@@ -156,9 +154,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_19_CheckIfSystemIsTakingInvalidInputInLastName() throws InterruptedException, IOException, UnsupportedFlavorException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.LastName));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.LastName));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.LastName,"@@",500));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyLastNameErrorMsgForInvalidInput());
 
     }@Test(priority = 14)//Done
@@ -166,9 +164,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_20_1_CheckIfSystemIsTakingInvalidInputInLastName() throws InterruptedException, IOException, UnsupportedFlavorException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.LastName));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.LastName));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.LastName,"&&",500));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyLastNameErrorMsgForInvalidInput());
 
     }
@@ -177,9 +175,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_20_2_CheckIfSystemIsTakingInvalidInputInLastName() throws InterruptedException, IOException, UnsupportedFlavorException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.LastName));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.LastName));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.LastName,"++",500));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyLastNameErrorMsgForInvalidInput());
 
     }
@@ -188,9 +186,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_20_3_CheckIfSystemIsTakingInvalidInputInLastName() throws InterruptedException, IOException, UnsupportedFlavorException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.LastName));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.LastName));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.LastName,"%",500));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyLastNameErrorMsgForInvalidInput());
 
     }
@@ -199,9 +197,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_20_4_CheckIfSystemIsTakingInvalidInputInLastName() throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.LastName));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.LastName));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.LastName,"##",500));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyLastNameErrorMsgForInvalidInput());
 
     }
@@ -210,9 +208,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_20_5_CheckIfSystemIsTakingInvalidInputInLastName() throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.LastName));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.LastName));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.LastName,"Fah+13",500));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyLastNameErrorMsgForInvalidInput());
 
     }
@@ -221,9 +219,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_20_6_CheckIfSystemIsTakingInvalidInputInLastName() throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.LastName));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.LastName));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.LastName,"Ahmed*",500));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyLastNameErrorMsgForInvalidInput());
 
     }
@@ -232,10 +230,10 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_22_CheckIfSystemIsTakingNoEmailOrNot() throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.LastName));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.LastName));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.LastName,"Ahmed",500));
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.EmailField));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.EmailField));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyNoEmailErrorMsg());
 
     }
@@ -244,9 +242,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_23_CheckIfSystemIsTakingInvalidInputInLastEmail() throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.EmailField));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.EmailField));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.EmailField,"tahia@tahia",300));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyInvalidEmailErrorMsg());
 
     }
@@ -255,9 +253,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_24_CheckIfSystemIsTakingInvalidInputInEmail() throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.EmailField));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.EmailField));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.EmailField,"test@test",300));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyInvalidEmailErrorMsg());
     }
     @Test(priority = 23)//Done
@@ -265,9 +263,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_24_1_CheckIfSystemIsTakingInvalidInputInEmail() throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.EmailField));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.EmailField));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.EmailField,"@",300));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyInvalidEmailErrorMsg());
     }
     @Test(priority = 24)//Done
@@ -275,9 +273,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_24_2_CheckIfSystemIsTakingInvalidInputInEmail() throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.EmailField));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.EmailField));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.EmailField,"testtest.test@",300));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyInvalidEmailErrorMsg());
     }
     @Test(priority = 25)//Done
@@ -285,9 +283,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_24_3_CheckIfSystemIsTakingInvalidInputInEmail() throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.EmailField));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.EmailField));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.EmailField,"test@test.",300));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyInvalidEmailErrorMsg());
     }
     @Test(priority = 26)//Done
@@ -295,9 +293,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_24_4_CheckIfSystemIsTakingInvalidInputInEmail() throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.EmailField));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.EmailField));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.EmailField,"testtest.test",300));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyInvalidEmailErrorMsg());
     }
     @Test(priority = 27)//Done
@@ -305,9 +303,9 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_24_5_CheckIfSystemIsTakingInvalidInputInEmail() throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.EmailField));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.EmailField));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.EmailField," Tahia@gmail.c",300));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyInvalidEmailErrorMsg());
     }
     @Test(priority = 28)//Done
@@ -315,11 +313,11 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_27_CheckIfUserCanRegisterInvalidZipCode() throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.EmailField));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.EmailField));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.EmailField,"Yoyo@yahoo.com",300));
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.ZipField));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.ZipField));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.ZipField,"0000",300));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,500));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,500));
         Assert.assertTrue(customerSignUp.VerifyInvalidZipCode());
     }
     @Test(priority = 29)//Done
@@ -327,10 +325,10 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_29_CheckIfUserCanSignupWithoutProvidingPassword() throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.ZipField));
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.Password));
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.ConfirmPassword));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,300));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.ZipField));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.Password));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.ConfirmPassword));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,300));
         Assert.assertTrue(customerSignUp.VerifyWithNoPassword());
     }
     @Test(priority = 30)//Done
@@ -341,7 +339,7 @@ public class CustomerSignUpTestCases extends BaseTest {
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.ZipField,"12345",200));
         driver.findElement(CustomerSignUp.Password).sendKeys("A@1234");
         driver.findElement(CustomerSignUp.ConfirmPassword).sendKeys("A@1234");
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,300));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,300));
         Assert.assertTrue(customerSignUp.VerifyWithLessThanEightDigitPassword());
     }
     @Test(priority = 31)//Done
@@ -349,11 +347,11 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_31_CheckIfUserCanSignupProvidingSevenDigitPassword() throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.Password));
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.ConfirmPassword));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.Password));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.ConfirmPassword));
         driver.findElement(CustomerSignUp.Password).sendKeys("A@12345");
         driver.findElement(CustomerSignUp.ConfirmPassword).sendKeys("A@12345");
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,300));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,300));
         Assert.assertTrue(customerSignUp.VerifyWithLessThanEightDigitPassword());
     }
     @Test(priority = 32)//Done
@@ -361,12 +359,12 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_33_CheckIfUserCanSignupWithoutSelectingTC () throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.Password));
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.ConfirmPassword));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.Password));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.ConfirmPassword));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.Password,"A@12345678",100));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.ConfirmPassword,"A@12345678",100));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.AgreeCheckBoxChecked,300));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,300));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.AgreeCheckBoxChecked,300));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,300));
         Assert.assertTrue(customerSignUp.VerifyWithoutSelectingCheckboxOfTC());
     }
     @Test(priority = 33)//Done
@@ -374,14 +372,14 @@ public class CustomerSignUpTestCases extends BaseTest {
     public void TC_35_CheckIfUserIsSigningUpWithAlreadyRegisteredEmail() throws InterruptedException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger createCharger =new CreateCharger(driver);
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.EmailField));
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.Password));
-        Assert.assertTrue(customerSignUp.FieldClear(CustomerSignUp.ConfirmPassword));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.EmailField));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.Password));
+        Assert.assertTrue(customerSignUp.fieldClear(CustomerSignUp.ConfirmPassword));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.EmailField,"lomina8480@dekaps.com",100));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.Password,"A@12345678",100));
         Assert.assertTrue(createCharger.writeInputText(CustomerSignUp.ConfirmPassword,"A@12345678",100));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.AgreeCheckBox,300));
-        Assert.assertTrue(createCharger.ClickButton(CustomerSignUp.SignUpConfirm,300));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.AgreeCheckBox,300));
+        Assert.assertTrue(createCharger.clickButton(CustomerSignUp.SignUpConfirm,300));
         Assert.assertTrue(customerSignUp.verifyTextMatching(500,CustomerSignUp.ErrorMsgForAlreadyRegisteredEmail,customerSignUp.errorMsgForAlreadySigneUpEmail()));
     }
 //    @Test(priority = 34)//Done

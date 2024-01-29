@@ -1,6 +1,5 @@
 package pages;
 
-import net.bytebuddy.asm.Advice;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -210,7 +209,7 @@ public class TicketList extends BasePage {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy h:mm a");
         String formattedDateTime = now.format(formatter);
         System.out.println("Formatted Date Time: " + formattedDateTime);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Thread.sleep(6000);
         waitforPresence(TableCreatedDate1);
         String TableDate = driver.findElement(TableCreatedDate1).getText();
@@ -237,19 +236,19 @@ public class TicketList extends BasePage {
         ticket.GoToWebsite("https://www.zoho.com/desk/");
         ticket.click(CreateTicket.ZohoSign);
         operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
-        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
+        operation.clickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
         operation.writeInputText(UpdateLedgerAccounts.ZohoPasswordField,"WorkLOAD@10@",2000);
-        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,2000);
-        operation.ClickButton(ZohoAllTicketsFilter,5000);
-        operation.ClickButton(ZohoToastMessageCancel,2000);
-        operation.ClickButton(ZohoOpenTicketsFilter,2000);
-        operation.ClickButton(ZohoOpenStatus,5000);
-        operation.ClickButton(ZohoClosedStatus,2000);
-        operation.ClickButton(ZohoAllTicketsFilter,2000);
-        operation.ClickButton(ZohoAllTicketsFilterDropdown,2000);
+        operation.clickButton(UpdateLedgerAccounts.ZohoNextBtn,2000);
+        operation.clickButton(ZohoAllTicketsFilter,5000);
+        operation.clickButton(ZohoToastMessageCancel,2000);
+        operation.clickButton(ZohoOpenTicketsFilter,2000);
+        operation.clickButton(ZohoOpenStatus,5000);
+        operation.clickButton(ZohoClosedStatus,2000);
+        operation.clickButton(ZohoAllTicketsFilter,2000);
+        operation.clickButton(ZohoAllTicketsFilterDropdown,2000);
         ticket.SwitchToTab(0);
         Thread.sleep(50000);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Thread.sleep(3000);
         waitforPresence(OpenTab);
         waitforPresence(ChargerListPropertyAdmin.ChargerCountTop);

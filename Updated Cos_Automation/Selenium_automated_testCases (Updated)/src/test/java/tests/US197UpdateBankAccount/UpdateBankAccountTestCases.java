@@ -19,10 +19,10 @@ public class UpdateBankAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLogin();
-        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 1000);
+        loginPage.verifyValidLogin();
+        createCharger.clickButton(UpdateLedgerAccounts.SettingsTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000, UpdateLedgerAccounts.BankAccount));
     }
 
@@ -36,10 +36,10 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
     }
     @Test(priority = 3)//Done
@@ -51,12 +51,12 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2500);
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 2500);
-        createCharger.ClickButton(UpdateLedgerAccounts.CancelButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.CancelButton, 1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -71,12 +71,12 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.ConnectFeeDisabled));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
@@ -92,31 +92,31 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
         basePage.NewTabOpenAndSwitchToNewTab(1);
         basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
         createCharger.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
         createCharger.writeInputText(UpdateLedgerAccounts.ZohoPasswordField,"WorkLOAD@10@",2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,5000);
-        createCharger.ClickButton(UpdateLedgerAccounts.AccountantTab,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.ChartOfAccountTab,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.CreateAccountZoho,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.ZohoNextBtn,5000);
+        createCharger.clickButton(UpdateLedgerAccounts.AccountantTab,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.ChartOfAccountTab,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.CreateAccountZoho,3000);
         int randomNumber = objGenerator.nextInt(100);
         System.out.println(randomNumber);
         String AccountName="Temporary Account "+randomNumber;
         createCharger.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,2000);
+        dashboard.refreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,2000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.ConnectFeeDisabled,AccountName);
-        Assert.assertTrue(createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000));
+        Assert.assertTrue(createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.BankAccountFeeSelectedField,AccountName));
 
 
@@ -131,10 +131,10 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
         basePage.SwitchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -146,16 +146,16 @@ public class UpdateBankAccountTestCases extends BaseTest {
         updateLedgerAccounts.SearchAccountInZoho("Temporary");
         Thread.sleep(4000);
         String AccountName = driver.findElement(UpdateLedgerAccounts.ZohoSearchResult).getText();
-        operation.ClickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
-        operation.ClickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
-        operation.ClickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
-        operation.ClickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
+        operation.clickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
+        operation.clickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
+        operation.clickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
+        operation.clickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab,5000);
+        dashboard.refreshBrowser();
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab,5000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.DeletedAccountErrorMsg,updateLedgerAccounts.DeletedBankAccountErrorMsg()));
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectFeeDisabled,1500);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.ConnectFeeDisabled,1500);
         operation.writeInputText(UpdateLedgerAccounts.ConnectFeeDisabled,AccountName,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.DropdownNoData));
 
@@ -172,10 +172,10 @@ public class UpdateBankAccountTestCases extends BaseTest {
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
         basePage.SwitchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -185,19 +185,19 @@ public class UpdateBankAccountTestCases extends BaseTest {
 //        operation.ClickButton(UpdateLedgerAccounts.AccountantTab,3000);
 //        operation.ClickButton(UpdateLedgerAccounts.ChartOfAccountTab,3000);
         updateLedgerAccounts.SearchAccountInZoho("Nice");
-        operation.ClickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
-        operation.ClickButton(UpdateLedgerAccounts.EditButtonZoho,1000);
-        customerSignUp.FieldClear(UpdateLedgerAccounts.CreateAccountZohoAccountName);
+        operation.clickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
+        operation.clickButton(UpdateLedgerAccounts.EditButtonZoho,1000);
+        customerSignUp.fieldClear(UpdateLedgerAccounts.CreateAccountZohoAccountName);
         String AccountName = updateLedgerAccounts.RandomAccountName();
         operation.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab,5000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectFeeDisabled,1500);
+        dashboard.refreshBrowser();
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab,5000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.ConnectFeeDisabled,1500);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.ConnectFeeDisabled,AccountName);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.ConnectFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.BankAccountFeeSelectedField,AccountName));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1500,UpdateLedgerAccounts.DropdownNoData));
@@ -216,14 +216,14 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,1500);
-        operation.ClickButton(UpdateLedgerAccounts.ClearField,1500);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,1500);
+        operation.clickButton(UpdateLedgerAccounts.ClearField,1500);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.EmptyBankAccErrMsg,"Account selection is required"));
 
     }
@@ -236,11 +236,11 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
         Assert.assertTrue(updateLedgerAccounts.verifyCancelButtonActionAfterSelectingAnotherAccount());
         Assert.assertTrue(basePage.verifyAFieldIsDisable(1500,UpdateLedgerAccounts.ConnectFeeDisabled));
 
@@ -256,11 +256,11 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1500,UpdateLedgerAccounts.BankAccountFeeSelectedField));
 
 
@@ -277,14 +277,14 @@ public class UpdateBankAccountTestCases extends BaseTest {
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,3000);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.ConnectFeeDisabled,"Petty Cash");
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.ConnectFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.BankAccountFeeSelectedField,"Petty Cash"));
         dashboardPropertyDetails.LogoutFromExistingAccount();
@@ -303,10 +303,10 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         Thread.sleep(4000);
-        loginPage.VerifyValidLoginForCosAccounting();
-        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 1000);
+        loginPage.verifyValidLoginForCosAccounting();
+        createCharger.clickButton(UpdateLedgerAccounts.SettingsTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000, UpdateLedgerAccounts.BankAccount));
     }
 
@@ -320,10 +320,10 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
     }
 
@@ -336,12 +336,12 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2500);
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 2500);
-        createCharger.ClickButton(UpdateLedgerAccounts.CancelButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.CancelButton, 1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -356,12 +356,12 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -376,12 +376,12 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
         basePage.SwitchToTab(1);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        createCharger.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
@@ -389,19 +389,19 @@ public class UpdateBankAccountTestCases extends BaseTest {
 //        createCharger.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.AccountantTab,3000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.ChartOfAccountTab,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.CreateAccountZoho,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.CreateAccountZoho,3000);
         int randomNumber = objGenerator.nextInt(100);
         System.out.println(randomNumber);
         String AccountName="Temporary Account "+randomNumber;
         createCharger.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,5000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,3000);
+        dashboard.refreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,5000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.ConnectFeeDisabled,AccountName);
-        Assert.assertTrue(createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000));
+        Assert.assertTrue(createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.BankAccountFeeSelectedField,AccountName));
 
 
@@ -416,10 +416,10 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
         basePage.SwitchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -431,16 +431,16 @@ public class UpdateBankAccountTestCases extends BaseTest {
         updateLedgerAccounts.SearchAccountInZoho("Temporary");
         Thread.sleep(4000);
         String AccountName = driver.findElement(UpdateLedgerAccounts.ZohoSearchResult).getText();
-        operation.ClickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
-        operation.ClickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
-        operation.ClickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
-        operation.ClickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
+        operation.clickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
+        operation.clickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
+        operation.clickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
+        operation.clickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab,5000);
+        dashboard.refreshBrowser();
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab,5000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.DeletedAccountErrorMsg,updateLedgerAccounts.DeletedBankAccountErrorMsg()));
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectFeeDisabled,1500);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.ConnectFeeDisabled,1500);
         operation.writeInputText(UpdateLedgerAccounts.ConnectFeeDisabled,AccountName,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.DropdownNoData));
 
@@ -457,10 +457,10 @@ public class UpdateBankAccountTestCases extends BaseTest {
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
         basePage.SwitchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -470,19 +470,19 @@ public class UpdateBankAccountTestCases extends BaseTest {
 //        operation.ClickButton(UpdateLedgerAccounts.AccountantTab,3000);
 //        operation.ClickButton(UpdateLedgerAccounts.ChartOfAccountTab,3000);
         updateLedgerAccounts.SearchAccountInZoho("Nice");
-        operation.ClickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
-        operation.ClickButton(UpdateLedgerAccounts.EditButtonZoho,1000);
-        customerSignUp.FieldClear(UpdateLedgerAccounts.CreateAccountZohoAccountName);
+        operation.clickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
+        operation.clickButton(UpdateLedgerAccounts.EditButtonZoho,1000);
+        customerSignUp.fieldClear(UpdateLedgerAccounts.CreateAccountZohoAccountName);
         String AccountName = updateLedgerAccounts.RandomAccountName();
         operation.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab,5000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectFeeDisabled,1500);
+        dashboard.refreshBrowser();
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab,5000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.ConnectFeeDisabled,1500);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.ConnectFeeDisabled,AccountName);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.ConnectFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.BankAccountFeeSelectedField,AccountName));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1500,UpdateLedgerAccounts.DropdownNoData));
@@ -501,14 +501,14 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,1500);
-        operation.ClickButton(UpdateLedgerAccounts.ClearField,1500);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,1500);
+        operation.clickButton(UpdateLedgerAccounts.ClearField,1500);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.EmptyBankAccErrMsg,"Account selection is required"));
 
 
@@ -523,11 +523,11 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
         Assert.assertTrue(updateLedgerAccounts.verifyCancelButtonActionAfterSelectingAnotherAccount());
         Assert.assertTrue(basePage.verifyAFieldIsDisable(1500,UpdateLedgerAccounts.ConnectFeeDisabled));
 
@@ -543,11 +543,11 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1500,UpdateLedgerAccounts.BankAccountFeeSelectedField));
 
 
@@ -564,14 +564,14 @@ public class UpdateBankAccountTestCases extends BaseTest {
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,3000);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.ConnectFeeDisabled,"Accounts Receivable");
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.ConnectFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.BankAccountFeeSelectedField,"Accounts Receivable"));
         dashboardPropertyDetails.LogoutFromExistingAccount();
@@ -588,10 +588,10 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         Thread.sleep(4000);
-        loginPage.VerifyValidLoginForCosPropertySupport();
-        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 1000);
+        loginPage.verifyValidLoginForCosPropertySupport();
+        createCharger.clickButton(UpdateLedgerAccounts.SettingsTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000, UpdateLedgerAccounts.BankAccount));
     }
 
@@ -605,10 +605,10 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
     }
     @Test(priority = 25)//Done
@@ -620,12 +620,12 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2500);
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 2500);
-        createCharger.ClickButton(UpdateLedgerAccounts.CancelButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.CancelButton, 1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -640,12 +640,12 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -660,12 +660,12 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
         basePage.SwitchToTab(1);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        createCharger.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
@@ -673,19 +673,19 @@ public class UpdateBankAccountTestCases extends BaseTest {
 //        createCharger.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.AccountantTab,3000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.ChartOfAccountTab,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.CreateAccountZoho,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.CreateAccountZoho,3000);
         int randomNumber = objGenerator.nextInt(100);
         System.out.println(randomNumber);
         String AccountName="Temporary Account "+randomNumber;
         createCharger.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,5000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,3000);
+        dashboard.refreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,5000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.ConnectFeeDisabled,AccountName);
-        Assert.assertTrue(createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000));
+        Assert.assertTrue(createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.BankAccountFeeSelectedField,AccountName));
 
 
@@ -700,10 +700,10 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
         basePage.SwitchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -715,16 +715,16 @@ public class UpdateBankAccountTestCases extends BaseTest {
         updateLedgerAccounts.SearchAccountInZoho("Temporary");
         Thread.sleep(4000);
         String AccountName = driver.findElement(UpdateLedgerAccounts.ZohoSearchResult).getText();
-        operation.ClickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
-        operation.ClickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
-        operation.ClickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
-        operation.ClickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
+        operation.clickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
+        operation.clickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
+        operation.clickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
+        operation.clickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab,5000);
+        dashboard.refreshBrowser();
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab,5000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.DeletedAccountErrorMsg,updateLedgerAccounts.DeletedBankAccountErrorMsg()));
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectFeeDisabled,1500);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.ConnectFeeDisabled,1500);
         operation.writeInputText(UpdateLedgerAccounts.ConnectFeeDisabled,AccountName,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.DropdownNoData));
 
@@ -741,10 +741,10 @@ public class UpdateBankAccountTestCases extends BaseTest {
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
         basePage.SwitchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -754,19 +754,19 @@ public class UpdateBankAccountTestCases extends BaseTest {
 //        operation.ClickButton(UpdateLedgerAccounts.AccountantTab,3000);
 //        operation.ClickButton(UpdateLedgerAccounts.ChartOfAccountTab,3000);
         updateLedgerAccounts.SearchAccountInZoho("Nice");
-        operation.ClickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
-        operation.ClickButton(UpdateLedgerAccounts.EditButtonZoho,1000);
-        customerSignUp.FieldClear(UpdateLedgerAccounts.CreateAccountZohoAccountName);
+        operation.clickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
+        operation.clickButton(UpdateLedgerAccounts.EditButtonZoho,1000);
+        customerSignUp.fieldClear(UpdateLedgerAccounts.CreateAccountZohoAccountName);
         String AccountName = updateLedgerAccounts.RandomAccountName();
         operation.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab,5000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectFeeDisabled,1500);
+        dashboard.refreshBrowser();
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab,5000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.ConnectFeeDisabled,1500);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.ConnectFeeDisabled,AccountName);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.ConnectFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.BankAccountFeeSelectedField,AccountName));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1500,UpdateLedgerAccounts.DropdownNoData));
@@ -783,14 +783,14 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,1500);
-        operation.ClickButton(UpdateLedgerAccounts.ClearField,1500);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,1500);
+        operation.clickButton(UpdateLedgerAccounts.ClearField,1500);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.EmptyBankAccErrMsg,"Account selection is required"));
 
 
@@ -805,11 +805,11 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
         Assert.assertTrue(updateLedgerAccounts.verifyCancelButtonActionAfterSelectingAnotherAccount());
         Assert.assertTrue(basePage.verifyAFieldIsDisable(1500,UpdateLedgerAccounts.ConnectFeeDisabled));
 
@@ -825,11 +825,11 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1500,UpdateLedgerAccounts.BankAccountFeeSelectedField));
 
 
@@ -846,14 +846,14 @@ public class UpdateBankAccountTestCases extends BaseTest {
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,3000);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.ConnectFeeDisabled,"Unearned Revenue");
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.ConnectFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.BankAccountFeeSelectedField,"Unearned Revenue"));
         dashboardPropertyDetails.LogoutFromExistingAccount();
@@ -870,10 +870,10 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         Thread.sleep(4000);
-        loginPage.VerifyValidLoginForCosDriverSupport();
-        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 1000);
+        loginPage.verifyValidLoginForCosDriverSupport();
+        createCharger.clickButton(UpdateLedgerAccounts.SettingsTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000, UpdateLedgerAccounts.BankAccount));
     }
 
@@ -887,10 +887,10 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
     }
     @Test(priority = 36)//Done
@@ -902,12 +902,12 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2500);
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 2500);
-        createCharger.ClickButton(UpdateLedgerAccounts.CancelButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.CancelButton, 1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -922,12 +922,12 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -1018,14 +1018,14 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,1500);
-        operation.ClickButton(UpdateLedgerAccounts.ClearField,1500);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,1500);
+        operation.clickButton(UpdateLedgerAccounts.ClearField,1500);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.EmptyBankAccErrMsg,"Account selection is required"));
 
 
@@ -1040,11 +1040,11 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
         Assert.assertTrue(updateLedgerAccounts.verifyCancelButtonActionAfterSelectingAnotherAccount());
         Assert.assertTrue(basePage.verifyAFieldIsDisable(1500,UpdateLedgerAccounts.ConnectFeeDisabled));
 
@@ -1060,11 +1060,11 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1500,UpdateLedgerAccounts.BankAccountFeeSelectedField));
 
 
@@ -1081,14 +1081,14 @@ public class UpdateBankAccountTestCases extends BaseTest {
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,3000);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.ConnectFeeDisabled,"Bad Debt");
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.ConnectFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.BankAccountFeeSelectedField,"Bad Debt"));
         dashboardPropertyDetails.LogoutFromExistingAccount();
@@ -1105,10 +1105,10 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         Thread.sleep(4000);
-        loginPage.VerifyValidLoginForCosTechSupport();
-        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab,2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 1000);
+        loginPage.verifyValidLoginForCosTechSupport();
+        createCharger.clickButton(UpdateLedgerAccounts.SettingsTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.LedgerConfigurationTab,2000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000, UpdateLedgerAccounts.BankAccount));
     }
 
@@ -1123,10 +1123,10 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
     }
     @Test(priority = 47)//Done
@@ -1138,12 +1138,12 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2500);
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 2500);
-        createCharger.ClickButton(UpdateLedgerAccounts.CancelButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.CancelButton, 1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -1158,12 +1158,12 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -1254,14 +1254,14 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,1500);
-        operation.ClickButton(UpdateLedgerAccounts.ClearField,1500);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,1500);
+        operation.clickButton(UpdateLedgerAccounts.ClearField,1500);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.EmptyBankAccErrMsg,"Account selection is required"));
 
 
@@ -1276,11 +1276,11 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
         Assert.assertTrue(updateLedgerAccounts.verifyCancelButtonActionAfterSelectingAnotherAccount());
         Assert.assertTrue(basePage.verifyAFieldIsDisable(1500,UpdateLedgerAccounts.ConnectFeeDisabled));
 
@@ -1296,11 +1296,11 @@ public class UpdateBankAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1500,UpdateLedgerAccounts.BankAccountFeeSelectedField));
 
 
@@ -1317,14 +1317,14 @@ public class UpdateBankAccountTestCases extends BaseTest {
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,3000);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.ConnectBankEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.BankAccountFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.ConnectFeeDisabled,"Accounts Receivable");
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.ConnectFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.BankAccountFeeSelectedField,"Accounts Receivable"));
         dashboardPropertyDetails.LogoutFromExistingAccount();

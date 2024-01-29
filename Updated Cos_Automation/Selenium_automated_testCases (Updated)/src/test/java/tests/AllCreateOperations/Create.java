@@ -9,6 +9,8 @@ import tests.US1AdminLogin.TestParameters;
 import java.util.Properties;
 import java.util.Random;
 
+
+
 public class Create extends BaseTest {
 
 
@@ -26,24 +28,16 @@ public class Create extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany = new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonCompanyManagement());
-        Assert.assertTrue(company.ClickonCreateCompanybutton());
-        String companyName = company.WriteAutomatedCompanyName();
-        Assert.assertTrue(company.WriteCompanyName(companyName));
-        Assert.assertTrue(company.WriteCompanyPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteRandomCompanyEmail());
-        Assert.assertTrue(company.EnterCompanyWebsite(prop.getProperty("CompanyWebsite")));
-        Assert.assertTrue(company.WriteRandomEINNumber());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(company.WriteRandomCompanyAddress());
-        Assert.assertTrue(company.ClickonSaveButton());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnCompanyManagement());
+        Assert.assertTrue(company.clickOnCreateCompanyButton());
+        String companyName = company.writeAutomatedCompanyName();
+        company.createCompany(companyName,company.generateRandomPhoneNumber(),company.generateRandomEmail());
         Assert.assertTrue(company.verifyAnElementDisplayedOrNot(2500,DashboardPropertyDetails.TopAccountName));
         Assert.assertTrue(createCharger.writeInputText(EditCompany.searchbar,companyName,3000));
-        Assert.assertTrue(createCharger.ClickButton(EditCompany.searchbtn,2000));
-        Assert.assertTrue(editCompany.VerifySearchResultCount());
+        Assert.assertTrue(company.clickButton(EditCompany.searchbtn,2000));
+        Assert.assertTrue(editCompany.verifySearchResultCount());
     }
 
 
@@ -56,22 +50,13 @@ public class Create extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        loginPage.verifyValidLogin();
+        /*Assert.assertTrue(dashboard.refreshBrowser());*/
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
-//        Assert.assertTrue(createentity.ClickonSelectCompanydropdownFromEntityDrawer());
-        Assert.assertTrue(createentity.SelectCompanyNameFromDropdown());
-        Assert.assertTrue(createentity.WriteAutomatedEntityName());
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
-        Assert.assertTrue(company.WriteRandomEINNumber());
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.verifyAnElementDisplayedOrNot(2500,DashboardPropertyDetails.TopAccountName));
+        createentity.createEntity(prop.getProperty("CompanyNameForAutomation"),createentity.writeEntityName(),company.generateRandomPhoneNumber(),company.generateRandomEmail());
+        Assert.assertTrue(company.verifyAnElementDisplayedOrNot(2500,CreateEntity.entityDrawerTitle));
     }
 
     //TC_86 from create property script
@@ -85,19 +70,19 @@ public class Create extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         EditProperty editProperty = new EditProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.clickonCompanyDropdown());
         Assert.assertTrue(properties.selectAutomatedCompanyFromSelectCompanyDropdown());
         Assert.assertTrue(properties.clickSelectEntityDropdown());
         Assert.assertTrue(properties.SelectEntityNameFromSelectEntityDropdown());
         Assert.assertTrue(properties.writeTemporaryPropertyNameInPropertyNameField());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(company.WriteRandomCompanyAddress());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(company.writeRandomCompanyAddress());
 //        Assert.assertTrue(properties.clickHardwareProviderDropdown());
 //        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
        /* Assert.assertTrue(properties.clickOtherProviderDropdown());
@@ -118,7 +103,7 @@ public class Create extends BaseTest {
         Assert.assertTrue(properties.verifyNewPropertyHasCreated(msg.NewlyCreatedPropertymsg()));
         Assert.assertTrue(company.verifyAnElementDisplayedOrNot(2500,DashboardPropertyDetails.TopAccountName));
         Assert.assertTrue(createCharger.writeInputText(CreateProperty.searchbar,prop.getProperty("PropertyName5"),3000));
-        Assert.assertTrue(createCharger.ClickButton(EditCompany.searchbtn,2000));
+        Assert.assertTrue(createCharger.clickButton(EditCompany.searchbtn,2000));
         Assert.assertTrue(editProperty.VerifySearchResultCount());
     }
 
@@ -133,10 +118,10 @@ public class Create extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
         Assert.assertTrue(properties.selectAutomatedCompanyFromSelectCompanyDropdown());
@@ -165,9 +150,9 @@ public class Create extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
         Random objGenerator = new Random();
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         int randomNumber = objGenerator.nextInt(10000);
@@ -180,7 +165,7 @@ public class Create extends BaseTest {
         Assert.assertTrue(createcharger.clickonSaveChargerButton());
         Assert.assertTrue(createcharger.VerifyConfirmationPopUpHasDisplayed());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.searchchargerfield,temp,3000));
-        Assert.assertTrue(createcharger.ClickButton(CreateCharger.searchargerbtn,2000));
+        Assert.assertTrue(createcharger.clickButton(CreateCharger.searchargerbtn,2000));
         Assert.assertTrue(createcharger.VerifySearchResultCount());
     }
 

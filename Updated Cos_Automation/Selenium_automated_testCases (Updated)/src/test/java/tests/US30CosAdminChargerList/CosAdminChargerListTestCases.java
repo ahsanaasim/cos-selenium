@@ -20,8 +20,8 @@ public class CosAdminChargerListTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(chargerListPropertyAdmin.verifyHeaderColumnAlternative());
     }
@@ -47,8 +47,8 @@ public class CosAdminChargerListTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
         CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(cosAdminChargerList.verifyExpectedTitleColumnOccupiedWithContent("Charger Title",0));
@@ -66,9 +66,9 @@ public class CosAdminChargerListTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,"B2W Charger",5000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,1000));
@@ -83,8 +83,8 @@ public class CosAdminChargerListTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         CosAdminChargerList cosAdminChargerList =new CosAdminChargerList(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(chargerListPropertyAdmin.writeInputText(ChargerListPropertyAdmin.SearchChargerField,prop.getProperty("ChargerForCheckingDefaultState"), 5000));
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.searchargerbtn,2000));
@@ -100,9 +100,9 @@ public class CosAdminChargerListTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(CosAdminChargerList.EditButton,2000));
     }
@@ -113,9 +113,9 @@ public class CosAdminChargerListTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue((chargerListPropertyAdmin.verifyloadMoreButton()));
 
@@ -127,8 +127,8 @@ public class CosAdminChargerListTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue((chargerListPropertyAdmin.verifyloadMoreButtonWithDigit()));
 //        Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.LoadMoreButton,2000));
@@ -141,8 +141,8 @@ public class CosAdminChargerListTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(chargerListPropertyAdmin.verifyTheChargerCountWithLeftSideOFLoadMoreButton());
     }
@@ -154,8 +154,8 @@ public class CosAdminChargerListTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(chargerListPropertyAdmin.verifyTheWithTable());
     }
@@ -167,8 +167,8 @@ public class CosAdminChargerListTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(chargerListPropertyAdmin.verifyLoadMoreButtonAction());
     }
@@ -180,8 +180,8 @@ public class CosAdminChargerListTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(chargerListPropertyAdmin.ClickButton(ChargerListPropertyAdmin.LoadMoreButton,1000));
         Assert.assertTrue(chargerListPropertyAdmin.verifyChargerCountOnTop());
@@ -194,8 +194,8 @@ public class CosAdminChargerListTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(chargerListPropertyAdmin.verifyTableDataAfterRefreshing());
     }
@@ -206,8 +206,8 @@ public class CosAdminChargerListTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(chargerListPropertyAdmin.verifyChargerCountOnTopAfterRefreshing());
     }

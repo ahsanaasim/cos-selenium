@@ -62,8 +62,8 @@ public class WatchList extends BasePage{
         MapDetails mapDetails = new MapDetails(driver);
         COSA cosa = new COSA(driver);
         mapDetails.GoToRampuraLocation();
-        operation.ClickButton(MapDetails.AskCOSAButton,2000);
-        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        operation.clickButton(MapDetails.AskCOSAButton,2000);
+        operation.clickButton(COSA.KeepAnEyeOnThisLocation,2000);
         cosa.clickOnFutureDate(days);
         cosa.selectTiming(time,TimePeriod);
         Thread.sleep(2000);
@@ -74,8 +74,8 @@ public class WatchList extends BasePage{
         MapDetails mapDetails = new MapDetails(driver);
         COSA cosa = new COSA(driver);
         mapDetails.GoToPaikareLocation();
-        operation.ClickButton(MapDetails.AskCOSAButton,2000);
-        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        operation.clickButton(MapDetails.AskCOSAButton,2000);
+        operation.clickButton(COSA.KeepAnEyeOnThisLocation,2000);
         cosa.clickOnFutureDate(days);
         cosa.selectTime(time,TimePeriod);
         Thread.sleep(2000);
@@ -86,8 +86,8 @@ public class WatchList extends BasePage{
         MapDetails mapDetails = new MapDetails(driver);
         COSA cosa = new COSA(driver);
         mapDetails.GoToRauAvenue81Location();
-        operation.ClickButton(MapDetails.AskCOSAButton,2500);
-        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2500);
+        operation.clickButton(MapDetails.AskCOSAButton,2500);
+        operation.clickButton(COSA.KeepAnEyeOnThisLocation,2500);
         cosa.clickOnFutureDate(days);
         cosa.selectTiming(time,TimePeriod);
         Thread.sleep(2500);
@@ -229,10 +229,10 @@ public class WatchList extends BasePage{
         SwitchToTab(1);
         location.GoToLocationPage();
         location.writeINLocationSearchBar(s);
-        operation.ClickButton(EditCompany.searchbtn, 1500);
+        operation.clickButton(EditCompany.searchbtn, 1500);
         waitforPresence(EditLocation.PropertyName1InColumn);
         String propertyName = readText(EditLocation.PropertyName1InColumn);
-        operation.ClickButton(EditLocation.EditButton, 1500);
+        operation.clickButton(EditLocation.EditButton, 1500);
         waitforPresence(EditLocation.PropertyAddressInDrawer);
         String propertyLocationAddress = readText(EditLocation.PropertyAddressInDrawer);
         String Expected = propertyName + "," + " " + propertyLocationAddress;
@@ -263,15 +263,15 @@ public class WatchList extends BasePage{
         SwitchToTab(1);
         location.GoToLocationPage();
         location.writeINLocationSearchBar("Rampura Bridge");
-        operation.ClickButton(EditCompany.searchbtn, 1500);
+        operation.clickButton(EditCompany.searchbtn, 1500);
         waitforPresence(EditLocation.EditButton);
-        operation.ClickButton(EditLocation.EditButton, 1500);
+        operation.clickButton(EditLocation.EditButton, 1500);
         waitforPresence(UpdateChargerPropertyAdmin.ToggleButton);
         editCharger.clickToggleButtonIfItIsOff();
-        operation.ClickButton(CreateLocation.savelocationbtn,1500);
+        operation.clickButton(CreateLocation.savelocationbtn,1500);
         Thread.sleep(2000);
         SwitchToTab(0);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Thread.sleep(2500);
         waitVisibility(LocationName);
         if (driver.findElement(AvailableStatus).isDisplayed()) {
@@ -299,15 +299,15 @@ public class WatchList extends BasePage{
         SwitchToTab(1);
         location.GoToLocationPage();
         location.writeINLocationSearchBar("Rampura Bridge");
-        operation.ClickButton(EditCompany.searchbtn, 1500);
+        operation.clickButton(EditCompany.searchbtn, 1500);
         waitforPresence(EditLocation.EditButton);
-        operation.ClickButton(EditLocation.EditButton, 1500);
+        operation.clickButton(EditLocation.EditButton, 1500);
         waitforPresence(UpdateChargerPropertyAdmin.ToggleButton);
         editCharger.clickToggleButtonIfItIsOn();
-        operation.ClickButton(CreateLocation.savelocationbtn,1500);
+        operation.clickButton(CreateLocation.savelocationbtn,1500);
         Thread.sleep(2000);
         SwitchToTab(0);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         waitVisibility(LocationName);
         if (driver.findElement(UnavailableStatus).isDisplayed()) {
             System.out.println("Location status is showing unavailable");

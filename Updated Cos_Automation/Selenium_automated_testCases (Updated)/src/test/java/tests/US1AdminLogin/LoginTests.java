@@ -1,9 +1,7 @@
 package tests.US1AdminLogin;
 
 import com.aventstack.extentreports.ExtentTest;
-import com.google.inject.name.Named;
 import org.testng.Assert;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.*;
 import tests.BaseTest;
@@ -25,7 +23,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(loginPage.EnterEmail(prop.getProperty("EmailwithoutCom")));
         Assert.assertTrue(loginPage.EnterPassword(prop.getProperty("validPassword")));
         Assert.assertTrue(loginPage.ClickLoginButton());
-        Assert.assertTrue(loginPage.VerifyInvalidEmailErrorMessage(msg.InvalidEmailErrorMsg()));
+        Assert.assertTrue(loginPage.verifyInvalidEmailErrorMessage(msg.InvalidEmailErrorMsg()));
     }
 
     @Test(priority = 2)//Done
@@ -37,7 +35,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(loginPage.EnterEmail(prop.getProperty("incompletedEmail")));
         Assert.assertTrue(loginPage.EnterPassword(prop.getProperty("validPassword")));
         Assert.assertTrue(loginPage.ClickLoginButton());
-        Assert.assertTrue(loginPage.VerifyInvalidEmailErrorMessage(msg.InvalidEmailErrorMsg()));
+        Assert.assertTrue(loginPage.verifyInvalidEmailErrorMessage(msg.InvalidEmailErrorMsg()));
     }
 
     @Test(priority = 3)//Done
@@ -49,7 +47,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(loginPage.EnterEmail(prop.getProperty("Numbers")));
         Assert.assertTrue(loginPage.EnterPassword(prop.getProperty("validPassword")));
         Assert.assertTrue(loginPage.ClickLoginButton());
-        Assert.assertTrue(loginPage.VerifyInvalidEmailErrorMessage(msg.InvalidEmailErrorMsg()));
+        Assert.assertTrue(loginPage.verifyInvalidEmailErrorMessage(msg.InvalidEmailErrorMsg()));
     }
 
     @Test(priority = 4)//Done
@@ -61,7 +59,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(loginPage.EnterEmail(prop.getProperty("invalidEmail1")));
         Assert.assertTrue(loginPage.EnterPassword(prop.getProperty("validPassword")));
         Assert.assertTrue(loginPage.ClickLoginButton());
-        Assert.assertTrue(loginPage.VerifyInvalidEmailErrorMessage(msg.InvalidEmailErrorMsg()));
+        Assert.assertTrue(loginPage.verifyInvalidEmailErrorMessage(msg.InvalidEmailErrorMsg()));
     }
 
     @Test(priority = 6)//Done
@@ -134,7 +132,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(loginPage.EnterEmail(""));
         Assert.assertTrue(loginPage.EnterPassword(prop.getProperty("validPassword")));
         Assert.assertTrue(loginPage.ClickLoginButton());
-        Assert.assertTrue(loginPage.VerifyBlankEmailErrorMessage(msg.BlanklEmailErrorMsg()));
+        Assert.assertTrue(loginPage.verifyBlankEmailErrorMessage(msg.BlanklEmailErrorMsg()));
     }
 
     @Test(priority = 12)//Done
@@ -158,8 +156,8 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(loginPage.EnterEmail(""));
         Assert.assertTrue(loginPage.EnterPassword(""));
         Assert.assertTrue(loginPage.ClickLoginButton());
-        Assert.assertTrue(loginPage.VerifyBlankEmailErrorMessage(msg.BlanklEmailErrorMsg()));
-        Assert.assertTrue(loginPage.VerifyBlankPasswordErrorMessage(msg.BlanklPassErrorMsg()));
+        Assert.assertTrue(loginPage.verifyBlankEmailErrorMessage(msg.BlanklEmailErrorMsg()));
+        Assert.assertTrue(loginPage.verifyBlankPasswordErrorMessage(msg.BlanklPassErrorMsg()));
     }
 
     @Test(priority = 14)//Done
@@ -171,7 +169,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(loginPage.EnterEmail(prop.getProperty("invalidEmail")));
         Assert.assertTrue(loginPage.EnterPassword(""));
         Assert.assertTrue(loginPage.ClickLoginButton());
-        Assert.assertTrue(loginPage.VerifyBlankPasswordErrorMessage(msg.BlanklPassErrorMsg()));
+        Assert.assertTrue(loginPage.verifyBlankPasswordErrorMessage(msg.BlanklPassErrorMsg()));
     }
 
     @Test(priority = 15)//Done
@@ -181,7 +179,7 @@ public class LoginTests extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         homePage.geturl();
         Assert.assertTrue(loginPage.ClickForgotPassword());
-        Assert.assertTrue(loginPage.verifyUserHasRedirectedTowardtheForgptPasswordPage());
+        Assert.assertTrue(loginPage.verifyUserHasRedirectedTowardTheForgotPasswordPage());
     }
 
     @Test(priority = 16)//Done
@@ -191,7 +189,7 @@ public class LoginTests extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         homePage.geturl();
         Assert.assertTrue(loginPage.ClickForgotPassword());
-        Assert.assertTrue(loginPage.verifyUserHasRedirectedTowardtheForgptPasswordPage());
+        Assert.assertTrue(loginPage.verifyUserHasRedirectedTowardTheForgotPasswordPage());
         Assert.assertTrue(loginPage.verifySendPasswordresetButtonisShowing());
     }
 
@@ -204,10 +202,10 @@ public class LoginTests extends BaseTest {
         homePage.geturl();
         Assert.assertTrue(loginPage.ClickForgotPassword());
         //Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(loginPage.verifyUserHasRedirectedTowardtheForgptPasswordPage());
+        Assert.assertTrue(loginPage.verifyUserHasRedirectedTowardTheForgotPasswordPage());
         Assert.assertTrue(loginPage.enterForgotPasswordEmail(prop.getProperty("EmailwithoutCom")));
         Assert.assertTrue(loginPage.clickresetPasswordButtonButton());
-        Assert.assertTrue(loginPage.VerifyInvalidEmailErrorMessage(msg.InvalidEmailErrorMsg()));
+        Assert.assertTrue(loginPage.verifyInvalidEmailErrorMessage(msg.InvalidEmailErrorMsg()));
     }
 
     @Test(priority = 18)//Done
@@ -219,10 +217,10 @@ public class LoginTests extends BaseTest {
         /*homePage.geturl();
         Assert.assertTrue(loginPage.ClickForgotPassword());
         Assert.assertTrue(loginPage.verifyUserHasRedirectedTowardtheForgptPasswordPage());*/
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(loginPage.enterForgotPasswordEmail(prop.getProperty("SpecialCharacter")));
         Assert.assertTrue(loginPage.clickresetPasswordButtonButton());
-        Assert.assertTrue(loginPage.VerifyInvalidEmailErrorMessage(msg.InvalidEmailErrorMsg()));
+        Assert.assertTrue(loginPage.verifyInvalidEmailErrorMessage(msg.InvalidEmailErrorMsg()));
     }
 
     @Test(priority = 19)//Done
@@ -234,10 +232,10 @@ public class LoginTests extends BaseTest {
         /*homePage.geturl();
         Assert.assertTrue(loginPage.ClickForgotPassword());
         Assert.assertTrue(loginPage.verifyUserHasRedirectedTowardtheForgptPasswordPage());*/
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(loginPage.enterForgotPasswordEmail(prop.getProperty("Numbers")));
         Assert.assertTrue(loginPage.clickresetPasswordButtonButton());
-        Assert.assertTrue(loginPage.VerifyInvalidEmailErrorMessage(msg.InvalidEmailErrorMsg()));
+        Assert.assertTrue(loginPage.verifyInvalidEmailErrorMessage(msg.InvalidEmailErrorMsg()));
     }
 
     @Test(priority = 20)//Done
@@ -249,7 +247,7 @@ public class LoginTests extends BaseTest {
         /*homePage.geturl();
         Assert.assertTrue(loginPage.ClickForgotPassword());
         Assert.assertTrue(loginPage.verifyUserHasRedirectedTowardtheForgptPasswordPage());*/
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(loginPage.enterForgotPasswordEmail(prop.getProperty("UnregisteredEmailAddress1")));
         Assert.assertTrue(loginPage.clickresetPasswordButtonButton());
         Assert.assertTrue(loginPage.verifyUnRegisteredEmailErrorMessage(msg.UnregsiteredEmailErrorMessage()));
@@ -264,10 +262,10 @@ public class LoginTests extends BaseTest {
         /*homePage.geturl();
         Assert.assertTrue(loginPage.ClickForgotPassword());
         Assert.assertTrue(loginPage.verifyUserHasRedirectedTowardtheForgptPasswordPage());*/
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(loginPage.enterForgotPasswordEmail(prop.getProperty("WrongEmail")));
         Assert.assertTrue(loginPage.clickresetPasswordButtonButton());
-        Assert.assertTrue(loginPage.VerifyInvalidEmailErrorMessage(msg.InvalidEmailErrorMsg()));
+        Assert.assertTrue(loginPage.verifyInvalidEmailErrorMessage(msg.InvalidEmailErrorMsg()));
     }
 
     @Test(priority = 22)//Done
@@ -279,7 +277,7 @@ public class LoginTests extends BaseTest {
         /*homePage.geturl();
         Assert.assertTrue(loginPage.ClickForgotPassword());
         Assert.assertTrue(loginPage.verifyUserHasRedirectedTowardtheForgptPasswordPage());*/
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(loginPage.enterForgotPasswordEmail(prop.getProperty("UnregisteredEmailAddress")));
         Assert.assertTrue(loginPage.clickresetPasswordButtonButton());
         Assert.assertTrue(loginPage.verifyUnRegisteredEmailErrorMessage(msg.UnregsiteredEmailErrorMessage()));
@@ -294,7 +292,7 @@ public class LoginTests extends BaseTest {
         /*homePage.geturl();
         Assert.assertTrue(loginPage.ClickForgotPassword());
         Assert.assertTrue(loginPage.verifyUserHasRedirectedTowardtheForgptPasswordPage());*/
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(loginPage.enterForgotPasswordEmail(prop.getProperty("validEmail")));
         Assert.assertTrue(loginPage.clickresetPasswordButtonButton());
         Assert.assertTrue(loginPage.verifyResetPasswordLinkHasSentSuccessfully(msg.ResetPasswordLinkSentMsg()));
@@ -307,7 +305,7 @@ public class LoginTests extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         homePage.geturl();
         Assert.assertTrue(loginPage.ClickForgotPassword());
-        Assert.assertTrue(loginPage.verifyUserHasRedirectedTowardtheForgptPasswordPage());
+        Assert.assertTrue(loginPage.verifyUserHasRedirectedTowardTheForgotPasswordPage());
         Assert.assertTrue(loginPage.enterForgotPasswordEmail(prop.getProperty("validEmail")));
         Assert.assertTrue(loginPage.clickresetPasswordButtonButton());
         Assert.assertTrue(loginPage.verifyResetPasswordLinkHasSentSuccessfully(msg.ResetPasswordLinkSentMsg()));
@@ -323,7 +321,7 @@ public class LoginTests extends BaseTest {
         /*homePage.geturl();
         Assert.assertTrue(loginPage.ClickForgotPassword());
         Assert.assertTrue(loginPage.verifyUserHasRedirectedTowardtheForgptPasswordPage());*/
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(loginPage.enterForgotPasswordEmail(prop.getProperty("validEmail")));
         Assert.assertTrue(loginPage.clickresetPasswordButtonButton());
         Assert.assertTrue(loginPage.verifyResetPasswordLinkHasSentSuccessfully(msg.ResetPasswordLinkSentMsg()));*/
@@ -338,7 +336,7 @@ public class LoginTests extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
         homePage.geturl();
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 
     }
 
@@ -346,11 +344,11 @@ public class LoginTests extends BaseTest {
     public void LogoutfromtheSystem() throws InterruptedException {
         Dashboard dashboard=new Dashboard(driver);
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.ClickonDropdownArrow());
-        Assert.assertTrue(dashboard.ClickonLogout());
-        Assert.assertTrue(dashboard.VerifyUSerHasLogoutFromtheSystem());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnDropdownArrow());
+        Assert.assertTrue(dashboard.clickOnLogout());
+        Assert.assertTrue(dashboard.verifyUserHasLogoutFromTheSystem());
 
     }
 

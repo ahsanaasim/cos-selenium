@@ -62,7 +62,7 @@ public class TroubleshootCharger extends BasePage{
     }
 
     public boolean verifyChangerNameChangedInTroubleshootDrawer() throws InterruptedException {
-        clearOperation.FieldClear(CreateCharger.Chargername);
+        clearOperation.fieldClear(CreateCharger.Chargername);
         String troubleshootCharger = charger.RandomChargerNameWithNumber("Troubleshoot checker charger : ");
         writeText(CreateCharger.Chargername,troubleshootCharger);
         click(UpdateChargerPropertyAdmin.SaveCharger);
@@ -85,11 +85,11 @@ public class TroubleshootCharger extends BasePage{
         Thread.sleep(4000);
         String PrevPropertyAddress = driver.findElement(ChargerListPropertyAdmin.PropertyAddress).getText();
         String PrevPropertyName = driver.findElement(ChargerListPropertyAdmin.PropertyName).getText();
-        dashboard.clickonProperty();
+        dashboard.clickOnProperty();
         writeText(property.searchbar,PrevPropertyName);
         click(CreateCharger.searchargerbtn);
         click(DownCharger.EditButton);
-        clearOperation.FieldClear(property.propertyAddress);
+        clearOperation.fieldClear(property.propertyAddress);
         int randomNumber = randomNum.nextInt(10000);
         System.out.println(randomNumber);
         String propertyAdd ="12"+randomNumber;
@@ -124,7 +124,7 @@ public class TroubleshootCharger extends BasePage{
         writeText(CreateLocation.searchbar,PrevLoc);
         click(CreateCharger.searchargerbtn);
         click(DownCharger.EditButton);
-        clearOperation.FieldClear(createLocation.locationtitle);
+        clearOperation.fieldClear(createLocation.locationtitle);
         int randomNumber = randomNum.nextInt(10);
         System.out.println(randomNumber);
         String LocationName ="Goldner Avenue "+randomNumber;

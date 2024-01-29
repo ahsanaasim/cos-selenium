@@ -204,7 +204,7 @@ public class EditFeeStructure extends BasePage{
     public boolean verifyInvalidData(By element, String alertMessage) throws InterruptedException {
         String[] invalidValue = {"0", "-1", "-2.53","-100.00"};
         for (int i = 0; i < invalidValue.length; i++) { // start at index 1 to skip the header row
-            FieldClear(element);
+            fieldClear(element);
             writeText(element,invalidValue[i]);
             click(CreateFeeStructure.SaveFeeStructureButton);
             Thread.sleep(1000);
@@ -223,7 +223,7 @@ public class EditFeeStructure extends BasePage{
     public boolean verifyInvalidDataForIdleFee(By element, String alertMessage) throws InterruptedException {
         String[] invalidValue = {"-1", "-2.53","-100.00","-20"};
         for (int i = 0; i < invalidValue.length; i++) { // start at index 1 to skip the header row
-            FieldClear(element);
+            fieldClear(element);
             writeText(element,invalidValue[i]);
             click(CreateFeeStructure.SaveFeeStructureButton);
             Thread.sleep(1000);
@@ -242,7 +242,7 @@ public class EditFeeStructure extends BasePage{
     public boolean verifyInvalidDataForGracePeriod(By element, String alertMessage) throws InterruptedException {
         String[] invalidValue = {"-1", "0","-2","-40","-2.99"};
         for (int i = 0; i < invalidValue.length; i++) { // start at index 1 to skip the header row
-            FieldClear(element);
+            fieldClear(element);
             writeText(element,invalidValue[i]);
             click(CreateFeeStructure.SaveFeeStructureButton);
             Thread.sleep(1000);
@@ -260,7 +260,7 @@ public class EditFeeStructure extends BasePage{
     public boolean verifyLessThanThreeValueForGracePeriod(By element, String alertMessage) throws InterruptedException {
         String[] invalidValue = {"1", "2","2.99","1.99"};
         for (int i = 0; i < invalidValue.length; i++) { // start at index 1 to skip the header row
-            FieldClear(element);
+            fieldClear(element);
             writeText(element,invalidValue[i]);
             click(CreateFeeStructure.SaveFeeStructureButton);
             Thread.sleep(1000);
@@ -284,7 +284,7 @@ public class EditFeeStructure extends BasePage{
         int logCount = driver.findElements(By.className("ant-timeline-item-content")).size();
         System.out.println("log before updating data: " + logCount);
         click(CreateFeeStructure.SaveFeeStructureButton);
-        operation.ClickButton(FeeStructureList.Edit, 3000);
+        operation.clickButton(FeeStructureList.Edit, 3000);
         Thread.sleep(4000);
         waitforPresence(AuditLog);
         int logCount2 = driver.findElements(By.className("ant-timeline-item-content")).size();

@@ -21,7 +21,7 @@ public class CustomerLoginTestCases extends BaseTest {
         login.GoToCustomerLoginPage();
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField,"jo@email.com",500));
         Assert.assertTrue(operation.writeInputText(CustomerLogin.PasswordField,"2&57DyhUTH1c",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue(login.verifyRedirectingToMap());
         login.LogoutFromCustomerAccount();
 
@@ -37,7 +37,7 @@ public class CustomerLoginTestCases extends BaseTest {
 //        login.GoToCustomerLoginPage();
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField,"tahia@yahoo.com",500));
         Assert.assertTrue(operation.writeInputText(CustomerLogin.PasswordField,"T7777777",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue(login.verifyRedirectingToMap());
         login.LogoutFromCustomerAccount();
 
@@ -53,7 +53,7 @@ public class CustomerLoginTestCases extends BaseTest {
 //        login.GoToCustomerLoginPage();
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField,"komame4721@minterp.com",500));
         Assert.assertTrue(operation.writeInputText(CustomerLogin.PasswordField,"T7777777",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue(login.verifyRedirectingToMap());
         login.LogoutFromCustomerAccount();
 
@@ -69,7 +69,7 @@ public class CustomerLoginTestCases extends BaseTest {
 //        login.GoToCustomerLoginPage();
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField,"tahiatesting07@gmail.com",500));
         Assert.assertTrue(operation.writeInputText(CustomerLogin.PasswordField,"T7777777",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue(login.verifyRedirectingToMap());
         login.LogoutFromCustomerAccount();
 
@@ -86,7 +86,7 @@ public class CustomerLoginTestCases extends BaseTest {
 //        operation.ClickButton(GuestFlow.LoginBtn,5000);
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField,"Test@test.",500));
         Assert.assertTrue(operation.writeInputText(CustomerLogin.PasswordField,"2&57DyhUTH1c",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue(customerSignUp.VerifyInvalidEmailErrorMsg());
 
     }
@@ -95,9 +95,9 @@ public class CustomerLoginTestCases extends BaseTest {
     public void TC_1_2_TestIfEmailFieldTakingInvalidInputInLoginPage() throws InterruptedException, IOException, UnsupportedFlavorException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger operation =new CreateCharger(driver);
-        customerSignUp.FieldClear(CustomerLogin.EmailField);
+        customerSignUp.fieldClear(CustomerLogin.EmailField);
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField,"test@test",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue(customerSignUp.VerifyInvalidEmailErrorMsg());
 
     }
@@ -107,9 +107,9 @@ public class CustomerLoginTestCases extends BaseTest {
     public void TC_1_3_TestIfEmailFieldTakingInvalidInputInLoginPage() throws InterruptedException, IOException, UnsupportedFlavorException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger operation =new CreateCharger(driver);
-        customerSignUp.FieldClear(CustomerLogin.EmailField);
+        customerSignUp.fieldClear(CustomerLogin.EmailField);
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField,"Test@test.",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue(customerSignUp.VerifyInvalidEmailErrorMsg());
 
     }
@@ -119,9 +119,9 @@ public class CustomerLoginTestCases extends BaseTest {
     public void TC_1_4_TestIfEmailFieldTakingInvalidInputInLoginPage() throws InterruptedException, IOException, UnsupportedFlavorException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger operation =new CreateCharger(driver);
-        customerSignUp.FieldClear(CustomerLogin.EmailField);
+        customerSignUp.fieldClear(CustomerLogin.EmailField);
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField,"test@test.c",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue(customerSignUp.VerifyInvalidEmailErrorMsg());
     }
 
@@ -130,9 +130,9 @@ public class CustomerLoginTestCases extends BaseTest {
     public void TC_1_5_TestIfEmailFieldTakingInvalidInputInLoginPage() throws InterruptedException, IOException, UnsupportedFlavorException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger operation =new CreateCharger(driver);
-        customerSignUp.FieldClear(CustomerLogin.EmailField);
+        customerSignUp.fieldClear(CustomerLogin.EmailField);
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField,"test",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue(customerSignUp.VerifyInvalidEmailErrorMsg());
     }
 
@@ -141,9 +141,9 @@ public class CustomerLoginTestCases extends BaseTest {
     public void TC_1_6_TestIfEmailFieldTakingInvalidInputInLoginPage() throws InterruptedException, IOException, UnsupportedFlavorException {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger operation =new CreateCharger(driver);
-        customerSignUp.FieldClear(CustomerLogin.EmailField);
+        customerSignUp.fieldClear(CustomerLogin.EmailField);
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField,"test@",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue(customerSignUp.VerifyInvalidEmailErrorMsg());
     }
     @Test(priority = 11)//Selenium 96
@@ -152,8 +152,8 @@ public class CustomerLoginTestCases extends BaseTest {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CustomerLogin login = new CustomerLogin(driver);
         CreateCharger operation =new CreateCharger(driver);
-        customerSignUp.FieldClear(CustomerLogin.EmailField);
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        customerSignUp.fieldClear(CustomerLogin.EmailField);
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue(login.VerifyNoEmailErrorMsg());
     }
 
@@ -163,9 +163,9 @@ public class CustomerLoginTestCases extends BaseTest {
         CustomerLogin login = new CustomerLogin(driver);
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger operation =new CreateCharger(driver);
-        customerSignUp.FieldClear(CustomerLogin.EmailField);
+        customerSignUp.fieldClear(CustomerLogin.EmailField);
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField," ",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue(login.VerifyNoEmailErrorMsg());
     }
 
@@ -176,11 +176,11 @@ public class CustomerLoginTestCases extends BaseTest {
         CustomerLogin customerLogin = new CustomerLogin(driver);
         CreateCharger operation =new CreateCharger(driver);
         BasePage basePage = new BasePage(driver);
-        customerSignUp.FieldClear(CustomerLogin.EmailField);
-        customerSignUp.FieldClear(CustomerLogin.PasswordField);
+        customerSignUp.fieldClear(CustomerLogin.EmailField);
+        customerSignUp.fieldClear(CustomerLogin.PasswordField);
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField,"jo@email.com",500));
         Assert.assertTrue(operation.writeInputText(CustomerLogin.PasswordField,"TTTTTTTT",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,1000));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,1000));
         Assert.assertTrue(customerLogin.VerifyWrongPasswordAlert());
 
     }
@@ -191,9 +191,9 @@ public class CustomerLoginTestCases extends BaseTest {
         CustomerLogin customerLogin = new CustomerLogin(driver);
         CreateCharger operation =new CreateCharger(driver);
         BasePage basePage = new BasePage(driver);
-        customerSignUp.FieldClear(CustomerLogin.PasswordField);
+        customerSignUp.fieldClear(CustomerLogin.PasswordField);
         Assert.assertTrue(operation.writeInputText(CustomerLogin.PasswordField,"11111111",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue(customerLogin.VerifyWrongPasswordAlert());
 
     }
@@ -203,9 +203,9 @@ public class CustomerLoginTestCases extends BaseTest {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CreateCharger operation =new CreateCharger(driver);
         CustomerLogin login = new CustomerLogin(driver);
-        customerSignUp.FieldClear(CustomerLogin.PasswordField);
+        customerSignUp.fieldClear(CustomerLogin.PasswordField);
         Assert.assertTrue(operation.writeInputText(CustomerLogin.PasswordField," ",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue(login.VerifyNoPasswordErrorMsg());
 
     }
@@ -216,8 +216,8 @@ public class CustomerLoginTestCases extends BaseTest {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         CustomerLogin login = new CustomerLogin(driver);
         CreateCharger operation =new CreateCharger(driver);
-        customerSignUp.FieldClear(CustomerLogin.PasswordField);
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        customerSignUp.fieldClear(CustomerLogin.PasswordField);
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue((login.VerifyNoPasswordErrorMsg()));
 
     }
@@ -231,11 +231,11 @@ public class CustomerLoginTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
 //        Assert.assertTrue(customerSignUp.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/XnthEz"));
 //        operation.ClickButton(GuestFlow.LoginBtn,5000);
-        customerSignUp.FieldClear(CustomerLogin.EmailField);
+        customerSignUp.fieldClear(CustomerLogin.EmailField);
 //        customerSignUp.FieldClear(CustomerLogin.PasswordField);
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField,"tahiaislampeuli@gmail.com",500));
         Assert.assertTrue(operation.writeInputText(CustomerLogin.PasswordField,"ABC55555",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue((basePage.verifyAnElementDisplayedOrNot(1000,CustomerLogin.UnregisteredAlert)));
 
     }
@@ -249,11 +249,11 @@ public class CustomerLoginTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
 //        Assert.assertTrue(customerSignUp.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/XnthEz"));
 //        operation.ClickButton(GuestFlow.LoginBtn,5000);
-        customerSignUp.FieldClear(CustomerLogin.EmailField);
-        customerSignUp.FieldClear(CustomerLogin.PasswordField);
+        customerSignUp.fieldClear(CustomerLogin.EmailField);
+        customerSignUp.fieldClear(CustomerLogin.PasswordField);
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField,"fahimsdkj@gmail.com",500));
         Assert.assertTrue(operation.writeInputText(CustomerLogin.PasswordField,"ABC55555",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue((basePage.verifyAnElementDisplayedOrNot(1000,CustomerLogin.UnregisteredAlert)));
 
     }
@@ -266,12 +266,12 @@ public class CustomerLoginTestCases extends BaseTest {
         CreateCharger operation =new CreateCharger(driver);
         BasePage basePage = new BasePage(driver);
         Assert.assertTrue(customerSignUp.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/XnthEz"));
-        operation.ClickButton(GuestFlow.LoginBtn,5000);
+        operation.clickButton(GuestFlow.LoginBtn,5000);
 //        customerSignUp.FieldClear(CustomerLogin.EmailField);
 //        customerSignUp.FieldClear(CustomerLogin.PasswordField);
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField,"tahiaislampeuli@gmail.com",500));
         Assert.assertTrue(operation.writeInputText(CustomerLogin.PasswordField,"ABC55555",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue((basePage.verifyAnElementDisplayedOrNot(1000,CustomerLogin.UnregisteredAlert)));
 
     }
@@ -285,11 +285,11 @@ public class CustomerLoginTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
 //        Assert.assertTrue(customerSignUp.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/XnthEz"));
 //        operation.ClickButton(GuestFlow.LoginBtn,5000);
-        customerSignUp.FieldClear(CustomerLogin.EmailField);
-        customerSignUp.FieldClear(CustomerLogin.PasswordField);
+        customerSignUp.fieldClear(CustomerLogin.EmailField);
+        customerSignUp.fieldClear(CustomerLogin.PasswordField);
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField,"fahimsdkj@gmail.com",500));
         Assert.assertTrue(operation.writeInputText(CustomerLogin.PasswordField,"ABC55555",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue((basePage.verifyAnElementDisplayedOrNot(1000,CustomerLogin.UnregisteredAlert)));
 
     }
@@ -303,11 +303,11 @@ public class CustomerLoginTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
 //        Assert.assertTrue(customerSignUp.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/XnthEz"));
 //        operation.ClickButton(GuestFlow.LoginBtn,5000);
-        customerSignUp.FieldClear(CustomerLogin.EmailField);
-        customerSignUp.FieldClear(CustomerLogin.PasswordField);
+        customerSignUp.fieldClear(CustomerLogin.EmailField);
+        customerSignUp.fieldClear(CustomerLogin.PasswordField);
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField,"tahiatesting07@gmail.com",500));
         Assert.assertTrue(operation.writeInputText(CustomerLogin.PasswordField,"T7777777",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue((basePage.verifyAnElementDisplayedOrNot(1000,GuestFlow.PhoneNoField)));
         login.LogoutFromCustomerAccount();
 
@@ -322,10 +322,10 @@ public class CustomerLoginTestCases extends BaseTest {
         CreateCharger operation =new CreateCharger(driver);
         BasePage basePage = new BasePage(driver);
         Assert.assertTrue(customerSignUp.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/XnthEz"));
-        operation.ClickButton(GuestFlow.LoginBtn,3000);
+        operation.clickButton(GuestFlow.LoginBtn,3000);
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField,"jo@email.com",500));
         Assert.assertTrue(operation.writeInputText(CustomerLogin.PasswordField,"2&57DyhUTH1c",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1500,GuestFlow.StartChargingButton));
         login.LogoutFromCustomerAccount();
 
@@ -340,10 +340,10 @@ public class CustomerLoginTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
 //        login.GoToCustomerLoginPage();
         Assert.assertTrue(customerSignUp.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/XnthEz"));
-        operation.ClickButton(GuestFlow.LoginBtn,3000);
+        operation.clickButton(GuestFlow.LoginBtn,3000);
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField,"tahia@yahoo.com",500));
         Assert.assertTrue(operation.writeInputText(CustomerLogin.PasswordField,"T7777777",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1500,GuestFlow.StartChargingButton));
         login.LogoutFromCustomerAccount();
 
@@ -358,10 +358,10 @@ public class CustomerLoginTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
 //        login.GoToCustomerLoginPage();
         Assert.assertTrue(customerSignUp.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/XnthEz"));
-        operation.ClickButton(GuestFlow.LoginBtn,3000);
+        operation.clickButton(GuestFlow.LoginBtn,3000);
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField,"komame4721@minterp.com",500));
         Assert.assertTrue(operation.writeInputText(CustomerLogin.PasswordField,"T7777777",500));
-        Assert.assertTrue(operation.ClickButton(CustomerLogin.CustomerLoginButton,500));
+        Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1500,GuestFlow.PhoneNoField));
         login.LogoutFromCustomerAccount();
 

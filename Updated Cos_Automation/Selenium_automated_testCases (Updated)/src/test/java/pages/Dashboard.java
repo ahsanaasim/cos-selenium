@@ -2,12 +2,9 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
 public class Dashboard extends BasePage {
 
@@ -34,44 +31,42 @@ public class Dashboard extends BasePage {
     public static By StardewValleyPropertyFromOption = By.xpath("//div[@class='ant-select-item-option-content'][contains(text(),'Stardew Valley')]");
     public static By AutomationPropertyFromOption = By.xpath("//div[@class='ant-select-item-option-content'][contains(text(),'Automation Property')]");
 
-    CreateCompany Createcompany=new CreateCompany(driver);
 
-    public boolean ClickonDropdownArrow () {
+    public boolean clickOnDropdownArrow() {
         waitVisibility(dropdown);
         click(dropdown);
         return true;
     }
 
-    public boolean ClickonLogout () {
+    public boolean clickOnLogout() {
         waitVisibility(logout);
         click(logout);
         return true;
     }
 
-    public boolean ClickonCompanyfromLeftMenuBar ()  {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        Createcompany.waitForSpinner();
+    public boolean clickOnCompanyFromLeftMenuBar() throws InterruptedException {
+        /*driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));*/
+        waitForFewMoment(2000);
         click(company);
         return true;
     }
 
-    public boolean clickonProperty () throws InterruptedException {
+    public boolean clickOnProperty() throws InterruptedException {
         Thread.sleep(3000);
-        //  Createcompany.waitForSpinner();
         waitVisibility(property);
         waitelemtclickable(property);
         click(property);
         return true;
     }
 
-    public boolean ClickonCompanyManagement () {
+    public boolean clickOnCompanyManagement() {
         waitVisibility(cmanagementtext);
         waitelemtclickable(cmanagementtext);
         click(cmanagementtext);
         return true;
     }
 
-    public boolean ClickonEntityManagement () throws InterruptedException {
+    public boolean clickOnEntityManagement() throws InterruptedException {
         Thread.sleep(1500);
         waitVisibility(entitymanagement);
         waitelemtclickable(entitymanagement);
@@ -79,8 +74,7 @@ public class Dashboard extends BasePage {
         return true;
     }
 
-    public boolean clickonPropertiesFromLeftMenu () {
-        //   Createcompany.waitForSpinner();
+    public boolean clickOnPropertiesFromLeftMenu() {
         waitVisibility(properties);
         waitelemtclickable(properties);
         click(properties);
@@ -89,7 +83,7 @@ public class Dashboard extends BasePage {
 
     public boolean clickonLocations () throws InterruptedException {
         //   Createcompany.waitForSpinner();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
        /* waitVisibility(locations);
         waitelementtobedisplayed(locations);
       //  waitelemtclickable(locations);
@@ -99,9 +93,9 @@ public class Dashboard extends BasePage {
         return true;
     }
 
-    public boolean clickonLocationsPropertyAdmin () throws InterruptedException {
+    public boolean clickOnLocationsPropertyAdmin() throws InterruptedException {
         //   Createcompany.waitForSpinner();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
        /* waitVisibility(locations);
         waitelementtobedisplayed(locations);
       //  waitelemtclickable(locations);
@@ -111,23 +105,21 @@ public class Dashboard extends BasePage {
         return true;
     }
     public boolean clickOnChargers() throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.get(prop.getProperty("ChrgerpageURL"));
         urlCheck(prop.getProperty("ChrgerpageURL"));
         return true;
     }
 
     public boolean clickOnChargersPropertyAdmin() throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.get(prop.getProperty("ChargerpageURLForPropertyAdmin"));
         urlCheck(prop.getProperty("ChargerpageURLForPropertyAdmin"));
         return true;
     }
 
-    public boolean RefreshBrowser () throws InterruptedException {
+    public boolean refreshBrowser() throws InterruptedException {
         Thread.sleep(3000);
-        //  Createcompany.waitForSpinner();
-        //waitforInVisibility(Createcompany.spinner);
         driver.navigate().refresh();
         return true;
     }
@@ -141,7 +133,7 @@ public class Dashboard extends BasePage {
     }
 
 
-    public boolean VerifyUSerHasLogoutFromtheSystem () {
+    public boolean verifyUserHasLogoutFromTheSystem() {
         urlCheck(prop.getProperty("BaseURL"));
         return true;
     }
@@ -158,7 +150,7 @@ public class Dashboard extends BasePage {
         }
     }
 
-    public void GoToCosAdminLoginPage() throws InterruptedException {
+    public void goToCosAdminLoginPage() throws InterruptedException {
         Thread.sleep(2000);
         driver.get(prop.getProperty("HomeURL"));
     }

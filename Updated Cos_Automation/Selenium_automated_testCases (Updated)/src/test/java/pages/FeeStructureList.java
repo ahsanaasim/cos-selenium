@@ -201,7 +201,7 @@ public class FeeStructureList extends BasePage{
     public void writeInSearchField(String feeStructure) throws InterruptedException {
         Thread.sleep(3000);
         waitforPresence(Edit);
-        FieldClear(SearchField);
+        fieldClear(SearchField);
         writeText(SearchField,feeStructure);
     }
 

@@ -24,7 +24,7 @@ public class SupportTicketListTestCases extends BaseTest {
         CustomerSupport customerSupport = new CustomerSupport(driver);
         customerSupport.GoToCustomerLoginPage();
         customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
-        operation.ClickButton(CustomerSupport.Menu,2000);
+        operation.clickButton(CustomerSupport.Menu,2000);
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(1000,CustomerSupport.CustomerSupport));
 
 
@@ -42,7 +42,7 @@ public class SupportTicketListTestCases extends BaseTest {
 //        customerSupport.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
 //        operation.ClickButton(CustomerSupport.Menu,2000);
-        operation.ClickButton(CustomerSupport.CustomerSupport,1000);
+        operation.clickButton(CustomerSupport.CustomerSupport,1000);
         Assert.assertTrue(customerSupport.verifyTicketHistoryListTitle());
 
 
@@ -61,8 +61,8 @@ public class SupportTicketListTestCases extends BaseTest {
 //        operation.writeInputText(CustomerLogin.PasswordField,"EitaiPassword10",2000);
 //        operation.ClickButton(CustomerLogin.CustomerLoginButton,1000);
 //        operation.ClickButton(CustomerSupport.Menu,2000);
-        operation.ClickButton(CustomerSupport.CreateATicket,2000);
-        operation.ClickButton(CustomerSupport.CategoryField,1000);
+        operation.clickButton(CustomerSupport.CreateATicket,2000);
+        operation.clickButton(CustomerSupport.CategoryField,1000);
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(1000,CreateTicket.TicketTypeGeneral));
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(300,CreateTicket.TicketTypeTechnical));
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(300,CreateTicket.TicketTypeBilling));
@@ -100,7 +100,7 @@ public class SupportTicketListTestCases extends BaseTest {
 //        operation.writeInputText(CustomerLogin.EmailField,"mateg96752@saeoil.com",2000);
 //        operation.writeInputText(CustomerLogin.PasswordField,"EitaiPassword10",2000);
 //        operation.ClickButton(CustomerLogin.CustomerLoginButton,1000);
-        operation.ClickButton(CustomerSupport.TicketsSeeDetails,2000);
+        operation.clickButton(CustomerSupport.TicketsSeeDetails,2000);
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(2000,CustomerSupport.SeeDetailsPageTitle));
 
     }
@@ -117,7 +117,7 @@ public class SupportTicketListTestCases extends BaseTest {
 //        operation.writeInputText(CustomerLogin.PasswordField,"EitaiPassword10",2000);
 //        operation.ClickButton(CustomerLogin.CustomerLoginButton,1000);
         customerSupport.GoToCustomerSupportPage();
-        operation.ClickButton(CustomerSupport.TicketsSeeDetails,2000);
+        operation.clickButton(CustomerSupport.TicketsSeeDetails,2000);
         Assert.assertTrue(ticket.verifyTextMatching(4000,CustomerSupport.MsgUnderTitle,customerSupport.MsgUnderTitleInTicketDetails()));
 
     }
@@ -252,12 +252,12 @@ public class SupportTicketListTestCases extends BaseTest {
         ticket.GoToWebsite("https://www.zoho.com/desk/");
         ticket.click(CreateTicket.ZohoSign);
         operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
-        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
+        operation.clickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
         operation.writeInputText(UpdateLedgerAccounts.ZohoPasswordField,"WorkLOAD@10@",2000);
-        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,5000);
-        operation.ClickButton(TicketList.ZohoToastMessageCancel,15000);
-        operation.ClickButton(TicketList.ZohoOpenStatus,5000);
-        operation.ClickButton(TicketList.ZohoClosedStatus,2000);
+        operation.clickButton(UpdateLedgerAccounts.ZohoNextBtn,5000);
+        operation.clickButton(TicketList.ZohoToastMessageCancel,15000);
+        operation.clickButton(TicketList.ZohoOpenStatus,5000);
+        operation.clickButton(TicketList.ZohoClosedStatus,2000);
         ticket.SwitchToTab(0);
         Thread.sleep(5000);
         customerSupport.GoToCustomerSupportPage();
@@ -280,8 +280,8 @@ public class SupportTicketListTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
 //        customerSupport.GoToCustomerSupportPage();
         ticket.SwitchToTab(1);
-        operation.ClickButton(TicketList.ZohoClosedStatus,2000);
-        operation.ClickButton(TicketList.ZohoOpenStatus,3000);
+        operation.clickButton(TicketList.ZohoClosedStatus,2000);
+        operation.clickButton(TicketList.ZohoOpenStatus,3000);
         Thread.sleep(2000);
         ticket.SwitchToTab(0);
         Thread.sleep(6500);
@@ -304,8 +304,8 @@ public class SupportTicketListTestCases extends BaseTest {
 //        customerSupport.GoToCustomerLoginPage();
         customerLogin.LogoutFromCustomerAccount();
         customerLogin.LoginToACustomerAccount((prop.getProperty("CustomerWithNoTicket")),"EitaiPassword10");
-        operation.ClickButton(CustomerSupport.Menu,2000);
-        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
+        operation.clickButton(CustomerSupport.Menu,2000);
+        operation.clickButton(CustomerSupport.CustomerSupport,2000);
         customerSupport.verifyAnElementDisplayedOrNot(1000,CustomerSupport.NoDataTable);
         customerSupport.verifyAnElementDisplayedOrNot(1000,CustomerSupport.NoTicketText);
 

@@ -66,13 +66,7 @@ public class CustomerSignUp extends BasePage{
         urlCheck(url);
         return true;
     }
-    public boolean FieldClear(By element) throws InterruptedException{
-        Thread.sleep(2000);
-        waitVisibility(element);
-        waitelemtclickable(element);
-        driver.findElement(element).sendKeys(Keys.chord(Keys.CONTROL+"a", Keys.DELETE));
-        return true;
-    }
+
 
     public boolean VerifyNumberVerificationPage() throws InterruptedException{
         Thread.sleep(5000);

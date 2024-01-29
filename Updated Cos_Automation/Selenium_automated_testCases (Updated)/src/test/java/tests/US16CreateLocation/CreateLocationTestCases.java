@@ -21,8 +21,8 @@ public class CreateLocationTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(createLocation.verifyCreateNewLocationButtonHasDisplayed());
 
@@ -35,8 +35,8 @@ public class CreateLocationTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(createLocation.verifyCreateNewLocationButtonHasDisplayed());
@@ -52,8 +52,8 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
@@ -70,8 +70,8 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
@@ -87,8 +87,8 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
@@ -107,8 +107,8 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
@@ -124,8 +124,8 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
@@ -141,8 +141,8 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
@@ -215,8 +215,8 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
@@ -235,12 +235,12 @@ public class CreateLocationTestCases extends BaseTest {
         CreateCompany company=new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
-        Assert.assertTrue(company.VerifyCancelButtonsisShowing());
+        Assert.assertTrue(company.verifyCancelButtonIsShowing());
         Assert.assertTrue(createLocation.verifyCreateLocationButtonisShowing());
 
 
@@ -255,8 +255,8 @@ public class CreateLocationTestCases extends BaseTest {
         CreateCompany company=new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
@@ -274,8 +274,8 @@ public class CreateLocationTestCases extends BaseTest {
         CreateCompany company=new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
@@ -295,10 +295,10 @@ public class CreateLocationTestCases extends BaseTest {
         CreateCompany company=new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
         Assert.assertTrue(properties.clickonCompanyDropdown());
@@ -316,8 +316,8 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
@@ -333,8 +333,8 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
@@ -352,8 +352,8 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
@@ -372,8 +372,8 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
@@ -393,8 +393,8 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
@@ -414,10 +414,10 @@ public class CreateLocationTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
         Assert.assertTrue(createLocation.clickonCreateNewPropertyLink());
@@ -430,8 +430,8 @@ public class CreateLocationTestCases extends BaseTest {
         Assert.assertTrue(properties.clickSelectEntityDropdown());
         Assert.assertTrue(properties.selectEntityNameFromSelectEntityDropdown());
         Assert.assertTrue(properties.writePropertyName(prop.getProperty("NewPropertyName")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(company.WriteRandomCompanyAddress());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(company.writeRandomCompanyAddress());
 //        Assert.assertTrue(properties.clickHardwareProviderDropdown());
 //        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
        /* Assert.assertTrue(properties.clickOtherProviderDropdown());
@@ -462,10 +462,10 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
         Assert.assertTrue(properties.clickonCompanyDropdown());
@@ -484,10 +484,10 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
         Assert.assertTrue(properties.clickonCompanyDropdown());
@@ -507,10 +507,10 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
         Assert.assertTrue(properties.clickonCompanyDropdown());
@@ -533,8 +533,8 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
@@ -559,8 +559,8 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
@@ -584,8 +584,8 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
       /*  Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
@@ -609,8 +609,8 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
@@ -636,8 +636,8 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
       /*  Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
@@ -666,8 +666,8 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
 //        Assert.assertTrue(dashboard.GotoDashboard());
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickonLocations());
@@ -724,10 +724,10 @@ public class CreateLocationTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
         Assert.assertTrue(properties.selectAutomatedCompanyFromSelectCompanyDropdown());
@@ -755,8 +755,8 @@ public class CreateLocationTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         EditProperty editProperty=new EditProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
@@ -782,8 +782,8 @@ public class CreateLocationTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         EditProperty editProperty=new EditProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
       /*  Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
@@ -807,10 +807,10 @@ public class CreateLocationTestCases extends BaseTest {
         EditProperty editProperty=new EditProperty(driver);
         EditCompany editCompany=new EditCompany(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());
         Assert.assertTrue(properties.clickonCompanyDropdown());
@@ -841,8 +841,8 @@ public class CreateLocationTestCases extends BaseTest {
         EditProperty editProperty=new EditProperty(driver);
         EditCompany editCompany=new EditCompany(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
@@ -880,8 +880,8 @@ public class CreateLocationTestCases extends BaseTest {
         EditProperty editProperty=new EditProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
         EditCompany editCompany=new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/

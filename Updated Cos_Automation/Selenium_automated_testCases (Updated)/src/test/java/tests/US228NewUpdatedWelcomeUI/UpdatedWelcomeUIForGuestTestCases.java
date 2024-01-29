@@ -28,7 +28,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(2000,GuestVerificationPage.ThanksForScanningTitle));
 
     }
@@ -157,7 +157,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(500,GuestVerificationPage.ShareButton));
 
     }
@@ -170,7 +170,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
-        operation.ClickButton(GuestVerificationPage.ShareButton,1000);
+        operation.clickButton(GuestVerificationPage.ShareButton,1000);
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.CopiedToolTip));
         Assert.assertTrue(guestVerificationPage.verifyClipboardIsGettingTheCorrectURLAfterClickingOnShareButton());
 
@@ -324,7 +324,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
-        operation.ClickButton(GuestVerificationPage.NearbyLocation,1000);
+        operation.clickButton(GuestVerificationPage.NearbyLocation,1000);
         Assert.assertTrue(guestVerificationPage.verifyNearByLocationsTabIsExpanded());
 
     }
@@ -338,7 +338,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
-        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
+        operation.clickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.PhoneNumberRequiredErrorMsg));
 
     }
@@ -353,9 +353,9 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         operation.writeInputText(GuestVerificationPage.PhoneNumberField,"213211",2000);
-        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
+        operation.clickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.InvalidNumberErrorMsg));
 
     }
@@ -370,9 +370,9 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         operation.writeInputText(GuestVerificationPage.PhoneNumberField,"2132",2000);
-        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
+        operation.clickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.InvalidNumberErrorMsg));
 
     }
@@ -387,9 +387,9 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         operation.writeInputText(GuestVerificationPage.PhoneNumberField,"444788998",2000);
-        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
+        operation.clickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.InvalidNumberErrorMsg));
 
     }
@@ -404,9 +404,9 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4447889989",2000);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue(guestVerificationPage.verifyFieldIsEmpty(2000,GuestVerificationPage.PhoneNumberField));
 
     }
@@ -421,9 +421,9 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4447889989",2000);
-        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
+        operation.clickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,OTPVerificationPage.OTPPageTitle));
 
     }
@@ -453,7 +453,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
 //        dashboard.RefreshBrowser();
 //        operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4447889989",2000);
 //        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
-        operation.ClickButton(OTPVerificationPage.ChangePhoneNumber,1000);
+        operation.clickButton(OTPVerificationPage.ChangePhoneNumber,1000);
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.PhoneNumberField));
 
     }
@@ -467,13 +467,13 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         OTPVerificationPage otpPage = new OTPVerificationPage(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4447889989",2000);
 //        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
-        operation.ClickButton(OTPVerificationPage.ChangePhoneNumber,1000);
+        operation.clickButton(OTPVerificationPage.ChangePhoneNumber,1000);
         guestFlow.ClearPhoneNumberField(GuestVerificationPage.PhoneNumberField);
         operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4441254632",2000);
-        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
+        operation.clickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(200,OTPVerificationPage.OTPPageTitle));
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(200,OTPVerificationPage.EnterVerificationCodeTitle));
         Assert.assertTrue(guestFlow.verifyTimer());
@@ -520,7 +520,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
 //        operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4441254632",2000);
 //        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
 //        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,OTPVerificationPage.OTPPageTitle));
-        operation.ClickButton(OTPVerificationPage.ResendOTP,1000);
+        operation.clickButton(OTPVerificationPage.ResendOTP,1000);
         Assert.assertTrue(otpPage.verifyAnElementDisplayedOrNot(500,OTPVerificationPage.VerificationCodeSent));
         Assert.assertTrue(guestVerificationPage.verifyAFieldIsDisable(200,OTPVerificationPage.VerifyButton));
 
@@ -534,7 +534,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         OTPVerificationPage otpPage = new OTPVerificationPage(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4447889989",2000);
 //        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
 //        operation.ClickButton(OTPVerificationPage.ChangePhoneNumber,1000);
@@ -543,7 +543,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
 //        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
 //        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,OTPVerificationPage.OTPPageTitle));
         guestFlow.SendOtp(2000,"555555");
-        operation.ClickButton(OTPVerificationPage.VerifyButton,500);
+        operation.clickButton(OTPVerificationPage.VerifyButton,500);
         Assert.assertTrue(otpPage.verifyAnElementDisplayedOrNot(700,OTPVerificationPage.InvalidOTP));
 
     }
@@ -566,9 +566,9 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
 //        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
 //        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,OTPVerificationPage.OTPPageTitle));
         otpPage.ClearOTPField();
-        operation.ClickButton(OTPVerificationPage.FirstOTPField,1500);
+        operation.clickButton(OTPVerificationPage.FirstOTPField,1500);
         guestFlow.SendOtp(2000,"666666");
-        operation.ClickButton(OTPVerificationPage.VerifyButton,500);
+        operation.clickButton(OTPVerificationPage.VerifyButton,500);
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(2000,OTPVerificationPage.SuccessFullyVerified));
         Assert.assertTrue(otpPage.verifyAFieldIsEnable(2500,GuestVerificationPage.StatChargingButton));
         Assert.assertTrue(otpPage.verifyAnElementDisplayedOrNot(500,GuestVerificationPage.ShareButton));
@@ -636,7 +636,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithNoTicket"),"EitaPassword@11@");
         customer.GoToAvailableChargerAfterLoginAsCustomer("https://test-app.chargeonsite.com/charger/p-4_iE");
-        operation.ClickButton(OTPVerificationPage.ChangePhoneNumber,2000);
+        operation.clickButton(OTPVerificationPage.ChangePhoneNumber,2000);
         Assert.assertTrue(guestVerificationPage.verifyWelcomeTitleForCustomerAfterScanningAnCharger());
 
     }
@@ -731,9 +731,9 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"), "EitaiPassword@10");
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
-        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.SavePhoneNumberCheckbox,1000));
+        Assert.assertTrue(operation.clickButton(GuestVerificationPage.SavePhoneNumberCheckbox,1000));
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.SavePhoneNumberCheckboxChecked));
-        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.SavePhoneNumberCheckboxChecked,1000));
+        Assert.assertTrue(operation.clickButton(GuestVerificationPage.SavePhoneNumberCheckboxChecked,1000));
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000, GuestVerificationPage.SavePhoneNumberCheckbox));
 
     }
@@ -780,7 +780,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
-        operation.ClickButton(GuestVerificationPage.ShareButton,1000);
+        operation.clickButton(GuestVerificationPage.ShareButton,1000);
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.CopiedToolTip));
         Assert.assertTrue(guestVerificationPage.verifyClipboardIsGettingTheCorrectURLAfterClickingOnShareButton());
 
@@ -951,7 +951,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
-        operation.ClickButton(GuestVerificationPage.NearbyLocation,1000);
+        operation.clickButton(GuestVerificationPage.NearbyLocation,1000);
         Assert.assertTrue(guestVerificationPage.verifyNearByLocationsTabIsExpanded());
 
     }
@@ -967,7 +967,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
 //        operation.writeInputText(GuestVerificationPage.PhoneNumberField,"12451232",2000);
         guestFlow.ClearPhoneNumberField(GuestVerificationPage.PhoneNumberField);
-        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
+        operation.clickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.PhoneNumberRequiredErrorMsg));
 
     }
@@ -984,7 +984,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
         guestFlow.ClearPhoneNumberField(GuestVerificationPage.PhoneNumberField);
         operation.writeInputText(GuestVerificationPage.PhoneNumberField,"213211",2000);
-        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
+        operation.clickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.InvalidNumberErrorMsg));
 
     }
@@ -1001,7 +1001,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
         guestFlow.ClearPhoneNumberField(GuestVerificationPage.PhoneNumberField);
         operation.writeInputText(GuestVerificationPage.PhoneNumberField,"2132",2000);
-        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
+        operation.clickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.InvalidNumberErrorMsg));
 
     }
@@ -1018,7 +1018,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
         guestFlow.ClearPhoneNumberField(GuestVerificationPage.PhoneNumberField);
         operation.writeInputText(GuestVerificationPage.PhoneNumberField,"444788998",2000);
-        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
+        operation.clickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.InvalidNumberErrorMsg));
 
     }
@@ -1052,7 +1052,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
         guestFlow.ClearPhoneNumberField(GuestVerificationPage.PhoneNumberField);
         operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",2000);
-        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
+        operation.clickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,OTPVerificationPage.OTPPageTitle));
 
     }
@@ -1082,7 +1082,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
 //        dashboard.RefreshBrowser();
 //        operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4447889989",2000);
 //        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
-        operation.ClickButton(OTPVerificationPage.ChangePhoneNumber,1000);
+        operation.clickButton(OTPVerificationPage.ChangePhoneNumber,1000);
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.PhoneNumberField));
 
     }
@@ -1096,13 +1096,13 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         OTPVerificationPage otpPage = new OTPVerificationPage(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4447889989",2000);
 //        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
-        operation.ClickButton(OTPVerificationPage.ChangePhoneNumber,1000);
+        operation.clickButton(OTPVerificationPage.ChangePhoneNumber,1000);
         guestFlow.ClearPhoneNumberField(GuestVerificationPage.PhoneNumberField);
         operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4441254632",2000);
-        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
+        operation.clickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(200,OTPVerificationPage.OTPPageTitle));
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(200,OTPVerificationPage.EnterVerificationCodeTitle));
         Assert.assertTrue(guestFlow.verifyTimer());
@@ -1149,7 +1149,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
 //        operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4441254632",2000);
 //        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
 //        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,OTPVerificationPage.OTPPageTitle));
-        operation.ClickButton(OTPVerificationPage.ResendOTP,1000);
+        operation.clickButton(OTPVerificationPage.ResendOTP,1000);
         Assert.assertTrue(otpPage.verifyAnElementDisplayedOrNot(500,OTPVerificationPage.VerificationCodeSent));
         Assert.assertTrue(guestVerificationPage.verifyAFieldIsDisable(200,OTPVerificationPage.VerifyButton));
 
@@ -1163,7 +1163,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         OTPVerificationPage otpPage = new OTPVerificationPage(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
 //        guestVerificationPage.GoToAvailableCharger("https://test-app.chargeonsite.com/charger/Ocf68w");
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4447889989",2000);
 //        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
 //        operation.ClickButton(OTPVerificationPage.ChangePhoneNumber,1000);
@@ -1172,7 +1172,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
 //        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
 //        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,OTPVerificationPage.OTPPageTitle));
         guestFlow.SendOtp(2000,"555555");
-        operation.ClickButton(OTPVerificationPage.VerifyButton,500);
+        operation.clickButton(OTPVerificationPage.VerifyButton,500);
         Assert.assertTrue(otpPage.verifyAnElementDisplayedOrNot(700,OTPVerificationPage.InvalidOTP));
 
     }
@@ -1195,9 +1195,9 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
 //        operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,1000);
 //        Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(1000,OTPVerificationPage.OTPPageTitle));
         otpPage.ClearOTPField();
-        operation.ClickButton(OTPVerificationPage.FirstOTPField,1500);
+        operation.clickButton(OTPVerificationPage.FirstOTPField,1500);
         guestFlow.SendOtp(2000,"666666");
-        operation.ClickButton(OTPVerificationPage.VerifyButton,500);
+        operation.clickButton(OTPVerificationPage.VerifyButton,500);
         Assert.assertTrue(guestVerificationPage.verifyAnElementDisplayedOrNot(2000,OTPVerificationPage.SuccessFullyVerified));
         Assert.assertTrue(otpPage.verifyAFieldIsEnable(2500,GuestVerificationPage.StatChargingButton));
         Assert.assertTrue(otpPage.verifyAnElementDisplayedOrNot(500,GuestVerificationPage.ShareButton));

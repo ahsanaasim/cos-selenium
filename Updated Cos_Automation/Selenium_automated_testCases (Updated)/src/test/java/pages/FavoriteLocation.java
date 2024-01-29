@@ -3,9 +3,6 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 public class FavoriteLocation extends BasePage{
     public FavoriteLocation(WebDriver driver) {
@@ -291,7 +288,7 @@ public class FavoriteLocation extends BasePage{
         int count = Integer.parseInt(LCount);
         System.out.println("Location count before adding: "+count);
         GoToBillingLocation();
-        operation.ClickButton(MapDetails.FavoriteIcon,2500);
+        operation.clickButton(MapDetails.FavoriteIcon,2500);
         Thread.sleep(2000);
         GoToFavoriteLocationPage();
         waitforPresence(LocationName);
@@ -321,7 +318,7 @@ public class FavoriteLocation extends BasePage{
         waitforPresence(MapDetails.LocationName);
         String LName = driver.findElement(MapDetails.LocationName).getText();
         System.out.println("Location name in map details: "+LName);
-        operation.ClickButton(MapDetails.FavoriteIcon,2500);
+        operation.clickButton(MapDetails.FavoriteIcon,2500);
         Thread.sleep(2000);
         GoToFavoriteLocationPage();
         waitforPresence(LocationName);
@@ -375,10 +372,10 @@ public class FavoriteLocation extends BasePage{
         SwitchToTab(1);
         location.GoToLocationPage();
         location.writeINLocationSearchBar(s);
-        operation.ClickButton(EditCompany.searchbtn, 1500);
+        operation.clickButton(EditCompany.searchbtn, 1500);
         waitforPresence(EditLocation.PropertyName1InColumn);
         String propertyName = readText(EditLocation.PropertyName1InColumn);
-        operation.ClickButton(EditLocation.EditButton, 1500);
+        operation.clickButton(EditLocation.EditButton, 1500);
         waitforPresence(EditLocation.PropertyAddressInDrawer);
         String propertyLocationAddress = readText(EditLocation.PropertyAddressInDrawer);
         String Expected = propertyName + "," + " " + propertyLocationAddress;
@@ -400,7 +397,7 @@ public class FavoriteLocation extends BasePage{
         int count = Integer.parseInt(LCount);
         System.out.println("Location count before adding: "+count);
         ScanChargerOFElectricChargerLocation();
-        operation.ClickButton(GuestVerificationPage.FavoriteIcon,2500);
+        operation.clickButton(GuestVerificationPage.FavoriteIcon,2500);
         Thread.sleep(2000);
         GoToFavoriteLocationPage();
         waitforPresence(LocationName);
@@ -428,7 +425,7 @@ public class FavoriteLocation extends BasePage{
         waitforPresence(GuestVerificationPage.LocationName);
         String LName = driver.findElement(GuestVerificationPage.LocationName).getText();
         System.out.println("Location name in charger details: "+LName);
-        operation.ClickButton(GuestVerificationPage.FavoriteIcon,3000);
+        operation.clickButton(GuestVerificationPage.FavoriteIcon,3000);
         Thread.sleep(2000);
         GoToFavoriteLocationPage();
         waitforPresence(LocationName);

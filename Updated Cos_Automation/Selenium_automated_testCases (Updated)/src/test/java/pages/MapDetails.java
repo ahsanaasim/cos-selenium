@@ -66,7 +66,7 @@ public class MapDetails extends BasePage{
         UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
         charger.writeInSearchBar(CreateCharger.searchchargerfield,chargerName,1000);
         click(CreateCharger.searchargerbtn);
-        operation.ClickButton(CosAdminChargerList.EditButton,1000);
+        operation.clickButton(CosAdminChargerList.EditButton,1000);
         editCharger.clickToggleButtonIfItIsOff();
         click(UpdateChargerPropertyAdmin.SaveCharger);
 
@@ -283,7 +283,7 @@ public class MapDetails extends BasePage{
 //        NewTabOpenAndSwitchToNewTab(1);
         SwitchToTab(1);
         Thread.sleep(2000);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         GoToChargerModule();
         chargerList.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"D 11 charger",1000);
         click(CreateCharger.searchargerbtn);
@@ -293,7 +293,7 @@ public class MapDetails extends BasePage{
         Thread.sleep(2500);
         SwitchToTab(0);
         driver.navigate().refresh();
-        operation.ClickButton(PlugType,2500);
+        operation.clickButton(PlugType,2500);
         waitforPresence(OfflineStatus);
         int offlineCharger = driver.findElements(By.className("offlineText")).size();
         System.out.println("Number of Offline chargers: "+offlineCharger);
@@ -312,7 +312,7 @@ public class MapDetails extends BasePage{
         EditChargerCosAdminUpdated chargerList = new EditChargerCosAdminUpdated(driver);
         UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
-        operation.ClickButton(PlugType,2500);
+        operation.clickButton(PlugType,2500);
         waitforPresence(AvailableStatus);
         int availableCharger = driver.findElements(By.className("availableText")).size();
         System.out.println("Number of available chargers: "+availableCharger);
@@ -326,7 +326,7 @@ public class MapDetails extends BasePage{
         Thread.sleep(2500);
         SwitchToTab(0);
         driver.navigate().refresh();
-        operation.ClickButton(PlugType,2500);
+        operation.clickButton(PlugType,2500);
         waitforPresence(AvailableStatus);
         int availableCharger2 = driver.findElements(By.className("availableText")).size();
         System.out.println("Number of available chargers in details drawer after making a charger online: "+availableCharger2);
@@ -355,10 +355,10 @@ public class MapDetails extends BasePage{
         dashboard.clickonLocations();
         location.GoToLocationPage();
         location.writeINLocationSearchBar(s);
-        operation.ClickButton(EditCompany.searchbtn,1500);
+        operation.clickButton(EditCompany.searchbtn,1500);
         waitforPresence(EditLocation.PropertyName1InColumn);
         String propertyName = readText(EditLocation.PropertyName1InColumn);
-        operation.ClickButton(EditLocation.EditButton,1500);
+        operation.clickButton(EditLocation.EditButton,1500);
         waitforPresence(EditLocation.PropertyAddressInDrawer);
         String propertyLocationAddress = readText(EditLocation.PropertyAddressInDrawer);
         String Expected = propertyName+","+" "+propertyLocationAddress;

@@ -1,6 +1,5 @@
 package tests.US134CreateCharger;
 
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
@@ -22,8 +21,8 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.verifyAddNewChargerButtonHasDisplayed());
 
@@ -35,9 +34,9 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.VerifyAddNewChargerDrawerHasDisplayed());
@@ -52,9 +51,9 @@ public class CreateChargersTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
         Random objGenerator = new Random();
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         int randomNumber = objGenerator.nextInt(10000);
@@ -67,7 +66,7 @@ public class CreateChargersTestCases extends BaseTest {
         Assert.assertTrue(createcharger.clickonSaveChargerButton());
         Assert.assertTrue(createcharger.VerifyConfirmationPopUpHasDisplayed());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.searchchargerfield,temp,3000));
-        Assert.assertTrue(createcharger.ClickButton(CreateCharger.searchargerbtn,2000));
+        Assert.assertTrue(createcharger.clickButton(CreateCharger.searchargerbtn,2000));
         Assert.assertTrue(createcharger.VerifySearchResultCount());
     }
 
@@ -79,13 +78,13 @@ public class CreateChargersTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
         Random objGenerator = new Random();
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.verifyTextMatching(1500,CreateCharger.ChargerPlugType,"J1772"));
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.verifyTextMatching(1500,CreateCharger.ChargerPlugType,"J1772"));
 
@@ -101,8 +100,8 @@ public class CreateChargersTestCases extends BaseTest {
         DashboardPropertyDetails logoutOperation = new DashboardPropertyDetails(driver);
         logoutOperation.LogoutFromExistingAccount();
         Thread.sleep(3000);
-        loginPage.VerifyValidLoginForCosAccounting();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLoginForCosAccounting();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.verifyAddNewChargerButtonHasDisplayed());
 
@@ -115,8 +114,8 @@ public class CreateChargersTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
 //        loginPage.VerifyValidLoginForCosAccounting();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.VerifyAddNewChargerDrawerHasDisplayed());
@@ -130,9 +129,9 @@ public class CreateChargersTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
         Random objGenerator = new Random();
-        loginPage.VerifyValidLoginForCosAccounting();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLoginForCosAccounting();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         int randomNumber = objGenerator.nextInt(10000);
@@ -145,7 +144,7 @@ public class CreateChargersTestCases extends BaseTest {
         Assert.assertTrue(createcharger.clickonSaveChargerButton());
         Assert.assertTrue(createcharger.VerifyConfirmationPopUpHasDisplayed());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.searchchargerfield,temp,3000));
-        Assert.assertTrue(createcharger.ClickButton(CreateCharger.searchargerbtn,2000));
+        Assert.assertTrue(createcharger.clickButton(CreateCharger.searchargerbtn,2000));
         Assert.assertTrue(createcharger.VerifySearchResultCount());
     }
 
@@ -160,8 +159,8 @@ public class CreateChargersTestCases extends BaseTest {
         DashboardPropertyDetails logoutOperation = new DashboardPropertyDetails(driver);
         logoutOperation.LogoutFromExistingAccount();
         Thread.sleep(2500);
-        loginPage.VerifyValidLoginForCosPropertySupport();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLoginForCosPropertySupport();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.verifyAddNewChargerButtonHasDisplayed());
     }
@@ -172,8 +171,8 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLoginForCosPropertySupport();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.VerifyAddNewChargerDrawerHasDisplayed());
@@ -186,9 +185,9 @@ public class CreateChargersTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
         Random objGenerator = new Random();
-        loginPage.VerifyValidLoginForCosPropertySupport();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLoginForCosPropertySupport();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         int randomNumber = objGenerator.nextInt(2000);
@@ -201,7 +200,7 @@ public class CreateChargersTestCases extends BaseTest {
         Assert.assertTrue(createcharger.clickonSaveChargerButton());
         Assert.assertTrue(createcharger.VerifyConfirmationPopUpHasDisplayed());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.searchchargerfield,temp,3000));
-        Assert.assertTrue(createcharger.ClickButton(CreateCharger.searchargerbtn,2000));
+        Assert.assertTrue(createcharger.clickButton(CreateCharger.searchargerbtn,2000));
         Assert.assertTrue(createcharger.VerifySearchResultCount());
     }
 
@@ -214,8 +213,8 @@ public class CreateChargersTestCases extends BaseTest {
         CreateCharger createcharger = new CreateCharger(driver);
         DashboardPropertyDetails logoutOperation = new DashboardPropertyDetails(driver);
         logoutOperation.LogoutFromExistingAccount();
-        loginPage.VerifyValidLoginForCosDriverSupport();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLoginForCosDriverSupport();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.verifyAddNewChargerButtonHasDisplayed());
     }
@@ -226,8 +225,8 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosDriverSupport();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLoginForCosDriverSupport();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.verifyAFieldIsDisable(3000,CreateCharger.addChargerBtnDisabled));
 //        Assert.assertTrue(createcharger.VerifyAddNewChargerDrawerHasDisplayed());
@@ -241,8 +240,8 @@ public class CreateChargersTestCases extends BaseTest {
         CreateCharger createcharger = new CreateCharger(driver);
         Random objGenerator = new Random();
 //        loginPage.VerifyValidLoginForCosDriverSupport();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.verifyAFieldIsDisable(3000,CreateCharger.addChargerBtnDisabled));
 //        Thread.sleep(3000);
@@ -272,8 +271,8 @@ public class CreateChargersTestCases extends BaseTest {
         CreateCharger createcharger = new CreateCharger(driver);
         DashboardPropertyDetails logoutOperation = new DashboardPropertyDetails(driver);
         logoutOperation.LogoutFromExistingAccount();
-        loginPage.VerifyValidLoginForCosTechSupport();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLoginForCosTechSupport();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.verifyAddNewChargerButtonHasDisplayed());
     }
@@ -284,8 +283,8 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosTechSupport();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLoginForCosTechSupport();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.VerifyAddNewChargerDrawerHasDisplayed());
@@ -298,9 +297,9 @@ public class CreateChargersTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
         Random objGenerator = new Random();
-        loginPage.VerifyValidLoginForCosTechSupport();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLoginForCosTechSupport();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Thread.sleep(3000);
@@ -314,7 +313,7 @@ public class CreateChargersTestCases extends BaseTest {
         Assert.assertTrue(createcharger.clickonSaveChargerButton());
         Assert.assertTrue(createcharger.VerifyConfirmationPopUpHasDisplayed());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.searchchargerfield,temp,3000));
-        Assert.assertTrue(createcharger.ClickButton(CreateCharger.searchargerbtn,2000));
+        Assert.assertTrue(createcharger.clickButton(CreateCharger.searchargerbtn,2000));
         Assert.assertTrue(createcharger.VerifySearchResultCount());
     }
     @Test(priority = 17)//Done
@@ -329,8 +328,8 @@ public class CreateChargersTestCases extends BaseTest {
         logoutOperation.LogoutFromExistingAccount();
         dashboardPropertyAdmin.GoToCompanyPanelLoginPage();
         Thread.sleep(2000);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLoginForPropertyAdmin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
         Assert.assertTrue(createcharger.verifyElementNotDisplayed(5000,CreateCharger.addchargerbtn));
     }
@@ -343,11 +342,11 @@ public class CreateChargersTestCases extends BaseTest {
         CreateCharger createcharger = new CreateCharger(driver);
         DashboardPropertyDetails logoutOperation = new DashboardPropertyDetails(driver);
         logoutOperation.LogoutFromExistingAccount();
-        dashboard.GoToCosAdminLoginPage();
+        dashboard.goToCosAdminLoginPage();
         Thread.sleep(2000);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.verifyDrawerContainsAllNecessarySection());
@@ -359,9 +358,9 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,"My New Charger-20",2000));
@@ -375,9 +374,9 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,"My New Charger-30",2000));
@@ -393,9 +392,9 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,"My New Charger-30",2000));
@@ -411,9 +410,9 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,"My New Charger-30",2000));
@@ -432,9 +431,9 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue((createcharger.clickonoutsidethedrawer()));
@@ -447,9 +446,9 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.clickOnCrossButtonOfTheDrawer());
@@ -463,9 +462,9 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.clickOnCancelButtonOfTheDrawer());
@@ -479,9 +478,9 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,"My Another New Charger-10",1000));
@@ -495,9 +494,9 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,"My Another New Charger-01",1000));
@@ -511,9 +510,9 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,"My Another New Charger",1000));
@@ -528,9 +527,9 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,"My Another New Charger-01",1000));
@@ -544,9 +543,9 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,"My Another New Charger-01",1000));
@@ -560,9 +559,9 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,"My Another New Charger-01",1000));
@@ -577,9 +576,9 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,"My Another New Charger-01",1000));
@@ -593,9 +592,9 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,"My Another New Charger-01",1000));
@@ -609,9 +608,9 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,"My Another New Charger-01",1000));
@@ -626,9 +625,9 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         createcharger.selectProperty("Banasree police park");
@@ -644,9 +643,9 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,"My Another New Charger-01",1000));
@@ -662,9 +661,9 @@ public class CreateChargersTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
         Random numGenerator = new Random();
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         int randomNumber = numGenerator.nextInt(10000);
@@ -683,9 +682,9 @@ public class CreateChargersTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         Assert.assertTrue(createcharger.clickonSaveChargerButton());
@@ -706,9 +705,9 @@ public class CreateChargersTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
         Random numGenerator = new Random();
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         int randomNumber = numGenerator.nextInt(3000);
@@ -753,9 +752,9 @@ public class CreateChargersTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger createcharger = new CreateCharger(driver);
         Random numGenerator = new Random();
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(createcharger.ClickOnAddChargerButton());
         int randomNumber = numGenerator.nextInt(10000);
@@ -780,9 +779,9 @@ public class CreateChargersTestCases extends BaseTest {
         GuestFlow guestFlow = new GuestFlow(driver);
         SimulationPage simulationPage = new SimulationPage(driver);
         Random numGenerator = new Random();
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(operation.ClickOnAddChargerButton());
         int randomNumber = numGenerator.nextInt(10000);
@@ -797,32 +796,32 @@ public class CreateChargersTestCases extends BaseTest {
         guestFlow.GoToSimulator();
         Assert.assertTrue(guestFlow.SelectChargerFromSimulator(charger));
 //        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
-        Assert.assertTrue(operation.ClickButton(SimulationPage.BootChargerButton,2000));
-        Assert.assertTrue(operation.ClickButton(SimulationPage.ChargerQRCodeCopyLink,2500));
+        Assert.assertTrue(operation.clickButton(SimulationPage.BootChargerButton,2000));
+        Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,2500));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
         guestFlow.SwitchToTab(1);
         Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
-        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
+        Assert.assertTrue(operation.clickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
         Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
-        operation.ClickButton(OTPVerificationPage.VerifyButton,2000);
+        operation.clickButton(OTPVerificationPage.VerifyButton,2000);
         guestFlow.SwitchToTab(0);
-        Assert.assertTrue(operation.ClickButton(GuestFlow.PluginChargerbtn,500));
+        Assert.assertTrue(operation.clickButton(GuestFlow.PluginChargerbtn,500));
         simulationPage.SelectChargerStatusFromSimulator("Charging");
-        operation.ClickButton(SimulationPage.ChargerStatusSaveButton,2000);
+        operation.clickButton(SimulationPage.ChargerStatusSaveButton,2000);
         Thread.sleep(2500);
         guestFlow.SwitchToTab(1);
-        Assert.assertTrue(operation.ClickButton(GuestVerificationPage.StatChargingButton,5000));
+        Assert.assertTrue(operation.clickButton(GuestVerificationPage.StatChargingButton,5000));
         guestFlow.SwitchToIframe();
         operation.click(GuestFlow.CardNumber);
         Assert.assertTrue(operation.writeInputText(GuestFlow.CardNumber,"424242424242424242424242424",6000));
         guestFlow.SwitchToDefaultFromIframe();
-        Assert.assertTrue(operation.ClickButton(GuestFlow.AuthorizeButton,1500));
+        Assert.assertTrue(operation.clickButton(GuestFlow.AuthorizeButton,1500));
 //        dashboard.RefreshBrowser();
         System.out.println("URL  =  "+driver.getCurrentUrl());
         Assert.assertTrue(guestFlow.verifyChargingNowTitle());
         guestFlow.LengthOfSession(70000);
         guestFlow.SwitchToTab(0);
-        operation.ClickButton(GuestFlow.DisconnectChargerbtn,3000);
+        operation.clickButton(GuestFlow.DisconnectChargerbtn,3000);
         guestFlow.SwitchToTab(1);
 //        Assert.assertTrue(guestFlow.verifyTotalFee());
         Assert.assertTrue(guestFlow.verifyChargingSessionEnded());
@@ -849,8 +848,8 @@ public class CreateChargersTestCases extends BaseTest {
         CreateCharger createcharger = new CreateCharger(driver);
         Random objGenerator = new Random();
         SimulationPage register = new SimulationPage(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         for (int i=0; i<=HowManyChargerYouWantToCreate(); i++) {
             Thread.sleep(6000);
             createcharger.GoToWebsite("https://test-admin.chargeonsite.com/property/charger");
@@ -863,14 +862,14 @@ public class CreateChargersTestCases extends BaseTest {
             createcharger.selectLocation("Transaction location 34");
             createcharger.selectManufacturer();
             createcharger.selectDeviceModel();
-            createcharger.ClickButton(CreateCharger.savecharger,3500);
+            createcharger.clickButton(CreateCharger.savecharger,3500);
             createcharger.writeInputText(CreateCharger.searchchargerfield,chargerName,6000);
-            createcharger.ClickButton(CreateCharger.searchargerbtn,2000);
-            createcharger.ClickButton(CosAdminChargerList.EditButton,2000);
-            createcharger.ClickButton(UpdateChargerPropertyAdmin.CopyButton,3000);
+            createcharger.clickButton(CreateCharger.searchargerbtn,2000);
+            createcharger.clickButton(CosAdminChargerList.EditButton,2000);
+            createcharger.clickButton(UpdateChargerPropertyAdmin.CopyButton,3000);
             register.GoToRegisterPage();
             createcharger.writeInputText(SimulationPage.RegisterField,register.getClipboardURL(),1500);
-            createcharger.ClickButton(SimulationPage.BootChargerAsDummy,3000);
+            createcharger.clickButton(SimulationPage.BootChargerAsDummy,3000);
 
         }
     }

@@ -81,7 +81,7 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         fav.ScanChargerOFElectricChargerLocation();
         Assert.assertTrue(operation.writeInputText(GuestFlow.PhoneNoField,"424242424242",5000));
-        Assert.assertTrue(operation.ClickButton(GuestFlow.ContinueGuestBtn,2000));
+        Assert.assertTrue(operation.clickButton(GuestFlow.ContinueGuestBtn,2000));
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,GuestVerificationPage.AskCosaButton));
         Assert.assertTrue(mapDetails.verifyTextMatching(500,GuestVerificationPage.AskCosaButton,"Ask Cosa"));
 
@@ -101,7 +101,7 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
 //        fav.ScanChargerOFElectricChargerLocation();
         Assert.assertTrue(guestFlow.SendOtp(4000,"666666"));
-        Assert.assertTrue(operation.ClickButton(GuestFlow.VerifyButton,300));
+        Assert.assertTrue(operation.clickButton(GuestFlow.VerifyButton,300));
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,GuestVerificationPage.AskCosaButton));
         Assert.assertTrue(mapDetails.verifyTextMatching(500,GuestVerificationPage.AskCosaButton,"Ask Cosa"));
 
@@ -142,7 +142,7 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
 //        fav.ScanChargerOFElectricChargerLocation();
         mapDetails.GoToD10LocationInMapDetails();
-        operation.ClickButton(MapDetails.AskCOSAButton,2000);
+        operation.clickButton(MapDetails.AskCOSAButton,2000);
         Assert.assertTrue(mapDetails.verifyTextMatching(2000,COSA.COSAFirstMsg,cosa.COSAFirstMsgForLM10()));
 
 
@@ -161,7 +161,7 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
 //        fav.ScanChargerOFElectricChargerLocation();
         mapDetails.GoToD10LocationInMapDetails();
-        operation.ClickButton(MapDetails.AskCOSAButton,2000);
+        operation.clickButton(MapDetails.AskCOSAButton,2000);
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,COSA.KeepAnEyeOnThisLocation));
         Assert.assertTrue(cosa.verifyTextMatching(500,COSA.ShowMeWatchList,"Show me the locations I am watching"));
         Assert.assertTrue(cosa.verifyTextMatching(500,COSA.ReportAProblem,"Report a problem"));
@@ -187,7 +187,7 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
 //        fav.ScanChargerOFElectricChargerLocation();
         mapDetails.GoToD10LocationInMapDetails();
-        operation.ClickButton(MapDetails.AskCOSAButton,2000);
+        operation.clickButton(MapDetails.AskCOSAButton,2000);
         Assert.assertTrue(cosa.URLCheckAfterMovingToCOSAFromLocationDetails());
 
 
@@ -233,7 +233,7 @@ public class COSAOthersTestCases extends BaseTest {
         customerLogin.GoToCustomerLoginPage();
         customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         fav.ScanChargerOFEBotsfordAvenue62659569Location();
-        operation.ClickButton(GuestVerificationPage.AskCosaButton,2000);
+        operation.clickButton(GuestVerificationPage.AskCosaButton,2000);
         Assert.assertTrue(mapDetails.verifyTextMatching(2000,COSA.COSAFirstMsg,cosa.COSAFirstMsgForTester()));
 
 
@@ -254,7 +254,7 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
 //        fav.ScanChargerOFElectricChargerLocation();
         fav.ScanChargerOFEBotsfordAvenue62659569Location();
-        operation.ClickButton(GuestVerificationPage.AskCosaButton,2000);
+        operation.clickButton(GuestVerificationPage.AskCosaButton,2000);
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,COSA.KeepAnEyeOnThisLocation));
         Assert.assertTrue(cosa.verifyTextMatching(500,COSA.ShowMeWatchList,"Show me the locations I am watching"));
         Assert.assertTrue(cosa.verifyTextMatching(500,COSA.ReportAProblem,"Report a problem"));
@@ -279,7 +279,7 @@ public class COSAOthersTestCases extends BaseTest {
 //        fav.ScanChargerOFElectricChargerLocation();
         customerLogin.LogoutFromCustomerAccount();
         guestFlow.ScanQROFSeleniumCharger();
-        operation.ClickButton(GuestVerificationPage.AskCosaButton,2000);
+        operation.clickButton(GuestVerificationPage.AskCosaButton,2000);
         Assert.assertTrue(cosa.CurrentPageURLCheck("https://test-app.chargeonsite.com/customer/login"));
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1000,CustomerLogin.SignUpLink));
 
@@ -328,7 +328,7 @@ public class COSAOthersTestCases extends BaseTest {
         customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         fav.ScanChargerOFElectricChargerLocation();
         cosa.ScanRawLocationCharger();
-        operation.ClickButton(GuestVerificationPage.AskCosaButton,2000);
+        operation.clickButton(GuestVerificationPage.AskCosaButton,2000);
         Assert.assertTrue(cosa.CurrentPageURLCheck("https://test-app.chargeonsite.com/customer/cosa/58e27a8d-9215-4b10-a579-815e124fbf92"));
 
 
@@ -368,7 +368,7 @@ public class COSAOthersTestCases extends BaseTest {
         customerLogin.GoToCustomerLoginPage();
         customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         fav.GoToFavoriteLocationPage();
-        operation.ClickButton(FavoriteLocation.AddToWatchListButton1,2000);
+        operation.clickButton(FavoriteLocation.AddToWatchListButton1,2000);
         Assert.assertTrue(mapDetails.verifyTextMatching(2000,COSA.COSAFirstMsg,cosa.COSAFirstMsgForTester()));
 
 
@@ -387,7 +387,7 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         fav.GoToFavoriteLocationPage();
-        operation.ClickButton(FavoriteLocation.AddToWatchListButton1,2000);
+        operation.clickButton(FavoriteLocation.AddToWatchListButton1,2000);
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,COSA.KeepAnEyeOnThisLocation));
         Assert.assertTrue(cosa.verifyTextMatching(500,COSA.ShowMeWatchList,"Show me the locations I am watching"));
         Assert.assertTrue(cosa.verifyTextMatching(500,COSA.ReportAProblem,"Report a problem"));
@@ -411,7 +411,7 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         fav.GoToFavoriteLocationPage();
-        operation.ClickButton(FavoriteLocation.AddToWatchListButton1,2000);
+        operation.clickButton(FavoriteLocation.AddToWatchListButton1,2000);
         Assert.assertTrue(cosa.verifyCosaPageUrlWhenMovingFromFavorites());
 
 
@@ -431,8 +431,8 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         mapDetails.GoToD10LocationInMapDetails();
-        operation.ClickButton(MapDetails.AskCOSAButton,2000);
-        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        operation.clickButton(MapDetails.AskCOSAButton,2000);
+        operation.clickButton(COSA.KeepAnEyeOnThisLocation,2000);
         Assert.assertTrue(cosa.verifyTextMatching(2000,COSA.CustomerFirstMessage,"Keep an eye on this location"));
 
 
@@ -452,8 +452,8 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         mapDetails.GoToD10LocationInMapDetails();
-        operation.ClickButton(MapDetails.AskCOSAButton,2000);
-        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        operation.clickButton(MapDetails.AskCOSAButton,2000);
+        operation.clickButton(COSA.KeepAnEyeOnThisLocation,2000);
         Assert.assertTrue(cosa.verifyTextMatching(4500,COSA.COSAFirstReply,cosa.COSAMsgForD10LocationWhenTesterIsLoggedIn()));
 
 
@@ -473,8 +473,8 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         mapDetails.GoToD10LocationInMapDetails();
-        operation.ClickButton(MapDetails.AskCOSAButton,2000);
-        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        operation.clickButton(MapDetails.AskCOSAButton,2000);
+        operation.clickButton(COSA.KeepAnEyeOnThisLocation,2000);
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(2000,COSA.TimeBox));
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1000,COSA.DateBox));
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1000,COSA.ReturnToMainMenu));
@@ -497,9 +497,9 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
 //        dashboard.RefreshBrowser();
         mapDetails.GoToD10LocationInMapDetails();
-        operation.ClickButton(MapDetails.AskCOSAButton,2000);
-        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
-        operation.ClickButton(COSA.DateBox,2000);
+        operation.clickButton(MapDetails.AskCOSAButton,2000);
+        operation.clickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        operation.clickButton(COSA.DateBox,2000);
         Assert.assertTrue(cosa.verifyCurrentDateIsShowingInChatAfterSelectingToday());
 
 
@@ -520,9 +520,9 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
 //        dashboard.RefreshBrowser();
         mapDetails.GoToD10LocationInMapDetails();
-        operation.ClickButton(MapDetails.AskCOSAButton,2000);
-        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
-        operation.ClickButton(COSA.DateBox,2000);
+        operation.clickButton(MapDetails.AskCOSAButton,2000);
+        operation.clickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        operation.clickButton(COSA.DateBox,2000);
         cosa.clickOnFutureDate(3);
         Assert.assertTrue(cosa.verifyElementNotDisplayed(2000,COSA.DateBox));
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1000,COSA.ReturnToMainMenu));
@@ -544,11 +544,11 @@ public class COSAOthersTestCases extends BaseTest {
         GuestFlow guestFlow = new GuestFlow(driver);
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        mapDetails.GoToD10LocationInMapDetails();
 //        operation.ClickButton(MapDetails.AskCOSAButton,2000);
-        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
-        operation.ClickButton(COSA.DateBox,2000);
+        operation.clickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        operation.clickButton(COSA.DateBox,2000);
         Assert.assertTrue(cosa.verifyPastDateIsDisabled());
 
 
@@ -568,8 +568,8 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
 //        dashboard.RefreshBrowser();
         mapDetails.GoToD10LocationInMapDetails();
-        operation.ClickButton(MapDetails.AskCOSAButton,2000);
-        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        operation.clickButton(MapDetails.AskCOSAButton,2000);
+        operation.clickButton(COSA.KeepAnEyeOnThisLocation,2000);
         Assert.assertTrue(cosa.verifyTimeIsPostedCorrectlyOnChatBot("02"));
 
 
@@ -587,10 +587,10 @@ public class COSAOthersTestCases extends BaseTest {
         GuestFlow guestFlow = new GuestFlow(driver);
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        mapDetails.GoToD10LocationInMapDetails();
 //        operation.ClickButton(MapDetails.AskCOSAButton,2000);
-        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        operation.clickButton(COSA.KeepAnEyeOnThisLocation,2000);
         cosa.selectTime("03",COSA.AM);
         Assert.assertTrue(cosa.verifyElementNotDisplayed(2000,COSA.TimeBox));
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1000,COSA.ReturnToMainMenu));
@@ -654,8 +654,8 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         mapDetails.GoToRampuraLocation();
-        operation.ClickButton(MapDetails.AskCOSAButton,2000);
-        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        operation.clickButton(MapDetails.AskCOSAButton,2000);
+        operation.clickButton(COSA.KeepAnEyeOnThisLocation,2000);
         cosa.clickOnFutureDate(2);
         cosa.selectTime("07",COSA.AM);
         Assert.assertTrue(cosa.verifyElementNotDisplayed(2000,COSA.DateBox));
@@ -680,8 +680,8 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         mapDetails.GoToRampuraLocation();
-        operation.ClickButton(MapDetails.AskCOSAButton,2000);
-        operation.ClickButton(COSA.ShowMeWatchList,2000);
+        operation.clickButton(MapDetails.AskCOSAButton,2000);
+        operation.clickButton(COSA.ShowMeWatchList,2000);
         Assert.assertTrue(cosa.CurrentPageURLCheck("https://test-app.chargeonsite.com/customer/cosa/watchlist"));
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1000,WatchList.WatchListTitle));
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1000,WatchList.WatchListContainer));
@@ -702,8 +702,8 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         mapDetails.GoToSundarbanCourierLocation();
-        operation.ClickButton(MapDetails.AskCOSAButton,2000);
-        operation.ClickButton(COSA.ReportAProblem,2000);
+        operation.clickButton(MapDetails.AskCOSAButton,2000);
+        operation.clickButton(COSA.ReportAProblem,2000);
         Assert.assertTrue(cosa.CurrentPageURLCheck("https://test-app.chargeonsite.com/customer/customer-support/create-ticket"));
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1000,CustomerSupport.CreateTicketPageTitle));
 
@@ -725,11 +725,11 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         mapDetails.GoToRampuraLocation();
-        operation.ClickButton(MapDetails.AskCOSAButton,2000);
-        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        operation.clickButton(MapDetails.AskCOSAButton,2000);
+        operation.clickButton(COSA.KeepAnEyeOnThisLocation,2000);
         cosa.clickOnFutureDate(3);
         cosa.selectTiming("11",COSA.AM);
-        operation.ClickButton(COSA.ReturnToMainMenu,2000);
+        operation.clickButton(COSA.ReturnToMainMenu,2000);
         Assert.assertTrue(cosa.verifyElementNotDisplayed(2000,COSA.COSAFirstReply));
         Assert.assertTrue(cosa.verifyElementNotDisplayed(500,COSA.CustomerFirstMessage));
         Assert.assertTrue(cosa.verifyElementNotDisplayed(500,COSA.ReturnToMainMenu));
@@ -750,8 +750,8 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         mapDetails.GoToRampuraLocation();
-        operation.ClickButton(MapDetails.AskCOSAButton,2000);
-        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        operation.clickButton(MapDetails.AskCOSAButton,2000);
+        operation.clickButton(COSA.KeepAnEyeOnThisLocation,2000);
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(2000,COSA.ReturnToMainMenu));
 
 
@@ -771,13 +771,13 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         mapDetails.GoToRampuraLocation();
-        operation.ClickButton(MapDetails.AskCOSAButton,2000);
-        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        operation.clickButton(MapDetails.AskCOSAButton,2000);
+        operation.clickButton(COSA.KeepAnEyeOnThisLocation,2000);
         cosa.clickOnFutureDate(1);
         cosa.selectTime("12",COSA.PM);
         mapDetails.GoToRampuraLocation();
-        operation.ClickButton(MapDetails.AskCOSAButton,2000);
-        operation.ClickButton(COSA.KeepAnEyeOnThisLocation,2000);
+        operation.clickButton(MapDetails.AskCOSAButton,2000);
+        operation.clickButton(COSA.KeepAnEyeOnThisLocation,2000);
         cosa.clickOnFutureDate(1);
         cosa.selectTime("12",COSA.PM);
         Assert.assertTrue(cosa.verifyCOSAResponseWhileAddingAlreadyAddedLocationToWatchlist(COSA.COSASecondReply));

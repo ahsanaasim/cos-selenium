@@ -54,7 +54,7 @@ public class CosAdminChargerList extends BasePage {
         Assert.assertTrue(createcharger.clickonSaveChargerButton());
         Thread.sleep(1000);
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.searchchargerfield,temp,1000));
-        Assert.assertTrue(createcharger.ClickButton(CreateCharger.searchargerbtn,1000));
+        Assert.assertTrue(createcharger.clickButton(CreateCharger.searchargerbtn,1000));
         Thread.sleep(1500);
         String ChargerTitleCheck = driver.findElement(ChargerTitle).getText();
         System.out.println(ChargerTitleCheck);

@@ -129,7 +129,7 @@ public class LoginPage extends BasePage {
     }
 
 
-    public void VerifyValidLogin()  {
+    public void verifyValidLogin()  {
         String home = prop.getProperty("HomeURL");
         String signin = prop.getProperty("BaseURL");
         String Dashboard = prop.getProperty("DashboardURL");
@@ -144,14 +144,14 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("validPassword")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsonDashboardAfterLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
         }
     }
 
-    public void VerifyValidLoginForCosAccounting()  {
+    public void verifyValidLoginForCosAccounting()  {
         String home = prop.getProperty("HomeURL");
         String signin = prop.getProperty("BaseURL");
         String Dashboard = prop.getProperty("DashboardURL");
@@ -166,14 +166,14 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsonDashboardAfterLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
         }
     }
 
-    public void VerifyValidLoginForCosPropertySupport()  {
+    public void verifyValidLoginForCosPropertySupport()  {
         String home = prop.getProperty("HomeURL");
         String signin = prop.getProperty("BaseURL");
         String Dashboard = prop.getProperty("DashboardURL");
@@ -188,13 +188,13 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsonDashboardAfterLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
         }
     }
-    public void VerifyValidLoginForCosDriverSupport()  {
+    public void verifyValidLoginForCosDriverSupport()  {
         String home = prop.getProperty("HomeURL");
         String signin = prop.getProperty("BaseURL");
         String Dashboard = prop.getProperty("DashboardURL");
@@ -209,13 +209,13 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsonDashboardAfterLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
         }
     }
-    public void VerifyValidLoginForCosTechSupport()  {
+    public void verifyValidLoginForCosTechSupport()  {
         String home = prop.getProperty("HomeURL");
         String signin = prop.getProperty("BaseURL");
         String Dashboard = prop.getProperty("DashboardURL");
@@ -230,13 +230,13 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsonDashboardAfterLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
         }
     }
-    public void VerifyValidLoginForPropertyAdmin()  {
+    public void verifyValidLoginForPropertyAdmin()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
         String signin = prop.getProperty("BaseURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
@@ -251,13 +251,13 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsOnDashboardAfterPropertyAdminLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
         }
     }
-    public void VerifyValidLoginForPropertyAdminWithTwentyPlusProperty()  {
+    public void verifyValidLoginForPropertyAdminWithTwentyPlusProperty()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
         String signin = prop.getProperty("BaseURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
@@ -272,13 +272,13 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsOnDashboardAfterPropertyAdminLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
         }
     }
-    public void VerifyValidLoginForPropertyAdminWithNoProperty()  {
+    public void verifyValidLoginForPropertyAdminWithNoProperty()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
         String signin = prop.getProperty("BaseURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
@@ -293,13 +293,13 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsOnDashboardAfterPropertyAdminLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
         }
     }
-    public void VerifyValidLoginForPropertyAdminWithLessThanFiveProperty()  {
+    public void verifyValidLoginForPropertyAdminWithLessThanFiveProperty()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
         String signin = prop.getProperty("BaseURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
@@ -314,13 +314,13 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsOnDashboardAfterPropertyAdminLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
         }
     }
-    public void VerifyValidLoginForPropertyAdminWithPerfectCombination()  {
+    public void verifyValidLoginForPropertyAdminWithPerfectCombination()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
         String signin = prop.getProperty("BaseURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
@@ -335,13 +335,13 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsOnDashboardAfterPropertyAdminLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
         }
     }
-    public void VerifyValidLoginForPropertyAdminChargerStatusCheck()  {
+    public void verifyValidLoginForPropertyAdminChargerStatusCheck()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
         String signin = prop.getProperty("BaseURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
@@ -356,13 +356,13 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsOnDashboardAfterPropertyAdminLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
         }
     }
-    public void VerifyValidLoginForPropertyAdminOnlyLocations()  {
+    public void verifyValidLoginForPropertyAdminOnlyLocations()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
         String signin = prop.getProperty("BaseURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
@@ -377,13 +377,13 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsOnDashboardAfterPropertyAdminLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
         }
     }
-    public void VerifyValidLoginForPropertyAdminOfflineLocations()  {
+    public void verifyValidLoginForPropertyAdminOfflineLocations()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
         String signin = prop.getProperty("BaseURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
@@ -398,13 +398,13 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsOnDashboardAfterPropertyAdminLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
         }
     }
-    public void VerifyValidLoginForPropertyAdminCountTest()  {
+    public void verifyValidLoginForPropertyAdminCountTest()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
         String signin = prop.getProperty("BaseURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
@@ -419,13 +419,13 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsOnDashboardAfterPropertyAdminLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
         }
     }
-    public void VerifyValidLoginForPropertyManager()  {
+    public void verifyValidLoginForPropertyManager()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
         String signin = prop.getProperty("BaseURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
@@ -440,13 +440,13 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsOnDashboardAfterPropertyAdminLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
         }
     }
-    public void VerifyValidLoginForPropertyAssistantManager()  {
+    public void verifyValidLoginForPropertyAssistantManager()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
         String signin = prop.getProperty("BaseURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
@@ -461,14 +461,14 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsOnDashboardAfterPropertyAdminLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
         }
     }
 
-    public void VerifyValidLoginForPropertyLeasingAgent()  {
+    public void verifyValidLoginForPropertyLeasingAgent()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
         String signin = prop.getProperty("BaseURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
@@ -483,13 +483,13 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsOnDashboardAfterPropertyAdminLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
         }
     }
-    public void VerifyValidLoginForPropertyAssistantLeasingAgent()  {
+    public void verifyValidLoginForPropertyAssistantLeasingAgent()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
         String signin = prop.getProperty("BaseURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
@@ -504,7 +504,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsOnDashboardAfterPropertyAdminLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
@@ -525,7 +525,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsonDashboardAfterLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
@@ -546,7 +546,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsonDashboardAfterLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
@@ -567,14 +567,14 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
             Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
-            Assert.assertTrue(VerifyUserLandsonDashboardAfterLogin());
+            Assert.assertTrue(verifyUserLandsOnDashboardAfterLogin());
             System.out.println("Diverted to Login!");
         } else {
             System.out.println("Good To Go!");
         }
     }
 
-    public boolean VerifyBlankPasswordErrorMessage(String expectedText) {
+    public boolean verifyBlankPasswordErrorMessage(String expectedText) {
         try {
             assertEquals(errormessagepassrequire, expectedText);
             return true;
@@ -584,7 +584,7 @@ public class LoginPage extends BasePage {
         }
     }
 
-    public boolean VerifyBlankEmailErrorMessage(String expectedText) {
+    public boolean verifyBlankEmailErrorMessage(String expectedText) {
         try {
             assertEquals(errormessageemailRequire, expectedText);
             return true;
@@ -626,7 +626,7 @@ public class LoginPage extends BasePage {
         return true;
     }
 
-    public boolean VerifyInvalidEmailErrorMessage(String expectedText) {
+    public boolean verifyInvalidEmailErrorMessage(String expectedText) {
         waitVisibility(invalidemailerrormsg);
         waitelementtobedisplayed(invalidemailerrormsg);
         assertEquals(invalidemailerrormsg, expectedText);
@@ -650,16 +650,16 @@ public class LoginPage extends BasePage {
 
 
 
-    public boolean VerifyUserLandsonDashboardAfterLogin() {
+    public boolean verifyUserLandsOnDashboardAfterLogin() {
         urlCheck(prop.getProperty("DashboardURL"));
         return true;
     }
-    public boolean VerifyUserLandsOnDashboardAfterPropertyAdminLogin() {
+    public boolean verifyUserLandsOnDashboardAfterPropertyAdminLogin() {
         urlCheck(prop.getProperty("DashboardURLPropertyAdmin"));
         return true;
     }
 
-    public boolean verifyUserHasRedirectedTowardtheForgptPasswordPage() {
+    public boolean verifyUserHasRedirectedTowardTheForgotPasswordPage() {
         urlCheck(prop.getProperty("ForgotPasswordURL"));
         return true;
     }

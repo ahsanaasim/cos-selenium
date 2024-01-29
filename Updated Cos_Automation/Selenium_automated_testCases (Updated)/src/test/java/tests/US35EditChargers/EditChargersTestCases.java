@@ -21,10 +21,10 @@ public class EditChargersTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         EditCompany editCompany= new EditCompany(driver);
         EditLocation editLocation=new EditLocation(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
        /* Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());*/
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.VerifyEditButtonHasDisplayed());
     }
@@ -39,8 +39,8 @@ public class EditChargersTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditCharger editChargers=new EditCharger(driver);
         EditLocation editLocation=new EditLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -57,8 +57,8 @@ public class EditChargersTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditCharger editChargers=new EditCharger(driver);
         EditLocation editLocation=new EditLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -75,8 +75,8 @@ public class EditChargersTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditCharger editChargers=new EditCharger(driver);
         EditLocation editLocation=new EditLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
@@ -93,8 +93,8 @@ public class EditChargersTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditCharger editChargers=new EditCharger(driver);
         EditLocation editLocation=new EditLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());*/
@@ -112,8 +112,8 @@ public class EditChargersTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditCharger editChargers=new EditCharger(driver);
         EditLocation editLocation=new EditLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());*/
@@ -132,10 +132,10 @@ public class EditChargersTestCases extends BaseTest {
         EditCharger editChargers=new EditCharger(driver);
         EditLocation editLocation=new EditLocation(driver);
         SearchChargers searchChargers=new SearchChargers(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchChargers.SearchbyChargerTitle(prop.getProperty("ToggleLocation")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
@@ -176,7 +176,7 @@ public class EditChargersTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditCharger editChargers=new EditCharger(driver);
         EditLocation editLocation=new EditLocation(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
        /* Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
@@ -197,8 +197,8 @@ public class EditChargersTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditCharger editChargers=new EditCharger(driver);
         EditLocation editLocation=new EditLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());*/
@@ -218,10 +218,10 @@ public class EditChargersTestCases extends BaseTest {
         EditCharger editChargers=new EditCharger(driver);
         EditLocation editLocation=new EditLocation(driver);
         SearchLocation searchLocation=new SearchLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editChargers.clickonLocationDropdown());
@@ -240,10 +240,10 @@ public class EditChargersTestCases extends BaseTest {
         EditCharger editChargers=new EditCharger(driver);
         EditLocation editLocation=new EditLocation(driver);
         SearchLocation searchLocation=new SearchLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
      //   Assert.assertTrue(editChargers.clickSaveChargerButton());
@@ -262,10 +262,10 @@ public class EditChargersTestCases extends BaseTest {
         EditCharger editChargers=new EditCharger(driver);
         EditLocation editLocation=new EditLocation(driver);
         SearchLocation searchLocation=new SearchLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editChargers.clickOnViewLocation());
@@ -284,10 +284,10 @@ public class EditChargersTestCases extends BaseTest {
         EditCharger editChargers=new EditCharger(driver);
         EditLocation editLocation=new EditLocation(driver);
         SearchLocation searchLocation=new SearchLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editChargers.clickOnViewLocation());
@@ -306,10 +306,10 @@ public class EditChargersTestCases extends BaseTest {
         EditCharger editChargers=new EditCharger(driver);
         EditLocation editLocation=new EditLocation(driver);
         SearchLocation searchLocation=new SearchLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editChargers.clickOnViewLocation());
@@ -328,10 +328,10 @@ public class EditChargersTestCases extends BaseTest {
         EditCharger editChargers=new EditCharger(driver);
         EditLocation editLocation=new EditLocation(driver);
         SearchLocation searchLocation=new SearchLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
        // Assert.assertTrue(editChargers.clickSaveChargerButton());
@@ -350,10 +350,10 @@ public class EditChargersTestCases extends BaseTest {
         EditCharger editChargers=new EditCharger(driver);
         EditLocation editLocation=new EditLocation(driver);
         SearchLocation searchLocation=new SearchLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
       //  Assert.assertTrue(editChargers.clickSaveChargerButton());
@@ -372,8 +372,8 @@ public class EditChargersTestCases extends BaseTest {
         EditCharger editChargers=new EditCharger(driver);
         EditLocation editLocation=new EditLocation(driver);
         SearchLocation searchLocation=new SearchLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());*/
@@ -395,8 +395,8 @@ public class EditChargersTestCases extends BaseTest {
         EditCharger editChargers=new EditCharger(driver);
         EditLocation editLocation=new EditLocation(driver);
         SearchLocation searchLocation=new SearchLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());*/
@@ -445,10 +445,10 @@ public class EditChargersTestCases extends BaseTest {
         EditLocation editLocation=new EditLocation(driver);
         EditProperty editProperty= new EditProperty(driver);
         SearchLocation searchLocation=new SearchLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editChargers.clickonLocationDropdown());
@@ -472,10 +472,10 @@ public class EditChargersTestCases extends BaseTest {
         SearchChargers searchChargers=new SearchChargers(driver);
         EditLocation editLocation=new EditLocation(driver);
         SearchLocation searchLocation=new SearchLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchChargers.SearchbyChargerTitle(prop.getProperty("Propertywithchargers")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
@@ -503,10 +503,10 @@ public class EditChargersTestCases extends BaseTest {
         EditLocation editLocation=new EditLocation(driver);
         EditProperty editProperty= new EditProperty(driver);
         SearchLocation searchLocation=new SearchLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editChargers.clickonCreateNewLocation());
@@ -527,10 +527,10 @@ public class EditChargersTestCases extends BaseTest {
         EditLocation editLocation=new EditLocation(driver);
         EditProperty editProperty= new EditProperty(driver);
         SearchLocation searchLocation=new SearchLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editChargers.clickonCreateNewLocation());
@@ -621,10 +621,10 @@ public class EditChargersTestCases extends BaseTest {
         EditProperty editProperty= new EditProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
         SearchLocation searchLocation=new SearchLocation(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchChargers.SearchbyChargerTitle(prop.getProperty("Propertywithchargers")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
@@ -660,10 +660,10 @@ public class EditChargersTestCases extends BaseTest {
         EditLocation editLocation=new EditLocation(driver);
         SearchChargers searchChargers=new SearchChargers(driver);
         EditCharger editChargers=new EditCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchChargers.SearchbyChargerTitle(prop.getProperty("Propertywithchargers")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
@@ -689,10 +689,10 @@ public class EditChargersTestCases extends BaseTest {
         EditProperty editProperty= new EditProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
         SearchChargers searchChargers=new SearchChargers(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         /*Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editChargers.writeLocationName(prop.getProperty("LocationName")));
@@ -720,10 +720,10 @@ public class EditChargersTestCases extends BaseTest {
         EditProperty editProperty= new EditProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
         SearchChargers searchChargers=new SearchChargers(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         /*Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editChargers.writeLocationName(prop.getProperty("LocationName")));
@@ -753,8 +753,8 @@ public class EditChargersTestCases extends BaseTest {
         EditProperty editProperty= new EditProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
         SearchChargers searchChargers=new SearchChargers(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());*/
@@ -780,10 +780,10 @@ public class EditChargersTestCases extends BaseTest {
         EditProperty editProperty= new EditProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
         SearchChargers searchChargers=new SearchChargers(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         //*Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editChargers.writeLocationName(prop.getProperty("LocationName")));
@@ -807,10 +807,10 @@ public class EditChargersTestCases extends BaseTest {
         EditProperty editProperty= new EditProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
         SearchChargers searchChargers=new SearchChargers(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         //*Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editChargers.writeLocationName(prop.getProperty("LocationName")));
@@ -835,10 +835,10 @@ public class EditChargersTestCases extends BaseTest {
         EditProperty editProperty= new EditProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
         SearchChargers searchChargers=new SearchChargers(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         //*Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editChargers.writeLocationName(prop.getProperty("LocationName")));
@@ -863,10 +863,10 @@ public class EditChargersTestCases extends BaseTest {
         EditProperty editProperty= new EditProperty(driver);
         CreateLocation createLocation=new CreateLocation(driver);
         SearchChargers searchChargers=new SearchChargers(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        //*Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());//*
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editChargers.writeLocationName(prop.getProperty("LocationName")));

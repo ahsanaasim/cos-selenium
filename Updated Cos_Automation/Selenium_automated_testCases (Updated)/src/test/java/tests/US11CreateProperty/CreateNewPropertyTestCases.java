@@ -24,9 +24,9 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.verifyCreateNewPropertyButtonHasDisplayed());
 
     }
@@ -38,10 +38,10 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.verifyCreateNewPropertyyDrawerDisplayed());
     }
@@ -53,11 +53,11 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.verifyResponsiblePartiesInformationareShowingonCreateNewPropertDrawer());
 
@@ -70,8 +70,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -87,8 +87,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -102,8 +102,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -119,8 +119,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -136,8 +136,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -152,8 +152,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -168,8 +168,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -184,8 +184,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickonProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -200,8 +200,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickonProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -217,7 +217,7 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        Assert.assertTrue(dashboard.RefreshBrowser());
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickonProperty());
@@ -234,7 +234,7 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        Assert.assertTrue(dashboard.RefreshBrowser());
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickonProperty());
@@ -251,8 +251,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -283,8 +283,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -300,8 +300,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -315,8 +315,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -330,8 +330,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -347,8 +347,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -368,11 +368,11 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.clickonCreateCompanyLink());
         Assert.assertTrue(properties.verifyPopuphasdisplayedafterClickingonCreateCompanyLink());
@@ -389,17 +389,17 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.clickonCreateCompanyLink());
         Assert.assertTrue(properties.verifyPopuphasdisplayedafterClickingonCreateCompanyLink());
         Assert.assertTrue(properties.verifyContinueButtonisShowingonPopup());
         Assert.assertTrue(properties.clickonLeaveButton());
-        Assert.assertTrue(company.VerifyCreateNewCompanyDrawerDisplayed());
+        Assert.assertTrue(company.verifyCreateNewCompanyDrawerDisplayed());
 
     }
 
@@ -410,11 +410,11 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.clickonCreateCompanyLink());
         Assert.assertTrue(properties.verifyPopuphasdisplayedafterClickingonCreateCompanyLink());
@@ -422,15 +422,15 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(properties.clickonLeaveButton());
 //        Assert.assertTrue(company.VerifyCreateNewCompanyDrawerDisplayed());
        // Assert.assertTrue(company.ClickonCreateCompanybutton());
-        Assert.assertTrue(company.WriteCompanyName(prop.getProperty("CompanyName2")));
-        Assert.assertTrue(company.WriteCompanyPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteRandomCompanyEmail());
-        Assert.assertTrue(company.EnterCompanyWebsite(prop.getProperty("CompanyWebsite")));
-        Assert.assertTrue(company.WriteRandomEINNumber());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(company.WriteRandomCompanyAddress());
-        Assert.assertTrue(company.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyCreateNewCompanyButtonHasDisplayed());
+        Assert.assertTrue(company.writeCompanyName(prop.getProperty("CompanyName2")));
+        Assert.assertTrue(company.writeCompanyPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeRandomCompanyEmail());
+        Assert.assertTrue(company.enterCompanyWebsite(prop.getProperty("CompanyWebsite")));
+        Assert.assertTrue(company.writeRandomEINNumber());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(company.writeRandomCompanyAddress());
+        Assert.assertTrue(company.clickOnSaveButton());
+        Assert.assertTrue(company.verifyCreateNewCompanyButtonHasDisplayed());
 
     }
 
@@ -441,11 +441,11 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.clickonCompanyDropdown());
         Assert.assertTrue(properties.writeCompnayName(prop.getProperty("CompanyName2")));
@@ -461,8 +461,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -479,8 +479,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickonProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -498,8 +498,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -515,8 +515,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -535,8 +535,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -557,8 +557,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateEntity entity= new CreateEntity(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -578,11 +578,11 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.clickonCompanyDropdown());
         Assert.assertTrue(properties.selectCompanyNameFromSelectCompanyDropdown());
@@ -601,8 +601,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -618,8 +618,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -632,8 +632,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickonProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -652,19 +652,19 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.clickonCompanyDropdown());
         Assert.assertTrue(properties.selectCompanyNameFromSelectCompanyDropdown());
         Assert.assertTrue(properties.clickSelectEntityDropdown());
         Assert.assertTrue(properties.selectEntityNameFromSelectEntityDropdown());
         properties.writeText(CreateProperty.propertyname,properties.writePropertyName());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(company.WriteRandomCompanyAddress());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(company.writeRandomCompanyAddress());
        /* Assert.assertTrue(properties.enterEquimentFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterPerChargerFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterInstallationFees(prop.getProperty("Fees")));
@@ -683,8 +683,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -693,15 +693,15 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(properties.clickSelectEntityDropdown());
         Assert.assertTrue(properties.selectEntityNameFromSelectEntityDropdown());
         properties.writeText(CreateProperty.propertyname,properties.writePropertyName());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCodewithFourDigits")));
-        Assert.assertTrue(company.WriteRandomCompanyAddress());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCodewithFourDigits")));
+        Assert.assertTrue(company.writeRandomCompanyAddress());
        /* Assert.assertTrue(properties.enterEquimentFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterPerChargerFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterInstallationFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterSessionFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterSessionMinimumFees(prop.getProperty("Fees")));*/
         Assert.assertTrue(properties.clickonCreatePropertyButton());
-        Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
+        Assert.assertTrue(company.verifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
     @Test(priority = 40)//Done
@@ -712,26 +712,26 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.clickonCompanyDropdown());
         Assert.assertTrue(properties.selectCompanyNameFromSelectCompanyDropdown());
         Assert.assertTrue(properties.clickSelectEntityDropdown());
         Assert.assertTrue(properties.selectEntityNameFromSelectEntityDropdown());
         properties.writeText(CreateProperty.propertyname,properties.writePropertyName());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("InvalidZipcode")));
-        Assert.assertTrue(company.WriteRandomCompanyAddress());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("InvalidZipcode")));
+        Assert.assertTrue(company.writeRandomCompanyAddress());
        /* Assert.assertTrue(properties.enterEquimentFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterPerChargerFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterInstallationFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterSessionFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterSessionMinimumFees(prop.getProperty("Fees")));*/
         Assert.assertTrue(properties.clickonCreatePropertyButton());
-        Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
+        Assert.assertTrue(company.verifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
     @Test(priority = 41)//Done
@@ -742,26 +742,26 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.clickonCompanyDropdown());
         Assert.assertTrue(properties.selectCompanyNameFromSelectCompanyDropdown());
         Assert.assertTrue(properties.clickSelectEntityDropdown());
         Assert.assertTrue(properties.selectEntityNameFromSelectEntityDropdown());
         properties.writeText(CreateProperty.propertyname,properties.writePropertyName());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("InvalidZipcodeformat")));
-        Assert.assertTrue(company.WriteRandomCompanyAddress());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("InvalidZipcodeformat")));
+        Assert.assertTrue(company.writeRandomCompanyAddress());
        /* Assert.assertTrue(properties.enterEquimentFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterPerChargerFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterInstallationFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterSessionFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterSessionMinimumFees(prop.getProperty("Fees")));*/
         Assert.assertTrue(properties.clickonCreatePropertyButton());
-        Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
+        Assert.assertTrue(company.verifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
 
@@ -774,26 +774,26 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.clickonCompanyDropdown());
         Assert.assertTrue(properties.selectCompanyNameFromSelectCompanyDropdown());
         Assert.assertTrue(properties.clickSelectEntityDropdown());
         Assert.assertTrue(properties.selectEntityNameFromSelectEntityDropdown());
         properties.writeText(CreateProperty.propertyname,properties.writePropertyName());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("Numbers")));
-        Assert.assertTrue(company.WriteRandomCompanyAddress());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.writeRandomCompanyAddress());
        /* Assert.assertTrue(properties.enterEquimentFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterPerChargerFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterInstallationFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterSessionFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterSessionMinimumFees(prop.getProperty("Fees")));*/
         Assert.assertTrue(properties.clickonCreatePropertyButton());
-        Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
+        Assert.assertTrue(company.verifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
 
@@ -805,19 +805,19 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.clickonCompanyDropdown());
         Assert.assertTrue(properties.selectCompanyNameFromSelectCompanyDropdown());
         Assert.assertTrue(properties.clickSelectEntityDropdown());
         Assert.assertTrue(properties.selectEntityNameFromSelectEntityDropdown());
         Assert.assertTrue(properties.writePropertyName(prop.getProperty("PropertyName")));
-        Assert.assertTrue(company.EnterZipCode(""));
-        Assert.assertTrue(company.WriteRandomCompanyAddress());
+        Assert.assertTrue(company.enterZipCode(""));
+        Assert.assertTrue(company.writeRandomCompanyAddress());
        /* Assert.assertTrue(properties.enterEquimentFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterPerChargerFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterInstallationFees(prop.getProperty("Fees")));
@@ -835,11 +835,11 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.verifyStateFieldisDisabled());
     }
@@ -853,13 +853,13 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("Numbers")));
         Assert.assertTrue(properties.verifyStateFieldisDisabled());
     }
 
@@ -870,8 +870,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -885,12 +885,12 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("Numbers")));
         Assert.assertTrue(properties.verifyCityFieldisDisabled());
     }
 
@@ -901,8 +901,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -916,12 +916,12 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("Numbers")));
         Assert.assertTrue(properties.verifyCountryFieldisDisabled());
     }
 
@@ -934,26 +934,26 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.clickonCompanyDropdown());
         Assert.assertTrue(properties.selectCompanyNameFromSelectCompanyDropdown());
         Assert.assertTrue(properties.clickSelectEntityDropdown());
         Assert.assertTrue(properties.selectEntityNameFromSelectEntityDropdown());
         Assert.assertTrue(properties.writePropertyName(prop.getProperty("PropertyName")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(company.EnterAddress(""));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(company.enterAddress(""));
         Assert.assertTrue(properties.enterEquimentFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterPerChargerFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterInstallationFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterSessionFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.enterSessionMinimumFees(prop.getProperty("Fees")));
         Assert.assertTrue(properties.clickonCreatePropertyButton());
-        Assert.assertTrue(company.VerifyBlankAddressErrorMessage(msg.BlankAddressErrorMsg()));
+        Assert.assertTrue(company.verifyBlankAddressErrorMessage(msg.BlankAddressErrorMsg()));
     }
 
     @Test(priority = 51)//Done
@@ -963,8 +963,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -979,8 +979,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -997,8 +997,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1015,8 +1015,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1033,8 +1033,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1051,8 +1051,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1069,8 +1069,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1087,8 +1087,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1105,8 +1105,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1123,8 +1123,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1141,8 +1141,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1159,8 +1159,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1177,8 +1177,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1195,8 +1195,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1213,8 +1213,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1231,8 +1231,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1249,8 +1249,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1267,8 +1267,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickonProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1285,11 +1285,11 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.enterSessionMinimumFees(prop.getProperty("SpecialCharacter")));
         Assert.assertTrue(properties.clickonCreatePropertyButton());
@@ -1304,8 +1304,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1322,8 +1322,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1340,11 +1340,11 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.clickonTransactionFeeDropdown());
         Assert.assertTrue(properties.verifyFlatBaseOptionIsShowinginTransactionFeeDropdown());
@@ -1362,8 +1362,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1381,8 +1381,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1402,19 +1402,19 @@ public class CreateNewPropertyTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         EditProperty editProperty = new EditProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
         Assert.assertTrue(properties.clickonCompanyDropdown());
         Assert.assertTrue(properties.selectAutomatedCompanyFromSelectCompanyDropdown());
         Assert.assertTrue(properties.clickSelectEntityDropdown());
         Assert.assertTrue(properties.SelectEntityNameFromSelectEntityDropdown());
         Assert.assertTrue(properties.writePropertyName(prop.getProperty("PropertyName5")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(company.WriteRandomCompanyAddress());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(company.writeRandomCompanyAddress());
 //        Assert.assertTrue(properties.clickHardwareProviderDropdown());
 //        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
        /* Assert.assertTrue(properties.clickOtherProviderDropdown());
@@ -1435,7 +1435,7 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(properties.verifyNewPropertyHasCreated(msg.NewlyCreatedPropertymsg()));
         Assert.assertTrue(company.verifyAnElementDisplayedOrNot(2500,DashboardPropertyDetails.TopAccountName));
         Assert.assertTrue(createCharger.writeInputText(CreateProperty.searchbar,prop.getProperty("PropertyName5"),3000));
-        Assert.assertTrue(createCharger.ClickButton(EditCompany.searchbtn,2000));
+        Assert.assertTrue(createCharger.clickButton(EditCompany.searchbtn,2000));
         Assert.assertTrue(editProperty.VerifySearchResultCount());
 
     }
@@ -1450,8 +1450,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickonProperty());
         Assert.assertTrue(properties.searchPropertyByName(prop.getProperty("PropertyName2")));
@@ -1467,8 +1467,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
      /*   Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
@@ -1478,8 +1478,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(properties.clickSelectEntityDropdown());
         Assert.assertTrue(properties.selectEntityNameFromSelectEntityDropdown());
         Assert.assertTrue(properties.writePropertyName(prop.getProperty("PropertywithOneTimeFee")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(company.WriteRandomCompanyAddress());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(company.writeRandomCompanyAddress());
 //        Assert.assertTrue(properties.clickHardwareProviderDropdown());
 //        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
         /*Assert.assertTrue(properties.clickOtherProviderDropdown());
@@ -1511,8 +1511,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
@@ -1522,8 +1522,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(properties.clickSelectEntityDropdown());
         Assert.assertTrue(properties.selectEntityNameFromSelectEntityDropdown());
         Assert.assertTrue(properties.writePropertyName(prop.getProperty("PropertyName")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(company.WriteRandomCompanyAddress());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(company.writeRandomCompanyAddress());
 //        Assert.assertTrue(properties.clickHardwareProviderDropdown());
 //        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
         /*Assert.assertTrue(properties.clickOtherProviderDropdown());
@@ -1556,8 +1556,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
@@ -1569,8 +1569,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(properties.clickSelectEntityDropdown());
         Assert.assertTrue(properties.selectUnknownEntityFromSelectEntityDropdown());
         Assert.assertTrue(properties.writePropertyName(prop.getProperty("UnknownCompany")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(company.WriteRandomCompanyAddress());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(company.writeRandomCompanyAddress());
 //        Assert.assertTrue(properties.clickHardwareProviderDropdown());
 //        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
         /*Assert.assertTrue(properties.clickOtherProviderDropdown());
@@ -1600,11 +1600,11 @@ public class CreateNewPropertyTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.searchPropertyByName(prop.getProperty("UnknownCompany")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
         Assert.assertTrue(properties.verifyUnknownCompanyisShowingUnderCompanyColumnonPropertyPage());
@@ -1698,8 +1698,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1718,8 +1718,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1737,8 +1737,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateProperty properties = new CreateProperty(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonProperty());*/
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -1747,8 +1747,8 @@ public class CreateNewPropertyTestCases extends BaseTest {
         Assert.assertTrue(properties.clickSelectEntityDropdown());
         Assert.assertTrue(properties.selectEntityNameFromSelectEntityDropdown());
         Assert.assertTrue(properties.writePropertyName(prop.getProperty("PropertyName")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(company.WriteRandomCompanyAddress());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(company.writeRandomCompanyAddress());
 //        Assert.assertTrue(properties.clickHardwareProviderDropdown());
 //        Assert.assertTrue(properties.selectHardwareProviderNameFromHardwareProviderDropdown());
         /*Assert.assertTrue(properties.clickOtherProviderDropdown());

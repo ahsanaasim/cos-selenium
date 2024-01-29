@@ -23,8 +23,8 @@ public class FeeStructureTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        loginPage.verifyValidLoginForPropertyAdmin();
+        operation.clickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.CreateFeeStructure));
 
 
@@ -38,10 +38,10 @@ public class FeeStructureTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,2000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,2000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,2000);
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
 
@@ -76,10 +76,10 @@ public class FeeStructureTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         Assert.assertTrue(feeStructure.verifyTextMatching(1000,CreateFeeStructure.FeeStructureNameInputTitle,"*  Fee Structure Name"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(1000,CreateFeeStructure.FeeStructureNameField));
         Assert.assertTrue(feeStructure.verifyTextMatching(1000,CreateFeeStructure.NotifiedMsgUnderFeeStructureNameField,feeStructure.notifiedMsgUnderFeeStructureNameField()));
@@ -94,10 +94,10 @@ public class FeeStructureTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         Assert.assertTrue(feeStructure.verifyTextMatching(1000,CreateFeeStructure.SessionFeeHeading,"Session Fee (Total: $0.00/ Session)"));
         Assert.assertTrue(feeStructure.verifyTextMatching(1000,CreateFeeStructure.TextUnderSessionFeeHeading,feeStructure.CustomerWillSeeAmountInReceipt()));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(1000,CreateFeeStructure.FeeStructureNameField));
@@ -121,10 +121,10 @@ public class FeeStructureTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(1000,CreateFeeStructure.AddMoreSessionFeeButton));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(500,CreateFeeStructure.AddMoreSessionFeeText));
 
@@ -140,10 +140,10 @@ public class FeeStructureTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         Assert.assertTrue(feeStructure.verifyTextMatching(1000,CreateFeeStructure.UtilizationFeeHeadingForkWh,"Utilization Fee (Total: $0.00/ per kWh)"));
         Assert.assertTrue(feeStructure.verifyTextMatching(1000,CreateFeeStructure.TextUnderUtilizationFeeHeading,feeStructure.CustomerWillSeeAmountInReceipt()));
 
@@ -182,11 +182,11 @@ public class FeeStructureTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
-        operation.ClickButton(CreateFeeStructure.KWhBasedFee,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.KWhBasedFee,1000);
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.KWhBasedFeeFromOption));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(1000,CreateFeeStructure.MinBasedFeeFromOption));
 
@@ -201,10 +201,10 @@ public class FeeStructureTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(1000,CreateFeeStructure.KWhBasedFee));
 
 
@@ -218,10 +218,10 @@ public class FeeStructureTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(1000,CreateFeeStructure.AddMoreUtilizationFeeButton));
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.AddMoreUtilizationFeeButton,"+ add more utilization fee"));
 
@@ -237,10 +237,10 @@ public class FeeStructureTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.IdleFeeHeading,"Idle Fee (Total: $0.00/min)"));
         Assert.assertTrue(feeStructure.verifyTextMatching(1000,CreateFeeStructure.TextUnderIdleFeeHeading,feeStructure.CustomerWillSeeAmountInReceipt()));
 
@@ -255,10 +255,10 @@ public class FeeStructureTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.IdleFeeGracePeriod,"* Grace Period"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(1000,CreateFeeStructure.GracePeriodField));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(1000,CreateFeeStructure.IdleFeeGracePeriodUnit));
@@ -298,11 +298,11 @@ public class FeeStructureTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,1000);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.FeeStructureNameRequired,"Fee structure name is required"));
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.SessionNameRequired,"Session fee name is required"));
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.SessionFeeRateRequired,"Session fee rate is required"));
@@ -325,12 +325,12 @@ public class FeeStructureTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
-        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
+        operation.clickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated",500);
-        operation.FieldClear(CreateFeeStructure.FeeStructureNameField);
+        operation.fieldClear(CreateFeeStructure.FeeStructureNameField);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.FeeStructureNameRequired,"Fee structure name is required"));
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"2",500);
@@ -354,10 +354,10 @@ public class FeeStructureTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
 //        operation.writeInputText(CreateFeeStructure.FeeStructureNameField," ",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",1500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"2",500);
@@ -365,7 +365,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"9",500);
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"4",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"8",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.FeeStructureNameRequired,"Fee structure name is required"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -381,10 +381,10 @@ public class FeeStructureTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField," ",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",1500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"2",500);
@@ -392,7 +392,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"9",500);
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"4",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"8",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.FeeStructureNameRequired,"Fee structure name is required"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -408,10 +408,10 @@ public class FeeStructureTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
 //        operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
 //        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"2",500);
@@ -419,7 +419,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"9",500);
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"4",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"8",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Session fee name is required"));
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert2,"Session fee rate is required"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
@@ -436,10 +436,10 @@ public class FeeStructureTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField," ",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField," ",500);
@@ -447,7 +447,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"9",500);
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"4",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"8",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Session fee name is required"));
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert2,"Session fee rate is required"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
@@ -462,22 +462,22 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
-        operation.FieldClear(CreateFeeStructure.SessionFeeNameField);
+        operation.fieldClear(CreateFeeStructure.SessionFeeNameField);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Session fee name is required"));
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"2",500);
-        operation.FieldClear(CreateFeeStructure.SessionFeeAmountField);
+        operation.fieldClear(CreateFeeStructure.SessionFeeAmountField);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert2,"Session fee rate is required"));
         operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization fee",500);
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"9",500);
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"4",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"8",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Session fee name is required"));
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert2,"Session fee rate is required"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
@@ -492,10 +492,10 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField," ",500);
@@ -503,7 +503,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"9",500);
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"4",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"8",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Session fee rate is required"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -518,10 +518,10 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"2",500);
@@ -529,7 +529,7 @@ public class FeeStructureTestCases extends BaseTest {
 //        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField," ",500);
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"4",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"8",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Utilization fee name is required"));
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert2,"Utilization fee rate is required"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
@@ -545,20 +545,20 @@ public class FeeStructureTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
 //        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"2",500);
         operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField," ",500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Utilization fee name is required"));
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"5",500);
-        operation.FieldClear(CreateFeeStructure.UtilizationFeeAmountField);
+        operation.fieldClear(CreateFeeStructure.UtilizationFeeAmountField);
         Assert.assertTrue(feeStructure.verifyTextMatching(800,CreateFeeStructure.Alert2,"Utilization fee rate is required"));
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"4",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"8",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Utilization fee name is required"));
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert2,"Utilization fee rate is required"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
@@ -573,10 +573,10 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"2",500);
@@ -584,7 +584,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
 //        operation.writeInputText(CreateFeeStructure.GracePeriodField,"",500);
 //        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"8",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Grace period is required"));
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert2,"Grace period fee is required"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
@@ -600,22 +600,22 @@ public class FeeStructureTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"2",500);
         operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"5",500);
-        operation.FieldClear(CreateFeeStructure.GracePeriodField);
+        operation.fieldClear(CreateFeeStructure.GracePeriodField);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Grace period is required"));
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
-        operation.FieldClear(CreateFeeStructure.IdleFeeRateField);
+        operation.fieldClear(CreateFeeStructure.IdleFeeRateField);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert2,"Grace period fee is required"));
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Grace period is required"));
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert2,"Grace period fee is required"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
@@ -632,10 +632,10 @@ public class FeeStructureTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"2",500);
@@ -644,7 +644,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"5",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
         operation.writeInputText(CreateFeeStructure.FeeModifierNameField,"Modifier",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Fee modifier rate is required"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -659,10 +659,10 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"2",500);
@@ -671,7 +671,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"5",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
         operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"10",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Fee modifier name is required"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -685,10 +685,10 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"0",500);
@@ -697,7 +697,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"5",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Session fee rate is not valid"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -717,7 +717,7 @@ public class FeeStructureTestCases extends BaseTest {
 //        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
 //        operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
 //        operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
-        operation.FieldClear(CreateFeeStructure.SessionFeeAmountField);
+        operation.fieldClear(CreateFeeStructure.SessionFeeAmountField);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"-2",500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Session fee rate is not valid"));
 //        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
@@ -725,7 +725,7 @@ public class FeeStructureTestCases extends BaseTest {
 //        operation.writeInputText(CreateFeeStructure.GracePeriodField,"5",500);
 //        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
 //        operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"10",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Session fee rate is not valid"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -746,7 +746,7 @@ public class FeeStructureTestCases extends BaseTest {
 //        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
 //        operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
 //        operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
-        operation.FieldClear(CreateFeeStructure.SessionFeeAmountField);
+        operation.fieldClear(CreateFeeStructure.SessionFeeAmountField);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"-90",500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Session fee rate is not valid"));
 //        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
@@ -754,7 +754,7 @@ public class FeeStructureTestCases extends BaseTest {
 //        operation.writeInputText(CreateFeeStructure.GracePeriodField,"5",500);
 //        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
 //        operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"10",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Session fee rate is not valid"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -774,7 +774,7 @@ public class FeeStructureTestCases extends BaseTest {
 //        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
 //        operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
 //        operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
-        operation.FieldClear(CreateFeeStructure.SessionFeeAmountField);
+        operation.fieldClear(CreateFeeStructure.SessionFeeAmountField);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"@@",500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Session fee rate is required"));
 //        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
@@ -782,7 +782,7 @@ public class FeeStructureTestCases extends BaseTest {
 //        operation.writeInputText(CreateFeeStructure.GracePeriodField,"5",500);
 //        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
 //        operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"10",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Session fee rate is required"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -802,7 +802,7 @@ public class FeeStructureTestCases extends BaseTest {
 //        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
 //        operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
 //        operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
-        operation.FieldClear(CreateFeeStructure.SessionFeeAmountField);
+        operation.fieldClear(CreateFeeStructure.SessionFeeAmountField);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"///",500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Session fee rate is required"));
 //        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
@@ -810,7 +810,7 @@ public class FeeStructureTestCases extends BaseTest {
 //        operation.writeInputText(CreateFeeStructure.GracePeriodField,"5",500);
 //        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
 //        operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"10",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Session fee rate is required"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -825,10 +825,10 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
@@ -837,7 +837,7 @@ public class FeeStructureTestCases extends BaseTest {
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Utilization fee rate is not valid"));
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"5",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Utilization fee rate is not valid"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -860,13 +860,13 @@ public class FeeStructureTestCases extends BaseTest {
 //        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
 //        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
 //        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
-        operation.FieldClear(CreateFeeStructure.UtilizationFeeAmountField);
+        operation.fieldClear(CreateFeeStructure.UtilizationFeeAmountField);
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"-52.22",500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Utilization fee rate is not valid"));
 //        operation.writeInputText(CreateFeeStructure.GracePeriodField,"5",500);
 //        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
 //        operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"10",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Utilization fee rate is not valid"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -889,14 +889,14 @@ public class FeeStructureTestCases extends BaseTest {
 //        operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
 //        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
 //        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
-        operation.FieldClear(CreateFeeStructure.UtilizationFeeAmountField);
+        operation.fieldClear(CreateFeeStructure.UtilizationFeeAmountField);
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"-8",500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Utilization fee rate is not valid"));
 //        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
 //        operation.writeInputText(CreateFeeStructure.GracePeriodField,"5",500);
 //        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
 //        operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"10",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Utilization fee rate is not valid"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -919,13 +919,13 @@ public class FeeStructureTestCases extends BaseTest {
 //        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
 //        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
 //        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
-        operation.FieldClear(CreateFeeStructure.UtilizationFeeAmountField);
+        operation.fieldClear(CreateFeeStructure.UtilizationFeeAmountField);
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"@@",500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Utilization fee rate is required"));
 //        operation.writeInputText(CreateFeeStructure.GracePeriodField,"5",500);
 //        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
 //        operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"10",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Utilization fee rate is required"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -948,13 +948,13 @@ public class FeeStructureTestCases extends BaseTest {
 //        operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
 //        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
 //        operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
-        operation.FieldClear(CreateFeeStructure.UtilizationFeeAmountField);
+        operation.fieldClear(CreateFeeStructure.UtilizationFeeAmountField);
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"///",500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Utilization fee rate is required"));
 //        operation.writeInputText(CreateFeeStructure.GracePeriodField,"5",500);
 //        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
 //        operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"10",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Utilization fee rate is required"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -970,21 +970,21 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
         operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
-        operation.ClickButton(CreateFeeStructure.KWhBasedFee,500);
-        operation.ClickButton(CreateFeeStructure.MinBasedFeeFromOption,500);
+        operation.clickButton(CreateFeeStructure.KWhBasedFee,500);
+        operation.clickButton(CreateFeeStructure.MinBasedFeeFromOption,500);
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"-8",500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Utilization fee rate is not valid"));
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"5",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Utilization fee rate is not valid"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -998,20 +998,20 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
         operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
-        operation.ClickButton(CreateFeeStructure.KWhBasedFee,500);
-        operation.ClickButton(CreateFeeStructure.MinBasedFeeFromOption,500);
+        operation.clickButton(CreateFeeStructure.KWhBasedFee,500);
+        operation.clickButton(CreateFeeStructure.MinBasedFeeFromOption,500);
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField," ",500);
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"5",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Utilization fee rate is required"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -1026,20 +1026,20 @@ public class FeeStructureTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
 //        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
         operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
-        operation.ClickButton(CreateFeeStructure.KWhBasedFee,500);
-        operation.ClickButton(CreateFeeStructure.MinBasedFeeFromOption,500);
+        operation.clickButton(CreateFeeStructure.KWhBasedFee,500);
+        operation.clickButton(CreateFeeStructure.MinBasedFeeFromOption,500);
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"0",500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Utilization fee rate is not valid"));
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"5",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Utilization fee rate is not valid"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -1063,11 +1063,11 @@ public class FeeStructureTestCases extends BaseTest {
 //        operation.writeInputText(CreateFeeStructure.UtilizationFeeNameField,"Utilization Fee",500);
 //        operation.ClickButton(CreateFeeStructure.KWhBasedFee,500);
 //        operation.ClickButton(CreateFeeStructure.MinBasedFeeFromOption,500);
-        operation.FieldClear(CreateFeeStructure.UtilizationFeeAmountField);
+        operation.fieldClear(CreateFeeStructure.UtilizationFeeAmountField);
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"@@",500);
 //        operation.writeInputText(CreateFeeStructure.GracePeriodField,"5",500);
 //        operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Utilization fee rate is required"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -1082,9 +1082,9 @@ public class FeeStructureTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
 //        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
@@ -1092,7 +1092,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"0",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Grace period is not valid"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -1107,9 +1107,9 @@ public class FeeStructureTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
 //        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
@@ -1117,7 +1117,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"1.25",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Grace period must be at least 3 minutes"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -1131,9 +1131,9 @@ public class FeeStructureTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
 //        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
@@ -1141,7 +1141,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"2.99",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Grace period must be at least 3 minutes"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -1156,9 +1156,9 @@ public class FeeStructureTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
 //        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
@@ -1166,7 +1166,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"1",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Grace period must be at least 3 minutes"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -1181,9 +1181,9 @@ public class FeeStructureTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
 //        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
@@ -1191,7 +1191,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"-2",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Grace period is not valid"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -1206,9 +1206,9 @@ public class FeeStructureTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
 //        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
@@ -1216,7 +1216,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"-2",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"20",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Grace period is not valid"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -1230,10 +1230,10 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
-        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
+        operation.clickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
@@ -1241,7 +1241,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"4",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"-2",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Grace period fee is not valid"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -1255,10 +1255,10 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
-        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
+        operation.clickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
@@ -1266,7 +1266,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"10",500);
         operation.writeInputText(CreateFeeStructure.GracePeriodField,"4",500);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"-65",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Grace period fee is not valid"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -1280,10 +1280,10 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
-        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
+        operation.clickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
@@ -1293,7 +1293,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"0",500);
         operation.writeInputText(CreateFeeStructure.FeeModifierNameField,"Modifier",500);
         operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"0",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Fee Modifier rate is not valid"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -1307,10 +1307,10 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
-        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
+        operation.clickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
@@ -1320,7 +1320,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"0",500);
         operation.writeInputText(CreateFeeStructure.FeeModifierNameField,"Modifier",500);
         operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"-5",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Fee Modifier rate is not valid"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -1334,10 +1334,10 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
-        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
+        operation.clickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
@@ -1347,7 +1347,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"0",500);
         operation.writeInputText(CreateFeeStructure.FeeModifierNameField,"Modifier",500);
         operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"-1",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Fee Modifier rate is not valid"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -1362,10 +1362,10 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
-        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
+        operation.clickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
@@ -1375,7 +1375,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"0",500);
         operation.writeInputText(CreateFeeStructure.FeeModifierNameField,"Modifier",500);
         operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"-500",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Fee Modifier rate is not valid"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -1389,10 +1389,10 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
-        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
+        operation.clickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
@@ -1402,7 +1402,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"0",500);
         operation.writeInputText(CreateFeeStructure.FeeModifierNameField,"Modifier",500);
         operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"100.01",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Fee Modifier can't be more than 100%"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -1416,10 +1416,10 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
-        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
+        operation.clickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField,"Automated fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"12",500);
@@ -1429,7 +1429,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"0",500);
         operation.writeInputText(CreateFeeStructure.FeeModifierNameField,"Modifier",500);
         operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"120",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.Alert,"Fee Modifier can't be more than 100%"));
         Assert.assertTrue(feeStructure.verifyAnElementDisplayedOrNot(2000,CreateFeeStructure.DrawerTitle));
 
@@ -1443,10 +1443,10 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         Assert.assertTrue(feeStructure.verifySessionFeeIsUpdating());;
 
 
@@ -1460,10 +1460,10 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         Assert.assertTrue(feeStructure.verifyUtilizationFeeIsUpdating());
 
 
@@ -1476,10 +1476,10 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         Assert.assertTrue(feeStructure.verifyIdleFeeIsUpdating());
 
 
@@ -1491,10 +1491,10 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForPropertyAdmin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         Assert.assertTrue(feeStructure.verifyFeeModifierIsUpdating());
 
     }
@@ -1507,11 +1507,11 @@ public class FeeStructureTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
 //        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"56",1500);
-        operation.FieldClear(CreateFeeStructure.SessionFeeAmountField);
+        operation.fieldClear(CreateFeeStructure.SessionFeeAmountField);
         Assert.assertTrue(feeStructure.verifyFeeIsUpdatingToZeroAfterClearingField(feeStructure.SessionFeeExtractor()));
 
 
@@ -1525,11 +1525,11 @@ public class FeeStructureTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
 //        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.UtilizationFeeAmountField,"13.06",1500);
-        operation.FieldClear(CreateFeeStructure.UtilizationFeeAmountField);
+        operation.fieldClear(CreateFeeStructure.UtilizationFeeAmountField);
         Assert.assertTrue(feeStructure.verifyFeeIsUpdatingToZeroAfterClearingField(feeStructure.UtilizationFeeExtractor()));
 
 
@@ -1543,11 +1543,11 @@ public class FeeStructureTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
 //        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"16.2",1500);
-        operation.FieldClear(CreateFeeStructure.IdleFeeRateField);
+        operation.fieldClear(CreateFeeStructure.IdleFeeRateField);
         Assert.assertTrue(feeStructure.verifyFeeIsUpdatingToZeroAfterClearingField(feeStructure.IdleFeeExtractor()));
 
 
@@ -1561,11 +1561,11 @@ public class FeeStructureTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
 //        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"10.00",1500);
-        operation.FieldClear(CreateFeeStructure.FeeModifierRateField);
+        operation.fieldClear(CreateFeeStructure.FeeModifierRateField);
         Assert.assertTrue(feeStructure.verifyFeeIsUpdatingToZeroAfterClearingField(feeStructure.FeeModifierExtractor()));
 
 
@@ -1580,8 +1580,8 @@ public class FeeStructureTestCases extends BaseTest {
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
         FeeStructureList list = new FeeStructureList(driver);
 //        loginPage.VerifyValidLoginForPropertyAdmin();
-        dashboard.RefreshBrowser();
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        dashboard.refreshBrowser();
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField, feeStructure.GenerateFeeName(),500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"10",500);
@@ -1591,7 +1591,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"1.5",500);
 //        operation.writeInputText(CreateFeeStructure.FeeModifierNameField,"Modifier",500);
 //        operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"100.01",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.FeeStructureCreatedSuccessfully,"Fee structure created successfully"));
         Assert.assertTrue(feeStructure.verifyElementNotDisplayed(2000,CreateFeeStructure.DrawerTitle));
 
@@ -1610,9 +1610,9 @@ public class FeeStructureTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
-        loginPage.VerifyValidLoginForPropertyAdmin();
+        loginPage.verifyValidLoginForPropertyAdmin();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(CreateFeeStructure.CreateFeeStructure,1000);
+        operation.clickButton(CreateFeeStructure.CreateFeeStructure,1000);
         operation.writeInputText(CreateFeeStructure.FeeStructureNameField, feeStructure.GenerateFeeName(),500);
         operation.writeInputText(CreateFeeStructure.SessionFeeNameField,"Session fee",500);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"10",500);
@@ -1622,7 +1622,7 @@ public class FeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.IdleFeeRateField,"1.5",500);
         operation.writeInputText(CreateFeeStructure.FeeModifierNameField,"Modifier",500);
         operation.writeInputText(CreateFeeStructure.FeeModifierRateField,"10",500);
-        operation.ClickButton(CreateFeeStructure.SaveFeeStructureButton,500);
+        operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,500);
         Assert.assertTrue(feeStructure.verifyTextMatching(500,CreateFeeStructure.FeeStructureCreatedSuccessfully,"Fee structure created successfully"));
         Assert.assertTrue(feeStructure.verifyElementNotDisplayed(2000,CreateFeeStructure.DrawerTitle));
 

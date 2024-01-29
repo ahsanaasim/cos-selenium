@@ -21,8 +21,8 @@ public class COSAFromMenuTestCases extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         createLocation.NewTabOpenAndSwitchToNewTab(1);
         Thread.sleep(2500);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
 
 
@@ -38,7 +38,7 @@ public class COSAFromMenuTestCases extends BaseTest {
         customerLogin.SwitchToTab(0);
         customerLogin.GoToCustomerLoginPage();
         customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
-        operation.ClickButton(CustomerSupport.Menu,2000);
+        operation.clickButton(CustomerSupport.Menu,2000);
         Assert.assertTrue(customerLogin.verifyAnElementDisplayedOrNot(2000,CustomerMenu.COSAFromMenu));
         Assert.assertTrue(customerLogin.verifyAnElementDisplayedOrNot(500,CustomerMenu.COSALOGOFromMenu));
 
@@ -56,9 +56,9 @@ public class COSAFromMenuTestCases extends BaseTest {
         COSA cosa = new COSA(driver);
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
-        dashboard.RefreshBrowser();
-        operation.ClickButton(CustomerSupport.Menu,2000);
-        operation.ClickButton(CustomerMenu.COSAFromMenu,2000);
+        dashboard.refreshBrowser();
+        operation.clickButton(CustomerSupport.Menu,2000);
+        operation.clickButton(CustomerMenu.COSAFromMenu,2000);
         Assert.assertTrue(cosa.CurrentPageURLCheck("https://test-app.chargeonsite.com/customer/cosa"));
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1000,COSA.COSAFirstMsg));
 
@@ -77,7 +77,7 @@ public class COSAFromMenuTestCases extends BaseTest {
         COSA cosa = new COSA(driver);
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CustomerSupport.Menu,2000);
 //        operation.ClickButton(CustomerMenu.COSAFromMenu,2000);
         Assert.assertTrue(cosa.verifyTextMatching(2000,COSA.COSAFirstMsg,cosa.COSAFirstMsgForTester()));
@@ -160,9 +160,9 @@ public class COSAFromMenuTestCases extends BaseTest {
         customerLogin.GoToCustomerLoginPage();
         customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(CustomerSupport.Menu,2000);
-        operation.ClickButton(CustomerMenu.COSAFromMenu,2000);
-        operation.ClickButton(COSA.ShowMeWatchList,2000);
+        operation.clickButton(CustomerSupport.Menu,2000);
+        operation.clickButton(CustomerMenu.COSAFromMenu,2000);
+        operation.clickButton(COSA.ShowMeWatchList,2000);
         Assert.assertTrue(cosa.CurrentPageURLCheck("https://test-app.chargeonsite.com/customer/cosa/watchlist"));
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1000,WatchList.WatchListTitle));
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1000,WatchList.WatchListContainer));
@@ -184,7 +184,7 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.GoToCOSAChatbot();
 //        operation.ClickButton(CustomerSupport.Menu,2000);
 //        operation.ClickButton(CustomerMenu.COSAFromMenu,2000);
-        operation.ClickButton(COSA.ReportAProblem,2000);
+        operation.clickButton(COSA.ReportAProblem,2000);
         Assert.assertTrue(cosa.CurrentPageURLCheck("https://test-app.chargeonsite.com/customer/customer-support/create-ticket"));
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1000,CustomerSupport.CreateTicketPageTitle));
 
@@ -205,7 +205,7 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.GoToCOSAChatbot();
 //        operation.ClickButton(CustomerSupport.Menu,2000);
 //        operation.ClickButton(CustomerMenu.COSAFromMenu,2000);
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         Assert.assertTrue(cosa.verifyTextMatching(2000,COSA.CustomerFirstMessage,"Keep an eye on some locations"));
         Assert.assertTrue(cosa.verifyTextMatching(2000,COSA.COSAFirstReply, cosa.COSFResponseAfterClickingKeepOnEyeSomeLocations()));
 
@@ -225,10 +225,10 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
 //        cosa.GoToCOSAChatbot();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CustomerSupport.Menu,2000);
 //        operation.ClickButton(CustomerMenu.COSAFromMenu,2000);
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         Assert.assertTrue(cosa.verifyTextMatching(2000,COSA.CustomerFirstMessage,"Keep an eye on some locations"));
         Assert.assertTrue(cosa.verifyTextMatching(2000,COSA.COSAFirstReply, cosa.COSFResponseAfterClickingKeepOnEyeSomeLocations()));
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(500,COSA.DateBox));
@@ -259,8 +259,8 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        dashboard.RefreshBrowser();
 //        operation.ClickButton(CustomerSupport.Menu,2000);
 //        operation.ClickButton(CustomerMenu.COSAFromMenu,2000);
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
-        operation.ClickButton(COSA.DateBox,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.DateBox,2000);
         Assert.assertTrue(cosa.verifyCurrentDateIsShowingInChatAfterSelectingToday());
 
 
@@ -282,9 +282,9 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        dashboard.RefreshBrowser();
 //        operation.ClickButton(CustomerSupport.Menu,2000);
 //        operation.ClickButton(CustomerMenu.COSAFromMenu,2000);
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
-        operation.ClickButton(COSA.DateBox,2000);
-        operation.ClickButton(COSA.TodayDate,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.DateBox,2000);
+        operation.clickButton(COSA.TodayDate,2000);
         Assert.assertTrue(cosa.verifyElementNotDisplayed(2000,COSA.DateBox));
 
 
@@ -304,7 +304,7 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         Assert.assertTrue(cosa.verifyPastDateIsDisabled());
 
 
@@ -323,8 +323,8 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
 //        cosa.GoToCOSAChatbot();
-        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        dashboard.refreshBrowser();
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         Assert.assertTrue(cosa.verifyTimeIsPostedCorrectlyOnChatBot("07"));
 
 
@@ -344,7 +344,7 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         cosa.clickOnFutureDate(01);
         cosa.selectTime("05",COSA.AM);
         Assert.assertTrue(cosa.verifyElementNotDisplayed(2500,COSA.DateBox));
@@ -367,8 +367,8 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
 //        cosa.GoToCOSAChatbot();
-        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        dashboard.refreshBrowser();
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         cosa.clickOnFutureDate(02);
         cosa.selectTime("05",COSA.PM);
         operation.writeInputText(COSA.AddressBox,"Aftab Nagar",1500);
@@ -393,7 +393,7 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         cosa.clickOnFutureDate(03);
         cosa.selectTime("05",COSA.AM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
@@ -415,7 +415,7 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
         Assert.assertTrue(cosa.verifyElementNotDisplayed(2500,COSA.AddressBox));
 
@@ -435,8 +435,8 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
 //        cosa.GoToCOSAChatbot();
-        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        dashboard.refreshBrowser();
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         cosa.clickOnFutureDate(04);
         cosa.selectTime("05",COSA.PM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
@@ -461,7 +461,7 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         cosa.clickOnFutureDate(05);
         cosa.selectTime("05",COSA.AM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
@@ -486,7 +486,7 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         cosa.clickOnFutureDate(4);
         cosa.selectTime("4",COSA.PM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
@@ -511,11 +511,11 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         cosa.clickOnFutureDate(2);
         cosa.selectTime("07",COSA.PM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
-        operation.ClickButton(COSA.WatchButton,2000);
+        operation.clickButton(COSA.WatchButton,2000);
         Assert.assertTrue(cosa.verifyCustomerResponseMessageAfterWatchingALocation(COSA.SuggestedLocation1,COSA.AddressOfSuggestedLocation1,COSA.CustomerFifthMessage));
 
 
@@ -534,11 +534,11 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         cosa.clickOnFutureDate(4);
         cosa.selectTime("03",COSA.AM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
-        operation.ClickButton(COSA.WatchButton,2000);
+        operation.clickButton(COSA.WatchButton,2000);
         Assert.assertTrue(cosa.verifyCOSAResponseAfterAddingALocationToWatchlist(COSA.SuggestedLocation1,COSA.AddressOfSuggestedLocation1,COSA.COSAThirdReply));
 
 
@@ -557,7 +557,7 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         cosa.clickOnFutureDate(5);
         cosa.selectTime("01",COSA.AM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
@@ -582,11 +582,11 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         cosa.clickOnFutureDate(6);
         cosa.selectTime("12",COSA.PM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
-        operation.ClickButton(COSA.WatchButton,2000);
+        operation.clickButton(COSA.WatchButton,2000);
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(1000,COSA.WatchingButton));
 
 
@@ -605,7 +605,7 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         cosa.clickOnFutureDate(6);
         cosa.selectTime("01",COSA.AM);
         cosa.selectLocationFromAddressField("Buenos Aires, Argentina");
@@ -627,7 +627,7 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         cosa.clickOnFutureDate(2);
         cosa.selectTime("04",COSA.PM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
@@ -650,7 +650,7 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.SwitchToTab(0);
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         cosa.clickOnFutureDate(7);
         cosa.selectTime("04",COSA.AM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
@@ -673,7 +673,7 @@ public class COSAFromMenuTestCases extends BaseTest {
         cosa.SwitchToTab(0);
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         cosa.clickOnFutureDate(1);
         cosa.selectTime("04",COSA.PM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
@@ -700,11 +700,11 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         cosa.clickOnFutureDate(2);
         cosa.selectTime("05",COSA.AM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
-        operation.ClickButton(COSA.WatchButton,2000);
+        operation.clickButton(COSA.WatchButton,2000);
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(2000,COSA.WatchAnotherLocationInThisArea));
         Assert.assertTrue(cosa.verifyTextMatching(2000,COSA.ShowMeWatchList,"Show me the locations I am watching"));
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(2000,COSA.ReturnToMainMenu));
@@ -726,12 +726,12 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         cosa.clickOnFutureDate(8);
         cosa.selectTime("02",COSA.PM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
-        operation.ClickButton(COSA.WatchButton,2000);
-        operation.ClickButton(COSA.WatchingButton,2000);
+        operation.clickButton(COSA.WatchButton,2000);
+        operation.clickButton(COSA.WatchingButton,2000);
         Assert.assertTrue(cosa.verifyCOSAResponseWhileAddingAlreadyAddedLocationToWatchlist(COSA.COSAForthReply));
 
 
@@ -750,13 +750,13 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         cosa.clickOnFutureDate(3);
         cosa.selectTime("06",COSA.AM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
-        operation.ClickButton(COSA.WatchButton,2000);
-        operation.ClickButton(COSA.WatchButton2,2000);
-        operation.ClickButton(COSA.WatchButton3,2000);
+        operation.clickButton(COSA.WatchButton,2000);
+        operation.clickButton(COSA.WatchButton2,2000);
+        operation.clickButton(COSA.WatchButton3,2000);
         Assert.assertTrue(cosa.verifyCustomerResponseMessageAfterWatchingALocation(COSA.SuggestedLocation1,COSA.AddressOfSuggestedLocation1,COSA.CustomerFifthMessage));
         Assert.assertTrue(cosa.verifyCOSAResponseAfterAddingALocationToWatchlist(COSA.SuggestedLocation1,COSA.AddressOfSuggestedLocation1,COSA.COSAThirdReply));
         Assert.assertTrue(cosa.verifyCustomerResponseMessageAfterWatchingALocation(COSA.SuggestedLocation2,COSA.AddressOfSuggestedLocation2,COSA.CustomerSixthMessage));
@@ -780,12 +780,12 @@ public class COSAFromMenuTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(COSA.KeepAnEyeOnSomeLocations,2000);
+        operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
         cosa.clickOnFutureDate(4);
         cosa.selectTime("01",COSA.PM);
         cosa.selectLocationFromAddressField("Aftab Nagar, Dhaka, Bangladesh");
-        operation.ClickButton(COSA.WatchButton,2000);
-        operation.ClickButton(COSA.ReturnToMainMenu,2000);
+        operation.clickButton(COSA.WatchButton,2000);
+        operation.clickButton(COSA.ReturnToMainMenu,2000);
         Assert.assertTrue(cosa.verifyTextMatching(2000,COSA.COSAFirstMsg,cosa.COSAFirstMsgForTester()));
         Assert.assertTrue(cosa.verifyAnElementDisplayedOrNot(2000,COSA.KeepAnEyeOnSomeLocations));
         Assert.assertTrue(cosa.verifyTextMatching(1000,COSA.ShowMeWatchList,"Show me the locations I am watching"));

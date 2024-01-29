@@ -5,7 +5,6 @@ import org.openqa.selenium.*;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 public class EditCompany extends BasePage {
 
@@ -22,7 +21,7 @@ public class EditCompany extends BasePage {
     CreateCharger createCharger = new CreateCharger(driver);
 
     public static By editcompanybtn = By.xpath("(//span[contains(.,'Edit')])[2]");
-    public static By EditCompanyBtn = By.xpath("//span[contains(.,'Edit')]");
+    public static By EditCompanyBtn = By.xpath("//span[contains(text(),'Edit')]");
     public static By ShowButtonEin= By.xpath("//span[normalize-space()='Show']");
     public static By DisabledShowButton = By.xpath("//button[@class='ant-btn ant-btn-default ml-10']");
     public static By HideButtonEin= By.xpath("//span[normalize-space()='Hide']");
@@ -119,9 +118,9 @@ public class EditCompany extends BasePage {
 
 
     public boolean ClearCompanyNameFromEditCompanyDrawer () throws InterruptedException {
-        waitVisibility(company.companyname);
+        waitVisibility(company.companyName);
         Thread.sleep(2000);
-        WebElement companyname= driver.findElement(company.companyname);
+        WebElement companyname= driver.findElement(company.companyName);
        /* driver.manage().timeouts().implicitlyWait(02, TimeUnit.SECONDS);
         clear(company.companyname);*/
         companyname.sendKeys(Keys.CONTROL + "a");
@@ -344,14 +343,14 @@ public class EditCompany extends BasePage {
 
 
     public boolean verifyEinSaving() throws InterruptedException {
-        customerSignUp.FieldClear(company.ein);
+        customerSignUp.fieldClear(company.ein);
         int EinNumber = 100000000 + NumGenerator.nextInt(900000000);
         String LatestEin = Integer.toString(EinNumber);
         System.out.println("Ein Number: "+EinNumber);
         createCharger.writeInputText(company.ein,LatestEin,1000);
-        createCharger.ClickButton(EditCompany.SaveCompanyButton,1500);
-        createCharger.ClickButton(EditCompanyBtn,3500);
-        createCharger.ClickButton(ShowButtonEin,2000);
+        createCharger.clickButton(EditCompany.SaveCompanyButton,1500);
+        createCharger.clickButton(EditCompanyBtn,3500);
+        createCharger.clickButton(ShowButtonEin,2000);
         Thread.sleep(1500);
         String Ein = driver.findElement(company.ein).getAttribute("value");
         if (LatestEin.equals(Ein)){
@@ -421,7 +420,7 @@ public class EditCompany extends BasePage {
 
     }
 
-    public boolean VerifySearchResultCount() throws InterruptedException {
+    public boolean verifySearchResultCount() throws InterruptedException {
         Thread.sleep(4000);
         waitVisibility(CreateCharger.SearchResultCount);
         String countText = driver.findElement(CreateCharger.SearchResultCount).getText();

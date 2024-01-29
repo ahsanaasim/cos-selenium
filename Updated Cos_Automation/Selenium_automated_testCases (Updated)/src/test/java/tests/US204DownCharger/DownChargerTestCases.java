@@ -6,8 +6,6 @@ import pages.*;
 import tests.BaseTest;
 import tests.US1AdminLogin.TestParameters;
 
-import java.io.IOException;
-
 public class DownChargerTestCases extends BaseTest {
 
 
@@ -16,7 +14,7 @@ public class DownChargerTestCases extends BaseTest {
     public void TC_1_CheckAlertIconOfDownChargersBelowTheDashboardTitle() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         BasePage basePage = new BasePage(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,DownCharger.AlertIcon));
 
     }
@@ -55,7 +53,7 @@ public class DownChargerTestCases extends BaseTest {
         DownCharger downCharger = new DownCharger(driver);
         CreateCharger operation = new CreateCharger(driver);
 //        loginPage.VerifyValidLogin();
-        operation.ClickButton(DownCharger.DownChargerSeeDetails,1500);
+        operation.clickButton(DownCharger.DownChargerSeeDetails,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,DownCharger.DownChargerTag));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,DownCharger.ChargerPageTitle));
 
@@ -112,7 +110,7 @@ public class DownChargerTestCases extends BaseTest {
         DownCharger downCharger = new DownCharger(driver);
         CreateCharger operation = new CreateCharger(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(DownCharger.DownChargerSeeDetails,1500);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,DownCharger.DownChargerTag));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,CreateCharger.searchargerbtn));
@@ -269,7 +267,7 @@ public class DownChargerTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         DownCharger downCharger = new DownCharger(driver);
         CreateCharger operation = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         dashboard.GotoDashboard();
 //        operation.ClickButton(DownCharger.DownChargerSeeDetails,1500);
         Assert.assertTrue(downCharger.verifyDownChargerIsRemovingFromTheListAfterMakingLocationOffline());
@@ -284,7 +282,7 @@ public class DownChargerTestCases extends BaseTest {
         DownCharger downCharger = new DownCharger(driver);
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         dashboard.GotoDashboard();
 //        operation.ClickButton(DownCharger.DownChargerSeeDetails,1500);
         Assert.assertTrue(downCharger.verifyDownChargerIsAddingInTheListAfterMakingLocationOnline());
@@ -306,9 +304,9 @@ public class DownChargerTestCases extends BaseTest {
 //        operation.ClickButton(DownCharger.DownChargerSeeDetails,1500);
 //        Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        operation.ClickButton(AdvanceFilterPropertyAdmin.AdvanceFilter,1500);
+        operation.clickButton(AdvanceFilterPropertyAdmin.AdvanceFilter,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,DownCharger.DownChargerInAdvanceFilter));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,DownCharger.UncheckDownChargerFilter));
 
@@ -324,11 +322,11 @@ public class DownChargerTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
 //        loginPage.VerifyValidLogin();
 //        operation.ClickButton(DownCharger.DownChargerSeeDetails,1500);
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        operation.ClickButton(AdvanceFilterPropertyAdmin.AdvanceFilter,1500);
+        operation.clickButton(AdvanceFilterPropertyAdmin.AdvanceFilter,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,DownCharger.UncheckDownChargerFilter));
 
     }
@@ -341,15 +339,15 @@ public class DownChargerTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         DownCharger downCharger = new DownCharger(driver);
         CreateCharger operation = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        operation.ClickButton(DownCharger.DownChargerSeeDetails,1500);
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        Assert.assertTrue(dashboard.refreshBrowser());
 //        Assert.assertTrue(dashboard.GotoDashboard());
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickOnChargers());
-        operation.ClickButton(AdvanceFilterPropertyAdmin.AdvanceFilter,1500);
-        operation.ClickButton(DownCharger.UncheckDownChargerFilter,1500);
-        operation.ClickButton(InvoiceFilter.ApplyButton,1500);
+        operation.clickButton(AdvanceFilterPropertyAdmin.AdvanceFilter,1500);
+        operation.clickButton(DownCharger.UncheckDownChargerFilter,1500);
+        operation.clickButton(InvoiceFilter.ApplyButton,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(2000,DownCharger.DownChargerTag));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,DownCharger.DownChargerTagCross));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,InvoiceFilter.ClearAllTag));
@@ -414,15 +412,15 @@ public class DownChargerTestCases extends BaseTest {
         DownCharger downCharger = new DownCharger(driver);
         CreateCharger operation = new CreateCharger(driver);
         ChargerListPropertyAdmin chargerList = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.GotoDashboard());
-        operation.ClickButton(DownCharger.DownChargerSeeDetails,1500);
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        operation.clickButton(DownCharger.DownChargerSeeDetails,1500);
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        operation.ClickButton(AdvanceFilterPropertyAdmin.AdvanceFilter,1500);
-        operation.ClickButton(DownCharger.UncheckDownChargerFilter,1500);
-        operation.ClickButton(InvoiceFilter.ApplyButton,1500);
-        operation.ClickButton(InvoiceFilter.ClearAllTag,1500);
+        operation.clickButton(AdvanceFilterPropertyAdmin.AdvanceFilter,1500);
+        operation.clickButton(DownCharger.UncheckDownChargerFilter,1500);
+        operation.clickButton(InvoiceFilter.ApplyButton,1500);
+        operation.clickButton(InvoiceFilter.ClearAllTag,1500);
         Assert.assertTrue(downCharger.verifyAnElementDisplayedOrNot(200,SearchCompany.Spiner));
         Assert.assertTrue(downCharger.verifyElementNotDisplayed(3000,InvoiceFilter.NoDataFoundInTable));
 
@@ -438,7 +436,7 @@ public class DownChargerTestCases extends BaseTest {
         DownCharger downCharger = new DownCharger(driver);
         CreateCharger operation = new CreateCharger(driver);
         ChargerListPropertyAdmin chargerList = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        operation.ClickButton(DownCharger.DownChargerSeeDetails,1500);
 //        Assert.assertTrue(dashboard.RefreshBrowser());
 //        Assert.assertTrue(dashboard.GotoDashboard());
@@ -461,13 +459,13 @@ public class DownChargerTestCases extends BaseTest {
         DownCharger downCharger = new DownCharger(driver);
         CreateCharger operation = new CreateCharger(driver);
         ChargerListPropertyAdmin chargerList = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        operation.ClickButton(DownCharger.DownChargerSeeDetails,1500);
 //        Assert.assertTrue(dashboard.RefreshBrowser());
 //        Assert.assertTrue(dashboard.GotoDashboard());
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickOnChargers());
-        operation.ClickButton(AdvanceFilterPropertyAdmin.AdvanceFilter,1500);
+        operation.clickButton(AdvanceFilterPropertyAdmin.AdvanceFilter,1500);
 //        operation.ClickButton(DownCharger.CheckedDownChargerFilter,1500);
 //        operation.ClickButton(InvoiceFilter.ApplyButton,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(2000,DownCharger.UncheckDownChargerFilter));
@@ -483,14 +481,14 @@ public class DownChargerTestCases extends BaseTest {
         DownCharger downCharger = new DownCharger(driver);
         CreateCharger operation = new CreateCharger(driver);
         ChargerListPropertyAdmin chargerList = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        operation.ClickButton(DownCharger.DownChargerSeeDetails,1500);
 //        Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickOnChargers());
-        operation.ClickButton(DownCharger.DownChargerSeeDetails,1500);
-        operation.ClickButton(AdvanceFilterPropertyAdmin.AdvanceFilter,1500);
+        operation.clickButton(DownCharger.DownChargerSeeDetails,1500);
+        operation.clickButton(AdvanceFilterPropertyAdmin.AdvanceFilter,1500);
 //        operation.ClickButton(DownCharger.CheckedDownChargerFilter,1500);
 //        operation.ClickButton(InvoiceFilter.ApplyButton,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(2000,DownCharger.CheckedDownChargerFilter));
@@ -514,7 +512,7 @@ public class DownChargerTestCases extends BaseTest {
 //        Assert.assertTrue(dashboard.clickOnChargers());
 //        operation.ClickButton(DownCharger.DownChargerSeeDetails,1500);
 //        operation.ClickButton(AdvanceFilterPropertyAdmin.AdvanceFilter,1500);
-        operation.ClickButton(InvoiceFilter.ResetAllButton,1500);
+        operation.clickButton(InvoiceFilter.ResetAllButton,1500);
 //        operation.ClickButton(InvoiceFilter.ApplyButton,1500);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,DownCharger.DownChargerTag));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,InvoiceFilter.ClearAllTag));
@@ -531,13 +529,13 @@ public class DownChargerTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         SimulationPage simulationPage = new SimulationPage(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         guestFlow.GoToSimulator();
         Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 889"));
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         simulationPage.SelectChargerStatusFromSimulator("Faulted");
         operation.click(SimulationPage.ChargerStatusSaveButton);
-        Assert.assertTrue(operation.ClickButton(SimulationPage.ChargerQRCodeCopyLink,4000));
+        Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,4000));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
         guestFlow.SwitchToTab(1);
         Assert.assertTrue(downCharger.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.ChargerDownStatus));
@@ -566,7 +564,7 @@ public class DownChargerTestCases extends BaseTest {
 //        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 889"));
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         guestFlow.SwitchToTab(1);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue(downCharger.verifyTextMatching(3000,GuestVerificationPage.ChargerAvailableStatus,"Available Now"));
         Assert.assertTrue(downCharger.verifyAFieldIsDisable(1000,GuestVerificationPage.StatChargingButton));
         Assert.assertTrue(downCharger.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.ThanksForScanningTitle));

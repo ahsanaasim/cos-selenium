@@ -18,7 +18,7 @@ public class LoadMoreFunctionalityTestCases extends BaseTest {
     public void TC_33_CheckLoadMoreButton() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLoginForPropertyAdminWithTwentyPlusProperty();
+        loginPage.verifyValidLoginForPropertyAdminWithTwentyPlusProperty();
         Assert.assertTrue((chargerListPropertyAdmin.verifyloadMoreButton()));
     }
     @Test(priority =2)//Done
@@ -26,7 +26,7 @@ public class LoadMoreFunctionalityTestCases extends BaseTest {
     public void TC_34_CheckLoadMoreButtonNumber() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         DashBoardLoadMoreFunctionality dashBoardLoadMoreFunctionality = new DashBoardLoadMoreFunctionality(driver);
-        loginPage.VerifyValidLoginForPropertyAdminWithTwentyPlusProperty();
+        loginPage.verifyValidLoginForPropertyAdminWithTwentyPlusProperty();
         Assert.assertTrue((dashBoardLoadMoreFunctionality.verifyloadMoreButtonNumber()));
     }
     @Test(priority =3)//Done
@@ -34,7 +34,7 @@ public class LoadMoreFunctionalityTestCases extends BaseTest {
     public void TC_35_CheckWhatHappenedIfPadminClicksOnLoadMoreButton() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin =new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLoginForPropertyAdminWithTwentyPlusProperty();
+        loginPage.verifyValidLoginForPropertyAdminWithTwentyPlusProperty();
         Assert.assertTrue((chargerListPropertyAdmin.verifyLoadMoreButtonAction()));
     }
     @Test(priority =4)//Done
@@ -43,8 +43,8 @@ public class LoadMoreFunctionalityTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         LoginPage loginPage = new LoginPage(driver);
         DashBoardLoadMoreFunctionality dashBoardLoadMoreFunctionality = new DashBoardLoadMoreFunctionality(driver);
-        loginPage.VerifyValidLoginForPropertyAdminWithTwentyPlusProperty();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLoginForPropertyAdminWithTwentyPlusProperty();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue((dashBoardLoadMoreFunctionality.verifyLoadMoreButtonActionWithShowingCount()));
     }
     @Test(priority =5)//Done
@@ -53,8 +53,8 @@ public class LoadMoreFunctionalityTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         LoginPage loginPage = new LoginPage(driver);
         DashBoardLoadMoreFunctionality dashBoardLoadMoreFunctionality = new DashBoardLoadMoreFunctionality(driver);
-        loginPage.VerifyValidLoginForPropertyAdminWithTwentyPlusProperty();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLoginForPropertyAdminWithTwentyPlusProperty();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue((dashBoardLoadMoreFunctionality.verifyTotalCountIsShowing()));
     }
     @Test(priority =6)//Done
@@ -63,8 +63,8 @@ public class LoadMoreFunctionalityTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         LoginPage loginPage = new LoginPage(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin =new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLoginForPropertyAdminWithTwentyPlusProperty();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLoginForPropertyAdminWithTwentyPlusProperty();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue((chargerListPropertyAdmin.verifyTheWithTable()));
     }
     @Test(priority =7)//Done
@@ -73,8 +73,8 @@ public class LoadMoreFunctionalityTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         LoginPage loginPage = new LoginPage(driver);
         DashBoardLoadMoreFunctionality dashBoardLoadMoreFunctionality = new DashBoardLoadMoreFunctionality(driver);
-        loginPage.VerifyValidLoginForPropertyAdminWithTwentyPlusProperty();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLoginForPropertyAdminWithTwentyPlusProperty();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue((dashBoardLoadMoreFunctionality.verifyShowingCountisDecreasingAfterRefreshing()));
     }
     @Test(priority =8)//Done
@@ -83,8 +83,8 @@ public class LoadMoreFunctionalityTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         LoginPage loginPage = new LoginPage(driver);
         ChargerListPropertyAdmin chargerListPropertyAdmin =new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLoginForPropertyAdminWithTwentyPlusProperty();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLoginForPropertyAdminWithTwentyPlusProperty();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue((chargerListPropertyAdmin.verifyTableDataAfterRefreshing()));
     }
     @Test(priority =9)//Done
@@ -93,8 +93,8 @@ public class LoadMoreFunctionalityTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         LoginPage loginPage = new LoginPage(driver);
         DashBoardLoadMoreFunctionality dashBoardLoadMoreFunctionality = new DashBoardLoadMoreFunctionality(driver);
-        loginPage.VerifyValidLoginForPropertyAdminWithNoProperty();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLoginForPropertyAdminWithNoProperty();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue((dashBoardLoadMoreFunctionality.verifyLoadmoreButtonNotExist()));
     }
     @Test(priority =10)//Done
@@ -103,8 +103,8 @@ public class LoadMoreFunctionalityTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         LoginPage loginPage = new LoginPage(driver);
         DashBoardLoadMoreFunctionality dashBoardLoadMoreFunctionality = new DashBoardLoadMoreFunctionality(driver);
-        loginPage.VerifyValidLoginForPropertyAdminWithNoProperty();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLoginForPropertyAdminWithNoProperty();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue((dashBoardLoadMoreFunctionality.verifyNoDataFoundIsShowing()));
     }
     @Test(priority =11)//Done
@@ -113,8 +113,8 @@ public class LoadMoreFunctionalityTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         LoginPage loginPage = new LoginPage(driver);
         DashBoardLoadMoreFunctionality dashBoardLoadMoreFunctionality = new DashBoardLoadMoreFunctionality(driver);
-        loginPage.VerifyValidLoginForPropertyAdminWithLessThanFiveProperty();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLoginForPropertyAdminWithLessThanFiveProperty();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue((dashBoardLoadMoreFunctionality.verifyLoadmoreButtonNotExist()));
     }
 

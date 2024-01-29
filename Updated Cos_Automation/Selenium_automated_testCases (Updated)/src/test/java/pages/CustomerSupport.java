@@ -306,11 +306,11 @@ public class CustomerSupport extends BasePage{
         int TicketNumberBesideHistory = Integer.parseInt(Tickets);
         System.out.println("Tickets before creating a new ticket: "+TicketNumberBesideHistory);
         int TicketsInTheList = driver.findElements(By.className("historyDetailsDiv")).size();
-        operation.ClickButton(CreateATicket,2000);
+        operation.clickButton(CreateATicket,2000);
         ticket.SelectOptionFromInputField(CategoryField,"Software Issue");
         operation.writeInputText(CreateTicket.SubjectField,(prop.getProperty("TicketSubjectLessThanThirtyCharacter2")),1000);
         operation.writeInputText(CreateTicket.DescriptionField,(prop.getProperty("ShortTicketDescription")),500);
-        operation.ClickButton(SubmitButton,2000);
+        operation.clickButton(SubmitButton,2000);
         waitforPresence(TicketsSeeDetails);
         String TicketsAfter = driver.findElement(TicketsHistory).getText().replaceAll("[^0-9]","");
         int TicketNumberBesideHistoryAfter = Integer.parseInt(TicketsAfter);
@@ -329,11 +329,11 @@ public class CustomerSupport extends BasePage{
     }
 
     public boolean verifyNewlyCreatedTicketDateAndTime() throws InterruptedException {
-        operation.ClickButton(CreateATicket,2000);
+        operation.clickButton(CreateATicket,2000);
         ticket.SelectOptionFromInputField(CategoryField,"Billing");
         operation.writeInputText(CreateTicket.SubjectField,(prop.getProperty("TicketSubjectForBilling")),1000);
         operation.writeInputText(CreateTicket.DescriptionField,(prop.getProperty("TicketDescriptionForBillingIssue")),500);
-        operation.ClickButton(SubmitButton,2000);
+        operation.clickButton(SubmitButton,2000);
         // Parse the date string into a LocalDateTime object
         LocalDateTime now = LocalDateTime.now();
         // Create a formatter with the desired format
@@ -359,13 +359,13 @@ public class CustomerSupport extends BasePage{
 
 
     public boolean verifyOpenStatusForNewlyCreatedTicket() throws InterruptedException {
-        operation.ClickButton(CreateATicket,3000);
+        operation.clickButton(CreateATicket,3000);
         ticket.SelectOptionFromInputField(CategoryField,"Charging Issue");
         click(SelectASessionField);
         click(FirstSessionFromDropdown);
         operation.writeInputText(CreateTicket.SubjectField,"Charger gets heated too much",1000);
         operation.writeInputText(CreateTicket.DescriptionField,(prop.getProperty("Paragraph")),500);
-        operation.ClickButton(SubmitButton,2000);
+        operation.clickButton(SubmitButton,2000);
         waitforPresence(OpenStatus1);
         String firstTicketStatus = driver.findElement(By.xpath("//div[@class='availableDiv flex items-center']")).getText();
         System.out.println(firstTicketStatus);

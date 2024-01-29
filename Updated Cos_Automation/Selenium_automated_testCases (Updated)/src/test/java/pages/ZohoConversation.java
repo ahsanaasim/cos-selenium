@@ -85,7 +85,7 @@ public class ZohoConversation extends BasePage {
         operation.writeInputText(CreateTicket.SubjectField,"Software is not responding as expected",1000);
         operation.writeInputText(CreateTicket.DescriptionField,(prop.getProperty("Paragraph")),500);
         click(CreateTicket.SubmitTicket);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Thread.sleep(3000);
         click(DetailsButton);
         Thread.sleep(5000);

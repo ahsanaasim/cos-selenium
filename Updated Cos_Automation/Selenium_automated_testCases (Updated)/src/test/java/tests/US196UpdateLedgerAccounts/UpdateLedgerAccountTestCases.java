@@ -1,6 +1,5 @@
 package tests.US196UpdateLedgerAccounts;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
@@ -21,9 +20,9 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLogin();
-        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
-        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
+        loginPage.verifyValidLogin();
+        createCharger.clickButton(UpdateLedgerAccounts.SettingsTab, 5000);
+        createCharger.clickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         Assert.assertTrue(basePage.verifyTextMatching(4000,UpdateLedgerAccounts.LedgerConfigTitle,"Ledger Configuration"));
     }
     @Test(priority = 2)//Done
@@ -68,7 +67,7 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(4000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
 
     }
@@ -82,11 +81,11 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        dashboard.RefreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(3000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        dashboard.RefreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(3000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
 
     }
@@ -170,7 +169,7 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton, 1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000,UpdateLedgerAccounts.CancelButton));
 
@@ -205,13 +204,13 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.SaveButton));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.CancelButton));
-        createCharger.ClickButton(UpdateLedgerAccounts.CancelButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.CancelButton, 1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.EditButton));
@@ -224,14 +223,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.SaveButton));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.CancelButton));
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton,1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.EditButton));
@@ -245,10 +244,10 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab,1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.BankAccount));
     }
     //    @Test(priority = 15)//Done
@@ -288,11 +287,11 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab,1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000,UpdateLedgerAccounts.CancelButton));
 
@@ -306,7 +305,7 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab,1000);
@@ -323,13 +322,13 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.SaveButton));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.CancelButton));
-        createCharger.ClickButton(UpdateLedgerAccounts.CancelButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.CancelButton, 1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -343,14 +342,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.SaveButton));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.CancelButton));
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -364,14 +363,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.SaveButton));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.CancelButton));
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -387,14 +386,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 3000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EquipmentFeeSelectedField,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.EquipmentFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.EquipmentFeeDisabled,"Employee Advance");
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.EquipmentFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.EquipmentFeeSelectedField,"Employee Advance"));
 
@@ -411,14 +410,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 3000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.InstallationFeeSelectedField,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.InstallationFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.InstallationFeeDisabled,"Prepaid Expenses");
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.InstallationFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.InstallationFeeSelectedField,"Prepaid Expenses"));
 
@@ -435,14 +434,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 3000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TransactionFeeSelectedField,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.TransactionFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.TransactionFeeDisabled,"Accounts Receivable");
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.TransactionFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.TransactionFeeSelectedField,"Accounts Receivable"));
 
@@ -459,14 +458,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 3000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.UtilizationFeeSelectedField,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.UtilizationFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.UtilizationFeeDisabled,"Sales");
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.UtilizationFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.UtilizationFeeSelectedField,"Sales"));
         dashboardPropertyDetails.LogoutFromExistingAccount();
@@ -483,9 +482,9 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         Thread.sleep(3000);
-        loginPage.VerifyValidLoginForCosPropertySupport();
-        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
-        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
+        loginPage.verifyValidLoginForCosPropertySupport();
+        createCharger.clickButton(UpdateLedgerAccounts.SettingsTab, 5000);
+        createCharger.clickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         Assert.assertTrue(basePage.verifyTextMatching(4000,UpdateLedgerAccounts.LedgerConfigTitle,"Ledger Configuration"));
     }
     @Test(priority = 28)//Done
@@ -530,7 +529,7 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(4000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
 
     }
@@ -544,11 +543,11 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        dashboard.RefreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(3000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        dashboard.RefreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(3000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
 
     }
@@ -632,7 +631,7 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton, 1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000,UpdateLedgerAccounts.CancelButton));
 
@@ -667,13 +666,13 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();
+        loginPage.verifyValidLoginForCosPropertySupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.SaveButton));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.CancelButton));
-        createCharger.ClickButton(UpdateLedgerAccounts.CancelButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.CancelButton, 1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.EditButton));
@@ -686,14 +685,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();
+        loginPage.verifyValidLoginForCosPropertySupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.SaveButton));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.CancelButton));
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton,1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.EditButton));
@@ -707,10 +706,10 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();
+        loginPage.verifyValidLoginForCosPropertySupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab,1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.BankAccount));
     }
     //    @Test(priority = 15)//Done
@@ -750,11 +749,11 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();
+        loginPage.verifyValidLoginForCosPropertySupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab,1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000,UpdateLedgerAccounts.CancelButton));
 
@@ -768,7 +767,7 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();
+        loginPage.verifyValidLoginForCosPropertySupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab,1000);
@@ -785,13 +784,13 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();
+        loginPage.verifyValidLoginForCosPropertySupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.SaveButton));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.CancelButton));
-        createCharger.ClickButton(UpdateLedgerAccounts.CancelButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.CancelButton, 1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -805,14 +804,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();
+        loginPage.verifyValidLoginForCosPropertySupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.SaveButton));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.CancelButton));
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -826,14 +825,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();
+        loginPage.verifyValidLoginForCosPropertySupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.SaveButton));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.CancelButton));
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -849,14 +848,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForCosPropertySupport();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EquipmentFeeSelectedField,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.EquipmentFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.EquipmentFeeDisabled,"Petty Cash");
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.EquipmentFeeDisabled);
         basePage.verifyTextMatching(2000,UpdateLedgerAccounts.EquipmentFeeSelectedField,"Petty Cash");
 
@@ -873,14 +872,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForCosPropertySupport();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 3000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.InstallationFeeSelectedField,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.InstallationFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.InstallationFeeDisabled,"Bad Debt");
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.InstallationFeeDisabled);
         basePage.verifyTextMatching(2000,UpdateLedgerAccounts.InstallationFeeSelectedField,"Bad Debt");
 
@@ -897,14 +896,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForCosPropertySupport();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 3000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TransactionFeeSelectedField,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.TransactionFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.TransactionFeeDisabled,"Retained Earnings");
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.TransactionFeeDisabled);
         basePage.verifyTextMatching(2000,UpdateLedgerAccounts.TransactionFeeSelectedField,"Retained Earnings");
 
@@ -921,14 +920,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForCosPropertySupport();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 3000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.UtilizationFeeSelectedField,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.UtilizationFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.UtilizationFeeDisabled,"Inventory Asset");
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.UtilizationFeeDisabled);
         basePage.verifyTextMatching(2000,UpdateLedgerAccounts.UtilizationFeeSelectedField,"Inventory Asset");
         dashboardPropertyDetails.LogoutFromExistingAccount();
@@ -945,9 +944,9 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         Thread.sleep(3000);
-        loginPage.VerifyValidLoginForCosDriverSupport();
-        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
-        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
+        loginPage.verifyValidLoginForCosDriverSupport();
+        createCharger.clickButton(UpdateLedgerAccounts.SettingsTab, 5000);
+        createCharger.clickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         Assert.assertTrue(basePage.verifyTextMatching(4000,UpdateLedgerAccounts.LedgerConfigTitle,"Ledger Configuration"));
     }
     @Test(priority = 51)//Done
@@ -992,7 +991,7 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(4000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
 
     }
@@ -1006,11 +1005,11 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        dashboard.RefreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(3000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        dashboard.RefreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(3000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
 
     }
@@ -1094,7 +1093,7 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton, 1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000,UpdateLedgerAccounts.CancelButton));
 
@@ -1129,13 +1128,13 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosDriverSupport();
+        loginPage.verifyValidLoginForCosDriverSupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.SaveButton));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.CancelButton));
-        createCharger.ClickButton(UpdateLedgerAccounts.CancelButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.CancelButton, 1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.EditButton));
@@ -1148,14 +1147,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosDriverSupport();
+        loginPage.verifyValidLoginForCosDriverSupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.SaveButton));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.CancelButton));
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton,1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.EditButton));
@@ -1169,10 +1168,10 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosDriverSupport();
+        loginPage.verifyValidLoginForCosDriverSupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab,1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.BankAccount));
     }
     //    @Test(priority = 15)//Done
@@ -1212,11 +1211,11 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosDriverSupport();
+        loginPage.verifyValidLoginForCosDriverSupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab,1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000,UpdateLedgerAccounts.CancelButton));
 
@@ -1230,7 +1229,7 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosDriverSupport();
+        loginPage.verifyValidLoginForCosDriverSupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab,1000);
@@ -1247,13 +1246,13 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosDriverSupport();
+        loginPage.verifyValidLoginForCosDriverSupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.SaveButton));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.CancelButton));
-        createCharger.ClickButton(UpdateLedgerAccounts.CancelButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.CancelButton, 1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -1267,14 +1266,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosDriverSupport();
+        loginPage.verifyValidLoginForCosDriverSupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.SaveButton));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.CancelButton));
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -1288,14 +1287,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosDriverSupport();
+        loginPage.verifyValidLoginForCosDriverSupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.SaveButton));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.CancelButton));
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -1311,14 +1310,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosDriverSupport();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForCosDriverSupport();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EquipmentFeeSelectedField,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.EquipmentFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.EquipmentFeeDisabled,"Petty Cash");
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.EquipmentFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.EquipmentFeeSelectedField,"Petty Cash"));
 
@@ -1336,13 +1335,13 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLoginForCosDriverSupport();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 3000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.InstallationFeeSelectedField,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.InstallationFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.InstallationFeeDisabled,"Prepaid Expenses");
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.InstallationFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.InstallationFeeSelectedField,"Prepaid Expenses"));
 
@@ -1359,14 +1358,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosDriverSupport();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForCosDriverSupport();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 3000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TransactionFeeSelectedField,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.TransactionFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.TransactionFeeDisabled,"Advance Tax");
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.TransactionFeeDisabled);
         basePage.verifyTextMatching(2000,UpdateLedgerAccounts.TransactionFeeSelectedField,"Advance Tax");
 
@@ -1383,14 +1382,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosDriverSupport();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForCosDriverSupport();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 3000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.UtilizationFeeSelectedField,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.UtilizationFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.UtilizationFeeDisabled,"Sales");
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.UtilizationFeeDisabled);
         basePage.verifyTextMatching(2000,UpdateLedgerAccounts.UtilizationFeeSelectedField,"Sales");
         dashboardPropertyDetails.LogoutFromExistingAccount();
@@ -1407,9 +1406,9 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         Thread.sleep(4000);
-        loginPage.VerifyValidLoginForCosTechSupport();
-        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
-        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
+        loginPage.verifyValidLoginForCosTechSupport();
+        createCharger.clickButton(UpdateLedgerAccounts.SettingsTab, 5000);
+        createCharger.clickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         Assert.assertTrue(basePage.verifyTextMatching(4000,UpdateLedgerAccounts.LedgerConfigTitle,"Ledger Configuration"));
     }
     @Test(priority = 74)//Done
@@ -1454,7 +1453,7 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(4000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
 
     }
@@ -1468,11 +1467,11 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        dashboard.RefreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(3000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        dashboard.RefreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(3000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
 
     }
@@ -1556,7 +1555,7 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton, 1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000,UpdateLedgerAccounts.CancelButton));
 
@@ -1591,13 +1590,13 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosTechSupport();
+        loginPage.verifyValidLoginForCosTechSupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.SaveButton));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.CancelButton));
-        createCharger.ClickButton(UpdateLedgerAccounts.CancelButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.CancelButton, 1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.EditButton));
@@ -1610,14 +1609,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosTechSupport();
+        loginPage.verifyValidLoginForCosTechSupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.SaveButton));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.CancelButton));
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton,1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.EditButton));
@@ -1631,10 +1630,10 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosTechSupport();
+        loginPage.verifyValidLoginForCosTechSupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab,1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.BankAccount));
     }
     //    @Test(priority = 15)//Done
@@ -1674,11 +1673,11 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosTechSupport();
+        loginPage.verifyValidLoginForCosTechSupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab,1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000,UpdateLedgerAccounts.CancelButton));
 
@@ -1692,7 +1691,7 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosTechSupport();
+        loginPage.verifyValidLoginForCosTechSupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab,1000);
@@ -1709,13 +1708,13 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosTechSupport();
+        loginPage.verifyValidLoginForCosTechSupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.SaveButton));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.CancelButton));
-        createCharger.ClickButton(UpdateLedgerAccounts.CancelButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.CancelButton, 1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -1729,14 +1728,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosTechSupport();
+        loginPage.verifyValidLoginForCosTechSupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.SaveButton));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.CancelButton));
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -1750,14 +1749,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosTechSupport();
+        loginPage.verifyValidLoginForCosTechSupport();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.EditButton, 1000);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.SaveButton));
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(3000, UpdateLedgerAccounts.CancelButton));
-        createCharger.ClickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.ConnectBankEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.ConnectBankEditButton));
@@ -1773,14 +1772,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosTechSupport();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForCosTechSupport();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton,6000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EquipmentFeeSelectedField,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton,6000);
+        createCharger.clickButton(UpdateLedgerAccounts.EquipmentFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.EquipmentFeeDisabled,"Petty Cash");
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.EquipmentFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.EquipmentFeeSelectedField,"Petty Cash"));
 
@@ -1797,14 +1796,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosTechSupport();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForCosTechSupport();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 3000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.InstallationFeeSelectedField,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.InstallationFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.InstallationFeeDisabled,"Drawings");
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.InstallationFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.InstallationFeeSelectedField,"Drawings"));
 
@@ -1821,14 +1820,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosTechSupport();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForCosTechSupport();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 3000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TransactionFeeSelectedField,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.TransactionFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.TransactionFeeDisabled,"Travel Expense");
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.TransactionFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.TransactionFeeSelectedField,"Travel Expense"));
 
@@ -1845,14 +1844,14 @@ public class UpdateLedgerAccountTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLoginForCosTechSupport();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForCosTechSupport();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 3000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.EditButton,4000);
-        createCharger.ClickButton(UpdateLedgerAccounts.UtilizationFeeSelectedField,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.EditButton,4000);
+        createCharger.clickButton(UpdateLedgerAccounts.UtilizationFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.UtilizationFeeDisabled,"Accounts Payable");
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.UtilizationFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.UtilizationFeeSelectedField,"Accounts Payable"));
         dashboardPropertyDetails.LogoutFromExistingAccount();

@@ -1,13 +1,11 @@
 package pages;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import java.text.DecimalFormat;
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -102,9 +100,9 @@ public class GuestFlow extends BasePage {
             String SessionState = readText(SimulationPage.SessionStatus).replaceAll(": ","");
             System.out.println("Session Status: "+SessionState);
             if (SessionState.equals("Authorized")){
-                operation.ClickButton(SimulationPage.PlugInCharger,1500);
+                operation.clickButton(SimulationPage.PlugInCharger,1500);
                 simulationPage.SelectChargerStatusFromSimulator("Charging");
-                operation.ClickButton(SimulationPage.ChargerStatusSaveButton,3000);
+                operation.clickButton(SimulationPage.ChargerStatusSaveButton,3000);
                 waitelementtobeEnabled(DisconnectChargerbtn);
                 simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
                 Thread.sleep(2000);
@@ -127,9 +125,9 @@ public class GuestFlow extends BasePage {
         String SessionState = readText(SimulationPage.SessionStatus).replaceAll(": ","");
         System.out.println("Session Status: "+SessionState);
         if (SessionState.equals("Authorized")){
-            operation.ClickButton(SimulationPage.PlugInCharger,1500);
+            operation.clickButton(SimulationPage.PlugInCharger,1500);
             simulationPage.SelectChargerStatusFromSimulator("Charging");
-            operation.ClickButton(SimulationPage.ChargerStatusSaveButton,3000);
+            operation.clickButton(SimulationPage.ChargerStatusSaveButton,3000);
             waitelementtobeEnabled(DisconnectChargerbtn);
             simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
             Thread.sleep(2000);
@@ -145,9 +143,9 @@ public class GuestFlow extends BasePage {
         String SessionState = readText(SimulationPage.SessionStatus).replaceAll(": ","");
         System.out.println(SessionState);
         if (SessionState.equals("Authorized")){
-            operation.ClickButton(SimulationPage.PlugInCharger,1500);
+            operation.clickButton(SimulationPage.PlugInCharger,1500);
             simulator.SelectChargerStatusFromSimulator("Charging");
-            operation.ClickButton(SimulationPage.ChargerStatusSaveButton,3000);
+            operation.clickButton(SimulationPage.ChargerStatusSaveButton,3000);
             waitelementtobeEnabled(DisconnectChargerbtn);
             simulator.clickOnDisconnectTheChargerIfIsEnabled();
             Thread.sleep(2500);
@@ -246,9 +244,9 @@ public class GuestFlow extends BasePage {
             System.out.println("Session Status: "+SessionState);
             System.out.println("Sl no."+i);
             if (SessionState.equals("Authorized")){
-                operation.ClickButton(SimulationPage.PlugInCharger,1500);
+                operation.clickButton(SimulationPage.PlugInCharger,1500);
                 simulator.SelectChargerStatusFromSimulator("Charging");
-                operation.ClickButton(SimulationPage.ChargerStatusSaveButton,3000);
+                operation.clickButton(SimulationPage.ChargerStatusSaveButton,3000);
                 waitelementtobeEnabled(DisconnectChargerbtn);
                 simulator.clickOnDisconnectTheChargerIfIsEnabled();
                 Thread.sleep(2000);

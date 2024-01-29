@@ -24,9 +24,9 @@ public class EntityModuleTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(createentity.VerifyCreateNewEntityButtonHasDisplayed());
 
     }
@@ -39,8 +39,8 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateEntity createentity = new CreateEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
@@ -54,8 +54,8 @@ public class EntityModuleTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
@@ -71,8 +71,8 @@ public class EntityModuleTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
@@ -89,10 +89,10 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateEntity createentity = new CreateEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.VerifyEntityLocationInformationareShowingonCreateNewCompanyDrawer());
 
@@ -106,19 +106,19 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(""));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(createentity.VerifyEnttityNmaeErrorMessage(msg.EntityNameErrorMsg()));
     }
 
@@ -130,20 +130,20 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("InvalidPhone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("InvalidPhone")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
+        Assert.assertTrue(company.verifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
     }
 
     @Test(priority = 8)//Done
@@ -154,20 +154,20 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("InvalidPhone1")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("InvalidPhone1")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
+        Assert.assertTrue(company.verifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
     }
 
     @Test(priority = 9)//Done
@@ -178,20 +178,20 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("InvalidPhone2")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("InvalidPhone2")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
+        Assert.assertTrue(company.verifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
     }
 
     @Test(priority = 10)//Done
@@ -202,20 +202,20 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("InvalidPhone3")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("InvalidPhone3")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
+        Assert.assertTrue(company.verifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
     }
 
     @Test(priority = 11)//Done
@@ -226,20 +226,20 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("InvalidPhone4")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("InvalidPhone4")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
+        Assert.assertTrue(company.verifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
     }
 
     @Test(priority = 12)//Done
@@ -250,19 +250,19 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("invalidEmail1")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("invalidEmail1")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(createentity.VerifyInvalidEmailErrorMessage(msg.InvalidemailErrorMsgonCreateNewEntityDrawer()));
 
     }
@@ -275,19 +275,19 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("Numbers")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("Numbers")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(createentity.VerifyInvalidEmailErrorMessage(msg.InvalidemailErrorMsgonCreateNewEntityDrawer()));
 
     }
@@ -300,20 +300,20 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("Alphabates")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("Alphabates")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(createentity.VerifyInvalidEmailErrorMessage(msg.InvalidemailErrorMsgonCreateNewEntityDrawer()));
 
     }
@@ -326,19 +326,19 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("IncompleteEmailAddress")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("IncompleteEmailAddress")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(createentity.VerifyInvalidEmailErrorMessage(msg.InvalidemailErrorMsgonCreateNewEntityDrawer()));
 
     }
@@ -351,19 +351,19 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("SpecialCharacter")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("SpecialCharacter")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(createentity.VerifyInvalidEmailErrorMessage(msg.InvalidemailErrorMsgonCreateNewEntityDrawer()));
 
     }
@@ -376,19 +376,19 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("InvalidEmailFormat")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("InvalidEmailFormat")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(createentity.VerifyInvalidEmailErrorMessage(msg.InvalidemailErrorMsgonCreateNewEntityDrawer()));
 
     }
@@ -401,19 +401,19 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("WrongEmail")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("WrongEmail")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(createentity.VerifyInvalidEmailErrorMessage(msg.InvalidemailErrorMsgonCreateNewEntityDrawer()));
 
     }
@@ -426,20 +426,20 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(""));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyBlankEmailErrorMessage(msg.BlankEmailErrorMsg()));
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeCompanyEmail(""));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
+        Assert.assertTrue(company.verifyBlankEmailErrorMessage(msg.BlankEmailErrorMsg()));
 
 
     }
@@ -452,20 +452,20 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.SelectCompanyNameFromDropdown());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyInvalidEINNumberErrorMessage(msg.InvalidEINNumberErrorMsg()));
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
+        Assert.assertTrue(company.verifyInvalidEINNumberErrorMessage(msg.InvalidEINNumberErrorMsg()));
 
     }
 
@@ -478,19 +478,19 @@ public class EntityModuleTestCases extends BaseTest {
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
         EditCompany editCompany = new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Alphabates")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Alphabates")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
@@ -504,19 +504,19 @@ public class EntityModuleTestCases extends BaseTest {
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
         EditCompany editCompany = new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("ZipCodewithFourDigits")));
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("ZipCodewithFourDigits")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
@@ -529,20 +529,20 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("Numbers")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("Numbers")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
+        Assert.assertTrue(company.verifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
 
     }
 
@@ -557,19 +557,19 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("InvalidZipcode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("InvalidZipcode")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(company.verifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
 
     }
 
@@ -582,19 +582,19 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCodewithFourDigits")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCodewithFourDigits")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(company.verifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
 
     }
 
@@ -606,18 +606,18 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(createentity.VerifyStateFieldisDisabled());
     }
 
@@ -629,18 +629,18 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(createentity.VerifyCityFieldisDisabled());
     }
 
@@ -652,18 +652,18 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(createentity.VerifyCountryFieldisDisabled());
     }
 
@@ -674,8 +674,8 @@ public class EntityModuleTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
@@ -692,22 +692,22 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
         //Assert.assertTrue(createentity.ClickonSelectCompanydropdownFromEntitysameasCompanyDrawer());
         // Assert.assertTrue(createentity.WriteCompanyName(""));
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(createentity.verifyCompanyNameErrorMessage(msg.BlankCompanyErrorMsg()));
 
     }
@@ -720,21 +720,21 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateEntity createentity = new CreateEntity(driver);
         CreateCompany company=new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(createentity.ClickonCreateEntitybutton());
 //        Assert.assertTrue(createentity.ClickonSelectCompanydropdownFromEntityDrawer());
         Assert.assertTrue(createentity.SelectCompanyNameFromDropdown());
-        Assert.assertTrue(createentity.WriteAutomatedEntityName());
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
-        Assert.assertTrue(company.WriteRandomEINNumber());
-        Assert.assertTrue(createentity.EnterNotesinEntityInformation());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.writeAutomatedEntityName(createentity.writeEntityName()));
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
+        Assert.assertTrue(company.writeRandomEINNumber());
+        Assert.assertTrue(createentity.enterNotesInEntityInformation());
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(company.verifyAnElementDisplayedOrNot(2500,DashboardPropertyDetails.TopAccountName));
     }
 
@@ -773,10 +773,10 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         EditCompany editCompany= new EditCompany(driver);
         SearchEntity searchentity= new SearchEntity(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         // Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(editCompany.ClickonSearchButton());
         Assert.assertTrue(searchentity.verifyAnElementDisplayedOrNot(200,SearchCompany.Spiner));
     }
@@ -791,11 +791,11 @@ public class EntityModuleTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
         SearchEntity searchEntity = new SearchEntity(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(searchcompany.ClickonSearchbar());
         Assert.assertTrue(editCompany.SearchbyName(prop.getProperty("Entity")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
@@ -812,10 +812,10 @@ public class EntityModuleTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
         SearchEntity searchEntity = new SearchEntity(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(searchcompany.ClickonSearchbar());
         Assert.assertTrue(searchcompany.SearchbyEmail(prop.getProperty("CompanyEmail")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
@@ -832,10 +832,10 @@ public class EntityModuleTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
         SearchEntity searchEntity = new SearchEntity(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(searchcompany.ClickonSearchbar());
         Assert.assertTrue(searchcompany.SearchbyPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
@@ -851,10 +851,10 @@ public class EntityModuleTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
         SearchEntity searchEntity= new SearchEntity(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(searchcompany.ClickonSearchbar());
         Assert.assertTrue(editCompany.SearchbyName(prop.getProperty("NonExistingEntity")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
@@ -871,10 +871,10 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         SearchEntity searchEntity= new SearchEntity(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
         Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
@@ -891,11 +891,11 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         SearchEntity searchEntity= new SearchEntity(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
         Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
@@ -913,11 +913,11 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         SearchEntity searchEntity=new SearchEntity(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
         Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
@@ -938,11 +938,11 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         SearchEntity searchEntity=new SearchEntity(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
         Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
         Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
@@ -963,8 +963,8 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         SearchEntity searchEntity=new SearchEntity(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
 //        Assert.assertTrue(dashboard.GotoDashboard());
 //        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //        Assert.assertTrue(dashboard.ClickonEntityManagement());
@@ -1010,10 +1010,10 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         EditEntity editEntity= new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editEntity.VerifyEntityInformationareShowing());
     }
@@ -1026,8 +1026,8 @@ public class EntityModuleTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonCompanyManagement());
         Assert.assertTrue(editCompany.VerifyEditCompanyButtonHasDisplayed());*/
@@ -1044,13 +1044,13 @@ public class EntityModuleTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         CreateEntity createentity = new CreateEntity(driver);
         EditEntity editEntity=new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editEntity.RemoveEntityNameFromEditEntityDrawer());
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(createentity.VerifyEnttityNmaeErrorMessage(msg.EntityNameErrorMsg()));
     }
 
@@ -1065,18 +1065,18 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company=new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
-        editEntity.FieldClear(EditCompany.searchbar);
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
+        editEntity.fieldClear(EditCompany.searchbar);
         createCharger.writeInputText(EditCompany.searchbar,prop.getProperty("Entity2"), 5000);
-        createCharger.ClickButton(EditCompany.searchbtn,1000);
+        createCharger.clickButton(EditCompany.searchbtn,1000);
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editEntity.RemoveEntityPhoneNumber());
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("InvalidPhone")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("InvalidPhone")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
+        Assert.assertTrue(company.verifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
     }
 
     @Test(priority = 75)//Done
@@ -1089,15 +1089,15 @@ public class EntityModuleTestCases extends BaseTest {
         EditEntity editEntity=new EditEntity(driver);
         CreateCompany company=new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editEntity.RemoveEntityPhoneNumber());
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Alphabates")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Alphabates")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
+        Assert.assertTrue(company.verifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
     }
 
     @Test(priority = 76)//Done
@@ -1110,15 +1110,15 @@ public class EntityModuleTestCases extends BaseTest {
         EditEntity editEntity=new EditEntity(driver);
         CreateCompany company=new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editEntity.RemoveEntityPhoneNumber());
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("InvalidPhone2")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("InvalidPhone2")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
+        Assert.assertTrue(company.verifyBlankPhoneNumberErrorMessage(msg.BlankPhoneNumberErrorMsg()));
     }
 
     @Test(priority = 77)//Done
@@ -1131,15 +1131,15 @@ public class EntityModuleTestCases extends BaseTest {
         EditEntity editEntity=new EditEntity(driver);
         CreateCompany company=new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
 /*        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editEntity.RemoveEntityPhoneNumber());
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("InvalidPhone3")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("InvalidPhone3")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
+        Assert.assertTrue(company.verifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
     }
 
 
@@ -1153,15 +1153,15 @@ public class EntityModuleTestCases extends BaseTest {
         EditEntity editEntity=new EditEntity(driver);
         CreateCompany company=new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editEntity.RemoveEntityPhoneNumber());
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("InvalidPhone4")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("InvalidPhone4")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
+        Assert.assertTrue(company.verifyPhoneNumberErrorMessage(msg.InvalidPhoneErrorMsg()));
     }
 
 
@@ -1175,14 +1175,14 @@ public class EntityModuleTestCases extends BaseTest {
         CreateEntity createentity = new CreateEntity(driver);
         EditEntity editEntity=new EditEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editEntity.RemoveEmailFromEditEntityDrawer());
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("invalidEmail1")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("invalidEmail1")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(createentity.VerifyInvalidEmailErrorMessage(msg.InvalidemailErrorMsgonCreateNewEntityDrawer()));
     }
 
@@ -1197,14 +1197,14 @@ public class EntityModuleTestCases extends BaseTest {
         CreateEntity createentity = new CreateEntity(driver);
         EditEntity editEntity=new EditEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editEntity.RemoveEmailFromEditEntityDrawer());
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("Numbers")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("Numbers")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(createentity.VerifyInvalidEmailErrorMessage(msg.InvalidemailErrorMsgonCreateNewEntityDrawer()));
     }
 
@@ -1218,14 +1218,14 @@ public class EntityModuleTestCases extends BaseTest {
         CreateEntity createentity = new CreateEntity(driver);
         EditEntity editEntity=new EditEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editEntity.RemoveEmailFromEditEntityDrawer());
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("Alphabates")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("Alphabates")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(createentity.VerifyInvalidEmailErrorMessage(msg.InvalidemailErrorMsgonCreateNewEntityDrawer()));
     }
 
@@ -1239,14 +1239,14 @@ public class EntityModuleTestCases extends BaseTest {
         CreateEntity createentity = new CreateEntity(driver);
         EditEntity editEntity=new EditEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editEntity.RemoveEmailFromEditEntityDrawer());
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("IncompleteEmailAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("IncompleteEmailAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(createentity.VerifyInvalidEmailErrorMessage(msg.InvalidemailErrorMsgonCreateNewEntityDrawer()));
     }
 
@@ -1260,14 +1260,14 @@ public class EntityModuleTestCases extends BaseTest {
         CreateEntity createentity = new CreateEntity(driver);
         EditEntity editEntity=new EditEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editEntity.RemoveEmailFromEditEntityDrawer());
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("SpecialCharacter")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("SpecialCharacter")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(createentity.VerifyInvalidEmailErrorMessage(msg.InvalidemailErrorMsgonCreateNewEntityDrawer()));
     }
 
@@ -1281,14 +1281,14 @@ public class EntityModuleTestCases extends BaseTest {
         CreateEntity createentity = new CreateEntity(driver);
         EditEntity editEntity=new EditEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editEntity.RemoveEmailFromEditEntityDrawer());
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("InvalidEmailFormat")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("InvalidEmailFormat")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(createentity.VerifyInvalidEmailErrorMessage(msg.InvalidemailErrorMsgonCreateNewEntityDrawer()));
     }
 
@@ -1302,14 +1302,14 @@ public class EntityModuleTestCases extends BaseTest {
         CreateEntity createentity = new CreateEntity(driver);
         EditEntity editEntity=new EditEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editEntity.RemoveEmailFromEditEntityDrawer());
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("WrongEmail")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("WrongEmail")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(createentity.VerifyInvalidEmailErrorMessage(msg.InvalidemailErrorMsgonCreateNewEntityDrawer()));
     }
 
@@ -1323,15 +1323,15 @@ public class EntityModuleTestCases extends BaseTest {
         CreateEntity createentity = new CreateEntity(driver);
         EditEntity editEntity=new EditEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editEntity.RemoveEmailFromEditEntityDrawer());
-        Assert.assertTrue(company.WriteCompanyEmail(""));
-        Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyBlankEmailErrorMessage(msg.BlankEmailErrorMsg()));    }
+        Assert.assertTrue(company.writeCompanyEmail(""));
+        Assert.assertTrue(createentity.clickOnSaveButton());
+        Assert.assertTrue(company.verifyBlankEmailErrorMessage(msg.BlankEmailErrorMsg()));    }
 
 
 
@@ -1344,14 +1344,14 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateEntity createentity = new CreateEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemoveEINFromEditCompanyDrawer());
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("SpecialCharacter")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("SpecialCharacter")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
     }
 
@@ -1364,14 +1364,14 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateEntity createentity = new CreateEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemoveEINFromEditCompanyDrawer());
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Alphabates")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Alphabates")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
     }
 
@@ -1384,14 +1384,14 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateEntity createentity = new CreateEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemoveZipcodeFromEditCompanyDrawer());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("Numbers")));
-        Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.verifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
     @Test(priority = 90)//Done
@@ -1403,14 +1403,14 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateEntity createentity = new CreateEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemoveZipcodeFromEditCompanyDrawer());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("InvalidZipcode")));
-        Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("InvalidZipcode")));
+        Assert.assertTrue(company.verifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
     @Test(priority = 91)//Done
@@ -1422,15 +1422,15 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateEntity createentity = new CreateEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemoveZipcodeFromEditCompanyDrawer());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCodewithFourDigits")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
-        Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCodewithFourDigits")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
+        Assert.assertTrue(company.verifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
     @Test(priority = 92)//Done
@@ -1442,14 +1442,14 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateEntity createentity = new CreateEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemoveZipcodeFromEditCompanyDrawer());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("InvalidZipcodeformat")));
-        Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("InvalidZipcodeformat")));
+        Assert.assertTrue(company.verifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
     @Test(priority = 93)//Done
@@ -1461,14 +1461,14 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateEntity createentity = new CreateEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
        /* Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.RemoveZipcodeFromEditCompanyDrawer());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("Numbers")));
-        Assert.assertTrue(company.VerifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.verifyInvalidZipCodeErrorMessage(msg.InvalidZipCodeErrorMsg()));
     }
 
     @Test(priority = 94)//Done
@@ -1480,24 +1480,24 @@ public class EntityModuleTestCases extends BaseTest {
         EditEntity editEntity= new EditEntity(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateEntity createentity=new CreateEntity(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editEntity.RemoveEntityNameFromEditEntityDrawer());
-        Assert.assertTrue(createentity.WriteAutomatedEntityName());;
+        Assert.assertTrue(createentity.writeAutomatedEntityName(createentity.writeEntityName()));;
         Assert.assertTrue(editEntity.RemoveEntityPhoneNumber());
-        Assert.assertTrue(createentity.WriteEntityPhoneNumber(prop.getProperty("Phone")));
+        Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(editEntity.RemoveEmailFromEditEntityDrawer());
-        Assert.assertTrue(company.WriteCompanyEmail(prop.getProperty("CompanyEmail")));
+        Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
         Assert.assertTrue(editCompany.RemoveEINFromEditCompanyDrawer());
-        Assert.assertTrue(company.EnterEINNumber(prop.getProperty("Numbers")));
+        Assert.assertTrue(company.enterEINNumber(prop.getProperty("Numbers")));
         Assert.assertTrue(editCompany.RemoveZipcodeFromEditCompanyDrawer());
-        Assert.assertTrue(company.EnterZipCode(prop.getProperty("ZipCode")));
+        Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(editEntity.RemoveAddressFromEditEntityDrawer());
-        Assert.assertTrue(createentity.EnterAddress(prop.getProperty("CompnayAddress")));
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.enterAddress(prop.getProperty("CompnayAddress")));
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(createentity.VerifyCreateNewEntityButtonHasDisplayed());
     }
 
@@ -1511,11 +1511,11 @@ public class EntityModuleTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditEntity editEntity= new EditEntity(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.RefreshBrowser());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(searchcompany.ClickonSearchbar());
         Assert.assertTrue(editCompany.SearchbyName(prop.getProperty("Entity")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
@@ -1531,10 +1531,10 @@ public class EntityModuleTestCases extends BaseTest {
         EditEntity editEntity= new EditEntity(driver);
         CreateCompany company = new CreateCompany(driver);
         CreateEntity createentity=new CreateEntity(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editEntity.RemoveEntityNameFromEditEntityDrawer());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
@@ -1593,12 +1593,12 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(editCompany.ClickonEditbutton());
-        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        createCharger.clickButton(EditCompany.ShowButtonEin,2000);
         Assert.assertTrue(editCompany.verifyAFieldIsEnable(2000,CreateCompany.ein));
 
     }
@@ -1610,8 +1610,8 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(editCompany.verifyHiddenEINNumberAndShowButton());
 
@@ -1627,15 +1627,15 @@ public class EntityModuleTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         EditEntity editEntity = new EditEntity(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
-        customerSignUp.FieldClear(EditCompany.searchbar);
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
+        customerSignUp.fieldClear(EditCompany.searchbar);
         createCharger.writeInputText(EditCompany.searchbar,prop.getProperty("Entity3"), 5000);
-        createCharger.ClickButton(EditCompany.searchbtn,1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
-        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        createCharger.clickButton(EditCompany.searchbtn,1000);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.ShowButtonEin,2000);
         Assert.assertTrue(editCompany.verifyEinSaving());
         Assert.assertTrue(editCompany.verifyAuditLogStatusForEinChange());
 
@@ -1652,16 +1652,16 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         CreateEntity createEntity = new CreateEntity(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 /*        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());
         createCharger.writeInputText(EditCompany.searchbar, prop.getProperty("Entity3"), 5000);
         createCharger.ClickButton(EditCompany.searchbtn,1000);*/
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
-        createCharger.ClickButton(EditCompany.ShowButtonEin,4000);
-        customerSignUp.FieldClear(company.ein);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.ShowButtonEin,4000);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5645657567567567567",2500);
-        Assert.assertTrue(createEntity.ClickonSaveButton());
+        Assert.assertTrue(createEntity.clickOnSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
@@ -1676,17 +1676,17 @@ public class EntityModuleTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         CreateEntity createentity = new CreateEntity(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
 //        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
-        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.ShowButtonEin,2000);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5445  6765765",2500);
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
@@ -1701,17 +1701,17 @@ public class EntityModuleTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         CreateEntity createentity = new CreateEntity(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
 //        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
-        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.ShowButtonEin,2000);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5--67567567567",2500);
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
@@ -1726,17 +1726,17 @@ public class EntityModuleTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         CreateEntity createentity = new CreateEntity(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
 //        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
-        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.ShowButtonEin,2000);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"22-4523789",2500);
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
@@ -1751,17 +1751,17 @@ public class EntityModuleTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         CreateEntity createentity = new CreateEntity(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
 //        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
-        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.ShowButtonEin,2000);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"aaertyuwe",2500);
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
@@ -1776,17 +1776,17 @@ public class EntityModuleTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         CreateEntity createentity = new CreateEntity(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
 //        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
-        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.ShowButtonEin,2000);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"er-yqsdert",2500);
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
@@ -1801,17 +1801,17 @@ public class EntityModuleTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         CreateEntity createentity = new CreateEntity(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
 //        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
-        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.ShowButtonEin,2000);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"1234567as",2500);
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
 
@@ -1832,10 +1832,10 @@ public class EntityModuleTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         dashboardPropertyDetails.LogoutFromExistingAccount();
         Thread.sleep(5000);
-        loginPage.VerifyValidLoginForCosAccounting();
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
-        createCharger.ClickButton(EditCompany.EditCompanyBtn, 3000);
+        loginPage.verifyValidLoginForCosAccounting();
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
+        createCharger.clickButton(EditCompany.EditCompanyBtn, 3000);
         Assert.assertTrue(editCompany.verifyHiddenEINNumberAndShowButton());
     }
 
@@ -1848,14 +1848,14 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosAccounting();
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        loginPage.verifyValidLoginForCosAccounting();
+        dashboard.refreshBrowser();
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
 //            createCharger.writeInputText(EditCompany.searchbar,"Tesla company 2",5000);
 //            createCharger.ClickButton(EditCompany.searchbtn,1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
-        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.ShowButtonEin,2000);
         Assert.assertTrue(editCompany.verifyAFieldIsEnable(2000,CreateCompany.ein));
 
     }
@@ -1867,11 +1867,11 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosAccounting();
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        loginPage.verifyValidLoginForCosAccounting();
+        dashboard.refreshBrowser();
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
         Assert.assertTrue(editCompany.verifyHiddenEINNumberAndShowButton());
 
     }
@@ -1886,15 +1886,15 @@ public class EntityModuleTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         EditEntity editEntity = new EditEntity(driver);
-        loginPage.VerifyValidLoginForCosAccounting();
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
-        editEntity.FieldClear(EditCompany.searchbar);
+        loginPage.verifyValidLoginForCosAccounting();
+        dashboard.refreshBrowser();
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
+        editEntity.fieldClear(EditCompany.searchbar);
         createCharger.writeInputText(EditCompany.searchbar,prop.getProperty("Entity2"),5000);
-        createCharger.ClickButton(EditCompany.searchbtn,1000);
+        createCharger.clickButton(EditCompany.searchbtn,1000);
         editCompany.ClickonEditbutton();
-        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        createCharger.clickButton(EditCompany.ShowButtonEin,2000);
         Assert.assertTrue(editCompany.verifyEinSaving());
         Assert.assertTrue(editCompany.verifyAuditLogStatusForEinChange());
 
@@ -1911,16 +1911,16 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         CreateEntity createentity = new CreateEntity(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        dashboard.refreshBrowser();
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
 //        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
         editCompany.ClickonEditbutton();
-        createCharger.ClickButton(EditCompany.ShowButtonEin,4000);
-        customerSignUp.FieldClear(company.ein);
+        createCharger.clickButton(EditCompany.ShowButtonEin,4000);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5645657567567567567",2500);
-        Assert.assertTrue(createentity.ClickonSaveButton());
+        Assert.assertTrue(createentity.clickOnSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
 
     }
@@ -1938,14 +1938,14 @@ public class EntityModuleTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         dashboardPropertyDetails.LogoutFromExistingAccount();
         Thread.sleep(4000);
-        loginPage.VerifyValidLoginForCosPropertySupport();
+        loginPage.verifyValidLoginForCosPropertySupport();
         Thread.sleep(2000);
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         createCharger.writeInputText(EditCompany.searchbar,"Apple A",5000);
-        createCharger.ClickButton(EditCompany.searchbtn,1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
-        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        createCharger.clickButton(EditCompany.searchbtn,1000);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.ShowButtonEin,2000);
         Assert.assertTrue(editCompany.verifyEinSaving());
     }
 
@@ -1962,11 +1962,11 @@ public class EntityModuleTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         dashboardPropertyDetails.LogoutFromExistingAccount();
         Thread.sleep(4000);
-        loginPage.VerifyValidLoginForCosDriverSupport();
+        loginPage.verifyValidLoginForCosDriverSupport();
         Thread.sleep(2000);
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
         Assert.assertTrue(editCompany.verifyAFieldIsDisable(4000,EditCompany.ShowButtonBesideEINField));
         Assert.assertTrue(editCompany.verifyAFieldIsDisable(1000,EditCompany.SaveCompanyButton));
 
@@ -1985,11 +1985,11 @@ public class EntityModuleTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         dashboardPropertyDetails.LogoutFromExistingAccount();
         Thread.sleep(4000);
-        loginPage.VerifyValidLoginForCosTechSupport();
+        loginPage.verifyValidLoginForCosTechSupport();
         Thread.sleep(2000);
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
         Assert.assertTrue(editCompany.verifyAFieldIsDisable(4000,EditCompany.ShowButtonBesideEINField));
         Assert.assertTrue(editCompany.verifyAFieldIsDisable(1000,EditCompany.SaveCompanyButton));
     }

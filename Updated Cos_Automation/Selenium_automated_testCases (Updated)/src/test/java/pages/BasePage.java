@@ -1,14 +1,12 @@
 package pages;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.Properties;
 
 public class BasePage {
     public WebDriver driver;
@@ -216,11 +214,20 @@ public class BasePage {
     }
 
 
-    //Click Method
+    //Click method
     public void click(By elementBy) {
         waitVisibility(elementBy);
         waitelemtclickable(elementBy);
         driver.findElement(elementBy).click();
+    }
+    //Click method with delay
+    public boolean clickButton(By element, int delay)  throws InterruptedException {
+        Thread.sleep(delay);
+        waitforPresence(element);
+        waitelemtclickable(element);
+        waitelementtobeEnabled(element);
+        click(element);
+        return true;
     }
 
     //Clear Text
@@ -229,7 +236,7 @@ public class BasePage {
         driver.findElement(elementBy).clear();
     }
 
-    public boolean FieldClear(By element) throws InterruptedException {
+    public boolean fieldClear(By element) throws InterruptedException {
         Thread.sleep(2000);
         waitforPresence(element);
         driver.findElement(element).sendKeys(Keys.chord(Keys.CONTROL + "a", Keys.DELETE));
@@ -241,6 +248,14 @@ public class BasePage {
         waitVisibility(elementBy);
         waitelemtclickable(elementBy);
         driver.findElement(elementBy).sendKeys(text);
+    }
+    //Write Text with delay
+    public boolean writeInputText(By element, String text, int delay)  throws InterruptedException {
+        Thread.sleep(delay);
+        waitVisibility(element);
+        waitelemtclickable(element);
+        writeText(element, text);
+        return true;
     }
 
 
@@ -287,5 +302,9 @@ public class BasePage {
             return false;
         }
 
+    }
+
+    public void waitForFewMoment(int waitingTimeLimit) throws InterruptedException {
+        Thread.sleep(waitingTimeLimit);
     }
 }

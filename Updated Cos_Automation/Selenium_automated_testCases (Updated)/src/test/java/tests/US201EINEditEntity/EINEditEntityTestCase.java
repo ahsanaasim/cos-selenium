@@ -22,12 +22,12 @@ public class EINEditEntityTestCase extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany = new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         createCharger.writeInputText(EditCompany.searchbar, "Tesla company 2", 5000);
-        createCharger.ClickButton(EditCompany.searchbtn, 1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn, 3000);
+        createCharger.clickButton(EditCompany.searchbtn, 1000);
+        createCharger.clickButton(EditCompany.EditCompanyBtn, 3000);
         Assert.assertTrue(editCompany.verifyHiddenEINNumberAndShowButton());
     }
 
@@ -40,14 +40,14 @@ public class EINEditEntityTestCase extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
 //            Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //            Assert.assertTrue(dashboard.ClickonCompanyManagement());
 //            createCharger.writeInputText(EditCompany.searchbar,"Tesla company 2",5000);
 //            createCharger.ClickButton(EditCompany.searchbtn,1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
-        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.ShowButtonEin,2000);
         Assert.assertTrue(editCompany.verifyEinNumberGetEnabled());
 
     }
@@ -59,9 +59,9 @@ public class EINEditEntityTestCase extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         editCompany.ClickCancelbutton();
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
         Assert.assertTrue(editCompany.verifyHiddenEINNumberAndShowButton());
 
     }
@@ -75,20 +75,20 @@ public class EINEditEntityTestCase extends BaseTest {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
         Thread.sleep(4000);
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Thread.sleep(3000);
-        customerSignUp.FieldClear(EditCompany.searchbar);
+        customerSignUp.fieldClear(EditCompany.searchbar);
         createCharger.writeInputText(EditCompany.searchbar,"Selenium Company 2",5000);
-        createCharger.ClickButton(EditCompany.searchbtn,1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
-        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        createCharger.clickButton(EditCompany.searchbtn,1000);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.ShowButtonEin,2000);
         Assert.assertTrue(editCompany.verifyEinSaving());
         Assert.assertTrue(editCompany.verifyAuditLogStatusForEinChange());
-        createCharger.ClickButton(EditCompany.HideButtonEin,3000);
+        createCharger.clickButton(EditCompany.HideButtonEin,3000);
 
     }
     @Test(priority = 5)//Done
@@ -109,8 +109,8 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
-        createCharger.ClickButton(EditCompany.ShowButtonEin,4000);
-        customerSignUp.FieldClear(company.ein);
+        createCharger.clickButton(EditCompany.ShowButtonEin,4000);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5645657567567567567",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -127,7 +127,7 @@ public class EINEditEntityTestCase extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        dashboard.RefreshBrowser();
 //        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //        Assert.assertTrue(dashboard.ClickonCompanyManagement());
@@ -135,7 +135,7 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
 //        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5445  6765765",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -152,7 +152,7 @@ public class EINEditEntityTestCase extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 ////        dashboard.RefreshBrowser();
 //        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //        Assert.assertTrue(dashboard.ClickonCompanyManagement());
@@ -160,7 +160,7 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
 //        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5--67567567567",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -177,7 +177,7 @@ public class EINEditEntityTestCase extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 ////        dashboard.RefreshBrowser();
 //        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //        Assert.assertTrue(dashboard.ClickonCompanyManagement());
@@ -185,7 +185,7 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
 //        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"22-4523789",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -202,7 +202,7 @@ public class EINEditEntityTestCase extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditEntity editEntity = new EditEntity(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 ////        dashboard.RefreshBrowser();
 //        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //        Assert.assertTrue(dashboard.ClickonCompanyManagement());
@@ -210,7 +210,7 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
 //        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"aaertyuwe",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -227,7 +227,7 @@ public class EINEditEntityTestCase extends BaseTest {
         EditEntity editEntity = new EditEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 ////        dashboard.RefreshBrowser();
 //        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //        Assert.assertTrue(dashboard.ClickonCompanyManagement());
@@ -235,7 +235,7 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
 //        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"er-yqsdert",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -253,7 +253,7 @@ public class EINEditEntityTestCase extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         EditEntity editEntity = new EditEntity(driver);
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 ////        dashboard.RefreshBrowser();
 //        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //        Assert.assertTrue(dashboard.ClickonCompanyManagement());
@@ -261,7 +261,7 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
 //        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"1234567as",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -282,13 +282,13 @@ public class EINEditEntityTestCase extends BaseTest {
         EditCompany editCompany = new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         Thread.sleep(4000);
-        loginPage.VerifyValidLoginForCosAccounting();
+        loginPage.verifyValidLoginForCosAccounting();
         Thread.sleep(2000);
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         createCharger.writeInputText(EditCompany.searchbar, "Tesla company 2", 5000);
-        createCharger.ClickButton(EditCompany.searchbtn, 1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn, 3000);
+        createCharger.clickButton(EditCompany.searchbtn, 1000);
+        createCharger.clickButton(EditCompany.EditCompanyBtn, 3000);
         Assert.assertTrue(editCompany.verifyHiddenEINNumberAndShowButton());
     }
 
@@ -301,14 +301,14 @@ public class EINEditEntityTestCase extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosAccounting();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForCosAccounting();
+        dashboard.refreshBrowser();
 //            Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //            Assert.assertTrue(dashboard.ClickonCompanyManagement());
 //            createCharger.writeInputText(EditCompany.searchbar,"Tesla company 2",5000);
 //            createCharger.ClickButton(EditCompany.searchbtn,1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
-        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.ShowButtonEin,2000);
         Assert.assertTrue(editCompany.verifyEinNumberGetEnabled());
 
     }
@@ -320,9 +320,9 @@ public class EINEditEntityTestCase extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosAccounting();
+        loginPage.verifyValidLoginForCosAccounting();
         editCompany.ClickCancelbutton();
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
         Assert.assertTrue(editCompany.verifyHiddenEINNumberAndShowButton());
 
     }
@@ -336,19 +336,19 @@ public class EINEditEntityTestCase extends BaseTest {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosAccounting();
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        loginPage.verifyValidLoginForCosAccounting();
+        dashboard.refreshBrowser();
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Thread.sleep(3000);
-        customerSignUp.FieldClear(EditCompany.searchbar);
+        customerSignUp.fieldClear(EditCompany.searchbar);
         createCharger.writeInputText(EditCompany.searchbar,"Selenium Company 2",5000);
-        createCharger.ClickButton(EditCompany.searchbtn,1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
-        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        createCharger.clickButton(EditCompany.searchbtn,1000);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.ShowButtonEin,2000);
         Assert.assertTrue(editCompany.verifyEinSaving());
         Assert.assertTrue(editCompany.verifyAuditLogStatusForEinChange());
-        createCharger.ClickButton(EditCompany.HideButtonEin,3000);
+        createCharger.clickButton(EditCompany.HideButtonEin,3000);
 
     }
     @Test(priority = 16)//Done
@@ -369,8 +369,8 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
-        createCharger.ClickButton(EditCompany.ShowButtonEin,4000);
-        customerSignUp.FieldClear(company.ein);
+        createCharger.clickButton(EditCompany.ShowButtonEin,4000);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5645657567567567567",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -387,7 +387,7 @@ public class EINEditEntityTestCase extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosAccounting();
+        loginPage.verifyValidLoginForCosAccounting();
 //        dashboard.RefreshBrowser();
 //        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //        Assert.assertTrue(dashboard.ClickonCompanyManagement());
@@ -395,7 +395,7 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
 //        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5445  6765765",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -412,7 +412,7 @@ public class EINEditEntityTestCase extends BaseTest {
         EditEntity editEntity = new EditEntity(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosAccounting();
+        loginPage.verifyValidLoginForCosAccounting();
 ////        dashboard.RefreshBrowser();
 //        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //        Assert.assertTrue(dashboard.ClickonCompanyManagement());
@@ -420,7 +420,7 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
 //        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5--67567567567",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -437,7 +437,7 @@ public class EINEditEntityTestCase extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditEntity editEntity = new EditEntity(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosAccounting();
+        loginPage.verifyValidLoginForCosAccounting();
 ////        dashboard.RefreshBrowser();
 //        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //        Assert.assertTrue(dashboard.ClickonCompanyManagement());
@@ -445,7 +445,7 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
 //        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"22-4523789",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -462,7 +462,7 @@ public class EINEditEntityTestCase extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditEntity editEntity = new EditEntity(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosAccounting();
+        loginPage.verifyValidLoginForCosAccounting();
 ////        dashboard.RefreshBrowser();
 //        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //        Assert.assertTrue(dashboard.ClickonCompanyManagement());
@@ -470,7 +470,7 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
 //        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"aaertyuwe",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -487,7 +487,7 @@ public class EINEditEntityTestCase extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditEntity editEntity = new EditEntity(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosAccounting();
+        loginPage.verifyValidLoginForCosAccounting();
 ////        dashboard.RefreshBrowser();
 //        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //        Assert.assertTrue(dashboard.ClickonCompanyManagement());
@@ -495,7 +495,7 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
 //        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"er-yqsdert",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -513,7 +513,7 @@ public class EINEditEntityTestCase extends BaseTest {
         EditEntity editEntity = new EditEntity(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
-        loginPage.VerifyValidLoginForCosAccounting();
+        loginPage.verifyValidLoginForCosAccounting();
 ////        dashboard.RefreshBrowser();
 //        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //        Assert.assertTrue(dashboard.ClickonCompanyManagement());
@@ -521,7 +521,7 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
 //        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"1234567as",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -540,13 +540,13 @@ public class EINEditEntityTestCase extends BaseTest {
         EditCompany editCompany = new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         Thread.sleep(4000);
-        loginPage.VerifyValidLoginForCosPropertySupport();
+        loginPage.verifyValidLoginForCosPropertySupport();
         Thread.sleep(2000);
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         createCharger.writeInputText(EditCompany.searchbar, "Tesla company 2", 5000);
-        createCharger.ClickButton(EditCompany.searchbtn, 1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn, 3000);
+        createCharger.clickButton(EditCompany.searchbtn, 1000);
+        createCharger.clickButton(EditCompany.EditCompanyBtn, 3000);
         Assert.assertTrue(editCompany.verifyHiddenEINNumberAndShowButton());
     }
 
@@ -559,14 +559,14 @@ public class EINEditEntityTestCase extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();;
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLoginForCosPropertySupport();;
+        dashboard.refreshBrowser();
 //            Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //            Assert.assertTrue(dashboard.ClickonCompanyManagement());
 //            createCharger.writeInputText(EditCompany.searchbar,"Tesla company 2",5000);
 //            createCharger.ClickButton(EditCompany.searchbtn,1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
-        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.ShowButtonEin,2000);
         Assert.assertTrue(editCompany.verifyEinNumberGetEnabled());
 
     }
@@ -578,9 +578,9 @@ public class EINEditEntityTestCase extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();;
+        loginPage.verifyValidLoginForCosPropertySupport();;
         editCompany.ClickCancelbutton();
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
         Assert.assertTrue(editCompany.verifyHiddenEINNumberAndShowButton());
 
     }
@@ -594,20 +594,20 @@ public class EINEditEntityTestCase extends BaseTest {
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();;
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
+        loginPage.verifyValidLoginForCosPropertySupport();;
+        dashboard.refreshBrowser();
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Thread.sleep(3000);
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Thread.sleep(5000);
-        customerSignUp.FieldClear(EditCompany.searchbar);
+        customerSignUp.fieldClear(EditCompany.searchbar);
         createCharger.writeInputText(EditCompany.searchbar,"Selenium Company 2",5000);
-        createCharger.ClickButton(EditCompany.searchbtn,1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
-        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
+        createCharger.clickButton(EditCompany.searchbtn,1000);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.ShowButtonEin,2000);
         Assert.assertTrue(editCompany.verifyEinSaving());
         Assert.assertTrue(editCompany.verifyAuditLogStatusForEinChange());
-        createCharger.ClickButton(EditCompany.HideButtonEin,3000);
+        createCharger.clickButton(EditCompany.HideButtonEin,3000);
 
     }
     @Test(priority = 27)//Done
@@ -628,8 +628,8 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.writeInputText(EditCompany.searchbar,"Selenium Company (Automation purpose)",5000);
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
-        createCharger.ClickButton(EditCompany.ShowButtonEin,4000);
-        customerSignUp.FieldClear(company.ein);
+        createCharger.clickButton(EditCompany.ShowButtonEin,4000);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5645657567567567567",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -646,7 +646,7 @@ public class EINEditEntityTestCase extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();
+        loginPage.verifyValidLoginForCosPropertySupport();
 //        dashboard.RefreshBrowser();
 //        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //        Assert.assertTrue(dashboard.ClickonCompanyManagement());
@@ -654,7 +654,7 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
 //        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5445  6765765",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -671,7 +671,7 @@ public class EINEditEntityTestCase extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();
+        loginPage.verifyValidLoginForCosPropertySupport();
 ////        dashboard.RefreshBrowser();
 //        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //        Assert.assertTrue(dashboard.ClickonCompanyManagement());
@@ -679,7 +679,7 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
 //        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"5--67567567567",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -696,7 +696,7 @@ public class EINEditEntityTestCase extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditEntity editEntity = new EditEntity(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();
+        loginPage.verifyValidLoginForCosPropertySupport();
 ////        dashboard.RefreshBrowser();
 //        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //        Assert.assertTrue(dashboard.ClickonCompanyManagement());
@@ -704,7 +704,7 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
 //        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"22-4523789",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -721,7 +721,7 @@ public class EINEditEntityTestCase extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();
+        loginPage.verifyValidLoginForCosPropertySupport();
 ////        dashboard.RefreshBrowser();
 //        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //        Assert.assertTrue(dashboard.ClickonCompanyManagement());
@@ -729,7 +729,7 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
 //        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"aaertyuwe",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -746,7 +746,7 @@ public class EINEditEntityTestCase extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditEntity editEntity = new EditEntity(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();
+        loginPage.verifyValidLoginForCosPropertySupport();
 ////        dashboard.RefreshBrowser();
 //        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //        Assert.assertTrue(dashboard.ClickonCompanyManagement());
@@ -754,7 +754,7 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
 //        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"er-yqsdert",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -772,7 +772,7 @@ public class EINEditEntityTestCase extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
-        loginPage.VerifyValidLoginForCosPropertySupport();
+        loginPage.verifyValidLoginForCosPropertySupport();
 ////        dashboard.RefreshBrowser();
 //        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //        Assert.assertTrue(dashboard.ClickonCompanyManagement());
@@ -780,7 +780,7 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.ClickButton(EditCompany.searchbtn,1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
 //        createCharger.ClickButton(EditCompany.ShowButtonEin,2000);
-        customerSignUp.FieldClear(company.ein);
+        customerSignUp.fieldClear(company.ein);
         createCharger.writeInputText(company.ein,"1234567as",2500);
         Assert.assertTrue(editEntity.ClickonSaveButton());
         Assert.assertTrue(editCompany.verifyErrorMsgForInvalidEINInput());
@@ -799,13 +799,13 @@ public class EINEditEntityTestCase extends BaseTest {
         EditCompany editCompany = new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         Thread.sleep(4000);
-        loginPage.VerifyValidLoginForCosDriverSupport();
+        loginPage.verifyValidLoginForCosDriverSupport();
         Thread.sleep(2000);
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         createCharger.writeInputText(EditCompany.searchbar, "Tesla company 2", 5000);
-        createCharger.ClickButton(EditCompany.searchbtn, 1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn, 3000);
+        createCharger.clickButton(EditCompany.searchbtn, 1000);
+        createCharger.clickButton(EditCompany.EditCompanyBtn, 3000);
         Assert.assertTrue(editCompany.verifyHiddenEINNumberAndShowButton());
     }
     @Test(priority = 35)//Done
@@ -843,7 +843,7 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.writeInputText(EditCompany.searchbar, "Tesla company 2", 5000);
 //        createCharger.ClickButton(EditCompany.searchbtn, 1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn, 3000);
-        createCharger.ClickButton(EditCompany.DisabledShowButton, 3000);
+        createCharger.clickButton(EditCompany.DisabledShowButton, 3000);
         Assert.assertTrue(editCompany.verifyShowButtonClickable());
     }
 
@@ -855,9 +855,9 @@ public class EINEditEntityTestCase extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosDriverSupport();
+        loginPage.verifyValidLoginForCosDriverSupport();
         editCompany.ClickCancelbutton();
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
         Assert.assertTrue(editCompany.verifyHiddenEINNumberAndShowButton());
 
     }
@@ -892,13 +892,13 @@ public class EINEditEntityTestCase extends BaseTest {
         EditCompany editCompany = new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         Thread.sleep(4000);
-        loginPage.VerifyValidLoginForCosTechSupport();
+        loginPage.verifyValidLoginForCosTechSupport();
         Thread.sleep(2000);
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         createCharger.writeInputText(EditCompany.searchbar, "Tesla company 2", 5000);
-        createCharger.ClickButton(EditCompany.searchbtn, 1000);
-        createCharger.ClickButton(EditCompany.EditCompanyBtn, 3000);
+        createCharger.clickButton(EditCompany.searchbtn, 1000);
+        createCharger.clickButton(EditCompany.EditCompanyBtn, 3000);
         Assert.assertTrue(editCompany.verifyHiddenEINNumberAndShowButton());
     }
     @Test(priority = 40)//Done
@@ -936,7 +936,7 @@ public class EINEditEntityTestCase extends BaseTest {
 //        createCharger.writeInputText(EditCompany.searchbar, "Tesla company 2", 5000);
 //        createCharger.ClickButton(EditCompany.searchbtn, 1000);
 //        createCharger.ClickButton(EditCompany.EditCompanyBtn, 3000);
-        createCharger.ClickButton(EditCompany.DisabledShowButton, 3000);
+        createCharger.clickButton(EditCompany.DisabledShowButton, 3000);
         Assert.assertTrue(editCompany.verifyShowButtonClickable());
     }
 
@@ -948,9 +948,9 @@ public class EINEditEntityTestCase extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
         CreateCharger createCharger = new CreateCharger(driver);
-        loginPage.VerifyValidLoginForCosTechSupport();
+        loginPage.verifyValidLoginForCosTechSupport();
         editCompany.ClickCancelbutton();
-        createCharger.ClickButton(EditCompany.EditCompanyBtn,3000);
+        createCharger.clickButton(EditCompany.EditCompanyBtn,3000);
         Assert.assertTrue(editCompany.verifyHiddenEINNumberAndShowButton());
 
     }

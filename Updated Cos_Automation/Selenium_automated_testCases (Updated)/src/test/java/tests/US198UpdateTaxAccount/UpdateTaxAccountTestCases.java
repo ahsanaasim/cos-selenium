@@ -21,9 +21,9 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         BasePage basePage = new BasePage(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
-        loginPage.VerifyValidLogin();
-        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
-        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
+        loginPage.verifyValidLogin();
+        createCharger.clickButton(UpdateLedgerAccounts.SettingsTab, 5000);
+        createCharger.clickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         Assert.assertTrue(basePage.verifyTextMatching(4000,UpdateLedgerAccounts.LedgerConfigTitle,"Ledger Configuration"));
     }
     @Test(priority = 2)//Done
@@ -68,7 +68,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(4000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
 
     }
@@ -82,11 +82,11 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        dashboard.RefreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(3000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        dashboard.RefreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(3000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
 
     }
@@ -100,10 +100,10 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000, UpdateLedgerAccounts.TaxAccount));
     }
 
@@ -117,10 +117,10 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.TaxAccountEditButton));
     }
 
@@ -133,12 +133,12 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2500);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton, 2500);
-        createCharger.ClickButton(UpdateLedgerAccounts.CancelButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxAccountEditButton, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.CancelButton, 1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.TaxAccountEditButton));
@@ -153,12 +153,12 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton, 1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxAccountEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.TaxAccountFeeDisabled));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
@@ -174,31 +174,31 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
         basePage.NewTabOpenAndSwitchToNewTab(1);
         basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
         createCharger.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
         createCharger.writeInputText(UpdateLedgerAccounts.ZohoPasswordField,"WorkLOAD@10@",2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,5000);
-        createCharger.ClickButton(UpdateLedgerAccounts.AccountantTab,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.ChartOfAccountTab,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.CreateAccountZoho,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.ZohoNextBtn,5000);
+        createCharger.clickButton(UpdateLedgerAccounts.AccountantTab,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.ChartOfAccountTab,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.CreateAccountZoho,3000);
         int randomNumber = objGenerator.nextInt(100);
         System.out.println(randomNumber);
         String AccountName="Temporary Account "+randomNumber;
         createCharger.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,2000);
+        dashboard.refreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,2000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,2000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.TaxAccountFeeDisabled,AccountName);
-        Assert.assertTrue(createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000));
+        Assert.assertTrue(createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.TaxAccountFeeSelectedField,AccountName));
 
 
@@ -213,10 +213,10 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
         basePage.SwitchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -228,16 +228,16 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         updateLedgerAccounts.SearchAccountInZoho("Temporary");
         Thread.sleep(4000);
         String AccountName = driver.findElement(UpdateLedgerAccounts.ZohoSearchResult).getText();
-        operation.ClickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
-        operation.ClickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
-        operation.ClickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
-        operation.ClickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
+        operation.clickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
+        operation.clickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
+        operation.clickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
+        operation.clickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
+        dashboard.refreshBrowser();
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.DeletedAccountErrorMsg,updateLedgerAccounts.DeletedBankAccountErrorMsg()));
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountFeeDisabled,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountFeeDisabled,1500);
         operation.writeInputText(UpdateLedgerAccounts.TaxAccountFeeDisabled,AccountName,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.DropdownNoData));
 
@@ -254,10 +254,10 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
         basePage.SwitchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -267,19 +267,19 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        operation.ClickButton(UpdateLedgerAccounts.AccountantTab,3000);
 //        operation.ClickButton(UpdateLedgerAccounts.ChartOfAccountTab,3000);
         updateLedgerAccounts.SearchAccountInZoho("Nice");
-        operation.ClickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
-        operation.ClickButton(UpdateLedgerAccounts.EditButtonZoho,1000);
-        customerSignUp.FieldClear(UpdateLedgerAccounts.CreateAccountZohoAccountName);
+        operation.clickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
+        operation.clickButton(UpdateLedgerAccounts.EditButtonZoho,1000);
+        customerSignUp.fieldClear(UpdateLedgerAccounts.CreateAccountZohoAccountName);
         String AccountName = updateLedgerAccounts.RandomAccountName();
         operation.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountFeeDisabled,1500);
+        dashboard.refreshBrowser();
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountFeeDisabled,1500);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.TaxAccountFeeDisabled,AccountName);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.TaxAccountFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.TaxAccountFeeSelectedField,AccountName));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1500,UpdateLedgerAccounts.DropdownNoData));
@@ -298,14 +298,14 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,1500);
-        operation.ClickButton(UpdateLedgerAccounts.ClearField,1500);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,1500);
+        operation.clickButton(UpdateLedgerAccounts.ClearField,1500);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.EmptyBankAccErrMsg,"Account selection is required"));
 
     }
@@ -318,11 +318,11 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
         Assert.assertTrue(updateLedgerAccounts.verifyCancelButtonActionAfterSelectingAnotherAccount());
         Assert.assertTrue(basePage.verifyAFieldIsDisable(1500,UpdateLedgerAccounts.TaxAccountFeeDisabled));
 
@@ -338,11 +338,11 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1500,UpdateLedgerAccounts.TaxAccountFeeSelectedField));
 
 
@@ -359,14 +359,14 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,3000);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.TaxAccountFeeDisabled,"Shipping Charge");
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.TaxAccountFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.TaxAccountFeeSelectedField,"Shipping Charge"));
         dashboardPropertyDetails.LogoutFromExistingAccount();
@@ -383,9 +383,9 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         Thread.sleep(3000);
-        loginPage.VerifyValidLoginForCosAccounting();
-        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
-        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
+        loginPage.verifyValidLoginForCosAccounting();
+        createCharger.clickButton(UpdateLedgerAccounts.SettingsTab, 5000);
+        createCharger.clickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         Assert.assertTrue(basePage.verifyTextMatching(4000,UpdateLedgerAccounts.LedgerConfigTitle,"Ledger Configuration"));
     }
     @Test(priority = 18)//Done
@@ -430,7 +430,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(4000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
 
     }
@@ -444,11 +444,11 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        dashboard.RefreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(3000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        dashboard.RefreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(3000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
 
     }
@@ -462,10 +462,10 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000, UpdateLedgerAccounts.TaxAccount));
     }
 
@@ -479,10 +479,10 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.TaxAccountEditButton));
     }
 
@@ -495,12 +495,12 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2500);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton, 2500);
-        createCharger.ClickButton(UpdateLedgerAccounts.CancelButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxAccountEditButton, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.CancelButton, 1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.TaxAccountEditButton));
@@ -515,12 +515,12 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton, 1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxAccountEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.TaxAccountFeeDisabled));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
@@ -536,12 +536,12 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
         basePage.SwitchToTab(1);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        createCharger.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
@@ -549,19 +549,19 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        createCharger.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.AccountantTab,3000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.ChartOfAccountTab,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.CreateAccountZoho,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.CreateAccountZoho,3000);
         int randomNumber = objGenerator.nextInt(100);
         System.out.println(randomNumber);
         String AccountName="Temporary Account "+randomNumber;
         createCharger.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,2000);
+        dashboard.refreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,2000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,2000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.TaxAccountFeeDisabled,AccountName);
-        Assert.assertTrue(createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000));
+        Assert.assertTrue(createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.TaxAccountFeeSelectedField,AccountName));
 
 
@@ -576,10 +576,10 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
         basePage.SwitchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -591,16 +591,16 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         updateLedgerAccounts.SearchAccountInZoho("Temporary");
         Thread.sleep(4000);
         String AccountName = driver.findElement(UpdateLedgerAccounts.ZohoSearchResult).getText();
-        operation.ClickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
-        operation.ClickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
-        operation.ClickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
-        operation.ClickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
+        operation.clickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
+        operation.clickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
+        operation.clickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
+        operation.clickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
+        dashboard.refreshBrowser();
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.DeletedAccountErrorMsg,updateLedgerAccounts.DeletedBankAccountErrorMsg()));
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountFeeDisabled,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountFeeDisabled,1500);
         operation.writeInputText(UpdateLedgerAccounts.TaxAccountFeeDisabled,AccountName,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.DropdownNoData));
 
@@ -617,10 +617,10 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
         basePage.SwitchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -630,19 +630,19 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        operation.ClickButton(UpdateLedgerAccounts.AccountantTab,3000);
 //        operation.ClickButton(UpdateLedgerAccounts.ChartOfAccountTab,3000);
         updateLedgerAccounts.SearchAccountInZoho("Nice");
-        operation.ClickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
-        operation.ClickButton(UpdateLedgerAccounts.EditButtonZoho,1000);
-        customerSignUp.FieldClear(UpdateLedgerAccounts.CreateAccountZohoAccountName);
+        operation.clickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
+        operation.clickButton(UpdateLedgerAccounts.EditButtonZoho,1000);
+        customerSignUp.fieldClear(UpdateLedgerAccounts.CreateAccountZohoAccountName);
         String AccountName = updateLedgerAccounts.RandomAccountName();
         operation.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountFeeDisabled,1500);
+        dashboard.refreshBrowser();
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountFeeDisabled,1500);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.TaxAccountFeeDisabled,AccountName);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.TaxAccountFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.TaxAccountFeeSelectedField,AccountName));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1500,UpdateLedgerAccounts.DropdownNoData));
@@ -661,14 +661,14 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,1500);
-        operation.ClickButton(UpdateLedgerAccounts.ClearField,1500);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,1500);
+        operation.clickButton(UpdateLedgerAccounts.ClearField,1500);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.EmptyBankAccErrMsg,"Account selection is required"));
 
     }
@@ -681,11 +681,11 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
         Assert.assertTrue(updateLedgerAccounts.verifyCancelButtonActionAfterSelectingAnotherAccount());
         Assert.assertTrue(basePage.verifyAFieldIsDisable(1500,UpdateLedgerAccounts.ConnectFeeDisabled));
 
@@ -701,11 +701,11 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1500,UpdateLedgerAccounts.TaxAccountFeeSelectedField));
 
 
@@ -722,14 +722,14 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,3000);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.TaxAccountFeeDisabled,"Tax Payable");
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.TaxAccountFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.TaxAccountFeeSelectedField,"Tax Payable"));
         dashboardPropertyDetails.LogoutFromExistingAccount();
@@ -747,9 +747,9 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         Thread.sleep(5000);
-        loginPage.VerifyValidLoginForCosPropertySupport();
-        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
-        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
+        loginPage.verifyValidLoginForCosPropertySupport();
+        createCharger.clickButton(UpdateLedgerAccounts.SettingsTab, 5000);
+        createCharger.clickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         Assert.assertTrue(basePage.verifyTextMatching(4000,UpdateLedgerAccounts.LedgerConfigTitle,"Ledger Configuration"));
     }
     @Test(priority = 34)//Done
@@ -794,7 +794,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(4000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
 
     }
@@ -808,11 +808,11 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        dashboard.RefreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(3000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        dashboard.RefreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(3000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
 
     }
@@ -826,10 +826,10 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000, UpdateLedgerAccounts.TaxAccount));
     }
 
@@ -843,10 +843,10 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.TaxAccountEditButton));
     }
 
@@ -859,12 +859,12 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2500);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton, 2500);
-        createCharger.ClickButton(UpdateLedgerAccounts.CancelButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxAccountEditButton, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.CancelButton, 1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.TaxAccountEditButton));
@@ -879,12 +879,12 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton, 1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxAccountEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.TaxAccountFeeDisabled));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
@@ -900,12 +900,12 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
         basePage.SwitchToTab(1);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        createCharger.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
@@ -913,19 +913,19 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        createCharger.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.AccountantTab,3000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.ChartOfAccountTab,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.CreateAccountZoho,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.CreateAccountZoho,3000);
         int randomNumber = objGenerator.nextInt(100);
         System.out.println(randomNumber);
         String AccountName="Temporary Account "+randomNumber;
         createCharger.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,2000);
+        dashboard.refreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,2000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,2000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.TaxAccountFeeDisabled,AccountName);
-        Assert.assertTrue(createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000));
+        Assert.assertTrue(createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.TaxAccountFeeSelectedField,AccountName));
 
 
@@ -940,10 +940,10 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
         basePage.SwitchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -955,16 +955,16 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         updateLedgerAccounts.SearchAccountInZoho("Temporary");
         Thread.sleep(4000);
         String AccountName = driver.findElement(UpdateLedgerAccounts.ZohoSearchResult).getText();
-        operation.ClickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
-        operation.ClickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
-        operation.ClickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
-        operation.ClickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
+        operation.clickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
+        operation.clickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
+        operation.clickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
+        operation.clickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
+        dashboard.refreshBrowser();
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.DeletedAccountErrorMsg,updateLedgerAccounts.DeletedBankAccountErrorMsg()));
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountFeeDisabled,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountFeeDisabled,1500);
         operation.writeInputText(UpdateLedgerAccounts.TaxAccountFeeDisabled,AccountName,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.DropdownNoData));
 
@@ -981,10 +981,10 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
         basePage.SwitchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -994,19 +994,19 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        operation.ClickButton(UpdateLedgerAccounts.AccountantTab,3000);
 //        operation.ClickButton(UpdateLedgerAccounts.ChartOfAccountTab,3000);
         updateLedgerAccounts.SearchAccountInZoho("Nice");
-        operation.ClickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
-        operation.ClickButton(UpdateLedgerAccounts.EditButtonZoho,1000);
-        customerSignUp.FieldClear(UpdateLedgerAccounts.CreateAccountZohoAccountName);
+        operation.clickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
+        operation.clickButton(UpdateLedgerAccounts.EditButtonZoho,1000);
+        customerSignUp.fieldClear(UpdateLedgerAccounts.CreateAccountZohoAccountName);
         String AccountName = updateLedgerAccounts.RandomAccountName();
         operation.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountFeeDisabled,1500);
+        dashboard.refreshBrowser();
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountFeeDisabled,1500);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.TaxAccountFeeDisabled,AccountName);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.TaxAccountFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.TaxAccountFeeSelectedField,AccountName));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1500,UpdateLedgerAccounts.DropdownNoData));
@@ -1025,14 +1025,14 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,1500);
-        operation.ClickButton(UpdateLedgerAccounts.ClearField,1500);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,1500);
+        operation.clickButton(UpdateLedgerAccounts.ClearField,1500);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.EmptyBankAccErrMsg,"Account selection is required"));
 
     }
@@ -1045,11 +1045,11 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
         Assert.assertTrue(updateLedgerAccounts.verifyCancelButtonActionAfterSelectingAnotherAccount());
         Assert.assertTrue(basePage.verifyAFieldIsDisable(1500,UpdateLedgerAccounts.TaxAccountFeeDisabled));
 
@@ -1065,11 +1065,11 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1500,UpdateLedgerAccounts.TaxAccountFeeSelectedField));
 
 
@@ -1086,14 +1086,14 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,3000);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.TaxAccountFeeDisabled,"Tax Payable");
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.TaxAccountFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.TaxAccountFeeSelectedField,"Tax Payable"));
         dashboardPropertyDetails.LogoutFromExistingAccount();
@@ -1110,9 +1110,9 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         Thread.sleep(3000);
-        loginPage.VerifyValidLoginForCosDriverSupport();
-        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
-        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
+        loginPage.verifyValidLoginForCosDriverSupport();
+        createCharger.clickButton(UpdateLedgerAccounts.SettingsTab, 5000);
+        createCharger.clickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         Assert.assertTrue(basePage.verifyTextMatching(4000,UpdateLedgerAccounts.LedgerConfigTitle,"Ledger Configuration"));
     }
     @Test(priority = 50)//Done
@@ -1157,7 +1157,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(4000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
 
     }
@@ -1171,11 +1171,11 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        dashboard.RefreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(3000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        dashboard.RefreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(3000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
 
     }
@@ -1189,10 +1189,10 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000, UpdateLedgerAccounts.TaxAccount));
     }
 
@@ -1206,10 +1206,10 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.TaxAccountEditButton));
     }
 
@@ -1222,12 +1222,12 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2500);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton, 2500);
-        createCharger.ClickButton(UpdateLedgerAccounts.CancelButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxAccountEditButton, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.CancelButton, 1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.TaxAccountEditButton));
@@ -1242,12 +1242,12 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton, 1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxAccountEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.TaxAccountFeeDisabled));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
@@ -1263,12 +1263,12 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
         basePage.SwitchToTab(1);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        createCharger.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
@@ -1276,19 +1276,19 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        createCharger.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.AccountantTab,3000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.ChartOfAccountTab,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.CreateAccountZoho,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.CreateAccountZoho,3000);
         int randomNumber = objGenerator.nextInt(100);
         System.out.println(randomNumber);
         String AccountName="Temporary Account "+randomNumber;
         createCharger.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,2000);
+        dashboard.refreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,2000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,2000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.TaxAccountFeeDisabled,AccountName);
-        Assert.assertTrue(createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000));
+        Assert.assertTrue(createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.TaxAccountFeeSelectedField,AccountName));
 
 
@@ -1303,10 +1303,10 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
         basePage.SwitchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -1318,16 +1318,16 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         updateLedgerAccounts.SearchAccountInZoho("Temporary");
         Thread.sleep(4000);
         String AccountName = driver.findElement(UpdateLedgerAccounts.ZohoSearchResult).getText();
-        operation.ClickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
-        operation.ClickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
-        operation.ClickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
-        operation.ClickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
+        operation.clickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
+        operation.clickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
+        operation.clickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
+        operation.clickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
+        dashboard.refreshBrowser();
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.DeletedAccountErrorMsg,updateLedgerAccounts.DeletedBankAccountErrorMsg()));
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountFeeDisabled,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountFeeDisabled,1500);
         operation.writeInputText(UpdateLedgerAccounts.TaxAccountFeeDisabled,AccountName,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.DropdownNoData));
 
@@ -1344,10 +1344,10 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
         basePage.SwitchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -1357,19 +1357,19 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        operation.ClickButton(UpdateLedgerAccounts.AccountantTab,3000);
 //        operation.ClickButton(UpdateLedgerAccounts.ChartOfAccountTab,3000);
         updateLedgerAccounts.SearchAccountInZoho("Nice");
-        operation.ClickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
-        operation.ClickButton(UpdateLedgerAccounts.EditButtonZoho,1000);
-        customerSignUp.FieldClear(UpdateLedgerAccounts.CreateAccountZohoAccountName);
+        operation.clickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
+        operation.clickButton(UpdateLedgerAccounts.EditButtonZoho,1000);
+        customerSignUp.fieldClear(UpdateLedgerAccounts.CreateAccountZohoAccountName);
         String AccountName = updateLedgerAccounts.RandomAccountName();
         operation.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountFeeDisabled,1500);
+        dashboard.refreshBrowser();
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountFeeDisabled,1500);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.TaxAccountFeeDisabled,AccountName);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.TaxAccountFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.TaxAccountFeeSelectedField,AccountName));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1500,UpdateLedgerAccounts.DropdownNoData));
@@ -1388,14 +1388,14 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,1500);
-        operation.ClickButton(UpdateLedgerAccounts.ClearField,1500);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,1500);
+        operation.clickButton(UpdateLedgerAccounts.ClearField,1500);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.EmptyBankAccErrMsg,"Account selection is required"));
 
     }
@@ -1408,11 +1408,11 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
         Assert.assertTrue(updateLedgerAccounts.verifyCancelButtonActionAfterSelectingAnotherAccount());
         Assert.assertTrue(basePage.verifyAFieldIsDisable(1500,UpdateLedgerAccounts.ConnectFeeDisabled));
 
@@ -1428,11 +1428,11 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1500,UpdateLedgerAccounts.TaxAccountFeeSelectedField));
 
 
@@ -1449,14 +1449,14 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,3000);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.TaxAccountFeeDisabled,"Prepaid Expenses");
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.TaxAccountFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.TaxAccountFeeSelectedField,"Prepaid Expenses"));
         dashboardPropertyDetails.LogoutFromExistingAccount();
@@ -1473,9 +1473,9 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         Thread.sleep(3000);
-        loginPage.VerifyValidLoginForCosTechSupport();
-        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
-        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
+        loginPage.verifyValidLoginForCosTechSupport();
+        createCharger.clickButton(UpdateLedgerAccounts.SettingsTab, 5000);
+        createCharger.clickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         Assert.assertTrue(basePage.verifyTextMatching(4000,UpdateLedgerAccounts.LedgerConfigTitle,"Ledger Configuration"));
     }
     @Test(priority = 66)//Done
@@ -1520,7 +1520,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(4000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
 
     }
@@ -1534,11 +1534,11 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        createCharger.ClickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
-        dashboard.RefreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.BankAccountsTab, 2000);
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(3000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        dashboard.RefreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        dashboard.refreshBrowser();
         Assert.assertTrue(basePage.verifyTextMatching(3000,UpdateLedgerAccounts.ActivatedTab,"Ledger Accounts"));
 
     }
@@ -1552,10 +1552,10 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000, UpdateLedgerAccounts.TaxAccount));
     }
 
@@ -1569,10 +1569,10 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.TaxAccountEditButton));
     }
 
@@ -1585,12 +1585,12 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2500);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton, 2500);
-        createCharger.ClickButton(UpdateLedgerAccounts.CancelButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxAccountEditButton, 2500);
+        createCharger.clickButton(UpdateLedgerAccounts.CancelButton, 1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(2000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.TaxAccountEditButton));
@@ -1605,12 +1605,12 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton, 1000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxAccountEditButton, 1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButton,1000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.TaxAccountFeeDisabled));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.SaveButton));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1000,UpdateLedgerAccounts.CancelButton));
@@ -1626,12 +1626,12 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
         basePage.SwitchToTab(1);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        createCharger.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
@@ -1639,19 +1639,19 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        createCharger.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.AccountantTab,3000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.ChartOfAccountTab,3000);
-        createCharger.ClickButton(UpdateLedgerAccounts.CreateAccountZoho,3000);
+        createCharger.clickButton(UpdateLedgerAccounts.CreateAccountZoho,3000);
         int randomNumber = objGenerator.nextInt(100);
         System.out.println(randomNumber);
         String AccountName="Temporary Account "+randomNumber;
         createCharger.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
+        createCharger.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,2000);
-        createCharger.ClickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,2000);
+        dashboard.refreshBrowser();
+        createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,2000);
+        createCharger.clickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,2000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.TaxAccountFeeDisabled,AccountName);
-        Assert.assertTrue(createCharger.ClickButton(UpdateLedgerAccounts.SaveButton,3000));
+        Assert.assertTrue(createCharger.clickButton(UpdateLedgerAccounts.SaveButton,3000));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.TaxAccountFeeSelectedField,AccountName));
 
 
@@ -1666,10 +1666,10 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
         basePage.SwitchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -1681,16 +1681,16 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         updateLedgerAccounts.SearchAccountInZoho("Temporary");
         Thread.sleep(4000);
         String AccountName = driver.findElement(UpdateLedgerAccounts.ZohoSearchResult).getText();
-        operation.ClickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
-        operation.ClickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
-        operation.ClickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
-        operation.ClickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
+        operation.clickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
+        operation.clickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
+        operation.clickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
+        operation.clickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
+        dashboard.refreshBrowser();
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.DeletedAccountErrorMsg,updateLedgerAccounts.DeletedBankAccountErrorMsg()));
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountFeeDisabled,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountFeeDisabled,1500);
         operation.writeInputText(UpdateLedgerAccounts.TaxAccountFeeDisabled,AccountName,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,UpdateLedgerAccounts.DropdownNoData));
 
@@ -1707,10 +1707,10 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         CustomerSignUp customerSignUp = new CustomerSignUp(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
         basePage.SwitchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -1720,19 +1720,19 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        operation.ClickButton(UpdateLedgerAccounts.AccountantTab,3000);
 //        operation.ClickButton(UpdateLedgerAccounts.ChartOfAccountTab,3000);
         updateLedgerAccounts.SearchAccountInZoho("Nice");
-        operation.ClickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
-        operation.ClickButton(UpdateLedgerAccounts.EditButtonZoho,1000);
-        customerSignUp.FieldClear(UpdateLedgerAccounts.CreateAccountZohoAccountName);
+        operation.clickButton(UpdateLedgerAccounts.ZohoSearchResult,3000);
+        operation.clickButton(UpdateLedgerAccounts.EditButtonZoho,1000);
+        customerSignUp.fieldClear(UpdateLedgerAccounts.CreateAccountZohoAccountName);
         String AccountName = updateLedgerAccounts.RandomAccountName();
         operation.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
         basePage.SwitchToTab(0);
-        dashboard.RefreshBrowser();
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountFeeDisabled,1500);
+        dashboard.refreshBrowser();
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountFeeDisabled,1500);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.TaxAccountFeeDisabled,AccountName);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.TaxAccountFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.TaxAccountFeeSelectedField,AccountName));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1500,UpdateLedgerAccounts.DropdownNoData));
@@ -1751,14 +1751,14 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,1500);
-        operation.ClickButton(UpdateLedgerAccounts.ClearField,1500);
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,1500);
+        operation.clickButton(UpdateLedgerAccounts.ClearField,1500);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.EmptyBankAccErrMsg,"Account selection is required"));
 
     }
@@ -1771,11 +1771,11 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
         Assert.assertTrue(updateLedgerAccounts.verifyCancelButtonActionAfterSelectingAnotherAccount());
         Assert.assertTrue(basePage.verifyAFieldIsDisable(1500,UpdateLedgerAccounts.ConnectFeeDisabled));
 
@@ -1791,11 +1791,11 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1500,UpdateLedgerAccounts.TaxAccountFeeSelectedField));
 
 
@@ -1812,14 +1812,14 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         UpdateLedgerAccounts updateLedgerAccounts = new UpdateLedgerAccounts(driver);
         DashboardPropertyDetails dashboardPropertyDetails = new DashboardPropertyDetails(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
-        operation.ClickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,3000);
+        operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
+        operation.clickButton(UpdateLedgerAccounts.TaxAccountFeeSelectedField,3000);
         updateLedgerAccounts.SelectAccount(3000,UpdateLedgerAccounts.TaxAccountFeeDisabled,"Sales");
-        operation.ClickButton(UpdateLedgerAccounts.SaveButton,3000);
+        operation.clickButton(UpdateLedgerAccounts.SaveButton,3000);
         Assert.assertTrue(basePage.verifyAFieldIsDisable(2000,UpdateLedgerAccounts.TaxAccountFeeDisabled));
         Assert.assertTrue(basePage.verifyTextMatching(2000,UpdateLedgerAccounts.TaxAccountFeeSelectedField,"Sales"));
         dashboardPropertyDetails.LogoutFromExistingAccount();

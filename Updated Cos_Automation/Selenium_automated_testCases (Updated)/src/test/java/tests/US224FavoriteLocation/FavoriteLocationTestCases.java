@@ -47,8 +47,8 @@ public class FavoriteLocationTestCases extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         createLocation.NewTabOpenAndSwitchToNewTab(1);
         Thread.sleep(2500);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
 
 
@@ -66,8 +66,8 @@ public class FavoriteLocationTestCases extends BaseTest {
         favoriteLocation.SwitchToTab(0);
         login.GoToCustomerLoginPage();
         customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithNoTicket"),"EitaiPassword10");
-        operation.ClickButton(CustomerLogin.Menu,2000);
-        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
+        operation.clickButton(CustomerLogin.Menu,2000);
+        operation.clickButton(CustomerMenu.FavoriteFromMenu,2000);
         favoriteLocation.GoToFavoriteLocationPage();
         Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(5000,FavoriteLocation.NoDataInTableImage));
         Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(500,FavoriteLocation.NoFavoriteLocationText));
@@ -117,7 +117,7 @@ public class FavoriteLocationTestCases extends BaseTest {
 //        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
         customerLogin.LogoutFromCustomerAccount();
         customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
-        operation.ClickButton(CustomerSupport.Menu,2000);
+        operation.clickButton(CustomerSupport.Menu,2000);
         Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(2000,CustomerMenu.FavoriteFromMenu));
 
     }
@@ -151,9 +151,9 @@ public class FavoriteLocationTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithNoTicket"),"EitaiPassword10");
 //        operation.ClickButton(CustomerLogin.Menu,2000);
 //        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
-        dashboard.RefreshBrowser();
-        operation.ClickButton(CustomerSupport.Menu,2000);
-        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
+        dashboard.refreshBrowser();
+        operation.clickButton(CustomerSupport.Menu,2000);
+        operation.clickButton(CustomerMenu.FavoriteFromMenu,2000);
         Assert.assertTrue(favoriteLocation.verifyFavoriteLocationsTitle());
 
     }
@@ -272,9 +272,9 @@ public class FavoriteLocationTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
 //        operation.ClickButton(CustomerLogin.Menu,2000);
 //        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(CustomerSupport.Menu,2000);
-        operation.ClickButton(FavoriteLocation.SeeInMap,2000);
+        operation.clickButton(FavoriteLocation.SeeInMap,2000);
         Assert.assertTrue(mapDetails.verifySystemIsRedirectingToMapPage());
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,MapDetails.UpperDrawer));
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(500,MapDetails.LowerDrawer));
@@ -296,7 +296,7 @@ public class FavoriteLocationTestCases extends BaseTest {
 //        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
         favoriteLocation.GoToFavoriteLocationPage();
 //        operation.ClickButton(CustomerSupport.Menu,2000);
-        operation.ClickButton(FavoriteLocation.SeeInMap,2000);
+        operation.clickButton(FavoriteLocation.SeeInMap,2000);
         Assert.assertTrue(mapDetails.verifySystemIsRedirectingToMapPage());
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(1000,MapDetails.FavoriteIconMarked));
 
@@ -337,7 +337,7 @@ public class FavoriteLocationTestCases extends BaseTest {
 //        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
         favoriteLocation.GoToFavoriteLocationPage();
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(FavoriteLocation.FavoriteLocationIcon1InList,2000);
+        operation.clickButton(FavoriteLocation.FavoriteLocationIcon1InList,2000);
         Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(1500,FavoriteLocation.PopUpUnmarkedSuccessfully));
 
     }

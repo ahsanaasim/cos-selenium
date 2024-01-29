@@ -18,9 +18,9 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceListAndSearch invoiceList = new InvoiceListAndSearch(driver);
         InvoiceDetails invoiceFilter = new InvoiceDetails(driver);
         BasePage basePage = new BasePage(driver);
-        loginPage.VerifyValidLogin();
-        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
-        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
+        loginPage.verifyValidLogin();
+        operation.clickButton(InvoiceListAndSearch.FinancialTab,2000);
+        operation.clickButton(InvoiceListAndSearch.InvoicesTab,2000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,InvoiceFilter.AdvanceFilterButton));
     }
 
@@ -36,7 +36,7 @@ public class InvoiceFilterTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,InvoiceFilter.AdvanceFilterDrawerTitle));
     }
 
@@ -49,7 +49,7 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceListAndSearch invoiceList = new InvoiceListAndSearch(driver);
         InvoiceDetails invoiceFilter = new InvoiceDetails(driver);
         BasePage basePage = new BasePage(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
 //        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
@@ -92,7 +92,7 @@ public class InvoiceFilterTestCases extends BaseTest {
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
 //        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.BillingDurationField,2000);
+        operation.clickButton(InvoiceFilter.BillingDurationField,2000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,InvoiceFilter.DueNext7DaysFilter));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,InvoiceFilter.DueNext30DaysFilter));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,InvoiceFilter.DueInNextFilter));
@@ -141,10 +141,10 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceDetails invoiceFilter = new InvoiceDetails(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
         Assert.assertTrue(basePage.verifyTextMatching(500,InvoiceFilter.PlaceholderEntityField,"Select"));
         Assert.assertTrue(basePage.verifyTextMatching(500,InvoiceFilter.PlaceholderCompanyField,"Select"));
         Assert.assertTrue(basePage.verifyTextMatching(500,InvoiceFilter.PlaceholderPropertyField,"Select"));
@@ -160,7 +160,7 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceDetails invoiceFilter = new InvoiceDetails(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(500,InvoiceFilter.AllStatusesFilterButton));
@@ -177,10 +177,10 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceDetails invoiceFilter = new InvoiceDetails(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AllStatusesFilterButton,2000);
+        operation.clickButton(InvoiceFilter.AllStatusesFilterButton,2000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(500,InvoiceFilter.DropdownOptionAllStatus));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(500,InvoiceFilter.DropdownOptionSentStatus));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(500,InvoiceFilter.DropdownOptionPaidStatus));
@@ -200,7 +200,7 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceDetails invoiceFilter = new InvoiceDetails(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
 //        operation.ClickButton(InvoiceFilter.AllStatusesFilterButton,2000);
@@ -219,10 +219,10 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceDetails invoiceFilter = new InvoiceDetails(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.Last12DaysFilter,2000);
+        operation.clickButton(InvoiceFilter.Last12DaysFilter,2000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(500,InvoiceFilter.DropdownOptionCustom));
 
 
@@ -238,11 +238,11 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceDetails invoiceFilter = new InvoiceDetails(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterCrossButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterCrossButton,2000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1500,InvoiceFilter.AdvanceFilterDrawerTitle));
 
     }
@@ -256,12 +256,12 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceDetails invoiceFilter = new InvoiceDetails(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterCrossButton,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,1000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterCrossButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,1000);
         Assert.assertTrue(basePage.verifyTextMatching(500,InvoiceFilter.PlaceholderEntityField,"Select"));
         Assert.assertTrue(basePage.verifyTextMatching(500,InvoiceFilter.PlaceholderCompanyField,"Select"));
         Assert.assertTrue(basePage.verifyTextMatching(500,InvoiceFilter.PlaceholderPropertyField,"Select"));
@@ -279,13 +279,13 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceFilter invoiceFilter = new InvoiceFilter(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
         invoiceFilter.SelectFilterFromDropdown("New",InvoiceFilter.EntityField);
-        operation.ClickButton(InvoiceFilter.EntityCrossOption,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterCrossButton,1000);
+        operation.clickButton(InvoiceFilter.EntityCrossOption,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterCrossButton,1000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1500,InvoiceFilter.AdvanceFilterDrawerTitle));
 //        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
 //        Assert.assertTrue(basePage.verifyTextMatching(500,InvoiceFilter.PlaceholderEntityField,"Select"));
@@ -310,7 +310,7 @@ public class InvoiceFilterTestCases extends BaseTest {
 //        operation.ClickButton(InvoiceFilter.EntityCrossOption,2000);
 //        operation.ClickButton(InvoiceFilter.AdvanceFilterCrossButton,1000);
 //        Assert.assertTrue(basePage.verifyElementNotDisplayed(1500,InvoiceFilter.AdvanceFilterDrawerTitle));
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
         Assert.assertTrue(basePage.verifyTextMatching(500,InvoiceFilter.PlaceholderEntityField,"Select"));
 
     }
@@ -333,7 +333,7 @@ public class InvoiceFilterTestCases extends BaseTest {
 //        operation.ClickButton(InvoiceFilter.EntityCrossOption,2000);
 //        operation.ClickButton(InvoiceFilter.AdvanceFilterCrossButton,1000);
 //        Assert.assertTrue(basePage.verifyElementNotDisplayed(1500,InvoiceFilter.AdvanceFilterDrawerTitle));
-        operation.ClickButton(InvoiceFilter.ApplyButton,2000);
+        operation.clickButton(InvoiceFilter.ApplyButton,2000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1500,InvoiceFilter.AdvanceFilterDrawerTitle));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1500,InvoiceFilter.AdvanceFilterButton));
 
@@ -352,12 +352,12 @@ public class InvoiceFilterTestCases extends BaseTest {
 ////        dashboard.RefreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
         invoiceFilter.SelectFilterFromDropdown("New",InvoiceFilter.EntityField);
 //        operation.ClickButton(InvoiceFilter.EntityCrossOption,2000);
 //        operation.ClickButton(InvoiceFilter.AdvanceFilterCrossButton,1000);
 //        Assert.assertTrue(basePage.verifyElementNotDisplayed(1500,InvoiceFilter.AdvanceFilterDrawerTitle));
-        operation.ClickButton(InvoiceFilter.ApplyButton,2000);
+        operation.clickButton(InvoiceFilter.ApplyButton,2000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(1500,InvoiceFilter.AdvanceFilterDrawerTitle));
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1500,InvoiceFilter.Tag1));
 
@@ -376,9 +376,9 @@ public class InvoiceFilterTestCases extends BaseTest {
 ////        dashboard.RefreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.ResetAllButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
         Assert.assertTrue(invoiceFilter.verifySelectedTag("Walmart",InvoiceFilter.EntityField,InvoiceFilter.EntityFieldSelected));
 
     }
@@ -395,10 +395,10 @@ public class InvoiceFilterTestCases extends BaseTest {
 //        dashboard.RefreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.EntityField,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.ResetAllButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.EntityField,2000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,InvoiceFilter.Dropdown));
 
     }
@@ -413,19 +413,19 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceFilter invoiceFilter = new InvoiceFilter(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.EntityField,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.ResetAllButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.EntityField,2000);
         invoiceFilter.SelectFilterFromDropdown("Alpha",InvoiceFilter.EntityField);
-        operation.ClickButton(InvoiceFilter.EntityCrossOption,1000);
+        operation.clickButton(InvoiceFilter.EntityCrossOption,1000);
         invoiceFilter.SelectFilterFromDropdown("Yellow",InvoiceFilter.EntityField);
-        operation.ClickButton(InvoiceFilter.EntityCrossOption,1000);
+        operation.clickButton(InvoiceFilter.EntityCrossOption,1000);
         invoiceFilter.SelectFilterFromDropdown("Lark Homes 55",InvoiceFilter.EntityField);
-        operation.ClickButton(InvoiceFilter.EntityCrossOption,1000);
+        operation.clickButton(InvoiceFilter.EntityCrossOption,1000);
 
     }
     @Test(priority = 23)//Done
@@ -444,7 +444,7 @@ public class InvoiceFilterTestCases extends BaseTest {
 //        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
 //        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
 //        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.EntityField,2000);
+        operation.clickButton(InvoiceFilter.EntityField,2000);
         Assert.assertTrue(invoiceFilter.verifyDropdownListExpanded(InvoiceFilter.EntityField));
     }
 
@@ -458,13 +458,13 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceFilter invoiceFilter = new InvoiceFilter(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
 //        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
 //        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.EntityField,2000);
+        operation.clickButton(InvoiceFilter.EntityField,2000);
         invoiceFilter.SelectFilterFromDropdown("Tesla company 20",InvoiceFilter.EntityField);
         Assert.assertTrue(basePage.verifyTextMatching(1500,InvoiceFilter.EntityFieldSelected,"Tesla company 20"));
     }
@@ -486,7 +486,7 @@ public class InvoiceFilterTestCases extends BaseTest {
 //        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
 //        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
 //        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.EntityFieldSelected,2000);
+        operation.clickButton(InvoiceFilter.EntityFieldSelected,2000);
         operation.writeInputText(InvoiceFilter.EntityField,"sdfsfsdfs",1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1500,InvoiceFilter.NoItem));
 
@@ -501,11 +501,11 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceListAndSearch invoiceList = new InvoiceListAndSearch(driver);
         InvoiceFilter invoiceFilter = new InvoiceFilter(driver);
         BasePage basePage = new BasePage(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
 //        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
 //        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
 //        operation.ClickButton(InvoiceFilter.EntityField,2000);
@@ -522,18 +522,18 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceFilter invoiceFilter = new InvoiceFilter(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.EntityField,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.ResetAllButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.EntityField,2000);
         invoiceFilter.SelectFilterFromDropdown("Lark Homes",InvoiceFilter.EntityField);
-        operation.ClickButton(InvoiceFilter.ApplyButton,2000);
+        operation.clickButton(InvoiceFilter.ApplyButton,2000);
         Assert.assertTrue(invoiceFilter.verifyAnElementDisplayedOrNot(1500,InvoiceFilter.Tag1));
         Assert.assertTrue(invoiceFilter.verifyAnElementDisplayedOrNot(1500,InvoiceFilter.ClearAllTag));
-        operation.ClickButton(InvoiceFilter.ClearAllTag,2000);
+        operation.clickButton(InvoiceFilter.ClearAllTag,2000);
 
     }
 
@@ -550,10 +550,10 @@ public class InvoiceFilterTestCases extends BaseTest {
 //        dashboard.RefreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.CompanyField,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.ResetAllButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.CompanyField,2000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,InvoiceFilter.Dropdown));
 
     }
@@ -568,19 +568,19 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceFilter invoiceFilter = new InvoiceFilter(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.CompanyField,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.ResetAllButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.CompanyField,2000);
         invoiceFilter.SelectFilterFromDropdown("Angel In Us",InvoiceFilter.CompanyField);
-        operation.ClickButton(InvoiceFilter.EntityCrossOption,1000);
+        operation.clickButton(InvoiceFilter.EntityCrossOption,1000);
         invoiceFilter.SelectFilterFromDropdown("test company99",InvoiceFilter.CompanyField);
-        operation.ClickButton(InvoiceFilter.EntityCrossOption,1000);
+        operation.clickButton(InvoiceFilter.EntityCrossOption,1000);
         invoiceFilter.SelectFilterFromDropdown("My Property Company29",InvoiceFilter.CompanyField);
-        operation.ClickButton(InvoiceFilter.EntityCrossOption,1000);
+        operation.clickButton(InvoiceFilter.EntityCrossOption,1000);
 
     }
     @Test(priority = 31)//Done
@@ -593,13 +593,13 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceFilter invoiceFilter = new InvoiceFilter(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.CompanyField,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.ResetAllButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.CompanyField,2000);
         Assert.assertTrue(invoiceFilter.verifyDropdownListExpanded(InvoiceFilter.CompanyField));
     }
 
@@ -613,13 +613,13 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceFilter invoiceFilter = new InvoiceFilter(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
 //        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
 //        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.CompanyField,2000);
+        operation.clickButton(InvoiceFilter.CompanyField,2000);
         invoiceFilter.SelectFilterFromDropdown("Walmart90",InvoiceFilter.CompanyField);
         Assert.assertTrue(basePage.verifyTextMatching(1500,InvoiceFilter.CompanyFieldSelected,"Walmart90"));
     }
@@ -635,13 +635,13 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceFilter invoiceFilter = new InvoiceFilter(driver);
         BasePage basePage = new BasePage(driver);
 ////        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,1000);
-        operation.ClickButton(InvoiceFilter.ResetAllButton,1000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,1000);
-        operation.ClickButton(InvoiceFilter.CompanyField,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,1000);
+        operation.clickButton(InvoiceFilter.ResetAllButton,1000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,1000);
+        operation.clickButton(InvoiceFilter.CompanyField,2000);
         operation.writeInputText(InvoiceFilter.CompanyField,"sdfsfsdfs",1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1500,InvoiceFilter.NoItem));
 
@@ -657,10 +657,10 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceFilter invoiceFilter = new InvoiceFilter(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
 //        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
 //        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
         Assert.assertTrue(invoiceFilter.verifySelectedTag("Angel In Us",InvoiceFilter.CompanyField,InvoiceFilter.CompanyFieldSelected));
@@ -677,18 +677,18 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceFilter invoiceFilter = new InvoiceFilter(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.CompanyField,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.ResetAllButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.CompanyField,2000);
         invoiceFilter.SelectFilterFromDropdown("Selenium Company 3",InvoiceFilter.CompanyField);
-        operation.ClickButton(InvoiceFilter.ApplyButton,2000);
+        operation.clickButton(InvoiceFilter.ApplyButton,2000);
         Assert.assertTrue(invoiceFilter.verifyAnElementDisplayedOrNot(1500,InvoiceFilter.Tag1));
         Assert.assertTrue(invoiceFilter.verifyAnElementDisplayedOrNot(1500,InvoiceFilter.ClearAllTag));
-        operation.ClickButton(InvoiceFilter.ClearAllTag,2000);
+        operation.clickButton(InvoiceFilter.ClearAllTag,2000);
         Assert.assertTrue(basePage.verifyElementNotDisplayed(3000,InvoiceFilter.ClearAllTag));
         Assert.assertTrue(basePage.verifyElementNotDisplayed(3000,InvoiceFilter.Tag1));
 
@@ -704,13 +704,13 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceFilter invoiceFilter = new InvoiceFilter(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.PropertyField,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.ResetAllButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.PropertyField,2000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,InvoiceFilter.Dropdown));
 
     }
@@ -725,19 +725,19 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceFilter invoiceFilter = new InvoiceFilter(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.PropertyField,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.ResetAllButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.PropertyField,2000);
         invoiceFilter.SelectFilterFromDropdown("My",InvoiceFilter.PropertyField);
-        operation.ClickButton(InvoiceFilter.EntityCrossOption,1000);
+        operation.clickButton(InvoiceFilter.EntityCrossOption,1000);
         invoiceFilter.SelectFilterFromDropdown("Property Tesla",InvoiceFilter.PropertyField);
-        operation.ClickButton(InvoiceFilter.EntityCrossOption,1000);
+        operation.clickButton(InvoiceFilter.EntityCrossOption,1000);
         invoiceFilter.SelectFilterFromDropdown("Cloudy",InvoiceFilter.PropertyField);
-        operation.ClickButton(InvoiceFilter.EntityCrossOption,1000);
+        operation.clickButton(InvoiceFilter.EntityCrossOption,1000);
 
     }
     @Test(priority = 40)//Done
@@ -750,13 +750,13 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceFilter invoiceFilter = new InvoiceFilter(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.PropertyField,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.ResetAllButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.PropertyField,2000);
         Assert.assertTrue(invoiceFilter.verifyDropdownListExpanded(InvoiceFilter.PropertyField));
     }
 
@@ -770,13 +770,13 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceFilter invoiceFilter = new InvoiceFilter(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
 //        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
 //        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.PropertyField,2000);
+        operation.clickButton(InvoiceFilter.PropertyField,2000);
         invoiceFilter.SelectFilterFromDropdown("EV company",InvoiceFilter.PropertyField);
         Assert.assertTrue(basePage.verifyTextMatching(1500,InvoiceFilter.PropertyFieldSelected,"EV company"));
     }
@@ -792,13 +792,13 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceFilter invoiceFilter = new InvoiceFilter(driver);
         BasePage basePage = new BasePage(driver);
 ////        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,1000);
-        operation.ClickButton(InvoiceFilter.ResetAllButton,1000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,1000);
-        operation.ClickButton(InvoiceFilter.PropertyField,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,1000);
+        operation.clickButton(InvoiceFilter.ResetAllButton,1000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,1000);
+        operation.clickButton(InvoiceFilter.PropertyField,2000);
         operation.writeInputText(InvoiceFilter.PropertyField,"sdfsfsdfs",1000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1500,InvoiceFilter.NoItem));
 
@@ -814,10 +814,10 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceFilter invoiceFilter = new InvoiceFilter(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
 //        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
 //        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
         Assert.assertTrue(invoiceFilter.verifySelectedTag("Selenium Property 2",InvoiceFilter.PropertyField,InvoiceFilter.PropertyFieldSelected));
@@ -833,18 +833,18 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceFilter invoiceFilter = new InvoiceFilter(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.PropertyField,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.ResetAllButton,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.PropertyField,2000);
         invoiceFilter.SelectFilterFromDropdown("Ganymede",InvoiceFilter.PropertyField);
-        operation.ClickButton(InvoiceFilter.ApplyButton,2000);
+        operation.clickButton(InvoiceFilter.ApplyButton,2000);
         Assert.assertTrue(invoiceFilter.verifyAnElementDisplayedOrNot(1500,InvoiceFilter.Tag1));
         Assert.assertTrue(invoiceFilter.verifyAnElementDisplayedOrNot(1500,InvoiceFilter.ClearAllTag));
-        operation.ClickButton(InvoiceFilter.ClearAllTag,2000);
+        operation.clickButton(InvoiceFilter.ClearAllTag,2000);
         Assert.assertTrue(invoiceFilter.verifyElementNotDisplayed(2000,InvoiceFilter.ClearAllTag));
 
 
@@ -908,14 +908,14 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceFilter invoiceFilter = new InvoiceFilter(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
-        operation.ClickButton(InvoiceFilter.Last12DaysFilter,2000);
-        operation.ClickButton(InvoiceFilter.DropDownCustom,2000);
-        operation.ClickButton(InvoiceFilter.CustomField,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.ResetAllButton,2000);
+        operation.clickButton(InvoiceFilter.Last12DaysFilter,2000);
+        operation.clickButton(InvoiceFilter.DropDownCustom,2000);
+        operation.clickButton(InvoiceFilter.CustomField,2000);
         Assert.assertTrue(invoiceFilter.verifyAnElementDisplayedOrNot(1500,InvoiceFilter.Calender));
 
 
@@ -931,15 +931,15 @@ public class InvoiceFilterTestCases extends BaseTest {
         InvoiceFilter invoiceFilter = new InvoiceFilter(driver);
         BasePage basePage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterButton,2000);
-        operation.ClickButton(InvoiceFilter.ResetAllButton,2000);
-        operation.ClickButton(InvoiceFilter.Last12DaysFilter,2000);
-        operation.ClickButton(InvoiceFilter.DropDownCustom,2000);
-        operation.ClickButton(InvoiceFilter.CustomField,2000);
-        operation.ClickButton(InvoiceFilter.Last12DaysFilterCrossOption,2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterButton,2000);
+        operation.clickButton(InvoiceFilter.ResetAllButton,2000);
+        operation.clickButton(InvoiceFilter.Last12DaysFilter,2000);
+        operation.clickButton(InvoiceFilter.DropDownCustom,2000);
+        operation.clickButton(InvoiceFilter.CustomField,2000);
+        operation.clickButton(InvoiceFilter.Last12DaysFilterCrossOption,2000);
         Assert.assertTrue(invoiceFilter.verifyAnElementDisplayedOrNot(1500,InvoiceFilter.Last12DaysFilter));
 
 

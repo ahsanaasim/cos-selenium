@@ -18,9 +18,9 @@ public class OCPPSimulationTestCases extends BaseTest {
         GuestFlow guestFlow = new GuestFlow(driver);
         BasePage basePage = new BasePage(driver);
         SimulationPage simulator = new SimulationPage(driver);
-        loginPage.VerifyValidLogin();
-        operation.ClickButton(SimulationPage.SimulationTab,2000);
-        operation.ClickButton(SimulationPage.Simulator,2000);
+        loginPage.verifyValidLogin();
+        operation.clickButton(SimulationPage.SimulationTab,2000);
+        operation.clickButton(SimulationPage.Simulator,2000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,SimulationPage.EmptySearchFieldBeforeClicking));
         Assert.assertTrue(simulator.SelectChargerFromSimulator("Automatable charger"));
         Assert.assertTrue(basePage.verifyTextMatching(1500,SimulationPage.ChargerSelectedField,"Automatable Charger"));
@@ -133,7 +133,7 @@ public class OCPPSimulationTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
 //        operation.ClickButton(SimulationPage.SimulationTab,2000);
 //        operation.ClickButton(SimulationPage.Simulator,2000);
-        operation.ClickButton(SimulationPage.PlugInCharger,1000);
+        operation.clickButton(SimulationPage.PlugInCharger,1000);
         Assert.assertTrue(basePage.verifyAFieldIsEnable(2500,SimulationPage.MakeChargerAvailable));
     }
     @Test(priority = 9)//Done

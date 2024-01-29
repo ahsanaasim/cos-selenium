@@ -19,9 +19,9 @@ public class PageSizeCheckForAllTable extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonCompanyManagement());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnCompanyManagement());
         Assert.assertTrue(company.checkPageSize(EditCompany.editcompanybtn,prop.getProperty("PageSize")));
 
     }
@@ -33,10 +33,10 @@ public class PageSizeCheckForAllTable extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
-        Assert.assertTrue(dashboard.ClickonEntityManagement());
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
+        Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
+        Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(company.checkPageSize(EditCompany.editcompanybtn,prop.getProperty("PageSize")));
 
     }
@@ -49,10 +49,10 @@ public class PageSizeCheckForAllTable extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
-        Assert.assertTrue(dashboard.clickonProperty());
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(company.checkPageSize(EditCompany.editcompanybtn,prop.getProperty("PageSize")));
 
     }
@@ -64,9 +64,9 @@ public class PageSizeCheckForAllTable extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(company.checkPageSize(EditCompany.editcompanybtn,prop.getProperty("PageSize")));
 
@@ -80,9 +80,9 @@ public class PageSizeCheckForAllTable extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(company.checkPageSize(EditCompany.editcompanybtn,prop.getProperty("PageSize")));
 
@@ -95,7 +95,7 @@ public class PageSizeCheckForAllTable extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         ChargingSession session = new ChargingSession(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         session.GoToChargingSessionPage();
         Assert.assertTrue(session.checkPageSize(ChargerListPropertyAdmin.detailsbutton,prop.getProperty("PageSize")));
 
@@ -109,7 +109,7 @@ public class PageSizeCheckForAllTable extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         InvoiceListAndSearch invoice = new InvoiceListAndSearch(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         invoice.GoToInvoicePage();
         Assert.assertTrue(invoice.checkPageSize(ChargerListPropertyAdmin.detailsbutton,prop.getProperty("PageSizeForInvoicePage")));
 
@@ -123,7 +123,7 @@ public class PageSizeCheckForAllTable extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         AllUsers allUsers = new AllUsers(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
         allUsers.GoToAllUsersPage();
         Assert.assertTrue(allUsers.checkPageSize(EditCompany.editcompanybtn,prop.getProperty("PageSize")));
 

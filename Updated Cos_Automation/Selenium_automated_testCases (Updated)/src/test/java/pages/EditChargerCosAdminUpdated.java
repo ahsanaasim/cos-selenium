@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.*;
-import tests.US57EditChargerPropertyAdmin.PropertyAdminEditChargerTestCases;
 
 import java.awt.*;
 import java.awt.datatransfer.DataFlavor;
@@ -479,9 +478,9 @@ public class EditChargerCosAdminUpdated extends BasePage {
         ChargerNameField.sendKeys(EditedCharger);
         click(UpdateChargerPropertyAdmin.SaveCharger);
         Thread.sleep(6000);
-        FieldClear(ChargerListPropertyAdmin.SearchChargerField);
+        fieldClear(ChargerListPropertyAdmin.SearchChargerField);
         createcharger.writeInputText(ChargerListPropertyAdmin.SearchChargerField,EditedCharger,1000);
-        createcharger.ClickButton(CreateCharger.searchargerbtn,1000);
+        createcharger.clickButton(CreateCharger.searchargerbtn,1000);
         click(CosAdminChargerList.EditButton);
         Thread.sleep(10000);
         String Edchar = driver.findElement(ChangeNameAuditLog).getText();

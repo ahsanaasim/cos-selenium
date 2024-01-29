@@ -18,8 +18,8 @@ public class TroubleshootChargerTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         TroubleshootCharger troubleshootCharger = new TroubleshootCharger(driver);
         ChargerListPropertyAdmin chargerList = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLogin();
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        loginPage.verifyValidLogin();
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(troubleshootCharger.verifyAnElementDisplayedOrNot(2000,TroubleshootCharger.ThreeDotBesideEditBtn));
 
@@ -39,7 +39,7 @@ public class TroubleshootChargerTestCases extends BaseTest {
 //        dashboard.RefreshBrowser();
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickOnChargers());
-        operation.ClickButton(TroubleshootCharger.ThreeDotBesideEditBtn,1000);
+        operation.clickButton(TroubleshootCharger.ThreeDotBesideEditBtn,1000);
         Assert.assertTrue(troubleshootCharger.verifyAnElementDisplayedOrNot(1000,TroubleshootCharger.TroubleshootButton));
 
     }
@@ -59,7 +59,7 @@ public class TroubleshootChargerTestCases extends BaseTest {
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickOnChargers());
 //        operation.ClickButton(TroubleshootCharger.ThreeDotBesideEditBtn,5000);
-        operation.ClickButton(TroubleshootCharger.TroubleshootButton,100);
+        operation.clickButton(TroubleshootCharger.TroubleshootButton,100);
         Assert.assertTrue(troubleshootCharger.verifyAnElementDisplayedOrNot(1000,TroubleshootCharger.TroubleShootDrawerTitle));
         Assert.assertTrue(troubleshootCharger.verifyTextMatching(1000,TroubleshootCharger.TroubleShootDrawerTitle,"Troubleshooting"));
 
@@ -78,9 +78,9 @@ public class TroubleshootChargerTestCases extends BaseTest {
 //        Assert.assertTrue(dashboard.GotoDashboard());
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickOnChargers());
-        operation.ClickButton(InvoiceFilter.AdvanceFilterCrossButton,2000);
-        dashboard.RefreshBrowser();
-        operation.ClickButton(TroubleshootCharger.ThreeDotBesideEditBtn,15000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterCrossButton,2000);
+        dashboard.refreshBrowser();
+        operation.clickButton(TroubleshootCharger.ThreeDotBesideEditBtn,15000);
         operation.click(TroubleshootCharger.TroubleshootButton);
         Assert.assertTrue(troubleshootCharger.verifyAnElementDisplayedOrNot(1500,TroubleshootCharger.ChargerInfoSection));
         Assert.assertTrue(troubleshootCharger.verifyAnElementDisplayedOrNot(1000,TroubleshootCharger.ChargerStatusActionsSection));
@@ -148,10 +148,10 @@ public class TroubleshootChargerTestCases extends BaseTest {
 //        Assert.assertTrue(dashboard.GotoDashboard());
 ////        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickOnChargers());
-        operation.ClickButton(InvoiceFilter.AdvanceFilterCrossButton,1000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterCrossButton,1000);
 //        dashboard.RefreshBrowser();
-        operation.ClickButton(TroubleshootCharger.ThreeDotBesideEditBtn,8000);
-        operation.ClickButton(TroubleshootCharger.TroubleshootButton,2000);
+        operation.clickButton(TroubleshootCharger.ThreeDotBesideEditBtn,8000);
+        operation.clickButton(TroubleshootCharger.TroubleshootButton,2000);
         Assert.assertTrue(troubleshootCharger.verifyAnElementDisplayedOrNot(1000,TroubleshootCharger.TroubleShootDrawerTitle));
 
     }@Test(priority = 8)//Done
@@ -165,9 +165,9 @@ public class TroubleshootChargerTestCases extends BaseTest {
         TroubleshootCharger troubleshootCharger = new TroubleshootCharger(driver);
         ChargerListPropertyAdmin chargerList = new ChargerListPropertyAdmin(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(troubleshootCharger.verifyTableNameMatchingWithDrawer(ChargerListPropertyAdmin.ChargerTitle,TroubleshootCharger.ChargerTitleName));
 
@@ -183,9 +183,9 @@ public class TroubleshootChargerTestCases extends BaseTest {
         TroubleshootCharger troubleshootCharger = new TroubleshootCharger(driver);
         ChargerListPropertyAdmin chargerList = new ChargerListPropertyAdmin(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(troubleshootCharger.verifyTableNameMatchingWithDrawer(ChargerListPropertyAdmin.PropertyAddress,TroubleshootCharger.PropertyAddressName));
 
@@ -201,9 +201,9 @@ public class TroubleshootChargerTestCases extends BaseTest {
         TroubleshootCharger troubleshootCharger = new TroubleshootCharger(driver);
         ChargerListPropertyAdmin chargerList = new ChargerListPropertyAdmin(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(troubleshootCharger.verifyTableNameMatchingWithDrawer(ChargerListPropertyAdmin.LocationName,TroubleshootCharger.LocationTitleName));
 
@@ -218,15 +218,15 @@ public class TroubleshootChargerTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         TroubleshootCharger troubleshootCharger = new TroubleshootCharger(driver);
         ChargerListPropertyAdmin chargerList = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
 //        Assert.assertTrue(dashboard.GotoDashboard());
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         operation.writeInputText(CreateCharger.searchchargerfield,"Testing Charger-1161",3000);
-        operation.ClickButton(CreateCharger.searchargerbtn,1000);
-        operation.ClickButton(TroubleshootCharger.ThreeDotBesideEditBtn,1000);
-        operation.ClickButton(TroubleshootCharger.TroubleshootButton,1000);
+        operation.clickButton(CreateCharger.searchargerbtn,1000);
+        operation.clickButton(TroubleshootCharger.ThreeDotBesideEditBtn,1000);
+        operation.clickButton(TroubleshootCharger.TroubleshootButton,1000);
         Assert.assertTrue(troubleshootCharger.verifyAnElementDisplayedOrNot(1000,TroubleshootCharger.ChargerNotConfiguredMsg));
 
     }
@@ -265,14 +265,14 @@ public class TroubleshootChargerTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         TroubleshootCharger troubleshootCharger = new TroubleshootCharger(driver);
         ChargerListPropertyAdmin chargerList = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         operation.writeInputText(CreateCharger.searchchargerfield,"Troubleshoot checker charger",1000);
-        operation.ClickButton(CreateCharger.searchargerbtn,1000);
-        operation.ClickButton(DownCharger.EditButton,1000);
+        operation.clickButton(CreateCharger.searchargerbtn,1000);
+        operation.clickButton(DownCharger.EditButton,1000);
         Assert.assertTrue(troubleshootCharger.verifyChangerNameChangedInTroubleshootDrawer());
         ;
 
@@ -287,13 +287,13 @@ public class TroubleshootChargerTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         TroubleshootCharger troubleshootCharger = new TroubleshootCharger(driver);
         ChargerListPropertyAdmin chargerList = new ChargerListPropertyAdmin(driver);
-        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        loginPage.verifyValidLogin();
+        dashboard.refreshBrowser();
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         operation.writeInputText(CreateCharger.searchchargerfield,"Troubleshoot checker charger",1000);
-        operation.ClickButton(CreateCharger.searchargerbtn,1000);
+        operation.clickButton(CreateCharger.searchargerbtn,1000);
         Assert.assertTrue(troubleshootCharger.verifyPropertyAddressChangedInTroubleshootDrawer());
 
 
@@ -310,12 +310,12 @@ public class TroubleshootChargerTestCases extends BaseTest {
         TroubleshootCharger troubleshootCharger = new TroubleshootCharger(driver);
         ChargerListPropertyAdmin chargerList = new ChargerListPropertyAdmin(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         operation.writeInputText(CreateCharger.searchchargerfield,"Troubleshoot checker charger",1000);
-        operation.ClickButton(CreateCharger.searchargerbtn,1000);
+        operation.clickButton(CreateCharger.searchargerbtn,1000);
         Assert.assertTrue(troubleshootCharger.verifyLocationNameChangedInTroubleshootDrawer());
 
 
@@ -330,13 +330,13 @@ public class TroubleshootChargerTestCases extends BaseTest {
         TroubleshootCharger troubleshootCharger = new TroubleshootCharger(driver);
         ChargerListPropertyAdmin chargerList = new ChargerListPropertyAdmin(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue(dashboard.GotoDashboard());
-        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
+        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        operation.ClickButton(TroubleshootCharger.ThreeDotBesideEditBtn,15000);
-        operation.ClickButton(TroubleshootCharger.TroubleshootButton, 2000);
-        operation.ClickButton(InvoiceFilter.AdvanceFilterCrossButton, 1500);
+        operation.clickButton(TroubleshootCharger.ThreeDotBesideEditBtn,15000);
+        operation.clickButton(TroubleshootCharger.TroubleshootButton, 2000);
+        operation.clickButton(InvoiceFilter.AdvanceFilterCrossButton, 1500);
         Assert.assertTrue(troubleshootCharger.verifyAnElementDisplayedOrNot(1500,EditChargerCosAdminUpdated.ProfileTop));
     }
 
@@ -352,9 +352,9 @@ public class TroubleshootChargerTestCases extends BaseTest {
         TroubleshootCharger troubleshootCharger = new TroubleshootCharger(driver);
         ChargerListPropertyAdmin chargerList = new ChargerListPropertyAdmin(driver);
 //        loginPage.VerifyValidLogin();
-        operation.ClickButton(TroubleshootCharger.ThreeDotBesideEditBtn, 1000);
-        operation.ClickButton(TroubleshootCharger.TroubleshootButton, 1000);
-        operation.ClickButton(CreateCharger.outsidedrawer, 1500);
+        operation.clickButton(TroubleshootCharger.ThreeDotBesideEditBtn, 1000);
+        operation.clickButton(TroubleshootCharger.TroubleshootButton, 1000);
+        operation.clickButton(CreateCharger.outsidedrawer, 1500);
         Assert.assertTrue(troubleshootCharger.verifyAnElementDisplayedOrNot(1500, EditChargerCosAdminUpdated.ProfileTop));
 
     }

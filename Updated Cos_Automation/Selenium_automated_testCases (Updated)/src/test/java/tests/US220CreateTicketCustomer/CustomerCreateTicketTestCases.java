@@ -25,8 +25,8 @@ public class CustomerCreateTicketTestCases extends BaseTest {
         CustomerSupport customerSupport = new CustomerSupport(driver);
         customerSupport.GoToCustomerLoginPage();
         customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
-        operation.ClickButton(CustomerSupport.Menu,2000);
-        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
+        operation.clickButton(CustomerSupport.Menu,2000);
+        operation.clickButton(CustomerSupport.CustomerSupport,2000);
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(1000,CustomerSupport.CreateATicket));
 
 
@@ -100,7 +100,7 @@ public class CustomerCreateTicketTestCases extends BaseTest {
 //        operation.ClickButton(CustomerLogin.CustomerLoginButton,1000);
 //        operation.ClickButton(CustomerSupport.Menu,2000);
 //        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
-        operation.ClickButton(CustomerSupport.CreateATicket,2000);
+        operation.clickButton(CustomerSupport.CreateATicket,2000);
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(1000,CustomerSupport.CreateTicketPageTitle));
 
     }
@@ -306,7 +306,7 @@ public class CustomerCreateTicketTestCases extends BaseTest {
 //        operation.ClickButton(CustomerLogin.CustomerLoginButton,1000);
 //        operation.ClickButton(CustomerSupport.Menu,2000);
 //        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
-        operation.ClickButton(CustomerSupport.CategoryField,1000);
+        operation.clickButton(CustomerSupport.CategoryField,1000);
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(1000,CreateTicket.TicketTypeGeneral));
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(300,CreateTicket.TicketTypeTechnical));
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(300,CreateTicket.TicketTypeBilling));
@@ -327,11 +327,11 @@ public class CustomerCreateTicketTestCases extends BaseTest {
 //        operation.ClickButton(CustomerLogin.CustomerLoginButton,1000);
 //        operation.ClickButton(CustomerSupport.Menu,2000);
 //        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         ticket.SelectOptionFromInputField(CustomerSupport.CategoryField,"Software Issue");
         operation.writeInputText(CreateTicket.SubjectField,(prop.getProperty("TicketSubjectLessThanThirtyCharacter2")),1000);
         operation.writeInputText(CreateTicket.DescriptionField,(prop.getProperty("Paragraph")),500);
-        operation.ClickButton(CustomerSupport.SubmitButton,2000);
+        operation.clickButton(CustomerSupport.SubmitButton,2000);
         Assert.assertTrue(ticket.verifyTextMatching(300,CustomerSupport.FirstCreatedTicket,"Software Issue"));
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(300,CustomerSupport.CreateATicket));
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(300,CustomerSupport.TicketsHistory));
@@ -393,19 +393,19 @@ public class CustomerCreateTicketTestCases extends BaseTest {
 //        dashboard.RefreshBrowser();
         customerLogin.LogoutFromCustomerAccount();
         customerLogin.LoginToACustomerAccount((prop.getProperty("validEmail")),(prop.getProperty("validPassword")));
-        operation.ClickButton(CustomerSupport.Menu,2000);
-        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
-        operation.ClickButton(CustomerSupport.CreateATicket,2000);
+        operation.clickButton(CustomerSupport.Menu,2000);
+        operation.clickButton(CustomerSupport.CustomerSupport,2000);
+        operation.clickButton(CustomerSupport.CreateATicket,2000);
         ticket.SelectOptionFromInputField(CustomerSupport.CategoryField,"Charging Issue");
-        operation.ClickButton(CustomerSupport.SelectASessionField,2000);
-        operation.ClickButton(CustomerSupport.FirstSessionFromDropdown,2000);
+        operation.clickButton(CustomerSupport.SelectASessionField,2000);
+        operation.clickButton(CustomerSupport.FirstSessionFromDropdown,2000);
         operation.writeInputText(CreateTicket.SubjectField,"This is admin creating the ticket",1000);
         operation.writeInputText(CreateTicket.DescriptionField,(prop.getProperty("Paragraph")),500);
-        operation.ClickButton(CustomerSupport.UploadButton,2000);
+        operation.clickButton(CustomerSupport.UploadButton,2000);
         property.uploadImageMorethan2Mb();
-        operation.ClickButton(CustomerSupport.SubmitButton,2000);
+        operation.clickButton(CustomerSupport.SubmitButton,2000);
         Thread.sleep(40000);
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
         Assert.assertTrue(ticket.verifyTextMatching(4000,CustomerSupport.FirstCreatedTicket,"Charging Issue"));
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(300,CustomerSupport.CreateATicket));
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(300,CustomerSupport.OpenStatus1));
@@ -432,10 +432,10 @@ public class CustomerCreateTicketTestCases extends BaseTest {
 //        dashboard.RefreshBrowser();
         customerLogin.LogoutFromCustomerAccount();
         customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
-        operation.ClickButton(CustomerSupport.Menu,2000);
-        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
-        operation.ClickButton(CustomerSupport.CreateATicket,2000);
-        operation.ClickButton(CustomerSupport.SubmitButton,2000);
+        operation.clickButton(CustomerSupport.Menu,2000);
+        operation.clickButton(CustomerSupport.CustomerSupport,2000);
+        operation.clickButton(CustomerSupport.CreateATicket,2000);
+        operation.clickButton(CustomerSupport.SubmitButton,2000);
         Assert.assertTrue(ticket.verifyTextMatching(1500,CustomerSupport.CategoryRequiredMsg,customerSupport.categoryRequiredMsg()));
 //        Assert.assertTrue(ticket.verifyTextMatching(500,CustomerSupport.SubjectRequiredMsg,customerSupport.SubjectRequiredMsg()));
 //        Assert.assertTrue(ticket.verifyTextMatching(500,CustomerSupport.MessageFieldRequiredMsg,customerSupport.MessageRequiredMsg()));
@@ -528,7 +528,7 @@ public class CustomerCreateTicketTestCases extends BaseTest {
 //        operation.ClickButton(CustomerSupport.SubmitButton,2000);
 //        Assert.assertTrue(ticket.verifyTextMatching(1500,CustomerSupport.CategoryRequiredMsg,customerSupport.categoryRequiredMsg()));
         ticket.SelectOptionFromInputField(CustomerSupport.CategoryField,"Charging Issue");
-        operation.ClickButton(CustomerSupport.SubmitButton,2000);
+        operation.clickButton(CustomerSupport.SubmitButton,2000);
 //        Assert.assertTrue(ticket.verifyTextMatching(500,CustomerSupport.SubjectRequiredMsg,customerSupport.SubjectRequiredMsg()));
         Assert.assertTrue(ticket.verifyTextMatching(1000,CustomerSupport.SessionRequiredMsg,customerSupport.SessionRequiredMsg()));
         Assert.assertTrue(customerSupport.verifyCurrentPageIsCreatingTicketPage());
@@ -559,10 +559,10 @@ public class CustomerCreateTicketTestCases extends BaseTest {
 //        operation.ClickButton(CustomerSupport.CreateATicket,2000);
 //        operation.ClickButton(CustomerSupport.SubmitButton,2000);
 //        Assert.assertTrue(ticket.verifyTextMatching(1500,CustomerSupport.CategoryRequiredMsg,customerSupport.categoryRequiredMsg()));
-        operation.ClickButton(CustomerSupport.SelectASessionField,2000);
+        operation.clickButton(CustomerSupport.SelectASessionField,2000);
         customerSupport.clickOnSessionFieldFirstDropdown();
         operation.writeInputText(CreateTicket.DescriptionField,(prop.getProperty("Paragraph")),500);
-        operation.ClickButton(CustomerSupport.SubmitButton,2000);
+        operation.clickButton(CustomerSupport.SubmitButton,2000);
 //        Assert.assertTrue(ticket.verifyTextMatching(500,CustomerSupport.SubjectRequiredMsg,customerSupport.SubjectRequiredMsg()));
         Assert.assertTrue(ticket.verifyTextMatching(3000,CustomerSupport.SubjectRequiredMsg,customerSupport.SubjectRequiredMsg()));
         Assert.assertTrue(customerSupport.verifyCurrentPageIsCreatingTicketPage());
@@ -582,8 +582,8 @@ public class CustomerCreateTicketTestCases extends BaseTest {
 //        customerSupport.GoToCustomerLoginPage();
         customerLogin.LogoutFromCustomerAccount();
         customerLogin.LoginToACustomerAccount((prop.getProperty("CustomerWithNoTicket")),"EitaiPassword10");
-        operation.ClickButton(CustomerSupport.Menu,2000);
-        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
+        operation.clickButton(CustomerSupport.Menu,2000);
+        operation.clickButton(CustomerSupport.CustomerSupport,2000);
         customerSupport.verifyAnElementDisplayedOrNot(1000,CustomerSupport.NoDataTable);
         customerSupport.verifyAnElementDisplayedOrNot(1000,CustomerSupport.NoTicketText);
 
@@ -604,8 +604,8 @@ public class CustomerCreateTicketTestCases extends BaseTest {
 //        customerLogin.LoginToACustomerAccount((prop.getProperty("CustomerWithNoTicket")),"EitaiPassword10");
 //        operation.ClickButton(CustomerSupport.Menu,2000);
 //        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
-        operation.ClickButton(CustomerSupport.CreateATicket,2000);
-        operation.ClickButton(CustomerSupport.SelectASessionField,2000);
+        operation.clickButton(CustomerSupport.CreateATicket,2000);
+        operation.clickButton(CustomerSupport.SelectASessionField,2000);
         customerSupport.verifyAnElementDisplayedOrNot(1500,CustomerSupport.DropdownEmptyDataImage);
         customerSupport.verifyAnElementDisplayedOrNot(1000,CustomerSupport.DropdownNoData);
 

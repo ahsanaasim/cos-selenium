@@ -17,9 +17,9 @@ public class InvoiceDetailsTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         InvoiceListAndSearch invoiceList = new InvoiceListAndSearch(driver);
         InvoiceDetails invoiceDetails = new InvoiceDetails(driver);
-        loginPage.VerifyValidLogin();
-        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
-        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
+        loginPage.verifyValidLogin();
+        operation.clickButton(InvoiceListAndSearch.FinancialTab,2000);
+        operation.clickButton(InvoiceListAndSearch.InvoicesTab,2000);
         Assert.assertTrue(invoiceDetails.verifyInvoiceDetailsDrawerTitle());
     }
     @Test(priority = 2)//Done
@@ -85,7 +85,7 @@ public class InvoiceDetailsTestCases extends BaseTest {
         InvoiceDetails invoiceDetails = new InvoiceDetails(driver);
         BasePage basepage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
         Assert.assertTrue(invoiceDetails.verifyInvoiceDetailsDates());
@@ -126,7 +126,7 @@ public class InvoiceDetailsTestCases extends BaseTest {
         InvoiceDetails invoiceDetails = new InvoiceDetails(driver);
         BasePage basepage = new BasePage(driver);
 //        loginPage.VerifyValidLogin();
-        dashboard.RefreshBrowser();
+        dashboard.refreshBrowser();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
         Assert.assertTrue(invoiceDetails.verifyBalanceDue());
@@ -179,7 +179,7 @@ public class InvoiceDetailsTestCases extends BaseTest {
         InvoiceListAndSearch invoiceList = new InvoiceListAndSearch(driver);
         InvoiceDetails invoiceDetails = new InvoiceDetails(driver);
         BasePage basepage = new BasePage(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.DetailsButton,2000);
@@ -195,7 +195,7 @@ public class InvoiceDetailsTestCases extends BaseTest {
         InvoiceListAndSearch invoiceList = new InvoiceListAndSearch(driver);
         InvoiceDetails invoiceDetails = new InvoiceDetails(driver);
         BasePage basepage = new BasePage(driver);
-        loginPage.VerifyValidLogin();
+        loginPage.verifyValidLogin();
 //        operation.ClickButton(InvoiceListAndSearch.FinancialTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.InvoicesTab,2000);
 //        operation.ClickButton(InvoiceListAndSearch.DetailsButton,2000);

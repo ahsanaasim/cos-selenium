@@ -54,13 +54,6 @@ public class ChargerListPropertyAdmin extends BasePage {
         return true;
     }
 
-    public boolean writeInputText(By element, String text, int delay) throws InterruptedException {
-        //waitVisibility(ChargerColumn);
-        Thread.sleep(delay);
-        writeText(element, text);
-        return true;
-    }
-
     public boolean verifyNAForNoLocation() throws InterruptedException {
         Thread.sleep(2000);
         waitVisibility(LocationNA);
