@@ -34,7 +34,7 @@ public class Create extends BaseTest {
         Assert.assertTrue(company.clickOnCreateCompanyButton());
         String companyName = company.writeAutomatedCompanyName();
         company.createCompany(companyName,company.generateRandomPhoneNumber(),company.generateRandomEmail());
-        Assert.assertTrue(company.verifyAnElementDisplayedOrNot(2500,DashboardPropertyDetails.TopAccountName));
+        Assert.assertTrue(company.verifyElementNotDisplayed(2500,CreateCompany.createCompanyDrawerTitle));
         Assert.assertTrue(createCharger.writeInputText(EditCompany.searchbar,companyName,3000));
         Assert.assertTrue(company.clickButton(EditCompany.searchbtn,2000));
         Assert.assertTrue(editCompany.verifySearchResultCount());
@@ -54,9 +54,9 @@ public class Create extends BaseTest {
         /*Assert.assertTrue(dashboard.refreshBrowser());*/
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         createentity.createEntity(prop.getProperty("CompanyNameForAutomation"),createentity.writeEntityName(),company.generateRandomPhoneNumber(),company.generateRandomEmail());
-        Assert.assertTrue(company.verifyAnElementDisplayedOrNot(2500,CreateEntity.entityDrawerTitle));
+        Assert.assertTrue(company.verifyElementNotDisplayed(2500,CreateEntity.entityDrawerTitle));
     }
 
     //TC_86 from create property script
@@ -72,7 +72,7 @@ public class Create extends BaseTest {
         EditProperty editProperty = new EditProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(properties.clickonCreateNewPropertyButton());
@@ -120,7 +120,7 @@ public class Create extends BaseTest {
         CreateLocation createLocation=new CreateLocation(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(createLocation.clickonCreateNewLocationbutton());

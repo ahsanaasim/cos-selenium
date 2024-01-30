@@ -649,7 +649,7 @@ public class CreateCompanyTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnCompanyManagement());
         Assert.assertTrue(company.verifyCreateNewCompanyButtonHasDisplayed());
@@ -808,7 +808,7 @@ public class CreateCompanyTestCases extends BaseTest {
         Assert.assertTrue(dashboard.ClickonCompanyManagement());*/
         Assert.assertTrue(company.verifyCreateNewCompanyButtonHasDisplayed());
         Assert.assertTrue(company.clickOnCreateCompanyButton());
-        Assert.assertTrue(company.VerifySaveCompanyButtonAreShowingOnCreateCompanyDrawer());
+        Assert.assertTrue(company.verifySaveCompanyButtonAreShowingOnCreateCompanyDrawer());
         Assert.assertTrue(company.verifyCancelButtonIsShowing());
 
     }

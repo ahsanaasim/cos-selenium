@@ -565,7 +565,7 @@ public class EditCompanyTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnCompanyManagement());
         Assert.assertTrue(editCompany.ClickonEditbutton());

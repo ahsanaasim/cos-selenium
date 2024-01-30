@@ -131,7 +131,7 @@ public class LoginPage extends BasePage {
 
     public void verifyValidLogin()  {
         String home = prop.getProperty("HomeURL");
-        String signin = prop.getProperty("BaseURL");
+        String signin = prop.getProperty("LoginURL");
         String Dashboard = prop.getProperty("DashboardURL");
         String currURL = driver.getCurrentUrl();
         System.out.println();
@@ -153,7 +153,7 @@ public class LoginPage extends BasePage {
 
     public void verifyValidLoginForCosAccounting()  {
         String home = prop.getProperty("HomeURL");
-        String signin = prop.getProperty("BaseURL");
+        String signin = prop.getProperty("LoginURL");
         String Dashboard = prop.getProperty("DashboardURL");
         String currURL = driver.getCurrentUrl();
         System.out.println();
@@ -175,7 +175,7 @@ public class LoginPage extends BasePage {
 
     public void verifyValidLoginForCosPropertySupport()  {
         String home = prop.getProperty("HomeURL");
-        String signin = prop.getProperty("BaseURL");
+        String signin = prop.getProperty("LoginURL");
         String Dashboard = prop.getProperty("DashboardURL");
         String currURL = driver.getCurrentUrl();
         System.out.println();
@@ -196,7 +196,7 @@ public class LoginPage extends BasePage {
     }
     public void verifyValidLoginForCosDriverSupport()  {
         String home = prop.getProperty("HomeURL");
-        String signin = prop.getProperty("BaseURL");
+        String signin = prop.getProperty("LoginURL");
         String Dashboard = prop.getProperty("DashboardURL");
         String currURL = driver.getCurrentUrl();
         System.out.println();
@@ -217,7 +217,7 @@ public class LoginPage extends BasePage {
     }
     public void verifyValidLoginForCosTechSupport()  {
         String home = prop.getProperty("HomeURL");
-        String signin = prop.getProperty("BaseURL");
+        String signin = prop.getProperty("LoginURL");
         String Dashboard = prop.getProperty("DashboardURL");
         String currURL = driver.getCurrentUrl();
         System.out.println();
@@ -238,7 +238,7 @@ public class LoginPage extends BasePage {
     }
     public void verifyValidLoginForPropertyAdmin()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
-        String signin = prop.getProperty("BaseURLPropertyAdmin");
+        String signin = prop.getProperty("LoginURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
         String currURL = driver.getCurrentUrl();
         System.out.println();
@@ -259,7 +259,7 @@ public class LoginPage extends BasePage {
     }
     public void verifyValidLoginForPropertyAdminWithTwentyPlusProperty()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
-        String signin = prop.getProperty("BaseURLPropertyAdmin");
+        String signin = prop.getProperty("LoginURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
         String currURL = driver.getCurrentUrl();
         System.out.println();
@@ -280,7 +280,7 @@ public class LoginPage extends BasePage {
     }
     public void verifyValidLoginForPropertyAdminWithNoProperty()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
-        String signin = prop.getProperty("BaseURLPropertyAdmin");
+        String signin = prop.getProperty("LoginURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
         String currURL = driver.getCurrentUrl();
         System.out.println();
@@ -301,7 +301,7 @@ public class LoginPage extends BasePage {
     }
     public void verifyValidLoginForPropertyAdminWithLessThanFiveProperty()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
-        String signin = prop.getProperty("BaseURLPropertyAdmin");
+        String signin = prop.getProperty("LoginURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
         String currURL = driver.getCurrentUrl();
         System.out.println();
@@ -322,7 +322,7 @@ public class LoginPage extends BasePage {
     }
     public void verifyValidLoginForPropertyAdminWithPerfectCombination()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
-        String signin = prop.getProperty("BaseURLPropertyAdmin");
+        String signin = prop.getProperty("LoginURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
         String currURL = driver.getCurrentUrl();
         System.out.println();
@@ -343,7 +343,7 @@ public class LoginPage extends BasePage {
     }
     public void verifyValidLoginForPropertyAdminChargerStatusCheck()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
-        String signin = prop.getProperty("BaseURLPropertyAdmin");
+        String signin = prop.getProperty("LoginURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
         String currURL = driver.getCurrentUrl();
         System.out.println();
@@ -364,7 +364,7 @@ public class LoginPage extends BasePage {
     }
     public void verifyValidLoginForPropertyAdminOnlyLocations()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
-        String signin = prop.getProperty("BaseURLPropertyAdmin");
+        String signin = prop.getProperty("LoginURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
         String currURL = driver.getCurrentUrl();
         System.out.println();
@@ -385,7 +385,7 @@ public class LoginPage extends BasePage {
     }
     public void verifyValidLoginForPropertyAdminOfflineLocations()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
-        String signin = prop.getProperty("BaseURLPropertyAdmin");
+        String signin = prop.getProperty("LoginURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
         String currURL = driver.getCurrentUrl();
         System.out.println();
@@ -406,7 +406,7 @@ public class LoginPage extends BasePage {
     }
     public void verifyValidLoginForPropertyAdminCountTest()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
-        String signin = prop.getProperty("BaseURLPropertyAdmin");
+        String signin = prop.getProperty("LoginURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
         String currURL = driver.getCurrentUrl();
         System.out.println();
@@ -427,7 +427,7 @@ public class LoginPage extends BasePage {
     }
     public void verifyValidLoginForPropertyManager()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
-        String signin = prop.getProperty("BaseURLPropertyAdmin");
+        String signin = prop.getProperty("LoginURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
         String currURL = driver.getCurrentUrl();
         System.out.println();
@@ -448,7 +448,7 @@ public class LoginPage extends BasePage {
     }
     public void verifyValidLoginForPropertyAssistantManager()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
-        String signin = prop.getProperty("BaseURLPropertyAdmin");
+        String signin = prop.getProperty("LoginURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
         String currURL = driver.getCurrentUrl();
         System.out.println();
@@ -470,7 +470,7 @@ public class LoginPage extends BasePage {
 
     public void verifyValidLoginForPropertyLeasingAgent()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
-        String signin = prop.getProperty("BaseURLPropertyAdmin");
+        String signin = prop.getProperty("LoginURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
         String currURL = driver.getCurrentUrl();
         System.out.println();
@@ -491,7 +491,7 @@ public class LoginPage extends BasePage {
     }
     public void verifyValidLoginForPropertyAssistantLeasingAgent()  {
         String home = prop.getProperty("HomeURLPropertyAdmin");
-        String signin = prop.getProperty("BaseURLPropertyAdmin");
+        String signin = prop.getProperty("LoginURLPropertyAdmin");
         String Dashboard = prop.getProperty("DashboardURLPropertyAdmin");
         String currURL = driver.getCurrentUrl();
         System.out.println();
@@ -512,7 +512,7 @@ public class LoginPage extends BasePage {
     }
     public void VerifyValidLoginForPropertyMaintenance()  {
         String home = prop.getProperty("HomeURL");
-        String signin = prop.getProperty("BaseURL");
+        String signin = prop.getProperty("LoginURL");
         String Dashboard = prop.getProperty("DashboardURL");
         String currURL = driver.getCurrentUrl();
         System.out.println();
@@ -533,7 +533,7 @@ public class LoginPage extends BasePage {
     }
     public void VerifyValidLoginForPropertyAccounting()  {
         String home = prop.getProperty("HomeURL");
-        String signin = prop.getProperty("BaseURL");
+        String signin = prop.getProperty("LoginURL");
         String Dashboard = prop.getProperty("DashboardURL");
         String currURL = driver.getCurrentUrl();
         System.out.println();
@@ -554,7 +554,7 @@ public class LoginPage extends BasePage {
     }
     public void VerifyValidLoginForPropertyViewOnly()  {
         String home = prop.getProperty("HomeURL");
-        String signin = prop.getProperty("BaseURL");
+        String signin = prop.getProperty("LoginURL");
         String Dashboard = prop.getProperty("DashboardURL");
         String currURL = driver.getCurrentUrl();
         System.out.println();

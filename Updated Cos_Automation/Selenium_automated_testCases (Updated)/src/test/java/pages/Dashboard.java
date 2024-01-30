@@ -16,12 +16,12 @@ public class Dashboard extends BasePage {
     Properties prop = ConfigUtill.getConfig();
 
 
-    public static By loginmsg = By.xpath("//span[contains(.,'Login Successful')]");
+    public static By loginMsg = By.xpath("//span[contains(.,'Login Successful')]");
     public static By dropdown = By.xpath("//span[@class='anticon anticon-user']//*[name()='svg']");
     public static By logout = By.xpath("//div[@class='flex flex-center-v'][contains(.,'Logout')]");
     public static By company = By.xpath("(//span[contains(.,'Company')])[1]");
-    public static By cmanagementtext = By.xpath("//a[@href='/company/company-management']");
-    public static By entitymanagement = By.xpath("//a[@href='/company/entity-management']");
+    public static By cManagementText = By.xpath("//a[@href='/company/company-management']");
+    public static By entityManagement = By.xpath("//a[@href='/company/entity-management']");
     public static By locations = By.xpath("//a[@href='/property/location']");
     public static By properties = By.xpath("//span[@class='ant-menu-title-content'][contains(.,'Properties')]");
     public static By property = By.xpath("//span[@class='ant-menu-title-content']//a[normalize-space()='Property']");
@@ -60,17 +60,17 @@ public class Dashboard extends BasePage {
     }
 
     public boolean clickOnCompanyManagement() {
-        waitVisibility(cmanagementtext);
-        waitelemtclickable(cmanagementtext);
-        click(cmanagementtext);
+        waitVisibility(cManagementText);
+        waitelemtclickable(cManagementText);
+        click(cManagementText);
         return true;
     }
 
     public boolean clickOnEntityManagement() throws InterruptedException {
         Thread.sleep(1500);
-        waitVisibility(entitymanagement);
-        waitelemtclickable(entitymanagement);
-        click(entitymanagement);
+        waitVisibility(entityManagement);
+        waitelemtclickable(entityManagement);
+        click(entityManagement);
         return true;
     }
 
@@ -124,7 +124,7 @@ public class Dashboard extends BasePage {
         return true;
     }
 
-    public boolean GotoDashboard () throws InterruptedException {
+    public boolean gotoDashboard() throws InterruptedException {
         Thread.sleep(3000);
         driver.get(prop.getProperty("DashboardURL"));
         urlCheck(prop.getProperty("DashboardURL"));
@@ -134,15 +134,15 @@ public class Dashboard extends BasePage {
 
 
     public boolean verifyUserHasLogoutFromTheSystem() {
-        urlCheck(prop.getProperty("BaseURL"));
+        urlCheck(prop.getProperty("LoginURL"));
         return true;
     }
 
     public boolean VerifyLoginMessage(String expectedText) {
         try {
             //waitelementtobedisplayed(loginmsg);
-            waitVisibility(loginmsg);
-            assertEquals(loginmsg, expectedText);
+            waitVisibility(loginMsg);
+            assertEquals(loginMsg, expectedText);
             return true;
         } catch (Exception e) {
             e.printStackTrace();

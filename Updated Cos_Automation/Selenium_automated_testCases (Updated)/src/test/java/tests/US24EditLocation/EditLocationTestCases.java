@@ -125,7 +125,7 @@ public class EditLocationTestCases extends BaseTest {
         EditLocation editLocation=new EditLocation(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(editLocation.clickonDetailsButton());
@@ -146,7 +146,7 @@ public class EditLocationTestCases extends BaseTest {
         EditLocation editLocation=new EditLocation(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(editLocation.clickonDetailsButton());
@@ -295,7 +295,7 @@ public class EditLocationTestCases extends BaseTest {
         EditLocation editLocation=new EditLocation(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchLocation.enterLocationName(prop.getProperty("UpdatedLocationTitle")));
@@ -377,7 +377,7 @@ public class EditLocationTestCases extends BaseTest {
         SearchLocation searchLocation= new SearchLocation(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchLocation.enterLocationName(prop.getProperty("Locationwithchargers")));
@@ -408,7 +408,7 @@ public class EditLocationTestCases extends BaseTest {
         SearchLocation searchLocation=new SearchLocation(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchLocation.enterLocationName(prop.getProperty("UpdatedLocationTitle")));
@@ -586,7 +586,7 @@ public class EditLocationTestCases extends BaseTest {
         SearchLocation searchLocation=new SearchLocation(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchLocation.enterLocationName(prop.getProperty("UpdatedLocationTitle")));
@@ -609,7 +609,7 @@ public class EditLocationTestCases extends BaseTest {
         SearchLocation  searchLocation = new SearchLocation(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchLocation.enterLocationName(prop.getProperty("ToggleLocation")));
@@ -732,7 +732,7 @@ public class EditLocationTestCases extends BaseTest {
         SearchLocation searchLocation=new SearchLocation(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchLocation.enterLocationName(prop.getProperty("ToggleLocation")));

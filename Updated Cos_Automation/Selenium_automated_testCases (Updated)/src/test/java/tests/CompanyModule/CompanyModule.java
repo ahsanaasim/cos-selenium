@@ -651,7 +651,7 @@ public class CompanyModule extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnCompanyManagement());
         Assert.assertTrue(company.verifyCreateNewCompanyButtonHasDisplayed());
@@ -804,7 +804,7 @@ public class CompanyModule extends BaseTest {
         Assert.assertTrue(dashboard.ClickonCompanyManagement());*/
         Assert.assertTrue(company.verifyCreateNewCompanyButtonHasDisplayed());
         Assert.assertTrue(company.clickOnCreateCompanyButton());
-        Assert.assertTrue(company.VerifySaveCompanyButtonAreShowingOnCreateCompanyDrawer());
+        Assert.assertTrue(company.verifySaveCompanyButtonAreShowingOnCreateCompanyDrawer());
         Assert.assertTrue(company.verifyCancelButtonIsShowing());
 
     }
@@ -820,7 +820,7 @@ public class CompanyModule extends BaseTest {
         CreateCharger createCharger = new CreateCharger(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnCompanyManagement());
         Assert.assertTrue(company.verifyCreateNewCompanyButtonHasDisplayed());
@@ -892,7 +892,7 @@ public class CompanyModule extends BaseTest {
         SearchCompany searchcompany=new SearchCompany(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnCompanyManagement());
         Assert.assertTrue(searchcompany.ClickonSearchbar());
@@ -911,7 +911,7 @@ public class CompanyModule extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnCompanyManagement());
         Assert.assertTrue(searchcompany.ClickonSearchbar());
@@ -950,7 +950,7 @@ public class CompanyModule extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnCompanyManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -995,7 +995,7 @@ public class CompanyModule extends BaseTest {
         SearchCompany searchcompany=new SearchCompany(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnCompanyManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -1021,7 +1021,7 @@ public class CompanyModule extends BaseTest {
         SearchCompany searchcompany=new SearchCompany(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnCompanyManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -1094,7 +1094,7 @@ public class CompanyModule extends BaseTest {
         company.SwitchToTab(0);
         loginPage.verifyValidLogin();
         dashboard.refreshBrowser();
-        dashboard.GotoDashboard();
+        dashboard.gotoDashboard();
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnCompanyManagement());
         Assert.assertTrue(editCompany.VerifyEditButtonHasDisplayed());
@@ -1636,7 +1636,7 @@ public class CompanyModule extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnCompanyManagement());
         Assert.assertTrue(editCompany.ClickonEditbutton());

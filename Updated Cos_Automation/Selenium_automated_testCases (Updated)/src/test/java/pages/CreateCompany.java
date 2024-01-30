@@ -18,7 +18,8 @@ public class CreateCompany extends BasePage {
     Properties prop = ConfigUtill.getConfig();
     RandomData rdata = new RandomData();
 
-    public static By createcompanybtn = By.xpath("//button[contains(.,'Create New Company')]");
+    public static By createCompanyBtn = By.xpath("//button[contains(text(),'Create New Company')]");
+    public static By createCompanyDrawerTitle = By.xpath("//span[@class='drawerTitle'][contains(text(),'Create New Company')]");
     public static By companyName = By.xpath("//input[@placeholder='Company Name']");
     public static By phone = By.xpath("//input[@placeholder='Phone Number']");
     public static By email = By.xpath("//input[@placeholder='Email']");
@@ -27,25 +28,25 @@ public class CreateCompany extends BasePage {
     public static By zipcode = By.xpath("//input[@placeholder='Zip Code']");
     public static By address = By.xpath("//textarea[contains(@placeholder,'Address')]");
     public static By saveButton = By.xpath("//button[contains(.,'Save Company')]");
-    public static By crossbtn = By.xpath("//*[name()='path' and contains(@d,'M563.8 512')]");
-    public static By companynameerrmsg = By.xpath("//div[@role='alert'][contains(.,'Company Name is required')]");
-    public static By phoneerrormsg = By.xpath("//div[@role='alert'][contains(.,'Please provide a valid phone number')]");
-    public static By Blankphoneerrormsg = By.xpath("//div[@role='alert'][contains(.,'Phone number is required')]");
-    public static By invalidemailerrmsg = By.xpath("//div[@role='alert'][contains(.,'Invalid email address')]");
-    public static By blankemailerrmsg = By.xpath("//div[@role='alert'][contains(.,'Email is required')]");
-    public static By websiteerrmsg = By.xpath("//div[@role='alert'][contains(.,'Please provide a valid Website')]");
-    public static By einerrmsg = By.xpath("//div[@role='alert'][contains(.,'EIN is required')]");
-    public static By zipcodeerrmsg = By.xpath("//div[@role='alert'][contains(.,'Please provide a valid Zip Code')]");
-    public static By blankzipcodeerrmsg = By.xpath("//div[@role='alert'][contains(.,'Zip code is required')]");
-    public static By blankaddresseerrmsg = By.xpath("//div[@role='alert'][contains(.,'Address is required')]");
+    public static By crossBtn = By.xpath("//*[name()='path' and contains(@d,'M563.8 512')]");
+    public static By companyNameErrMsg = By.xpath("//div[@role='alert'][contains(.,'Company Name is required')]");
+    public static By phoneErrorMsg = By.xpath("//div[@role='alert'][contains(.,'Please provide a valid phone number')]");
+    public static By blankPhoneErrorMsg = By.xpath("//div[@role='alert'][contains(.,'Phone number is required')]");
+    public static By invalidEmailErrorMsg = By.xpath("//div[@role='alert'][contains(.,'Invalid email address')]");
+    public static By blankEmailErrorMsg = By.xpath("//div[@role='alert'][contains(.,'Email is required')]");
+    public static By websiteErrorMsg = By.xpath("//div[@role='alert'][contains(.,'Please provide a valid Website')]");
+    public static By einErrorMsg = By.xpath("//div[@role='alert'][contains(.,'EIN is required')]");
+    public static By zipCodeErrorMsg = By.xpath("//div[@role='alert'][contains(.,'Please provide a valid Zip Code')]");
+    public static By blankZipCodeErrMsg = By.xpath("//div[@role='alert'][contains(.,'Zip code is required')]");
+    public static By blankAddressErrorMsg = By.xpath("//div[@role='alert'][contains(.,'Address is required')]");
     public static By spinner = By.xpath("/html/body/div[2]/div/div[2]/div/div/div[2]/div/div/span");
 
 
     public boolean clickOnCreateCompanyButton() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         waitforInVisibility(spinner);
-        waitVisibility(createcompanybtn);
-        click(createcompanybtn);
+        waitVisibility(createCompanyBtn);
+        click(createCompanyBtn);
         return true;
     }
 
@@ -81,8 +82,8 @@ public class CreateCompany extends BasePage {
 
     public boolean clickOnCrossButton() throws InterruptedException {
         Thread.sleep(1000);
-        waitVisibility(crossbtn);
-        click(crossbtn);
+        waitVisibility(crossBtn);
+        click(crossBtn);
         return true;
     }
 
@@ -104,16 +105,13 @@ public class CreateCompany extends BasePage {
 
     public String generateRandomPhoneNumber() {
         Random random = new Random();
-
         // Ensure the first digit is not zero
         int firstDigit = random.nextInt(9) + 1;
-
         // Generate the remaining 9 digits
         StringBuilder phoneNumber = new StringBuilder(String.valueOf(firstDigit));
         for (int i = 0; i < 9; i++) {
             phoneNumber.append(random.nextInt(10));
         }
-
         return phoneNumber.toString();
     }
 
@@ -139,15 +137,11 @@ public class CreateCompany extends BasePage {
 
     public String generateRandomEmail() {
         String[] domains = {"tez.com", "zyx.com", "trq.com", "example.com", "dplc.com"};
-
         Random random = new Random();
-
         // Generate a random username
         String username = generateRandomString(8);
-
         // Select a random domain from the array
         String domain = domains[random.nextInt(domains.length)];
-
         // Create the email address
         return username + "@" + domain;
     }
@@ -248,50 +242,50 @@ public class CreateCompany extends BasePage {
     }
 
     public boolean verifyCompanyNameErrorMessage(String expectedText) {
-        waitVisibility(companynameerrmsg);
-        waitelementtobedisplayed(companynameerrmsg);
-        assertEquals(companynameerrmsg, expectedText);
+        waitVisibility(companyNameErrMsg);
+        waitelementtobedisplayed(companyNameErrMsg);
+        assertEquals(companyNameErrMsg, expectedText);
             return true;
 
     }
 
     public boolean verifyPhoneNumberErrorMessage(String expectedText) {
-        waitVisibility(phoneerrormsg);
-        waitelementtobedisplayed(phoneerrormsg);
-            assertEquals(phoneerrormsg, expectedText);
+        waitVisibility(phoneErrorMsg);
+        waitelementtobedisplayed(phoneErrorMsg);
+            assertEquals(phoneErrorMsg, expectedText);
             return true;
 
     }
     public boolean verifyBlankPhoneNumberErrorMessage(String expectedText) {
-        waitelementtobedisplayed(Blankphoneerrormsg);
-        assertEquals(Blankphoneerrormsg, expectedText);
+        waitelementtobedisplayed(blankPhoneErrorMsg);
+        assertEquals(blankPhoneErrorMsg, expectedText);
         return true;
 
     }
 
     public boolean verifyInvalidEmailErrorMessage(String expectedText) {
-        waitelementtobedisplayed(invalidemailerrmsg);
-        assertEquals(invalidemailerrmsg, expectedText);
+        waitelementtobedisplayed(invalidEmailErrorMsg);
+        assertEquals(invalidEmailErrorMsg, expectedText);
         return true;
     }
 
     public boolean verifyBlankEmailErrorMessage(String expectedText) {
-            waitelementtobedisplayed(blankemailerrmsg);
-            assertEquals(blankemailerrmsg, expectedText);
+            waitelementtobedisplayed(blankEmailErrorMsg);
+            assertEquals(blankEmailErrorMsg, expectedText);
             return true;
 
     }
 
     public boolean verifyInvalidWebsiteErrorMessage(String expectedText) {
-        waitVisibility(websiteerrmsg);
-        assertEquals(websiteerrmsg, expectedText);
+        waitVisibility(websiteErrorMsg);
+        assertEquals(websiteErrorMsg, expectedText);
         return true;
 
     }
 
     public boolean verifyInvalidEINNumberErrorMessage(String expectedText) {
-            waitelementtobedisplayed(einerrmsg);
-            assertEquals(einerrmsg, expectedText);
+            waitelementtobedisplayed(einErrorMsg);
+            assertEquals(einErrorMsg, expectedText);
             System.out.println("EIN error message has displayed");
             return true;
         }
@@ -299,23 +293,23 @@ public class CreateCompany extends BasePage {
 
     public boolean verifyInvalidZipCodeErrorMessage(String expectedText) throws InterruptedException {
         Thread.sleep(3000);
-        waitelementtobedisplayed(zipcodeerrmsg);
-        waitVisibility(zipcodeerrmsg);
-        assertEquals(zipcodeerrmsg, expectedText);
+        waitelementtobedisplayed(zipCodeErrorMsg);
+        waitVisibility(zipCodeErrorMsg);
+        assertEquals(zipCodeErrorMsg, expectedText);
         return true;
 
     }
 
     public boolean verifyBlankZipCodeErrorMessage(String expectedText) throws InterruptedException {
        Thread.sleep(3000);
-        waitelementtobedisplayed(blankzipcodeerrmsg);
-        assertEquals(blankzipcodeerrmsg, expectedText);
+        waitelementtobedisplayed(blankZipCodeErrMsg);
+        assertEquals(blankZipCodeErrMsg, expectedText);
             return true;
     }
 
     public boolean verifyBlankAddressErrorMessage(String expectedText) {
-        waitelementtobedisplayed(blankaddresseerrmsg);
-        assertEquals(blankaddresseerrmsg, expectedText);
+        waitelementtobedisplayed(blankAddressErrorMsg);
+        assertEquals(blankAddressErrorMsg, expectedText);
        return true;
     }
 
@@ -323,7 +317,7 @@ public class CreateCompany extends BasePage {
 
     public boolean verifyCreateNewCompanyButtonHasDisplayed() throws InterruptedException {
         Thread.sleep(3000);
-        waitVisibility(createcompanybtn);
+        waitVisibility(createCompanyBtn);
         if( driver.findElement(By.xpath("//button[contains(.,'Create New Company')]")).isDisplayed())
         {
             System.out.println("Create New Company button has displayed");
@@ -336,8 +330,8 @@ public class CreateCompany extends BasePage {
     }
 
     public boolean verifyCreateNewCompanyDrawerDisplayed() {
-        waitVisibility(createcompanybtn);
-        if( driver.findElement(By.xpath("//span[@class='drawerTitle'][contains(.,'Create New Company')]")).isDisplayed())
+        waitVisibility(createCompanyDrawerTitle);
+        if( driver.findElement(createCompanyDrawerTitle).isDisplayed())
         {
             System.out.println("Create New Company drawer has displayed");
         }else{
@@ -392,8 +386,8 @@ public class CreateCompany extends BasePage {
         return true;
     }
 
-    public boolean VerifySaveCompanyButtonAreShowingOnCreateCompanyDrawer() {
-        WebElement Savebtn= driver.findElement(By.xpath("//span[contains(.,'Save Company')]"));
+    public boolean verifySaveCompanyButtonAreShowingOnCreateCompanyDrawer() {
+        WebElement Savebtn= driver.findElement(saveButton);
         if(Savebtn.isDisplayed())
         {
             System.out.println("Save Company Button has displayed");

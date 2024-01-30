@@ -540,7 +540,7 @@ public class EditEntityTestCases extends BaseTest{
         SearchCompany searchcompany=new SearchCompany(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(searchcompany.ClickonSearchbar());
@@ -559,7 +559,7 @@ public class EditEntityTestCases extends BaseTest{
         CreateCompany company = new CreateCompany(driver);
         CreateEntity createentity=new CreateEntity(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(editCompany.ClickonEditbutton());

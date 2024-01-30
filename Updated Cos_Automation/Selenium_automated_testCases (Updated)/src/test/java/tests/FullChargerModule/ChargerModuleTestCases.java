@@ -1002,7 +1002,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         //    Assert.assertTrue(searchChargers.clickonChargersSearchbar());
@@ -1023,7 +1023,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         //    Assert.assertTrue(searchChargers.clickonChargersSearchbar());
@@ -1045,7 +1045,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonSearchButton());
@@ -1085,7 +1085,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchChargers.SearchbyChargerTitle(prop.getProperty("validchargername")));
@@ -1127,7 +1127,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchChargers.SearchbyChargerTitle(prop.getProperty("validchargername")));
@@ -1150,7 +1150,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchChargers.SearchbyChargerTitle(prop.getProperty("validchargername")));
@@ -1181,7 +1181,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchChargers.SearchbyChargerTitle(prop.getProperty("validchargername")));
@@ -1203,7 +1203,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchChargers.SearchbyChargerTitle(prop.getProperty("validchargername")));
@@ -1225,7 +1225,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchChargers.SearchbyChargerTitle(prop.getProperty("validchargername")));
@@ -1247,7 +1247,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchChargers.SearchbyChargerTitle(prop.getProperty("Locationwithchargers")));
@@ -1269,7 +1269,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchChargers.SearchbyChargerTitle(prop.getProperty("validchargername")));
@@ -1292,7 +1292,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
@@ -1315,7 +1315,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
@@ -1340,7 +1340,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
@@ -1365,7 +1365,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
@@ -1390,7 +1390,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
@@ -1442,7 +1442,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
@@ -1469,7 +1469,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
@@ -1495,7 +1495,7 @@ public class ChargerModuleTestCases extends BaseTest {
         SearchChargers searchChargers=new SearchChargers(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
@@ -1518,7 +1518,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
@@ -1543,7 +1543,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
@@ -1570,7 +1570,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
@@ -1595,7 +1595,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
@@ -1656,7 +1656,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
@@ -1688,7 +1688,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
@@ -1720,7 +1720,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
@@ -1750,7 +1750,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
@@ -1784,7 +1784,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
@@ -1819,7 +1819,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
@@ -1849,7 +1849,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CreateProperty properties = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
         Assert.assertTrue(searchLocation.enterLocationName(prop.getProperty("LocationTitle3")));
@@ -2014,7 +2014,7 @@ public class ChargerModuleTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         loginPage.verifyValidLogin();
-        dashboard.GotoDashboard();
+        dashboard.gotoDashboard();
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());

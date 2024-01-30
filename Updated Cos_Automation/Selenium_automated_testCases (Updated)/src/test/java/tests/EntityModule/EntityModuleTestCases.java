@@ -43,7 +43,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.VerifyCreateNewEntityDrawerHasDisplayed());
     }
 
@@ -58,7 +58,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.VerifyEntityInformationareShowingonCreateNewEntityDrawer());
 
 
@@ -75,7 +75,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.VerifyEntitySameasCompanyLinkisShowingonEntityInformationSection());
 
 
@@ -93,7 +93,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.VerifyEntityLocationInformationareShowingonCreateNewCompanyDrawer());
 
     }
@@ -110,7 +110,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(""));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
@@ -134,7 +134,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("InvalidPhone")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
@@ -158,7 +158,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("InvalidPhone1")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
@@ -182,7 +182,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("InvalidPhone2")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
@@ -206,7 +206,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("InvalidPhone3")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
@@ -230,7 +230,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("InvalidPhone4")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
@@ -254,7 +254,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("invalidEmail1")));
@@ -279,7 +279,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("Numbers")));
@@ -305,7 +305,7 @@ public class EntityModuleTestCases extends BaseTest {
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("Alphabates")));
@@ -330,7 +330,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("IncompleteEmailAddress")));
@@ -355,7 +355,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("SpecialCharacter")));
@@ -380,7 +380,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("InvalidEmailFormat")));
@@ -405,7 +405,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("WrongEmail")));
@@ -430,7 +430,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(company.writeCompanyEmail(""));
@@ -456,7 +456,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.SelectCompanyNameFromDropdown());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
@@ -482,7 +482,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
@@ -508,7 +508,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
@@ -533,7 +533,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
@@ -561,7 +561,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
@@ -586,7 +586,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
@@ -608,10 +608,10 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company=new CreateCompany(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
@@ -631,10 +631,10 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company=new CreateCompany(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
@@ -654,10 +654,10 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company=new CreateCompany(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
         Assert.assertTrue(createentity.writeEntityPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(company.writeCompanyEmail(prop.getProperty("CompanyEmail")));
@@ -678,7 +678,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         /*Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
         Assert.assertTrue(dashboard.ClickonEntityManagement());*/
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         Assert.assertTrue(createentity.verifyinputFieldIsShowingForCompanyInformationOnCreateNewEntityDrawer());
         Assert.assertTrue(createentity.verifyinputTypeisSerachOnCompanyInformationsectionOnCreateNewEntityDrawer());
 
@@ -694,10 +694,10 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company=new CreateCompany(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
         //Assert.assertTrue(createentity.ClickonSelectCompanydropdownFromEntitysameasCompanyDrawer());
         // Assert.assertTrue(createentity.WriteCompanyName(""));
         Assert.assertTrue(createentity.WriteEntityName(prop.getProperty("Entity")));
@@ -724,7 +724,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
-        Assert.assertTrue(createentity.ClickonCreateEntitybutton());
+        Assert.assertTrue(createentity.clickOnCreateEntityButton());
 //        Assert.assertTrue(createentity.ClickonSelectCompanydropdownFromEntityDrawer());
         Assert.assertTrue(createentity.SelectCompanyNameFromDropdown());
         Assert.assertTrue(createentity.writeAutomatedEntityName(createentity.writeEntityName()));
@@ -793,7 +793,7 @@ public class EntityModuleTestCases extends BaseTest {
         SearchEntity searchEntity = new SearchEntity(driver);
         loginPage.verifyValidLogin();
 //        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(searchcompany.ClickonSearchbar());
@@ -813,7 +813,7 @@ public class EntityModuleTestCases extends BaseTest {
         SearchCompany searchcompany=new SearchCompany(driver);
         SearchEntity searchEntity = new SearchEntity(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(searchcompany.ClickonSearchbar());
@@ -833,7 +833,7 @@ public class EntityModuleTestCases extends BaseTest {
         SearchCompany searchcompany=new SearchCompany(driver);
         SearchEntity searchEntity = new SearchEntity(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(searchcompany.ClickonSearchbar());
@@ -852,7 +852,7 @@ public class EntityModuleTestCases extends BaseTest {
         SearchCompany searchcompany=new SearchCompany(driver);
         SearchEntity searchEntity= new SearchEntity(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(searchcompany.ClickonSearchbar());
@@ -872,7 +872,7 @@ public class EntityModuleTestCases extends BaseTest {
         SearchEntity searchEntity= new SearchEntity(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -893,7 +893,7 @@ public class EntityModuleTestCases extends BaseTest {
         SearchCompany searchcompany=new SearchCompany(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -915,7 +915,7 @@ public class EntityModuleTestCases extends BaseTest {
         SearchCompany searchcompany=new SearchCompany(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -940,7 +940,7 @@ public class EntityModuleTestCases extends BaseTest {
         SearchCompany searchcompany=new SearchCompany(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -1513,7 +1513,7 @@ public class EntityModuleTestCases extends BaseTest {
         SearchCompany searchcompany=new SearchCompany(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(searchcompany.ClickonSearchbar());
@@ -1532,7 +1532,7 @@ public class EntityModuleTestCases extends BaseTest {
         CreateCompany company = new CreateCompany(driver);
         CreateEntity createentity=new CreateEntity(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
         Assert.assertTrue(editCompany.ClickonEditbutton());

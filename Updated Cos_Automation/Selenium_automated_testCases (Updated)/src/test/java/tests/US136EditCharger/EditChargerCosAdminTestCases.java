@@ -145,7 +145,7 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         CreateCharger createCharger = new CreateCharger(driver);
         loginPage.verifyValidLogin();
-        dashboard.GotoDashboard();
+        dashboard.gotoDashboard();
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());

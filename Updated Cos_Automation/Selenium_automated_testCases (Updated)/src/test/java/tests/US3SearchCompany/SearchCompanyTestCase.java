@@ -167,7 +167,7 @@ public class SearchCompanyTestCase extends BaseTest {
         SearchCompany searchcompany=new SearchCompany(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnCompanyManagement());
         Assert.assertTrue(searchcompany.ClickonSearchbar());
@@ -186,7 +186,7 @@ public class SearchCompanyTestCase extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnCompanyManagement());
         Assert.assertTrue(searchcompany.ClickonSearchbar());
@@ -206,7 +206,7 @@ public class SearchCompanyTestCase extends BaseTest {
         SearchCompany searchcompany=new SearchCompany(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnCompanyManagement());
         Assert.assertTrue(searchcompany.ClickonSearchbar());
@@ -225,7 +225,7 @@ public class SearchCompanyTestCase extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         SearchCompany searchcompany=new SearchCompany(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnCompanyManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -270,7 +270,7 @@ public class SearchCompanyTestCase extends BaseTest {
         SearchCompany searchcompany=new SearchCompany(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnCompanyManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -296,7 +296,7 @@ public class SearchCompanyTestCase extends BaseTest {
         SearchCompany searchcompany=new SearchCompany(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnCompanyManagement());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());

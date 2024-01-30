@@ -268,7 +268,7 @@ public class DownChargerTestCases extends BaseTest {
         DownCharger downCharger = new DownCharger(driver);
         CreateCharger operation = new CreateCharger(driver);
         loginPage.verifyValidLogin();
-        dashboard.GotoDashboard();
+        dashboard.gotoDashboard();
 //        operation.ClickButton(DownCharger.DownChargerSeeDetails,1500);
         Assert.assertTrue(downCharger.verifyDownChargerIsRemovingFromTheListAfterMakingLocationOffline());
 
@@ -283,7 +283,7 @@ public class DownChargerTestCases extends BaseTest {
         Dashboard dashboard = new Dashboard(driver);
         CreateCharger operation = new CreateCharger(driver);
         loginPage.verifyValidLogin();
-        dashboard.GotoDashboard();
+        dashboard.gotoDashboard();
 //        operation.ClickButton(DownCharger.DownChargerSeeDetails,1500);
         Assert.assertTrue(downCharger.verifyDownChargerIsAddingInTheListAfterMakingLocationOnline());
 
@@ -303,7 +303,7 @@ public class DownChargerTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
 //        operation.ClickButton(DownCharger.DownChargerSeeDetails,1500);
 //        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         operation.clickButton(AdvanceFilterPropertyAdmin.AdvanceFilter,1500);
@@ -323,7 +323,7 @@ public class DownChargerTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
 //        operation.ClickButton(DownCharger.DownChargerSeeDetails,1500);
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         operation.clickButton(AdvanceFilterPropertyAdmin.AdvanceFilter,1500);
@@ -413,7 +413,7 @@ public class DownChargerTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         ChargerListPropertyAdmin chargerList = new ChargerListPropertyAdmin(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         operation.clickButton(DownCharger.DownChargerSeeDetails,1500);
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
@@ -484,7 +484,7 @@ public class DownChargerTestCases extends BaseTest {
         loginPage.verifyValidLogin();
 //        operation.ClickButton(DownCharger.DownChargerSeeDetails,1500);
 //        Assert.assertTrue(dashboard.RefreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickOnChargers());
         operation.clickButton(DownCharger.DownChargerSeeDetails,1500);

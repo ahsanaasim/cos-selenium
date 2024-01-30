@@ -2,9 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-
-import java.security.PublicKey;
 
 public class DownCharger extends BasePage {
 
@@ -128,7 +125,7 @@ public class DownCharger extends BasePage {
         click(editLocation.togglebtn);
         click(CreateLocation.savelocationbtn);
         Thread.sleep(2000);
-        dashboard.GotoDashboard();
+        dashboard.gotoDashboard();
         waitforPresence(DashboardDownChargerAlert);
         String DashboardDownChargerCountAfter = driver.findElement(DashboardDownChargerAlert).getText().replaceAll("[^0-9]","");
         int DownChargerCountAfter = Integer.parseInt(DashboardDownChargerCountAfter);
@@ -163,7 +160,7 @@ public class DownCharger extends BasePage {
         click(editLocation.togglebtn);
         click(CreateLocation.savelocationbtn);
         Thread.sleep(2000);
-        dashboard.GotoDashboard();
+        dashboard.gotoDashboard();
         waitforPresence(DashboardDownChargerAlert);
         Thread.sleep(5000);
         String DashboardDownChargerCountAfter = driver.findElement(DashboardDownChargerAlert).getText().replaceAll("[^0-9]","");

@@ -42,7 +42,7 @@ public class CreateEntity extends BasePage {
 
 
 
-    public boolean ClickonCreateEntitybutton () {
+    public boolean clickOnCreateEntityButton() {
         waitVisibility(EditCompany.EditCompanyBtn);
         click(createentitybtn);
         return true;

@@ -43,7 +43,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty createProperty = new CreateProperty(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(searchandfilter.whenAdminProvidesSpaceinSearchbar());
@@ -62,7 +62,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(property.searchPropertyByName(prop.getProperty("PropertyName5")));
@@ -80,7 +80,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(property.searchPropertyByName(prop.getProperty("CompanyNameForAutomation")));
@@ -99,7 +99,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(property.searchPropertyByName(prop.getProperty("Entity2")));
@@ -118,7 +118,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(property.searchPropertyByName(prop.getProperty("PropertyName")));
@@ -136,7 +136,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(property.searchPropertyByName(prop.getProperty("PropertyName")));
@@ -154,7 +154,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(property.searchPropertyByName(prop.getProperty("PropertyName5")));
@@ -199,7 +199,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(property.searchPropertyByName(prop.getProperty("PropertyName")));
@@ -216,7 +216,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         ChargerListPropertyAdmin list = new ChargerListPropertyAdmin(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(searchandfilter.clickonLoadMoreButton());
@@ -269,7 +269,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -290,7 +290,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -311,7 +311,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
        Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -356,7 +356,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -377,7 +377,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -399,7 +399,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -422,7 +422,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -445,7 +445,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -466,7 +466,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -490,7 +490,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -515,7 +515,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -545,7 +545,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -579,7 +579,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -617,7 +617,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -660,7 +660,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -692,7 +692,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -730,7 +730,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -762,7 +762,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         CreateProperty property = new CreateProperty(driver);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
@@ -845,7 +845,7 @@ public class SearchPrropertiesTestCases extends BaseTest {
         EditCompany editCompany=new EditCompany(driver);
         SearchandFilterProperties searchandfilter=new SearchandFilterProperties(driver);
         loginPage.verifyValidLogin();
-        Assert.assertTrue(dashboard.GotoDashboard());
+        Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnProperty());
         Assert.assertTrue(property.searchPropertyByName(prop.getProperty("PropertyName")));
