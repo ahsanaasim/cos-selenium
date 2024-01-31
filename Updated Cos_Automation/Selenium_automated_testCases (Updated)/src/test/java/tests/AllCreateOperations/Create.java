@@ -158,14 +158,14 @@ public class Create extends BaseTest {
         int randomNumber = objGenerator.nextInt(10000);
         System.out.println(randomNumber);
         String temp="BRT - "+randomNumber;
-        Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,temp,2000));
+        Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,temp,2000));
         createcharger.selectChargingRate("9.90");
         createcharger.selectProperty("Temporary Property");
         createcharger.selectLocation("Temporary Location");
         Assert.assertTrue(createcharger.clickonSaveChargerButton());
         Assert.assertTrue(createcharger.VerifyConfirmationPopUpHasDisplayed());
-        Assert.assertTrue(createcharger.writeInputText(CreateCharger.searchchargerfield,temp,3000));
-        Assert.assertTrue(createcharger.clickButton(CreateCharger.searchargerbtn,2000));
+        Assert.assertTrue(createcharger.writeInputText(CreateCharger.searchChargerField,temp,3000));
+        Assert.assertTrue(createcharger.clickButton(CreateCharger.searchChargerBtn,2000));
         Assert.assertTrue(createcharger.VerifySearchResultCount());
     }
 

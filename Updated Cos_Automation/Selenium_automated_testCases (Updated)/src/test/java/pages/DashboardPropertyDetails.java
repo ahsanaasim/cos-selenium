@@ -380,10 +380,10 @@ public class DashboardPropertyDetails extends BasePage {
         guestFlow.NewTabOpenAndSwitchToNewTab(1);
         loginPage.verifyValidLogin();
         createCharger.GoToChargers();
-        click(CreateCharger.addchargerbtn);
+        click(CreateCharger.addChargerBtn);
         Thread.sleep(10000);
-        waitforPresence(CreateCharger.addnewchargerdrawer);
-        writeText(CreateCharger.Chargername,RandomLocationName("Hello Charger "));
+        waitforPresence(CreateCharger.addNewChargerDrawer);
+        writeText(CreateCharger.chargerName,RandomLocationName("Hello Charger "));
         Thread.sleep(1000);
         SelectItemFromDropDown(CreateCharger.selectproperty,"Pride and Property");
         Thread.sleep(1000);

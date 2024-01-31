@@ -35,7 +35,7 @@ public class CosAdminChargerList extends BasePage {
 
 
     public boolean verifyActualData() throws InterruptedException{
-        driver.findElement(CreateCharger.addchargerbtn).click();
+        driver.findElement(CreateCharger.addChargerBtn).click();
         Thread.sleep(3000);
         Random objGenerator = new Random();
         CreateCharger createcharger = new CreateCharger(driver);
@@ -44,7 +44,7 @@ public class CosAdminChargerList extends BasePage {
         int randomNumber = objGenerator.nextInt(10000);
         System.out.println(randomNumber);
         String temp="Test Charger-"+randomNumber;
-        Assert.assertTrue(createcharger.writeInputText(CreateCharger.Chargername,temp,2000));
+        Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,temp,2000));
         Assert.assertTrue(createcharger.clickonPropertySelect());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.selectproperty,"East Avenue",2000));
         Assert.assertTrue(createcharger.selectPropertyNameFromSelectPropertyDropdown());
@@ -53,8 +53,8 @@ public class CosAdminChargerList extends BasePage {
         Assert.assertTrue(createcharger.selectLoactionNameFromSelectPropertyDropdown());
         Assert.assertTrue(createcharger.clickonSaveChargerButton());
         Thread.sleep(1000);
-        Assert.assertTrue(createcharger.writeInputText(CreateCharger.searchchargerfield,temp,1000));
-        Assert.assertTrue(createcharger.clickButton(CreateCharger.searchargerbtn,1000));
+        Assert.assertTrue(createcharger.writeInputText(CreateCharger.searchChargerField,temp,1000));
+        Assert.assertTrue(createcharger.clickButton(CreateCharger.searchChargerBtn,1000));
         Thread.sleep(1500);
         String ChargerTitleCheck = driver.findElement(ChargerTitle).getText();
         System.out.println(ChargerTitleCheck);

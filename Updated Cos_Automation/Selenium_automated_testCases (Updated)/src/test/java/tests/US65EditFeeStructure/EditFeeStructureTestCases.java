@@ -589,9 +589,9 @@ public class EditFeeStructureTestCases extends BaseTest {
         String fee = list.GenerateFee();
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,fee,2000);
         operation.clickButton(CreateFeeStructure.CancelButton,1000);
-        Assert.assertTrue(editFee.verifyAnElementDisplayedOrNot(2000,CreateCharger.discardandcontinuepopup));
-        Assert.assertTrue(editFee.verifyAnElementDisplayedOrNot(1000,CreateCharger.discardbtn));
-        Assert.assertTrue(editFee.verifyAnElementDisplayedOrNot(1000,CreateCharger.continuebtn));
+        Assert.assertTrue(editFee.verifyAnElementDisplayedOrNot(2000,CreateCharger.discardAndContinuePopUp));
+        Assert.assertTrue(editFee.verifyAnElementDisplayedOrNot(1000,CreateCharger.discardBtn));
+        Assert.assertTrue(editFee.verifyAnElementDisplayedOrNot(1000,CreateCharger.continueBtn));
 
 
     }
@@ -616,7 +616,7 @@ public class EditFeeStructureTestCases extends BaseTest {
         String fee = list.GenerateFee();
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,fee,2000);
         operation.clickButton(CreateFeeStructure.CancelButton,1000);
-        operation.clickButton(CreateCharger.discardbtn,1000);
+        operation.clickButton(CreateCharger.discardBtn,1000);
         Assert.assertTrue(editFee.verifyElementNotDisplayed(2500,EditFeeStructure.DrawerTitle));
 
 
@@ -643,7 +643,7 @@ public class EditFeeStructureTestCases extends BaseTest {
         operation.fieldClear(CreateFeeStructure.SessionFeeAmountField);
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,"96",2000);
         operation.clickButton(CreateFeeStructure.CancelButton,1000);
-        operation.clickButton(CreateCharger.discardbtn,1000);
+        operation.clickButton(CreateCharger.discardBtn,1000);
         operation.clickButton(FeeStructureList.Edit,1500);
         Assert.assertTrue(editFee.verifyDataIsNotSavingAfterDiscarded());
 
@@ -672,8 +672,8 @@ public class EditFeeStructureTestCases extends BaseTest {
         String fee = list.GenerateFee();
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,fee,2000);
         operation.clickButton(CreateFeeStructure.CancelButton,1000);
-        operation.clickButton(CreateCharger.continuebtn,1000);
-        Assert.assertTrue(editFee.verifyElementNotDisplayed(2500,CreateCharger.discardandcontinuepopup));
+        operation.clickButton(CreateCharger.continueBtn,1000);
+        Assert.assertTrue(editFee.verifyElementNotDisplayed(2500,CreateCharger.discardAndContinuePopUp));
         Assert.assertTrue(editFee.verifyAnElementDisplayedOrNot(1000,EditFeeStructure.DrawerTitle));
 
 

@@ -267,7 +267,7 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
         createLocation.GoToLocationPage();
         operation.writeInputText(CreateLocation.searchbar,"Beautiful Location",8000);
-        operation.clickButton(CreateCharger.searchargerbtn,1000);
+        operation.clickButton(CreateCharger.searchChargerBtn,1000);
         operation.clickButton(EditLocation.EditButton,1000);
         editCharger.clickToggleButtonIfItIsOn();
         operation.clickButton(CreateLocation.savelocationbtn,2000);
@@ -306,7 +306,7 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         dashboard.refreshBrowser();
         loginPage.verifyValidLoginForPropertyAdminChargerStatusCheck();
         Assert.assertTrue(createCharger.clickButton(DashboardPropertyDetails.DetailsBtn1,5000));
-        Assert.assertTrue(createCharger.clickButton(CreateCharger.outsidedrawer,5000));
+        Assert.assertTrue(createCharger.clickButton(CreateCharger.outsideDrawer,5000));
         Assert.assertTrue(dashboardPropertyDetails.verifyDrawerClosed());
     }
     @Test(priority = 20)//Done
@@ -317,7 +317,7 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         DashboardPropertyDetails dashboardPropertyDetails =new DashboardPropertyDetails(driver);
         loginPage.verifyValidLoginForPropertyAdminChargerStatusCheck();
         Assert.assertTrue(createCharger.clickButton(DashboardPropertyDetails.DetailsBtn1,5000));
-        Assert.assertTrue(createCharger.clickButton(CreateCharger.crossbtnofdrawer,5000));
+        Assert.assertTrue(createCharger.clickButton(CreateCharger.crossBtnOfDrawer,5000));
         Assert.assertTrue(dashboardPropertyDetails.verifyDrawerClosed());
     }
     @Test(priority = 21)//Done

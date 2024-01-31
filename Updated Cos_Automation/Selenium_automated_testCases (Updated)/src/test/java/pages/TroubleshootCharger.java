@@ -62,9 +62,9 @@ public class TroubleshootCharger extends BasePage{
     }
 
     public boolean verifyChangerNameChangedInTroubleshootDrawer() throws InterruptedException {
-        clearOperation.fieldClear(CreateCharger.Chargername);
+        clearOperation.fieldClear(CreateCharger.chargerName);
         String troubleshootCharger = charger.RandomChargerNameWithNumber("Troubleshoot checker charger : ");
-        writeText(CreateCharger.Chargername,troubleshootCharger);
+        writeText(CreateCharger.chargerName,troubleshootCharger);
         click(UpdateChargerPropertyAdmin.SaveCharger);
         Thread.sleep(5000);
         click(ThreeDotBesideEditBtn);
@@ -87,7 +87,7 @@ public class TroubleshootCharger extends BasePage{
         String PrevPropertyName = driver.findElement(ChargerListPropertyAdmin.PropertyName).getText();
         dashboard.clickOnProperty();
         writeText(property.searchbar,PrevPropertyName);
-        click(CreateCharger.searchargerbtn);
+        click(CreateCharger.searchChargerBtn);
         click(DownCharger.EditButton);
         clearOperation.fieldClear(property.propertyAddress);
         int randomNumber = randomNum.nextInt(10000);
@@ -99,8 +99,8 @@ public class TroubleshootCharger extends BasePage{
         Thread.sleep(5000);
         waitforPresence(DownCharger.EditButton);
         String troubleshootCharger = "Troubleshoot checker charger";
-        writeText(CreateCharger.searchchargerfield,troubleshootCharger);
-        click(CreateCharger.searchargerbtn);
+        writeText(CreateCharger.searchChargerField,troubleshootCharger);
+        click(CreateCharger.searchChargerBtn);
         click(ThreeDotBesideEditBtn);
         click(TroubleshootButton);
         Thread.sleep(2500);
@@ -122,7 +122,7 @@ public class TroubleshootCharger extends BasePage{
         String PrevLoc = driver.findElement(ChargerListPropertyAdmin.LocationName).getText();
         dashboard.clickonLocations();
         writeText(CreateLocation.searchbar,PrevLoc);
-        click(CreateCharger.searchargerbtn);
+        click(CreateCharger.searchChargerBtn);
         click(DownCharger.EditButton);
         clearOperation.fieldClear(createLocation.locationtitle);
         int randomNumber = randomNum.nextInt(10);
@@ -134,8 +134,8 @@ public class TroubleshootCharger extends BasePage{
         Thread.sleep(5000);
         waitforPresence(ThreeDotBesideEditBtn);
         String troubleshootCharger = "Troubleshoot checker charger";
-        writeText(CreateCharger.searchchargerfield,troubleshootCharger);
-        click(CreateCharger.searchargerbtn);
+        writeText(CreateCharger.searchChargerField,troubleshootCharger);
+        click(CreateCharger.searchChargerBtn);
         click(ThreeDotBesideEditBtn);
         click(TroubleshootButton);
         Thread.sleep(2500);

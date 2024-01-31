@@ -223,8 +223,8 @@ public class TroubleshootChargerTestCases extends BaseTest {
 //        Assert.assertTrue(dashboard.GotoDashboard());
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        operation.writeInputText(CreateCharger.searchchargerfield,"Testing Charger-1161",3000);
-        operation.clickButton(CreateCharger.searchargerbtn,1000);
+        operation.writeInputText(CreateCharger.searchChargerField,"Testing Charger-1161",3000);
+        operation.clickButton(CreateCharger.searchChargerBtn,1000);
         operation.clickButton(TroubleshootCharger.ThreeDotBesideEditBtn,1000);
         operation.clickButton(TroubleshootCharger.TroubleshootButton,1000);
         Assert.assertTrue(troubleshootCharger.verifyAnElementDisplayedOrNot(1000,TroubleshootCharger.ChargerNotConfiguredMsg));
@@ -270,8 +270,8 @@ public class TroubleshootChargerTestCases extends BaseTest {
         Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        operation.writeInputText(CreateCharger.searchchargerfield,"Troubleshoot checker charger",1000);
-        operation.clickButton(CreateCharger.searchargerbtn,1000);
+        operation.writeInputText(CreateCharger.searchChargerField,"Troubleshoot checker charger",1000);
+        operation.clickButton(CreateCharger.searchChargerBtn,1000);
         operation.clickButton(DownCharger.EditButton,1000);
         Assert.assertTrue(troubleshootCharger.verifyChangerNameChangedInTroubleshootDrawer());
         ;
@@ -292,8 +292,8 @@ public class TroubleshootChargerTestCases extends BaseTest {
         Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        operation.writeInputText(CreateCharger.searchchargerfield,"Troubleshoot checker charger",1000);
-        operation.clickButton(CreateCharger.searchargerbtn,1000);
+        operation.writeInputText(CreateCharger.searchChargerField,"Troubleshoot checker charger",1000);
+        operation.clickButton(CreateCharger.searchChargerBtn,1000);
         Assert.assertTrue(troubleshootCharger.verifyPropertyAddressChangedInTroubleshootDrawer());
 
 
@@ -314,8 +314,8 @@ public class TroubleshootChargerTestCases extends BaseTest {
         Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        operation.writeInputText(CreateCharger.searchchargerfield,"Troubleshoot checker charger",1000);
-        operation.clickButton(CreateCharger.searchargerbtn,1000);
+        operation.writeInputText(CreateCharger.searchChargerField,"Troubleshoot checker charger",1000);
+        operation.clickButton(CreateCharger.searchChargerBtn,1000);
         Assert.assertTrue(troubleshootCharger.verifyLocationNameChangedInTroubleshootDrawer());
 
 
@@ -354,7 +354,7 @@ public class TroubleshootChargerTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
         operation.clickButton(TroubleshootCharger.ThreeDotBesideEditBtn, 1000);
         operation.clickButton(TroubleshootCharger.TroubleshootButton, 1000);
-        operation.clickButton(CreateCharger.outsidedrawer, 1500);
+        operation.clickButton(CreateCharger.outsideDrawer, 1500);
         Assert.assertTrue(troubleshootCharger.verifyAnElementDisplayedOrNot(1500, EditChargerCosAdminUpdated.ProfileTop));
 
     }

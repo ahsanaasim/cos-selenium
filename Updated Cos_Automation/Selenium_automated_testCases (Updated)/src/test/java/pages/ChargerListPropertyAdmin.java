@@ -4,7 +4,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
 import java.util.Random;
 
 public class ChargerListPropertyAdmin extends BasePage {
@@ -193,7 +192,7 @@ public class ChargerListPropertyAdmin extends BasePage {
     }
 
     public void selectLocationFromLocation() throws InterruptedException {
-        waitforPresence(CreateCharger.cancelbuttonofdrawer);
+        waitforPresence(CreateCharger.cancelButtonOfDrawer);
         WebElement location = driver.findElement(LocationField);
         ClickButton(SelectedLocationName,2000);
         Thread.sleep(1000);
@@ -205,7 +204,7 @@ public class ChargerListPropertyAdmin extends BasePage {
     }
 
     public boolean verifyEditedLocation() throws InterruptedException {
-        waitforPresence(CreateCharger.cancelbuttonofdrawer);
+        waitforPresence(CreateCharger.cancelButtonOfDrawer);
         WebElement location = driver.findElement(LocationField);
         ClickButton(SelectedLocationName,2000);
         Thread.sleep(1000);

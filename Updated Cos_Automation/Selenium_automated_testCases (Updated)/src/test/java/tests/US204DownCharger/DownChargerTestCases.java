@@ -84,7 +84,7 @@ public class DownChargerTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
 //        operation.ClickButton(DownCharger.DownChargerSeeDetails,1500);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,DownCharger.DownChargerTag));
-        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,CreateCharger.searchchargerfield));
+        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,CreateCharger.searchChargerField));
 
     }
 
@@ -113,7 +113,7 @@ public class DownChargerTestCases extends BaseTest {
         dashboard.refreshBrowser();
 //        operation.ClickButton(DownCharger.DownChargerSeeDetails,1500);
 //        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,DownCharger.DownChargerTag));
-        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,CreateCharger.searchargerbtn));
+        Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,CreateCharger.searchChargerBtn));
 
     }
 

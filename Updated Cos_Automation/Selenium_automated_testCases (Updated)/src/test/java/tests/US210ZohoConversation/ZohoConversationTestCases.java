@@ -164,7 +164,7 @@ public class ZohoConversationTestCases extends BaseTest {
 //        dashboard.RefreshBrowser();
 //        operation.ClickButton(CreateTicket.SupportButton,5000);
 //        operation.ClickButton(ZohoConversation.DetailsButton,5000);
-        Assert.assertTrue(list.verifyAnElementDisplayedOrNot(500,CreateCharger.crossbtnofdrawer));
+        Assert.assertTrue(list.verifyAnElementDisplayedOrNot(500,CreateCharger.crossBtnOfDrawer));
 
     }
 

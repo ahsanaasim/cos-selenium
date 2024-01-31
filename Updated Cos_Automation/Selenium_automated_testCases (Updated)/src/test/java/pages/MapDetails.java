@@ -64,8 +64,8 @@ public class MapDetails extends BasePage{
         EditChargerCosAdminUpdated charger = new EditChargerCosAdminUpdated(driver);
         CreateCharger operation = new CreateCharger(driver);
         UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
-        charger.writeInSearchBar(CreateCharger.searchchargerfield,chargerName,1000);
-        click(CreateCharger.searchargerbtn);
+        charger.writeInSearchBar(CreateCharger.searchChargerField,chargerName,1000);
+        click(CreateCharger.searchChargerBtn);
         operation.clickButton(CosAdminChargerList.EditButton,1000);
         editCharger.clickToggleButtonIfItIsOff();
         click(UpdateChargerPropertyAdmin.SaveCharger);
@@ -226,7 +226,7 @@ public class MapDetails extends BasePage{
 //        loginPage.VerifyValidLogin();
         GoToChargerModule();
         chargerList.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"D 11 charger",1000);
-        click(CreateCharger.searchargerbtn);
+        click(CreateCharger.searchChargerBtn);
         click(CosAdminChargerList.EditButton);
         editCharger.clickToggleButtonIfItIsOn();
         click(UpdateChargerPropertyAdmin.SaveCharger);
@@ -255,7 +255,7 @@ public class MapDetails extends BasePage{
         SwitchToTab(1);
         GoToChargerModule();
         chargerList.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"D 11 charger",1000);
-        click(CreateCharger.searchargerbtn);
+        click(CreateCharger.searchChargerBtn);
         click(CosAdminChargerList.EditButton);
         editCharger.clickToggleButtonIfItIsOff();
         click(UpdateChargerPropertyAdmin.SaveCharger);
@@ -286,7 +286,7 @@ public class MapDetails extends BasePage{
         loginPage.verifyValidLogin();
         GoToChargerModule();
         chargerList.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"D 11 charger",1000);
-        click(CreateCharger.searchargerbtn);
+        click(CreateCharger.searchChargerBtn);
         click(CosAdminChargerList.EditButton);
         editCharger.clickToggleButtonIfItIsOn();
         click(UpdateChargerPropertyAdmin.SaveCharger);
@@ -319,7 +319,7 @@ public class MapDetails extends BasePage{
         SwitchToTab(1);
         GoToChargerModule();
         chargerList.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"D 11 charger",1000);
-        click(CreateCharger.searchargerbtn);
+        click(CreateCharger.searchChargerBtn);
         click(CosAdminChargerList.EditButton);
         editCharger.clickToggleButtonIfItIsOff();
         click(UpdateChargerPropertyAdmin.SaveCharger);

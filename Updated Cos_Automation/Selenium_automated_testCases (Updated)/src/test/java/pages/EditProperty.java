@@ -572,8 +572,8 @@ public class EditProperty extends BasePage {
 
     public boolean VerifySearchResultCount() throws InterruptedException {
         Thread.sleep(4000);
-        waitVisibility(CreateCharger.SearchResultCount);
-        String countText = driver.findElement(CreateCharger.SearchResultCount).getText();
+        waitVisibility(CreateCharger.searchResultCount);
+        String countText = driver.findElement(CreateCharger.searchResultCount).getText();
         countText = countText.replaceAll("Showing Properties: ", "");
         int count = Integer.parseInt(countText);
         System.out.println(count);

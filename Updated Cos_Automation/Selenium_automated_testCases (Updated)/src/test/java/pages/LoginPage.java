@@ -143,7 +143,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("validEmail")));
             Assert.assertTrue(EnterPassword(prop.getProperty("validPassword")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterLogin());
             System.out.println("Diverted to Login!");
         } else {
@@ -165,7 +165,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("CosAccountingEmail")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterLogin());
             System.out.println("Diverted to Login!");
         } else {
@@ -187,7 +187,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("CosPropertySupport")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterLogin());
             System.out.println("Diverted to Login!");
         } else {
@@ -208,7 +208,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("CosDriverSupport")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterLogin());
             System.out.println("Diverted to Login!");
         } else {
@@ -229,7 +229,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("CosTechSupport")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterLogin());
             System.out.println("Diverted to Login!");
         } else {
@@ -250,7 +250,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("PropertyAdmin")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
@@ -271,7 +271,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("PropertyAdminAutomation")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
@@ -292,7 +292,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("PropertyAdminNoProperty")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
@@ -313,7 +313,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("PropertyAdminLessThanFiveProperty")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
@@ -334,7 +334,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("PropertyAdminChargerDetails")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
@@ -355,7 +355,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("PropertyAdminChargerStatus")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
@@ -376,7 +376,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("PropertyAdminOnlyLocations")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
@@ -397,7 +397,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("PropertyAdminOfflineLocations")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
@@ -418,7 +418,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("PropertyAdminCountTest")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
@@ -439,7 +439,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("PropertyManager")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
@@ -460,7 +460,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("PropertyAsstMgr")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
@@ -482,7 +482,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("PropertyLeasingAgent")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
@@ -503,7 +503,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("PropertyAsstLeasingAgent")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterPropertyAdminLogin());
             System.out.println("Diverted to Login!");
         } else {
@@ -524,7 +524,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("PropertyMaintenance")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterLogin());
             System.out.println("Diverted to Login!");
         } else {
@@ -545,7 +545,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("PropertyAccounting")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterLogin());
             System.out.println("Diverted to Login!");
         } else {
@@ -566,7 +566,7 @@ public class LoginPage extends BasePage {
             Assert.assertTrue(EnterEmail(prop.getProperty("PropertyViewOnly")));
             Assert.assertTrue(EnterPassword(prop.getProperty("PassForAll")));
             Assert.assertTrue(ClickLoginButton());
-            Assert.assertTrue(dashboard.VerifyLoginMessage(msg.SuccessfulLoginMessage()));
+            Assert.assertTrue(dashboard.verifyLoginMessage(msg.SuccessfulLoginMessage()));
             Assert.assertTrue(verifyUserLandsOnDashboardAfterLogin());
             System.out.println("Diverted to Login!");
         } else {

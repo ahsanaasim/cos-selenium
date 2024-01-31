@@ -3,9 +3,7 @@ package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -554,8 +552,8 @@ public class SearchandFilterProperties extends BasePage {
 
 
     public boolean VerifyPropertyCountOnTop() throws InterruptedException {
-        waitVisibility(CreateCharger.SearchResultCount);
-        String countText = driver.findElement(CreateCharger.SearchResultCount).getText();
+        waitVisibility(CreateCharger.searchResultCount);
+        String countText = driver.findElement(CreateCharger.searchResultCount).getText();
         System.out.println("Cont Text: "+countText);
         if(countText.matches("Showing Properties: \\d+"))
         {

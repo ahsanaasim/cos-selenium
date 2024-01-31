@@ -58,8 +58,8 @@ public class EditChargerCosAdminUpdated extends BasePage {
         UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
         Thread.sleep(2500);
         createCharger.GoToChargers();
-        writeInSearchBar(CreateCharger.searchchargerfield,charger,1000);
-        click(CreateCharger.searchargerbtn);
+        writeInSearchBar(CreateCharger.searchChargerField,charger,1000);
+        click(CreateCharger.searchChargerBtn);
         click(CosAdminChargerList.EditButton);
         editCharger.clickToggleButtonIfItIsOff();
         click(UpdateChargerPropertyAdmin.SaveCharger);
@@ -72,8 +72,8 @@ public class EditChargerCosAdminUpdated extends BasePage {
         UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
         Thread.sleep(2500);
         createCharger.GoToChargers();
-        writeInSearchBar(CreateCharger.searchchargerfield,charger,1000);
-        click(CreateCharger.searchargerbtn);
+        writeInSearchBar(CreateCharger.searchChargerField,charger,1000);
+        click(CreateCharger.searchChargerBtn);
         click(CosAdminChargerList.EditButton);
         editCharger.clickToggleButtonIfItIsOn();
         click(UpdateChargerPropertyAdmin.SaveCharger);
@@ -184,7 +184,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
         }
     }
     public boolean verifyInputFieldEditble() throws InterruptedException{
-        WebElement ChargerNameField = driver.findElement(CreateCharger.Chargername);
+        WebElement ChargerNameField = driver.findElement(CreateCharger.chargerName);
         String EditedText = "Selenium";
 //        ChargerNameField.click();
         ChargerNameField.sendKeys(Keys.CONTROL,"a");
@@ -220,7 +220,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
         if (driver.findElement(CreateLocationDrawerTitle).isDisplayed()){
             System.out.println("Create Location Drawer Opened");
             Thread.sleep(1500);
-            click(CreateCharger.crossbtnofdrawer);
+            click(CreateCharger.crossBtnOfDrawer);
             return true;
         }
         else{
@@ -317,7 +317,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
         Thread.sleep(2000);
         String ToogleButtonStatusAfter = driver.findElement(UpdateChargerPropertyAdmin.ToggleButton).getAttribute("aria-checked");
         System.out.println("Toggle Button status After: "+ToogleButtonStatusAfter);
-        String Edchar = driver.findElement(CreateCharger.Chargername).getAttribute("value");
+        String Edchar = driver.findElement(CreateCharger.chargerName).getAttribute("value");
         System.out.println(Edchar);
         String EdLoc = driver.findElement(ChargerListPropertyAdmin.SelectedLocationName).getText();
         System.out.println(EdLoc);
@@ -332,14 +332,14 @@ public class EditChargerCosAdminUpdated extends BasePage {
     }
 
     public boolean verifyErrorMsgForInvalidData() throws InterruptedException{
-        WebElement ChargerNameField = driver.findElement(CreateCharger.Chargername);
-        click(CreateCharger.Chargername);
+        WebElement ChargerNameField = driver.findElement(CreateCharger.chargerName);
+        click(CreateCharger.chargerName);
         ChargerNameField.sendKeys(Keys.CONTROL,"a");
         ChargerNameField.sendKeys(Keys.DELETE);
         Thread.sleep(1000);
         click(UpdateChargerPropertyAdmin.SaveCharger);
         Thread.sleep(1000);
-        String ErrorMsg= driver.findElement(CreateCharger.Chargernameerrormsg).getText();
+        String ErrorMsg= driver.findElement(CreateCharger.chargerNameErrorMsg).getText();
         String ExpectedErrorMsg = "Charger name is required";
         if (ErrorMsg.equals(ExpectedErrorMsg)){
             System.out.println("Alert Message is showing for Mandatory field");
@@ -470,9 +470,9 @@ public class EditChargerCosAdminUpdated extends BasePage {
         EditChargerCosAdminUpdated editChargerCosAdminUpdated = new EditChargerCosAdminUpdated(driver);
         CreateCharger createcharger = new CreateCharger(driver);
         int randomNumber = objGenerator.nextInt(20);
-        WebElement ChargerNameField = driver.findElement(CreateCharger.Chargername);
+        WebElement ChargerNameField = driver.findElement(CreateCharger.chargerName);
         String EditedCharger = "Raw charger "+randomNumber;
-        click(CreateCharger.Chargername);
+        click(CreateCharger.chargerName);
         ChargerNameField.sendKeys(Keys.CONTROL,"a");
         ChargerNameField.sendKeys(Keys.DELETE);
         ChargerNameField.sendKeys(EditedCharger);
@@ -480,12 +480,12 @@ public class EditChargerCosAdminUpdated extends BasePage {
         Thread.sleep(6000);
         fieldClear(ChargerListPropertyAdmin.SearchChargerField);
         createcharger.writeInputText(ChargerListPropertyAdmin.SearchChargerField,EditedCharger,1000);
-        createcharger.clickButton(CreateCharger.searchargerbtn,1000);
+        createcharger.clickButton(CreateCharger.searchChargerBtn,1000);
         click(CosAdminChargerList.EditButton);
         Thread.sleep(10000);
         String Edchar = driver.findElement(ChangeNameAuditLog).getText();
         System.out.println("Edited charger name in Audit log: "+Edchar);
-        String ChargerNameInDrawer = driver.findElement(CreateCharger.Chargername).getAttribute("value");
+        String ChargerNameInDrawer = driver.findElement(CreateCharger.chargerName).getAttribute("value");
         System.out.println("Edited charger name in charger field: "+ChargerNameInDrawer);
         if (ChargerNameInDrawer.equals(EditedCharger) && Edchar.equals(EditedCharger)){
             System.out.println("Edited Name is Showing in Audit Log & charger field Successfully");
@@ -525,8 +525,8 @@ public class EditChargerCosAdminUpdated extends BasePage {
     public void selectChargingRateFromSelectedField(String ChargingRate) throws InterruptedException {
         waitforPresence(ChargingRateFieldSelected);
         click(ChargingRateFieldSelected);
-        writeText(CreateCharger.ChargingRateField,ChargingRate);
-        WebElement selectitem = driver.findElement(CreateCharger.ChargingRateField);
+        writeText(CreateCharger.chargingRateField,ChargingRate);
+        WebElement selectitem = driver.findElement(CreateCharger.chargingRateField);
         Thread.sleep(3000);
         selectitem.sendKeys(Keys.ENTER);
     }

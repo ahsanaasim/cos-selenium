@@ -53,8 +53,8 @@ public class DownCharger extends BasePage {
     }
 
     public boolean verifySearchBoXPlaceholder(){
-        waitforPresence(CreateCharger.searchchargerfield);
-        String S = driver.findElement(CreateCharger.searchchargerfield).getAttribute("placeholder");
+        waitforPresence(CreateCharger.searchChargerField);
+        String S = driver.findElement(CreateCharger.searchChargerField).getAttribute("placeholder");
         System.out.println(S);
         String ExpectedText = "Search by property, charger & location title";
         if (S.equals(ExpectedText)) {
@@ -110,8 +110,8 @@ public class DownCharger extends BasePage {
         click(DownChargerSeeDetails);
         waitforPresence(EditButton);
         String Location = "Berkley";
-        writeText(CreateCharger.searchchargerfield,Location);
-        click(CreateCharger.searchargerbtn);
+        writeText(CreateCharger.searchChargerField,Location);
+        click(CreateCharger.searchChargerBtn);
         waitforPresence(EditButton);
         Thread.sleep(2000);
         String charger = driver.findElement(DownChargerName1).getAttribute("title");
@@ -120,7 +120,7 @@ public class DownCharger extends BasePage {
         location.clickonLocationSearchbar();
         writeText(CreateLocation.searchbar,Location);
         waitforPresence(location.editbtn);
-        click(CreateCharger.searchargerbtn);
+        click(CreateCharger.searchChargerBtn);
         click(location.editbtn);
         click(editLocation.togglebtn);
         click(CreateLocation.savelocationbtn);
@@ -132,8 +132,8 @@ public class DownCharger extends BasePage {
         System.out.println("Down charger count after: "+DownChargerCountAfter);
         click(DownChargerSeeDetails);
         waitforPresence(EditButton);
-        writeText(CreateCharger.searchchargerfield,charger);
-        click(CreateCharger.searchargerbtn);
+        writeText(CreateCharger.searchChargerField,charger);
+        click(CreateCharger.searchChargerBtn);
         Thread.sleep(6000);
         waitforPresence(InvoiceFilter.NoDataFoundInTable);
         if (driver.findElement(InvoiceFilter.NoDataFoundInTable).isDisplayed() && DownChargerCountBefore>DownChargerCountAfter) {
@@ -155,7 +155,7 @@ public class DownCharger extends BasePage {
         location.clickonLocationSearchbar();
         writeText(CreateLocation.searchbar,Location);
         waitforPresence(location.editbtn);
-        click(CreateCharger.searchargerbtn);
+        click(CreateCharger.searchChargerBtn);
         click(location.editbtn);
         click(editLocation.togglebtn);
         click(CreateLocation.savelocationbtn);

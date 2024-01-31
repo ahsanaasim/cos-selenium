@@ -138,7 +138,7 @@ public class Dashboard extends BasePage {
         return true;
     }
 
-    public boolean VerifyLoginMessage(String expectedText) {
+    public boolean verifyLoginMessage(String expectedText) {
         try {
             //waitelementtobedisplayed(loginmsg);
             waitVisibility(loginMsg);
