@@ -31,7 +31,7 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
         Assert.assertTrue(searchLocation.verifyAllTheDropdownItemsareShowing());
 
@@ -53,7 +53,7 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         /*Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
         Assert.assertTrue(searchLocation.writeZipCode());
        // Assert.assertTrue(searchCompany.SelectZipFromDropDown());
@@ -77,7 +77,7 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         /*Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
        // Assert.assertTrue(searchLocation.writeZipCode());
         Assert.assertTrue(searchCompany.SelectZipFromDropDown());
@@ -127,13 +127,13 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         //  Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
     //    Assert.assertTrue(searchLocation.writeZipCode(prop.getProperty("Zipcode1")));
         Assert.assertTrue(searchCompany.SelectZipFromDropDown());
         Assert.assertTrue(searchLocation.clickOnDrawerTitle());
         Assert.assertTrue(searchLocation.clickOutsideDrawer());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.verifyZipcodeTagisShowingAterClosingtheDrawer());
 
     }
@@ -155,14 +155,14 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         //  Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
        // Assert.assertTrue(searchLocation.writeZipCode(prop.getProperty("Zipcode1")));
         Assert.assertTrue(searchCompany.SelectZipFromDropDown());
         Assert.assertTrue(searchLocation.writeZipCode());
         Assert.assertTrue(searchLocation.selectAnotherZipcodeFromDropdown());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.removeZipcodeFromAdvanceFilterDrawer());
         Assert.assertTrue(searchLocation.verifyZipTagHasbeenremoved());
 
@@ -184,14 +184,14 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
       //  Assert.assertTrue(searchLocation.writeZipCode(prop.getProperty("Zipcode1")));
         Assert.assertTrue(searchCompany.SelectZipFromDropDown());
         Assert.assertTrue(searchLocation.writeZipCode());
         Assert.assertTrue(searchLocation.selectAnotherZipcodeFromDropdown());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.removeZipcodeFromAdvanceFilterDrawer());
         Assert.assertTrue(searchLocation.removeAnotherZipcodeFromAdvanceFilterDrawer());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
@@ -216,7 +216,7 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         //  Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
     //    Assert.assertTrue(searchLocation.writeZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(searchCompany.SelectZipFromDropDown());
@@ -243,7 +243,7 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         //  Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
       //  Assert.assertTrue(searchLocation.writeZipCode(prop.getProperty("Zipcode1")));
         Assert.assertTrue(searchCompany.SelectZipFromDropDown());
@@ -275,14 +275,14 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         //  Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
      //   Assert.assertTrue(searchLocation.writeZipCode(prop.getProperty("Zipcode1")));
         Assert.assertTrue(searchCompany.SelectZipFromDropDown());
         Assert.assertTrue(searchLocation.writeZipCode());
         Assert.assertTrue(searchLocation.selectAnotherZipcodeFromDropdown());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchCompany.ClickonResetButton());
         Assert.assertTrue(searchLocation.clickOutsideDrawer());
         Assert.assertTrue(searchLocation.verifyCountonLocationPage());
@@ -305,14 +305,14 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
     //    Assert.assertTrue(searchLocation.writeZipCode(prop.getProperty("Zipcode1")));
         Assert.assertTrue(searchCompany.SelectZipFromDropDown());
         Assert.assertTrue(searchLocation.writeZipCode());
         Assert.assertTrue(searchLocation.selectAnotherZipcodeFromDropdown());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.removeZipcodeFromAdvanceFilterDrawer());
         Assert.assertTrue(searchLocation.verifyZipTagHasbeenremoved());
         Assert.assertTrue(searchLocation.verifyCountonLocationPage());
@@ -337,14 +337,14 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         //  Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
       //  Assert.assertTrue(searchLocation.writeZipCode(prop.getProperty("Zipcode1")));
         Assert.assertTrue(searchCompany.SelectZipFromDropDown());
         Assert.assertTrue(searchLocation.writeZipCode());
         Assert.assertTrue(searchLocation.selectAnotherZipcodeFromDropdown());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchCompany.ClickonResetButton());
 //        Assert.assertTrue(searchCompany.ClickonApplyButton());
     //    Assert.assertTrue(searchLocation.verifyLocationPageHasresettoDefaultData());
@@ -368,14 +368,14 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         //  Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
     //    Assert.assertTrue(searchLocation.writeZipCode(prop.getProperty("Zipcode1")));
         Assert.assertTrue(searchCompany.SelectZipFromDropDown());
         Assert.assertTrue(searchLocation.writeZipCode());
         Assert.assertTrue(searchLocation.selectAnotherZipcodeFromDropdown());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchCompany.ClickonResetButton());
 //        Assert.assertTrue(searchCompany.ClickonApplyButton());
         Assert.assertTrue(searchLocation.verifyPageHasResettoDefaultData());
@@ -399,7 +399,7 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         //  Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
   //      Assert.assertTrue(searchLocation.writeZipCode(prop.getProperty("Zipcode1")));
         Assert.assertTrue(searchCompany.SelectZipFromDropDown());
@@ -426,7 +426,7 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
      //   Assert.assertTrue(searchLocation.writeZipCode(prop.getProperty("Zipcode1")));
         Assert.assertTrue(searchCompany.SelectZipFromDropDown());
@@ -454,7 +454,7 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         //  Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
    //     Assert.assertTrue(searchLocation.writeZipCode(prop.getProperty("Zipcode1")));
         Assert.assertTrue(searchCompany.SelectZipFromDropDown());
@@ -480,7 +480,7 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         //  Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononZipDropdown());
     //    Assert.assertTrue(searchLocation.writeZipCode(prop.getProperty("Zipcode1")));
         Assert.assertTrue(searchCompany.SelectZipFromDropDown());
@@ -507,7 +507,7 @@ public class US_23_SearchLocantioByZip extends BaseTest {
         Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
       //  Assert.assertTrue(searchandfilter.clickononCompanyDropdown());
 //        Assert.assertTrue(searchLocation.selectCompnayNameonAdvanceFilter());
       //  Assert.assertTrue(searchLocation.clickOnDrawerTitle());

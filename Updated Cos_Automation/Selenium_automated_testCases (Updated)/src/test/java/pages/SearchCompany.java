@@ -21,12 +21,12 @@ public class SearchCompany extends BasePage{
 
     public static By companyEmail1InTable = By.xpath("(//div[@class='wordBreak'])[2]");
     public static By companyPhoneNumber1InTable = By.xpath("(//div[@class='wordBreak'])[3]");
-    public static By advancefilterbtn = By.xpath("//button[contains(.,'Add Advance Filter')]");
-    public static By statedroddown = By.xpath("(//div[@class='ant-select-selection-overflow'])[1]");
-    public static By zipdroddown = By.xpath("(//div[@class='ant-select-selection-overflow'])[2]");
+    public static By advanceFilterBtn = By.xpath("//button[contains(.,'Add Advance Filter')]");
+    public static By stateDropDown = By.xpath("(//div[@class='ant-select-selection-overflow'])[1]");
+    public static By zipDropDown = By.xpath("(//div[@class='ant-select-selection-overflow'])[2]");
     public static By zipFieldToWrite = By.xpath("(//input[@class='ant-select-selection-search-input'])[2]");
-    public static By selectstate = By.xpath("//div[@class='ant-select-item-option-content'][contains(.,'Alaska')]");
-    public static By selectzip = By.xpath("//div[@class='ant-select-item-option-content'][contains(.,'99950')]");
+    public static By selectState = By.xpath("//div[@class='ant-select-item-option-content'][contains(.,'Alaska')]");
+    public static By selectZip = By.xpath("//div[@class='ant-select-item-option-content'][contains(.,'99950')]");
     public static By statename = By.xpath("//span[@class='ant-tag'][contains(.,'Alaska')]");
     public static By companystatus = By.xpath("//span[contains(.,'Include deactivated companies')]");
     public static By applybtn = By.xpath("//button[contains(.,'Apply')]");
@@ -34,11 +34,11 @@ public class SearchCompany extends BasePage{
     public static By advancefilter= By.xpath("//span[@class='drawerTitle'][contains(.,'Advanced Filter')]");
     public static By ascendingcompanyname = By.xpath("//span[contains(.,'Company Name')]");
     public static By ascendingemail = By.xpath("//span[contains(.,'Company Email')]");
-    public static By loadmorebtn = By.xpath("//span[contains(.,'Load 3 More')]");
+    public static By loadMoreBtn = By.xpath("//button[class='ant-btn ant-btn-default primary-color']");
     public static By nodataimg = By.xpath("//img[@src='/images/noDataTable.svg']");
     public static By brandifocheckbox = By.xpath("//span[contains(.,'Show companies with logo')]");
     public static By removebtn = By.xpath("//span[@class='anticon anticon-close ant-tag-close-icon']");
-    public static By ClearAll = By.xpath("//span[@class='ant-tag cursor tagCss clearAllTag']");
+    public static By clearAll = By.xpath("//span[@class='ant-tag cursor tagCss clearAllTag']");
     public static By Spiner = By.xpath("//span[@class='ant-spin-dot ant-spin-dot-spin']");
 
 
@@ -48,7 +48,7 @@ public class SearchCompany extends BasePage{
     CreateCompany company= new CreateCompany(driver);
 
 
-    public boolean ClickonSearchbar() {
+    public boolean clickOnSearchBar() {
         company.waitForSpinner();
         waitVisibility(editCompany.searchbar);
         waitelementtobedisplayed(editCompany.searchbar);
@@ -56,13 +56,13 @@ public class SearchCompany extends BasePage{
         return true;
     }
 
-    public boolean ClickonAdvanceFilterButton() throws InterruptedException {
+    public boolean clickOnAdvanceFilterButton() throws InterruptedException {
         waitforInVisibility(company.spinner);
         driver.manage().timeouts().implicitlyWait(05, TimeUnit.SECONDS);
-        waitVisibility(advancefilterbtn);
-        waitelementtobedisplayed(advancefilterbtn);
-        waitelemtclickable(advancefilterbtn);
-        click(advancefilterbtn);
+        waitVisibility(advanceFilterBtn);
+        waitelementtobedisplayed(advanceFilterBtn);
+        waitelemtclickable(advanceFilterBtn);
+        click(advanceFilterBtn);
         return true;
     }
 
@@ -74,10 +74,10 @@ public class SearchCompany extends BasePage{
         return true;
     }
 
-    public boolean ClickonLoadMoreButton() {
+    public boolean clickOnLoadMoreButton() {
     //    WebElement loadmorebt= driver.findElement(By.xpath("//span[contains(.,'Show companies with no logo')]"));
-        waitVisibility(loadmorebtn);
-        click(loadmorebtn);
+        waitVisibility(loadMoreBtn);
+        click(loadMoreBtn);
         return true;
     }
 
@@ -111,42 +111,42 @@ public class SearchCompany extends BasePage{
     }
 
     public boolean ClickonSelectStateFromAdvanceFilterDrawer() {
-        waitVisibility(statedroddown);
-        click(statedroddown);
+        waitVisibility(stateDropDown);
+        click(stateDropDown);
         return true;
     }
 
     public boolean SelectAlaskaStateFromDropDown() throws InterruptedException {
         Thread.sleep(2000);
-        waitVisibility(selectstate);
+        waitVisibility(selectState);
       //  waitelementtobedisplayed(selectstate);
-        click(selectstate);
+        click(selectState);
         click(advancefilter);
         return true;
     }
 
     public boolean ClickonZipCodeDropdownFromAdvanceFilterDrawer() {
-        waitVisibility(zipdroddown);
-        click(zipdroddown);
+        waitVisibility(zipDropDown);
+        click(zipDropDown);
         return true;
     }
 
     public boolean SelectZipFromDropDown() throws InterruptedException {
       //  company.waitForSpinner();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        waitVisibility(selectzip);
-        click(selectzip);
+        waitVisibility(selectZip);
+        click(selectZip);
         return true;
     }
 
     public boolean SelectZipFromAdvancedFilterDropDown() throws InterruptedException {
         //  company.waitForSpinner();
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        waitVisibility(zipdroddown);
+        waitVisibility(zipDropDown);
         click(advancefilter);
-        click(zipdroddown);
+        click(zipDropDown);
         writeText(zipFieldToWrite,prop.getProperty("ZipCode"));
-        click(selectzip);
+        click(selectZip);
         return true;
     }
 

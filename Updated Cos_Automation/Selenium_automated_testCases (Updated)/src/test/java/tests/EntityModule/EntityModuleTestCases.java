@@ -796,7 +796,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
-        Assert.assertTrue(searchcompany.ClickonSearchbar());
+        Assert.assertTrue(searchcompany.clickOnSearchBar());
         Assert.assertTrue(editCompany.SearchbyName(prop.getProperty("Entity")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
         Assert.assertTrue(searchEntity.verifyExpectedColumnWithExpectedContent("Entity Name",prop.getProperty("Entity"),0));
@@ -816,7 +816,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
-        Assert.assertTrue(searchcompany.ClickonSearchbar());
+        Assert.assertTrue(searchcompany.clickOnSearchBar());
         Assert.assertTrue(searchcompany.SearchbyEmail(prop.getProperty("CompanyEmail")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
         Assert.assertTrue(searchEntity.verifyExpectedColumnWithExpectedContent("Entity Email",prop.getProperty("CompanyEmail"),1));
@@ -836,7 +836,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
-        Assert.assertTrue(searchcompany.ClickonSearchbar());
+        Assert.assertTrue(searchcompany.clickOnSearchBar());
         Assert.assertTrue(searchcompany.SearchbyPhoneNumber(prop.getProperty("Phone")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
         Assert.assertTrue(searchEntity.verifyExpectedColumnWithExpectedContent("Entity Phone",prop.getProperty("Phone"),2));
@@ -855,7 +855,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
-        Assert.assertTrue(searchcompany.ClickonSearchbar());
+        Assert.assertTrue(searchcompany.clickOnSearchBar());
         Assert.assertTrue(editCompany.SearchbyName(prop.getProperty("NonExistingEntity")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
         Assert.assertTrue(searchEntity.VerifNoEntityisShowingafterProvidingInvalidData());
@@ -875,7 +875,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
-        Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchcompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
         Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
@@ -896,7 +896,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
-        Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchcompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
         Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
@@ -918,7 +918,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
-        Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchcompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
         Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchcompany.ClickonApplyButton());
@@ -943,7 +943,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
-        Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchcompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
         Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
         Assert.assertTrue(searchEntity.ClickonSelectZipdropdownFromAdvanceFilterDrawer());
@@ -968,7 +968,7 @@ public class EntityModuleTestCases extends BaseTest {
 //        Assert.assertTrue(dashboard.GotoDashboard());
 //        Assert.assertTrue(dashboard.ClickonCompanyfromLeftMenuBar());
 //        Assert.assertTrue(dashboard.ClickonEntityManagement());
-        Assert.assertTrue(searchcompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchcompany.clickOnAdvanceFilterButton());
 //        Assert.assertTrue(searchEntity.ClickonSelectStateFromAdvanceFilterDrawer());
 //        Assert.assertTrue(searchcompany.SelectAlaskaStateFromDropDown());
 //        Assert.assertTrue(searchEntity.ClickonSelectZipdropdownFromAdvanceFilterDrawer());
@@ -1516,7 +1516,7 @@ public class EntityModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
-        Assert.assertTrue(searchcompany.ClickonSearchbar());
+        Assert.assertTrue(searchcompany.clickOnSearchBar());
         Assert.assertTrue(editCompany.SearchbyName(prop.getProperty("Entity")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
         Assert.assertTrue(editEntity.VerifyUpdatedEntityisShowinginEntityTable());

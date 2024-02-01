@@ -498,7 +498,7 @@ public class US20_SearchLocantioTestCases extends BaseTest {
         //  Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.verifyAdvanceFilterDrawerhasOpened());
 
     }
@@ -519,7 +519,7 @@ public class US20_SearchLocantioTestCases extends BaseTest {
        /*Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.verifyAllFiltersareShowingOnTheAdvanceFilterDrawer());
 
     }

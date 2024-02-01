@@ -29,7 +29,7 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononPropertyDropdown());
         Assert.assertTrue(searchLocation.writePropertyName());
         Assert.assertTrue(searchLocation.verifyPropertyisShowingInTheDropDown());
@@ -53,7 +53,7 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         /*Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononPropertyDropdown());
         Assert.assertTrue(searchLocation.writePropertyName());
         Assert.assertTrue(searchLocation.ClickonPropertyNameFromDropDown());
@@ -103,7 +103,7 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         //  Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononPropertyDropdown());
         Assert.assertTrue(searchLocation.writePropertyName());
         Assert.assertTrue(searchLocation.ClickonPropertyNameFromDropDown());
@@ -153,13 +153,13 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         //Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononPropertyDropdown());
         Assert.assertTrue(searchLocation.writePropertyName());
         Assert.assertTrue(searchLocation.ClickonPropertyNameFromDropDown());
         Assert.assertTrue(searchLocation.clickOnDrawerTitle());
         Assert.assertTrue(searchLocation.clickOutsideDrawer());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.verifySelectedPropertyTagisShowingAterClosingtheDrawer());
 
     }
@@ -179,13 +179,13 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononPropertyDropdown());
         Assert.assertTrue(searchLocation.writePropertyName());
         Assert.assertTrue(searchLocation.ClickonPropertyNameFromDropDown());
         Assert.assertTrue(searchLocation.selectAnotherPropertyFromDropdown());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.removePropertyFromAdvanceFilterDrawer());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
         searchLocation.verifyLocatonsWithSelectedPropertyTagHasDisplayed();
@@ -207,13 +207,13 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononPropertyDropdown());
         Assert.assertTrue(searchLocation.writePropertyName());
         Assert.assertTrue(searchLocation.ClickonPropertyNameFromDropDown());
         Assert.assertTrue(searchLocation.selectAnotherPropertyFromDropdown());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.removePropertyFromAdvanceFilterDrawer());
         Assert.assertTrue(searchLocation.removeAnotherPropertyFromAdvanceFilterDrawer());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
@@ -236,7 +236,7 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononPropertyDropdown());
         Assert.assertTrue(searchLocation.writePropertyName());
         Assert.assertTrue(searchLocation.ClickonPropertyNameFromDropDown());
@@ -262,7 +262,7 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         //  Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononPropertyDropdown());
         Assert.assertTrue(searchLocation.writePropertyName());
         Assert.assertTrue(searchLocation.ClickonPropertyNameFromDropDown());
@@ -298,7 +298,7 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         Assert.assertTrue(searchLocation.clickOnDrawerTitle());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
         Assert.assertTrue(searchLocation.verifyCountoAfterSelectingPropertyFromAdvanceFilterDrawer());*/
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchCompany.ClickonResetButton());
 //        Assert.assertTrue(searchCompany.ClickonApplyButton());
         Assert.assertTrue(searchLocation.verifyCountoAfterRemovingPropertyFilterFromAdvanceFilterDrawer());
@@ -323,14 +323,14 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         //  Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononPropertyDropdown());
         Assert.assertTrue(searchLocation.writePropertyName());
         Assert.assertTrue(searchLocation.ClickonPropertyNameFromDropDown());
         Assert.assertTrue(searchLocation.selectAnotherPropertyFromDropdown());
         Assert.assertTrue(searchLocation.clickOnDrawerTitle());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.removePropertyFromAdvanceFilterDrawer());
         Assert.assertTrue(searchCompany.ClickonApplyButton());
         Assert.assertTrue(searchLocation.verifyCountoAfterRemovingProperty());
@@ -353,7 +353,7 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
          Assert.assertTrue(dashboard.gotoDashboard());
          Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononPropertyDropdown());
         Assert.assertTrue(searchLocation.writePropertyName());
         Assert.assertTrue(searchLocation.ClickonPropertyNameFromDropDown());
@@ -379,7 +379,7 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononPropertyDropdown());
         Assert.assertTrue(searchLocation.writePropertyName());
         Assert.assertTrue(searchLocation.ClickonPropertyNameFromDropDown());
@@ -405,7 +405,7 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
        /* Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononPropertyDropdown());
         Assert.assertTrue(searchLocation.writePropertyName());
         Assert.assertTrue(searchLocation.ClickonPropertyNameFromDropDown());
@@ -431,7 +431,7 @@ public class US_22_SearchLocantioByProperty extends BaseTest {
         /*Assert.assertTrue(dashboard.GotoDashboard());
         Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickonLocations());*/
-        Assert.assertTrue(searchCompany.ClickonAdvanceFilterButton());
+        Assert.assertTrue(searchCompany.clickOnAdvanceFilterButton());
         Assert.assertTrue(searchLocation.clickononPropertyDropdown());
         Assert.assertTrue(searchLocation.writePropertyName());
         Assert.assertTrue(searchLocation.ClickonPropertyNameFromDropDown());

@@ -1,12 +1,8 @@
 package pages;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 import java.util.Properties;
@@ -81,7 +77,7 @@ public class SearchEntity extends BasePage{
         click(SearchCompany.advancefilter);
         click(zipdroddown);
         writeText(zipFieldToWrite,prop.getProperty("ZipCode"));
-        click(SearchCompany.selectzip);
+        click(SearchCompany.selectZip);
         return true;
     }
 

@@ -543,7 +543,7 @@ public class EditEntityTestCases extends BaseTest{
         Assert.assertTrue(dashboard.gotoDashboard());
         Assert.assertTrue(dashboard.clickOnCompanyFromLeftMenuBar());
         Assert.assertTrue(dashboard.clickOnEntityManagement());
-        Assert.assertTrue(searchcompany.ClickonSearchbar());
+        Assert.assertTrue(searchcompany.clickOnSearchBar());
         Assert.assertTrue(editCompany.SearchbyName(prop.getProperty("Entity")));
         Assert.assertTrue(editCompany.ClickonSearchButton());
         Assert.assertTrue(editEntity.VerifyUpdatedEntityisShowinginEntityTable());
