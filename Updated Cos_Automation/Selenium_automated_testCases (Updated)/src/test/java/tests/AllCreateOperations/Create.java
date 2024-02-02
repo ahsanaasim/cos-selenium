@@ -154,7 +154,7 @@ public class Create extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         int randomNumber = objGenerator.nextInt(10000);
         System.out.println(randomNumber);
         String temp="BRT - "+randomNumber;
@@ -162,11 +162,11 @@ public class Create extends BaseTest {
         createcharger.selectChargingRate("9.90");
         createcharger.selectProperty("Temporary Property");
         createcharger.selectLocation("Temporary Location");
-        Assert.assertTrue(createcharger.clickonSaveChargerButton());
-        Assert.assertTrue(createcharger.VerifyConfirmationPopUpHasDisplayed());
+        Assert.assertTrue(createcharger.clickOnSaveChargerButton());
+        Assert.assertTrue(createcharger.verifyConfirmationPopUpHasDisplayed());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.searchChargerField,temp,3000));
         Assert.assertTrue(createcharger.clickButton(CreateCharger.searchChargerBtn,2000));
-        Assert.assertTrue(createcharger.VerifySearchResultCount());
+        Assert.assertTrue(createcharger.verifySearchResultCount());
     }
 
 //    @Test(priority = 1)//Done

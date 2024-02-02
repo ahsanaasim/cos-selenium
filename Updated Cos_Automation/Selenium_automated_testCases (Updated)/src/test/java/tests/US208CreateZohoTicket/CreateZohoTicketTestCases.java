@@ -703,7 +703,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
 //        operation.ClickButton(CreateTicket.SupportButton,3000);
         operation.clickButton(CreateTicket.CreateTicketButton,2000);
         ticket.SelectOptionFromInputField(CreateTicket.TicketTypeField,"Charging Issue");
-        Assert.assertTrue((operation.clickonoutsidethedrawer()));
+        Assert.assertTrue((operation.clickOnOutsideTheDrawer()));
         Assert.assertTrue(operation.verifyDiscadContinuePopupHasDisplayed());
 
     }
@@ -757,7 +757,7 @@ public class CreateZohoTicketTestCases extends BaseTest {
 //        operation.ClickButton(CreateTicket.SupportButton,3000);
         operation.clickButton(CreateTicket.CreateTicketButton,2000);
         ticket.SelectOptionFromInputField(CreateTicket.SelectPropertyField,"East Avenue");
-        Assert.assertTrue((operation.clickonoutsidethedrawer()));
+        Assert.assertTrue((operation.clickOnOutsideTheDrawer()));
         Assert.assertTrue(operation.clickOnDiscardButtonOfPopUp());
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(2000,DashboardPropertyDetails.TopAccountName));
 

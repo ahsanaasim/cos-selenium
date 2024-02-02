@@ -63,7 +63,7 @@ public class TroubleshootCharger extends BasePage{
 
     public boolean verifyChangerNameChangedInTroubleshootDrawer() throws InterruptedException {
         clearOperation.fieldClear(CreateCharger.chargerName);
-        String troubleshootCharger = charger.RandomChargerNameWithNumber("Troubleshoot checker charger : ");
+        String troubleshootCharger = charger.randomChargerNameWithNumber("Troubleshoot checker charger : ");
         writeText(CreateCharger.chargerName,troubleshootCharger);
         click(UpdateChargerPropertyAdmin.SaveCharger);
         Thread.sleep(5000);

@@ -45,13 +45,13 @@ public class CosAdminChargerList extends BasePage {
         System.out.println(randomNumber);
         String temp="Test Charger-"+randomNumber;
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,temp,2000));
-        Assert.assertTrue(createcharger.clickonPropertySelect());
-        Assert.assertTrue(createcharger.writeInputText(CreateCharger.selectproperty,"East Avenue",2000));
+        Assert.assertTrue(createcharger.clickOnPropertySelect());
+        Assert.assertTrue(createcharger.writeInputText(CreateCharger.selectProperty,"East Avenue",2000));
         Assert.assertTrue(createcharger.selectPropertyNameFromSelectPropertyDropdown());
-        Assert.assertTrue((createcharger.clickonlocation()));
+        Assert.assertTrue((createcharger.clickOnLocation()));
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.location,"Electric Charger",2000));
         Assert.assertTrue(createcharger.selectLoactionNameFromSelectPropertyDropdown());
-        Assert.assertTrue(createcharger.clickonSaveChargerButton());
+        Assert.assertTrue(createcharger.clickOnSaveChargerButton());
         Thread.sleep(1000);
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.searchChargerField,temp,1000));
         Assert.assertTrue(createcharger.clickButton(CreateCharger.searchChargerBtn,1000));

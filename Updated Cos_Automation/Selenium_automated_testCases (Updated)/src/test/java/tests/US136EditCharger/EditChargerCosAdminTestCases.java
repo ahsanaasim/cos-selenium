@@ -354,7 +354,7 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
-        Assert.assertTrue((createcharger.clickonoutsidethedrawer()));
+        Assert.assertTrue((createcharger.clickOnOutsideTheDrawer()));
         Assert.assertTrue(createcharger.verifyAddNewChargerButtonHasDisplayed());
     }
     @Test(priority = 19)//Done
@@ -477,7 +477,7 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My new charger",1000));
-        Assert.assertTrue(createcharger.clickonoutsidethedrawer());
+        Assert.assertTrue(createcharger.clickOnOutsideTheDrawer());
         Assert.assertTrue(createcharger.verifyDiscadContinuePopupHasDisplayed());
     }
     @Test(priority = 26)//Done
@@ -494,7 +494,7 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My new charger",1000));
-        Assert.assertTrue(createcharger.clickonoutsidethedrawer());
+        Assert.assertTrue(createcharger.clickOnOutsideTheDrawer());
         Assert.assertTrue(createcharger.verifyPopUpContainsDiscardAndContinueButton());
     }
     @Test(priority = 27)//Done
@@ -509,7 +509,7 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My new charger",6000));
-        Assert.assertTrue(createcharger.clickonoutsidethedrawer());
+        Assert.assertTrue(createcharger.clickOnOutsideTheDrawer());
         Assert.assertTrue(createcharger.clickOnDiscardButtonOfPopUp());
         Assert.assertTrue(createcharger.verifyAddNewChargerButtonHasDisplayed());
     }

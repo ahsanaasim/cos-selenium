@@ -15,7 +15,7 @@ public class CreateCharger extends BasePage {
 
     public static By addChargerBtn = By.xpath("//button[@type='button']//span[contains(text(),'Add New Charger')]");
     public static By addChargerBtnDisabled= By.xpath("//button[@class='ant-btn ant-btn-primary btnPadding']");
-    public static By addNewChargerDrawer = By.xpath("//span[@class='drawerTitle'][contains(.,'Add New Charger')]");
+    public static By addNewChargerDrawer = By.xpath("//span[@class='drawerTitle'][contains(text(),'Add New Charger')]");
     public static By outsideDrawer = By.xpath("//div[@class='ant-drawer-mask']");
     public static By crossBtnOfDrawer = By.cssSelector("button[class='ant-drawer-close']");
     public static By cancelButtonOfDrawer = By.xpath("//span[contains(text(),'Cancel')]");
@@ -33,55 +33,55 @@ public class CreateCharger extends BasePage {
     public static By propertyNameErrMsg = By.xpath("//div[contains(text(),'Property is required')]");
     public static By chargingRateRequiredMessage = By.xpath("//div[@class='ant-form-item-explain-error'][contains(text(),'Charging rate is required')]");
     public static By PlugTypeRequiredErrorMessage = By.xpath("//div[@class='ant-form-item-explain-error'][contains(text(),'Plug type is required')]");
-    public static By selectproperty = By.xpath("(//input[@class='ant-select-selection-search-input'])[3]");
-    public static By pname =By.xpath("(//div[contains(@class,'ant-select-item-option-content')])[1]");
-    public static By lname= By.xpath("//div[contains(text(),'Electric Charger')]");
+    public static By selectProperty = By.xpath("(//input[@class='ant-select-selection-search-input'])[3]");
+    public static By pName =By.xpath("(//div[contains(@class,'ant-select-item-option-content')])[1]");
+    public static By lName = By.xpath("//div[contains(text(),'Electric Charger')]");
     //div[contains(@class,'ant-select-item-option-content')])[12]
-    public static By selectlocation = By.id("rc_select_2");
-    public static By savecharger = By.xpath("//button[@type='submit']//span[contains(text(),'Save Charger')]");
+    public static By selectLocation = By.id("rc_select_2");
+    public static By saveCharger = By.xpath("//button[@type='submit']//span[contains(text(),'Save Charger')]");
     public static By cancel= By.xpath("//button[@type='button']");
     public static By location = By.xpath("(//input[@class='ant-select-selection-search-input'])[4]");
-    public static By confirmationpopup = By.xpath("//span[normalize-space()='Charger created successfully']");
+    public static By confirmationPopUp = By.xpath("//span[normalize-space()='Charger created successfully']");
     //span[contains(.,'Property created successfully')]
     public static By nodatafromsearch = By.xpath("//*[name()='path' and contains(@class,'ant-empty-')]");
     public static By loader = By.xpath("(//i[@class='ant-spin-dot-item'])[3]");
 
-    public static By SelectManufacturer = By.xpath("(//input[@class='ant-select-selection-search-input'])[5]");
-    public static By SelectDeviceModel = By.xpath("(//input[@class='ant-select-selection-search-input'])[6]");
+    public static By selectManufacturer = By.xpath("(//input[@class='ant-select-selection-search-input'])[5]");
+    public static By selectDeviceModel = By.xpath("(//input[@class='ant-select-selection-search-input'])[6]");
 
-    public void GoToChargers() throws InterruptedException {
+    public void goToChargers() throws InterruptedException {
         Thread.sleep(3000);
         driver.get("https://test-admin.chargeonsite.com/property/charger");
     }
 
-    public boolean ClickOnAddChargerButton () throws InterruptedException {
+    public boolean clickOnAddChargerButton() throws InterruptedException {
         Thread.sleep(2000);
         waitVisibility(addChargerBtn);
         click(addChargerBtn);
         return true;
     }
 
-    public boolean clickonSaveChargerButton () throws InterruptedException {
+    public boolean clickOnSaveChargerButton() throws InterruptedException {
         Thread.sleep(2000);
-        waitelemtclickable(savecharger);
-        click(savecharger);
+        waitelemtclickable(saveCharger);
+        click(saveCharger);
         return true;
     }
-    public boolean clickonPropertySelect () throws InterruptedException {
+    public boolean clickOnPropertySelect() throws InterruptedException {
         Thread.sleep(2000);
-        waitelemtclickable(selectproperty);
-        click(selectproperty);
+        waitelemtclickable(selectProperty);
+        click(selectProperty);
         return true;
     }
 
-    public boolean clickonlocation() throws InterruptedException {
+    public boolean clickOnLocation() throws InterruptedException {
         Thread.sleep(1000);
         waitelemtclickable(location);
         click(location);
         return true;
     }
 
-    public boolean clickonoutsidethedrawer() throws InterruptedException {
+    public boolean clickOnOutsideTheDrawer() throws InterruptedException {
         Thread.sleep(1000);
         waitelemtclickable(outsideDrawer);
         click(outsideDrawer);
@@ -89,21 +89,18 @@ public class CreateCharger extends BasePage {
     }
     public boolean clickOnCrossButtonOfTheDrawer() throws InterruptedException {
         Thread.sleep(2000);
-        //waitforInVisibility(loader);
         waitelementtobedisplayed(crossBtnOfDrawer);
         click(crossBtnOfDrawer);
         return true;
     }
     public boolean clickOnCancelButtonOfTheDrawer() throws InterruptedException {
         Thread.sleep(2000);
-        //waitforInVisibility(loader);
         waitelementtobedisplayed(cancelButtonOfDrawer);
         click(cancelButtonOfDrawer);
         return true;
     }
     public boolean clickOnDiscardButtonOfPopUp() throws InterruptedException {
         Thread.sleep(2000);
-        //waitforInVisibility(loader);
         waitelementtobedisplayed(discardBtn);
         click(discardBtn);
         return true;
@@ -127,35 +124,31 @@ public class CreateCharger extends BasePage {
 
     public boolean writePropertyName(String PropertyName3) throws InterruptedException {
         Thread.sleep(2000);
-        writeText(selectproperty,PropertyName3);
+        writeText(selectProperty,PropertyName3);
         return true;
     }
 
 
     public boolean writeLocationName(String PropertyName3) throws InterruptedException {
         Thread.sleep(3000);
-        writeText(selectproperty,PropertyName3);
+        writeText(selectProperty,PropertyName3);
         return true;
     }
 
 
-
-
     public boolean selectPropertyNameFromSelectPropertyDropdown() throws InterruptedException {
         Thread.sleep(3000);
-        waitelementtobedisplayed(pname);
+        waitelementtobedisplayed(pName);
         //waitelemtclickable(pname);
-        click(pname);
+        click(pName);
 //        click(pname);
         return true;
     }
     public boolean selectLoactionNameFromSelectPropertyDropdown() throws InterruptedException {
         Thread.sleep(3000);
-        waitelementtobedisplayed(lname);
+        waitelementtobedisplayed(lName);
         //waitelemtclickable(pname);
-
-        click(lname);
-//        click(pname);
+        click(lName);
         return true;
     }
     public boolean verifyAddNewChargerButtonHasDisplayed() throws InterruptedException {
@@ -225,10 +218,10 @@ public class CreateCharger extends BasePage {
 
     }
 
-    public boolean VerifyAddNewChargerDrawerHasDisplayed() throws InterruptedException {
+    public boolean verifyAddNewChargerDrawerHasDisplayed() throws InterruptedException {
         Thread.sleep(2000);
         waitVisibility(addNewChargerDrawer);
-        if( driver.findElement(By.xpath("//span[@class='drawerTitle'][contains(.,'Add New Charger')]")).isDisplayed())
+        if( driver.findElement(addNewChargerDrawer).isDisplayed())
         {
             System.out.println("Create New Entity drawer has displayed");
             return true;
@@ -238,7 +231,7 @@ public class CreateCharger extends BasePage {
             return false;
         }
     }
-    public boolean VerifySearchResultCount() throws InterruptedException {
+    public boolean verifySearchResultCount() throws InterruptedException {
         Thread.sleep(4000);
         waitVisibility(searchResultCount);
         String countText = driver.findElement(searchResultCount).getText();
@@ -255,10 +248,10 @@ public class CreateCharger extends BasePage {
             return false;
         }
     }
-    public boolean VerifyConfirmationPopUpHasDisplayed() throws InterruptedException {
+    public boolean verifyConfirmationPopUpHasDisplayed() throws InterruptedException {
         Thread.sleep(1000);
-        waitVisibility(confirmationpopup);
-        if( driver.findElement(confirmationpopup).isDisplayed())
+        waitVisibility(confirmationPopUp);
+        if( driver.findElement(confirmationPopUp).isDisplayed())
         {
             System.out.println("New Charger Has been Created Successfully");
             return true;
@@ -318,7 +311,7 @@ public class CreateCharger extends BasePage {
     }
 
 
-    public String RandomChargerNameWithNumber(String name){
+    public String randomChargerNameWithNumber(String name){
         int randomNumber = randomName.nextInt(10000);
         System.out.println(randomNumber);
         String charger =name+randomNumber;
@@ -335,10 +328,10 @@ public class CreateCharger extends BasePage {
     }
 
     public void selectProperty(String Property) throws InterruptedException {
-        waitforPresence(selectproperty);
-        clickButton(selectproperty,2500);
-        writeInputText(selectproperty,Property,2500);
-        WebElement selectitem = driver.findElement(selectproperty);
+        waitforPresence(selectProperty);
+        clickButton(selectProperty,2500);
+        writeInputText(selectProperty,Property,2500);
+        WebElement selectitem = driver.findElement(selectProperty);
         Thread.sleep(4000);
         selectitem.sendKeys(Keys.ENTER);
     }
@@ -376,7 +369,7 @@ public class CreateCharger extends BasePage {
         EditChargerCosAdminUpdated edit = new EditChargerCosAdminUpdated(driver);
         Dashboard dashboard = new Dashboard(driver);
         SimulationPage register = new SimulationPage(driver);
-        GoToChargers();
+        goToChargers();
         edit.writeInSearchBar(searchChargerField,ChargerName,3500);
         clickButton(CreateCharger.searchChargerBtn,2000);
         clickButton(CosAdminChargerList.EditButton,2000);
@@ -421,19 +414,19 @@ public class CreateCharger extends BasePage {
 
 
     public void selectManufacturer() throws InterruptedException {
-        waitforPresence(SelectManufacturer);
-        click(SelectManufacturer);
-        writeText(SelectManufacturer,"Eaton");
-        WebElement selectitem = driver.findElement(SelectManufacturer);
+        waitforPresence(selectManufacturer);
+        click(selectManufacturer);
+        writeText(selectManufacturer,"Eaton");
+        WebElement selectitem = driver.findElement(selectManufacturer);
         Thread.sleep(4000);
         selectitem.sendKeys(Keys.ENTER);
     }
 
     public void selectDeviceModel() throws InterruptedException {
-        waitforPresence(SelectDeviceModel);
-        click(SelectDeviceModel);
-        writeText(SelectDeviceModel,deviceModelEaton());
-        WebElement selectitem = driver.findElement(SelectDeviceModel);
+        waitforPresence(selectDeviceModel);
+        click(selectDeviceModel);
+        writeText(selectDeviceModel,deviceModelEaton());
+        WebElement selectitem = driver.findElement(selectDeviceModel);
         Thread.sleep(3000);
         selectitem.sendKeys(Keys.ENTER);
     }

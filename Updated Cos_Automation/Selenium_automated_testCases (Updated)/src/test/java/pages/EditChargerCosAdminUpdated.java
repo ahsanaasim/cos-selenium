@@ -57,7 +57,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
         Thread.sleep(2500);
-        createCharger.GoToChargers();
+        createCharger.goToChargers();
         writeInSearchBar(CreateCharger.searchChargerField,charger,1000);
         click(CreateCharger.searchChargerBtn);
         click(CosAdminChargerList.EditButton);
@@ -71,7 +71,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
         CreateCharger createCharger = new CreateCharger(driver);
         UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
         Thread.sleep(2500);
-        createCharger.GoToChargers();
+        createCharger.goToChargers();
         writeInSearchBar(CreateCharger.searchChargerField,charger,1000);
         click(CreateCharger.searchChargerBtn);
         click(CosAdminChargerList.EditButton);
@@ -172,7 +172,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
 //        builder.moveToElement(CrossButton).build().perform();
         CrossButton.click();
         Thread.sleep(1000);
-        String EmptyLocationField = driver.findElement(CreateCharger.selectlocation).getText();
+        String EmptyLocationField = driver.findElement(CreateCharger.selectLocation).getText();
         System.out.println(EmptyLocationField);
         if (EmptyLocationField.isEmpty()){
             System.out.println("Cross Button Applied Perfectly");
@@ -193,7 +193,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
         return true;
     }
     public boolean verifySearchLocationAndSelectFromDropdown() throws InterruptedException{
-        WebElement ChargerNameField = driver.findElement(CreateCharger.selectlocation);
+        WebElement ChargerNameField = driver.findElement(CreateCharger.selectLocation);
         String Location = GenerateRandomLocationName();
         Thread.sleep(1000);
         click(LocationFieldCrossButton);
@@ -269,7 +269,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
 //        ChargerNameField.sendKeys(EditedCharger);
         Thread.sleep(2000);
         waitforPresence(DrawerTitle);
-        WebElement ChargerLocationField = driver.findElement(CreateCharger.selectlocation);
+        WebElement ChargerLocationField = driver.findElement(CreateCharger.selectLocation);
         String Location = GenerateRandomLocationName();
         System.out.println("Expected location name: "+Location);
         click(ChargerListPropertyAdmin.SelectedLocationName);
@@ -304,7 +304,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
 //        ChargerNameField.sendKeys(Keys.CONTROL,"a");
 //        ChargerNameField.sendKeys(Keys.DELETE);
 //        ChargerNameField.sendKeys(EditedCharger);
-        WebElement ChargerLocationField = driver.findElement(CreateCharger.selectlocation);
+        WebElement ChargerLocationField = driver.findElement(CreateCharger.selectLocation);
         String Location = GenerateRandomLocationName();
         click(ChargerListPropertyAdmin.SelectedLocationName);
         Thread.sleep(1500);
@@ -352,7 +352,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
     }
 
     public boolean verifyNoDataMsgForSearchingInvalidData() throws InterruptedException{
-        WebElement ChargerNameField = driver.findElement(CreateCharger.selectlocation);
+        WebElement ChargerNameField = driver.findElement(CreateCharger.selectLocation);
         String Location = "dfssdfsd";
         Thread.sleep(3500);
         click(ChargerListPropertyAdmin.SelectedLocationName);

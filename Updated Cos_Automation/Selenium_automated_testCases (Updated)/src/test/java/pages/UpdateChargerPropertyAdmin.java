@@ -104,7 +104,7 @@ public class UpdateChargerPropertyAdmin extends BasePage {
     }
 
     public boolean verifyLocationFieldEmpty(){
-        String EmptyLocation = driver.findElement(CreateCharger.selectlocation).getText();
+        String EmptyLocation = driver.findElement(CreateCharger.selectLocation).getText();
         System.out.println(EmptyLocation);
         if (EmptyLocation.isEmpty()){
             System.out.println("Location Field for not Assigned Location");
@@ -350,7 +350,7 @@ public class UpdateChargerPropertyAdmin extends BasePage {
         click(ToggleButton);
         String chargingRate = editChargerCosAdminUpdated.GenerateChargingRateRandomly();
         editChargerCosAdminUpdated.selectChargingRateFromSelectedField(chargingRate);
-        WebElement LocationNameField = driver.findElement(CreateCharger.selectlocation);
+        WebElement LocationNameField = driver.findElement(CreateCharger.selectLocation);
         String Location = editChargerCosAdminUpdated.GenerateRandomLocationName();
         Thread.sleep(1000);
         click(EditChargerCosAdminUpdated.SelectedLocationField);
@@ -523,7 +523,7 @@ public class UpdateChargerPropertyAdmin extends BasePage {
 
     }
     public boolean SearchLocationAndSelectFromDropdown() throws InterruptedException{
-        WebElement LocationNameField = driver.findElement(CreateCharger.selectlocation);
+        WebElement LocationNameField = driver.findElement(CreateCharger.selectLocation);
         String Location = editChargerCosAdminUpdated.GenerateRandomLocationName();
         Thread.sleep(1000);
         click(EditChargerCosAdminUpdated.SelectedLocationField);

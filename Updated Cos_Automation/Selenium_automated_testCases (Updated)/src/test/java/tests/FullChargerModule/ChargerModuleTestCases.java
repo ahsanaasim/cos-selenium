@@ -43,8 +43,8 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
-        Assert.assertTrue(createcharger.VerifyAddNewChargerDrawerHasDisplayed());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
+        Assert.assertTrue(createcharger.verifyAddNewChargerDrawerHasDisplayed());
     }
 
 
@@ -60,7 +60,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         int randomNumber = objGenerator.nextInt(10000);
         System.out.println(randomNumber);
         String temp="C4X- "+randomNumber;
@@ -68,11 +68,11 @@ public class ChargerModuleTestCases extends BaseTest {
         createcharger.selectChargingRate("9.90");
         createcharger.selectProperty("Temporary Property");
         createcharger.selectLocation("Temporary Location");
-        Assert.assertTrue(createcharger.clickonSaveChargerButton());
-        Assert.assertTrue(createcharger.VerifyConfirmationPopUpHasDisplayed());
+        Assert.assertTrue(createcharger.clickOnSaveChargerButton());
+        Assert.assertTrue(createcharger.verifyConfirmationPopUpHasDisplayed());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.searchChargerField,temp,3000));
         Assert.assertTrue(createcharger.clickButton(CreateCharger.searchChargerBtn,2000));
-        Assert.assertTrue(createcharger.VerifySearchResultCount());
+        Assert.assertTrue(createcharger.verifySearchResultCount());
     }
 
     @Test(priority = 4)//Done
@@ -87,10 +87,10 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.verifyTextMatching(1500,CreateCharger.chargerPlugType,"J1772"));
         Assert.assertTrue(dashboard.refreshBrowser());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.verifyTextMatching(1500,CreateCharger.chargerPlugType,"J1772"));
 
     }
@@ -122,8 +122,8 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
-        Assert.assertTrue(createcharger.VerifyAddNewChargerDrawerHasDisplayed());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
+        Assert.assertTrue(createcharger.verifyAddNewChargerDrawerHasDisplayed());
 
     }
     @Test(priority = 7)//Done
@@ -138,7 +138,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         int randomNumber = objGenerator.nextInt(10000);
         System.out.println(randomNumber);
         String temp="APN-"+randomNumber;
@@ -146,11 +146,11 @@ public class ChargerModuleTestCases extends BaseTest {
         createcharger.selectChargingRate("9.90");
         createcharger.selectProperty("Temporary Property");
         createcharger.selectLocation("Temporary Location");
-        Assert.assertTrue(createcharger.clickonSaveChargerButton());
-        Assert.assertTrue(createcharger.VerifyConfirmationPopUpHasDisplayed());
+        Assert.assertTrue(createcharger.clickOnSaveChargerButton());
+        Assert.assertTrue(createcharger.verifyConfirmationPopUpHasDisplayed());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.searchChargerField,temp,3000));
         Assert.assertTrue(createcharger.clickButton(CreateCharger.searchChargerBtn,2000));
-        Assert.assertTrue(createcharger.VerifySearchResultCount());
+        Assert.assertTrue(createcharger.verifySearchResultCount());
     }
     @Test(priority = 8)//Done
     @TestParameters(testCaseId = {"TC-16"})
@@ -177,8 +177,8 @@ public class ChargerModuleTestCases extends BaseTest {
         loginPage.verifyValidLoginForCosPropertySupport();
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
-        Assert.assertTrue(createcharger.VerifyAddNewChargerDrawerHasDisplayed());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
+        Assert.assertTrue(createcharger.verifyAddNewChargerDrawerHasDisplayed());
     }
     @Test(priority = 10)//Done
     @TestParameters(testCaseId = {"TC-18"})
@@ -192,7 +192,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         int randomNumber = objGenerator.nextInt(2000);
         System.out.println(randomNumber);
         String temp="Angel- "+randomNumber;
@@ -200,11 +200,11 @@ public class ChargerModuleTestCases extends BaseTest {
         createcharger.selectChargingRate("11.50");
         createcharger.selectProperty("Temporary Property");
         createcharger.selectLocation("Temporary Location");
-        Assert.assertTrue(createcharger.clickonSaveChargerButton());
-        Assert.assertTrue(createcharger.VerifyConfirmationPopUpHasDisplayed());
+        Assert.assertTrue(createcharger.clickOnSaveChargerButton());
+        Assert.assertTrue(createcharger.verifyConfirmationPopUpHasDisplayed());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.searchChargerField,temp,3000));
         Assert.assertTrue(createcharger.clickButton(CreateCharger.searchChargerBtn,2000));
-        Assert.assertTrue(createcharger.VerifySearchResultCount());
+        Assert.assertTrue(createcharger.verifySearchResultCount());
     }
 
     @Test(priority = 11)//Done
@@ -289,8 +289,8 @@ public class ChargerModuleTestCases extends BaseTest {
         loginPage.verifyValidLoginForCosTechSupport();
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
-        Assert.assertTrue(createcharger.VerifyAddNewChargerDrawerHasDisplayed());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
+        Assert.assertTrue(createcharger.verifyAddNewChargerDrawerHasDisplayed());
     }
     @Test(priority = 16)//Done
     @TestParameters(testCaseId = {"TC-24"})
@@ -304,7 +304,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Thread.sleep(3000);
         int randomNumber = objGenerator.nextInt(5000);
         System.out.println(randomNumber);
@@ -313,11 +313,11 @@ public class ChargerModuleTestCases extends BaseTest {
         createcharger.selectChargingRate("9.90");
         createcharger.selectProperty("Temporary Property");
         createcharger.selectLocation("Temporary Location");
-        Assert.assertTrue(createcharger.clickonSaveChargerButton());
-        Assert.assertTrue(createcharger.VerifyConfirmationPopUpHasDisplayed());
+        Assert.assertTrue(createcharger.clickOnSaveChargerButton());
+        Assert.assertTrue(createcharger.verifyConfirmationPopUpHasDisplayed());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.searchChargerField,temp,3000));
         Assert.assertTrue(createcharger.clickButton(CreateCharger.searchChargerBtn,2000));
-        Assert.assertTrue(createcharger.VerifySearchResultCount());
+        Assert.assertTrue(createcharger.verifySearchResultCount());
     }
     @Test(priority = 17)//Done
     @TestParameters(testCaseId = {"TC-26"})
@@ -351,7 +351,7 @@ public class ChargerModuleTestCases extends BaseTest {
 //        Assert.assertTrue(dashboard.RefreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.verifyDrawerContainsAllNecessarySection());
     }
     @Test(priority = 20)//Done
@@ -365,9 +365,9 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My New Charger-30",2000));
-        Assert.assertTrue(createcharger.clickonPropertySelect());
+        Assert.assertTrue(createcharger.clickOnPropertySelect());
         createcharger.selectProperty("Automation Property 2");
         createcharger.selectLocation("Beautiful Location");
     }
@@ -383,10 +383,10 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My New Charger-30",2000));
-        Assert.assertTrue(createcharger.clickonPropertySelect());
-        Assert.assertTrue(createcharger.writeInputText(CreateCharger.selectproperty,"No Property-22",2000));
+        Assert.assertTrue(createcharger.clickOnPropertySelect());
+        Assert.assertTrue(createcharger.writeInputText(CreateCharger.selectProperty,"No Property-22",2000));
         Assert.assertTrue(createcharger.verifyNoDataFromInvalidSearch());
     }
 
@@ -401,10 +401,10 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My New Charger-30",2000));
-        Assert.assertTrue(createcharger.clickonPropertySelect());
-        Assert.assertTrue(createcharger.writeInputText(CreateCharger.selectproperty,"East Avenue",2000));
+        Assert.assertTrue(createcharger.clickOnPropertySelect());
+        Assert.assertTrue(createcharger.writeInputText(CreateCharger.selectProperty,"East Avenue",2000));
         Assert.assertTrue(createcharger.selectPropertyNameFromSelectPropertyDropdown());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.location,"No dataaaa",2000));
         Assert.assertTrue(createcharger.verifyNoDataFromInvalidSearch());
@@ -422,8 +422,8 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
-        Assert.assertTrue((createcharger.clickonoutsidethedrawer()));
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
+        Assert.assertTrue((createcharger.clickOnOutsideTheDrawer()));
         Assert.assertTrue(createcharger.verifyAddNewChargerButtonHasDisplayed());
     }
     @Test(priority = 24)//Done
@@ -437,7 +437,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.clickOnCrossButtonOfTheDrawer());
         Assert.assertTrue(createcharger.verifyAddNewChargerButtonHasDisplayed());
     }
@@ -453,7 +453,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.clickOnCancelButtonOfTheDrawer());
         Assert.assertTrue(createcharger.verifyAddNewChargerButtonHasDisplayed());
     }
@@ -469,7 +469,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My Another New Charger-10",1000));
         Assert.assertTrue(createcharger.clickOnCrossButtonOfTheDrawer());
         Assert.assertTrue(createcharger.verifyDiscadContinuePopupHasDisplayed());
@@ -485,7 +485,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My Another New Charger-01",1000));
         Assert.assertTrue(createcharger.clickOnCrossButtonOfTheDrawer());
         Assert.assertTrue(createcharger.verifyPopUpContainsDiscardAndContinueButton());
@@ -501,7 +501,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My Another New Charger",1000));
         Assert.assertTrue(createcharger.clickOnCrossButtonOfTheDrawer());
         Assert.assertTrue(createcharger.clickOnDiscardButtonOfPopUp());
@@ -518,7 +518,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My Another New Charger-01",1000));
         Assert.assertTrue(createcharger.clickOnCancelButtonOfTheDrawer());
         Assert.assertTrue(createcharger.verifyDiscadContinuePopupHasDisplayed());
@@ -534,7 +534,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My Another New Charger-01",1000));
         Assert.assertTrue(createcharger.clickOnCancelButtonOfTheDrawer());
         Assert.assertTrue(createcharger.verifyPopUpContainsDiscardAndContinueButton());
@@ -550,7 +550,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My Another New Charger-01",1000));
         Assert.assertTrue(createcharger.clickOnCancelButtonOfTheDrawer());
         Assert.assertTrue(createcharger.clickOnDiscardButtonOfPopUp());
@@ -567,9 +567,9 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My Another New Charger-01",1000));
-        Assert.assertTrue(createcharger.clickonoutsidethedrawer());
+        Assert.assertTrue(createcharger.clickOnOutsideTheDrawer());
         Assert.assertTrue(createcharger.verifyDiscadContinuePopupHasDisplayed());
     }
     @Test(priority = 33)//Done
@@ -583,9 +583,9 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My Another New Charger-01",1000));
-        Assert.assertTrue(createcharger.clickonoutsidethedrawer());
+        Assert.assertTrue(createcharger.clickOnOutsideTheDrawer());
         Assert.assertTrue(createcharger.verifyPopUpContainsDiscardAndContinueButton());
     }
     @Test(priority = 34)//Done
@@ -599,9 +599,9 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My Another New Charger-01",1000));
-        Assert.assertTrue(createcharger.clickonoutsidethedrawer());
+        Assert.assertTrue(createcharger.clickOnOutsideTheDrawer());
         Assert.assertTrue(createcharger.clickOnDiscardButtonOfPopUp());
         Assert.assertTrue(createcharger.verifyAddNewChargerButtonHasDisplayed());
     }
@@ -616,9 +616,9 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         createcharger.selectProperty("Banasree police park");
-        Assert.assertTrue(createcharger.clickonSaveChargerButton());
+        Assert.assertTrue(createcharger.clickOnSaveChargerButton());
         Assert.assertTrue(createcharger.verifyChargerNameErrorMsgHasDisplayed());
 //
 //        Assert.assertTrue(company.VerifyInvalidEINNumberErrorMessage(msg.InvalidEINNumberErrorMsg()));
@@ -634,10 +634,10 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My Another New Charger-01",1000));
         createcharger.selectChargingRate("9.90");
-        Assert.assertTrue(createcharger.clickonSaveChargerButton());
+        Assert.assertTrue(createcharger.clickOnSaveChargerButton());
         Assert.assertTrue(createcharger.verifyPropertyNameErrorMsgHasDisplayed());
     }
     @Test(priority = 37)//Done
@@ -652,15 +652,15 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         int randomNumber = numGenerator.nextInt(10000);
         System.out.println(randomNumber);
         String temp="D 10 charger "+randomNumber;
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,temp,2000));
         createcharger.selectChargingRate("9.90");
         createcharger.selectProperty("Stardew Valley");
-        Assert.assertTrue(createcharger.clickonSaveChargerButton());
-        Assert.assertTrue(createcharger.VerifyConfirmationPopUpHasDisplayed());
+        Assert.assertTrue(createcharger.clickOnSaveChargerButton());
+        Assert.assertTrue(createcharger.verifyConfirmationPopUpHasDisplayed());
     }
     @Test(priority = 38)//Done
     @TestParameters(testCaseId = {"TC-73"})
@@ -673,8 +673,8 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
-        Assert.assertTrue(createcharger.clickonSaveChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnSaveChargerButton());
         Assert.assertTrue(createcharger.verifyChargerNameErrorMsgHasDisplayed());
         Assert.assertTrue(createcharger.verifyPropertyNameErrorMsgHasDisplayed());
         Assert.assertTrue(createcharger.verifyAnElementDisplayedOrNot(1000,CreateCharger.chargingRateRequiredMessage));
@@ -696,7 +696,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         int randomNumber = numGenerator.nextInt(3000);
         System.out.println(randomNumber);
         String temp="D 10 charger "+randomNumber;
@@ -704,9 +704,9 @@ public class ChargerModuleTestCases extends BaseTest {
         createcharger.selectChargingRate("9.90");
         createcharger.selectProperty("Banasree police park");
         createcharger.selectLocation("Banasree D-10");
-        Assert.assertTrue(createcharger.clickonSaveChargerButton());
+        Assert.assertTrue(createcharger.clickOnSaveChargerButton());
         Assert.assertTrue(createcharger.verifyAddNewChargerButtonHasDisplayed());
-        Assert.assertTrue(createcharger.VerifyConfirmationPopUpHasDisplayed());
+        Assert.assertTrue(createcharger.verifyConfirmationPopUpHasDisplayed());
 
     }
     //    @Test(priority = 40)//Done
@@ -743,13 +743,13 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
-        Assert.assertTrue(createcharger.ClickOnAddChargerButton());
+        Assert.assertTrue(createcharger.clickOnAddChargerButton());
         int randomNumber = numGenerator.nextInt(10000);
         String temp="My New Charger-"+randomNumber;
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,temp,2000));
         createcharger.selectProperty("Automation Property 2");
         createcharger.selectLocation("Beautiful Location");
-        Assert.assertTrue(createcharger.clickonSaveChargerButton());
+        Assert.assertTrue(createcharger.clickOnSaveChargerButton());
         Assert.assertTrue(createcharger.verifyAnElementDisplayedOrNot(1000,CreateCharger.chargingRateRequiredMessage));
         Assert.assertTrue(createcharger.verifyAnElementDisplayedOrNot(2500,CreateCharger.addNewChargerDrawer));
 
@@ -2222,7 +2222,7 @@ public class ChargerModuleTestCases extends BaseTest {
 /*        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());*/
         Assert.assertTrue(editCompany.ClickonEditbutton());
-        Assert.assertTrue((createcharger.clickonoutsidethedrawer()));
+        Assert.assertTrue((createcharger.clickOnOutsideTheDrawer()));
         Assert.assertTrue(createcharger.verifyElementNotDisplayed(2000,EditChargerCosAdminUpdated.EditDrawerChargerInfoTitle));
     }
 
@@ -2346,7 +2346,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My new charger",1000));
-        Assert.assertTrue(createcharger.clickonoutsidethedrawer());
+        Assert.assertTrue(createcharger.clickOnOutsideTheDrawer());
         Assert.assertTrue(createcharger.verifyDiscadContinuePopupHasDisplayed());
     }
     @Test(priority = 128)//Done
@@ -2363,7 +2363,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.clickOnChargers());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My new charger",1000));
-        Assert.assertTrue(createcharger.clickonoutsidethedrawer());
+        Assert.assertTrue(createcharger.clickOnOutsideTheDrawer());
         Assert.assertTrue(createcharger.verifyPopUpContainsDiscardAndContinueButton());
     }
     @Test(priority = 129)//Done
@@ -2378,7 +2378,7 @@ public class ChargerModuleTestCases extends BaseTest {
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My new charger",6000));
-        Assert.assertTrue(createcharger.clickonoutsidethedrawer());
+        Assert.assertTrue(createcharger.clickOnOutsideTheDrawer());
         Assert.assertTrue(createcharger.clickOnDiscardButtonOfPopUp());
         Assert.assertTrue(createcharger.verifyAddNewChargerButtonHasDisplayed());
     }
