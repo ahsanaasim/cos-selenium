@@ -537,7 +537,7 @@ public class DownChargerTestCases extends BaseTest {
         operation.click(SimulationPage.ChargerStatusSaveButton);
         Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,4000));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
-        guestFlow.SwitchToTab(1);
+        guestFlow.switchToTab(1);
         Assert.assertTrue(downCharger.verifyAnElementDisplayedOrNot(1000,GuestVerificationPage.ChargerDownStatus));
         Assert.assertTrue(downCharger.verifyAnElementDisplayedOrNot(200,GuestVerificationPage.PlugTypeForUnavailableChargers));
         Assert.assertTrue(downCharger.verifyAnElementDisplayedOrNot(200,GuestVerificationPage.OfflineTextInBox));
@@ -558,12 +558,12 @@ public class DownChargerTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         SimulationPage simulationPage = new SimulationPage(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
-        guestFlow.SwitchToTab(0);
+        guestFlow.switchToTab(0);
 //        loginPage.VerifyValidLogin();
 //        guestFlow.GoToSimulator();
 //        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 889"));
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
-        guestFlow.SwitchToTab(1);
+        guestFlow.switchToTab(1);
         dashboard.refreshBrowser();
         Assert.assertTrue(downCharger.verifyTextMatching(3000,GuestVerificationPage.ChargerAvailableStatus,"Available Now"));
         Assert.assertTrue(downCharger.verifyAFieldIsDisable(1000,GuestVerificationPage.StatChargingButton));

@@ -91,13 +91,13 @@ public class COSA extends BasePage{
 
     public void GoToCOSAWithRawLocationID() throws InterruptedException {
         Thread.sleep(2500);
-        GoToWebsite("https://test-app.chargeonsite.com/customer/cosa/58e27a8d-9215-4b10-a579-815e124fbf92");
+        goToWebsite("https://test-app.chargeonsite.com/customer/cosa/58e27a8d-9215-4b10-a579-815e124fbf92");
 
     }
 
     public void ScanRawLocationCharger() throws InterruptedException {
         Thread.sleep(3500);
-        GoToWebsite("https://test-app.chargeonsite.com/charger/8RZGZQ");
+        goToWebsite("https://test-app.chargeonsite.com/charger/8RZGZQ");
 
     }
 
@@ -540,7 +540,7 @@ public class COSA extends BasePage{
         waitforPresence(FavoriteLocation.LocationName);
         String s = readText(FavoriteLocation.LocationName);
         System.out.println("Location name in COSA: " + s);
-        SwitchToTab(1);
+        switchToTab(1);
         location.GoToLocationPage();
         location.writeINLocationSearchBar(s);
         operation.clickButton(EditCompany.searchbtn,1500);
@@ -565,7 +565,7 @@ public class COSA extends BasePage{
         String s = readText(FavoriteLocation.LocationName);
         String s2 = readText(FavoriteLocation.LocationAddress);
         System.out.println("Location address: " + s2);
-        SwitchToTab(1);
+        switchToTab(1);
         location.GoToLocationPage();
         location.writeINLocationSearchBar(s);
         operation.clickButton(EditCompany.searchbtn,1500);

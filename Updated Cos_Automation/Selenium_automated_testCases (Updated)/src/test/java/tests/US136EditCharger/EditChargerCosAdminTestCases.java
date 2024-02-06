@@ -182,7 +182,7 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditChargerCosAdminUpdated editChargerCosAdminUpdated= new EditChargerCosAdminUpdated(driver);
         loginPage.verifyValidLogin();
-        editCompany.SwitchToTab(0);
+        editCompany.switchToTab(0);
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
@@ -222,7 +222,7 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditChargerCosAdminUpdated editChargerCosAdminUpdated= new EditChargerCosAdminUpdated(driver);
         loginPage.verifyValidLogin();
-        editChargerCosAdminUpdated.SwitchToTab(0);
+        editChargerCosAdminUpdated.switchToTab(0);
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());

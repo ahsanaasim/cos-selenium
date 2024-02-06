@@ -136,7 +136,7 @@ public class MapDetails extends BasePage{
 
     public void GoToRauAvenue81Location() throws InterruptedException {
         Thread.sleep(4000);
-        GoToWebsite("https://test-app.chargeonsite.com/customer/map?latitude=28.23587&longitude=-104.30161&locationMarkerId=1ddb1600-abb7-437e-b45a-f53ec1091480");
+        goToWebsite("https://test-app.chargeonsite.com/customer/map?latitude=28.23587&longitude=-104.30161&locationMarkerId=1ddb1600-abb7-437e-b45a-f53ec1091480");
 
     }
 
@@ -222,7 +222,7 @@ public class MapDetails extends BasePage{
         UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
         int chargerAvailable = GetAvailableChargerCountFromAvailabilitySection();
         System.out.println("Number of available charger in availability section: "+chargerAvailable);
-        NewTabOpenAndSwitchToNewTab(1);
+        newTabOpenAndSwitchToNewTab(1);
 //        loginPage.VerifyValidLogin();
         GoToChargerModule();
         chargerList.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"D 11 charger",1000);
@@ -231,7 +231,7 @@ public class MapDetails extends BasePage{
         editCharger.clickToggleButtonIfItIsOn();
         click(UpdateChargerPropertyAdmin.SaveCharger);
         Thread.sleep(2500);
-        SwitchToTab(0);
+        switchToTab(0);
         driver.navigate().refresh();
         int expected = chargerAvailable-1;
         int chargerAvailable2 = GetAvailableChargerCountFromAvailabilitySection();
@@ -252,7 +252,7 @@ public class MapDetails extends BasePage{
         UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
         int chargerAvailable = GetAvailableChargerCountFromAvailabilitySection();
         System.out.println("Number of available charger in availability section: "+chargerAvailable);
-        SwitchToTab(1);
+        switchToTab(1);
         GoToChargerModule();
         chargerList.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"D 11 charger",1000);
         click(CreateCharger.searchChargerBtn);
@@ -260,7 +260,7 @@ public class MapDetails extends BasePage{
         editCharger.clickToggleButtonIfItIsOff();
         click(UpdateChargerPropertyAdmin.SaveCharger);
         Thread.sleep(2500);
-        SwitchToTab(0);
+        switchToTab(0);
         driver.navigate().refresh();
         int expected = chargerAvailable+1;
         int chargerAvailable2 = GetAvailableChargerCountFromAvailabilitySection();
@@ -281,7 +281,7 @@ public class MapDetails extends BasePage{
         UpdateChargerPropertyAdmin editCharger = new UpdateChargerPropertyAdmin(driver);
         CreateCharger operation = new CreateCharger(driver);
 //        NewTabOpenAndSwitchToNewTab(1);
-        SwitchToTab(1);
+        switchToTab(1);
         Thread.sleep(2000);
         loginPage.verifyValidLogin();
         GoToChargerModule();
@@ -291,7 +291,7 @@ public class MapDetails extends BasePage{
         editCharger.clickToggleButtonIfItIsOn();
         click(UpdateChargerPropertyAdmin.SaveCharger);
         Thread.sleep(2500);
-        SwitchToTab(0);
+        switchToTab(0);
         driver.navigate().refresh();
         operation.clickButton(PlugType,2500);
         waitforPresence(OfflineStatus);
@@ -316,7 +316,7 @@ public class MapDetails extends BasePage{
         waitforPresence(AvailableStatus);
         int availableCharger = driver.findElements(By.className("availableText")).size();
         System.out.println("Number of available chargers: "+availableCharger);
-        SwitchToTab(1);
+        switchToTab(1);
         GoToChargerModule();
         chargerList.writeInSearchBar(ChargerListPropertyAdmin.SearchChargerField,"D 11 charger",1000);
         click(CreateCharger.searchChargerBtn);
@@ -324,7 +324,7 @@ public class MapDetails extends BasePage{
         editCharger.clickToggleButtonIfItIsOff();
         click(UpdateChargerPropertyAdmin.SaveCharger);
         Thread.sleep(2500);
-        SwitchToTab(0);
+        switchToTab(0);
         driver.navigate().refresh();
         operation.clickButton(PlugType,2500);
         waitforPresence(AvailableStatus);
@@ -351,7 +351,7 @@ public class MapDetails extends BasePage{
         String s = readText(LocationName);
         String s2 = readText(PropertyLocationAddress);
         System.out.println("Property name and its address in map details: "+s2);
-        NewTabOpenAndSwitchToNewTab(1);
+        newTabOpenAndSwitchToNewTab(1);
         dashboard.clickonLocations();
         location.GoToLocationPage();
         location.writeINLocationSearchBar(s);

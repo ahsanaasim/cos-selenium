@@ -7,6 +7,7 @@ import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Properties;
 
 public class BasePage {
     public WebDriver driver;
@@ -173,18 +174,18 @@ public class BasePage {
     }
 
 
-    public void NewTabOpenAndSwitchToNewTab(int num) throws InterruptedException {
+    public void newTabOpenAndSwitchToNewTab(int num) throws InterruptedException {
         ((JavascriptExecutor) driver).executeScript("window.open()");
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(num));
     }
 
-    public void SwitchToTab(int num) throws InterruptedException {
+    public void switchToTab(int num) throws InterruptedException {
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(num));
     }
 
-    public void GoToWebsite(String url) throws InterruptedException {
+    public void goToWebsite(String url) throws InterruptedException {
         Thread.sleep(2000);
         driver.get(url);
     }
@@ -302,6 +303,24 @@ public class BasePage {
             return false;
         }
 
+    }
+
+    public String urlOfCustomerApp(String url){
+        Properties prop = ConfigUtill.getConfig();
+        String u = prop.getProperty("BaseURLForDriverApp")+url;
+        return u;
+    }
+
+    public String urlOfAdminApp(String url){
+        Properties prop = ConfigUtill.getConfig();
+        String u = prop.getProperty("BaseURLAdmin")+url;
+        return u;
+    }
+
+    public String urlOfCompanyAdminApp(String url){
+        Properties prop = ConfigUtill.getConfig();
+        String u = prop.getProperty("BaseURLCompanyAdmin")+url;
+        return u;
     }
 
     public void waitForFewMoment(int waitingTimeLimit) throws InterruptedException {

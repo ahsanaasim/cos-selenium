@@ -248,8 +248,8 @@ public class SupportTicketListTestCases extends BaseTest {
 //        customerSupport.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
 //        customerSupport.GoToCustomerSupportPage();
-        ticket.NewTabOpenAndSwitchToNewTab(1);
-        ticket.GoToWebsite("https://www.zoho.com/desk/");
+        ticket.newTabOpenAndSwitchToNewTab(1);
+        ticket.goToWebsite("https://www.zoho.com/desk/");
         ticket.click(CreateTicket.ZohoSign);
         operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
         operation.clickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
@@ -258,7 +258,7 @@ public class SupportTicketListTestCases extends BaseTest {
         operation.clickButton(TicketList.ZohoToastMessageCancel,15000);
         operation.clickButton(TicketList.ZohoOpenStatus,5000);
         operation.clickButton(TicketList.ZohoClosedStatus,2000);
-        ticket.SwitchToTab(0);
+        ticket.switchToTab(0);
         Thread.sleep(5000);
         customerSupport.GoToCustomerSupportPage();
 //        Assert.assertTrue(customerSupport.verifyAnElementDisplayedOrNot(2500,CustomerSupport.ClosedStatus1));
@@ -279,11 +279,11 @@ public class SupportTicketListTestCases extends BaseTest {
 //        customerSupport.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
 //        customerSupport.GoToCustomerSupportPage();
-        ticket.SwitchToTab(1);
+        ticket.switchToTab(1);
         operation.clickButton(TicketList.ZohoClosedStatus,2000);
         operation.clickButton(TicketList.ZohoOpenStatus,3000);
         Thread.sleep(2000);
-        ticket.SwitchToTab(0);
+        ticket.switchToTab(0);
         Thread.sleep(6500);
         customerSupport.GoToCustomerSupportPage();
 //        Assert.assertTrue(customerSupport.verifyAnElementDisplayedOrNot(1000,CustomerSupport.OpenStatus1));

@@ -217,7 +217,7 @@ public class DashboardPropertyDetails extends BasePage {
         String SimulatorStatus = driver.findElement(AvailableStatusSimulator).getText().replaceAll(": ","");
         System.out.println(SimulatorStatus);
 //        CloseTab();
-        guestFlow.SwitchToTab(0);
+        guestFlow.switchToTab(0);
         driver.navigate().refresh();
         Thread.sleep(7000);
         waitforPresence(DetailsBtn1);
@@ -317,7 +317,7 @@ public class DashboardPropertyDetails extends BasePage {
         String Loaction = driver.findElement(LocationCount).getText();
         int TotalLocNum = Integer.parseInt(Loaction);
         System.out.println(TotalLocNum);
-        guestFlow.NewTabOpenAndSwitchToNewTab(1);
+        guestFlow.newTabOpenAndSwitchToNewTab(1);
         loginPage.verifyValidLogin();
         createLocation.GoToLocationPage();
         click(createLocation.createlocationbtn);
@@ -331,7 +331,7 @@ public class DashboardPropertyDetails extends BasePage {
         click(createLocation.DrawerCreateLocation);
         Thread.sleep(2000);
         CloseTab();
-        guestFlow.SwitchToTab(0);
+        guestFlow.switchToTab(0);
         Thread.sleep(5000);
         driver.navigate().refresh();
         Thread.sleep(5000);
@@ -377,7 +377,7 @@ public class DashboardPropertyDetails extends BasePage {
         String Charger = driver.findElement(TotalChargerCount).getText();
         int TotalChargerNum = Integer.parseInt(Charger);
         System.out.println(TotalChargerNum);
-        guestFlow.NewTabOpenAndSwitchToNewTab(1);
+        guestFlow.newTabOpenAndSwitchToNewTab(1);
         loginPage.verifyValidLogin();
         createCharger.goToChargers();
         click(CreateCharger.addChargerBtn);
@@ -392,7 +392,7 @@ public class DashboardPropertyDetails extends BasePage {
         click(CreateCharger.saveCharger);
         Thread.sleep(1000);
         CloseTab();
-        guestFlow.SwitchToTab(0);
+        guestFlow.switchToTab(0);
         driver.navigate().refresh();
         Thread.sleep(7000);
         waitforPresence(DetailsBtn1);

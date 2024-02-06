@@ -31,16 +31,16 @@ public class GuestFlowTestCases extends BaseTest {
         Assert.assertTrue(operation.clickButton(SimulationPage.BootChargerButton,2000));
         Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
-        guestFlow.SwitchToTab(1);
+        guestFlow.switchToTab(1);
         Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
         Assert.assertTrue(operation.clickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
         Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
         operation.clickButton(OTPVerificationPage.VerifyButton,2000);
-        guestFlow.SwitchToTab(0);
+        guestFlow.switchToTab(0);
         Assert.assertTrue(operation.clickButton(GuestFlow.PluginChargerbtn,500));
         simulationPage.SelectChargerStatusFromSimulator("Charging");
         operation.click(SimulationPage.ChargerStatusSaveButton);
-        guestFlow.SwitchToTab(1);
+        guestFlow.switchToTab(1);
         Assert.assertTrue(operation.clickButton(GuestVerificationPage.StatChargingButton,5000));
         guestFlow.SwitchToIframe();
         operation.click(GuestFlow.CardNumber);
@@ -51,9 +51,9 @@ public class GuestFlowTestCases extends BaseTest {
         System.out.println("URL  =  "+driver.getCurrentUrl());
         Assert.assertTrue(guestFlow.verifyChargingNowTitle());
         guestFlow.LengthOfSession(200000);
-        guestFlow.SwitchToTab(0);
+        guestFlow.switchToTab(0);
         operation.clickButton(GuestFlow.DisconnectChargerbtn,3000);
-        guestFlow.SwitchToTab(1);
+        guestFlow.switchToTab(1);
         Assert.assertTrue(guestFlow.verifyTotalFee());
         Assert.assertTrue(guestFlow.verifyChargingSessionEnded());
 
@@ -75,7 +75,7 @@ public class GuestFlowTestCases extends BaseTest {
         Assert.assertTrue(operation.clickButton(SimulationPage.BootChargerButton,2000));
         Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
-        guestFlow.SwitchToTab(1);
+        guestFlow.switchToTab(1);
         Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
         Assert.assertTrue(operation.clickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
         Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
@@ -86,17 +86,17 @@ public class GuestFlowTestCases extends BaseTest {
         Assert.assertTrue(operation.writeInputText(GuestFlow.CardNumber,"424242424242424242424242424",6000));
         guestFlow.SwitchToDefaultFromIframe();
         Assert.assertTrue(operation.clickButton(GuestFlow.AuthorizeButton,1500));
-        guestFlow.SwitchToTab(0);
+        guestFlow.switchToTab(0);
         Assert.assertTrue(operation.clickButton(GuestFlow.PluginChargerbtn,500));
         simulationPage.SelectChargerStatusFromSimulator("Charging");
         operation.click(SimulationPage.ChargerStatusSaveButton);
-        guestFlow.SwitchToTab(1);
+        guestFlow.switchToTab(1);
         System.out.println("URL  =  "+driver.getCurrentUrl());
         Assert.assertTrue(guestFlow.verifyChargingNowTitle());
         guestFlow.LengthOfSession(75000);
-        guestFlow.SwitchToTab(0);
+        guestFlow.switchToTab(0);
         operation.clickButton(GuestFlow.DisconnectChargerbtn,3000);
-        guestFlow.SwitchToTab(1);
+        guestFlow.switchToTab(1);
         Assert.assertTrue(guestFlow.verifyTotalFee());
         Assert.assertTrue(guestFlow.verifyChargingSessionEnded());
 
@@ -119,16 +119,16 @@ public class GuestFlowTestCases extends BaseTest {
         Assert.assertTrue(operation.clickButton(SimulationPage.BootChargerButton,2000));
         Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
-        guestFlow.SwitchToTab(1);
+        guestFlow.switchToTab(1);
         Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
         Assert.assertTrue(operation.clickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
         Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
         operation.clickButton(OTPVerificationPage.VerifyButton,2000);
-        guestFlow.SwitchToTab(0);
+        guestFlow.switchToTab(0);
         Assert.assertTrue(operation.clickButton(GuestFlow.PluginChargerbtn,500));
         simulationPage.SelectChargerStatusFromSimulator("Charging");
         operation.click(SimulationPage.ChargerStatusSaveButton);
-        guestFlow.SwitchToTab(1);
+        guestFlow.switchToTab(1);
         Assert.assertTrue(operation.clickButton(GuestVerificationPage.StatChargingButton,5000));
         guestFlow.SwitchToIframe();
         operation.click(GuestFlow.CardNumber);
@@ -140,9 +140,9 @@ public class GuestFlowTestCases extends BaseTest {
         guestFlow.LengthOfSession(100000);
         guestFlow.PressAndHold(GuestFlow.PressAndHoldButton);
         guestFlow.LengthOfSession(300000);
-        guestFlow.SwitchToTab(0);
+        guestFlow.switchToTab(0);
         operation.clickButton(GuestFlow.DisconnectChargerbtn,3000);
-        guestFlow.SwitchToTab(1);
+        guestFlow.switchToTab(1);
         Assert.assertTrue(guestFlow.verifyTotalFeeIncludingIdleFee());
 //        Assert.assertTrue(guestFlow.verifyChargingSessionEnded());
 

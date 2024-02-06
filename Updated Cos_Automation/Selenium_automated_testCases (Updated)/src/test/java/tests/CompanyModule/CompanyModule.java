@@ -1071,7 +1071,7 @@ public class CompanyModule extends BaseTest {
         Assert.assertTrue(dashboard.clickOnCompanyManagement());
         Assert.assertTrue(operation.clickButton(EditCompany.AccessCompanyPortal,2000));
         Thread.sleep(3000);
-        searchcompany.SwitchToTab(1);
+        searchcompany.switchToTab(1);
         Assert.assertTrue(cosa.CurrentPageURLCheck(prop.getProperty("DashboardURLPropertyAdmin")));
 
     }
@@ -1091,7 +1091,7 @@ public class CompanyModule extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateCompany company = new CreateCompany(driver);
         EditCompany editCompany= new EditCompany(driver);
-        company.SwitchToTab(0);
+        company.switchToTab(0);
         loginPage.verifyValidLogin();
         dashboard.refreshBrowser();
         dashboard.gotoDashboard();

@@ -2051,7 +2051,7 @@ public class ChargerModuleTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditChargerCosAdminUpdated editChargerCosAdminUpdated= new EditChargerCosAdminUpdated(driver);
         loginPage.verifyValidLogin();
-        editCompany.SwitchToTab(0);
+        editCompany.switchToTab(0);
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
@@ -2091,7 +2091,7 @@ public class ChargerModuleTestCases extends BaseTest {
         EditCompany editCompany= new EditCompany(driver);
         EditChargerCosAdminUpdated editChargerCosAdminUpdated= new EditChargerCosAdminUpdated(driver);
         loginPage.verifyValidLogin();
-        editChargerCosAdminUpdated.SwitchToTab(0);
+        editChargerCosAdminUpdated.switchToTab(0);
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargers());
@@ -2589,7 +2589,7 @@ public class ChargerModuleTestCases extends BaseTest {
         CosAdminChargerList cosAdminChargerList = new CosAdminChargerList(driver);
         DashboardPropertyDetails logoutOperation = new DashboardPropertyDetails(driver);
         DashboardPropertyAdmin dashboardPropertyAdmin = new DashboardPropertyAdmin(driver);
-        cosAdminChargerList.SwitchToTab(0);
+        cosAdminChargerList.switchToTab(0);
         logoutOperation.LogoutFromExistingAccount();
         dashboardPropertyAdmin.GoToCompanyPanelLoginPage();
         Thread.sleep(4000);

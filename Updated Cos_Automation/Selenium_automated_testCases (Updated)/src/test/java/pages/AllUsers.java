@@ -15,7 +15,7 @@ public class AllUsers extends BasePage{
 
     public void GoToAllUsersPage() throws InterruptedException {
         Thread.sleep(3000);
-        GoToWebsite(prop.getProperty("AllUsersPageURL"));
+        goToWebsite(prop.getProperty("AllUsersPageURL"));
 
     }
 

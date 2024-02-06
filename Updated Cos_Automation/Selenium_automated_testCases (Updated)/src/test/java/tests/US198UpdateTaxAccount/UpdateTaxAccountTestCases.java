@@ -178,8 +178,8 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        basePage.NewTabOpenAndSwitchToNewTab(1);
-        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
+        basePage.newTabOpenAndSwitchToNewTab(1);
+        basePage.goToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
         createCharger.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
         createCharger.clickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
         createCharger.writeInputText(UpdateLedgerAccounts.ZohoPasswordField,"WorkLOAD@10@",2000);
@@ -192,7 +192,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         String AccountName="Temporary Account "+randomNumber;
         createCharger.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
         createCharger.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
-        basePage.SwitchToTab(0);
+        basePage.switchToTab(0);
         dashboard.refreshBrowser();
         createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
         createCharger.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,2000);
@@ -217,7 +217,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        basePage.SwitchToTab(1);
+        basePage.switchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
 //        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
@@ -232,7 +232,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         operation.clickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
         operation.clickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
         operation.clickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
-        basePage.SwitchToTab(0);
+        basePage.switchToTab(0);
         dashboard.refreshBrowser();
         operation.clickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.DeletedAccountErrorMsg,updateLedgerAccounts.DeletedBankAccountErrorMsg()));
@@ -258,7 +258,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        basePage.SwitchToTab(1);
+        basePage.switchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
 //        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
@@ -273,7 +273,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         String AccountName = updateLedgerAccounts.RandomAccountName();
         operation.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
         operation.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
-        basePage.SwitchToTab(0);
+        basePage.switchToTab(0);
         dashboard.refreshBrowser();
         operation.clickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
         operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
@@ -540,7 +540,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        basePage.SwitchToTab(1);
+        basePage.switchToTab(1);
         dashboard.refreshBrowser();
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        createCharger.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -555,7 +555,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         String AccountName="Temporary Account "+randomNumber;
         createCharger.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
         createCharger.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
-        basePage.SwitchToTab(0);
+        basePage.switchToTab(0);
         dashboard.refreshBrowser();
         createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
         createCharger.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,2000);
@@ -580,7 +580,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        basePage.SwitchToTab(1);
+        basePage.switchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
 //        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
@@ -595,7 +595,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         operation.clickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
         operation.clickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
         operation.clickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
-        basePage.SwitchToTab(0);
+        basePage.switchToTab(0);
         dashboard.refreshBrowser();
         operation.clickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.DeletedAccountErrorMsg,updateLedgerAccounts.DeletedBankAccountErrorMsg()));
@@ -621,7 +621,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        basePage.SwitchToTab(1);
+        basePage.switchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
 //        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
@@ -636,7 +636,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         String AccountName = updateLedgerAccounts.RandomAccountName();
         operation.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
         operation.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
-        basePage.SwitchToTab(0);
+        basePage.switchToTab(0);
         dashboard.refreshBrowser();
         operation.clickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
         operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
@@ -904,7 +904,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        basePage.SwitchToTab(1);
+        basePage.switchToTab(1);
         dashboard.refreshBrowser();
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        createCharger.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -919,7 +919,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         String AccountName="Temporary Account "+randomNumber;
         createCharger.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
         createCharger.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
-        basePage.SwitchToTab(0);
+        basePage.switchToTab(0);
         dashboard.refreshBrowser();
         createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
         createCharger.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,2000);
@@ -944,7 +944,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        basePage.SwitchToTab(1);
+        basePage.switchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
 //        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
@@ -959,7 +959,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         operation.clickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
         operation.clickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
         operation.clickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
-        basePage.SwitchToTab(0);
+        basePage.switchToTab(0);
         dashboard.refreshBrowser();
         operation.clickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.DeletedAccountErrorMsg,updateLedgerAccounts.DeletedBankAccountErrorMsg()));
@@ -985,7 +985,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        basePage.SwitchToTab(1);
+        basePage.switchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
 //        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
@@ -1000,7 +1000,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         String AccountName = updateLedgerAccounts.RandomAccountName();
         operation.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
         operation.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
-        basePage.SwitchToTab(0);
+        basePage.switchToTab(0);
         dashboard.refreshBrowser();
         operation.clickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
         operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
@@ -1267,7 +1267,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        basePage.SwitchToTab(1);
+        basePage.switchToTab(1);
         dashboard.refreshBrowser();
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        createCharger.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -1282,7 +1282,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         String AccountName="Temporary Account "+randomNumber;
         createCharger.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
         createCharger.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
-        basePage.SwitchToTab(0);
+        basePage.switchToTab(0);
         dashboard.refreshBrowser();
         createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
         createCharger.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,2000);
@@ -1307,7 +1307,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        basePage.SwitchToTab(1);
+        basePage.switchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
 //        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
@@ -1322,7 +1322,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         operation.clickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
         operation.clickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
         operation.clickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
-        basePage.SwitchToTab(0);
+        basePage.switchToTab(0);
         dashboard.refreshBrowser();
         operation.clickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.DeletedAccountErrorMsg,updateLedgerAccounts.DeletedBankAccountErrorMsg()));
@@ -1348,7 +1348,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        basePage.SwitchToTab(1);
+        basePage.switchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
 //        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
@@ -1363,7 +1363,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         String AccountName = updateLedgerAccounts.RandomAccountName();
         operation.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
         operation.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
-        basePage.SwitchToTab(0);
+        basePage.switchToTab(0);
         dashboard.refreshBrowser();
         operation.clickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
         operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);
@@ -1630,7 +1630,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        createCharger.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        createCharger.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        basePage.SwitchToTab(1);
+        basePage.switchToTab(1);
         dashboard.refreshBrowser();
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        createCharger.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -1645,7 +1645,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         String AccountName="Temporary Account "+randomNumber;
         createCharger.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
         createCharger.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
-        basePage.SwitchToTab(0);
+        basePage.switchToTab(0);
         dashboard.refreshBrowser();
         createCharger.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
         createCharger.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,2000);
@@ -1670,7 +1670,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        basePage.SwitchToTab(1);
+        basePage.switchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
 //        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
@@ -1685,7 +1685,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         operation.clickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
         operation.clickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
         operation.clickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
-        basePage.SwitchToTab(0);
+        basePage.switchToTab(0);
         dashboard.refreshBrowser();
         operation.clickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
         Assert.assertTrue(basePage.verifyTextMatching(1500,UpdateLedgerAccounts.DeletedAccountErrorMsg,updateLedgerAccounts.DeletedBankAccountErrorMsg()));
@@ -1711,7 +1711,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
 //        operation.ClickButton(UpdateLedgerAccounts.SettingsTab, 5000);
 //        operation.ClickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
         operation.clickButton(UpdateLedgerAccounts.TaxInformationTab, 2000);
-        basePage.SwitchToTab(1);
+        basePage.switchToTab(1);
 //        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
 //        operation.ClickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
@@ -1726,7 +1726,7 @@ public class UpdateTaxAccountTestCases extends BaseTest {
         String AccountName = updateLedgerAccounts.RandomAccountName();
         operation.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
         operation.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
-        basePage.SwitchToTab(0);
+        basePage.switchToTab(0);
         dashboard.refreshBrowser();
         operation.clickButton(UpdateLedgerAccounts.TaxInformationTab,5000);
         operation.clickButton(UpdateLedgerAccounts.TaxAccountEditButton,1500);

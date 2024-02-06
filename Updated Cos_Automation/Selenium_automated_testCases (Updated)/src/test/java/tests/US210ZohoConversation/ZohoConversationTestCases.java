@@ -318,8 +318,8 @@ public class ZohoConversationTestCases extends BaseTest {
         operation.writeInputText(CreateTicket.SubjectField,"Testing Ticket is closing properly",1000);
         operation.writeInputText(CreateTicket.DescriptionField,(prop.getProperty("Paragraph")),1000);
         operation.clickButton(CreateTicket.SubmitTicket,1000);
-        ticket.NewTabOpenAndSwitchToNewTab(1);
-        ticket.GoToWebsite("https://www.zoho.com/desk/");
+        ticket.newTabOpenAndSwitchToNewTab(1);
+        ticket.goToWebsite("https://www.zoho.com/desk/");
         ticket.click(CreateTicket.ZohoSign);
         operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
         operation.clickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
@@ -329,7 +329,7 @@ public class ZohoConversationTestCases extends BaseTest {
 //        operation.ClickButton(TicketList.ZohoOpenTicketsFilter,2000);
         operation.clickButton(TicketList.ZohoOpenStatus,5000);
         operation.clickButton(TicketList.ZohoClosedStatus,2000);
-        ticket.SwitchToTab(0);
+        ticket.switchToTab(0);
         Thread.sleep(15000);
         dashboard.refreshBrowser();
         operation.clickButton(TicketList.ClosedTab,3000);
@@ -353,10 +353,10 @@ public class ZohoConversationTestCases extends BaseTest {
 //        loginPage.VerifyValidLoginForPropertyAdmin();
         dashboard.refreshBrowser();
 //        operation.ClickButton(CreateTicket.SupportButton,5000);
-        ticket.SwitchToTab(1);
+        ticket.switchToTab(1);
         operation.clickButton(TicketList.ZohoClosedStatus,2000);
         operation.clickButton(TicketList.ZohoOpenStatus,5000);
-        ticket.SwitchToTab(0);
+        ticket.switchToTab(0);
         Thread.sleep(11000);
         dashboard.refreshBrowser();
         operation.clickButton(ZohoConversation.DetailsButton,3000);
@@ -387,7 +387,7 @@ public class ZohoConversationTestCases extends BaseTest {
         operation.writeInputText(CreateTicket.DescriptionField,(prop.getProperty("ShortTicketDescription")),1000);
         operation.clickButton(CreateTicket.SubmitTicket,1000);
         operation.clickButton(CreateTicket.SupportButton,5000);
-        ticket.SwitchToTab(1);
+        ticket.switchToTab(1);
 //        ticket.GoToWebsite("https://www.zoho.com/desk/");
 //        ticket.click(CreateTicket.ZohoSign);
 //        operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
@@ -403,7 +403,7 @@ public class ZohoConversationTestCases extends BaseTest {
         operation.writeInputText(ZohoConversation.ZohoReplySpace,zohoConversation.zohoAdminReplyText(),4000);
         driver.switchTo().defaultContent();
         operation.clickButton(ZohoConversation.ZohoSendButton,2000);
-        ticket.SwitchToTab(0);
+        ticket.switchToTab(0);
         Thread.sleep(6000);
         dashboard.refreshBrowser();
         zohoConversation.verifyAnElementDisplayedOrNot(2000,ZohoConversation.TableRepliedTag1);

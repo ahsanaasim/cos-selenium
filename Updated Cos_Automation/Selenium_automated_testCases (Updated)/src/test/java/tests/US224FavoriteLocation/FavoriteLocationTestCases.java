@@ -45,7 +45,7 @@ public class FavoriteLocationTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        createLocation.NewTabOpenAndSwitchToNewTab(1);
+        createLocation.newTabOpenAndSwitchToNewTab(1);
         Thread.sleep(2500);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
@@ -63,7 +63,7 @@ public class FavoriteLocationTestCases extends BaseTest {
         CreateCharger operation =new CreateCharger(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
-        favoriteLocation.SwitchToTab(0);
+        favoriteLocation.switchToTab(0);
         login.GoToCustomerLoginPage();
         customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithNoTicket"),"EitaiPassword10");
         operation.clickButton(CustomerLogin.Menu,2000);
@@ -204,7 +204,7 @@ public class FavoriteLocationTestCases extends BaseTest {
         CustomerLogin customerLogin = new CustomerLogin(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
         Dashboard dashboard = new Dashboard(driver);
-        customerLogin.SwitchToTab(0);
+        customerLogin.switchToTab(0);
 //        login.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithNoTicket"),"EitaiPassword10");
 //        operation.ClickButton(CustomerLogin.Menu,2000);

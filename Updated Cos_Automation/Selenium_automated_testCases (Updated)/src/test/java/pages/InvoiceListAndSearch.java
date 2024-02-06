@@ -4,9 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-import tests.US1AdminLogin.TestParameters;
 
 import java.util.Properties;
 import java.util.Random;
@@ -54,7 +51,7 @@ public class InvoiceListAndSearch extends BasePage{
 
     public void GoToInvoicePage() throws InterruptedException {
         Thread.sleep(3500);
-        GoToWebsite(prop.getProperty("InvoicePageURL"));
+        goToWebsite(prop.getProperty("InvoicePageURL"));
 
     }
 

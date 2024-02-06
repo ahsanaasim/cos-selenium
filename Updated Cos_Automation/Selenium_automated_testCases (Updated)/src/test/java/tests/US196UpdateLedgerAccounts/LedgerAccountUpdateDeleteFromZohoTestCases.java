@@ -26,8 +26,8 @@ public class LedgerAccountUpdateDeleteFromZohoTestCases extends BaseTest {
         loginPage.verifyValidLogin();
         createCharger.clickButton(UpdateLedgerAccounts.SettingsTab, 5000);
         createCharger.clickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        basePage.NewTabOpenAndSwitchToNewTab(1);
-        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
+        basePage.newTabOpenAndSwitchToNewTab(1);
+        basePage.goToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
         createCharger.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
         createCharger.clickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
         createCharger.writeInputText(UpdateLedgerAccounts.ZohoPasswordField,"WorkLOAD@10@",2000);
@@ -40,7 +40,7 @@ public class LedgerAccountUpdateDeleteFromZohoTestCases extends BaseTest {
         String AccountName="Nice Savings "+randomNumber;
         createCharger.writeInputText(UpdateLedgerAccounts.CreateAccountZohoAccountName,AccountName,2000);
         createCharger.clickButton(UpdateLedgerAccounts.SaveButtonZoho,1000);
-        basePage.SwitchToTab(0);
+        basePage.switchToTab(0);
         dashboard.refreshBrowser();
         createCharger.clickButton(UpdateLedgerAccounts.EditButton,5000);
         createCharger.clickButton(UpdateLedgerAccounts.EquipmentFeeSelectedField,3000);
@@ -78,8 +78,8 @@ public class LedgerAccountUpdateDeleteFromZohoTestCases extends BaseTest {
         loginPage.verifyValidLogin();
         createCharger.clickButton(UpdateLedgerAccounts.SettingsTab, 5000);
         createCharger.clickButton(UpdateLedgerAccounts.LedgerConfigurationTab, 3000);
-        basePage.NewTabOpenAndSwitchToNewTab(1);
-        basePage.GoToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
+        basePage.newTabOpenAndSwitchToNewTab(1);
+        basePage.goToWebsite("https://accounts.zoho.com/signin?servicename=ZohoBooks&signupurl=https://www.zoho.com/books/signup/index.html");
         createCharger.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
         createCharger.clickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
         createCharger.writeInputText(UpdateLedgerAccounts.ZohoPasswordField,"WorkLOAD@10@",2000);
@@ -93,7 +93,7 @@ public class LedgerAccountUpdateDeleteFromZohoTestCases extends BaseTest {
         createCharger.clickButton(UpdateLedgerAccounts.MoreButtonZoho,2500);
         createCharger.clickButton(UpdateLedgerAccounts.DeleteButtonZoho,1000);
         createCharger.clickButton(UpdateLedgerAccounts.OKButtonZoho,1500);
-        basePage.SwitchToTab(0);
+        basePage.switchToTab(0);
         dashboard.refreshBrowser();
         createCharger.clickButton(UpdateLedgerAccounts.EditButton,5000);
         createCharger.clickButton(UpdateLedgerAccounts.EquipmentFeeSelectedField,3000);

@@ -799,17 +799,17 @@ public class CreateChargersTestCases extends BaseTest {
         Assert.assertTrue(operation.clickButton(SimulationPage.BootChargerButton,2000));
         Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,2500));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
-        guestFlow.SwitchToTab(1);
+        guestFlow.switchToTab(1);
         Assert.assertTrue(operation.writeInputText(GuestVerificationPage.PhoneNumberField,"4242424242",5000));
         Assert.assertTrue(operation.clickButton(GuestVerificationPage.ContinueAsGuestButton,2000));
         Assert.assertTrue(guestFlow.SendOtp(2000,"666666"));
         operation.clickButton(OTPVerificationPage.VerifyButton,2000);
-        guestFlow.SwitchToTab(0);
+        guestFlow.switchToTab(0);
         Assert.assertTrue(operation.clickButton(GuestFlow.PluginChargerbtn,500));
         simulationPage.SelectChargerStatusFromSimulator("Charging");
         operation.clickButton(SimulationPage.ChargerStatusSaveButton,2000);
         Thread.sleep(2500);
-        guestFlow.SwitchToTab(1);
+        guestFlow.switchToTab(1);
         Assert.assertTrue(operation.clickButton(GuestVerificationPage.StatChargingButton,5000));
         guestFlow.SwitchToIframe();
         operation.click(GuestFlow.CardNumber);
@@ -820,9 +820,9 @@ public class CreateChargersTestCases extends BaseTest {
         System.out.println("URL  =  "+driver.getCurrentUrl());
         Assert.assertTrue(guestFlow.verifyChargingNowTitle());
         guestFlow.LengthOfSession(70000);
-        guestFlow.SwitchToTab(0);
+        guestFlow.switchToTab(0);
         operation.clickButton(GuestFlow.DisconnectChargerbtn,3000);
-        guestFlow.SwitchToTab(1);
+        guestFlow.switchToTab(1);
 //        Assert.assertTrue(guestFlow.verifyTotalFee());
         Assert.assertTrue(guestFlow.verifyChargingSessionEnded());
 
@@ -852,7 +852,7 @@ public class CreateChargersTestCases extends BaseTest {
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         for (int i=0; i<=HowManyChargerYouWantToCreate(); i++) {
             Thread.sleep(6000);
-            createcharger.GoToWebsite("https://test-admin.chargeonsite.com/property/charger");
+            createcharger.goToWebsite("https://test-admin.chargeonsite.com/property/charger");
             Thread.sleep(5000);
             createcharger.clickOnAddChargerButton();
             String chargerName = createcharger.writeChargerName();

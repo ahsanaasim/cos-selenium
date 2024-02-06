@@ -547,7 +547,7 @@ public class EditChargerCosAdminUpdated extends BasePage {
 // Open a new tab
         String myText = (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor); // extracting the text that was copied to the clipboard
         ((JavascriptExecutor) driver).executeScript("window.open(\""+myText+"\")");// launching a new tab window.location = \'"+url+"\'
-        SwitchToTab(1);
+        switchToTab(1);
         Thread.sleep(2000);
         waitforPresence(GuestVerificationPage.MaxChargingRate);
         String UpdatedChargingRateInScanningPage = driver.findElement(GuestVerificationPage.MaxChargingRate).getText();

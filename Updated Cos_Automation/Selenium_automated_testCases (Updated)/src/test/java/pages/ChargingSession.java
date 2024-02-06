@@ -16,7 +16,7 @@ public class ChargingSession extends BasePage{
 
     public void GoToChargingSessionPage() throws InterruptedException {
         Thread.sleep(3500);
-        GoToWebsite(prop.getProperty("ChargingSessionReportPageURL"));
+        goToWebsite(prop.getProperty("ChargingSessionReportPageURL"));
 
     }
 }

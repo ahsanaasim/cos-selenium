@@ -19,7 +19,7 @@ public class COSAFromMenuTestCases extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard=new Dashboard(driver);
         CreateLocation createLocation=new CreateLocation(driver);
-        createLocation.NewTabOpenAndSwitchToNewTab(1);
+        createLocation.newTabOpenAndSwitchToNewTab(1);
         Thread.sleep(2500);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
@@ -35,7 +35,7 @@ public class COSAFromMenuTestCases extends BaseTest {
         CustomerLogin customerLogin = new CustomerLogin(driver);
         CreateCharger operation = new CreateCharger(driver);
         Dashboard dashboard = new Dashboard(driver);
-        customerLogin.SwitchToTab(0);
+        customerLogin.switchToTab(0);
         customerLogin.GoToCustomerLoginPage();
         customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         operation.clickButton(CustomerSupport.Menu,2000);
@@ -647,7 +647,7 @@ public class COSAFromMenuTestCases extends BaseTest {
         COSA cosa = new COSA(driver);
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
-        cosa.SwitchToTab(0);
+        cosa.switchToTab(0);
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
         operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
@@ -670,7 +670,7 @@ public class COSAFromMenuTestCases extends BaseTest {
         COSA cosa = new COSA(driver);
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
-        cosa.SwitchToTab(0);
+        cosa.switchToTab(0);
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
         operation.clickButton(COSA.KeepAnEyeOnSomeLocations,2000);
@@ -695,7 +695,7 @@ public class COSAFromMenuTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         Dashboard dashboard = new Dashboard(driver);
         COSA cosa = new COSA(driver);
-        cosa.SwitchToTab(0);
+        cosa.switchToTab(0);
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         cosa.GoToCOSAChatbot();

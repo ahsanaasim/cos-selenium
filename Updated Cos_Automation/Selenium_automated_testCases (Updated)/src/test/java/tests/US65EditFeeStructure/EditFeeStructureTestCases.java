@@ -824,7 +824,7 @@ public class EditFeeStructureTestCases extends BaseTest {
         operation.writeInputText(CreateFeeStructure.SessionFeeAmountField,fee,2000);
         operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,1000);
         Thread.sleep(2000);
-        editFee.NewTabOpenAndSwitchToNewTab(1);
+        editFee.newTabOpenAndSwitchToNewTab(1);
 //        editFee.SwitchToTab(1);
         editFee.GotoSmackdownCharger();
         Assert.assertTrue(editFee.verifyTextMatching(1000,GuestVerificationPage.FeeToInitiate,feeWithDollarSign));
@@ -842,7 +842,7 @@ public class EditFeeStructureTestCases extends BaseTest {
         CreateFeeStructure feeStructure = new CreateFeeStructure(driver);
         EditFeeStructure editFee = new EditFeeStructure(driver);
 //        loginPage.VerifyValidLoginForPropertyAdmin();
-        editFee.SwitchToTab(0);
+        editFee.switchToTab(0);
         dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
 //        list.FieldClear(FeeStructureList.SearchField);
@@ -857,7 +857,7 @@ public class EditFeeStructureTestCases extends BaseTest {
         operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,1000);
         Thread.sleep(2000);
 //        editFee.NewTabOpenAndSwitchToNewTab(1);
-        editFee.SwitchToTab(1);
+        editFee.switchToTab(1);
         editFee.GotoSmackdownCharger();
         Assert.assertTrue(editFee.verifyTextMatching(1000,GuestVerificationPage.FeePerKwh,feeWithDollarSign));
 
@@ -875,7 +875,7 @@ public class EditFeeStructureTestCases extends BaseTest {
         EditFeeStructure editFee = new EditFeeStructure(driver);
         GuestVerificationPage guestVerificationPage = new GuestVerificationPage(driver);
 //        loginPage.VerifyValidLoginForPropertyAdmin();
-        editFee.SwitchToTab(0);
+        editFee.switchToTab(0);
         dashboard.refreshBrowser();
 //        operation.ClickButton(CreateFeeStructure.FeeStructureFromMenu,4000);
 //        list.FieldClear(FeeStructureList.SearchField);
@@ -889,7 +889,7 @@ public class EditFeeStructureTestCases extends BaseTest {
         operation.clickButton(CreateFeeStructure.SaveFeeStructureButton,1000);
         Thread.sleep(2000);
 //        editFee.NewTabOpenAndSwitchToNewTab(1);
-        editFee.SwitchToTab(1);
+        editFee.switchToTab(1);
         editFee.GotoSmackdownCharger();
         Assert.assertTrue(guestVerificationPage.verifyIdleFee(feeWithDollarSign));
 

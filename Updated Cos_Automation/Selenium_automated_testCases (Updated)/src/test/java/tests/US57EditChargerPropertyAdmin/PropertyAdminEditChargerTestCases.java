@@ -203,7 +203,7 @@ public class PropertyAdminEditChargerTestCases extends BaseTest {
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
         loginPage.verifyValidLoginForPropertyAdmin();
-        updateChargerPropertyAdmin.SwitchToTab(0);
+        updateChargerPropertyAdmin.switchToTab(0);
         Assert.assertTrue(dashboard.refreshBrowser());
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
         Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());
@@ -248,7 +248,7 @@ public class PropertyAdminEditChargerTestCases extends BaseTest {
         EditChargerCosAdminUpdated editCharger = new EditChargerCosAdminUpdated(driver);
         UpdateChargerPropertyAdmin updateChargerPropertyAdmin = new UpdateChargerPropertyAdmin(driver);
         loginPage.verifyValidLoginForPropertyAdmin();
-        updateChargerPropertyAdmin.SwitchToTab(0);
+        updateChargerPropertyAdmin.switchToTab(0);
         Assert.assertTrue(dashboard.refreshBrowser());
 //        Assert.assertTrue(dashboard.clickonPropertiesFromLeftMenu());
 //        Assert.assertTrue(dashboard.clickOnChargersPropertyAdmin());

@@ -256,7 +256,7 @@ public class GuestFlow extends BasePage {
 
     public void ScanQROFSeleniumCharger() throws InterruptedException {
         Thread.sleep(2500);
-        GoToWebsite("https://test-app.chargeonsite.com/charger/byjUql");
+        goToWebsite("https://test-app.chargeonsite.com/charger/byjUql");
     }
 
 
@@ -271,16 +271,6 @@ public class GuestFlow extends BasePage {
     public boolean SwitchToDefaultFromIframe() throws InterruptedException{
         driver.switchTo().defaultContent();
         return true;
-    }
-    public void NewTabOpenAndSwitchToNewTab(int num) throws InterruptedException{
-        ((JavascriptExecutor)driver).executeScript("window.open()");
-        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(num));
-    }
-    public void SwitchToTab(int num) throws InterruptedException{
-        Thread.sleep(3000);
-        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(num));
     }
 
     public boolean verifyChargingNowTitle() throws InterruptedException {

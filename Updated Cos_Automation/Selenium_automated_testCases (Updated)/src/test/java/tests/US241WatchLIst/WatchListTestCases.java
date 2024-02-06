@@ -50,7 +50,7 @@ public class WatchListTestCases extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreateLocation createLocation=new CreateLocation(driver);
         EditLocation editLocation = new EditLocation(driver);
-        createLocation.NewTabOpenAndSwitchToNewTab(1);
+        createLocation.newTabOpenAndSwitchToNewTab(1);
         Thread.sleep(2500);
         loginPage.verifyValidLogin();
         Assert.assertTrue(dashboard.clickOnPropertiesFromLeftMenu());
@@ -72,7 +72,7 @@ public class WatchListTestCases extends BaseTest {
         CustomerLogin customerLogin = new CustomerLogin(driver);
 //        customerLogin.SwitchToTab(0);
 //        customerLogin.LogoutFromCustomerAccount();
-        watchList.SwitchToTab(0);
+        watchList.switchToTab(0);
         watchList.GoToWatchList();
         Assert.assertTrue(cosa.CurrentPageURLCheck("https://test-app.chargeonsite.com/customer/login"));
 
@@ -231,7 +231,7 @@ public class WatchListTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         Dashboard dashboard = new Dashboard(driver);
         WatchList watchList = new WatchList(driver);
-        customerLogin.SwitchToTab(0);
+        customerLogin.switchToTab(0);
 //        customerLogin.GoToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"), "EitaiPassword10");
         watchList.AddRampuraLocationToWatchlist(1,"9",COSA.PM);

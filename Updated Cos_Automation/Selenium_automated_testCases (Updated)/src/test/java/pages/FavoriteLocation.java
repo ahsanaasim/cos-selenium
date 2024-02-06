@@ -55,13 +55,13 @@ public class FavoriteLocation extends BasePage{
 
     public void ScanChargerOFElectricChargerLocation() throws InterruptedException {
         Thread.sleep(2000);
-        GoToWebsite("https://test-app.chargeonsite.com/charger/byjUql");
+        goToWebsite("https://test-app.chargeonsite.com/charger/byjUql");
 
     }
 
     public void ScanChargerOFEBotsfordAvenue62659569Location() throws InterruptedException {
         Thread.sleep(2000);
-        GoToWebsite("https://test-app.chargeonsite.com/charger/tIljMh");
+        goToWebsite("https://test-app.chargeonsite.com/charger/tIljMh");
 
     }
 
@@ -369,7 +369,7 @@ public class FavoriteLocation extends BasePage{
         String s = readText(LocationName);
         String s2 = readText(LocationAddress);
         System.out.println("Property name and its address in favorites: " + s2);
-        SwitchToTab(1);
+        switchToTab(1);
         location.GoToLocationPage();
         location.writeINLocationSearchBar(s);
         operation.clickButton(EditCompany.searchbtn, 1500);

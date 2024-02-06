@@ -232,8 +232,8 @@ public class TicketList extends BasePage {
         String TotalOPen = driver.findElement(ChargerListPropertyAdmin.ChargerCountTop).getText().replaceAll("[^0-9]","");
         int TotalCount = Integer.parseInt(TotalOPen);
         System.out.println("Total count before closing ticket: "+TotalCount);
-        ticket.NewTabOpenAndSwitchToNewTab(1);
-        ticket.GoToWebsite("https://www.zoho.com/desk/");
+        ticket.newTabOpenAndSwitchToNewTab(1);
+        ticket.goToWebsite("https://www.zoho.com/desk/");
         ticket.click(CreateTicket.ZohoSign);
         operation.writeInputText(UpdateLedgerAccounts.ZohoEmailField,"fahim@6sensehq.com",2000);
         operation.clickButton(UpdateLedgerAccounts.ZohoNextBtn,1000);
@@ -246,7 +246,7 @@ public class TicketList extends BasePage {
         operation.clickButton(ZohoClosedStatus,2000);
         operation.clickButton(ZohoAllTicketsFilter,2000);
         operation.clickButton(ZohoAllTicketsFilterDropdown,2000);
-        ticket.SwitchToTab(0);
+        ticket.switchToTab(0);
         Thread.sleep(50000);
         dashboard.refreshBrowser();
         Thread.sleep(3000);

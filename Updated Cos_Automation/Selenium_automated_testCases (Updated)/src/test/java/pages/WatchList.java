@@ -37,7 +37,7 @@ public class WatchList extends BasePage{
 
     public void GoToWatchList() throws InterruptedException {
         Thread.sleep(3500);
-        GoToWebsite(prop.getProperty("WatchListPageURL"));
+        goToWebsite(prop.getProperty("WatchListPageURL"));
 
     }
 
@@ -226,7 +226,7 @@ public class WatchList extends BasePage{
         String s = readText(LocationName);
         String s2 = readText(LocationAddress);
         System.out.println("Property name and its address in watchlist: " + s2);
-        SwitchToTab(1);
+        switchToTab(1);
         location.GoToLocationPage();
         location.writeINLocationSearchBar(s);
         operation.clickButton(EditCompany.searchbtn, 1500);
@@ -260,7 +260,7 @@ public class WatchList extends BasePage{
         System.out.println("Location name : " + s);
 //        NewTabOpenAndSwitchToNewTab(1);
 //        login.VerifyValidLogin();
-        SwitchToTab(1);
+        switchToTab(1);
         location.GoToLocationPage();
         location.writeINLocationSearchBar("Rampura Bridge");
         operation.clickButton(EditCompany.searchbtn, 1500);
@@ -270,7 +270,7 @@ public class WatchList extends BasePage{
         editCharger.clickToggleButtonIfItIsOff();
         operation.clickButton(CreateLocation.savelocationbtn,1500);
         Thread.sleep(2000);
-        SwitchToTab(0);
+        switchToTab(0);
         dashboard.refreshBrowser();
         Thread.sleep(2500);
         waitVisibility(LocationName);
@@ -296,7 +296,7 @@ public class WatchList extends BasePage{
         System.out.println("Location name : " + s);
 //        NewTabOpenAndSwitchToNewTab(1);
 //        login.VerifyValidLogin();
-        SwitchToTab(1);
+        switchToTab(1);
         location.GoToLocationPage();
         location.writeINLocationSearchBar("Rampura Bridge");
         operation.clickButton(EditCompany.searchbtn, 1500);
@@ -306,7 +306,7 @@ public class WatchList extends BasePage{
         editCharger.clickToggleButtonIfItIsOn();
         operation.clickButton(CreateLocation.savelocationbtn,1500);
         Thread.sleep(2000);
-        SwitchToTab(0);
+        switchToTab(0);
         dashboard.refreshBrowser();
         waitVisibility(LocationName);
         if (driver.findElement(UnavailableStatus).isDisplayed()) {
