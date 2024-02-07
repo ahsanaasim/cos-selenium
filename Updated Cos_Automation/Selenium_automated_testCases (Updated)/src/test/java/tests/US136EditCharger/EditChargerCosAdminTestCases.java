@@ -372,7 +372,7 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"Selenium",1000));
         Assert.assertTrue(createcharger.clickOnCrossButtonOfTheDrawer());
-        Assert.assertTrue(createcharger.verifyDiscadContinuePopupHasDisplayed());
+        Assert.assertTrue(createcharger.verifyDiscardContinuePopupHasDisplayed());
     }
     @Test(priority = 20)//Done
     @TestParameters(testCaseId = {"TC-72"})
@@ -426,7 +426,7 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My new charger",1000));
         Assert.assertTrue(createcharger.clickOnCancelButtonOfTheDrawer());
-        Assert.assertTrue(createcharger.verifyDiscadContinuePopupHasDisplayed());
+        Assert.assertTrue(createcharger.verifyDiscardContinuePopupHasDisplayed());
     }
     @Test(priority = 23)//Done
     @TestParameters(testCaseId = {"TC-75"})
@@ -478,7 +478,7 @@ public class EditChargerCosAdminTestCases extends BaseTest {
         Assert.assertTrue(editCompany.ClickonEditbutton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My new charger",1000));
         Assert.assertTrue(createcharger.clickOnOutsideTheDrawer());
-        Assert.assertTrue(createcharger.verifyDiscadContinuePopupHasDisplayed());
+        Assert.assertTrue(createcharger.verifyDiscardContinuePopupHasDisplayed());
     }
     @Test(priority = 26)//Done
     @TestParameters(testCaseId = {"TC-78"})

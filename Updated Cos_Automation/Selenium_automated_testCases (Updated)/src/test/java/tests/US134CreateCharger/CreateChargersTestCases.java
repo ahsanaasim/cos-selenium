@@ -485,7 +485,7 @@ public class CreateChargersTestCases extends BaseTest {
         Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My Another New Charger-10",1000));
         Assert.assertTrue(createcharger.clickOnCrossButtonOfTheDrawer());
-        Assert.assertTrue(createcharger.verifyDiscadContinuePopupHasDisplayed());
+        Assert.assertTrue(createcharger.verifyDiscardContinuePopupHasDisplayed());
     }
     @Test(priority = 27)//Done
     @TestParameters(testCaseId = {"TC-61"})
@@ -534,7 +534,7 @@ public class CreateChargersTestCases extends BaseTest {
         Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My Another New Charger-01",1000));
         Assert.assertTrue(createcharger.clickOnCancelButtonOfTheDrawer());
-        Assert.assertTrue(createcharger.verifyDiscadContinuePopupHasDisplayed());
+        Assert.assertTrue(createcharger.verifyDiscardContinuePopupHasDisplayed());
     }
     @Test(priority = 30)//Done
     @TestParameters(testCaseId = {"TC-64"})
@@ -583,7 +583,7 @@ public class CreateChargersTestCases extends BaseTest {
         Assert.assertTrue(createcharger.clickOnAddChargerButton());
         Assert.assertTrue(createcharger.writeInputText(CreateCharger.chargerName,"My Another New Charger-01",1000));
         Assert.assertTrue(createcharger.clickOnOutsideTheDrawer());
-        Assert.assertTrue(createcharger.verifyDiscadContinuePopupHasDisplayed());
+        Assert.assertTrue(createcharger.verifyDiscardContinuePopupHasDisplayed());
     }
     @Test(priority = 33)//Done
     @TestParameters(testCaseId = {"TC-67"})

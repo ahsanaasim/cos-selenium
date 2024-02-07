@@ -833,7 +833,7 @@ public class CompanyModule extends BaseTest {
         Assert.assertTrue(company.enterZipCode(prop.getProperty("ZipCode")));
         Assert.assertTrue(company.enterAddress(prop.getProperty("CompnayAddress")));
         Assert.assertTrue(company.clickOnCrossButton());
-        Assert.assertTrue(createCharger.verifyDiscadContinuePopupHasDisplayed());
+        Assert.assertTrue(createCharger.verifyDiscardContinuePopupHasDisplayed());
     }
 
 

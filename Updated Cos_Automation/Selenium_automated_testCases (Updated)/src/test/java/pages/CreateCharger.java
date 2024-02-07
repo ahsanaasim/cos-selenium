@@ -262,7 +262,7 @@ public class CreateCharger extends BasePage {
         }
 
     }
-    public boolean verifyDiscadContinuePopupHasDisplayed() throws InterruptedException {
+    public boolean verifyDiscardContinuePopupHasDisplayed() throws InterruptedException {
         //company.waitForSpinner();
         Thread.sleep(1000);
         waitVisibility(discardAndContinuePopUp);

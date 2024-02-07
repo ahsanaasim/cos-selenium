@@ -21,9 +21,8 @@ public class TestCasesOfPromoCodeModule extends BaseTest {
         CreatePromoCode createPromoCode = new CreatePromoCode(driver);
         loginPage.verifyValidLogin();
         dashboard.clickOnAccessCodeFromLeftMenuBar();
-        createPromoCode.click(PromoCodeList.createNewPromoCode);
-        createPromoCode.click(CreatePromoCode.banasreePoliceParkProperty);
-
+        createPromoCode.click(PromoCodeList.createNewPromoCodeButton);
+        createPromoCode.selectDate(CreatePromoCode.promoStartDateField,0);
 
     }
 
