@@ -38,6 +38,7 @@ public class SearchandFilterProperties extends BasePage {
     By chargercount = By.xpath("(//span[@class='underline cursor'])[4]");
     By loadmorebtn = By.xpath("//button[@class='ant-btn ant-btn-default primary-color']");
     By drawertitle = By.xpath("//div[@class='ant-drawer-title'][contains(.,'Advanced Filter')]");
+    public static By totalCount = By.xpath("//div[@class='total-count-under-table']");
 
     CreateCompany company= new CreateCompany(driver);
     CreateProperty property= new CreateProperty(driver);
@@ -195,7 +196,7 @@ public class SearchandFilterProperties extends BasePage {
         c.setCapability(ChromeOptions.CAPABILITY, options);
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.get(prop.getProperty("PropertyURL"));
+        driver.get(urlOfAdminApp(prop.getProperty("PropertyURL")));
         String actualUrl= prop.getProperty("HomeURL");
         company.waitForSpinner();
         Thread.sleep(10000);

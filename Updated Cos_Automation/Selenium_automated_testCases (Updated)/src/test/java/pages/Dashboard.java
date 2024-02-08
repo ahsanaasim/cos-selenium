@@ -123,11 +123,6 @@ public class Dashboard extends BasePage {
         return true;
     }
 
-    public boolean refreshBrowser() throws InterruptedException {
-        Thread.sleep(3000);
-        driver.navigate().refresh();
-        return true;
-    }
 
     public boolean gotoDashboard() throws InterruptedException {
         Thread.sleep(3000);

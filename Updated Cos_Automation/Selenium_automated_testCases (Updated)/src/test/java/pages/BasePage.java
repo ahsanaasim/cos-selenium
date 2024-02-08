@@ -326,4 +326,10 @@ public class BasePage {
     public void waitForFewMoment(int waitingTimeLimit) throws InterruptedException {
         Thread.sleep(waitingTimeLimit);
     }
+
+    public boolean refreshBrowser() throws InterruptedException {
+        Thread.sleep(3000);
+        driver.navigate().refresh();
+        return true;
+    }
 }
