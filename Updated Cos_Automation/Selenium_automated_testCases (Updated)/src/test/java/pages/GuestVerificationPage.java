@@ -69,8 +69,8 @@ public class GuestVerificationPage extends BasePage{
 
 
     public boolean GoToAvailableCharger (String url) throws InterruptedException{
+        waitForFewMoment(3000);
         driver.get(url);
-        urlCheck(url);
         return true;
     }
 

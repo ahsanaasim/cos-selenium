@@ -50,7 +50,7 @@ public class CreatePromoCode extends BasePage{
     public static By modalTitle = By.xpath("//span[@class='ant-modal-confirm-title']");
     public static By modalContent = By.xpath("//div[@class='ant-modal-confirm-content']");
     public static By discardButton = By.xpath("//button[@type='button']//span[contains(text(),'Discard')]");
-    public static By continueButton = By.xpath("//button[@type='button']//span[contains(text(),'Cancel')]");
+    public static By continueButton = By.xpath("//button[@type='button']//span[contains(text(),'Continue')]");
     public static By unassignedPropertiesCount = By.xpath("//span[@class='ant-transfer-list-header-title']");
     public static By assignedPropertiesCount = By.xpath("(//span[@class='ant-transfer-list-header-title'])[2]");
     public static By noDataView = By.xpath("//img[@src='/images/noDataTable.svg']");
@@ -163,7 +163,7 @@ public class CreatePromoCode extends BasePage{
 
     }
 
-    public boolean verifyPastDateIsDisabledDate(By dateField) throws InterruptedException {
+    public boolean verifyPastDateIsDisabledStartDate(By dateField) throws InterruptedException {
         // Locate and click on the date picker element
         waitVisibility(dateField);
         WebElement datePicker = driver.findElement(dateField);
@@ -190,7 +190,36 @@ public class CreatePromoCode extends BasePage{
 
     }
 
-    public void clickOnCreateNewCompanyButton(){
+
+    public boolean verifyPastDateIsDisabledForExpireDates(By dateField) throws InterruptedException {
+        // Locate and click on the date picker element
+        waitVisibility(dateField);
+        WebElement datePicker = driver.findElement(dateField);
+        datePicker.click();
+        LocalDate currentDate = LocalDate.now();
+        LocalDate pastDate = currentDate.minusDays(1);
+        // Define the desired date format
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        // Format the future date as per the desired format
+        String formattedPastDate = pastDate.format(dateFormatter);
+        // Locate and interact with the specific date element representing the future date
+        String cls = driver.findElement(By.xpath("(//td[@title='"+formattedPastDate+"'])[2]")).getAttribute("class");
+        System.out.println(cls);
+        String expected = "disabled";
+        Thread.sleep(2500);
+        if (cls.contains(expected)){
+            System.out.println("past days are disabled");
+            return true;
+        }
+        else{
+            System.out.println("past days are disabled");
+            return false;
+        }
+
+    }
+
+    public void clickOnCreateNewCompanyButton() throws InterruptedException {
+        waitForFewMoment(1500);
         waitVisibility(editButton);
         click(createNewPromoCodeButton);
     }

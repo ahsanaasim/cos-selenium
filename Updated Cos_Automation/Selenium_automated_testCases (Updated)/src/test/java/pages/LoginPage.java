@@ -132,7 +132,6 @@ public class LoginPage extends BasePage {
     public void verifyValidLogin()  {
         String home = prop.getProperty("HomeURL");
         String signin = prop.getProperty("LoginURL");
-        String Dashboard = prop.getProperty("DashboardURL");
         String currURL = driver.getCurrentUrl();
         System.out.println();
         System.out.println(currURL);
@@ -651,16 +650,16 @@ public class LoginPage extends BasePage {
 
 
     public boolean verifyUserLandsOnDashboardAfterLogin() {
-        urlCheck(prop.getProperty("DashboardURL"));
+        urlCheck(urlOfAdminApp(prop.getProperty("DashboardURL")));
         return true;
     }
     public boolean verifyUserLandsOnDashboardAfterPropertyAdminLogin() {
-        urlCheck(prop.getProperty("DashboardURLPropertyAdmin"));
+        urlCheck(urlOfAdminApp(prop.getProperty("DashboardURLPropertyAdmin")));
         return true;
     }
 
     public boolean verifyUserHasRedirectedTowardTheForgotPasswordPage() {
-        urlCheck(prop.getProperty("ForgotPasswordURL"));
+        urlCheck(urlOfAdminApp(prop.getProperty("ForgotPasswordURL")));
         return true;
     }
 

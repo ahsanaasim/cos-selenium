@@ -16,6 +16,7 @@ public class ChargerListPropertyAdmin extends BasePage {
     Random ran = new Random();
 
 
+    public static By pageTitle = By.xpath("//div[@class='pageTitle m-auto-0']");
     public static By LocationNA = By.xpath("//div[@class='wordBreak'][contains(.,'N/A')]");
     public static By LocationUnderLocationColumn = By.xpath("//*[@id=\"__next\"]/main/section[2]/section/main/div[2]/div[4]/div/div/div/div/div/table/tbody/tr[2]/td[4]/div");
     public static By SearchChargerField = By.xpath("//input[@placeholder='Search by property, charger & location title']");

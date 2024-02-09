@@ -277,6 +277,22 @@ public class BasePage {
         String expectedUrl = driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl, actualUrl);
     }
+    public boolean pageUrlCheck(String ExpectedURL) throws InterruptedException {
+        Thread.sleep(2500);
+        wait.until(ExpectedConditions.urlToBe(ExpectedURL));
+        String url = driver.getCurrentUrl();
+        System.out.println("URL showing : "+url);
+        String expectedUrl = ExpectedURL;
+        if (url.equals(expectedUrl)) {
+            System.out.println("Url is matched with the expected");
+            return true;
+        }
+        else {
+            System.out.println("Url is not matched with expected");
+            return false;
+        }
+    }
+
 
 
     public boolean checkPageSize(By waitElement, String PageSize) throws InterruptedException {

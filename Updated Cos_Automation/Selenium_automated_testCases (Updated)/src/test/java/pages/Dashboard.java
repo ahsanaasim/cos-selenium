@@ -126,8 +126,8 @@ public class Dashboard extends BasePage {
 
     public boolean gotoDashboard() throws InterruptedException {
         Thread.sleep(3000);
-        driver.get(prop.getProperty("DashboardURL"));
-        urlCheck(prop.getProperty("DashboardURL"));
+        driver.get(urlOfAdminApp(prop.getProperty("DashboardURL")));
+        urlCheck(urlOfAdminApp(prop.getProperty("DashboardURL")));
         return true;
 
     }

@@ -178,7 +178,7 @@ public class FeeStructureList extends BasePage{
             System.out.println(result);
             if (!result.equals("Edit")) {
                 // Verification failed
-                throw new RuntimeException("Verification failed. Expected 'Edit', but got '" + result + "' in row " + i);
+                throw new RuntimeException("Verification failed. Expected 'Edit' Button, but got '" + result + "' in row " + i);
 
             }
 
