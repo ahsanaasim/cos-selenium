@@ -23,6 +23,7 @@ public class PromoCodeList extends BasePage{
     public static By addAdvanceFilter = By.xpath("//button[@type='button']//span[contains(text(),'Add Advance Filter')]");
     public static By searchPromoCodeField = By.xpath("//input[@placeholder='Search by promo code']");
     public static By searchPromoCodeButton = By.xpath("//button[@type='button']//span[contains(text(),'Search')]");
+    public static By crossButtonInSearchField = By.xpath("//span[@class='anticon anticon-close-circle']");
     public static By editButton = By.xpath("//button[@type='button']//span[contains(text(),'Edit')]");
     public static By loadMoreButton = By.xpath("//button[@class='ant-btn ant-btn-default primary-color']");
     public static By latestPromoCode = By.xpath("//td[@class='ant-table-cell ant-table-cell-ellipsis']");
@@ -33,6 +34,7 @@ public class PromoCodeList extends BasePage{
     public static By latestPromoCodeChargersCount = By.xpath("(//td[@class='ant-table-cell ant-table-cell-ellipsis'])[6]");
     public static By chargersCountLink = By.xpath("//div[@class='wordBreak underline inline-block']");
     public static By noDataTable = By.xpath("//div[@class='noDataTableDiv']");
+    public static By spinner = By.xpath("//span[@class='ant-spin-dot ant-spin-dot-spin']");
 
 //    Advance Filter
 
@@ -42,14 +44,49 @@ public class PromoCodeList extends BasePage{
 
 
     public String noDatFound(){
-        return "No data found";
+        return "No Data Found";
     }
+
+    public String regexForStartEndDateField(){
+        return "^(\\d{2} (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \\d{4} \\d{2}:\\d{2} (?:am|pm))$";
+    }
+
+    public String regexForNumber(){
+        return "^(0|[1-9]\\d*)$";
+    }
+
+    public String regexForStatuses(){
+        return "^(Active|Inactive|Expired)$";
+    }
+
+    public String loadMoreButtonText(){
+        return "Load "+prop.getProperty("PageSizeInTest")+" More";
+    }
+
+    public String countAtTopLeftOfTheTable(String count){
+        return "Showing Promo Codes: "+count;
+    }
+
+    public String countBesideLoadMoreButton(String count){
+        return "Showing "+count;
+    }
+    public String totalCountText(String count){
+        return "Total "+count;
+    }
+
+
 
     public void searchAPromoCode(String searchedData) throws InterruptedException {
         waitVisibility(editButton);
         writeText(searchPromoCodeField,searchedData);
         clickButton(searchPromoCodeButton,1000);
     }
+
+    public void clickOnSearchButton(By waitButton,By searchButton) throws InterruptedException {
+        waitVisibility(waitButton);
+        clickButton(searchButton,1000);
+    }
+
 
     public boolean verifyColumnsHeader(String TableTitle,int IndexOfTitle) throws InterruptedException {
         Thread.sleep(3000);
@@ -73,9 +110,10 @@ public class PromoCodeList extends BasePage{
         return true;
     }
 
-    public boolean verifyExpectedTitleColumnOccupiedWithContent(String Title, int IndexOfTitle) throws InterruptedException {
+    public boolean verifyExpectedTitleColumnNotRemainedBlank(String Title, int IndexOfTitle) throws InterruptedException {
         Thread.sleep(3000);
         waitVisibility(editButton);
+        clickOnLoadMoreButtonUntilItIsVisible();
         WebElement mytable = driver.findElement(By.xpath("//thead"));
         List<WebElement> headers = mytable.findElements(By.tagName("th"));
         int resultColumnIndex = 0;
@@ -99,7 +137,7 @@ public class PromoCodeList extends BasePage{
             System.out.println(result);
             if (result.isEmpty()) {
                 // Verification failed
-                throw new RuntimeException("Verification failed. Expected data in the specified column, but got nothing"+" in row " + i);
+                throw new RuntimeException("Verification failed. Expected data in the specified column, but got nothing in row "+i);
 
             }
         }
@@ -107,6 +145,314 @@ public class PromoCodeList extends BasePage{
         System.out.println("Column is occupied with its content");
         return true;
     }
+
+
+
+    public boolean verifyExpectedColumnOccupiedWithExpectedContent(String Title,int IndexOfTitle,String regexForColumn) throws InterruptedException {
+        Thread.sleep(3000);
+        waitforPresence(editButton);
+        clickOnLoadMoreButtonUntilItIsVisible();
+        WebElement mytable = driver.findElement(By.xpath("//thead"));
+        List<WebElement> headers = mytable.findElements(By.tagName("th"));
+        int resultColumnIndex = 0;
+        for (int i = 0; i < headers.size(); i++) {
+            if (headers.get(i).getText().equals(Title)) {
+                resultColumnIndex = i;
+                System.out.println(resultColumnIndex);
+                System.out.println(Title);
+                break;
+            }
+        }
+        if (resultColumnIndex != IndexOfTitle) {
+            // The "Result" column was not found
+            throw new RuntimeException("The column was not found");
+        }
+
+        WebElement myrows = driver.findElement(By.xpath("//tbody"));
+        List<WebElement> rows = myrows.findElements(By.tagName("tr"));
+        for (int i = 1; i < rows.size(); i++) { // start at index 1 to skip the header row
+            List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));
+            String result = cells.get(resultColumnIndex).getText();
+            System.out.println(result);
+            if (!result.matches(regexForColumn)) {
+                // Verification failed
+                throw new RuntimeException("Verification failed. Got '" + result + "' in row " + i);
+
+            }
+
+        }
+        return true;
+
+
+    }
+
+    public boolean verifyPromoCodeDetailsColumnExpectedContent() throws InterruptedException {
+        Thread.sleep(3000);
+        waitforPresence(editButton);
+        clickOnLoadMoreButtonUntilItIsVisible();
+        WebElement mytable = driver.findElement(By.xpath("//thead"));
+        List<WebElement> headers = mytable.findElements(By.tagName("th"));
+        int resultColumnIndex = 0;
+        for (int i = 0; i < headers.size(); i++) {
+            if (headers.get(i).getText().equals("Promo Code Details")) {
+                resultColumnIndex = i;
+                System.out.println(resultColumnIndex);
+                break;
+            }
+        }
+        if (resultColumnIndex != 1) {
+            // The "Result" column was not found
+            throw new RuntimeException("The column was not found");
+        }
+
+        WebElement myrows = driver.findElement(By.xpath("//tbody"));
+        List<WebElement> rows = myrows.findElements(By.tagName("tr"));
+        for (int i = 1; i < rows.size(); i++) { // start at index 1 to skip the header row
+            List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));
+            String result = cells.get(resultColumnIndex).getText();
+            System.out.println(result);
+            if (!result.matches("^\\d+(\\.\\d+)?% Off$") && !result.matches("^\\$\\d+(\\.\\d+)? Off$")) {
+                // Verification failed
+                throw new RuntimeException("Verification failed. Expected 'Success', but got '" + result + "' in row " + i);
+
+            }
+
+        }
+        return true;
+
+
+    }
+
+
+
+    public boolean verifyPromoCodeStatusColumnOccupiedExpectedStatuses() throws InterruptedException {
+        Thread.sleep(3000);
+        waitforPresence(editButton);
+        clickOnLoadMoreButtonUntilItIsVisible();
+        WebElement mytable = driver.findElement(By.xpath("//thead"));
+        List<WebElement> headers = mytable.findElements(By.tagName("th"));
+        int resultColumnIndex = 0;
+        for (int i = 0; i < headers.size(); i++) {
+            if (headers.get(i).getText().equals("Promo Status")) {
+                resultColumnIndex = i;
+                System.out.println(resultColumnIndex);
+                break;
+            }
+        }
+        if (resultColumnIndex != 4) {
+            // The "Result" column was not found
+            throw new RuntimeException("The column was not found");
+        }
+
+        WebElement myrows = driver.findElement(By.xpath("//tbody"));
+        List<WebElement> rows = myrows.findElements(By.tagName("tr"));
+        for (int i = 1; i < rows.size(); i++) { // start at index 1 to skip the header row
+            List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));
+            String result = cells.get(resultColumnIndex).getText();
+            System.out.println(result);
+            if ((!result.equals("Active")) || (!result.equals("Inactive")) || (!result.equals("Expired")))  {
+                // Verification failed
+                throw new RuntimeException("Verification failed. Got " + result + " in row " + i);
+
+            }
+
+        }
+        return true;
+
+
+    }
+
+    public boolean verifyExpectedColumnOccupiedWithNumber(String Title,int IndexOfTitle,String regexForColumn) throws InterruptedException {
+        Thread.sleep(3000);
+        waitforPresence(editButton);
+        clickOnLoadMoreButtonUntilItIsVisible();
+        WebElement mytable = driver.findElement(By.xpath("//thead"));
+        List<WebElement> headers = mytable.findElements(By.tagName("th"));
+        int resultColumnIndex = 0;
+        for (int i = 0; i < headers.size(); i++) {
+            if (headers.get(i).getText().equals(Title)) {
+                resultColumnIndex = i;
+                System.out.println(resultColumnIndex);
+                System.out.println(Title);
+                break;
+            }
+        }
+        if (resultColumnIndex != IndexOfTitle) {
+            // The "Result" column was not found
+            throw new RuntimeException("The column was not found");
+        }
+
+        WebElement myrows = driver.findElement(By.xpath("//tbody"));
+        List<WebElement> rows = myrows.findElements(By.tagName("tr"));
+        for (int i = 1; i < rows.size(); i++) { // start at index 1 to skip the header row
+            List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));
+            String result = cells.get(resultColumnIndex).getText();
+            System.out.println(result);
+            if (!result.matches(regexForColumn)) {
+                // Verification failed
+                throw new RuntimeException("Verification failed. Got '" + result + "' in row " + i);
+
+            }
+
+        }
+        return true;
+
+
+    }
+
+    public boolean verifyLoadMoreButtonActionWithAboveShowingCount() throws InterruptedException{
+        waitVisibility(ChargerListPropertyAdmin.LoadMoreButton);
+        waitVisibility(ChargerListPropertyAdmin.ChargerCountTop);
+        click(loadMoreButton);
+        waitForFewMoment(4500);
+        String showingTextOnTop = readText(ChargerListPropertyAdmin.ChargerCountTop);
+        System.out.println("Promo codes count on top : "+showingTextOnTop);
+        String ShowingChargerAfterClick = showingTextOnTop.replaceAll("[^0-9]","");
+        int showingChargerCountAfterClick = Integer.parseInt(ShowingChargerAfterClick);
+        int dataInList = driver.findElements(ChargerListPropertyAdmin.Rows).size();
+        System.out.println("Data in the list : "+dataInList);
+        int expectedCountTop = Integer.parseInt(prop.getProperty("PageSizeInTest"))+Integer.parseInt(prop.getProperty("PageSizeInTest"));
+        String countOnTop = String.valueOf(expectedCountTop);
+        String expectedText = countAtTopLeftOfTheTable(countOnTop);
+        if (showingTextOnTop.equals(expectedText) && showingChargerCountAfterClick==dataInList){
+            System.out.println("Showing above count is increasing After click on Load more button");
+            return true;
+        }
+        else{
+            System.out.println("Wrongggg!!!");
+            return false;
+        }
+
+    }
+
+
+    public boolean verifyLoadMoreButtonActionOnTextBesideTheButton() throws InterruptedException{
+        waitVisibility(ChargerListPropertyAdmin.LoadMoreButton);
+        waitVisibility(ChargerListPropertyAdmin.LeftShowingCharger);
+        click(loadMoreButton);
+        waitForFewMoment(3000);
+        String showingTextOnTop = driver.findElement(ChargerListPropertyAdmin.LeftShowingCharger).getText();
+        System.out.println("Promo codes count beside the load more button : "+showingTextOnTop);
+        String ShowingChargerAfterClick = showingTextOnTop.replaceAll("[^0-9]","");
+        int showingChargerCountAfterClick = Integer.parseInt(ShowingChargerAfterClick);
+        int dataInList = driver.findElements(ChargerListPropertyAdmin.Rows).size();
+        System.out.println("Data in the list : "+dataInList);
+        int expectedCountTop = Integer.parseInt(prop.getProperty("PageSizeInTest"))+Integer.parseInt(prop.getProperty("PageSizeInTest"));
+        String countOnTop = String.valueOf(expectedCountTop);
+        String expectedText = countBesideLoadMoreButton(countOnTop);
+        if (showingTextOnTop.equals(expectedText) && showingChargerCountAfterClick==dataInList){
+            System.out.println("Count beside load more button is increasing after click on Load more button");
+            return true;
+        }
+        else{
+            System.out.println("Wrongggg!!!");
+            return false;
+        }
+
+    }
+
+
+    public boolean verifyTotalCount() throws InterruptedException{
+        waitVisibility(ChargerListPropertyAdmin.LoadMoreButton);
+        String totalCount = readText(ChargerListPropertyAdmin.TotalNum);
+        System.out.println("Promo codes count on top : "+totalCount);
+        int dataInList = driver.findElements(ChargerListPropertyAdmin.Rows).size();
+        System.out.println("Data in the list : "+dataInList);
+        String totalC = String.valueOf(dataInList);
+        String expectedText = totalCountText(totalC);
+        if (totalCount.equals(expectedText)){
+            System.out.println("Total Promo Code count in the list showing correctly");
+            return true;
+        }
+        else{
+            System.out.println("Wrongggg!!!");
+            return false;
+        }
+
+    }
+
+
+
+    public boolean verifySearchDataIsShowingCorrectly(String Title,int IndexOfTitle,String searchedData) throws InterruptedException {
+        Thread.sleep(3000);
+        waitforPresence(editButton);
+        clickOnLoadMoreButtonUntilItIsVisible();
+        WebElement mytable = driver.findElement(By.xpath("//thead"));
+        List<WebElement> headers = mytable.findElements(By.tagName("th"));
+        int resultColumnIndex = 0;
+        for (int i = 0; i < headers.size(); i++) {
+            if (headers.get(i).getText().equals(Title)) {
+                resultColumnIndex = i;
+                System.out.println(resultColumnIndex);
+                System.out.println(Title);
+                break;
+            }
+        }
+        if (resultColumnIndex != IndexOfTitle) {
+            // The "Result" column was not found
+            throw new RuntimeException("The column was not found");
+        }
+
+        WebElement myrows = driver.findElement(By.xpath("//tbody"));
+        List<WebElement> rows = myrows.findElements(By.tagName("tr"));
+        for (int i = 1; i < rows.size(); i++) { // start at index 1 to skip the header row
+            List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));
+            String result = cells.get(resultColumnIndex).getText();
+            System.out.println(result);
+            if (!result.equals(searchedData)) {
+                // Verification failed
+                throw new RuntimeException("Verification failed. Expected"+searchedData+" but Got " + result + "' in row " + i);
+
+            }
+
+        }
+        return true;
+
+
+    }
+
+
+    public boolean verifyPartiallySearchData(String Title,int IndexOfTitle,String searchedData) throws InterruptedException {
+        Thread.sleep(3000);
+        waitforPresence(editButton);
+        clickOnLoadMoreButtonUntilItIsVisible();
+        WebElement mytable = driver.findElement(By.xpath("//thead"));
+        List<WebElement> headers = mytable.findElements(By.tagName("th"));
+        int resultColumnIndex = 0;
+        for (int i = 0; i < headers.size(); i++) {
+            if (headers.get(i).getText().equals(Title)) {
+                resultColumnIndex = i;
+                System.out.println(resultColumnIndex);
+                System.out.println(Title);
+                break;
+            }
+        }
+        if (resultColumnIndex != IndexOfTitle) {
+            // The "Result" column was not found
+            throw new RuntimeException("The column was not found");
+        }
+
+        WebElement myrows = driver.findElement(By.xpath("//tbody"));
+        List<WebElement> rows = myrows.findElements(By.tagName("tr"));
+        for (int i = 1; i < rows.size(); i++) { // start at index 1 to skip the header row
+            List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));
+            String result = cells.get(resultColumnIndex).getText();
+            System.out.println(result);
+            if (!result.contains(searchedData)) {
+                // Verification failed
+                throw new RuntimeException("Verification failed. Expected"+searchedData+" but Got " + result + "' in row " + i);
+
+            }
+
+        }
+        return true;
+
+
+    }
+
+
+
+
 
 
     public void clickOnLoadMoreButtonUntilItIsVisible() throws InterruptedException {
@@ -140,6 +486,7 @@ public class PromoCodeList extends BasePage{
                 clickButton(searchPromoCodeButton,1500);
                 waitForFewMoment(1000);
                 String validationMsg = readText(noDataTable);
+                System.out.println("Validation message is showing : "+validationMsg);
                 if (!validationMsg.equals(noDatFound())) {
                     System.out.println("Validation message not displayed for input value : " + inputValues[i]);
                     allValidationsPass = false;

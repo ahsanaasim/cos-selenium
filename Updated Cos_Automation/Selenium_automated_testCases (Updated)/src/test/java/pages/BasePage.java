@@ -263,7 +263,13 @@ public class BasePage {
     //Read Text
     public String readText(By elementBy) {
         waitVisibility(elementBy);
+        waitelemtclickable(elementBy);
         return driver.findElement(elementBy).getText();
+    }
+
+    public String readTextFromAttribute(By elementBy,String AttributeName) {
+        waitVisibility(elementBy);
+        return driver.findElement(elementBy).getAttribute(AttributeName);
     }
 
     //Assert
@@ -319,6 +325,36 @@ public class BasePage {
             return false;
         }
 
+    }
+
+
+    public boolean verifySearchFieldData(By waitButton,By SearchField,String ExpectedData){
+        waitVisibility(waitButton);
+        String DataInSearchBox = readTextFromAttribute(SearchField,"value");
+        System.out.println("Data in search box: "+DataInSearchBox);
+        String Expected = ExpectedData;
+        if (DataInSearchBox.equals(Expected)){
+            System.out.println("Search field is holding the expected search data");
+            return true;
+        }
+        else {
+            System.out.println("Search field is holding the expected search data");
+            return false;
+        }
+    }
+
+    public boolean verifySearchFieldIsEmpty(By searchField) throws InterruptedException {
+        waitForFewMoment(3000);
+        String DataInSearchBox = readTextFromAttribute(searchField,"value");
+        System.out.println("Data in search box: "+DataInSearchBox);
+        if (DataInSearchBox.isEmpty()){
+            System.out.println("Search Field is empty");
+            return true;
+        }
+        else {
+            System.out.println("Search Field is not empty");
+            return false;
+        }
     }
 
     public String urlOfCustomerApp(String url){
