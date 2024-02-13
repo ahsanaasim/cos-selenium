@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -30,8 +31,9 @@ public class PromoCodeList extends BasePage{
     public static By latestPromoCodeDetails = By.xpath("(//td[@class='ant-table-cell ant-table-cell-ellipsis'])[2]");
     public static By latestPromoCodeStartDate = By.xpath("(//td[@class='ant-table-cell ant-table-cell-ellipsis'])[3]");
     public static By latestPromoCodeExpiryDate = By.xpath("(//td[@class='ant-table-cell ant-table-cell-ellipsis'])[4]");
-    public static By latestPromoCodePropertiesCount = By.xpath("(//td[@class='ant-table-cell ant-table-cell-ellipsis'])[5]");
-    public static By latestPromoCodeChargersCount = By.xpath("(//td[@class='ant-table-cell ant-table-cell-ellipsis'])[6]");
+    public static By latestPromoCodeStatus = By.xpath("(//td[@class='ant-table-cell ant-table-cell-ellipsis'])[5]");
+    public static By latestPromoCodePropertiesCount = By.xpath("(//td[@class='ant-table-cell ant-table-cell-ellipsis'])[6]");
+    public static By latestPromoCodeChargersCount = By.xpath("(//td[@class='ant-table-cell ant-table-cell-ellipsis'])[7]");
     public static By chargersCountLink = By.xpath("//div[@class='wordBreak underline inline-block']");
     public static By noDataTable = By.xpath("//div[@class='noDataTableDiv']");
     public static By spinner = By.xpath("//span[@class='ant-spin-dot ant-spin-dot-spin']");
@@ -39,6 +41,12 @@ public class PromoCodeList extends BasePage{
 //    Advance Filter
 
     public static By drawerTitle = By.xpath("//span[@class='drawerTitle']");
+    public static By selectPropertyInFilter = By.xpath("//div[@class='ant-select-selection-overflow']");
+    public static By propertyFieldToTypeInFilter = By.xpath("//input[@class='ant-select-selection-search-input']");
+    public static By applyButton = By.xpath("//button[@type='button']//span[contains(text(),'Apply')]");
+    public static By tag1 = By.xpath("//span[@class='ant-tag']");
+    public static By tag2 = By.xpath("(//span[@class='ant-tag'])[2]");
+    public static By clearAll = By.xpath("//span[@class='ant-tag cursor tagCss clearAllTag']");
 
 
 
@@ -76,6 +84,18 @@ public class PromoCodeList extends BasePage{
 
 
 
+    public void selectAPropertyInAdvanceFilter(String property) throws InterruptedException {
+        waitForFewMoment(2000);
+        click(selectPropertyInFilter);
+        writeText(propertyFieldToTypeInFilter,property);
+        WebElement selectitem = driver.findElement(propertyFieldToTypeInFilter);
+        waitForFewMoment(1000);
+        selectitem.sendKeys(Keys.ENTER);
+
+
+
+
+    }
     public void searchAPromoCode(String searchedData) throws InterruptedException {
         waitVisibility(editButton);
         writeText(searchPromoCodeField,searchedData);
@@ -353,9 +373,10 @@ public class PromoCodeList extends BasePage{
 
 
     public boolean verifyTotalCount() throws InterruptedException{
-        waitVisibility(ChargerListPropertyAdmin.LoadMoreButton);
+        waitVisibility(ChargerListPropertyAdmin.TotalNum);
         String totalCount = readText(ChargerListPropertyAdmin.TotalNum);
         System.out.println("Promo codes count on top : "+totalCount);
+        waitForFewMoment(1500);
         int dataInList = driver.findElements(ChargerListPropertyAdmin.Rows).size();
         System.out.println("Data in the list : "+dataInList);
         String totalC = String.valueOf(dataInList);
@@ -374,6 +395,44 @@ public class PromoCodeList extends BasePage{
 
 
     public boolean verifySearchDataIsShowingCorrectly(String Title,int IndexOfTitle,String searchedData) throws InterruptedException {
+        Thread.sleep(3000);
+        waitforPresence(editButton);
+        clickOnLoadMoreButtonUntilItIsVisible();
+        WebElement mytable = driver.findElement(By.xpath("//thead"));
+        List<WebElement> headers = mytable.findElements(By.tagName("th"));
+        int resultColumnIndex = 0;
+        for (int i = 0; i < headers.size(); i++) {
+            if (headers.get(i).getText().equals(Title)) {
+                resultColumnIndex = i;
+                System.out.println(resultColumnIndex);
+                System.out.println(Title);
+                break;
+            }
+        }
+        if (resultColumnIndex != IndexOfTitle) {
+            // The "Result" column was not found
+            throw new RuntimeException("The column was not found");
+        }
+
+        WebElement myrows = driver.findElement(By.xpath("//tbody"));
+        List<WebElement> rows = myrows.findElements(By.tagName("tr"));
+        for (int i = 1; i < rows.size(); i++) { // start at index 1 to skip the header row
+            List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));
+            String result = cells.get(resultColumnIndex).getText();
+            System.out.println(result);
+            if (!result.equals(searchedData)) {
+                // Verification failed
+                throw new RuntimeException("Verification failed. Expected"+searchedData+" but Got " + result + "' in row " + i);
+
+            }
+
+        }
+        return true;
+
+
+    }
+
+    public boolean verifydate(String Title,int IndexOfTitle,String searchedData) throws InterruptedException {
         Thread.sleep(3000);
         waitforPresence(editButton);
         clickOnLoadMoreButtonUntilItIsVisible();
@@ -452,9 +511,6 @@ public class PromoCodeList extends BasePage{
 
 
 
-
-
-
     public void clickOnLoadMoreButtonUntilItIsVisible() throws InterruptedException {
         while (true) {
             try {
@@ -473,9 +529,27 @@ public class PromoCodeList extends BasePage{
         }
     }
 
+    public void clickOnClearAllTagIfItIsVisible() throws InterruptedException {
+        while (true) {
+            try {
+                waitForFewMoment(4000);
+                WebElement button = driver.findElement(clearAll);
+                if (button.isDisplayed()) {
+                    button.click();
+                    System.out.println("Clear all tag is clicked");
+                }
+            } catch (Exception e) {
+                // Button not found or not clickable, wait and retry
+                System.out.println("Button not found");
+                waitForFewMoment(3000);
+                break;
+            }
+        }
+    }
+
 
     public boolean verifySearchingWithInvalidInfo() throws InterruptedException {
-        String[] inputValues = {"08 Feb 2024 12:00 am","31 Jan 2024 11:59 pm","PromoBomoqqaa", "dsdsfsdf","13hjgasd","11111111","00000000","!@#$%^&*()_+/<>,.[]{]}:';';?","!","@","#","$","%","^","&","*","(",")","+","-","/","?","_"};
+        String[] inputValues = {"08 Feb 2024 12:00 am","31 Jan 2024 11:59 pm","PromoBomoqqaa", "dsdsfsdf","13hjgasd","11111111","00000000","!@#$%^&*()_+/<>,.[]{]}:';';?","!","@","#","$","^","&","*","(",")","+","-","/","?","_"};
         boolean allValidationsPass = true;
         waitForFewMoment(2000);
         for (int i = 0; i < inputValues.length; i++) {

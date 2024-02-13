@@ -241,6 +241,12 @@ public class CreatePromoCode extends BasePage{
         String promoName=feeName[index]+" "+randomNumber;
         return promoName;
     }
+    public String generatePromoRule() throws InterruptedException {
+        Random numGenerator = new Random();
+        int randomNumber = numGenerator.nextInt(40)+1;
+        String promoRules=String.valueOf(randomNumber);
+        return promoRules;
+    }
 
 
 
@@ -284,28 +290,61 @@ public class CreatePromoCode extends BasePage{
 
     }
 
+    public String generateDate(int days) throws InterruptedException {
+        // Calculate the future date you want to select (e.g., 7 days from today)
+        LocalDate currentDate = LocalDate.now();
+        LocalDate futureDate = currentDate.plusDays(days);
+        // Define the desired date format
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd MMM yyyy");
+        // Format the future date as per the desired format
+        String formattedFutureDate = futureDate.format(dateFormatter);
+        System.out.println(formattedFutureDate);
+        return formattedFutureDate;
+    }
 
-    public void selectProperty(String property){
+
+    public void selectProperty(String property) throws InterruptedException {
         waitVisibility(drawerTitle);
+        waitForFewMoment(2000);
         driver.findElement(By.xpath("//span[@class='ant-transfer-list-content-item-text'][contains(text(),'"+property+"')]")).click();
         click(assignedPropertyArrow);
+
+    }
+    public void removeAProperty(String property) throws InterruptedException {
+        waitVisibility(CreatePromoCode.assignedPropertiesCount);
+        waitForFewMoment(2000);
+        driver.findElement(By.xpath("//span[@class='ant-transfer-list-content-item-text'][contains(text(),'"+property+"')]")).click();
+        click(unassignedPropertyArrow);
 
     }
 
 
 
-    public void createAPromoCodeWithoutOptionalField(String pCode,String pRules,int startDay,int exDay,String property) throws InterruptedException {
+    public void createAPromoCodeWithoutOptionalField(String pCode,String pRules,int startDay,int exDay,String property,By submitButton) throws InterruptedException {
         waitVisibility(drawerTitle);
         writeText(promoCodeField,pCode);
         writeText(promoRulesField,pRules);
         selectDate(CreatePromoCode.promoStartDateField,startDay);
         selectDateForExpiryDate(exDay);
         selectProperty(property);
+        clickButton(submitButton,2000);
+
+    }
+
+    public void createAFlatBasePromoCode(String pCode,String pRules,int startDay,int exDay,String property,By submitButton) throws InterruptedException {
+        waitVisibility(drawerTitle);
+        writeText(promoCodeField,pCode);
+        changePromoRulesTypeToFlatBase();
+        writeText(promoRulesField,pRules);
+        selectDate(CreatePromoCode.promoStartDateField,startDay);
+        selectDateForExpiryDate(exDay);
+        selectProperty(property);
+        clickButton(submitButton,2000);
 
     }
 
 
-    public void createAPromoCodeWithOptionalField(String pCode,String pRules,int startDay,int exDay,String limit,String property) throws InterruptedException {
+    public void createAPromoCodeWithOptionalField(String pCode,String pRules,int startDay,int exDay,String limit,String property,By submitButton) throws InterruptedException {
         waitVisibility(drawerTitle);
         writeText(promoCodeField,pCode);
         writeText(promoRulesField,pRules);
@@ -313,6 +352,7 @@ public class CreatePromoCode extends BasePage{
         selectDateForExpiryDate(exDay);
         writeText(CreatePromoCode.reuseLimitPerPersonField,limit);
         selectProperty(property);
+        clickButton(submitButton,2000);
 
     }
 

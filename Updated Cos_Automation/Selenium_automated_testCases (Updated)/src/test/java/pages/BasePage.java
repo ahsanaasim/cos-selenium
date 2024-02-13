@@ -145,6 +145,20 @@ public class BasePage {
         }
     }
 
+    public boolean verifyFieldValueIsEmpty(int delay, By element) throws InterruptedException {
+        Thread.sleep(delay);
+        waitforPresence(element);
+        String S = driver.findElement(element).getAttribute("value");
+        System.out.println(S);
+        if (S.isEmpty()) {
+            System.out.println("Field is empty");
+            return true;
+        } else {
+            System.out.println("Field is not empty");
+            return false;
+        }
+    }
+
     public boolean verifyAFieldIsDisable(int delay, By element) throws InterruptedException {
         Thread.sleep(delay);
         waitforPresence(element);
