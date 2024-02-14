@@ -5,6 +5,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Properties;
 
@@ -432,10 +434,18 @@ public class PromoCodeList extends BasePage{
 
     }
 
-    public boolean verifydate(String Title,int IndexOfTitle,String searchedData) throws InterruptedException {
+    public boolean verifyDataIsShowingAccordingToSpecifiedDateRange(String Title, int IndexOfTitle, String starDate, String enDate) throws InterruptedException {
         Thread.sleep(3000);
         waitforPresence(editButton);
         clickOnLoadMoreButtonUntilItIsVisible();
+        String startDateStr = starDate;
+        String endDateStr = enDate;
+        // Define the date format pattern
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM yyyy");
+        // Parse the strings into LocalDate objects using the specified format
+        LocalDate startDate = LocalDate.parse(startDateStr,formatter);
+        LocalDate endDate = LocalDate.parse(endDateStr,formatter);
+        boolean allDatesWithinRange = true;
         WebElement mytable = driver.findElement(By.xpath("//thead"));
         List<WebElement> headers = mytable.findElements(By.tagName("th"));
         int resultColumnIndex = 0;
@@ -456,16 +466,25 @@ public class PromoCodeList extends BasePage{
         List<WebElement> rows = myrows.findElements(By.tagName("tr"));
         for (int i = 1; i < rows.size(); i++) { // start at index 1 to skip the header row
             List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));
-            String result = cells.get(resultColumnIndex).getText();
+            String result = cells.get(resultColumnIndex).getText().replaceAll("\\s+\\d{1,2}:\\d{2}\\s+[ap]m","");
             System.out.println(result);
-            if (!result.equals(searchedData)) {
+            LocalDate dateToVerify = LocalDate.parse(result,formatter);
+            if (dateToVerify.isBefore(startDate) || dateToVerify.isAfter(endDate)) {
                 // Verification failed
-                throw new RuntimeException("Verification failed. Expected"+searchedData+" but Got " + result + "' in row " + i);
+                throw new RuntimeException("Verification failed. Got " + result + "' in row " + i);
 
             }
 
         }
-        return true;
+
+        if (allDatesWithinRange) {
+            System.out.println("All dates are within the specified range.");
+            return true;
+        } else {
+            System.out.println("Not all dates are within the specified range.");
+            return false;
+        }
+
 
 
     }
@@ -522,7 +541,7 @@ public class PromoCodeList extends BasePage{
                 }
             } catch (Exception e) {
                 // Button not found or not clickable, wait and retry
-                System.out.println("Button not found");
+                System.out.println("Load more button not found");
                 waitForFewMoment(3000);
                 break;
             }

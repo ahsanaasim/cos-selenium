@@ -1110,7 +1110,7 @@ public class TestCasesOfPromoCodeModule extends BaseTest {
         PromoCodeList promoCodeList = new PromoCodeList(driver);
         String startDate = createPromoCode.generateDate(1)+" 12:00 am";
         String expiryDate = createPromoCode.generateDate(2)+" 11:59 pm";
-        loginPage.verifyValidLogin();
+        /*loginPage.verifyValidLogin();*/
         promoCodeList.goToWebsite(promoCodeList.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));
         promoCodeList.clickButton(PromoCodeList.editButton,2000);
         createPromoCode.selectDate(CreatePromoCode.promoStartDateField,1);
@@ -1181,7 +1181,7 @@ public class TestCasesOfPromoCodeModule extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         CreatePromoCode createPromoCode = new CreatePromoCode(driver);
         PromoCodeList promoCodeList = new PromoCodeList(driver);
-        loginPage.verifyValidLogin();
+        /*loginPage.verifyValidLogin();*/
         promoCodeList.goToWebsite(promoCodeList.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));
         promoCodeList.clickButton(PromoCodeList.editButton,2000);
         createPromoCode.removeAProperty(prop.getProperty("Property4ForPromoCode"));
@@ -1224,18 +1224,22 @@ public class TestCasesOfPromoCodeModule extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         CreatePromoCode createPromoCode = new CreatePromoCode(driver);
         PromoCodeList promoCodeList = new PromoCodeList(driver);
-        String startDate = "Start Date - "+createPromoCode.generateDate(-1);
-        String expiryDate = "End Date - "+createPromoCode.generateDate(0);
+        String date1 = createPromoCode.generateDate(-7);
+        String date2 = createPromoCode.generateDate(3);
+        String startDate = "Start Date - "+createPromoCode.generateDate(-7);
+        String expiryDate = "End Date - "+createPromoCode.generateDate(3);
         /*loginPage.verifyValidLogin();
         promoCodeList.goToWebsite(promoCodeList.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));*/
         promoCodeList.clickOnClearAllTagIfItIsVisible();
         promoCodeList.clickButton(PromoCodeList.addAdvanceFilter,2000);
-        createPromoCode.selectDate(CreatePromoCode.promoStartDateField,-1);
-        createPromoCode.selectDateForExpiryDate(0);
+        createPromoCode.selectDate(CreatePromoCode.promoStartDateField,-7);
+        createPromoCode.selectDateForExpiryDate(3);
         promoCodeList.clickButton(PromoCodeList.applyButton,1500);
         Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag1,startDate));
         Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag2,expiryDate));
         Assert.assertTrue(promoCodeList.verifyTextMatching(500,PromoCodeList.clearAll,"Clear All"));
+        Assert.assertTrue(promoCodeList.verifyDataIsShowingAccordingToSpecifiedDateRange("Start Date",2,date1,date2));
+        Assert.assertTrue(promoCodeList.verifyDataIsShowingAccordingToSpecifiedDateRange("Expiry Date",3,date1,date2));
 
 
     }
