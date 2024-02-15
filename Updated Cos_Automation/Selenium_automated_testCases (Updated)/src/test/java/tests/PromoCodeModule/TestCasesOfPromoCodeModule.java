@@ -1000,7 +1000,6 @@ public class TestCasesOfPromoCodeModule extends BaseTest {
         PromoCodeList promoCodeList = new PromoCodeList(driver);
         /*loginPage.verifyValidLogin();*/
         promoCodeList.goToWebsite(promoCodeList.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));
-        promoCodeList.clickOnLoadMoreButtonUntilItIsVisible();
         Assert.assertTrue(promoCodeList.verifyTotalCount());
 
 
@@ -1241,8 +1240,278 @@ public class TestCasesOfPromoCodeModule extends BaseTest {
         Assert.assertTrue(promoCodeList.verifyDataIsShowingAccordingToSpecifiedDateRange("Start Date",2,date1,date2));
         Assert.assertTrue(promoCodeList.verifyDataIsShowingAccordingToSpecifiedDateRange("Expiry Date",3,date1,date2));
 
+    }
+
+    @Test(priority = 110)//Done
+    @TestParameters(testCaseId = {"TC-110"})
+    public void tc_110_checkActiveStatusFilter() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        PromoCodeList promoCodeList = new PromoCodeList(driver);
+        /*loginPage.verifyValidLogin();
+        promoCodeList.goToWebsite(promoCodeList.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));*/
+        promoCodeList.clickOnClearAllTagIfItIsVisible();
+        promoCodeList.clickButton(PromoCodeList.addAdvanceFilter,2000);
+        promoCodeList.clickButton(PromoCodeList.activePromoCodeRadioButton,1500);
+        promoCodeList.clickButton(PromoCodeList.applyButton,1500);
+        Assert.assertTrue(promoCodeList.verifyTextMatching(4000,PromoCodeList.tag1,promoCodeList.activeTag()));
+        Assert.assertTrue(promoCodeList.verifyElementNotDisplayed(500,PromoCodeList.tag2));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(500,PromoCodeList.clearAll,"Clear All"));
+        Assert.assertTrue(promoCodeList.verifySearchDataIsShowingCorrectly("Promo Status",4,"Active"));
 
     }
+
+    @Test(priority = 113)//Done
+    @TestParameters(testCaseId = {"TC-113"})
+    public void tc_113_checkExpiredStatusFilter() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        PromoCodeList promoCodeList = new PromoCodeList(driver);
+        /*loginPage.verifyValidLogin();
+        promoCodeList.goToWebsite(promoCodeList.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));*/
+        promoCodeList.clickOnClearAllTagIfItIsVisible();
+        promoCodeList.clickButton(PromoCodeList.addAdvanceFilter,2000);
+        promoCodeList.clickButton(PromoCodeList.expiredPromoCodeRadioButton,1500);
+        promoCodeList.clickButton(PromoCodeList.applyButton,1500);
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag1,promoCodeList.expiredTag()));
+        Assert.assertTrue(promoCodeList.verifyElementNotDisplayed(500,PromoCodeList.tag2));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(500,PromoCodeList.clearAll,"Clear All"));
+        Assert.assertTrue(promoCodeList.verifySearchDataIsShowingCorrectly("Promo Status",4,"Expired"));
+
+    }
+
+    @Test(priority = 116)//Done
+    @TestParameters(testCaseId = {"TC-116"})
+    public void tc_116_checkInactiveStatusFilter() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        PromoCodeList promoCodeList = new PromoCodeList(driver);
+        /*loginPage.verifyValidLogin();*/
+        promoCodeList.goToWebsite(promoCodeList.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));
+        /*promoCodeList.clickOnClearAllTagIfItIsVisible();*/
+        promoCodeList.clickButton(PromoCodeList.addAdvanceFilter,2000);
+        promoCodeList.clickButton(PromoCodeList.inactivePromoCodeRadioButton,1500);
+        promoCodeList.clickButton(PromoCodeList.applyButton,1500);
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag1,promoCodeList.inactiveTag()));
+        Assert.assertTrue(promoCodeList.verifyElementNotDisplayed(500,PromoCodeList.tag2));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(500,PromoCodeList.clearAll,"Clear All"));
+        Assert.assertTrue(promoCodeList.verifySearchDataIsShowingCorrectly("Promo Status",4,"Inactive"));
+
+    }
+
+
+    @Test(priority = 119)//Done
+    @TestParameters(testCaseId = {"TC-119"})
+    public void tc_119_checkAdvancedFilterAppliedOnMultipleProperties() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        PromoCodeList promoCodeList = new PromoCodeList(driver);
+        FeeStructureList list = new FeeStructureList(driver);
+        /*loginPage.verifyValidLogin();*/
+        promoCodeList.goToWebsite(promoCodeList.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));
+        promoCodeList.clickButton(PromoCodeList.addAdvanceFilter,2000);
+        promoCodeList.selectAPropertyInAdvanceFilter(prop.getProperty("PropertyForPromoCode"));
+        promoCodeList.selectAPropertyInAdvanceFilter(prop.getProperty("Property2ForPromoCode"));
+        promoCodeList.selectAPropertyInAdvanceFilter(prop.getProperty("Property3ForPromoCode"));
+        promoCodeList.selectAPropertyInAdvanceFilter(prop.getProperty("Property4ForPromoCode"));
+        promoCodeList.clickButton(PromoCodeList.applyButton,1500);
+        Assert.assertTrue(promoCodeList.verifyTextMatching(2000,PromoCodeList.tag1,prop.getProperty("PropertyForPromoCode")));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag2,prop.getProperty("Property2ForPromoCode")));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag3,prop.getProperty("Property3ForPromoCode")));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag4,prop.getProperty("Property4ForPromoCode")));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(500,PromoCodeList.clearAll,"Clear All"));
+        Assert.assertTrue(promoCodeList.verifyExpectedTitleColumnNotRemainedBlank("Promo Code",0));
+        Assert.assertTrue(promoCodeList.verifyExpectedTitleColumnNotRemainedBlank("Promo Code Details",1));
+        Assert.assertTrue(promoCodeList.verifyExpectedTitleColumnNotRemainedBlank("Start Date",2));
+        Assert.assertTrue(promoCodeList.verifyExpectedTitleColumnNotRemainedBlank("Expiry Date",3));
+        Assert.assertTrue(promoCodeList.verifyExpectedTitleColumnNotRemainedBlank("Promo Status",4));
+        Assert.assertTrue(promoCodeList.verifyExpectedTitleColumnNotRemainedBlank("Properties linked",5));
+        Assert.assertTrue(promoCodeList.verifyExpectedTitleColumnNotRemainedBlank("Chargers",6));
+        Assert.assertTrue(list.verifyActionColumnOccupiedWithEditButton("Action",7));
+
+
+    }
+
+
+    @Test(priority = 121)//Done
+    @TestParameters(testCaseId = {"TC-121"})
+    public void tc_121_checkAdvancedFilterOnMultiplePropertiesAndDateRange() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        PromoCodeList promoCodeList = new PromoCodeList(driver);
+        String date1 = createPromoCode.generateDate(-6);
+        String date2 = createPromoCode.generateDate(1);
+        String startDate = "Start Date - "+createPromoCode.generateDate(-6);
+        String expiryDate = "End Date - "+createPromoCode.generateDate(1);
+        loginPage.verifyValidLogin();
+        promoCodeList.goToWebsite(promoCodeList.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));
+        promoCodeList.clickButton(PromoCodeList.addAdvanceFilter,2000);
+        promoCodeList.selectAPropertyInAdvanceFilter(prop.getProperty("PropertyForPromoCode"));
+        promoCodeList.selectAPropertyInAdvanceFilter(prop.getProperty("Property2ForPromoCode"));
+        promoCodeList.selectAPropertyInAdvanceFilter(prop.getProperty("Property3ForPromoCode"));
+        promoCodeList.click(PromoCodeList.drawerTitle);
+        createPromoCode.selectDate(CreatePromoCode.promoStartDateField,-6);
+        createPromoCode.selectDateForExpiryDate(1);
+        promoCodeList.clickButton(PromoCodeList.applyButton,1500);
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag1,startDate));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag2,expiryDate));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(2000,PromoCodeList.tag3,prop.getProperty("PropertyForPromoCode")));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag4,prop.getProperty("Property2ForPromoCode")));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag5,prop.getProperty("Property3ForPromoCode")));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(500,PromoCodeList.clearAll,"Clear All"));
+        Assert.assertTrue(promoCodeList.verifyDataIsShowingAccordingToSpecifiedDateRange("Start Date",2,date1,date2));
+        Assert.assertTrue(promoCodeList.verifyDataIsShowingAccordingToSpecifiedDateRange("Expiry Date",3,date1,date2));
+
+
+
+    }
+
+    @Test(priority = 123)//Done
+    @TestParameters(testCaseId = {"TC-123"})
+    public void tc_123_checkAdvancedFilterOnMultiplePropertiesDateRangeActiveStatus() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        PromoCodeList promoCodeList = new PromoCodeList(driver);
+        String date1 = createPromoCode.generateDate(-5);
+        String date2 = createPromoCode.generateDate(0);
+        String startDate = "Start Date - "+createPromoCode.generateDate(-5);
+        String expiryDate = "End Date - "+createPromoCode.generateDate(0);
+        /*loginPage.verifyValidLogin();*/
+        promoCodeList.goToWebsite(promoCodeList.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));
+        promoCodeList.clickButton(PromoCodeList.addAdvanceFilter,2000);
+        promoCodeList.selectAPropertyInAdvanceFilter(prop.getProperty("PropertyForPromoCode"));
+        promoCodeList.selectAPropertyInAdvanceFilter(prop.getProperty("Property2ForPromoCode"));
+        promoCodeList.selectAPropertyInAdvanceFilter(prop.getProperty("Property3ForPromoCode"));
+        promoCodeList.click(PromoCodeList.drawerTitle);
+        createPromoCode.selectDate(CreatePromoCode.promoStartDateField,-5);
+        createPromoCode.selectDateForExpiryDate(0);
+        promoCodeList.clickButton(PromoCodeList.activePromoCodeRadioButton,1000);
+        promoCodeList.clickButton(PromoCodeList.applyButton,1500);
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag1,startDate));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag2,expiryDate));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag3,promoCodeList.activeTag()));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(2000,PromoCodeList.tag4,prop.getProperty("PropertyForPromoCode")));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag5,prop.getProperty("Property2ForPromoCode")));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag6,prop.getProperty("Property3ForPromoCode")));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(500,PromoCodeList.clearAll,"Clear All"));
+        Assert.assertTrue(promoCodeList.verifyDataIsShowingAccordingToSpecifiedDateRange("Start Date",2,date1,date2));
+        Assert.assertTrue(promoCodeList.verifyDataIsShowingAccordingToSpecifiedDateRange("Expiry Date",3,date1,date2));
+        Assert.assertTrue(promoCodeList.verifySearchDataIsShowingCorrectly("Promo Status",4,"Active"));
+
+
+    }
+
+
+    @Test(priority = 125)//Done
+    @TestParameters(testCaseId = {"TC-125"})
+    public void tc_125_checkAdvancedFilterOnMultiplePropertiesDateRangeInactiveStatus() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        PromoCodeList promoCodeList = new PromoCodeList(driver);
+        String date1 = createPromoCode.generateDate(-4);
+        String date2 = createPromoCode.generateDate(0);
+        String startDate = "Start Date - "+createPromoCode.generateDate(-4);
+        String expiryDate = "End Date - "+createPromoCode.generateDate(0);
+        /*loginPage.verifyValidLogin();*/
+        promoCodeList.goToWebsite(promoCodeList.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));
+        promoCodeList.clickButton(PromoCodeList.addAdvanceFilter,2000);
+        promoCodeList.selectAPropertyInAdvanceFilter(prop.getProperty("PropertyForPromoCode"));
+        promoCodeList.selectAPropertyInAdvanceFilter(prop.getProperty("Property2ForPromoCode"));
+        promoCodeList.selectAPropertyInAdvanceFilter(prop.getProperty("Property3ForPromoCode"));
+        promoCodeList.click(PromoCodeList.drawerTitle);
+        createPromoCode.selectDate(CreatePromoCode.promoStartDateField,-4);
+        createPromoCode.selectDateForExpiryDate(0);
+        promoCodeList.clickButton(PromoCodeList.inactivePromoCodeRadioButton,1000);
+        promoCodeList.clickButton(PromoCodeList.applyButton,1500);
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag1,startDate));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag2,expiryDate));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag3,promoCodeList.inactiveTag()));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(2000,PromoCodeList.tag4,prop.getProperty("PropertyForPromoCode")));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag5,prop.getProperty("Property2ForPromoCode")));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag6,prop.getProperty("Property3ForPromoCode")));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(500,PromoCodeList.clearAll,"Clear All"));
+        Assert.assertTrue(promoCodeList.verifyDataIsShowingAccordingToSpecifiedDateRange("Start Date",2,date1,date2));
+        Assert.assertTrue(promoCodeList.verifyDataIsShowingAccordingToSpecifiedDateRange("Expiry Date",3,date1,date2));
+        Assert.assertTrue(promoCodeList.verifySearchDataIsShowingCorrectly("Promo Status",4,"Inactive"));
+
+
+    }
+
+    @Test(priority = 127)//Done
+    @TestParameters(testCaseId = {"TC-127"})
+    public void tc_127_checkAdvancedFilterOnMultiplePropertiesDateRangeExpiredStatus() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        PromoCodeList promoCodeList = new PromoCodeList(driver);
+        String date1 = createPromoCode.generateDate(-3);
+        String date2 = createPromoCode.generateDate(1);
+        String startDate = "Start Date - "+createPromoCode.generateDate(-3);
+        String expiryDate = "End Date - "+createPromoCode.generateDate(1);
+        /*loginPage.verifyValidLogin();*/
+        promoCodeList.goToWebsite(promoCodeList.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));
+        promoCodeList.clickButton(PromoCodeList.addAdvanceFilter,2000);
+        promoCodeList.selectAPropertyInAdvanceFilter(prop.getProperty("Property2ForPromoCode"));
+        promoCodeList.selectAPropertyInAdvanceFilter(prop.getProperty("Property3ForPromoCode"));
+        promoCodeList.selectAPropertyInAdvanceFilter(prop.getProperty("Property4ForPromoCode"));
+        promoCodeList.click(PromoCodeList.drawerTitle);
+        createPromoCode.selectDate(CreatePromoCode.promoStartDateField,-3);
+        createPromoCode.selectDateForExpiryDate(1);
+        promoCodeList.clickButton(PromoCodeList.expiredPromoCodeRadioButton,1000);
+        promoCodeList.clickButton(PromoCodeList.applyButton,1500);
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag1,startDate));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag2,expiryDate));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag3,promoCodeList.expiredTag()));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(2000,PromoCodeList.tag4,prop.getProperty("Property2ForPromoCode")));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag5,prop.getProperty("Property3ForPromoCode")));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(1500,PromoCodeList.tag6,prop.getProperty("Property4ForPromoCode")));
+        Assert.assertTrue(promoCodeList.verifyTextMatching(500,PromoCodeList.clearAll,"Clear All"));
+        Assert.assertTrue(promoCodeList.verifyDataIsShowingAccordingToSpecifiedDateRange("Start Date",2,date1,date2));
+        Assert.assertTrue(promoCodeList.verifyDataIsShowingAccordingToSpecifiedDateRange("Expiry Date",3,date1,date2));
+        Assert.assertTrue(promoCodeList.verifySearchDataIsShowingCorrectly("Promo Status",4,"Expired"));
+
+
+    }
+
+
+    @Test(priority = 139)//Done
+    @TestParameters(testCaseId = {"TC-139"})
+    public void tc_139_checkWhenClearAllTagIsClicked() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        PromoCodeList promoCodeList = new PromoCodeList(driver);
+        /*loginPage.verifyValidLogin();*/
+        /*promoCodeList.goToWebsite(promoCodeList.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));*/
+        promoCodeList.refreshBrowser();
+        promoCodeList.clickButton(PromoCodeList.clearAll,2000);
+        Assert.assertTrue(promoCodeList.verifyAnElementDisplayedOrNot(100,PromoCodeList.spinner));
+        Assert.assertTrue(promoCodeList.verifyElementNotDisplayed(1000,PromoCodeList.tag1));
+        Assert.assertTrue(promoCodeList.verifyElementNotDisplayed(1000,PromoCodeList.tag2));
+        Assert.assertTrue(promoCodeList.verifyElementNotDisplayed(1000,PromoCodeList.clearAll));
+
+
+    }
+
+
+    @Test(priority = 140)//Done
+    @TestParameters(testCaseId = {"TC-140"})
+    public void tc_140_checkAdvanceFilterDrawerIsEmptyAfterClickOnClearAllTag() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        PromoCodeList promoCodeList = new PromoCodeList(driver);
+        /*loginPage.verifyValidLogin();*/
+        /*promoCodeList.goToWebsite(promoCodeList.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));*/
+        promoCodeList.clickButton(PromoCodeList.addAdvanceFilter,2000);
+        Assert.assertTrue(promoCodeList.verifyFieldValueIsEmpty(2000,PromoCodeList.propertyFieldToTypeInFilter));
+        Assert.assertTrue(promoCodeList.verifyFieldValueIsEmpty(500,CreatePromoCode.promoStartDateField));
+        Assert.assertTrue(promoCodeList.verifyFieldValueIsEmpty(500,CreatePromoCode.promoExpiryDateField));
+        Assert.assertTrue(promoCodeList.verifyElementNotDisplayed(500,PromoCodeList.radioButtonChecked));
+
+
+    }
+
+
+
+
 
 
 

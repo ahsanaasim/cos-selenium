@@ -45,10 +45,19 @@ public class PromoCodeList extends BasePage{
     public static By drawerTitle = By.xpath("//span[@class='drawerTitle']");
     public static By selectPropertyInFilter = By.xpath("//div[@class='ant-select-selection-overflow']");
     public static By propertyFieldToTypeInFilter = By.xpath("//input[@class='ant-select-selection-search-input']");
+    public static By activePromoCodeRadioButton = By.xpath("//span[@class='ant-radio']");
+    public static By expiredPromoCodeRadioButton = By.xpath("(//span[@class='ant-radio'])[2]");
+    public static By inactivePromoCodeRadioButton = By.xpath("(//span[@class='ant-radio'])[3]");
     public static By applyButton = By.xpath("//button[@type='button']//span[contains(text(),'Apply')]");
     public static By tag1 = By.xpath("//span[@class='ant-tag']");
     public static By tag2 = By.xpath("(//span[@class='ant-tag'])[2]");
+    public static By tag3 = By.xpath("(//span[@class='ant-tag'])[3]");
+    public static By tag4 = By.xpath("(//span[@class='ant-tag'])[4]");
+    public static By tag5 = By.xpath("(//span[@class='ant-tag'])[5]");
+    public static By tag6 = By.xpath("(//span[@class='ant-tag'])[6]");
     public static By clearAll = By.xpath("//span[@class='ant-tag cursor tagCss clearAllTag']");
+    public static By radioButtonChecked = By.xpath("//span[@class='ant-radio ant-radio-checked']");
+
 
 
 
@@ -82,6 +91,16 @@ public class PromoCodeList extends BasePage{
     }
     public String totalCountText(String count){
         return "Total "+count;
+    }
+    public String activeTag(){
+        return "Active Codes";
+    }
+    public String inactiveTag(){
+        return "Inactive Codes";
+    }
+
+    public String expiredTag(){
+        return "Expired Codes";
     }
 
 
@@ -378,7 +397,8 @@ public class PromoCodeList extends BasePage{
         waitVisibility(ChargerListPropertyAdmin.TotalNum);
         String totalCount = readText(ChargerListPropertyAdmin.TotalNum);
         System.out.println("Promo codes count on top : "+totalCount);
-        waitForFewMoment(1500);
+        clickOnLoadMoreButtonUntilItIsVisible();
+        waitForFewMoment(2000);
         int dataInList = driver.findElements(ChargerListPropertyAdmin.Rows).size();
         System.out.println("Data in the list : "+dataInList);
         String totalC = String.valueOf(dataInList);
@@ -430,7 +450,6 @@ public class PromoCodeList extends BasePage{
 
         }
         return true;
-
 
     }
 
@@ -576,8 +595,8 @@ public class PromoCodeList extends BasePage{
                 fieldClear(searchPromoCodeField);
                 waitForFewMoment(3500);
                 writeText(searchPromoCodeField,inputValues[i]);
-                clickButton(searchPromoCodeButton,1500);
-                waitForFewMoment(1000);
+                clickButton(searchPromoCodeButton,1000);
+                waitForFewMoment(2500);
                 String validationMsg = readText(noDataTable);
                 System.out.println("Validation message is showing : "+validationMsg);
                 if (!validationMsg.equals(noDatFound())) {
