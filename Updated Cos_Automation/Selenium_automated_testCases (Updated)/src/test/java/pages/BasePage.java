@@ -89,7 +89,7 @@ public class BasePage {
 
     public boolean verifyTextMatching(int delay, By element, String expected) throws InterruptedException {
         Thread.sleep(delay);
-        waitforPresence(element);
+        waitVisibility(element);
         String S = driver.findElement(element).getText();
         System.out.println(S);
         String ExpectedText = expected;

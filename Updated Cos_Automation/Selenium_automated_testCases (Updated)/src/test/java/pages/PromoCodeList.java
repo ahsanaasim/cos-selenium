@@ -593,10 +593,10 @@ public class PromoCodeList extends BasePage{
         for (int i = 0; i < inputValues.length; i++) {
             try {
                 fieldClear(searchPromoCodeField);
-                waitForFewMoment(3500);
+                waitForFewMoment(2000);
                 writeText(searchPromoCodeField,inputValues[i]);
                 clickButton(searchPromoCodeButton,1000);
-                waitForFewMoment(2500);
+                waitForFewMoment(3000);
                 String validationMsg = readText(noDataTable);
                 System.out.println("Validation message is showing : "+validationMsg);
                 if (!validationMsg.equals(noDatFound())) {

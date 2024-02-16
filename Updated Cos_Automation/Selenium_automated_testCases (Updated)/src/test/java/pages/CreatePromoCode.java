@@ -42,6 +42,8 @@ public class CreatePromoCode extends BasePage{
     public static By assignedPropertyArrow = By.xpath("//button[@class='ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only']");
     public static By unassignedPropertyArrow = By.xpath("(//button[@class='ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only'])[2]");
     public static By today = By.xpath("//a[@class='ant-picker-today-btn']");
+    public static By monthInDatePicker = By.xpath("//button[@class='ant-picker-month-btn']");
+    public static By januaryMonth = By.xpath("//div[@class='ant-picker-cell-inner']");
     public static By banasreePoliceParkProperty = By.xpath("//span[@class='ant-transfer-list-content-item-text'][contains(text(),'Banasree police park')]");
     public static By tempXyzProperty = By.xpath("//span[@class='ant-transfer-list-content-item-text'][contains(text(),'Temporary Property xyz')]");
     public static By successfullyCreatedPopUp = By.xpath("//span[contains(text(),'Promo Code created successfully')]");
@@ -219,7 +221,7 @@ public class CreatePromoCode extends BasePage{
     }
 
     public void clickOnCreateNewCompanyButton() throws InterruptedException {
-        waitForFewMoment(1500);
+        waitForFewMoment(2000);
         waitVisibility(editButton);
         click(createNewPromoCodeButton);
     }
@@ -239,6 +241,7 @@ public class CreatePromoCode extends BasePage{
         int index = numGenerator.nextInt(feeName.length);
         int randomNumber = numGenerator.nextInt(50);
         String promoName=feeName[index]+" "+randomNumber;
+        System.out.println(promoName);
         return promoName;
     }
     public String generatePromoRule() throws InterruptedException {
@@ -248,6 +251,24 @@ public class CreatePromoCode extends BasePage{
         return promoRules;
     }
 
+
+
+    public void selectMonthAndDate(By dateField, By monthElement, String month, String date) throws InterruptedException {
+        Thread.sleep(4000);
+        waitVisibility(dateField);
+        // Locate and click on the date picker element
+        WebElement datePicker = driver.findElement(dateField);
+        datePicker.click();
+        click(CreatePromoCode.monthInDatePicker);
+        waitVisibility(By.xpath("//div[@class='ant-picker-cell-inner'][contains(text(),"+month+")]"));
+        WebElement monthPick = driver.findElement(By.xpath("//div[@class='ant-picker-cell-inner'][contains(text(),"+month+")]"));
+        monthPick.click();
+        // Locate and interact with the specific date element representing the future date
+        WebElement futureDateElement = driver.findElement(By.xpath("//td[@title='"+date+"']"));
+        waitForFewMoment(4000);
+        futureDateElement.click();
+
+    }
 
 
     public void selectDate(By dateField,int days) throws InterruptedException {

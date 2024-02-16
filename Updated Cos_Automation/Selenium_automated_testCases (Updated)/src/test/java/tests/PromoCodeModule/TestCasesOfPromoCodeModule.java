@@ -256,9 +256,10 @@ public class TestCasesOfPromoCodeModule extends BaseTest {
         createPromoCode.refreshBrowser();
         createPromoCode.clickOnCreateNewCompanyButton();
         createPromoCode.createAPromoCodeWithOptionalField(promo,"20",0,1,"5","Raw property",CreatePromoCode.savePromoCodeButton);
-        Assert.assertTrue(createPromoCode.verifyTextMatching(1500,PromoCodeList.latestPromoCode,promo));
-        Assert.assertTrue(createPromoCode.verifyTextMatching(500,PromoCodeList.latestPromoCodeDetails,promoDetails));
-        Assert.assertTrue(createPromoCode.verifyTextMatching(500,PromoCodeList.latestPromoCodeStatus,"Active"));
+        softAssert.assertTrue(createPromoCode.verifyTextMatching(3000,PromoCodeList.latestPromoCode,promo));
+        softAssert.assertTrue(createPromoCode.verifyTextMatching(300,PromoCodeList.latestPromoCodeDetails,promoDetails));
+        softAssert.assertTrue(createPromoCode.verifyTextMatching(300,PromoCodeList.latestPromoCodeStatus,"Active"));
+        softAssert.assertAll();
 
 
     }
@@ -462,6 +463,7 @@ public class TestCasesOfPromoCodeModule extends BaseTest {
         createPromoCode.selectDateForExpiryDate(1);
         createPromoCode.selectProperty("Raw property");
         createPromoCode.clickButton(CreatePromoCode.savePromoCodeButton,2000);
+        createPromoCode.waitForFewMoment(4000);
         createPromoCode.clickOnCreateNewCompanyButton();
         createPromoCode.writeText(CreatePromoCode.promoCodeField,promoCode);
         createPromoCode.writeText(CreatePromoCode.promoRulesField,"10");
@@ -469,7 +471,7 @@ public class TestCasesOfPromoCodeModule extends BaseTest {
         createPromoCode.selectDateForExpiryDate(1);
         createPromoCode.selectProperty("Raw property");
         createPromoCode.clickButton(CreatePromoCode.savePromoCodeButton,2000);
-        Assert.assertTrue(createPromoCode.verifyTextMatching(1000,CreatePromoCode.validationMsgForField1,createPromoCode.validationMsgForExistingPromoCodeNameAndDateRanges()));
+        Assert.assertTrue(createPromoCode.verifyTextMatching(500,CreatePromoCode.validationPopUpOfAlreadyActivePopUp,createPromoCode.validationMsgForExistingPromoCodeNameAndDateRanges()));
 
 
     }
@@ -1079,7 +1081,6 @@ public class TestCasesOfPromoCodeModule extends BaseTest {
         promoCodeList.clickButton(CreatePromoCode.savePromoCodeButton,1500);
         Assert.assertTrue(promoCodeList.verifyTextMatching(2000,PromoCodeList.latestPromoCodeDetails,promoDetails));
 
-
     }
 
     @Test(priority = 90)//Done
@@ -1471,6 +1472,39 @@ public class TestCasesOfPromoCodeModule extends BaseTest {
 
 
     }
+
+
+
+    @Test(priority = 129)//Done
+    @TestParameters(testCaseId = {"TC-129"})
+    public void tc_129_checkWhatHappensWhenPromoCodesFilteredByDateRangeAfterSearchingPromoCode() throws InterruptedException {
+        SoftAssert softAssert = new SoftAssert();
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        PromoCodeList promoCodeList = new PromoCodeList(driver);
+        String date1 = createPromoCode.generateDate(-21);
+        String date2 = createPromoCode.generateDate(1);
+        String startDate = "Start Date - "+createPromoCode.generateDate(-21);
+        String expiryDate = "End Date - "+createPromoCode.generateDate(1);
+        /*loginPage.verifyValidLogin();*/
+        promoCodeList.goToWebsite(promoCodeList.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));
+        promoCodeList.searchAPromoCode(prop.getProperty("PartiallySearchedPromoCodeTest"));
+        promoCodeList.clickButton(PromoCodeList.addAdvanceFilter,4000);
+        createPromoCode.selectMonthAndDate(CreatePromoCode.promoStartDateField,CreatePromoCode.monthInDatePicker,"Jan","2024-01-26");
+        createPromoCode.selectDate(CreatePromoCode.promoExpiryDateField,1);
+        promoCodeList.clickButton(PromoCodeList.applyButton,1500);
+        softAssert.assertTrue(promoCodeList.verifySearchFieldData(PromoCodeList.editButton,PromoCodeList.searchPromoCodeField,prop.getProperty("PartiallySearchedPromoCodeTest")));
+        softAssert.assertTrue(promoCodeList.verifyTextMatching(500,PromoCodeList.tag1,startDate));
+        softAssert.assertTrue(promoCodeList.verifyTextMatching(500,PromoCodeList.tag2,expiryDate));
+        softAssert.assertTrue(promoCodeList.verifyTextMatching(500,PromoCodeList.clearAll,"Clear All"));
+        softAssert.assertTrue(promoCodeList.verifyPartiallySearchData("Promo Code",0,prop.getProperty("PartiallySearchedPromoCodeTest")));
+        softAssert.assertTrue(promoCodeList.verifyDataIsShowingAccordingToSpecifiedDateRange("Start Date",2,date1,date2));
+        softAssert.assertTrue(promoCodeList.verifyDataIsShowingAccordingToSpecifiedDateRange("Expiry Date",3,date1,date2));
+        softAssert.assertAll();
+
+
+    }
+
 
 
     @Test(priority = 139)//Done
