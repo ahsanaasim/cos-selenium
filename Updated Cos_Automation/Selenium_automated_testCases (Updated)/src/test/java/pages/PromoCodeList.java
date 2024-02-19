@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -39,6 +40,9 @@ public class PromoCodeList extends BasePage{
     public static By chargersCountLink = By.xpath("//div[@class='wordBreak underline inline-block']");
     public static By noDataTable = By.xpath("//div[@class='noDataTableDiv']");
     public static By spinner = By.xpath("//span[@class='ant-spin-dot ant-spin-dot-spin']");
+    public static By crossIconInTag = By.xpath("//span[@class='anticon anticon-close ant-tag-close-icon']");
+    public static By crossIconInTag2 = By.xpath("(//span[@class='anticon anticon-close ant-tag-close-icon'])[2]");
+    public static By cancelButton = By.xpath("//button[@type='button']//span[contains(text(),'Cancel')]");
 
 //    Advance Filter
 
@@ -56,13 +60,14 @@ public class PromoCodeList extends BasePage{
     public static By tag5 = By.xpath("(//span[@class='ant-tag'])[5]");
     public static By tag6 = By.xpath("(//span[@class='ant-tag'])[6]");
     public static By clearAll = By.xpath("//span[@class='ant-tag cursor tagCss clearAllTag']");
+    public static By resetAll = By.xpath("//button[@type='button']//span[contains(text(),'Reset all')]");
     public static By radioButtonChecked = By.xpath("//span[@class='ant-radio ant-radio-checked']");
 
 
 
 
 
-    public String noDatFound(){
+    public String noDataFound(){
         return "No Data Found";
     }
 
@@ -105,12 +110,25 @@ public class PromoCodeList extends BasePage{
 
 
 
+
+    public void hoverOverAnIconThenClick(By waitElement, By iconToHoverOver, By iconToClick) throws InterruptedException {
+        waitForFewMoment(2000);
+        waitVisibility(waitElement);
+        WebElement icon = driver.findElement(iconToHoverOver); // Replace with the actual CSS selector of the icon
+        // Create an instance of Actions class
+        Actions actions = new Actions(driver);
+        // Hover over the icon
+        actions.moveToElement(icon).perform();
+        WebElement button = driver.findElement(iconToClick); // Replace with the actual CSS selector of the button
+        // Click the button
+        button.click();
+    }
     public void selectAPropertyInAdvanceFilter(String property) throws InterruptedException {
         waitForFewMoment(2000);
         click(selectPropertyInFilter);
         writeText(propertyFieldToTypeInFilter,property);
         WebElement selectitem = driver.findElement(propertyFieldToTypeInFilter);
-        waitForFewMoment(1000);
+        waitForFewMoment(1500);
         selectitem.sendKeys(Keys.ENTER);
 
 
@@ -126,6 +144,19 @@ public class PromoCodeList extends BasePage{
     public void clickOnSearchButton(By waitButton,By searchButton) throws InterruptedException {
         waitVisibility(waitButton);
         clickButton(searchButton,1000);
+    }
+
+    public String formatDate(String inputDate) {
+        // Define the input and output formats
+        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd MMM yyyy");
+
+        // Parse the input date string
+        LocalDate date = LocalDate.parse(inputDate, inputFormatter);
+
+        // Format the date in the desired output format
+        System.out.println(date.format(outputFormatter));
+        return date.format(outputFormatter);
     }
 
 
@@ -599,7 +630,7 @@ public class PromoCodeList extends BasePage{
                 waitForFewMoment(3000);
                 String validationMsg = readText(noDataTable);
                 System.out.println("Validation message is showing : "+validationMsg);
-                if (!validationMsg.equals(noDatFound())) {
+                if (!validationMsg.equals(noDataFound())) {
                     System.out.println("Validation message not displayed for input value : " + inputValues[i]);
                     allValidationsPass = false;
                 }

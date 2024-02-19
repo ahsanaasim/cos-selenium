@@ -32,6 +32,10 @@ public class CreatePromoCode extends BasePage{
     public static By reuseLimitPerPersonField = By.xpath("//input[@placeholder='Reuse Limit Per Person']");
     public static By percentageType = By.xpath("//span[@title='Percentage']");
     public static By flatType = By.xpath("//span[@title='Flat Base']");
+    public static By calenderBoxOfStartDateField = By.xpath("//span[@class='anticon anticon-calendar']");
+    public static By calenderBoxOfExpiryDateField = By.xpath("(//span[@class='anticon anticon-calendar'])[2]");
+    public static By crossIconOfStartDateField = By.xpath("//span[@class='anticon anticon-close-circle']");
+    public static By crossIconOfExpiryDateField = By.xpath("//span[@class='anticon anticon-close-circle']");
     public static By percentageInOption = By.xpath("//div[@class='ant-select-item-option-content'][contains(text(),'Percentage')]");
     public static By flatBaseInOption = By.xpath("//div[@class='ant-select-item-option-content'][contains(text(),'Flat Base')]");
     public static By promoRulesUnit = By.xpath("(//span[@class='ant-input-group-addon'])[3]");
