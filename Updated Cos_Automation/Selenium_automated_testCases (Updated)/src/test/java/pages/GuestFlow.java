@@ -5,7 +5,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.text.DecimalFormat;
 import java.time.Duration;
-import java.util.ArrayList;
+import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,6 +15,7 @@ public class GuestFlow extends BasePage {
     }
 
     RandomData rdata = new RandomData();
+    Properties prop = ConfigUtill.getConfig();
 
     public static By PhoneNoField = By.xpath("//input[@class='form-control ']");
     public static By PhoneNoFieldAfterRefresh = By.xpath("//input[@class='form-control ']");
@@ -90,7 +91,7 @@ public class GuestFlow extends BasePage {
         // Loop through the array and print each element
         for (String Charger : D10LocationCharger) {
             System.out.println(Charger);
-            guestFlow.GoToSimulator();
+            guestFlow.goToSimulator();
             simulationPage.SelectChargerFromSimulator(Charger);
             simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
             Thread.sleep(2000);
@@ -115,7 +116,7 @@ public class GuestFlow extends BasePage {
         SimulationPage simulationPage = new SimulationPage(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
         CreateCharger operation = new CreateCharger(driver);
-        guestFlow.GoToSimulator();
+        guestFlow.goToSimulator();
         simulationPage.SelectChargerFromSimulator(chargername);
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Thread.sleep(2000);
@@ -208,11 +209,11 @@ public class GuestFlow extends BasePage {
     }
 
 
-    public void GoToSimulator() throws InterruptedException {
-        Thread.sleep(2500);
-        driver.get("https://test-admin.chargeonsite.com/simulation/simulator");
+    public void goToSimulator() throws InterruptedException {
+        waitForFewMoment(1500);
+        goToWebsite(urlOfAdminApp(prop.getProperty("SimulatorPage")));
     }
-    public boolean SelectChargerFromSimulator(String text) throws InterruptedException {
+    public boolean selectChargerFromSimulator(String text) throws InterruptedException {
         Thread.sleep(2000);
         waitforPresence(GuestFlow.SearchFieldSimulator);
         click(SearchFieldSimulator);
@@ -227,7 +228,7 @@ public class GuestFlow extends BasePage {
         SimulationPage simulator = new SimulationPage(driver);
         CreateCharger operation = new CreateCharger(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
-        guestFlow.GoToSimulator();
+        guestFlow.goToSimulator();
         for (int i = 0; i < 227; i++) {
             Thread.sleep(2000);
             waitforPresence(GuestFlow.SearchFieldSimulator);

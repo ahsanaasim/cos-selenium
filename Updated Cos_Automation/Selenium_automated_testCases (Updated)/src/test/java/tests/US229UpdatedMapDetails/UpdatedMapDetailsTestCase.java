@@ -37,8 +37,8 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
     public void TC_1_CheckChargeOnSiteLogo() throws InterruptedException {
         MapDetails mapDetails =new MapDetails(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
-        customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
+        customerLogin.goToCustomerLoginPage();
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(3000,MapDetails.ChargeONSiteLogo));
 
     }
@@ -267,7 +267,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         FavoriteLocation favoriteLocation= new FavoriteLocation(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
         CreateCharger operation = new CreateCharger(driver);
-        customerLogin.GoToCustomerLoginPage();
+        customerLogin.goToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         mapDetails.GoToD10LocationInMapDetails();
 //        dashboard.RefreshBrowser();
@@ -393,7 +393,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         CustomerLogin customerLogin = new CustomerLogin(driver);
         CreateCharger operation = new CreateCharger(driver);
         guestFlow.switchToTab(0);
-        customerLogin.GoToCustomerLoginPage();
+        customerLogin.goToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         mapDetails.GoToSundarbanCourierLocation();
         operation.clickButton(MapDetails.PlugType,1500);
@@ -417,8 +417,8 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         guestFlow.switchToTab(0);
         mapDetails.GoToRampuraLocation();
         mapDetails.switchToTab(1);
-        guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Space 5"));
+        guestFlow.goToSimulator();
+        Assert.assertTrue(guestFlow.selectChargerFromSimulator("Space 5"));
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Assert.assertTrue(operation.clickButton(SimulationPage.BootChargerButton,3000));
         Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
@@ -589,7 +589,7 @@ public class UpdatedMapDetailsTestCase extends BaseTest {
         GuestFlow guestFlow = new GuestFlow(driver);
         LoginPage login = new LoginPage(driver);
         guestFlow.switchToTab(0);
-        customerLogin.GoToCustomerLoginPage();
+        customerLogin.goToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
 //        guestFlow.NewTabOpenAndSwitchToNewTab(1);
         guestFlow.switchToTab(1);

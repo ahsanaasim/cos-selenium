@@ -530,8 +530,8 @@ public class DownChargerTestCases extends BaseTest {
         SimulationPage simulationPage = new SimulationPage(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
         loginPage.verifyValidLogin();
-        guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 889"));
+        guestFlow.goToSimulator();
+        Assert.assertTrue(guestFlow.selectChargerFromSimulator("Selenium 889"));
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         simulationPage.SelectChargerStatusFromSimulator("Faulted");
         operation.click(SimulationPage.ChargerStatusSaveButton);

@@ -618,8 +618,8 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         OTPVerificationPage otpPage = new OTPVerificationPage(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
-        customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
+        customerLogin.goToCustomerLoginPage();
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         Assert.assertTrue(customerLogin.verifyAnElementDisplayedOrNot(2000,CustomerLogin.Menu));
 
     }
@@ -1248,7 +1248,7 @@ public class UpdatedWelcomeUIForGuestTestCases extends BaseTest {
         CustomerSignUp customer = new CustomerSignUp(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
         customerLogin.LogoutFromCustomerAccount();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("validEmail"),prop.getProperty("validPassword"));
+        customerLogin.loginToACustomerAccount(prop.getProperty("validEmail"),prop.getProperty("validPassword"));
         customer.GoToAvailableChargerAfterLoginAsCustomer("https://test-app.chargeonsite.com/charger/tIljMh");
         Assert.assertTrue(guestVerificationPage.verifyElementNotDisplayed(2000,GuestVerificationPage.ProvidePhnNumberTitle));
         Assert.assertTrue(guestVerificationPage.verifyElementNotDisplayed(2000,GuestVerificationPage.PhoneNumberField));

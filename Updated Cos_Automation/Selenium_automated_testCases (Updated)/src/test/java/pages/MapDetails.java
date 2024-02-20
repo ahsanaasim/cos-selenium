@@ -51,7 +51,7 @@ public class MapDetails extends BasePage{
         // Loop through the array and print each element
         for (String Charger : D10LocationCharger) {
             System.out.println(Charger);
-            guestFlow.GoToSimulator();
+            guestFlow.goToSimulator();
             simulationPage.SelectChargerFromSimulator(Charger);
             simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
             click(SimulationPage.BootChargerButton);

@@ -332,7 +332,7 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
 //        guestFlow.NewTabOpenAndSwitchToNewTab(1);
         guestFlow.switchToTab(1);
 //        loginPage.VerifyValidLogin();
-        guestFlow.GoToSimulator();
+        guestFlow.goToSimulator();
         guestFlow.makeASpecificChargerAvailable("Automatable Charger");
         Assert.assertTrue(dashboardPropertyDetails.verifyChargerAvailabilityInSeeDetails());
     }
@@ -350,7 +350,7 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
 //        guestFlow.NewTabOpenAndSwitchToNewTab(1);
         guestFlow.switchToTab(1);
 //        loginPage.VerifyValidLogin();
-        guestFlow.GoToSimulator();
+        guestFlow.goToSimulator();
         guestFlow.makeASpecificChargerAvailable("Automatable Charger");
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
@@ -380,8 +380,8 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         dashboard.refreshBrowser();
         loginPage.verifyValidLoginForPropertyAdminChargerStatusCheck();
         guestFlow.switchToTab(1);
-        guestFlow.GoToSimulator();
-        guestFlow.SelectChargerFromSimulator("Automatable Charger");
+        guestFlow.goToSimulator();
+        guestFlow.selectChargerFromSimulator("Automatable Charger");
         dashboardPropertyDetails.selectChargerStatus("Charging");
         Assert.assertTrue(operation.clickButton(DashboardPropertyDetails.SimulatorChargerStatusSaveBtn,2000));
         guestFlow.switchToTab(2);
@@ -423,8 +423,8 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
 //        dashboard.RefreshBrowser();
 //        loginPage.VerifyValidLoginForPropertyAdminChargerStatusCheck();
         guestFlow.switchToTab(1);
-        guestFlow.GoToSimulator();
-        guestFlow.SelectChargerFromSimulator("Automatable Charger");
+        guestFlow.goToSimulator();
+        guestFlow.selectChargerFromSimulator("Automatable Charger");
         dashboardPropertyDetails.selectChargerStatus("Faulted");
         Assert.assertTrue(createCharger.clickButton(DashboardPropertyDetails.SimulatorChargerStatusSaveBtn,2000));
         guestFlow.switchToTab(0);
@@ -464,8 +464,8 @@ public class DashboardPropertyDetailsTestCases extends BaseTest {
         dashboard.refreshBrowser();
         loginPage.verifyValidLoginForPropertyAdminChargerStatusCheck();
         guestFlow.switchToTab(1);
-        guestFlow.GoToSimulator();
-        guestFlow.SelectChargerFromSimulator("Automatable Charger");
+        guestFlow.goToSimulator();
+        guestFlow.selectChargerFromSimulator("Automatable Charger");
         Assert.assertTrue(createCharger.clickButton(SimulationPage.DisconnectCharger,2000));
         Assert.assertTrue(dashboardPropertyDetails.verifyChargerAvailabilityInSeeDetails());
     }

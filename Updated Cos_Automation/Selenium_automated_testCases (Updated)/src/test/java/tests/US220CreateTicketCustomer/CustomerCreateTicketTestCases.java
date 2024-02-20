@@ -24,7 +24,7 @@ public class CustomerCreateTicketTestCases extends BaseTest {
         CustomerLogin customerLogin = new CustomerLogin(driver);
         CustomerSupport customerSupport = new CustomerSupport(driver);
         customerSupport.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        customerLogin.loginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         operation.clickButton(CustomerSupport.Menu,2000);
         operation.clickButton(CustomerSupport.CustomerSupport,2000);
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(1000,CustomerSupport.CreateATicket));
@@ -392,7 +392,7 @@ public class CustomerCreateTicketTestCases extends BaseTest {
 //        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
 //        dashboard.RefreshBrowser();
         customerLogin.LogoutFromCustomerAccount();
-        customerLogin.LoginToACustomerAccount((prop.getProperty("validEmail")),(prop.getProperty("validPassword")));
+        customerLogin.loginToACustomerAccount((prop.getProperty("validEmail")),(prop.getProperty("validPassword")));
         operation.clickButton(CustomerSupport.Menu,2000);
         operation.clickButton(CustomerSupport.CustomerSupport,2000);
         operation.clickButton(CustomerSupport.CreateATicket,2000);
@@ -431,7 +431,7 @@ public class CustomerCreateTicketTestCases extends BaseTest {
 //        operation.ClickButton(CustomerSupport.CustomerSupport,2000);
 //        dashboard.RefreshBrowser();
         customerLogin.LogoutFromCustomerAccount();
-        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        customerLogin.loginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         operation.clickButton(CustomerSupport.Menu,2000);
         operation.clickButton(CustomerSupport.CustomerSupport,2000);
         operation.clickButton(CustomerSupport.CreateATicket,2000);
@@ -581,7 +581,7 @@ public class CustomerCreateTicketTestCases extends BaseTest {
         CreateProperty property = new CreateProperty(driver);
 //        customerSupport.GoToCustomerLoginPage();
         customerLogin.LogoutFromCustomerAccount();
-        customerLogin.LoginToACustomerAccount((prop.getProperty("CustomerWithNoTicket")),"EitaiPassword10");
+        customerLogin.loginToACustomerAccount((prop.getProperty("CustomerWithNoTicket")),"EitaiPassword10");
         operation.clickButton(CustomerSupport.Menu,2000);
         operation.clickButton(CustomerSupport.CustomerSupport,2000);
         customerSupport.verifyAnElementDisplayedOrNot(1000,CustomerSupport.NoDataTable);

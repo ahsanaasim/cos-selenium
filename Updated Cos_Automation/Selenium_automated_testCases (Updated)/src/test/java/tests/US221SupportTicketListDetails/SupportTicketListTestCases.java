@@ -23,7 +23,7 @@ public class SupportTicketListTestCases extends BaseTest {
         CustomerLogin customerLogin = new CustomerLogin(driver);
         CustomerSupport customerSupport = new CustomerSupport(driver);
         customerSupport.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        customerLogin.loginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         operation.clickButton(CustomerSupport.Menu,2000);
         Assert.assertTrue(ticket.verifyAnElementDisplayedOrNot(1000,CustomerSupport.CustomerSupport));
 
@@ -303,7 +303,7 @@ public class SupportTicketListTestCases extends BaseTest {
         CreateProperty property = new CreateProperty(driver);
 //        customerSupport.GoToCustomerLoginPage();
         customerLogin.LogoutFromCustomerAccount();
-        customerLogin.LoginToACustomerAccount((prop.getProperty("CustomerWithNoTicket")),"EitaiPassword10");
+        customerLogin.loginToACustomerAccount((prop.getProperty("CustomerWithNoTicket")),"EitaiPassword10");
         operation.clickButton(CustomerSupport.Menu,2000);
         operation.clickButton(CustomerSupport.CustomerSupport,2000);
         customerSupport.verifyAnElementDisplayedOrNot(1000,CustomerSupport.NoDataTable);

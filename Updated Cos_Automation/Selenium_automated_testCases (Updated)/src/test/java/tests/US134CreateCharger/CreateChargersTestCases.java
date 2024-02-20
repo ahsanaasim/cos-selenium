@@ -793,8 +793,8 @@ public class CreateChargersTestCases extends BaseTest {
         Assert.assertTrue(operation.clickOnSaveChargerButton());
         Thread.sleep(2500);
         operation.bootAChargerAsDummy(charger);
-        guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator(charger));
+        guestFlow.goToSimulator();
+        Assert.assertTrue(guestFlow.selectChargerFromSimulator(charger));
 //        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Assert.assertTrue(operation.clickButton(SimulationPage.BootChargerButton,2000));
         Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,2500));

@@ -3,12 +3,16 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.Properties;
+
 public class CustomerLogin extends BasePage {
 
     public CustomerLogin(WebDriver driver) {
 
         super(driver);
     }
+
+    Properties prop = ConfigUtill.getConfig();
     CreateCharger operation = new CreateCharger(driver);
 
 
@@ -25,9 +29,9 @@ public class CustomerLogin extends BasePage {
     public static By Logout = By.xpath("//h4[normalize-space()='Sign Out']");
 
 
-    public void GoToCustomerLoginPage() throws InterruptedException {
+    public void goToCustomerLoginPage() throws InterruptedException {
         Thread.sleep(2000);
-        driver.get("https://test-app.chargeonsite.com/customer/login");
+        goToWebsite(urlOfCustomerApp(prop.getProperty("CustomerLoginPage")));
     }
 
 
@@ -99,8 +103,8 @@ public class CustomerLogin extends BasePage {
 
     }
 
-    public void LoginToACustomerAccount(String email, String password) throws InterruptedException {
-        Thread.sleep(2500);
+    public void loginToACustomerAccount(String email, String password) throws InterruptedException {
+        waitForFewMoment(2500);
         waitVisibility(EmailField);
         operation.writeInputText(CustomerLogin.EmailField,email,2000);
         operation.writeInputText(CustomerLogin.PasswordField,password,500);

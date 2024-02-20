@@ -373,7 +373,7 @@ public class BasePage {
 
     public String urlOfCustomerApp(String url){
         Properties prop = ConfigUtill.getConfig();
-        String u = prop.getProperty("BaseURLForDriverApp")+url;
+        String u = prop.getProperty("BaseURLCustomer")+url;
         return u;
     }
 

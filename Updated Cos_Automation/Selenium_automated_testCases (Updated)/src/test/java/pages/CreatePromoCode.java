@@ -47,6 +47,7 @@ public class CreatePromoCode extends BasePage{
     public static By unassignedPropertyArrow = By.xpath("(//button[@class='ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only'])[2]");
     public static By today = By.xpath("//a[@class='ant-picker-today-btn']");
     public static By monthInDatePicker = By.xpath("//button[@class='ant-picker-month-btn']");
+    public static By monthInDatePickerForExpiryDate = By.xpath("(//button[@class='ant-picker-month-btn'])[2]");
     public static By januaryMonth = By.xpath("//div[@class='ant-picker-cell-inner']");
     public static By banasreePoliceParkProperty = By.xpath("//span[@class='ant-transfer-list-content-item-text'][contains(text(),'Banasree police park')]");
     public static By tempXyzProperty = By.xpath("//span[@class='ant-transfer-list-content-item-text'][contains(text(),'Temporary Property xyz')]");
@@ -258,15 +259,34 @@ public class CreatePromoCode extends BasePage{
 
 
     public void selectMonthAndDate(By dateField, By monthElement, String month, String date) throws InterruptedException {
+        waitForFewMoment(3000);
+        waitVisibility(dateField);
+        // Locate and click on the date picker element
+        WebElement datePicker = driver.findElement(dateField);
+        datePicker.click();
+        click(monthElement);
+        waitForFewMoment(4000);
+        WebElement monthPick = driver.findElement(By.xpath("//div[@class='ant-picker-cell-inner'][contains(text(),'"+month+"')]"));
+        monthPick.click();
+        // Locate and interact with the specific date element representing the future date
+        WebElement futureDateElement = driver.findElement(By.xpath("//td[@title='"+date+"']"));
+        waitForFewMoment(4000);
+        futureDateElement.click();
+
+    }
+
+
+    public void selectMonthAndDateForExpiryDate(By dateField, By monthElement, String month, String date) throws InterruptedException {
         Thread.sleep(4000);
         waitVisibility(dateField);
         // Locate and click on the date picker element
         WebElement datePicker = driver.findElement(dateField);
         datePicker.click();
-        click(CreatePromoCode.monthInDatePicker);
-        waitVisibility(By.xpath("//div[@class='ant-picker-cell-inner'][contains(text(),"+month+")]"));
-        WebElement monthPick = driver.findElement(By.xpath("//div[@class='ant-picker-cell-inner'][contains(text(),"+month+")]"));
+        click(monthElement);
+        waitVisibility(By.xpath("//td[@title='"+month+"']"));
+        WebElement monthPick = driver.findElement(By.xpath("//td[@title='"+month+"']"));
         monthPick.click();
+        waitForFewMoment(2000);
         // Locate and interact with the specific date element representing the future date
         WebElement futureDateElement = driver.findElement(By.xpath("//td[@title='"+date+"']"));
         waitForFewMoment(4000);
@@ -376,6 +396,17 @@ public class CreatePromoCode extends BasePage{
         selectDate(CreatePromoCode.promoStartDateField,startDay);
         selectDateForExpiryDate(exDay);
         writeText(CreatePromoCode.reuseLimitPerPersonField,limit);
+        selectProperty(property);
+        clickButton(submitButton,2000);
+
+    }
+
+    public void createAPromoCode(String pCode,String pRules,String monthStartDay,String startDate,String monthEndDate,String endDate,String property,By submitButton) throws InterruptedException {
+        waitVisibility(drawerTitle);
+        writeText(promoCodeField,pCode);
+        writeText(promoRulesField,pRules);
+        selectMonthAndDate(CreatePromoCode.promoStartDateField,monthInDatePicker,monthStartDay,startDate);
+        selectMonthAndDate(CreatePromoCode.promoExpiryDateField,monthInDatePickerForExpiryDate,monthEndDate,endDate);
         selectProperty(property);
         clickButton(submitButton,2000);
 

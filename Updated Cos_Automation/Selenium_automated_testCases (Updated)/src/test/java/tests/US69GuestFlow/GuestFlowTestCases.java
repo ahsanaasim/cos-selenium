@@ -25,8 +25,8 @@ public class GuestFlowTestCases extends BaseTest {
         SimulationPage simulationPage = new SimulationPage(driver);
         Dashboard dashboard = new Dashboard(driver);
         loginPage.verifyValidLogin();
-        guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 2"));
+        guestFlow.goToSimulator();
+        Assert.assertTrue(guestFlow.selectChargerFromSimulator("Selenium 2"));
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Assert.assertTrue(operation.clickButton(SimulationPage.BootChargerButton,2000));
         Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
@@ -69,8 +69,8 @@ public class GuestFlowTestCases extends BaseTest {
         GuestFlow guestFlow = new GuestFlow(driver);
         SimulationPage simulationPage = new SimulationPage(driver);
         loginPage.verifyValidLogin();
-        guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Raw charger"));
+        guestFlow.goToSimulator();
+        Assert.assertTrue(guestFlow.selectChargerFromSimulator("Raw charger"));
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Assert.assertTrue(operation.clickButton(SimulationPage.BootChargerButton,2000));
         Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
@@ -113,8 +113,8 @@ public class GuestFlowTestCases extends BaseTest {
         GuestFlow guestFlow = new GuestFlow(driver);
         SimulationPage simulationPage = new SimulationPage(driver);
         loginPage.verifyValidLogin();
-        guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Property avenue charger"));
+        guestFlow.goToSimulator();
+        Assert.assertTrue(guestFlow.selectChargerFromSimulator("Property avenue charger"));
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Assert.assertTrue(operation.clickButton(SimulationPage.BootChargerButton,2000));
         Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));

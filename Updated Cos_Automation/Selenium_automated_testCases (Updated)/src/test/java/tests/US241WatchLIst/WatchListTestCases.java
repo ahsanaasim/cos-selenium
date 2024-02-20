@@ -23,8 +23,8 @@ public class WatchListTestCases extends BaseTest {
         WatchList watchList = new WatchList(driver);
         COSA cosa = new COSA(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
-        customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithNoTicket"),"EitaiPassword10");
+        customerLogin.goToCustomerLoginPage();
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerWithNoTicket"),"EitaiPassword10");
         watchList.GoToWatchList();
         cosa.clearWatchList();
         customerLogin.LogoutFromCustomerAccount();
@@ -32,7 +32,7 @@ public class WatchListTestCases extends BaseTest {
 //        watchList.GoToWatchList();
 //        cosa.clearWatchList();
 //        customerLogin.LogoutFromCustomerAccount();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         watchList.GoToWatchList();
         cosa.clearWatchList();
         customerLogin.LogoutFromCustomerAccount();
@@ -88,8 +88,8 @@ public class WatchListTestCases extends BaseTest {
         WatchList watchList = new WatchList(driver);
         COSA cosa = new COSA(driver);
 //        customerLogin.SwitchToTab(0);
-        customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"), "EitaiPassword10");
+        customerLogin.goToCustomerLoginPage();
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"), "EitaiPassword10");
         customerLogin.LogoutFromCustomerAccount();
         watchList.GoToWatchList();
         Assert.assertTrue(cosa.CurrentPageURLCheck("https://test-app.chargeonsite.com/customer/login"));
@@ -107,8 +107,8 @@ public class WatchListTestCases extends BaseTest {
         WatchList watchList = new WatchList(driver);
         COSA cosa = new COSA(driver);
 //        customerLogin.SwitchToTab(0);
-        customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+        customerLogin.goToCustomerLoginPage();
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         operation.clickButton(CustomerSupport.Menu,2000);
         Assert.assertTrue(watchList.verifyAnElementDisplayedOrNot(2000,CustomerMenu.Watchlist));
         Assert.assertTrue(watchList.verifyAnElementDisplayedOrNot(1000,CustomerMenu.WatchlistLogo));
@@ -321,7 +321,7 @@ public class WatchListTestCases extends BaseTest {
         MapDetails mapDetails = new MapDetails(driver);
         customerLogin.LogoutFromCustomerAccount();
 //        customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         watchList.GoToWatchList();
 //        operation.ClickButton(CustomerSupport.Menu,2000);
         Assert.assertTrue(watchList.verifyAlertForUpdatingCustomerNumber());
@@ -409,7 +409,7 @@ public class WatchListTestCases extends BaseTest {
         MapDetails mapDetails = new MapDetails(driver);
         COSA cosa = new COSA(driver);
 //        customerLogin.LogoutFromCustomerAccount();
-        customerLogin.GoToCustomerLoginPage();
+        customerLogin.goToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         watchList.AddPaikareShopLocationToWatchlist(5,"04",COSA.PM);
         watchList.GoToWatchList();
@@ -430,7 +430,7 @@ public class WatchListTestCases extends BaseTest {
         MapDetails mapDetails = new MapDetails(driver);
         COSA cosa = new COSA(driver);
 //        customerLogin.LogoutFromCustomerAccount();
-        customerLogin.GoToCustomerLoginPage();
+        customerLogin.goToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         watchList.AddPaikareShopLocationToWatchlist(5,"02",COSA.PM);
         watchList.GoToWatchList();
@@ -514,7 +514,7 @@ public class WatchListTestCases extends BaseTest {
         COSA cosa = new COSA(driver);
         customerLogin.LogoutFromCustomerAccount();
 //        customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithNoTicket"),"EitaiPassword10");
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerWithNoTicket"),"EitaiPassword10");
         watchList.GoToWatchList();
         cosa.clearWatchList();
         watchList.AddRauAvenueLocationToWatchlist(3,"09",COSA.AM);
@@ -536,7 +536,7 @@ public class WatchListTestCases extends BaseTest {
         COSA cosa = new COSA(driver);
         customerLogin.LogoutFromCustomerAccount();
 //        customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         watchList.GoToWatchList();
         cosa.clearWatchList();
         watchList.AddRauAvenueLocationToWatchlist(3,"01",COSA.PM);
@@ -558,7 +558,7 @@ public class WatchListTestCases extends BaseTest {
         COSA cosa = new COSA(driver);
         customerLogin.LogoutFromCustomerAccount();
 //        customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         watchList.GoToWatchList();
         Assert.assertTrue(watchList.verifyTextMatching(1500,WatchList.WatcherButton,"3 watchers"));
 
@@ -577,13 +577,13 @@ public class WatchListTestCases extends BaseTest {
         MapDetails mapDetails = new MapDetails(driver);
         COSA cosa = new COSA(driver);
         customerLogin.LogoutFromCustomerAccount();
-        customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithNoTicket"),"EitaiPassword10");
+        customerLogin.goToCustomerLoginPage();
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerWithNoTicket"),"EitaiPassword10");
         watchList.GoToWatchList();
         cosa.clearWatchList();
         customerLogin.LogoutFromCustomerAccount();
-        customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
+        customerLogin.goToCustomerLoginPage();
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"),"EitaiPassword@10");
         watchList.GoToWatchList();
         Assert.assertTrue(watchList.verifyTextMatching(1500,WatchList.WatcherButton,"2 watchers"));
 
@@ -601,8 +601,8 @@ public class WatchListTestCases extends BaseTest {
         MapDetails mapDetails = new MapDetails(driver);
         COSA cosa = new COSA(driver);
         customerLogin.LogoutFromCustomerAccount();
-        customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+        customerLogin.goToCustomerLoginPage();
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         Assert.assertTrue(watchList.verifyLocationCountIsIncreasingAfterAddingToWatchlist());
 
 

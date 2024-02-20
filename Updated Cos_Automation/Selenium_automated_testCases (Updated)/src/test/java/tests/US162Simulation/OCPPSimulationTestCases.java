@@ -53,7 +53,7 @@ public class OCPPSimulationTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
 //        operation.ClickButton(SimulationPage.SimulationTab,2000);
 //        operation.ClickButton(SimulationPage.Simulator,2000);
-        guestFlow.GoToSimulator();
+        guestFlow.goToSimulator();
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,SimulationPage.MakeChargerAvailable));
 
     }

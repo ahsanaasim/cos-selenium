@@ -181,8 +181,8 @@ public class ScnarioBasedTestCases extends BaseTest2 {
         guestFlow.SwitchToDefaultFromIframe();
         Assert.assertTrue(createCharger.clickButton(GuestFlow.AuthorizeButton, 1500));guestFlow.newTabOpenAndSwitchToNewTab(1);
         loginPage.verifyValidLogin();
-        guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 719"));
+        guestFlow.goToSimulator();
+        Assert.assertTrue(guestFlow.selectChargerFromSimulator("Selenium 719"));
         Thread.sleep(4000);
         Assert.assertTrue(createCharger.clickButton(GuestFlow.PluginChargerbtn, 500));
         Thread.sleep(5000);
@@ -282,8 +282,8 @@ public class ScnarioBasedTestCases extends BaseTest2 {
         Assert.assertTrue(createCharger.clickButton(GuestFlow.AuthorizeButton, 1500));
         guestFlow.newTabOpenAndSwitchToNewTab(1);
         loginPage.verifyValidLogin();
-        guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 272"));
+        guestFlow.goToSimulator();
+        Assert.assertTrue(guestFlow.selectChargerFromSimulator("Selenium 272"));
         Thread.sleep(4000);
         Assert.assertTrue(createCharger.clickButton(GuestFlow.PluginChargerbtn, 500));
         guestFlow.switchToTab(0);
@@ -336,8 +336,8 @@ public class ScnarioBasedTestCases extends BaseTest2 {
         guestFlow.newTabOpenAndSwitchToNewTab(1);
         Thread.sleep(5000);
         loginPage.verifyValidLogin();
-        guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 5"));
+        guestFlow.goToSimulator();
+        Assert.assertTrue(guestFlow.selectChargerFromSimulator("Selenium 5"));
         Thread.sleep(4000);
         Assert.assertTrue(createCharger.clickButton(GuestFlow.PluginChargerbtn, 500));
         guestFlow.switchToTab(0);

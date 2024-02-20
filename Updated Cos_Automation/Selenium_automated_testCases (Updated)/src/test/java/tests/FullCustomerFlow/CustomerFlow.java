@@ -36,8 +36,8 @@ public class CustomerFlow extends BaseTest {
         Assert.assertTrue(operation.clickButton(GuestFlow.AuthorizeButton,1500));
         guestFlow.newTabOpenAndSwitchToNewTab(1);
         loginPage.verifyValidLogin();
-        guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 92"));
+        guestFlow.goToSimulator();
+        Assert.assertTrue(guestFlow.selectChargerFromSimulator("Selenium 92"));
         Assert.assertTrue(operation.clickButton(GuestFlow.PluginChargerbtn,500));
         Thread.sleep(40000);
         guestFlow.switchToTab(0);
@@ -74,8 +74,8 @@ public class CustomerFlow extends BaseTest {
         Thread.sleep(1500);
         guestFlow.newTabOpenAndSwitchToNewTab(1);
         loginPage.verifyValidLogin();
-        guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Available charger"));
+        guestFlow.goToSimulator();
+        Assert.assertTrue(guestFlow.selectChargerFromSimulator("Available charger"));
         Assert.assertTrue(operation.clickButton(GuestFlow.PluginChargerbtn,1000));
         Thread.sleep(40000);
         guestFlow.switchToTab(0);

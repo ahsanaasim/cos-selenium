@@ -36,8 +36,8 @@ public class COSAFromMenuTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         Dashboard dashboard = new Dashboard(driver);
         customerLogin.switchToTab(0);
-        customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        customerLogin.goToCustomerLoginPage();
+        customerLogin.loginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         operation.clickButton(CustomerSupport.Menu,2000);
         Assert.assertTrue(customerLogin.verifyAnElementDisplayedOrNot(2000,CustomerMenu.COSAFromMenu));
         Assert.assertTrue(customerLogin.verifyAnElementDisplayedOrNot(500,CustomerMenu.COSALOGOFromMenu));
@@ -157,8 +157,8 @@ public class COSAFromMenuTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         Dashboard dashboard = new Dashboard(driver);
         COSA cosa = new COSA(driver);
-        customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        customerLogin.goToCustomerLoginPage();
+        customerLogin.loginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
 //        dashboard.RefreshBrowser();
         operation.clickButton(CustomerSupport.Menu,2000);
         operation.clickButton(CustomerMenu.COSAFromMenu,2000);
@@ -482,7 +482,7 @@ public class COSAFromMenuTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         Dashboard dashboard = new Dashboard(driver);
         COSA cosa = new COSA(driver);
-        customerLogin.GoToCustomerLoginPage();
+        customerLogin.goToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();
@@ -553,7 +553,7 @@ public class COSAFromMenuTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         Dashboard dashboard = new Dashboard(driver);
         COSA cosa = new COSA(driver);
-        customerLogin.GoToCustomerLoginPage();
+        customerLogin.goToCustomerLoginPage();
 //        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         cosa.GoToCOSAChatbot();
 //        dashboard.RefreshBrowser();

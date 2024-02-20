@@ -187,8 +187,8 @@ public class Special23Scenerios extends BaseTest2 {
         GuestFlow guestFlow = new GuestFlow(driver);
         LoginPage loginPage = new LoginPage(driver);
         loginPage.verifyValidLogin();
-        guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 5"));
+        guestFlow.goToSimulator();
+        Assert.assertTrue(guestFlow.selectChargerFromSimulator("Selenium 5"));
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Assert.assertTrue(operation.clickButton(SimulationPage.BootChargerButton,2000));
         Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
@@ -255,8 +255,8 @@ public class Special23Scenerios extends BaseTest2 {
         GuestFlow guestFlow = new GuestFlow(driver);
         LoginPage loginPage = new LoginPage(driver);
         loginPage.verifyValidLogin();
-        guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 18"));
+        guestFlow.goToSimulator();
+        Assert.assertTrue(guestFlow.selectChargerFromSimulator("Selenium 18"));
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Assert.assertTrue(operation.clickButton(SimulationPage.BootChargerButton,2000));
         Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
@@ -292,8 +292,8 @@ public class Special23Scenerios extends BaseTest2 {
         GuestFlow guestFlow = new GuestFlow(driver);
         LoginPage loginPage = new LoginPage(driver);
         loginPage.verifyValidLogin();
-        guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Messi Charger"));
+        guestFlow.goToSimulator();
+        Assert.assertTrue(guestFlow.selectChargerFromSimulator("Messi Charger"));
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
@@ -331,8 +331,8 @@ public class Special23Scenerios extends BaseTest2 {
         GuestFlow guestFlow = new GuestFlow(driver);
         LoginPage loginPage = new LoginPage(driver);
         loginPage.verifyValidLogin();
-        guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("Selenium 719"));
+        guestFlow.goToSimulator();
+        Assert.assertTrue(guestFlow.selectChargerFromSimulator("Selenium 719"));
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
@@ -394,8 +394,8 @@ public class Special23Scenerios extends BaseTest2 {
         GuestFlow guestFlow = new GuestFlow(driver);
         LoginPage loginPage = new LoginPage(driver);
         loginPage.verifyValidLogin();
-        guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("D 11 Charger"));
+        guestFlow.goToSimulator();
+        Assert.assertTrue(guestFlow.selectChargerFromSimulator("D 11 Charger"));
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
@@ -440,8 +440,8 @@ public class Special23Scenerios extends BaseTest2 {
         GuestFlow guestFlow = new GuestFlow(driver);
         LoginPage loginPage = new LoginPage(driver);
         loginPage.verifyValidLogin();
-        guestFlow.GoToSimulator();
-        Assert.assertTrue(guestFlow.SelectChargerFromSimulator("D-10 Charger"));
+        guestFlow.goToSimulator();
+        Assert.assertTrue(guestFlow.selectChargerFromSimulator("D-10 Charger"));
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Assert.assertTrue(operation.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
         simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();

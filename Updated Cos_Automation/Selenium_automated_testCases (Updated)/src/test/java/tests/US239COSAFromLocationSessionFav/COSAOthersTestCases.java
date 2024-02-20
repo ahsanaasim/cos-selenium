@@ -39,8 +39,8 @@ public class COSAOthersTestCases extends BaseTest {
         CreateCharger operation = new CreateCharger(driver);
         Dashboard dashboard = new Dashboard(driver);
 //        customerLogin.SwitchToTab(0);
-        customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"), "EitaiPassword@10");
+        customerLogin.goToCustomerLoginPage();
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerNotPhoneNumberSaved"), "EitaiPassword@10");
         mapDetails.GoToD10LocationInMapDetails();
         Assert.assertTrue(mapDetails.verifyAnElementDisplayedOrNot(2000,MapDetails.AskCOSAButton));
         Assert.assertTrue(mapDetails.verifyTextMatching(500,MapDetails.AskCOSAButton,"Ask Cosa"));
@@ -230,8 +230,8 @@ public class COSAOthersTestCases extends BaseTest {
 //        customerLogin.SwitchToTab(0);
 //        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
 //        fav.ScanChargerOFElectricChargerLocation();
-        customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+        customerLogin.goToCustomerLoginPage();
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         fav.ScanChargerOFEBotsfordAvenue62659569Location();
         operation.clickButton(GuestVerificationPage.AskCosaButton,2000);
         Assert.assertTrue(mapDetails.verifyTextMatching(2000,COSA.COSAFirstMsg,cosa.COSAFirstMsgForTester()));
@@ -324,8 +324,8 @@ public class COSAOthersTestCases extends BaseTest {
         COSA cosa = new COSA(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
 //        customerLogin.SwitchToTab(0);
-        customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+        customerLogin.goToCustomerLoginPage();
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         fav.ScanChargerOFElectricChargerLocation();
         cosa.ScanRawLocationCharger();
         operation.clickButton(GuestVerificationPage.AskCosaButton,2000);
@@ -365,8 +365,8 @@ public class COSAOthersTestCases extends BaseTest {
         COSA cosa = new COSA(driver);
         GuestFlow guestFlow = new GuestFlow(driver);
 //        customerLogin.SwitchToTab(0);
-        customerLogin.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
+        customerLogin.goToCustomerLoginPage();
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),"EitaiPassword10");
         fav.GoToFavoriteLocationPage();
         operation.clickButton(FavoriteLocation.AddToWatchListButton1,2000);
         Assert.assertTrue(mapDetails.verifyTextMatching(2000,COSA.COSAFirstMsg,cosa.COSAFirstMsgForTester()));

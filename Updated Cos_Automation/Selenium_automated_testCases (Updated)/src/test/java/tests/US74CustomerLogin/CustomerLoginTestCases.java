@@ -18,7 +18,7 @@ public class CustomerLoginTestCases extends BaseTest {
         CustomerLogin login = new CustomerLogin(driver);
         CreateCharger operation =new CreateCharger(driver);
         BasePage basePage = new BasePage(driver);
-        login.GoToCustomerLoginPage();
+        login.goToCustomerLoginPage();
         Assert.assertTrue(operation.writeInputText(CustomerLogin.EmailField,"jo@email.com",500));
         Assert.assertTrue(operation.writeInputText(CustomerLogin.PasswordField,"2&57DyhUTH1c",500));
         Assert.assertTrue(operation.clickButton(CustomerLogin.CustomerLoginButton,500));

@@ -21,8 +21,8 @@ public class FavoriteLocationTestCases extends BaseTest {
         CreateCharger operation =new CreateCharger(driver);
         CustomerLogin customerLogin = new CustomerLogin(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
-        login.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        login.goToCustomerLoginPage();
+        customerLogin.loginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         favoriteLocation.AddRawLocation3ToFavoriteLocation();
         favoriteLocation.AddOrtizAvenue80799629ToFavoriteLocation();
         favoriteLocation.AddGoldnerAvenue3LocationToFavoriteLocation();
@@ -64,8 +64,8 @@ public class FavoriteLocationTestCases extends BaseTest {
         CustomerLogin customerLogin = new CustomerLogin(driver);
         FavoriteLocation favoriteLocation = new FavoriteLocation(driver);
         favoriteLocation.switchToTab(0);
-        login.GoToCustomerLoginPage();
-        customerLogin.LoginToACustomerAccount(prop.getProperty("CustomerWithNoTicket"),"EitaiPassword10");
+        login.goToCustomerLoginPage();
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerWithNoTicket"),"EitaiPassword10");
         operation.clickButton(CustomerLogin.Menu,2000);
         operation.clickButton(CustomerMenu.FavoriteFromMenu,2000);
         favoriteLocation.GoToFavoriteLocationPage();
@@ -116,7 +116,7 @@ public class FavoriteLocationTestCases extends BaseTest {
 //        operation.ClickButton(CustomerLogin.Menu,2000);
 //        operation.ClickButton(CustomerMenu.FavoriteFromMenu,2000);
         customerLogin.LogoutFromCustomerAccount();
-        customerLogin.LoginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
+        customerLogin.loginToACustomerAccount("mateg96752@saeoil.com","EitaiPassword10");
         operation.clickButton(CustomerSupport.Menu,2000);
         Assert.assertTrue(favoriteLocation.verifyAnElementDisplayedOrNot(2000,CustomerMenu.FavoriteFromMenu));
 
