@@ -238,7 +238,7 @@ public class BasePage {
     //Click method with delay
     public boolean clickButton(By element, int delay)  throws InterruptedException {
         Thread.sleep(delay);
-        waitforPresence(element);
+        waitVisibility(element);
         waitelemtclickable(element);
         waitelementtobeEnabled(element);
         click(element);

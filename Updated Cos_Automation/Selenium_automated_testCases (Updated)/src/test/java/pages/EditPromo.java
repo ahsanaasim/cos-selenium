@@ -8,6 +8,10 @@ public class EditPromo extends BasePage{
         super(driver);
     }
 
+
+
+    public static By drawerTitle = By.xpath("(//span[@class='drawerTitle'])[2]");
+    public static By crossButton = By.xpath("(//button[@class='ant-drawer-close'])[2]");
     public static By cancelButton = By.xpath("//button[@type='button']//span[contains(text(),'Cancel')]");
     public static By validationPopUp = By.xpath("//div[@class='ant-message-custom-content ant-message-error']");
 

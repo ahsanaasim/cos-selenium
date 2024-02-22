@@ -52,7 +52,7 @@ public class Dashboard extends BasePage {
     }
     public void clickOnAccessCodeFromLeftMenuBar() throws InterruptedException {
         /*driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));*/
-        waitForFewMoment(2000);
+        waitForFewMoment(2500);
         click(accessCodeFromLeftMenu);
     }
 

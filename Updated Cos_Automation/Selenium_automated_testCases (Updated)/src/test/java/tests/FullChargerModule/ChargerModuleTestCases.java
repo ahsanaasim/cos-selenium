@@ -15,8 +15,6 @@ public class ChargerModuleTestCases extends BaseTest {
     Properties prop = ConfigUtill.getConfig();
     Messages msg = new Messages();
 
-
-
     //Create charger starts
 
     @Test(priority = 1)//Done

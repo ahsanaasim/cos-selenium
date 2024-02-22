@@ -47,6 +47,7 @@ public class CreatePromoCode extends BasePage{
     public static By unassignedPropertyArrow = By.xpath("(//button[@class='ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only'])[2]");
     public static By today = By.xpath("//a[@class='ant-picker-today-btn']");
     public static By monthInDatePicker = By.xpath("//button[@class='ant-picker-month-btn']");
+    public static By yearInDatePicker = By.xpath("//button[@class='ant-picker-year-btn']");
     public static By monthInDatePickerForExpiryDate = By.xpath("(//button[@class='ant-picker-month-btn'])[2]");
     public static By januaryMonth = By.xpath("//div[@class='ant-picker-cell-inner']");
     public static By banasreePoliceParkProperty = By.xpath("//span[@class='ant-transfer-list-content-item-text'][contains(text(),'Banasree police park')]");
@@ -276,6 +277,25 @@ public class CreatePromoCode extends BasePage{
     }
 
 
+    public void selectMonthYearAndDate(By dateField, By monthElement, String month, String date) throws InterruptedException {
+        waitForFewMoment(3000);
+        waitVisibility(dateField);
+        // Locate and click on the date picker element
+        WebElement datePicker = driver.findElement(dateField);
+        datePicker.click();
+        click();
+        click();
+        waitForFewMoment(4000);
+        WebElement monthPick = driver.findElement(By.xpath("//div[@class='ant-picker-cell-inner'][contains(text(),'"+month+"')]"));
+        monthPick.click();
+        // Locate and interact with the specific date element representing the future date
+        WebElement futureDateElement = driver.findElement(By.xpath("//td[@title='"+date+"']"));
+        waitForFewMoment(4000);
+        futureDateElement.click();
+
+    }
+
+
     public void selectMonthAndDateForExpiryDate(By dateField, By monthElement, String month, String date) throws InterruptedException {
         Thread.sleep(4000);
         waitVisibility(dateField);
@@ -401,6 +421,9 @@ public class CreatePromoCode extends BasePage{
 
     }
 
+
+
+
     public void createAPromoCode(String pCode,String pRules,String monthStartDay,String startDate,String monthEndDate,String endDate,String property,By submitButton) throws InterruptedException {
         waitVisibility(drawerTitle);
         writeText(promoCodeField,pCode);
@@ -411,6 +434,7 @@ public class CreatePromoCode extends BasePage{
         clickButton(submitButton,2000);
 
     }
+
 
 
     public boolean verifyInvalidInputForPromoRulesField() throws InterruptedException {

@@ -8,6 +8,7 @@ import pages.*;
 import tests.BaseTest;
 import tests.US1AdminLogin.TestParameters;
 
+import java.net.CacheResponse;
 import java.util.Properties;
 
 public class TestCasesOfPromoCodeModule extends BaseTest {
@@ -2049,7 +2050,304 @@ public class TestCasesOfPromoCodeModule extends BaseTest {
     }
 
 
-    @Test(priority = 170)//Done
+
+    @Test(priority = 181)//Done
+    @TestParameters(testCaseId = {"TC-181"})
+    public void tc_181_checkEditDrawerClosingAfterClickingOutsideOfDrawer() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        EditPromo editPromo = new EditPromo(driver);
+        loginPage.verifyValidLogin();
+        dashboard.clickOnAccessCodeFromLeftMenuBar();
+        editPromo.goToWebsite(editPromo.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        createPromoCode.clickButton(CreateCharger.outsideDrawer,2000);
+        Assert.assertTrue(createPromoCode.verifyElementNotDisplayed(2500,CreatePromoCode.drawerTitle));
+        Assert.assertTrue(createPromoCode.verifyElementNotDisplayed(500,CreatePromoCode.promoCodeField));
+
+    }
+
+
+    @Test(priority = 182)//Done
+    @TestParameters(testCaseId = {"TC-182"})
+    public void tc_182_checkEditDrawerClosingAfterClickingCrossButton() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        /*loginPage.verifyValidLogin();
+        dashboard.clickOnAccessCodeFromLeftMenuBar();*/
+        createPromoCode.refreshBrowser();
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        createPromoCode.clickButton(CreateCharger.crossBtnOfDrawer,2000);
+        Assert.assertTrue(createPromoCode.verifyElementNotDisplayed(2500,CreatePromoCode.drawerTitle));
+        Assert.assertTrue(createPromoCode.verifyElementNotDisplayed(500,CreatePromoCode.promoCodeField));
+
+    }
+
+    @Test(priority = 183)//Done
+    @TestParameters(testCaseId = {"TC-183"})
+    public void tc_183_checkEditDrawerClosingAfterClickingCrossButton() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        /*loginPage.verifyValidLogin();
+        dashboard.clickOnAccessCodeFromLeftMenuBar();*/
+        createPromoCode.refreshBrowser();
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        createPromoCode.clickButton(EditPromo.cancelButton,2000);
+        Assert.assertTrue(createPromoCode.verifyElementNotDisplayed(2500,CreatePromoCode.drawerTitle));
+        Assert.assertTrue(createPromoCode.verifyElementNotDisplayed(500,CreatePromoCode.promoCodeField));
+
+    }
+
+    @Test(priority = 184)//Done
+    @TestParameters(testCaseId = {"TC-184"})
+    public void tc_184_checkAfterClickingCrossButtonOfEditDrawerAfterEnteringAnyInput() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        PromoCodeList promoCodeList = new PromoCodeList(driver);
+        EditPromo editPromo = new EditPromo(driver);
+        /*loginPage.verifyValidLogin();
+        dashboard.clickOnAccessCodeFromLeftMenuBar();*/
+        editPromo.goToWebsite(editPromo.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));
+        promoCodeList.clickButton(PromoCodeList.addAdvanceFilter,4000);
+        promoCodeList.clickButton(PromoCodeList.inactivePromoCodeRadioButton,1000);
+        promoCodeList.clickButton(PromoCodeList.applyButton,1000);
+        createPromoCode.clickButton(PromoCodeList.editButton,3000);
+        createPromoCode.fieldClear(CreatePromoCode.promoCodeField);
+        createPromoCode.writeText(CreatePromoCode.promoRulesField,"20");
+        createPromoCode.clickButton(EditPromo.crossButton,2000);
+        Assert.assertTrue(createPromoCode.verifyTextMatching(1000,CreatePromoCode.modalTitle,createPromoCode.areYouSureText()));
+        Assert.assertTrue(createPromoCode.verifyTextMatching(500,CreatePromoCode.modalContent,createPromoCode.discardAndContinueText()));
+        Assert.assertTrue(createPromoCode.verifyAnElementDisplayedOrNot(1000,CreatePromoCode.discardButton));
+        Assert.assertTrue(createPromoCode.verifyAnElementDisplayedOrNot(500,CreatePromoCode.continueButton));
+        Assert.assertTrue(createPromoCode.verifyAnElementDisplayedOrNot(200,CreatePromoCode.promoCodeField));
+        Assert.assertTrue(createPromoCode.verifyAnElementDisplayedOrNot(200,EditPromo.drawerTitle));
+
+    }
+
+    @Test(priority = 185)//Done
+    @TestParameters(testCaseId = {"TC-185"})
+    public void tc_185_checkDiscardButtonFromModalWhenCrossOfTheDrawerIsClicked() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        /*loginPage.verifyValidLogin();
+        dashboard.clickOnAccessCodeFromLeftMenuBar();*/
+        createPromoCode.refreshBrowser();
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        createPromoCode.writeText(CreatePromoCode.promoCodeField,createPromoCode.generatePromoCodes());
+        createPromoCode.writeText(CreatePromoCode.promoRulesField,"20");
+        createPromoCode.clickButton(CreatePromoCode.crossButton,2000);
+        createPromoCode.clickButton(CreatePromoCode.discardButton,2000);
+        Assert.assertTrue(createPromoCode.verifyElementNotDisplayed(2500,CreatePromoCode.drawerTitle));
+        Assert.assertTrue(createPromoCode.verifyElementNotDisplayed(500,CreatePromoCode.promoCodeField));
+
+    }
+
+
+    @Test(priority = 187)//Done
+    @TestParameters(testCaseId = {"TC-187"})
+    public void tc_187_checkAfterClickingOutsideOfDrawerAfterEnteringAnyInput() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        /*loginPage.verifyValidLogin();
+        dashboard.clickOnAccessCodeFromLeftMenuBar();*/
+        createPromoCode.refreshBrowser();
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        createPromoCode.fieldClear(CreatePromoCode.promoRulesField);
+        createPromoCode.writeText(CreatePromoCode.promoRulesField,"20");
+        createPromoCode.clickButton(CreateCharger.outsideDrawer,2000);
+        Assert.assertTrue(createPromoCode.verifyTextMatching(1000,CreatePromoCode.modalTitle,createPromoCode.areYouSureText()));
+        Assert.assertTrue(createPromoCode.verifyTextMatching(500,CreatePromoCode.modalContent,createPromoCode.discardAndContinueText()));
+        Assert.assertTrue(createPromoCode.verifyAnElementDisplayedOrNot(1000,CreatePromoCode.discardButton));
+        Assert.assertTrue(createPromoCode.verifyAnElementDisplayedOrNot(500,CreatePromoCode.continueButton));
+        Assert.assertTrue(createPromoCode.verifyAnElementDisplayedOrNot(200,CreatePromoCode.promoCodeField));
+        Assert.assertTrue(createPromoCode.verifyAnElementDisplayedOrNot(200,CreatePromoCode.drawerTitle));
+
+    }
+
+    @Test(priority = 188)//Done
+    @TestParameters(testCaseId = {"TC-188"})
+    public void tc_188_checkAfterClickingDiscardButtonFromModalWhenOutsideOFTheDrawerIsClicked() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        /*loginPage.verifyValidLogin();
+        dashboard.clickOnAccessCodeFromLeftMenuBar();*/
+        createPromoCode.refreshBrowser();
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        createPromoCode.writeText(CreatePromoCode.promoCodeField,createPromoCode.generatePromoCodes());
+        createPromoCode.writeText(CreatePromoCode.promoRulesField,"20");
+        createPromoCode.clickButton(CreateCharger.outsideDrawer,2000);
+        createPromoCode.clickButton(CreatePromoCode.discardButton,2000);
+        Assert.assertTrue(createPromoCode.verifyElementNotDisplayed(2500,CreatePromoCode.drawerTitle));
+        Assert.assertTrue(createPromoCode.verifyElementNotDisplayed(500,CreatePromoCode.promoCodeField));
+
+    }
+
+
+    @Test(priority = 190)//Done
+    @TestParameters(testCaseId = {"TC-190"})
+    public void tc_190_checkAfterClickingCancelOfDrawerAfterEnteringAnyInput() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        /*loginPage.verifyValidLogin();
+        dashboard.clickOnAccessCodeFromLeftMenuBar();*/
+        createPromoCode.refreshBrowser();
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        createPromoCode.fieldClear(CreatePromoCode.promoRulesField);
+        createPromoCode.writeText(CreatePromoCode.promoRulesField,"20");
+        createPromoCode.clickButton(EditPromo.cancelButton,2000);
+        Assert.assertTrue(createPromoCode.verifyTextMatching(1000,CreatePromoCode.modalTitle,createPromoCode.areYouSureText()));
+        Assert.assertTrue(createPromoCode.verifyTextMatching(500,CreatePromoCode.modalContent,createPromoCode.discardAndContinueText()));
+        Assert.assertTrue(createPromoCode.verifyAnElementDisplayedOrNot(1000,CreatePromoCode.discardButton));
+        Assert.assertTrue(createPromoCode.verifyAnElementDisplayedOrNot(500,CreatePromoCode.continueButton));
+        Assert.assertTrue(createPromoCode.verifyAnElementDisplayedOrNot(200,CreatePromoCode.promoCodeField));
+        Assert.assertTrue(createPromoCode.verifyAnElementDisplayedOrNot(200,CreatePromoCode.drawerTitle));
+
+    }
+
+    @Test(priority = 191)//Done
+    @TestParameters(testCaseId = {"TC-191"})
+    public void tc_191_checkAfterClickingDiscardButtonFromModalWhenCancelOFTheDrawerIsClicked() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        /*loginPage.verifyValidLogin();
+        dashboard.clickOnAccessCodeFromLeftMenuBar();*/
+        createPromoCode.refreshBrowser();
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        createPromoCode.writeText(CreatePromoCode.promoCodeField,createPromoCode.generatePromoCodes());
+        createPromoCode.writeText(CreatePromoCode.promoRulesField,"20");
+        createPromoCode.clickButton(CreateCharger.cancelButtonOfDrawer,2000);
+        createPromoCode.clickButton(CreatePromoCode.discardButton,2000);
+        Assert.assertTrue(createPromoCode.verifyElementNotDisplayed(2500,CreatePromoCode.drawerTitle));
+        Assert.assertTrue(createPromoCode.verifyElementNotDisplayed(500,CreatePromoCode.promoCodeField));
+
+    }
+
+
+
+
+    @Test(priority = 193)//Done
+    @TestParameters(testCaseId = {"TC-193"})
+    public void tc_193_checkAfterClickingContinueButtonFromModal() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        /*loginPage.verifyValidLogin();
+        dashboard.clickOnAccessCodeFromLeftMenuBar();*/
+        createPromoCode.refreshBrowser();
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        createPromoCode.writeText(CreatePromoCode.promoCodeField,createPromoCode.generatePromoCodes());
+        createPromoCode.writeText(CreatePromoCode.promoRulesField,"20");
+        createPromoCode.clickButton(CreateCharger.outsideDrawer,2000);
+        createPromoCode.clickButton(CreatePromoCode.continueButton,2000);
+        Assert.assertTrue(createPromoCode.verifyAnElementDisplayedOrNot(2000,CreatePromoCode.drawerTitle));
+        Assert.assertTrue(createPromoCode.verifyAnElementDisplayedOrNot(500,CreatePromoCode.promoCodeField));
+
+    }
+
+
+    @Test(priority = 194)//Done
+    @TestParameters(testCaseId = {"TC-171"})//Advance filter is used to check inactive promo codes only
+    public void tc_171_checkAfterUpdatingPromoCodeName() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        String promoCode = createPromoCode.generatePromoCodes();
+        /*loginPage.verifyValidLogin();
+        dashboard.clickOnAccessCodeFromLeftMenuBar();*/
+        createPromoCode.refreshBrowser();
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        createPromoCode.fieldClear(CreatePromoCode.promoCodeField);
+        createPromoCode.writeText(CreatePromoCode.promoCodeField,promoCode);
+        createPromoCode.clickButton(CreatePromoCode.savePromoCodeButton,2000);
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        Assert.assertTrue(createPromoCode.verifyTextMatchingWithAttribute(2000,CreatePromoCode.promoCodeField,"value",promoCode));
+
+    }
+
+
+
+    @Test(priority = 195)//Done
+    @TestParameters(testCaseId = {"TC-173"})
+    public void tc_173_checkAfterUpdatingPromoRules() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        String promoRules = createPromoCode.generatePromoRule();
+        loginPage.verifyValidLogin();
+        createPromoCode.goToWebsite(createPromoCode.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));
+        createPromoCode.clickOnCreateNewCompanyButton();
+        createPromoCode.createAPromoCode(createPromoCode.generatePromoCodes(),createPromoCode.generatePromoRule(),"Jan","2028-01-01","Mar","2028-03-01",prop.getProperty("Property3ForPromoCode"),CreatePromoCode.savePromoCodeButton);
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        createPromoCode.fieldClear(CreatePromoCode.promoRulesField);
+        createPromoCode.writeText(CreatePromoCode.promoRulesField,promoRules);
+        createPromoCode.clickButton(CreatePromoCode.savePromoCodeButton,2000);
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        Assert.assertTrue(createPromoCode.verifyTextMatchingWithAttribute(2000,CreatePromoCode.promoRulesField,"value",promoRules));
+
+    }
+
+
+    @Test(priority = 196)//Done
+    @TestParameters(testCaseId = {"TC-172"})
+    public void tc_172_checkAfterUpdatingPromoRulesPercentageToFlatBase() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        String promoRules = createPromoCode.generatePromoRule();
+        /*loginPage.verifyValidLogin();
+        dashboard.clickOnAccessCodeFromLeftMenuBar();*/
+        dashboard.refreshBrowser();
+        createPromoCode.goToWebsite(createPromoCode.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));
+        /*createPromoCode.clickOnCreateNewCompanyButton();
+        createPromoCode.createAPromoCode(createPromoCode.generatePromoCodes(),createPromoCode.generatePromoRule(),"Jan","2028-01-01","Mar","2028-03-01",prop.getProperty("Property3ForPromoCode"),CreatePromoCode.savePromoCodeButton);*/
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        createPromoCode.changePromoRulesTypeToFlatBase();
+        createPromoCode.clickButton(CreatePromoCode.savePromoCodeButton,2000);
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        Assert.assertTrue(createPromoCode.verifyAnElementDisplayedOrNot(1000,CreatePromoCode.flatType));
+        Assert.assertTrue(createPromoCode.verifyTextMatching(1000,CreatePromoCode.promoRulesUnit,"$ Off"));
+
+
+    }
+
+    @Test(priority = 197)//Done
+    @TestParameters(testCaseId = {"TC-174"})
+    public void tc_174_checkAfterUpdatingPromoRulesPercentageToFlatBase() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        String promoRules = createPromoCode.generatePromoRule();
+        /*loginPage.verifyValidLogin();
+        dashboard.clickOnAccessCodeFromLeftMenuBar();*/
+        dashboard.refreshBrowser();
+        createPromoCode.goToWebsite(createPromoCode.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));
+        /*createPromoCode.clickOnCreateNewCompanyButton();
+        createPromoCode.createAPromoCode(createPromoCode.generatePromoCodes(),createPromoCode.generatePromoRule(),"Jan","2028-01-01","Mar","2028-03-01",prop.getProperty("Property3ForPromoCode"),CreatePromoCode.savePromoCodeButton);*/
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        createPromoCode.fieldClear(CreatePromoCode.promoRulesField);
+        createPromoCode.writeText(CreatePromoCode.promoRulesField,promoRules);
+        createPromoCode.clickButton(CreatePromoCode.savePromoCodeButton,2000);
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        Assert.assertTrue(createPromoCode.verifyAnElementDisplayedOrNot(1000,CreatePromoCode.flatType));
+        Assert.assertTrue(createPromoCode.verifyTextMatching(1000,CreatePromoCode.promoRulesUnit,"$ Off"));
+        Assert.assertTrue(createPromoCode.verifyTextMatchingWithAttribute(2000,CreatePromoCode.promoRulesField,"value",promoRules));
+
+    }
+
+
+
+
+
+    @Test(priority = 200)//Done
     @TestParameters(testCaseId = {"TC-170"})
     public void tc_170_checkUpdatingAlreadyUsedPromoCode() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
@@ -2059,7 +2357,7 @@ public class TestCasesOfPromoCodeModule extends BaseTest {
         GuestFlow guestFlow = new GuestFlow(driver);
         SimulationPage simulationPage = new SimulationPage(driver);
         String promo = createPromoCode.generatePromoCodes();
-        loginPage.verifyValidLogin();
+        /*loginPage.verifyValidLogin();*/
         editPromo.goToWebsite(editPromo.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));
         createPromoCode.clickOnCreateNewCompanyButton();
         createPromoCode.createAPromoCodeWithoutOptionalField(promo,createPromoCode.generatePromoRule(),0,2, prop.getProperty("Property3ForPromoCode"),CreatePromoCode.savePromoCodeButton);
