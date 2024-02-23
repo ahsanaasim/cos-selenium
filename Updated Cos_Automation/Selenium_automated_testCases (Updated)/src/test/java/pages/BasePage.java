@@ -8,6 +8,7 @@ import org.testng.Assert;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Properties;
+import java.util.Set;
 
 public class BasePage {
     public WebDriver driver;
@@ -205,7 +206,7 @@ public class BasePage {
     }
 
 
-    public Boolean waitelementtobeEnabled(By elementBy) throws InterruptedException {
+    public Boolean waitElementToBeEnabled(By elementBy) throws InterruptedException {
         Thread.sleep(3000);
         if (driver.findElement((elementBy)).isEnabled()) {
             System.out.println("Verification Successful!!! Element is Enabled");
@@ -240,7 +241,7 @@ public class BasePage {
         Thread.sleep(delay);
         waitVisibility(element);
         waitelemtclickable(element);
-        waitelementtobeEnabled(element);
+        waitElementToBeEnabled(element);
         click(element);
         return true;
     }
@@ -252,8 +253,8 @@ public class BasePage {
     }
 
     public boolean fieldClear(By element) throws InterruptedException {
-        Thread.sleep(2000);
-        waitforPresence(element);
+        waitForFewMoment(2500);
+        waitVisibility(element);
         driver.findElement(element).sendKeys(Keys.chord(Keys.CONTROL + "a", Keys.DELETE));
         return true;
     }
@@ -398,4 +399,26 @@ public class BasePage {
         driver.navigate().refresh();
         return true;
     }
+
+    public void closeAllTabsExceptTheFirstOne(){
+        Set<String> windowHandles = driver.getWindowHandles();
+        // Get the first window handle
+        String firstWindowHandle = windowHandles.iterator().next();
+        // Iterate through all window handles except the first one
+        for (String windowHandle : windowHandles) {
+            if (!windowHandle.equals(firstWindowHandle)) {
+                // Switch to the window
+                driver.switchTo().window(windowHandle);
+                // Close the window
+                driver.close();
+            }
+        }
+
+        // Switch back to the first window
+        driver.switchTo().window(firstWindowHandle);
+
+        // Close the browser
+        driver.quit();
+    }
+
 }

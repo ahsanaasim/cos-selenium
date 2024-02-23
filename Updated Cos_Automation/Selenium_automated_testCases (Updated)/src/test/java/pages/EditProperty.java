@@ -257,11 +257,11 @@ public class EditProperty extends BasePage {
     public boolean verifyPropertyFeesFieldsAreEnabled() throws InterruptedException {
         company.waitForSpinner();
         Thread.sleep(3000);
-        waitelementtobeEnabled(createProperty.equipmentfee);
-        waitelementtobeEnabled(createProperty.chargerfee);
-        waitelementtobeEnabled(createProperty.installationfee);
-        waitelementtobeEnabled(createProperty.sessionfee);
-        waitelementtobeEnabled(createProperty.sessionminimumfee);
+        waitElementToBeEnabled(createProperty.equipmentfee);
+        waitElementToBeEnabled(createProperty.chargerfee);
+        waitElementToBeEnabled(createProperty.installationfee);
+        waitElementToBeEnabled(createProperty.sessionfee);
+        waitElementToBeEnabled(createProperty.sessionminimumfee);
         System.out.println("Verification Successful - Fess Fields are Enabled");
 
         return true;

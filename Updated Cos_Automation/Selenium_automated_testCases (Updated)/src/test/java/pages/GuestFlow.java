@@ -104,7 +104,7 @@ public class GuestFlow extends BasePage {
                 operation.clickButton(SimulationPage.PlugInCharger,1500);
                 simulationPage.SelectChargerStatusFromSimulator("Charging");
                 operation.clickButton(SimulationPage.ChargerStatusSaveButton,3000);
-                waitelementtobeEnabled(DisconnectChargerbtn);
+                waitElementToBeEnabled(DisconnectChargerbtn);
                 simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
                 Thread.sleep(2000);
             }
@@ -129,7 +129,7 @@ public class GuestFlow extends BasePage {
             operation.clickButton(SimulationPage.PlugInCharger,1500);
             simulationPage.SelectChargerStatusFromSimulator("Charging");
             operation.clickButton(SimulationPage.ChargerStatusSaveButton,3000);
-            waitelementtobeEnabled(DisconnectChargerbtn);
+            waitElementToBeEnabled(DisconnectChargerbtn);
             simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
             Thread.sleep(2000);
             }
@@ -147,7 +147,7 @@ public class GuestFlow extends BasePage {
             operation.clickButton(SimulationPage.PlugInCharger,1500);
             simulator.SelectChargerStatusFromSimulator("Charging");
             operation.clickButton(SimulationPage.ChargerStatusSaveButton,3000);
-            waitelementtobeEnabled(DisconnectChargerbtn);
+            waitElementToBeEnabled(DisconnectChargerbtn);
             simulator.clickOnDisconnectTheChargerIfIsEnabled();
             Thread.sleep(2500);
         }
@@ -248,7 +248,7 @@ public class GuestFlow extends BasePage {
                 operation.clickButton(SimulationPage.PlugInCharger,1500);
                 simulator.SelectChargerStatusFromSimulator("Charging");
                 operation.clickButton(SimulationPage.ChargerStatusSaveButton,3000);
-                waitelementtobeEnabled(DisconnectChargerbtn);
+                waitElementToBeEnabled(DisconnectChargerbtn);
                 simulator.clickOnDisconnectTheChargerIfIsEnabled();
                 Thread.sleep(2000);
             }

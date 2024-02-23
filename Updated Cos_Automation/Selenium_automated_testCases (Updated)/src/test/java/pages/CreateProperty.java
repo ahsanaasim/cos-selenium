@@ -6,11 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
-import java.time.Duration;
 import java.util.Properties;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
-
 
 
 public class CreateProperty extends BasePage {
@@ -336,7 +333,7 @@ public class CreateProperty extends BasePage {
 
     public boolean clickSelectEntityDropdown() throws InterruptedException {
         Thread.sleep(2000);
-        waitelementtobeEnabled(entitydropdown);
+        waitElementToBeEnabled(entitydropdown);
         waitelemtclickable(entitydropdown);
         click(entitydropdown);
         return true;
@@ -424,7 +421,7 @@ public class CreateProperty extends BasePage {
     }
     public boolean SelectEntityNameFromSelectEntityDropdown() throws InterruptedException {
         Thread.sleep(1000);
-        waitelementtobeEnabled(entitydropdown);
+        waitElementToBeEnabled(entitydropdown);
         waitelemtclickable(entitydropdown);
         click(entitydropdown);
         writeText(entitydropdown,prop.getProperty("Entity2"));
@@ -436,7 +433,7 @@ public class CreateProperty extends BasePage {
 
     public boolean SelectEntityNameFromSelectEntityDropdown(String entityName) throws InterruptedException {
         Thread.sleep(1000);
-        waitelementtobeEnabled(entitydropdown);
+        waitElementToBeEnabled(entitydropdown);
         waitelemtclickable(entitydropdown);
         click(entitydropdown);
         writeText(entitydropdown,entityName);

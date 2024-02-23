@@ -110,14 +110,14 @@ public class EditLocation extends BasePage{
 
     public boolean writeCompanyName(String CompanyName) throws InterruptedException {
         Thread.sleep(5000);
-        waitelementtobeEnabled(companyField);
+        waitElementToBeEnabled(companyField);
         waitelementtobedisplayed(companyField);
         writeText(companyField,CompanyName);
         return true;
     }
     public boolean writeCompanyName2(String CompanyName) throws InterruptedException {
         Thread.sleep(5000);
-        waitelementtobeEnabled(companyField);
+        waitElementToBeEnabled(companyField);
         waitelementtobedisplayed(companyField);
         writeText(companyField,CompanyName);
         return true;

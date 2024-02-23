@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class CreatePromoCode extends BasePage{
     public CreatePromoCode(WebDriver driver){
@@ -46,8 +47,9 @@ public class CreatePromoCode extends BasePage{
     public static By assignedPropertyArrow = By.xpath("//button[@class='ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only']");
     public static By unassignedPropertyArrow = By.xpath("(//button[@class='ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only'])[2]");
     public static By today = By.xpath("//a[@class='ant-picker-today-btn']");
-    public static By monthInDatePicker = By.xpath("//button[@class='ant-picker-month-btn']");
     public static By yearInDatePicker = By.xpath("//button[@class='ant-picker-year-btn']");
+    public static By yearInDatePickerForExpiryDate = By.xpath("(//button[@class='ant-picker-year-btn'])[2]");
+    public static By monthInDatePicker = By.xpath("//button[@class='ant-picker-month-btn']");
     public static By monthInDatePickerForExpiryDate = By.xpath("(//button[@class='ant-picker-month-btn'])[2]");
     public static By januaryMonth = By.xpath("//div[@class='ant-picker-cell-inner']");
     public static By banasreePoliceParkProperty = By.xpath("//span[@class='ant-transfer-list-content-item-text'][contains(text(),'Banasree police park')]");
@@ -258,6 +260,15 @@ public class CreatePromoCode extends BasePage{
     }
 
 
+    public String generateReuseLimit() throws InterruptedException {
+        Random numGenerator = new Random();
+        int randomNumber = numGenerator.nextInt(20)+1;
+        String limit=String.valueOf(randomNumber);
+        System.out.println("Randomly generated limit : "+limit);
+        return limit;
+    }
+
+
 
     public void selectMonthAndDate(By dateField, By monthElement, String month, String date) throws InterruptedException {
         waitForFewMoment(3000);
@@ -266,7 +277,7 @@ public class CreatePromoCode extends BasePage{
         WebElement datePicker = driver.findElement(dateField);
         datePicker.click();
         click(monthElement);
-        waitForFewMoment(4000);
+        waitForFewMoment(3500);
         WebElement monthPick = driver.findElement(By.xpath("//div[@class='ant-picker-cell-inner'][contains(text(),'"+month+"')]"));
         monthPick.click();
         // Locate and interact with the specific date element representing the future date
@@ -277,15 +288,18 @@ public class CreatePromoCode extends BasePage{
     }
 
 
-    public void selectMonthYearAndDate(By dateField, By monthElement, String month, String date) throws InterruptedException {
+    public void selectMonthYearAndDate(By dateField,By yearPicker,By monthPicker,String year, String month, String date) throws InterruptedException {
         waitForFewMoment(3000);
         waitVisibility(dateField);
         // Locate and click on the date picker element
         WebElement datePicker = driver.findElement(dateField);
         datePicker.click();
-        click();
-        click();
-        waitForFewMoment(4000);
+        click(yearPicker);
+        waitForFewMoment(2000);
+        WebElement yearPick = driver.findElement(By.xpath("//div[@class='ant-picker-cell-inner'][contains(text(),'"+year+"')]"));
+        yearPick.click();
+        click(monthPicker);
+        waitForFewMoment(2000);
         WebElement monthPick = driver.findElement(By.xpath("//div[@class='ant-picker-cell-inner'][contains(text(),'"+month+"')]"));
         monthPick.click();
         // Locate and interact with the specific date element representing the future date
@@ -434,6 +448,52 @@ public class CreatePromoCode extends BasePage{
         clickButton(submitButton,2000);
 
     }
+
+    public void createAPromoCodeSelectingYearMonth(String pCode,String pRules,String yearStartDay,String monthStartDay,String startDate,String yearEndDay,String monthEndDay,String endaDate,String property,By submitButton) throws InterruptedException {
+        waitVisibility(drawerTitle);
+        writeText(promoCodeField,pCode);
+        writeText(promoRulesField,pRules);
+        selectMonthYearAndDate(promoStartDateField,yearInDatePicker,monthInDatePicker,yearStartDay,monthStartDay,startDate);
+        selectMonthYearAndDate(promoExpiryDateField,yearInDatePickerForExpiryDate,monthInDatePickerForExpiryDate,yearEndDay,monthEndDay,endaDate);
+        selectProperty(property);
+        clickButton(submitButton,2000);
+
+    }
+
+
+    public String randomDateGenerator(String mon,int year, int monthNumber ) {
+        // Define the year and month
+        int inputYear = year;
+        String month = mon;
+        // Generate a random day between 1 and 20
+        int randomDay = ThreadLocalRandom.current().nextInt(1, 21);
+        // Create LocalDate object
+        LocalDate date = LocalDate.of(year,monthNumber,randomDay);
+        // Format the date to desired format
+        String formattedDate = date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        // Print the generated random date
+        System.out.println("Randomly generated date: " + formattedDate);
+        return formattedDate;
+        }
+        // Method to get the month number from month abbreviation
+        /*private int getMonthNumber(String month) {
+            return switch (month.toLowerCase()) {
+                case "jan" -> 1;
+                case "feb" -> 2;
+                case "mar" -> 3;
+                case "apr" -> 4;
+                case "may" -> 5;
+                case "jun" -> 6;
+                case "jul" -> 7;
+                case "aug" -> 8;
+                case "sep" -> 9;
+                case "oct" -> 10;
+                case "nov" -> 11;
+                case "dec" -> 12;
+                default -> throw new IllegalArgumentException("Invalid month: " + month);
+            };
+        }*/
+
 
 
 

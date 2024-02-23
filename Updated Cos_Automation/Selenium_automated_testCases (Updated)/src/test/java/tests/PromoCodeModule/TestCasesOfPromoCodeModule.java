@@ -2282,16 +2282,20 @@ public class TestCasesOfPromoCodeModule extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreatePromoCode createPromoCode = new CreatePromoCode(driver);
         String promoRules = createPromoCode.generatePromoRule();
+        String startDate = createPromoCode.randomDateGenerator("Jan",2027,1);
+        String endDate = createPromoCode.randomDateGenerator("Mar",2027,3);
         loginPage.verifyValidLogin();
         createPromoCode.goToWebsite(createPromoCode.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));
         createPromoCode.clickOnCreateNewCompanyButton();
-        createPromoCode.createAPromoCode(createPromoCode.generatePromoCodes(),createPromoCode.generatePromoRule(),"Jan","2028-01-01","Mar","2028-03-01",prop.getProperty("Property3ForPromoCode"),CreatePromoCode.savePromoCodeButton);
+        createPromoCode.createAPromoCodeSelectingYearMonth(createPromoCode.generatePromoCodes(),createPromoCode.generatePromoRule(),"2027","Jan",startDate,"2027","Mar",endDate,prop.getProperty("Property3ForPromoCode"),CreatePromoCode.savePromoCodeButton);
         createPromoCode.clickButton(PromoCodeList.editButton,4000);
         createPromoCode.fieldClear(CreatePromoCode.promoRulesField);
         createPromoCode.writeText(CreatePromoCode.promoRulesField,promoRules);
         createPromoCode.clickButton(CreatePromoCode.savePromoCodeButton,2000);
         createPromoCode.clickButton(PromoCodeList.editButton,4000);
         Assert.assertTrue(createPromoCode.verifyTextMatchingWithAttribute(2000,CreatePromoCode.promoRulesField,"value",promoRules));
+        Assert.assertTrue(createPromoCode.verifyAnElementDisplayedOrNot(1000,CreatePromoCode.percentageType));
+        Assert.assertTrue(createPromoCode.verifyTextMatching(1000,CreatePromoCode.promoRulesUnit,"% Off"));
 
     }
 
@@ -2303,12 +2307,11 @@ public class TestCasesOfPromoCodeModule extends BaseTest {
         Dashboard dashboard=new Dashboard(driver);
         CreatePromoCode createPromoCode = new CreatePromoCode(driver);
         String promoRules = createPromoCode.generatePromoRule();
-        /*loginPage.verifyValidLogin();
-        dashboard.clickOnAccessCodeFromLeftMenuBar();*/
+        /*loginPage.verifyValidLogin();*/
         dashboard.refreshBrowser();
-        createPromoCode.goToWebsite(createPromoCode.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));
+        /*createPromoCode.goToWebsite(createPromoCode.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));*/
         /*createPromoCode.clickOnCreateNewCompanyButton();
-        createPromoCode.createAPromoCode(createPromoCode.generatePromoCodes(),createPromoCode.generatePromoRule(),"Jan","2028-01-01","Mar","2028-03-01",prop.getProperty("Property3ForPromoCode"),CreatePromoCode.savePromoCodeButton);*/
+        createPromoCode.createAPromoCodeSelectingYearMonth(createPromoCode.generatePromoCodes(),createPromoCode.generatePromoRule(),"2028","Jan","2028-01-01","2028","Mar","2028-03-01",prop.getProperty("Property3ForPromoCode"),CreatePromoCode.savePromoCodeButton);*/
         createPromoCode.clickButton(PromoCodeList.editButton,4000);
         createPromoCode.changePromoRulesTypeToFlatBase();
         createPromoCode.clickButton(CreatePromoCode.savePromoCodeButton,2000);
@@ -2343,11 +2346,194 @@ public class TestCasesOfPromoCodeModule extends BaseTest {
 
     }
 
+    @Test(priority = 198)//Done
+    @TestParameters(testCaseId = {"TC-175"})
+    public void tc_175_checkAfterUpdatingStartDateEndDate() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        PromoCodeList promoCodeList = new PromoCodeList(driver);
+        EditPromo editPromo = new EditPromo(driver);
+        String startDate = createPromoCode.randomDateGenerator("Jan",2027,1);
+        String endDate = createPromoCode.randomDateGenerator("Mar",2027,3);
+        String startDateInField = editPromo.formatDateAccordingToInputField(startDate);
+        String endDateInField = editPromo.formatDateAccordingToInputField(endDate);
+        /*loginPage.verifyValidLogin();
+        createPromoCode.goToWebsite(createPromoCode.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));*/
+        createPromoCode.refreshBrowser();
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        promoCodeList.hoverOverAnIconThenClick(CreatePromoCode.promoStartDateField,CreatePromoCode.calenderBoxOfStartDateField,CreatePromoCode.crossIconOfStartDateField);
+        promoCodeList.hoverOverAnIconThenClick(CreatePromoCode.promoExpiryDateField,CreatePromoCode.calenderBoxOfExpiryDateField,CreatePromoCode.crossIconOfExpiryDateField);
+        createPromoCode.selectMonthYearAndDate(CreatePromoCode.promoStartDateField,CreatePromoCode.yearInDatePicker,CreatePromoCode.monthInDatePicker,"2027","Jan",startDate);
+        createPromoCode.selectMonthYearAndDate(CreatePromoCode.promoExpiryDateField,CreatePromoCode.yearInDatePickerForExpiryDate,CreatePromoCode.monthInDatePickerForExpiryDate,"2027","Mar",endDate);
+        createPromoCode.clickButton(CreatePromoCode.savePromoCodeButton,2000);
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        Assert.assertTrue(createPromoCode.verifyTextMatchingWithAttribute(2000,CreatePromoCode.promoStartDateField,"value",startDateInField));
+        Assert.assertTrue(createPromoCode.verifyTextMatchingWithAttribute(2000,CreatePromoCode.promoExpiryDateField,"value",endDateInField));
+
+    }
 
 
+    @Test(priority = 199)//Done
+    @TestParameters(testCaseId = {"TC-177"})
+    public void tc_177_checkAfterReuseLimitField() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        Dashboard dashboard=new Dashboard(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        String limit = createPromoCode.generateReuseLimit();
+        /*loginPage.verifyValidLogin();
+        createPromoCode.goToWebsite(createPromoCode.urlOfAdminApp(prop.getProperty("AccessCodePageURL")));*/
+        createPromoCode.refreshBrowser();
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        createPromoCode.fieldClear(CreatePromoCode.reuseLimitPerPersonField);
+        createPromoCode.writeText(CreatePromoCode.reuseLimitPerPersonField,limit);
+        createPromoCode.clickButton(CreatePromoCode.savePromoCodeButton,2000);
+        createPromoCode.clickButton(PromoCodeList.editButton,4000);
+        Assert.assertTrue(createPromoCode.verifyTextMatchingWithAttribute(2000,CreatePromoCode.promoStartDateField,"value",limit));
+
+    }
 
 
     @Test(priority = 200)//Done
+    @TestParameters(testCaseId = {"TC-194"})
+    public void tc_194_checkLabelAndDisabledApplyButtonInAuthorizeSection() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        EditPromo editPromo = new EditPromo(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        loginPage.verifyValidLogin();
+        guestFlow.goToSimulator();
+        guestFlow.selectChargerFromSimulator(prop.getProperty("Charger1ToPromoTest"));
+        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
+        Assert.assertTrue(simulationPage.clickButton(SimulationPage.BootChargerButton,2000));
+        Assert.assertTrue(simulationPage.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
+        simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
+        guestFlow.switchToTab(1);
+        simulationPage.clickButton(GuestFlow.LoginBtn,5000);
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),prop.getProperty("CustomerWithSavedPhoneNumberPass"));
+        simulationPage.clickButton(GuestVerificationPage.StatChargingButton,5000);
+        Assert.assertTrue(createPromoCode.verifyTextMatching(2000,CardAuthorization.promoCodeFieldLabel,"Enter Promo Code"));
+        Assert.assertTrue(createPromoCode.verifyAnElementDisplayedOrNot(500,CardAuthorization.disabledApplyButton));
+
+
+    }
+
+    @Test(priority = 201)//Done
+    @TestParameters(testCaseId = {"TC-196"})
+    public void tc_196_checkApplyButtonGetsEnabledInAuthorizeSection() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        EditPromo editPromo = new EditPromo(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        /*loginPage.verifyValidLogin();
+        guestFlow.goToSimulator();
+        guestFlow.selectChargerFromSimulator(prop.getProperty("Charger1ToPromoTest"));
+        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
+        Assert.assertTrue(simulationPage.clickButton(SimulationPage.BootChargerButton,2000));
+        Assert.assertTrue(simulationPage.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
+        simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
+        guestFlow.switchToTab(1);
+        simulationPage.clickButton(GuestFlow.LoginBtn,5000);
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),prop.getProperty("CustomerWithSavedPhoneNumberPass"));
+        simulationPage.clickButton(GuestVerificationPage.StatChargingButton,5000);*/
+        guestFlow.writeText(CardAuthorization.promoCodeField,"56");
+        Assert.assertTrue(createPromoCode.verifyElementNotDisplayed(1500,CardAuthorization.disabledApplyButton));
+
+
+    }
+
+
+    @Test(priority = 202)//Done
+    @TestParameters(testCaseId = {"TC-197"})
+    public void tc_197_checkWhenUserApplyNotExistingPromoCodes() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        EditPromo editPromo = new EditPromo(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        CardAuthorization cardAuthorization = new CardAuthorization(driver);
+        /*loginPage.verifyValidLogin();
+        guestFlow.goToSimulator();
+        guestFlow.selectChargerFromSimulator(prop.getProperty("Charger1ToPromoTest"));
+        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
+        Assert.assertTrue(simulationPage.clickButton(SimulationPage.BootChargerButton,2000));
+        Assert.assertTrue(simulationPage.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
+        simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
+        guestFlow.switchToTab(1);
+        simulationPage.clickButton(GuestFlow.LoginBtn,5000);
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),prop.getProperty("CustomerWithSavedPhoneNumberPass"));
+        simulationPage.clickButton(GuestVerificationPage.StatChargingButton,5000);*/
+        Assert.assertTrue(cardAuthorization.verifyNotExistingPromoCodesAfterApplying());
+
+
+    }
+
+
+    @Test(priority = 203)//Done
+    @TestParameters(testCaseId = {"TC-198"})
+    public void tc_198_checkWhenUserApplyExpiredPromoCodes() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        EditPromo editPromo = new EditPromo(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        CardAuthorization cardAuthorization = new CardAuthorization(driver);
+        /*loginPage.verifyValidLogin();
+        guestFlow.goToSimulator();
+        guestFlow.selectChargerFromSimulator(prop.getProperty("Charger1ToPromoTest"));
+        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
+        Assert.assertTrue(simulationPage.clickButton(SimulationPage.BootChargerButton,2000));
+        Assert.assertTrue(simulationPage.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
+        simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
+        guestFlow.switchToTab(1);
+        simulationPage.clickButton(GuestFlow.LoginBtn,5000);
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),prop.getProperty("CustomerWithSavedPhoneNumberPass"));
+        simulationPage.clickButton(GuestVerificationPage.StatChargingButton,5000);*/
+        Assert.assertTrue(cardAuthorization.verifyExpiredPromoCodesAfterApplying());
+
+
+    }
+
+
+    @Test(priority = 204)//Done
+    @TestParameters(testCaseId = {"TC-199"})
+    public void tc_199_checkWhenUserApplyInactivePromoCodes() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        EditPromo editPromo = new EditPromo(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        CardAuthorization cardAuthorization = new CardAuthorization(driver);
+        /*loginPage.verifyValidLogin();
+        guestFlow.goToSimulator();
+        guestFlow.selectChargerFromSimulator(prop.getProperty("Charger1ToPromoTest"));
+        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
+        Assert.assertTrue(simulationPage.clickButton(SimulationPage.BootChargerButton,2000));
+        Assert.assertTrue(simulationPage.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
+        simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
+        guestFlow.switchToTab(1);
+        simulationPage.clickButton(GuestFlow.LoginBtn,5000);
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),prop.getProperty("CustomerWithSavedPhoneNumberPass"));
+        simulationPage.clickButton(GuestVerificationPage.StatChargingButton,5000);*/
+        Assert.assertTrue(cardAuthorization.verifyInactivePromoCodesAfterApplying());
+
+
+    }
+
+
+
+
+
+
+
+    @Test(priority = 220)//Done
     @TestParameters(testCaseId = {"TC-170"})
     public void tc_170_checkUpdatingAlreadyUsedPromoCode() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);

@@ -136,7 +136,7 @@ public class CreateLocation extends BasePage {
 
     public boolean writePropertyName(String PropertyName) throws InterruptedException {
         Thread.sleep(5000);
-        waitelementtobeEnabled(selectpropertydropdown);
+        waitElementToBeEnabled(selectpropertydropdown);
         waitelementtobedisplayed(selectpropertydropdown);
         writeText(selectpropertydropdown,PropertyName);
         return true;
@@ -210,7 +210,7 @@ public class CreateLocation extends BasePage {
 
     public boolean selectTemporaryPropertyNameFromSelectProperty() throws InterruptedException {
         Thread.sleep(2000);
-        waitelementtobeEnabled(selectpropertydropdown);
+        waitElementToBeEnabled(selectpropertydropdown);
         waitelemtclickable(selectpropertydropdown);
         click(selectpropertydropdown);
         writeText(selectpropertydropdown,prop.getProperty("PropertyName5"));
@@ -222,7 +222,7 @@ public class CreateLocation extends BasePage {
 
     public boolean selectPropertyFromDropdown(String propertyName) throws InterruptedException {
         Thread.sleep(2000);
-        waitelementtobeEnabled(selectpropertydropdown);
+        waitElementToBeEnabled(selectpropertydropdown);
         waitelemtclickable(selectpropertydropdown);
         click(selectpropertydropdown);
         writeText(selectpropertydropdown,propertyName);
@@ -505,7 +505,7 @@ public class CreateLocation extends BasePage {
     public boolean verifyConfirmLocationButtonisShowingandEnabled() throws InterruptedException {
         //waitVisibility(landmark);
         waitelementtobedisplayed(confirmlocationbtn);
-        waitelementtobeEnabled(confirmlocationbtn);
+        waitElementToBeEnabled(confirmlocationbtn);
         if (driver.findElement(By.xpath("//button[contains(.,'Confirm Location')]")).isDisplayed()) {
             System.out.println("Verification Successful - Confirm location Button is Showing and Enabled in Location Coordinate Section");
             return true;
