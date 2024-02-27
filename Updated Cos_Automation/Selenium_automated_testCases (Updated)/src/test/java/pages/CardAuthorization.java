@@ -12,7 +12,10 @@ public class CardAuthorization extends BasePage{
     public static  By promoCodeField = By.xpath("(//input[@placeholder='Enter Promo Code'])[2]");
     public static By applyButton = By.xpath("(//button[@type='button']//span[contains(text(),'Apply')])[2]");
     public static By disabledApplyButton = By.xpath("(//div[@class='disabledDivPromoApply'])[2]");
+    public static By crossButton = By.xpath("(//span[@class='anticon anticon-close'])[2]");
+    public static By promoAmount = By.xpath("//div[@class='promoAmount']");
     public static By validationMsg = By.xpath("//div[@class='red-color mt-5']");
+    public static By authorizeButton = By.xpath("(//button[@class='ant-btn ant-btn-primary ant-btn-block common-btn-primary authorizeButton'])[2]");
 
 
 
@@ -32,6 +35,11 @@ public class CardAuthorization extends BasePage{
     public String inactivePromoCodeValidationMsg(){
         return "Invalid promo code. Promo code is inactive";
     }
+
+    public String appliedPromoAmount(String amount){
+        return "- "+amount;
+    }
+
 
 
     public boolean verifyNotExistingPromoCodesAfterApplying() throws InterruptedException {

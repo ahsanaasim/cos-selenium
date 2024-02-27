@@ -1,6 +1,5 @@
 package pages;
 
-import org.jsoup.Connection;
 import org.openqa.selenium.*;
 
 import java.awt.*;
@@ -36,14 +35,14 @@ public class SimulationPage extends BasePage {
     public static By SelectedCharger = By.xpath("//span[@class='ant-select-selection-item']");
 
 
-    public boolean SelectChargerFromSimulator(String text) throws InterruptedException {
+    public boolean selectChargerFromSimulator(String text) throws InterruptedException {
         Thread.sleep(2500);
         waitforPresence(EmptySearchFieldBeforeClicking);
         waitelemtclickable(EmptySearchFieldBeforeClicking);
         writeText(EmptySearchFieldBeforeClicking,text);
-        WebElement selectitem = driver.findElement(EmptySearchFieldBeforeClicking);
+        WebElement selectItem = driver.findElement(EmptySearchFieldBeforeClicking);
         Thread.sleep(3500);
-        selectitem.sendKeys(Keys.ENTER);
+        selectItem.sendKeys(Keys.ENTER);
         return true;
 
     }
@@ -90,8 +89,8 @@ public class SimulationPage extends BasePage {
     }
 
     public void clickOnDisconnectTheChargerIfIsEnabled() throws InterruptedException {
-        Thread.sleep(2500);
-        waitforPresence(DisconnectCharger);
+        Thread.sleep(4000);
+        waitVisibility(DisconnectCharger);
         if (driver.findElement(DisconnectCharger).isEnabled()){
             click(DisconnectCharger);
             System.out.println("Disconnect charger button is clicked");

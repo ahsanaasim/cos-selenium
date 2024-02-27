@@ -92,7 +92,7 @@ public class GuestFlow extends BasePage {
         for (String Charger : D10LocationCharger) {
             System.out.println(Charger);
             guestFlow.goToSimulator();
-            simulationPage.SelectChargerFromSimulator(Charger);
+            simulationPage.selectChargerFromSimulator(Charger);
             simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
             Thread.sleep(2000);
             String ChargerName = driver.findElement(SimulationPage.SelectedCharger).getAttribute("title");
@@ -117,7 +117,7 @@ public class GuestFlow extends BasePage {
         GuestFlow guestFlow = new GuestFlow(driver);
         CreateCharger operation = new CreateCharger(driver);
         guestFlow.goToSimulator();
-        simulationPage.SelectChargerFromSimulator(chargername);
+        simulationPage.selectChargerFromSimulator(chargername);
         simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
         Thread.sleep(2000);
         String ChargerName = driver.findElement(SimulationPage.SelectedCharger).getAttribute("title");
@@ -140,7 +140,7 @@ public class GuestFlow extends BasePage {
     public void makeChargerAvailableFromAuthorizeState(String Charger) throws InterruptedException {
         CreateCharger operation = new CreateCharger(driver);
         SimulationPage simulator = new SimulationPage(driver);
-        simulator.SelectChargerFromSimulator(Charger);
+        simulator.selectChargerFromSimulator(Charger);
         String SessionState = readText(SimulationPage.SessionStatus).replaceAll(": ","");
         System.out.println(SessionState);
         if (SessionState.equals("Authorized")){

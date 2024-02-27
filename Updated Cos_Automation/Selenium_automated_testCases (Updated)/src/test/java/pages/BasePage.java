@@ -61,7 +61,7 @@ public class BasePage {
 
     public boolean verifyAnElementDisplayedOrNot(int delay, By element) throws InterruptedException {
         Thread.sleep(delay);
-        waitforPresence(element);
+        waitVisibility(element);
         if (driver.findElement(element).isDisplayed()) {
             System.out.println("Expected element is displayed");
             return true;
@@ -416,9 +416,6 @@ public class BasePage {
 
         // Switch back to the first window
         driver.switchTo().window(firstWindowHandle);
-
-        // Close the browser
-        driver.quit();
     }
 
 }

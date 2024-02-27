@@ -52,7 +52,7 @@ public class MapDetails extends BasePage{
         for (String Charger : D10LocationCharger) {
             System.out.println(Charger);
             guestFlow.goToSimulator();
-            simulationPage.SelectChargerFromSimulator(Charger);
+            simulationPage.selectChargerFromSimulator(Charger);
             simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
             click(SimulationPage.BootChargerButton);
 

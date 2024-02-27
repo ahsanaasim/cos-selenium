@@ -8,7 +8,6 @@ import pages.*;
 import tests.BaseTest;
 import tests.US1AdminLogin.TestParameters;
 
-import java.net.CacheResponse;
 import java.util.Properties;
 
 public class TestCasesOfPromoCodeModule extends BaseTest {
@@ -2527,6 +2526,308 @@ public class TestCasesOfPromoCodeModule extends BaseTest {
 
     }
 
+    @Test(priority = 205)//Done
+    @TestParameters(testCaseId = {"TC-200"})
+    public void tc_200_checkWhenLimitExceededPromoCodeApplied() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        EditPromo editPromo = new EditPromo(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        CardAuthorization cardAuthorization = new CardAuthorization(driver);
+        /*loginPage.verifyValidLogin();
+        guestFlow.goToSimulator();
+        guestFlow.selectChargerFromSimulator(prop.getProperty("Charger1ToPromoTest"));
+        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
+        Assert.assertTrue(simulationPage.clickButton(SimulationPage.BootChargerButton,2000));
+        Assert.assertTrue(simulationPage.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
+        simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
+        guestFlow.switchToTab(1);
+        simulationPage.clickButton(GuestFlow.LoginBtn,5000);
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),prop.getProperty("CustomerWithSavedPhoneNumberPass"));
+        simulationPage.clickButton(GuestVerificationPage.StatChargingButton,5000);*/
+        cardAuthorization.fieldClear(CardAuthorization.promoCodeField);
+        cardAuthorization.writeInputText(CardAuthorization.promoCodeField,prop.getProperty("PromoCodeToTestLimitCross"),1000);
+        cardAuthorization.clickButton(CardAuthorization.applyButton,1000);
+        Assert.assertTrue(cardAuthorization.verifyTextMatching(2000,CardAuthorization.validationMsg,cardAuthorization.usageLimitPromoCodeValidationMsg()));
+
+
+    }
+
+
+    @Test(priority = 206)//Percentage based promo code
+    @TestParameters(testCaseId = {"TC-201"})
+    public void tc_201_checkWhenValidPromoCodeIsApplied() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        EditPromo editPromo = new EditPromo(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        CardAuthorization cardAuthorization = new CardAuthorization(driver);
+        /*loginPage.verifyValidLogin();
+        guestFlow.goToSimulator();
+        guestFlow.selectChargerFromSimulator(prop.getProperty("Charger1ToPromoTest"));
+        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
+        Assert.assertTrue(simulationPage.clickButton(SimulationPage.BootChargerButton,2000));
+        Assert.assertTrue(simulationPage.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000));
+        simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
+        guestFlow.switchToTab(1);
+        simulationPage.clickButton(GuestFlow.LoginBtn,5000);
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),prop.getProperty("CustomerWithSavedPhoneNumberPass"));
+        simulationPage.clickButton(GuestVerificationPage.StatChargingButton,5000);*/
+        cardAuthorization.fieldClear(CardAuthorization.promoCodeField);
+        cardAuthorization.writeInputText(CardAuthorization.promoCodeField,prop.getProperty("ValidPromoCodeInPercentageToTest"),1000);
+        cardAuthorization.clickButton(CardAuthorization.applyButton,1000);
+        Assert.assertTrue(cardAuthorization.verifyTextMatching(2000,CardAuthorization.promoAmount,cardAuthorization.appliedPromoAmount(prop.getProperty("ValidPromoAmountInPercentage"))));
+        Assert.assertTrue(cardAuthorization.verifyElementNotDisplayed(500,CardAuthorization.applyButton));
+        Assert.assertTrue(cardAuthorization.verifyElementNotDisplayed(500,CardAuthorization.disabledApplyButton));
+        Assert.assertTrue(cardAuthorization.verifyAnElementDisplayedOrNot(500,CardAuthorization.crossButton));
+
+
+
+    }
+
+    @Test(priority = 207)//Done
+    @TestParameters(testCaseId = {"TC-207"})
+    public void tc_207_checkWhenValidPromoCodeIsAppliedButAuthorizedButtonIsNotClicked() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        EditPromo editPromo = new EditPromo(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        CardAuthorization cardAuthorization = new CardAuthorization(driver);
+        cardAuthorization.waitForFewMoment(240000);
+        cardAuthorization.refreshBrowser();
+        simulationPage.clickButton(GuestVerificationPage.StatChargingButton,2000);
+        Assert.assertTrue(createPromoCode.verifyAnElementDisplayedOrNot(2500,CardAuthorization.disabledApplyButton));
+        Assert.assertTrue(createPromoCode.verifyFieldValueIsEmpty(500,CardAuthorization.promoCodeField));
+        Assert.assertTrue(cardAuthorization.verifyElementNotDisplayed(500,CardAuthorization.promoAmount));
+
+    }
+
+    @Test(priority = 208)//Percent Based Promo Code
+    @TestParameters(testCaseId = {"TC-205"})
+    public void tc_205_checkWhenValidPromoCodeIsAppliedAndAuthorizedButtonIsClicked() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        EditPromo editPromo = new EditPromo(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        CardAuthorization cardAuthorization = new CardAuthorization(driver);
+        cardAuthorization.fieldClear(CardAuthorization.promoCodeField);
+        cardAuthorization.writeInputText(CardAuthorization.promoCodeField,prop.getProperty("ValidPromoCodeInPercentageToTest"),1000);
+        cardAuthorization.clickButton(CardAuthorization.applyButton,1000);
+        cardAuthorization.clickButton(CardAuthorization.authorizeButton,1000);
+        Assert.assertTrue(createPromoCode.verifyElementNotDisplayed(2500,CardAuthorization.applyButton));
+        Assert.assertTrue(createPromoCode.verifyElementNotDisplayed(500,CardAuthorization.disabledApplyButton));
+        Assert.assertTrue(cardAuthorization.verifyElementNotDisplayed(500,CardAuthorization.crossButton));
+
+    }
+
+    @Test(priority = 209)//Percent Based Promo Code
+    @TestParameters(testCaseId = {"TC-209"})
+    public void tc_209_checkAlertTextOfPromoCodeOnChargingSessionPage() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        CardAuthorization cardAuthorization = new CardAuthorization(driver);
+        ChargingSession chargingSession = new ChargingSession(driver);
+        /*cardAuthorization.fieldClear(CardAuthorization.promoCodeField);
+        cardAuthorization.writeInputText(CardAuthorization.promoCodeField, prop.getProperty("ValidPromoCodeInPercentageToTest"),1000);
+        cardAuthorization.clickButton(CardAuthorization.applyButton,1000);
+        cardAuthorization.clickButton(CardAuthorization.authorizeButton,1000);*/
+        cardAuthorization.switchToTab(0);
+        simulationPage.clickButton(GuestFlow.PluginChargerbtn,500);
+        simulationPage.SelectChargerStatusFromSimulator("Charging");
+        simulationPage.click(SimulationPage.ChargerStatusSaveButton);
+        guestFlow.switchToTab(1);
+        Assert.assertTrue(createPromoCode.verifyTextMatching(5000,ChargingSession.promoCodeAlert,chargingSession.promoCodeAlert()));
+
+    }
+
+
+    @Test(priority = 210)//Percent Based Promo Code
+    @TestParameters(testCaseId = {"TC-210"})
+    public void tc_210_checkDiscountedFeeInFeeBreakdownOfChargingSessionPage() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        ChargingSession chargingSession = new ChargingSession(driver);
+        chargingSession.switchToTab(1);
+        chargingSession.clickButton(ChargingSession.feeBreakdown,2000);
+        Assert.assertTrue(createPromoCode.verifyTextMatching(2000,ChargingSession.discountedFeeInFeeBreakdown,chargingSession.discountedFeeInBreakdown(prop.getProperty("ValidPromoAmountInPercentage"))));
+
+    }
+
+    @Test(priority = 211)//Percent Based Promo Code
+    @TestParameters(testCaseId = {"TC-214"})
+    public void tc_214_checkDiscountedFeeInFeeBreakdownOfIdleSessionPage() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        ChargingSession chargingSession = new ChargingSession(driver);
+        /*loginPage.verifyValidLogin();
+        guestFlow.goToSimulator();
+        guestFlow.selectChargerFromSimulator(prop.getProperty("Charger1ToPromoTest"));
+        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
+        simulationPage.clickButton(SimulationPage.BootChargerButton,2000);
+        simulationPage.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000);
+        simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
+        guestFlow.switchToTab(1);
+        simulationPage.clickButton(GuestFlow.LoginBtn,5000);
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),prop.getProperty("CustomerWithSavedPhoneNumberPass"));
+        simulationPage.clickButton(GuestVerificationPage.StatChargingButton,2000);
+        chargingSession.writeInputText(CardAuthorization.promoCodeField,prop.getProperty("ValidPromoCodeInPercentageToTest"),1000);
+        chargingSession.clickButton(CardAuthorization.applyButton,1000);
+        chargingSession.clickButton(CardAuthorization.authorizeButton,5000);
+        chargingSession.switchToTab(0);
+        simulationPage.clickButton(GuestFlow.PluginChargerbtn,500);
+        simulationPage.SelectChargerStatusFromSimulator("Charging");
+        simulationPage.click(SimulationPage.ChargerStatusSaveButton);*/
+        chargingSession.switchToTab(1);
+        chargingSession.refreshBrowser();
+        simulationPage.waitForFewMoment(10000);
+        guestFlow.PressAndHold(IdlePage.pressAndHoldButton);
+        chargingSession.clickButton(ChargingSession.feeBreakdown,2000);
+        Assert.assertTrue(createPromoCode.verifyTextMatching(2000,ChargingSession.discountedFeeInFeeBreakdown,chargingSession.discountedFeeInBreakdown(prop.getProperty("ValidPromoAmountInPercentage"))));
+
+    }
+
+
+
+    @Test(priority = 212)//Percent Based Promo Code
+    @TestParameters(testCaseId = {"TC-218"})
+    public void tc_218_checkDiscountedFeeInFeeBreakdownOfSessionEndedPage() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        ChargingSession chargingSession = new ChargingSession(driver);
+        chargingSession.switchToTab(0);
+        chargingSession.clickButton(GuestFlow.DisconnectChargerbtn,2000);
+        guestFlow.switchToTab(1);
+        chargingSession.refreshBrowser();
+        chargingSession.clickButton(SessionEnded.feeBreakdown,4000);
+        Assert.assertTrue(createPromoCode.verifyTextMatching(4000,SessionEnded.discountedFeeInFeeBreakdown,chargingSession.discountedFeeInBreakdown(prop.getProperty("ValidPromoAmountInPercentage"))));
+
+    }
+
+
+    @Test(priority = 213)//FlatBasedPromoCode
+    @TestParameters(testCaseId = {"TC-203"})
+    public void tc_203_checkWhenValidFlatBasePromoCodeIsApplied() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        CardAuthorization cardAuthorization = new CardAuthorization(driver);
+        loginPage.verifyValidLogin();
+        simulationPage.closeAllTabsExceptTheFirstOne();
+        simulationPage.switchToTab(0);
+        guestFlow.goToSimulator();
+        guestFlow.selectChargerFromSimulator(prop.getProperty("Charger2ToPromoTest"));
+        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
+        simulationPage.clickButton(SimulationPage.BootChargerButton,2000);
+        simulationPage.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000);
+        simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
+        guestFlow.switchToTab(1);
+        simulationPage.clickButton(GuestVerificationPage.StatChargingButton,5000);
+        cardAuthorization.fieldClear(CardAuthorization.promoCodeField);
+        cardAuthorization.writeInputText(CardAuthorization.promoCodeField,prop.getProperty("ValidPromoCodeInFlatBaseToTest"),1000);
+        cardAuthorization.clickButton(CardAuthorization.applyButton,1000);
+        Assert.assertTrue(cardAuthorization.verifyTextMatching(2000,CardAuthorization.promoAmount,cardAuthorization.appliedPromoAmount(prop.getProperty("ValidPromoAmountInFlatBase"))));
+        Assert.assertTrue(cardAuthorization.verifyElementNotDisplayed(500,CardAuthorization.applyButton));
+        Assert.assertTrue(cardAuthorization.verifyElementNotDisplayed(500,CardAuthorization.disabledApplyButton));
+        Assert.assertTrue(cardAuthorization.verifyAnElementDisplayedOrNot(500,CardAuthorization.crossButton));
+
+    }
+
+    @Test(priority = 214)//Flat Based Promo Code
+    @TestParameters(testCaseId = {"TC-211"})
+    public void tc_211_checkDiscountedAmountInFeeBreakdownOfChargingSession() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        EditPromo editPromo = new EditPromo(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        ChargingSession chargingSession = new ChargingSession(driver);
+        CardAuthorization cardAuthorization = new CardAuthorization(driver);
+        cardAuthorization.switchToTab(1);
+        cardAuthorization.clickButton(CardAuthorization.authorizeButton,1000);
+        cardAuthorization.switchToTab(0);
+        chargingSession.clickButton(GuestFlow.PluginChargerbtn,500);
+        simulationPage.SelectChargerStatusFromSimulator("Charging");
+        chargingSession.click(SimulationPage.ChargerStatusSaveButton);
+        chargingSession.switchToTab(1);
+        chargingSession.clickButton(ChargingSession.feeBreakdown,5000);
+        Assert.assertTrue(createPromoCode.verifyTextMatching(2000,ChargingSession.discountedFeeInFeeBreakdown,chargingSession.discountedFeeInBreakdown(prop.getProperty("ValidPromoAmountInFlatBase"))));
+
+    }
+
+    @Test(priority = 215)//Flat Based Promo Code
+    @TestParameters(testCaseId = {"TC-215"})
+    public void tc_215_checkFlatBasedDiscountedFeeInFeeBreakdownOfIdleSessionPage() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        ChargingSession chargingSession = new ChargingSession(driver);
+        /*loginPage.verifyValidLogin();
+        guestFlow.goToSimulator();
+        guestFlow.selectChargerFromSimulator(prop.getProperty("Charger1ToPromoTest"));
+        simulationPage.clickOnDisconnectTheChargerIfIsEnabled();
+        simulationPage.clickButton(SimulationPage.BootChargerButton,2000);
+        simulationPage.clickButton(SimulationPage.ChargerQRCodeCopyLink,2000);
+        simulationPage.pasteTheCopiedChargerQRCodeToAnotherPage();
+        guestFlow.switchToTab(1);
+        simulationPage.clickButton(GuestFlow.LoginBtn,5000);
+        customerLogin.loginToACustomerAccount(prop.getProperty("CustomerWithSavedPhoneNumber"),prop.getProperty("CustomerWithSavedPhoneNumberPass"));
+        simulationPage.clickButton(GuestVerificationPage.StatChargingButton,2000);
+        chargingSession.writeInputText(CardAuthorization.promoCodeField,prop.getProperty("ValidPromoCodeInPercentageToTest"),1000);
+        chargingSession.clickButton(CardAuthorization.applyButton,1000);
+        chargingSession.clickButton(CardAuthorization.authorizeButton,5000);
+        chargingSession.switchToTab(0);
+        simulationPage.clickButton(GuestFlow.PluginChargerbtn,500);
+        simulationPage.SelectChargerStatusFromSimulator("Charging");
+        simulationPage.click(SimulationPage.ChargerStatusSaveButton);*/
+        chargingSession.switchToTab(1);
+        chargingSession.refreshBrowser();
+        simulationPage.waitForFewMoment(10000);
+        guestFlow.PressAndHold(IdlePage.pressAndHoldButton);
+        chargingSession.clickButton(ChargingSession.feeBreakdown,2000);
+        Assert.assertTrue(createPromoCode.verifyTextMatching(2000,ChargingSession.discountedFeeInFeeBreakdown,chargingSession.discountedFeeInBreakdown(prop.getProperty("ValidPromoAmountInFlatBase"))));
+
+    }
+
+
+    @Test(priority = 216)//Flat Based Promo Code
+    @TestParameters(testCaseId = {"TC-219"})
+    public void tc_219_checkDiscountedFeeInFeeBreakdownOfSessionEndedPage() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        CreatePromoCode createPromoCode = new CreatePromoCode(driver);
+        CustomerLogin customerLogin = new CustomerLogin(driver);
+        GuestFlow guestFlow = new GuestFlow(driver);
+        SimulationPage simulationPage = new SimulationPage(driver);
+        ChargingSession chargingSession = new ChargingSession(driver);
+        chargingSession.switchToTab(0);
+        chargingSession.clickButton(GuestFlow.DisconnectChargerbtn,2000);
+        guestFlow.switchToTab(1);
+        chargingSession.refreshBrowser();
+        chargingSession.clickButton(SessionEnded.feeBreakdown,4000);
+        Assert.assertTrue(createPromoCode.verifyTextMatching(2000,SessionEnded.discountedFeeInFeeBreakdown,chargingSession.discountedFeeInBreakdown(prop.getProperty("ValidPromoAmountInFlatBase"))));
+
+    }
 
 
 
@@ -2577,26 +2878,6 @@ public class TestCasesOfPromoCodeModule extends BaseTest {
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

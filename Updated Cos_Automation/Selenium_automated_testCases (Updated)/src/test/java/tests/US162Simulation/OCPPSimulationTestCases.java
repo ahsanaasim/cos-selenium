@@ -22,7 +22,7 @@ public class OCPPSimulationTestCases extends BaseTest {
         operation.clickButton(SimulationPage.SimulationTab,2000);
         operation.clickButton(SimulationPage.Simulator,2000);
         Assert.assertTrue(basePage.verifyAnElementDisplayedOrNot(1000,SimulationPage.EmptySearchFieldBeforeClicking));
-        Assert.assertTrue(simulator.SelectChargerFromSimulator("Automatable charger"));
+        Assert.assertTrue(simulator.selectChargerFromSimulator("Automatable charger"));
         Assert.assertTrue(basePage.verifyTextMatching(1500,SimulationPage.ChargerSelectedField,"Automatable Charger"));
     }
 
@@ -102,7 +102,7 @@ public class OCPPSimulationTestCases extends BaseTest {
 //        loginPage.VerifyValidLogin();
 //        operation.ClickButton(SimulationPage.SimulationTab,2000);
 //        operation.ClickButton(SimulationPage.Simulator,2000);
-        Assert.assertTrue(simulator.SelectChargerFromSimulator("Newly Added Charger-3918"));
+        Assert.assertTrue(simulator.selectChargerFromSimulator("Newly Added Charger-3918"));
         Assert.assertTrue(basePage.verifyAFieldIsDisable(1000,SimulationPage.MakeChargerAvailable));
     }
 
